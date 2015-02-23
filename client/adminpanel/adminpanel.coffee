@@ -24,7 +24,10 @@ Template.adminpanel.events
 					console.log "Users have been uploaded..."
 			)
 		,3000)
-
+	'click .add-new-user':(e)->
+		$(".right-form").hide()
+		Blaze.renderWithData(Template['userForm'],{},document.getElementById('new-user'))
+		$("#new-user").show()
 Template.adminpanel.rendered = () ->
 	$('.sidelink').first().trigger('click')
 	$('.internal-sidelinks').first().trigger('click')
@@ -35,3 +38,15 @@ Template.adminpanel.helpers
 	myusers: () ->
 		Meteor.users.find().fetch()
 		# ...
+
+Template.userForm.events
+	'click .add-individual-user': (e) ->
+		email = $("#user-email").val()
+		display_name =  $("#user-name").val()
+		first_name =  $("#user-first-name").val()
+		last_name =  $("#user-last-name").val()
+		
+		pid = platforms.findOne()._id
+		p = {platform:pid,first_name:first_name,last_name:last_name,display_name:display_name}
+		Accounts.createUser({email:email,password:'password',platform:pid,personal_profile:p})
+
