@@ -1,0 +1,23 @@
+<template name="homePage">
+  <div class="center-panel-container">
+    {{{getHtmlContent}}}
+
+    </div>
+
+
+<div class="nav-controls">
+    <div class="next-slide">Next</div>
+    <div class="prev-slide">Prev</div>
+    
+</div>
+
+</template>
+
+
+<template name="deckList">
+  <ul>
+  {{#each deckInPlatform}}
+  <li><a href="showdeck/{{_id}}" class="goToDeck">{{deckname}}</a></li>
+  {{/each}}
+</ul>
+</template>

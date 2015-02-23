@@ -1,0 +1,2462 @@
+/* Display Definitions */
+/*----------------------------------------*/
+.hidden {
+    display: none;
+}
+
+.transparent {
+    opacity: 0;
+}
+
+.opaque {
+    opacity: 1;
+}
+
+.translucent {
+    opacity: 0.6;
+}
+
+.text-shadow-prop
+{
+  text-shadow:1px 1px 5px #666
+}
+
+/*----------------------------------------*/
+/* Position Definitions */
+/*--------------------------------------------------*/
+.pos0000{ position:absolute; top : 0px;left: 0px; }
+.pos0100{ position:absolute; top : 20px;left: 0px; }
+.pos0200{ position:absolute; top : 40px;left: 0px; }
+.pos0300{ position:absolute; top : 60px;left: 0px; }
+.pos0400{ position:absolute; top : 80px;left: 0px; }
+.pos0500{ position:absolute; top : 100px;left: 0px; }
+.pos0600{ position:absolute; top : 120px;left: 0px; }
+.pos0700{ position:absolute; top : 140px;left: 0px; }
+.pos0800{ position:absolute; top : 160px;left: 0px; }
+.pos0900{ position:absolute; top : 180px;left: 0px; }
+.pos1000{ position:absolute; top : 200px;left: 0px; }
+.pos1100{ position:absolute; top : 220px;left: 0px; }
+.pos1200{ position:absolute; top : 240px;left: 0px; }
+.pos1300{ position:absolute; top : 260px;left: 0px; }
+.pos1400{ position:absolute; top : 280px;left: 0px; }
+.pos1500{ position:absolute; top : 300px;left: 0px; }
+.pos1600{ position:absolute; top : 320px;left: 0px; }
+.pos1700{ position:absolute; top : 340px;left: 0px; }
+.pos1800{ position:absolute; top : 360px;left: 0px; }
+.pos1900{ position:absolute; top : 380px;left: 0px; }
+.pos2000{ position:absolute; top : 400px;left: 0px; }
+.pos2100{ position:absolute; top : 420px;left: 0px; }
+.pos2200{ position:absolute; top : 440px;left: 0px; }
+.pos2300{ position:absolute; top : 460px;left: 0px; }
+.pos2400{ position:absolute; top : 480px;left: 0px; }
+.pos0001{ position:absolute; top : 0px;left: 20px; }
+.pos0101{ position:absolute; top : 20px;left: 20px; }
+.pos0201{ position:absolute; top : 40px;left: 20px; }
+.pos0301{ position:absolute; top : 60px;left: 20px; }
+.pos0401{ position:absolute; top : 80px;left: 20px; }
+.pos0501{ position:absolute; top : 100px;left: 20px; }
+.pos0601{ position:absolute; top : 120px;left: 20px; }
+.pos0701{ position:absolute; top : 140px;left: 20px; }
+.pos0801{ position:absolute; top : 160px;left: 20px; }
+.pos0901{ position:absolute; top : 180px;left: 20px; }
+.pos1001{ position:absolute; top : 200px;left: 20px; }
+.pos1101{ position:absolute; top : 220px;left: 20px; }
+.pos1201{ position:absolute; top : 240px;left: 20px; }
+.pos1301{ position:absolute; top : 260px;left: 20px; }
+.pos1401{ position:absolute; top : 280px;left: 20px; }
+.pos1501{ position:absolute; top : 300px;left: 20px; }
+.pos1601{ position:absolute; top : 320px;left: 20px; }
+.pos1701{ position:absolute; top : 340px;left: 20px; }
+.pos1801{ position:absolute; top : 360px;left: 20px; }
+.pos1901{ position:absolute; top : 380px;left: 20px; }
+.pos2001{ position:absolute; top : 400px;left: 20px; }
+.pos2101{ position:absolute; top : 420px;left: 20px; }
+.pos2201{ position:absolute; top : 440px;left: 20px; }
+.pos2301{ position:absolute; top : 460px;left: 20px; }
+.pos2401{ position:absolute; top : 480px;left: 20px; }
+.pos0002{ position:absolute; top : 0px;left: 40px; }
+.pos0102{ position:absolute; top : 20px;left: 40px; }
+.pos0202{ position:absolute; top : 40px;left: 40px; }
+.pos0302{ position:absolute; top : 60px;left: 40px; }
+.pos0402{ position:absolute; top : 80px;left: 40px; }
+.pos0502{ position:absolute; top : 100px;left: 40px; }
+.pos0602{ position:absolute; top : 120px;left: 40px; }
+.pos0702{ position:absolute; top : 140px;left: 40px; }
+.pos0802{ position:absolute; top : 160px;left: 40px; }
+.pos0902{ position:absolute; top : 180px;left: 40px; }
+.pos1002{ position:absolute; top : 200px;left: 40px; }
+.pos1102{ position:absolute; top : 220px;left: 40px; }
+.pos1202{ position:absolute; top : 240px;left: 40px; }
+.pos1302{ position:absolute; top : 260px;left: 40px; }
+.pos1402{ position:absolute; top : 280px;left: 40px; }
+.pos1502{ position:absolute; top : 300px;left: 40px; }
+.pos1602{ position:absolute; top : 320px;left: 40px; }
+.pos1702{ position:absolute; top : 340px;left: 40px; }
+.pos1802{ position:absolute; top : 360px;left: 40px; }
+.pos1902{ position:absolute; top : 380px;left: 40px; }
+.pos2002{ position:absolute; top : 400px;left: 40px; }
+.pos2102{ position:absolute; top : 420px;left: 40px; }
+.pos2202{ position:absolute; top : 440px;left: 40px; }
+.pos2302{ position:absolute; top : 460px;left: 40px; }
+.pos2402{ position:absolute; top : 480px;left: 40px; }
+.pos0003{ position:absolute; top : 0px;left: 60px; }
+.pos0103{ position:absolute; top : 20px;left: 60px; }
+.pos0203{ position:absolute; top : 40px;left: 60px; }
+.pos0303{ position:absolute; top : 60px;left: 60px; }
+.pos0403{ position:absolute; top : 80px;left: 60px; }
+.pos0503{ position:absolute; top : 100px;left: 60px; }
+.pos0603{ position:absolute; top : 120px;left: 60px; }
+.pos0703{ position:absolute; top : 140px;left: 60px; }
+.pos0803{ position:absolute; top : 160px;left: 60px; }
+.pos0903{ position:absolute; top : 180px;left: 60px; }
+.pos1003{ position:absolute; top : 200px;left: 60px; }
+.pos1103{ position:absolute; top : 220px;left: 60px; }
+.pos1203{ position:absolute; top : 240px;left: 60px; }
+.pos1303{ position:absolute; top : 260px;left: 60px; }
+.pos1403{ position:absolute; top : 280px;left: 60px; }
+.pos1503{ position:absolute; top : 300px;left: 60px; }
+.pos1603{ position:absolute; top : 320px;left: 60px; }
+.pos1703{ position:absolute; top : 340px;left: 60px; }
+.pos1803{ position:absolute; top : 360px;left: 60px; }
+.pos1903{ position:absolute; top : 380px;left: 60px; }
+.pos2003{ position:absolute; top : 400px;left: 60px; }
+.pos2103{ position:absolute; top : 420px;left: 60px; }
+.pos2203{ position:absolute; top : 440px;left: 60px; }
+.pos2303{ position:absolute; top : 460px;left: 60px; }
+.pos2403{ position:absolute; top : 480px;left: 60px; }
+.pos0004{ position:absolute; top : 0px;left: 80px; }
+.pos0104{ position:absolute; top : 20px;left: 80px; }
+.pos0204{ position:absolute; top : 40px;left: 80px; }
+.pos0304{ position:absolute; top : 60px;left: 80px; }
+.pos0404{ position:absolute; top : 80px;left: 80px; }
+.pos0504{ position:absolute; top : 100px;left: 80px; }
+.pos0604{ position:absolute; top : 120px;left: 80px; }
+.pos0704{ position:absolute; top : 140px;left: 80px; }
+.pos0804{ position:absolute; top : 160px;left: 80px; }
+.pos0904{ position:absolute; top : 180px;left: 80px; }
+.pos1004{ position:absolute; top : 200px;left: 80px; }
+.pos1104{ position:absolute; top : 220px;left: 80px; }
+.pos1204{ position:absolute; top : 240px;left: 80px; }
+.pos1304{ position:absolute; top : 260px;left: 80px; }
+.pos1404{ position:absolute; top : 280px;left: 80px; }
+.pos1504{ position:absolute; top : 300px;left: 80px; }
+.pos1604{ position:absolute; top : 320px;left: 80px; }
+.pos1704{ position:absolute; top : 340px;left: 80px; }
+.pos1804{ position:absolute; top : 360px;left: 80px; }
+.pos1904{ position:absolute; top : 380px;left: 80px; }
+.pos2004{ position:absolute; top : 400px;left: 80px; }
+.pos2104{ position:absolute; top : 420px;left: 80px; }
+.pos2204{ position:absolute; top : 440px;left: 80px; }
+.pos2304{ position:absolute; top : 460px;left: 80px; }
+.pos2404{ position:absolute; top : 480px;left: 80px; }
+.pos0005{ position:absolute; top : 0px;left: 100px; }
+.pos0105{ position:absolute; top : 20px;left: 100px; }
+.pos0205{ position:absolute; top : 40px;left: 100px; }
+.pos0305{ position:absolute; top : 60px;left: 100px; }
+.pos0405{ position:absolute; top : 80px;left: 100px; }
+.pos0505{ position:absolute; top : 100px;left: 100px; }
+.pos0605{ position:absolute; top : 120px;left: 100px; }
+.pos0705{ position:absolute; top : 140px;left: 100px; }
+.pos0805{ position:absolute; top : 160px;left: 100px; }
+.pos0905{ position:absolute; top : 180px;left: 100px; }
+.pos1005{ position:absolute; top : 200px;left: 100px; }
+.pos1105{ position:absolute; top : 220px;left: 100px; }
+.pos1205{ position:absolute; top : 240px;left: 100px; }
+.pos1305{ position:absolute; top : 260px;left: 100px; }
+.pos1405{ position:absolute; top : 280px;left: 100px; }
+.pos1505{ position:absolute; top : 300px;left: 100px; }
+.pos1605{ position:absolute; top : 320px;left: 100px; }
+.pos1705{ position:absolute; top : 340px;left: 100px; }
+.pos1805{ position:absolute; top : 360px;left: 100px; }
+.pos1905{ position:absolute; top : 380px;left: 100px; }
+.pos2005{ position:absolute; top : 400px;left: 100px; }
+.pos2105{ position:absolute; top : 420px;left: 100px; }
+.pos2205{ position:absolute; top : 440px;left: 100px; }
+.pos2305{ position:absolute; top : 460px;left: 100px; }
+.pos2405{ position:absolute; top : 480px;left: 100px; }
+.pos0006{ position:absolute; top : 0px;left: 120px; }
+.pos0106{ position:absolute; top : 20px;left: 120px; }
+.pos0206{ position:absolute; top : 40px;left: 120px; }
+.pos0306{ position:absolute; top : 60px;left: 120px; }
+.pos0406{ position:absolute; top : 80px;left: 120px; }
+.pos0506{ position:absolute; top : 100px;left: 120px; }
+.pos0606{ position:absolute; top : 120px;left: 120px; }
+.pos0706{ position:absolute; top : 140px;left: 120px; }
+.pos0806{ position:absolute; top : 160px;left: 120px; }
+.pos0906{ position:absolute; top : 180px;left: 120px; }
+.pos1006{ position:absolute; top : 200px;left: 120px; }
+.pos1106{ position:absolute; top : 220px;left: 120px; }
+.pos1206{ position:absolute; top : 240px;left: 120px; }
+.pos1306{ position:absolute; top : 260px;left: 120px; }
+.pos1406{ position:absolute; top : 280px;left: 120px; }
+.pos1506{ position:absolute; top : 300px;left: 120px; }
+.pos1606{ position:absolute; top : 320px;left: 120px; }
+.pos1706{ position:absolute; top : 340px;left: 120px; }
+.pos1806{ position:absolute; top : 360px;left: 120px; }
+.pos1906{ position:absolute; top : 380px;left: 120px; }
+.pos2006{ position:absolute; top : 400px;left: 120px; }
+.pos2106{ position:absolute; top : 420px;left: 120px; }
+.pos2206{ position:absolute; top : 440px;left: 120px; }
+.pos2306{ position:absolute; top : 460px;left: 120px; }
+.pos2406{ position:absolute; top : 480px;left: 120px; }
+.pos0007{ position:absolute; top : 0px;left: 140px; }
+.pos0107{ position:absolute; top : 20px;left: 140px; }
+.pos0207{ position:absolute; top : 40px;left: 140px; }
+.pos0307{ position:absolute; top : 60px;left: 140px; }
+.pos0407{ position:absolute; top : 80px;left: 140px; }
+.pos0507{ position:absolute; top : 100px;left: 140px; }
+.pos0607{ position:absolute; top : 120px;left: 140px; }
+.pos0707{ position:absolute; top : 140px;left: 140px; }
+.pos0807{ position:absolute; top : 160px;left: 140px; }
+.pos0907{ position:absolute; top : 180px;left: 140px; }
+.pos1007{ position:absolute; top : 200px;left: 140px; }
+.pos1107{ position:absolute; top : 220px;left: 140px; }
+.pos1207{ position:absolute; top : 240px;left: 140px; }
+.pos1307{ position:absolute; top : 260px;left: 140px; }
+.pos1407{ position:absolute; top : 280px;left: 140px; }
+.pos1507{ position:absolute; top : 300px;left: 140px; }
+.pos1607{ position:absolute; top : 320px;left: 140px; }
+.pos1707{ position:absolute; top : 340px;left: 140px; }
+.pos1807{ position:absolute; top : 360px;left: 140px; }
+.pos1907{ position:absolute; top : 380px;left: 140px; }
+.pos2007{ position:absolute; top : 400px;left: 140px; }
+.pos2107{ position:absolute; top : 420px;left: 140px; }
+.pos2207{ position:absolute; top : 440px;left: 140px; }
+.pos2307{ position:absolute; top : 460px;left: 140px; }
+.pos2407{ position:absolute; top : 480px;left: 140px; }
+.pos0008{ position:absolute; top : 0px;left: 160px; }
+.pos0108{ position:absolute; top : 20px;left: 160px; }
+.pos0208{ position:absolute; top : 40px;left: 160px; }
+.pos0308{ position:absolute; top : 60px;left: 160px; }
+.pos0408{ position:absolute; top : 80px;left: 160px; }
+.pos0508{ position:absolute; top : 100px;left: 160px; }
+.pos0608{ position:absolute; top : 120px;left: 160px; }
+.pos0708{ position:absolute; top : 140px;left: 160px; }
+.pos0808{ position:absolute; top : 160px;left: 160px; }
+.pos0908{ position:absolute; top : 180px;left: 160px; }
+.pos1008{ position:absolute; top : 200px;left: 160px; }
+.pos1108{ position:absolute; top : 220px;left: 160px; }
+.pos1208{ position:absolute; top : 240px;left: 160px; }
+.pos1308{ position:absolute; top : 260px;left: 160px; }
+.pos1408{ position:absolute; top : 280px;left: 160px; }
+.pos1508{ position:absolute; top : 300px;left: 160px; }
+.pos1608{ position:absolute; top : 320px;left: 160px; }
+.pos1708{ position:absolute; top : 340px;left: 160px; }
+.pos1808{ position:absolute; top : 360px;left: 160px; }
+.pos1908{ position:absolute; top : 380px;left: 160px; }
+.pos2008{ position:absolute; top : 400px;left: 160px; }
+.pos2108{ position:absolute; top : 420px;left: 160px; }
+.pos2208{ position:absolute; top : 440px;left: 160px; }
+.pos2308{ position:absolute; top : 460px;left: 160px; }
+.pos2408{ position:absolute; top : 480px;left: 160px; }
+.pos0009{ position:absolute; top : 0px;left: 180px; }
+.pos0109{ position:absolute; top : 20px;left: 180px; }
+.pos0209{ position:absolute; top : 40px;left: 180px; }
+.pos0309{ position:absolute; top : 60px;left: 180px; }
+.pos0409{ position:absolute; top : 80px;left: 180px; }
+.pos0509{ position:absolute; top : 100px;left: 180px; }
+.pos0609{ position:absolute; top : 120px;left: 180px; }
+.pos0709{ position:absolute; top : 140px;left: 180px; }
+.pos0809{ position:absolute; top : 160px;left: 180px; }
+.pos0909{ position:absolute; top : 180px;left: 180px; }
+.pos1009{ position:absolute; top : 200px;left: 180px; }
+.pos1109{ position:absolute; top : 220px;left: 180px; }
+.pos1209{ position:absolute; top : 240px;left: 180px; }
+.pos1309{ position:absolute; top : 260px;left: 180px; }
+.pos1409{ position:absolute; top : 280px;left: 180px; }
+.pos1509{ position:absolute; top : 300px;left: 180px; }
+.pos1609{ position:absolute; top : 320px;left: 180px; }
+.pos1709{ position:absolute; top : 340px;left: 180px; }
+.pos1809{ position:absolute; top : 360px;left: 180px; }
+.pos1909{ position:absolute; top : 380px;left: 180px; }
+.pos2009{ position:absolute; top : 400px;left: 180px; }
+.pos2109{ position:absolute; top : 420px;left: 180px; }
+.pos2209{ position:absolute; top : 440px;left: 180px; }
+.pos2309{ position:absolute; top : 460px;left: 180px; }
+.pos2409{ position:absolute; top : 480px;left: 180px; }
+.pos0010{ position:absolute; top : 0px;left: 200px; }
+.pos0110{ position:absolute; top : 20px;left: 200px; }
+.pos0210{ position:absolute; top : 40px;left: 200px; }
+.pos0310{ position:absolute; top : 60px;left: 200px; }
+.pos0410{ position:absolute; top : 80px;left: 200px; }
+.pos0510{ position:absolute; top : 100px;left: 200px; }
+.pos0610{ position:absolute; top : 120px;left: 200px; }
+.pos0710{ position:absolute; top : 140px;left: 200px; }
+.pos0810{ position:absolute; top : 160px;left: 200px; }
+.pos0910{ position:absolute; top : 180px;left: 200px; }
+.pos1010{ position:absolute; top : 200px;left: 200px; }
+.pos1110{ position:absolute; top : 220px;left: 200px; }
+.pos1210{ position:absolute; top : 240px;left: 200px; }
+.pos1310{ position:absolute; top : 260px;left: 200px; }
+.pos1410{ position:absolute; top : 280px;left: 200px; }
+.pos1510{ position:absolute; top : 300px;left: 200px; }
+.pos1610{ position:absolute; top : 320px;left: 200px; }
+.pos1710{ position:absolute; top : 340px;left: 200px; }
+.pos1810{ position:absolute; top : 360px;left: 200px; }
+.pos1910{ position:absolute; top : 380px;left: 200px; }
+.pos2010{ position:absolute; top : 400px;left: 200px; }
+.pos2110{ position:absolute; top : 420px;left: 200px; }
+.pos2210{ position:absolute; top : 440px;left: 200px; }
+.pos2310{ position:absolute; top : 460px;left: 200px; }
+.pos2410{ position:absolute; top : 480px;left: 200px; }
+.pos0011{ position:absolute; top : 0px;left: 220px; }
+.pos0111{ position:absolute; top : 20px;left: 220px; }
+.pos0211{ position:absolute; top : 40px;left: 220px; }
+.pos0311{ position:absolute; top : 60px;left: 220px; }
+.pos0411{ position:absolute; top : 80px;left: 220px; }
+.pos0511{ position:absolute; top : 100px;left: 220px; }
+.pos0611{ position:absolute; top : 120px;left: 220px; }
+.pos0711{ position:absolute; top : 140px;left: 220px; }
+.pos0811{ position:absolute; top : 160px;left: 220px; }
+.pos0911{ position:absolute; top : 180px;left: 220px; }
+.pos1011{ position:absolute; top : 200px;left: 220px; }
+.pos1111{ position:absolute; top : 220px;left: 220px; }
+.pos1211{ position:absolute; top : 240px;left: 220px; }
+.pos1311{ position:absolute; top : 260px;left: 220px; }
+.pos1411{ position:absolute; top : 280px;left: 220px; }
+.pos1511{ position:absolute; top : 300px;left: 220px; }
+.pos1611{ position:absolute; top : 320px;left: 220px; }
+.pos1711{ position:absolute; top : 340px;left: 220px; }
+.pos1811{ position:absolute; top : 360px;left: 220px; }
+.pos1911{ position:absolute; top : 380px;left: 220px; }
+.pos2011{ position:absolute; top : 400px;left: 220px; }
+.pos2111{ position:absolute; top : 420px;left: 220px; }
+.pos2211{ position:absolute; top : 440px;left: 220px; }
+.pos2311{ position:absolute; top : 460px;left: 220px; }
+.pos2411{ position:absolute; top : 480px;left: 220px; }
+.pos0012{ position:absolute; top : 0px;left: 240px; }
+.pos0112{ position:absolute; top : 20px;left: 240px; }
+.pos0212{ position:absolute; top : 40px;left: 240px; }
+.pos0312{ position:absolute; top : 60px;left: 240px; }
+.pos0412{ position:absolute; top : 80px;left: 240px; }
+.pos0512{ position:absolute; top : 100px;left: 240px; }
+.pos0612{ position:absolute; top : 120px;left: 240px; }
+.pos0712{ position:absolute; top : 140px;left: 240px; }
+.pos0812{ position:absolute; top : 160px;left: 240px; }
+.pos0912{ position:absolute; top : 180px;left: 240px; }
+.pos1012{ position:absolute; top : 200px;left: 240px; }
+.pos1112{ position:absolute; top : 220px;left: 240px; }
+.pos1212{ position:absolute; top : 240px;left: 240px; }
+.pos1312{ position:absolute; top : 260px;left: 240px; }
+.pos1412{ position:absolute; top : 280px;left: 240px; }
+.pos1512{ position:absolute; top : 300px;left: 240px; }
+.pos1612{ position:absolute; top : 320px;left: 240px; }
+.pos1712{ position:absolute; top : 340px;left: 240px; }
+.pos1812{ position:absolute; top : 360px;left: 240px; }
+.pos1912{ position:absolute; top : 380px;left: 240px; }
+.pos2012{ position:absolute; top : 400px;left: 240px; }
+.pos2112{ position:absolute; top : 420px;left: 240px; }
+.pos2212{ position:absolute; top : 440px;left: 240px; }
+.pos2312{ position:absolute; top : 460px;left: 240px; }
+.pos2412{ position:absolute; top : 480px;left: 240px; }
+.pos0013{ position:absolute; top : 0px;left: 260px; }
+.pos0113{ position:absolute; top : 20px;left: 260px; }
+.pos0213{ position:absolute; top : 40px;left: 260px; }
+.pos0313{ position:absolute; top : 60px;left: 260px; }
+.pos0413{ position:absolute; top : 80px;left: 260px; }
+.pos0513{ position:absolute; top : 100px;left: 260px; }
+.pos0613{ position:absolute; top : 120px;left: 260px; }
+.pos0713{ position:absolute; top : 140px;left: 260px; }
+.pos0813{ position:absolute; top : 160px;left: 260px; }
+.pos0913{ position:absolute; top : 180px;left: 260px; }
+.pos1013{ position:absolute; top : 200px;left: 260px; }
+.pos1113{ position:absolute; top : 220px;left: 260px; }
+.pos1213{ position:absolute; top : 240px;left: 260px; }
+.pos1313{ position:absolute; top : 260px;left: 260px; }
+.pos1413{ position:absolute; top : 280px;left: 260px; }
+.pos1513{ position:absolute; top : 300px;left: 260px; }
+.pos1613{ position:absolute; top : 320px;left: 260px; }
+.pos1713{ position:absolute; top : 340px;left: 260px; }
+.pos1813{ position:absolute; top : 360px;left: 260px; }
+.pos1913{ position:absolute; top : 380px;left: 260px; }
+.pos2013{ position:absolute; top : 400px;left: 260px; }
+.pos2113{ position:absolute; top : 420px;left: 260px; }
+.pos2213{ position:absolute; top : 440px;left: 260px; }
+.pos2313{ position:absolute; top : 460px;left: 260px; }
+.pos2413{ position:absolute; top : 480px;left: 260px; }
+.pos0014{ position:absolute; top : 0px;left: 280px; }
+.pos0114{ position:absolute; top : 20px;left: 280px; }
+.pos0214{ position:absolute; top : 40px;left: 280px; }
+.pos0314{ position:absolute; top : 60px;left: 280px; }
+.pos0414{ position:absolute; top : 80px;left: 280px; }
+.pos0514{ position:absolute; top : 100px;left: 280px; }
+.pos0614{ position:absolute; top : 120px;left: 280px; }
+.pos0714{ position:absolute; top : 140px;left: 280px; }
+.pos0814{ position:absolute; top : 160px;left: 280px; }
+.pos0914{ position:absolute; top : 180px;left: 280px; }
+.pos1014{ position:absolute; top : 200px;left: 280px; }
+.pos1114{ position:absolute; top : 220px;left: 280px; }
+.pos1214{ position:absolute; top : 240px;left: 280px; }
+.pos1314{ position:absolute; top : 260px;left: 280px; }
+.pos1414{ position:absolute; top : 280px;left: 280px; }
+.pos1514{ position:absolute; top : 300px;left: 280px; }
+.pos1614{ position:absolute; top : 320px;left: 280px; }
+.pos1714{ position:absolute; top : 340px;left: 280px; }
+.pos1814{ position:absolute; top : 360px;left: 280px; }
+.pos1914{ position:absolute; top : 380px;left: 280px; }
+.pos2014{ position:absolute; top : 400px;left: 280px; }
+.pos2114{ position:absolute; top : 420px;left: 280px; }
+.pos2214{ position:absolute; top : 440px;left: 280px; }
+.pos2314{ position:absolute; top : 460px;left: 280px; }
+.pos2414{ position:absolute; top : 480px;left: 280px; }
+.pos0015{ position:absolute; top : 0px;left: 300px; }
+.pos0115{ position:absolute; top : 20px;left: 300px; }
+.pos0215{ position:absolute; top : 40px;left: 300px; }
+.pos0315{ position:absolute; top : 60px;left: 300px; }
+.pos0415{ position:absolute; top : 80px;left: 300px; }
+.pos0515{ position:absolute; top : 100px;left: 300px; }
+.pos0615{ position:absolute; top : 120px;left: 300px; }
+.pos0715{ position:absolute; top : 140px;left: 300px; }
+.pos0815{ position:absolute; top : 160px;left: 300px; }
+.pos0915{ position:absolute; top : 180px;left: 300px; }
+.pos1015{ position:absolute; top : 200px;left: 300px; }
+.pos1115{ position:absolute; top : 220px;left: 300px; }
+.pos1215{ position:absolute; top : 240px;left: 300px; }
+.pos1315{ position:absolute; top : 260px;left: 300px; }
+.pos1415{ position:absolute; top : 280px;left: 300px; }
+.pos1515{ position:absolute; top : 300px;left: 300px; }
+.pos1615{ position:absolute; top : 320px;left: 300px; }
+.pos1715{ position:absolute; top : 340px;left: 300px; }
+.pos1815{ position:absolute; top : 360px;left: 300px; }
+.pos1915{ position:absolute; top : 380px;left: 300px; }
+.pos2015{ position:absolute; top : 400px;left: 300px; }
+.pos2115{ position:absolute; top : 420px;left: 300px; }
+.pos2215{ position:absolute; top : 440px;left: 300px; }
+.pos2315{ position:absolute; top : 460px;left: 300px; }
+.pos2415{ position:absolute; top : 480px;left: 300px; }
+.pos0016{ position:absolute; top : 0px;left: 320px; }
+.pos0116{ position:absolute; top : 20px;left: 320px; }
+.pos0216{ position:absolute; top : 40px;left: 320px; }
+.pos0316{ position:absolute; top : 60px;left: 320px; }
+.pos0416{ position:absolute; top : 80px;left: 320px; }
+.pos0516{ position:absolute; top : 100px;left: 320px; }
+.pos0616{ position:absolute; top : 120px;left: 320px; }
+.pos0716{ position:absolute; top : 140px;left: 320px; }
+.pos0816{ position:absolute; top : 160px;left: 320px; }
+.pos0916{ position:absolute; top : 180px;left: 320px; }
+.pos1016{ position:absolute; top : 200px;left: 320px; }
+.pos1116{ position:absolute; top : 220px;left: 320px; }
+.pos1216{ position:absolute; top : 240px;left: 320px; }
+.pos1316{ position:absolute; top : 260px;left: 320px; }
+.pos1416{ position:absolute; top : 280px;left: 320px; }
+.pos1516{ position:absolute; top : 300px;left: 320px; }
+.pos1616{ position:absolute; top : 320px;left: 320px; }
+.pos1716{ position:absolute; top : 340px;left: 320px; }
+.pos1816{ position:absolute; top : 360px;left: 320px; }
+.pos1916{ position:absolute; top : 380px;left: 320px; }
+.pos2016{ position:absolute; top : 400px;left: 320px; }
+.pos2116{ position:absolute; top : 420px;left: 320px; }
+.pos2216{ position:absolute; top : 440px;left: 320px; }
+.pos2316{ position:absolute; top : 460px;left: 320px; }
+.pos2416{ position:absolute; top : 480px;left: 320px; }
+.pos0017{ position:absolute; top : 0px;left: 340px; }
+.pos0117{ position:absolute; top : 20px;left: 340px; }
+.pos0217{ position:absolute; top : 40px;left: 340px; }
+.pos0317{ position:absolute; top : 60px;left: 340px; }
+.pos0417{ position:absolute; top : 80px;left: 340px; }
+.pos0517{ position:absolute; top : 100px;left: 340px; }
+.pos0617{ position:absolute; top : 120px;left: 340px; }
+.pos0717{ position:absolute; top : 140px;left: 340px; }
+.pos0817{ position:absolute; top : 160px;left: 340px; }
+.pos0917{ position:absolute; top : 180px;left: 340px; }
+.pos1017{ position:absolute; top : 200px;left: 340px; }
+.pos1117{ position:absolute; top : 220px;left: 340px; }
+.pos1217{ position:absolute; top : 240px;left: 340px; }
+.pos1317{ position:absolute; top : 260px;left: 340px; }
+.pos1417{ position:absolute; top : 280px;left: 340px; }
+.pos1517{ position:absolute; top : 300px;left: 340px; }
+.pos1617{ position:absolute; top : 320px;left: 340px; }
+.pos1717{ position:absolute; top : 340px;left: 340px; }
+.pos1817{ position:absolute; top : 360px;left: 340px; }
+.pos1917{ position:absolute; top : 380px;left: 340px; }
+.pos2017{ position:absolute; top : 400px;left: 340px; }
+.pos2117{ position:absolute; top : 420px;left: 340px; }
+.pos2217{ position:absolute; top : 440px;left: 340px; }
+.pos2317{ position:absolute; top : 460px;left: 340px; }
+.pos2417{ position:absolute; top : 480px;left: 340px; }
+.pos0018{ position:absolute; top : 0px;left: 360px; }
+.pos0118{ position:absolute; top : 20px;left: 360px; }
+.pos0218{ position:absolute; top : 40px;left: 360px; }
+.pos0318{ position:absolute; top : 60px;left: 360px; }
+.pos0418{ position:absolute; top : 80px;left: 360px; }
+.pos0518{ position:absolute; top : 100px;left: 360px; }
+.pos0618{ position:absolute; top : 120px;left: 360px; }
+.pos0718{ position:absolute; top : 140px;left: 360px; }
+.pos0818{ position:absolute; top : 160px;left: 360px; }
+.pos0918{ position:absolute; top : 180px;left: 360px; }
+.pos1018{ position:absolute; top : 200px;left: 360px; }
+.pos1118{ position:absolute; top : 220px;left: 360px; }
+.pos1218{ position:absolute; top : 240px;left: 360px; }
+.pos1318{ position:absolute; top : 260px;left: 360px; }
+.pos1418{ position:absolute; top : 280px;left: 360px; }
+.pos1518{ position:absolute; top : 300px;left: 360px; }
+.pos1618{ position:absolute; top : 320px;left: 360px; }
+.pos1718{ position:absolute; top : 340px;left: 360px; }
+.pos1818{ position:absolute; top : 360px;left: 360px; }
+.pos1918{ position:absolute; top : 380px;left: 360px; }
+.pos2018{ position:absolute; top : 400px;left: 360px; }
+.pos2118{ position:absolute; top : 420px;left: 360px; }
+.pos2218{ position:absolute; top : 440px;left: 360px; }
+.pos2318{ position:absolute; top : 460px;left: 360px; }
+.pos2418{ position:absolute; top : 480px;left: 360px; }
+.pos0019{ position:absolute; top : 0px;left: 380px; }
+.pos0119{ position:absolute; top : 20px;left: 380px; }
+.pos0219{ position:absolute; top : 40px;left: 380px; }
+.pos0319{ position:absolute; top : 60px;left: 380px; }
+.pos0419{ position:absolute; top : 80px;left: 380px; }
+.pos0519{ position:absolute; top : 100px;left: 380px; }
+.pos0619{ position:absolute; top : 120px;left: 380px; }
+.pos0719{ position:absolute; top : 140px;left: 380px; }
+.pos0819{ position:absolute; top : 160px;left: 380px; }
+.pos0919{ position:absolute; top : 180px;left: 380px; }
+.pos1019{ position:absolute; top : 200px;left: 380px; }
+.pos1119{ position:absolute; top : 220px;left: 380px; }
+.pos1219{ position:absolute; top : 240px;left: 380px; }
+.pos1319{ position:absolute; top : 260px;left: 380px; }
+.pos1419{ position:absolute; top : 280px;left: 380px; }
+.pos1519{ position:absolute; top : 300px;left: 380px; }
+.pos1619{ position:absolute; top : 320px;left: 380px; }
+.pos1719{ position:absolute; top : 340px;left: 380px; }
+.pos1819{ position:absolute; top : 360px;left: 380px; }
+.pos1919{ position:absolute; top : 380px;left: 380px; }
+.pos2019{ position:absolute; top : 400px;left: 380px; }
+.pos2119{ position:absolute; top : 420px;left: 380px; }
+.pos2219{ position:absolute; top : 440px;left: 380px; }
+.pos2319{ position:absolute; top : 460px;left: 380px; }
+.pos2419{ position:absolute; top : 480px;left: 380px; }
+.pos0020{ position:absolute; top : 0px;left: 400px; }
+.pos0120{ position:absolute; top : 20px;left: 400px; }
+.pos0220{ position:absolute; top : 40px;left: 400px; }
+.pos0320{ position:absolute; top : 60px;left: 400px; }
+.pos0420{ position:absolute; top : 80px;left: 400px; }
+.pos0520{ position:absolute; top : 100px;left: 400px; }
+.pos0620{ position:absolute; top : 120px;left: 400px; }
+.pos0720{ position:absolute; top : 140px;left: 400px; }
+.pos0820{ position:absolute; top : 160px;left: 400px; }
+.pos0920{ position:absolute; top : 180px;left: 400px; }
+.pos1020{ position:absolute; top : 200px;left: 400px; }
+.pos1120{ position:absolute; top : 220px;left: 400px; }
+.pos1220{ position:absolute; top : 240px;left: 400px; }
+.pos1320{ position:absolute; top : 260px;left: 400px; }
+.pos1420{ position:absolute; top : 280px;left: 400px; }
+.pos1520{ position:absolute; top : 300px;left: 400px; }
+.pos1620{ position:absolute; top : 320px;left: 400px; }
+.pos1720{ position:absolute; top : 340px;left: 400px; }
+.pos1820{ position:absolute; top : 360px;left: 400px; }
+.pos1920{ position:absolute; top : 380px;left: 400px; }
+.pos2020{ position:absolute; top : 400px;left: 400px; }
+.pos2120{ position:absolute; top : 420px;left: 400px; }
+.pos2220{ position:absolute; top : 440px;left: 400px; }
+.pos2320{ position:absolute; top : 460px;left: 400px; }
+.pos2420{ position:absolute; top : 480px;left: 400px; }
+.pos0021{ position:absolute; top : 0px;left: 420px; }
+.pos0121{ position:absolute; top : 20px;left: 420px; }
+.pos0221{ position:absolute; top : 40px;left: 420px; }
+.pos0321{ position:absolute; top : 60px;left: 420px; }
+.pos0421{ position:absolute; top : 80px;left: 420px; }
+.pos0521{ position:absolute; top : 100px;left: 420px; }
+.pos0621{ position:absolute; top : 120px;left: 420px; }
+.pos0721{ position:absolute; top : 140px;left: 420px; }
+.pos0821{ position:absolute; top : 160px;left: 420px; }
+.pos0921{ position:absolute; top : 180px;left: 420px; }
+.pos1021{ position:absolute; top : 200px;left: 420px; }
+.pos1121{ position:absolute; top : 220px;left: 420px; }
+.pos1221{ position:absolute; top : 240px;left: 420px; }
+.pos1321{ position:absolute; top : 260px;left: 420px; }
+.pos1421{ position:absolute; top : 280px;left: 420px; }
+.pos1521{ position:absolute; top : 300px;left: 420px; }
+.pos1621{ position:absolute; top : 320px;left: 420px; }
+.pos1721{ position:absolute; top : 340px;left: 420px; }
+.pos1821{ position:absolute; top : 360px;left: 420px; }
+.pos1921{ position:absolute; top : 380px;left: 420px; }
+.pos2021{ position:absolute; top : 400px;left: 420px; }
+.pos2121{ position:absolute; top : 420px;left: 420px; }
+.pos2221{ position:absolute; top : 440px;left: 420px; }
+.pos2321{ position:absolute; top : 460px;left: 420px; }
+.pos2421{ position:absolute; top : 480px;left: 420px; }
+.pos0022{ position:absolute; top : 0px;left: 440px; }
+.pos0122{ position:absolute; top : 20px;left: 440px; }
+.pos0222{ position:absolute; top : 40px;left: 440px; }
+.pos0322{ position:absolute; top : 60px;left: 440px; }
+.pos0422{ position:absolute; top : 80px;left: 440px; }
+.pos0522{ position:absolute; top : 100px;left: 440px; }
+.pos0622{ position:absolute; top : 120px;left: 440px; }
+.pos0722{ position:absolute; top : 140px;left: 440px; }
+.pos0822{ position:absolute; top : 160px;left: 440px; }
+.pos0922{ position:absolute; top : 180px;left: 440px; }
+.pos1022{ position:absolute; top : 200px;left: 440px; }
+.pos1122{ position:absolute; top : 220px;left: 440px; }
+.pos1222{ position:absolute; top : 240px;left: 440px; }
+.pos1322{ position:absolute; top : 260px;left: 440px; }
+.pos1422{ position:absolute; top : 280px;left: 440px; }
+.pos1522{ position:absolute; top : 300px;left: 440px; }
+.pos1622{ position:absolute; top : 320px;left: 440px; }
+.pos1722{ position:absolute; top : 340px;left: 440px; }
+.pos1822{ position:absolute; top : 360px;left: 440px; }
+.pos1922{ position:absolute; top : 380px;left: 440px; }
+.pos2022{ position:absolute; top : 400px;left: 440px; }
+.pos2122{ position:absolute; top : 420px;left: 440px; }
+.pos2222{ position:absolute; top : 440px;left: 440px; }
+.pos2322{ position:absolute; top : 460px;left: 440px; }
+.pos2422{ position:absolute; top : 480px;left: 440px; }
+.pos0023{ position:absolute; top : 0px;left: 460px; }
+.pos0123{ position:absolute; top : 20px;left: 460px; }
+.pos0223{ position:absolute; top : 40px;left: 460px; }
+.pos0323{ position:absolute; top : 60px;left: 460px; }
+.pos0423{ position:absolute; top : 80px;left: 460px; }
+.pos0523{ position:absolute; top : 100px;left: 460px; }
+.pos0623{ position:absolute; top : 120px;left: 460px; }
+.pos0723{ position:absolute; top : 140px;left: 460px; }
+.pos0823{ position:absolute; top : 160px;left: 460px; }
+.pos0923{ position:absolute; top : 180px;left: 460px; }
+.pos1023{ position:absolute; top : 200px;left: 460px; }
+.pos1123{ position:absolute; top : 220px;left: 460px; }
+.pos1223{ position:absolute; top : 240px;left: 460px; }
+.pos1323{ position:absolute; top : 260px;left: 460px; }
+.pos1423{ position:absolute; top : 280px;left: 460px; }
+.pos1523{ position:absolute; top : 300px;left: 460px; }
+.pos1623{ position:absolute; top : 320px;left: 460px; }
+.pos1723{ position:absolute; top : 340px;left: 460px; }
+.pos1823{ position:absolute; top : 360px;left: 460px; }
+.pos1923{ position:absolute; top : 380px;left: 460px; }
+.pos2023{ position:absolute; top : 400px;left: 460px; }
+.pos2123{ position:absolute; top : 420px;left: 460px; }
+.pos2223{ position:absolute; top : 440px;left: 460px; }
+.pos2323{ position:absolute; top : 460px;left: 460px; }
+.pos2423{ position:absolute; top : 480px;left: 460px; }
+.pos0024{ position:absolute; top : 0px;left: 480px; }
+.pos0124{ position:absolute; top : 20px;left: 480px; }
+.pos0224{ position:absolute; top : 40px;left: 480px; }
+.pos0324{ position:absolute; top : 60px;left: 480px; }
+.pos0424{ position:absolute; top : 80px;left: 480px; }
+.pos0524{ position:absolute; top : 100px;left: 480px; }
+.pos0624{ position:absolute; top : 120px;left: 480px; }
+.pos0724{ position:absolute; top : 140px;left: 480px; }
+.pos0824{ position:absolute; top : 160px;left: 480px; }
+.pos0924{ position:absolute; top : 180px;left: 480px; }
+.pos1024{ position:absolute; top : 200px;left: 480px; }
+.pos1124{ position:absolute; top : 220px;left: 480px; }
+.pos1224{ position:absolute; top : 240px;left: 480px; }
+.pos1324{ position:absolute; top : 260px;left: 480px; }
+.pos1424{ position:absolute; top : 280px;left: 480px; }
+.pos1524{ position:absolute; top : 300px;left: 480px; }
+.pos1624{ position:absolute; top : 320px;left: 480px; }
+.pos1724{ position:absolute; top : 340px;left: 480px; }
+.pos1824{ position:absolute; top : 360px;left: 480px; }
+.pos1924{ position:absolute; top : 380px;left: 480px; }
+.pos2024{ position:absolute; top : 400px;left: 480px; }
+.pos2124{ position:absolute; top : 420px;left: 480px; }
+.pos2224{ position:absolute; top : 440px;left: 480px; }
+.pos2324{ position:absolute; top : 460px;left: 480px; }
+.pos2424{ position:absolute; top : 480px;left: 480px; }
+.pos0025{ position:absolute; top : 0px;left: 500px; }
+.pos0125{ position:absolute; top : 20px;left: 500px; }
+.pos0225{ position:absolute; top : 40px;left: 500px; }
+.pos0325{ position:absolute; top : 60px;left: 500px; }
+.pos0425{ position:absolute; top : 80px;left: 500px; }
+.pos0525{ position:absolute; top : 100px;left: 500px; }
+.pos0625{ position:absolute; top : 120px;left: 500px; }
+.pos0725{ position:absolute; top : 140px;left: 500px; }
+.pos0825{ position:absolute; top : 160px;left: 500px; }
+.pos0925{ position:absolute; top : 180px;left: 500px; }
+.pos1025{ position:absolute; top : 200px;left: 500px; }
+.pos1125{ position:absolute; top : 220px;left: 500px; }
+.pos1225{ position:absolute; top : 240px;left: 500px; }
+.pos1325{ position:absolute; top : 260px;left: 500px; }
+.pos1425{ position:absolute; top : 280px;left: 500px; }
+.pos1525{ position:absolute; top : 300px;left: 500px; }
+.pos1625{ position:absolute; top : 320px;left: 500px; }
+.pos1725{ position:absolute; top : 340px;left: 500px; }
+.pos1825{ position:absolute; top : 360px;left: 500px; }
+.pos1925{ position:absolute; top : 380px;left: 500px; }
+.pos2025{ position:absolute; top : 400px;left: 500px; }
+.pos2125{ position:absolute; top : 420px;left: 500px; }
+.pos2225{ position:absolute; top : 440px;left: 500px; }
+.pos2325{ position:absolute; top : 460px;left: 500px; }
+.pos2425{ position:absolute; top : 480px;left: 500px; }
+.pos0026{ position:absolute; top : 0px;left: 520px; }
+.pos0126{ position:absolute; top : 20px;left: 520px; }
+.pos0226{ position:absolute; top : 40px;left: 520px; }
+.pos0326{ position:absolute; top : 60px;left: 520px; }
+.pos0426{ position:absolute; top : 80px;left: 520px; }
+.pos0526{ position:absolute; top : 100px;left: 520px; }
+.pos0626{ position:absolute; top : 120px;left: 520px; }
+.pos0726{ position:absolute; top : 140px;left: 520px; }
+.pos0826{ position:absolute; top : 160px;left: 520px; }
+.pos0926{ position:absolute; top : 180px;left: 520px; }
+.pos1026{ position:absolute; top : 200px;left: 520px; }
+.pos1126{ position:absolute; top : 220px;left: 520px; }
+.pos1226{ position:absolute; top : 240px;left: 520px; }
+.pos1326{ position:absolute; top : 260px;left: 520px; }
+.pos1426{ position:absolute; top : 280px;left: 520px; }
+.pos1526{ position:absolute; top : 300px;left: 520px; }
+.pos1626{ position:absolute; top : 320px;left: 520px; }
+.pos1726{ position:absolute; top : 340px;left: 520px; }
+.pos1826{ position:absolute; top : 360px;left: 520px; }
+.pos1926{ position:absolute; top : 380px;left: 520px; }
+.pos2026{ position:absolute; top : 400px;left: 520px; }
+.pos2126{ position:absolute; top : 420px;left: 520px; }
+.pos2226{ position:absolute; top : 440px;left: 520px; }
+.pos2326{ position:absolute; top : 460px;left: 520px; }
+.pos2426{ position:absolute; top : 480px;left: 520px; }
+.pos0027{ position:absolute; top : 0px;left: 540px; }
+.pos0127{ position:absolute; top : 20px;left: 540px; }
+.pos0227{ position:absolute; top : 40px;left: 540px; }
+.pos0327{ position:absolute; top : 60px;left: 540px; }
+.pos0427{ position:absolute; top : 80px;left: 540px; }
+.pos0527{ position:absolute; top : 100px;left: 540px; }
+.pos0627{ position:absolute; top : 120px;left: 540px; }
+.pos0727{ position:absolute; top : 140px;left: 540px; }
+.pos0827{ position:absolute; top : 160px;left: 540px; }
+.pos0927{ position:absolute; top : 180px;left: 540px; }
+.pos1027{ position:absolute; top : 200px;left: 540px; }
+.pos1127{ position:absolute; top : 220px;left: 540px; }
+.pos1227{ position:absolute; top : 240px;left: 540px; }
+.pos1327{ position:absolute; top : 260px;left: 540px; }
+.pos1427{ position:absolute; top : 280px;left: 540px; }
+.pos1527{ position:absolute; top : 300px;left: 540px; }
+.pos1627{ position:absolute; top : 320px;left: 540px; }
+.pos1727{ position:absolute; top : 340px;left: 540px; }
+.pos1827{ position:absolute; top : 360px;left: 540px; }
+.pos1927{ position:absolute; top : 380px;left: 540px; }
+.pos2027{ position:absolute; top : 400px;left: 540px; }
+.pos2127{ position:absolute; top : 420px;left: 540px; }
+.pos2227{ position:absolute; top : 440px;left: 540px; }
+.pos2327{ position:absolute; top : 460px;left: 540px; }
+.pos2427{ position:absolute; top : 480px;left: 540px; }
+.pos0028{ position:absolute; top : 0px;left: 560px; }
+.pos0128{ position:absolute; top : 20px;left: 560px; }
+.pos0228{ position:absolute; top : 40px;left: 560px; }
+.pos0328{ position:absolute; top : 60px;left: 560px; }
+.pos0428{ position:absolute; top : 80px;left: 560px; }
+.pos0528{ position:absolute; top : 100px;left: 560px; }
+.pos0628{ position:absolute; top : 120px;left: 560px; }
+.pos0728{ position:absolute; top : 140px;left: 560px; }
+.pos0828{ position:absolute; top : 160px;left: 560px; }
+.pos0928{ position:absolute; top : 180px;left: 560px; }
+.pos1028{ position:absolute; top : 200px;left: 560px; }
+.pos1128{ position:absolute; top : 220px;left: 560px; }
+.pos1228{ position:absolute; top : 240px;left: 560px; }
+.pos1328{ position:absolute; top : 260px;left: 560px; }
+.pos1428{ position:absolute; top : 280px;left: 560px; }
+.pos1528{ position:absolute; top : 300px;left: 560px; }
+.pos1628{ position:absolute; top : 320px;left: 560px; }
+.pos1728{ position:absolute; top : 340px;left: 560px; }
+.pos1828{ position:absolute; top : 360px;left: 560px; }
+.pos1928{ position:absolute; top : 380px;left: 560px; }
+.pos2028{ position:absolute; top : 400px;left: 560px; }
+.pos2128{ position:absolute; top : 420px;left: 560px; }
+.pos2228{ position:absolute; top : 440px;left: 560px; }
+.pos2328{ position:absolute; top : 460px;left: 560px; }
+.pos2428{ position:absolute; top : 480px;left: 560px; }
+.pos0029{ position:absolute; top : 0px;left: 580px; }
+.pos0129{ position:absolute; top : 20px;left: 580px; }
+.pos0229{ position:absolute; top : 40px;left: 580px; }
+.pos0329{ position:absolute; top : 60px;left: 580px; }
+.pos0429{ position:absolute; top : 80px;left: 580px; }
+.pos0529{ position:absolute; top : 100px;left: 580px; }
+.pos0629{ position:absolute; top : 120px;left: 580px; }
+.pos0729{ position:absolute; top : 140px;left: 580px; }
+.pos0829{ position:absolute; top : 160px;left: 580px; }
+.pos0929{ position:absolute; top : 180px;left: 580px; }
+.pos1029{ position:absolute; top : 200px;left: 580px; }
+.pos1129{ position:absolute; top : 220px;left: 580px; }
+.pos1229{ position:absolute; top : 240px;left: 580px; }
+.pos1329{ position:absolute; top : 260px;left: 580px; }
+.pos1429{ position:absolute; top : 280px;left: 580px; }
+.pos1529{ position:absolute; top : 300px;left: 580px; }
+.pos1629{ position:absolute; top : 320px;left: 580px; }
+.pos1729{ position:absolute; top : 340px;left: 580px; }
+.pos1829{ position:absolute; top : 360px;left: 580px; }
+.pos1929{ position:absolute; top : 380px;left: 580px; }
+.pos2029{ position:absolute; top : 400px;left: 580px; }
+.pos2129{ position:absolute; top : 420px;left: 580px; }
+.pos2229{ position:absolute; top : 440px;left: 580px; }
+.pos2329{ position:absolute; top : 460px;left: 580px; }
+.pos2429{ position:absolute; top : 480px;left: 580px; }
+.pos0030{ position:absolute; top : 0px;left: 600px; }
+.pos0130{ position:absolute; top : 20px;left: 600px; }
+.pos0230{ position:absolute; top : 40px;left: 600px; }
+.pos0330{ position:absolute; top : 60px;left: 600px; }
+.pos0430{ position:absolute; top : 80px;left: 600px; }
+.pos0530{ position:absolute; top : 100px;left: 600px; }
+.pos0630{ position:absolute; top : 120px;left: 600px; }
+.pos0730{ position:absolute; top : 140px;left: 600px; }
+.pos0830{ position:absolute; top : 160px;left: 600px; }
+.pos0930{ position:absolute; top : 180px;left: 600px; }
+.pos1030{ position:absolute; top : 200px;left: 600px; }
+.pos1130{ position:absolute; top : 220px;left: 600px; }
+.pos1230{ position:absolute; top : 240px;left: 600px; }
+.pos1330{ position:absolute; top : 260px;left: 600px; }
+.pos1430{ position:absolute; top : 280px;left: 600px; }
+.pos1530{ position:absolute; top : 300px;left: 600px; }
+.pos1630{ position:absolute; top : 320px;left: 600px; }
+.pos1730{ position:absolute; top : 340px;left: 600px; }
+.pos1830{ position:absolute; top : 360px;left: 600px; }
+.pos1930{ position:absolute; top : 380px;left: 600px; }
+.pos2030{ position:absolute; top : 400px;left: 600px; }
+.pos2130{ position:absolute; top : 420px;left: 600px; }
+.pos2230{ position:absolute; top : 440px;left: 600px; }
+.pos2330{ position:absolute; top : 460px;left: 600px; }
+.pos2430{ position:absolute; top : 480px;left: 600px; }
+.pos0031{ position:absolute; top : 0px;left: 620px; }
+.pos0131{ position:absolute; top : 20px;left: 620px; }
+.pos0231{ position:absolute; top : 40px;left: 620px; }
+.pos0331{ position:absolute; top : 60px;left: 620px; }
+.pos0431{ position:absolute; top : 80px;left: 620px; }
+.pos0531{ position:absolute; top : 100px;left: 620px; }
+.pos0631{ position:absolute; top : 120px;left: 620px; }
+.pos0731{ position:absolute; top : 140px;left: 620px; }
+.pos0831{ position:absolute; top : 160px;left: 620px; }
+.pos0931{ position:absolute; top : 180px;left: 620px; }
+.pos1031{ position:absolute; top : 200px;left: 620px; }
+.pos1131{ position:absolute; top : 220px;left: 620px; }
+.pos1231{ position:absolute; top : 240px;left: 620px; }
+.pos1331{ position:absolute; top : 260px;left: 620px; }
+.pos1431{ position:absolute; top : 280px;left: 620px; }
+.pos1531{ position:absolute; top : 300px;left: 620px; }
+.pos1631{ position:absolute; top : 320px;left: 620px; }
+.pos1731{ position:absolute; top : 340px;left: 620px; }
+.pos1831{ position:absolute; top : 360px;left: 620px; }
+.pos1931{ position:absolute; top : 380px;left: 620px; }
+.pos2031{ position:absolute; top : 400px;left: 620px; }
+.pos2131{ position:absolute; top : 420px;left: 620px; }
+.pos2231{ position:absolute; top : 440px;left: 620px; }
+.pos2331{ position:absolute; top : 460px;left: 620px; }
+.pos2431{ position:absolute; top : 480px;left: 620px; }
+.pos0032{ position:absolute; top : 0px;left: 640px; }
+.pos0132{ position:absolute; top : 20px;left: 640px; }
+.pos0232{ position:absolute; top : 40px;left: 640px; }
+.pos0332{ position:absolute; top : 60px;left: 640px; }
+.pos0432{ position:absolute; top : 80px;left: 640px; }
+.pos0532{ position:absolute; top : 100px;left: 640px; }
+.pos0632{ position:absolute; top : 120px;left: 640px; }
+.pos0732{ position:absolute; top : 140px;left: 640px; }
+.pos0832{ position:absolute; top : 160px;left: 640px; }
+.pos0932{ position:absolute; top : 180px;left: 640px; }
+.pos1032{ position:absolute; top : 200px;left: 640px; }
+.pos1132{ position:absolute; top : 220px;left: 640px; }
+.pos1232{ position:absolute; top : 240px;left: 640px; }
+.pos1332{ position:absolute; top : 260px;left: 640px; }
+.pos1432{ position:absolute; top : 280px;left: 640px; }
+.pos1532{ position:absolute; top : 300px;left: 640px; }
+.pos1632{ position:absolute; top : 320px;left: 640px; }
+.pos1732{ position:absolute; top : 340px;left: 640px; }
+.pos1832{ position:absolute; top : 360px;left: 640px; }
+.pos1932{ position:absolute; top : 380px;left: 640px; }
+.pos2032{ position:absolute; top : 400px;left: 640px; }
+.pos2132{ position:absolute; top : 420px;left: 640px; }
+.pos2232{ position:absolute; top : 440px;left: 640px; }
+.pos2332{ position:absolute; top : 460px;left: 640px; }
+.pos2432{ position:absolute; top : 480px;left: 640px; }
+
+
+
+
+/*------------------------------------------------------------*/
+/* Size Definitions */
+/*--------------------------------------------------*/
+
+/*.zero-zero{ overflow:hidden !important; width : 0px !important;height: 0px !important; }
+.zero-one{ overflow:hidden !important; width : 0px !important;height: 20px !important; }
+.zero-two{ overflow:hidden !important; width : 0px !important;height: 40px !important; }
+.zero-three{ overflow:hidden !important; width : 0px !important;height: 60px !important; }
+.zero-four{ overflow:hidden !important; width : 0px !important;height: 80px !important; }
+.zero-five{ overflow:hidden !important; width : 0px !important;height: 100px !important; }
+.zero-six{ overflow:hidden !important; width : 0px !important;height: 120px !important; }
+.zero-seven{ overflow:hidden !important; width : 0px !important;height: 140px !important; }
+.zero-eight{ overflow:hidden !important; width : 0px !important;height: 160px !important; }
+.zero-nine{ overflow:hidden !important; width : 0px !important;height: 180px !important; }
+.zero-ten{ overflow:hidden !important; width : 0px !important;height: 200px !important; }
+.zero-eleven{ overflow:hidden !important; width : 0px !important;height: 220px !important; }
+.zero-twelve{ overflow:hidden !important; width : 0px !important;height: 240px !important; }
+.zero-thirteen{ overflow:hidden !important; width : 0px !important;height: 260px !important; }
+.zero-fourteen{ overflow:hidden !important; width : 0px !important;height: 280px !important; }
+.zero-fifteen{ overflow:hidden !important; width : 0px !important;height: 300px !important; }
+.zero-sixteen{ overflow:hidden !important; width : 0px !important;height: 320px !important; }
+.zero-seventeen{ overflow:hidden !important; width : 0px !important;height: 340px !important; }
+.zero-eighteen{ overflow:hidden !important; width : 0px !important;height: 360px !important; }
+.zero-nineteen{ overflow:hidden !important; width : 0px !important;height: 380px !important; }
+.zero-twenty{ overflow:hidden !important; width : 0px !important;height: 400px !important; }
+.zero-twenty-one{ overflow:hidden !important; width : 0px !important;height: 420px !important; }
+.zero-twenty-two{ overflow:hidden !important; width : 0px !important;height: 440px !important; }
+.zero-twenty-three{ overflow:hidden !important; width : 0px !important;height: 460px !important; }
+.zero-twenty-four{ overflow:hidden !important; width : 0px !important;height: 480px !important; }
+.one-zero{ overflow:hidden !important; width : 20px !important;height: 0px !important; }
+.one-one{ overflow:hidden !important; width : 20px !important;height: 20px !important; }
+.one-two{ overflow:hidden !important; width : 20px !important;height: 40px !important; }
+.one-three{ overflow:hidden !important; width : 20px !important;height: 60px !important; }
+.one-four{ overflow:hidden !important; width : 20px !important;height: 80px !important; }
+.one-five{ overflow:hidden !important; width : 20px !important;height: 100px !important; }
+.one-six{ overflow:hidden !important; width : 20px !important;height: 120px !important; }
+.one-seven{ overflow:hidden !important; width : 20px !important;height: 140px !important; }
+.one-eight{ overflow:hidden !important; width : 20px !important;height: 160px !important; }
+.one-nine{ overflow:hidden !important; width : 20px !important;height: 180px !important; }
+.one-ten{ overflow:hidden !important; width : 20px !important;height: 200px !important; }
+.one-eleven{ overflow:hidden !important; width : 20px !important;height: 220px !important; }
+.one-twelve{ overflow:hidden !important; width : 20px !important;height: 240px !important; }
+.one-thirteen{ overflow:hidden !important; width : 20px !important;height: 260px !important; }
+.one-fourteen{ overflow:hidden !important; width : 20px !important;height: 280px !important; }
+.one-fifteen{ overflow:hidden !important; width : 20px !important;height: 300px !important; }
+.one-sixteen{ overflow:hidden !important; width : 20px !important;height: 320px !important; }
+.one-seventeen{ overflow:hidden !important; width : 20px !important;height: 340px !important; }
+.one-eighteen{ overflow:hidden !important; width : 20px !important;height: 360px !important; }
+.one-nineteen{ overflow:hidden !important; width : 20px !important;height: 380px !important; }
+.one-twenty{ overflow:hidden !important; width : 20px !important;height: 400px !important; }
+.one-twenty-one{ overflow:hidden !important; width : 20px !important;height: 420px !important; }
+.one-twenty-two{ overflow:hidden !important; width : 20px !important;height: 440px !important; }
+.one-twenty-three{ overflow:hidden !important; width : 20px !important;height: 460px !important; }
+.one-twenty-four{ overflow:hidden !important; width : 20px !important;height: 480px !important; }
+.two-zero{ overflow:hidden !important; width : 40px !important;height: 0px !important; }
+.two-one{ overflow:hidden !important; width : 40px !important;height: 20px !important; }
+.two-two{ overflow:hidden !important; width : 40px !important;height: 40px !important; }
+.two-three{ overflow:hidden !important; width : 40px !important;height: 60px !important; }
+.two-four{ overflow:hidden !important; width : 40px !important;height: 80px !important; }
+.two-five{ overflow:hidden !important; width : 40px !important;height: 100px !important; }
+.two-six{ overflow:hidden !important; width : 40px !important;height: 120px !important; }
+.two-seven{ overflow:hidden !important; width : 40px !important;height: 140px !important; }
+.two-eight{ overflow:hidden !important; width : 40px !important;height: 160px !important; }
+.two-nine{ overflow:hidden !important; width : 40px !important;height: 180px !important; }
+.two-ten{ overflow:hidden !important; width : 40px !important;height: 200px !important; }
+.two-eleven{ overflow:hidden !important; width : 40px !important;height: 220px !important; }
+.two-twelve{ overflow:hidden !important; width : 40px !important;height: 240px !important; }
+.two-thirteen{ overflow:hidden !important; width : 40px !important;height: 260px !important; }
+.two-fourteen{ overflow:hidden !important; width : 40px !important;height: 280px !important; }
+.two-fifteen{ overflow:hidden !important; width : 40px !important;height: 300px !important; }
+.two-sixteen{ overflow:hidden !important; width : 40px !important;height: 320px !important; }
+.two-seventeen{ overflow:hidden !important; width : 40px !important;height: 340px !important; }
+.two-eighteen{ overflow:hidden !important; width : 40px !important;height: 360px !important; }
+.two-nineteen{ overflow:hidden !important; width : 40px !important;height: 380px !important; }
+.two-twenty{ overflow:hidden !important; width : 40px !important;height: 400px !important; }
+.two-twenty-one{ overflow:hidden !important; width : 40px !important;height: 420px !important; }
+.two-twenty-two{ overflow:hidden !important; width : 40px !important;height: 440px !important; }
+.two-twenty-three{ overflow:hidden !important; width : 40px !important;height: 460px !important; }
+.two-twenty-four{ overflow:hidden !important; width : 40px !important;height: 480px !important; }
+.three-zero{ overflow:hidden !important; width : 60px !important;height: 0px !important; }
+.three-one{ overflow:hidden !important; width : 60px !important;height: 20px !important; }
+.three-two{ overflow:hidden !important; width : 60px !important;height: 40px !important; }
+.three-three{ overflow:hidden !important; width : 60px !important;height: 60px !important; }
+.three-four{ overflow:hidden !important; width : 60px !important;height: 80px !important; }
+.three-five{ overflow:hidden !important; width : 60px !important;height: 100px !important; }
+.three-six{ overflow:hidden !important; width : 60px !important;height: 120px !important; }
+.three-seven{ overflow:hidden !important; width : 60px !important;height: 140px !important; }
+.three-eight{ overflow:hidden !important; width : 60px !important;height: 160px !important; }
+.three-nine{ overflow:hidden !important; width : 60px !important;height: 180px !important; }
+.three-ten{ overflow:hidden !important; width : 60px !important;height: 200px !important; }
+.three-eleven{ overflow:hidden !important; width : 60px !important;height: 220px !important; }
+.three-twelve{ overflow:hidden !important; width : 60px !important;height: 240px !important; }
+.three-thirteen{ overflow:hidden !important; width : 60px !important;height: 260px !important; }
+.three-fourteen{ overflow:hidden !important; width : 60px !important;height: 280px !important; }
+.three-fifteen{ overflow:hidden !important; width : 60px !important;height: 300px !important; }
+.three-sixteen{ overflow:hidden !important; width : 60px !important;height: 320px !important; }
+.three-seventeen{ overflow:hidden !important; width : 60px !important;height: 340px !important; }
+.three-eighteen{ overflow:hidden !important; width : 60px !important;height: 360px !important; }
+.three-nineteen{ overflow:hidden !important; width : 60px !important;height: 380px !important; }
+.three-twenty{ overflow:hidden !important; width : 60px !important;height: 400px !important; }
+.three-twenty-one{ overflow:hidden !important; width : 60px !important;height: 420px !important; }
+.three-twenty-two{ overflow:hidden !important; width : 60px !important;height: 440px !important; }
+.three-twenty-three{ overflow:hidden !important; width : 60px !important;height: 460px !important; }
+.three-twenty-four{ overflow:hidden !important; width : 60px !important;height: 480px !important; }
+.four-zero{ overflow:hidden !important; width : 80px !important;height: 0px !important; }
+.four-one{ overflow:hidden !important; width : 80px !important;height: 20px !important; }
+.four-two{ overflow:hidden !important; width : 80px !important;height: 40px !important; }
+.four-three{ overflow:hidden !important; width : 80px !important;height: 60px !important; }
+.four-four{ overflow:hidden !important; width : 80px !important;height: 80px !important; }
+.four-five{ overflow:hidden !important; width : 80px !important;height: 100px !important; }
+.four-six{ overflow:hidden !important; width : 80px !important;height: 120px !important; }
+.four-seven{ overflow:hidden !important; width : 80px !important;height: 140px !important; }
+.four-eight{ overflow:hidden !important; width : 80px !important;height: 160px !important; }
+.four-nine{ overflow:hidden !important; width : 80px !important;height: 180px !important; }
+.four-ten{ overflow:hidden !important; width : 80px !important;height: 200px !important; }
+.four-eleven{ overflow:hidden !important; width : 80px !important;height: 220px !important; }
+.four-twelve{ overflow:hidden !important; width : 80px !important;height: 240px !important; }
+.four-thirteen{ overflow:hidden !important; width : 80px !important;height: 260px !important; }
+.four-fourteen{ overflow:hidden !important; width : 80px !important;height: 280px !important; }
+.four-fifteen{ overflow:hidden !important; width : 80px !important;height: 300px !important; }
+.four-sixteen{ overflow:hidden !important; width : 80px !important;height: 320px !important; }
+.four-seventeen{ overflow:hidden !important; width : 80px !important;height: 340px !important; }
+.four-eighteen{ overflow:hidden !important; width : 80px !important;height: 360px !important; }
+.four-nineteen{ overflow:hidden !important; width : 80px !important;height: 380px !important; }
+.four-twenty{ overflow:hidden !important; width : 80px !important;height: 400px !important; }
+.four-twenty-one{ overflow:hidden !important; width : 80px !important;height: 420px !important; }
+.four-twenty-two{ overflow:hidden !important; width : 80px !important;height: 440px !important; }
+.four-twenty-three{ overflow:hidden !important; width : 80px !important;height: 460px !important; }
+.four-twenty-four{ overflow:hidden !important; width : 80px !important;height: 480px !important; }
+.five-zero{ overflow:hidden !important; width : 100px !important;height: 0px !important; }
+.five-one{ overflow:hidden !important; width : 100px !important;height: 20px !important; }
+.five-two{ overflow:hidden !important; width : 100px !important;height: 40px !important; }
+.five-three{ overflow:hidden !important; width : 100px !important;height: 60px !important; }
+.five-four{ overflow:hidden !important; width : 100px !important;height: 80px !important; }
+.five-five{ overflow:hidden !important; width : 100px !important;height: 100px !important; }
+.five-six{ overflow:hidden !important; width : 100px !important;height: 120px !important; }
+.five-seven{ overflow:hidden !important; width : 100px !important;height: 140px !important; }
+.five-eight{ overflow:hidden !important; width : 100px !important;height: 160px !important; }
+.five-nine{ overflow:hidden !important; width : 100px !important;height: 180px !important; }
+.five-ten{ overflow:hidden !important; width : 100px !important;height: 200px !important; }
+.five-eleven{ overflow:hidden !important; width : 100px !important;height: 220px !important; }
+.five-twelve{ overflow:hidden !important; width : 100px !important;height: 240px !important; }
+.five-thirteen{ overflow:hidden !important; width : 100px !important;height: 260px !important; }
+.five-fourteen{ overflow:hidden !important; width : 100px !important;height: 280px !important; }
+.five-fifteen{ overflow:hidden !important; width : 100px !important;height: 300px !important; }
+.five-sixteen{ overflow:hidden !important; width : 100px !important;height: 320px !important; }
+.five-seventeen{ overflow:hidden !important; width : 100px !important;height: 340px !important; }
+.five-eighteen{ overflow:hidden !important; width : 100px !important;height: 360px !important; }
+.five-nineteen{ overflow:hidden !important; width : 100px !important;height: 380px !important; }
+.five-twenty{ overflow:hidden !important; width : 100px !important;height: 400px !important; }
+.five-twenty-one{ overflow:hidden !important; width : 100px !important;height: 420px !important; }
+.five-twenty-two{ overflow:hidden !important; width : 100px !important;height: 440px !important; }
+.five-twenty-three{ overflow:hidden !important; width : 100px !important;height: 460px !important; }
+.five-twenty-four{ overflow:hidden !important; width : 100px !important;height: 480px !important; }
+.six-zero{ overflow:hidden !important; width : 120px !important;height: 0px !important; }
+.six-one{ overflow:hidden !important; width : 120px !important;height: 20px !important; }
+.six-two{ overflow:hidden !important; width : 120px !important;height: 40px !important; }
+.six-three{ overflow:hidden !important; width : 120px !important;height: 60px !important; }
+.six-four{ overflow:hidden !important; width : 120px !important;height: 80px !important; }
+.six-five{ overflow:hidden !important; width : 120px !important;height: 100px !important; }
+.six-six{ overflow:hidden !important; width : 120px !important;height: 120px !important; }
+.six-seven{ overflow:hidden !important; width : 120px !important;height: 140px !important; }
+.six-eight{ overflow:hidden !important; width : 120px !important;height: 160px !important; }
+.six-nine{ overflow:hidden !important; width : 120px !important;height: 180px !important; }
+.six-ten{ overflow:hidden !important; width : 120px !important;height: 200px !important; }
+.six-eleven{ overflow:hidden !important; width : 120px !important;height: 220px !important; }
+.six-twelve{ overflow:hidden !important; width : 120px !important;height: 240px !important; }
+.six-thirteen{ overflow:hidden !important; width : 120px !important;height: 260px !important; }
+.six-fourteen{ overflow:hidden !important; width : 120px !important;height: 280px !important; }
+.six-fifteen{ overflow:hidden !important; width : 120px !important;height: 300px !important; }
+.six-sixteen{ overflow:hidden !important; width : 120px !important;height: 320px !important; }
+.six-seventeen{ overflow:hidden !important; width : 120px !important;height: 340px !important; }
+.six-eighteen{ overflow:hidden !important; width : 120px !important;height: 360px !important; }
+.six-nineteen{ overflow:hidden !important; width : 120px !important;height: 380px !important; }
+.six-twenty{ overflow:hidden !important; width : 120px !important;height: 400px !important; }
+.six-twenty-one{ overflow:hidden !important; width : 120px !important;height: 420px !important; }
+.six-twenty-two{ overflow:hidden !important; width : 120px !important;height: 440px !important; }
+.six-twenty-three{ overflow:hidden !important; width : 120px !important;height: 460px !important; }
+.six-twenty-four{ overflow:hidden !important; width : 120px !important;height: 480px !important; }
+.seven-zero{ overflow:hidden !important; width : 140px !important;height: 0px !important; }
+.seven-one{ overflow:hidden !important; width : 140px !important;height: 20px !important; }
+.seven-two{ overflow:hidden !important; width : 140px !important;height: 40px !important; }
+.seven-three{ overflow:hidden !important; width : 140px !important;height: 60px !important; }
+.seven-four{ overflow:hidden !important; width : 140px !important;height: 80px !important; }
+.seven-five{ overflow:hidden !important; width : 140px !important;height: 100px !important; }
+.seven-six{ overflow:hidden !important; width : 140px !important;height: 120px !important; }
+.seven-seven{ overflow:hidden !important; width : 140px !important;height: 140px !important; }
+.seven-eight{ overflow:hidden !important; width : 140px !important;height: 160px !important; }
+.seven-nine{ overflow:hidden !important; width : 140px !important;height: 180px !important; }
+.seven-ten{ overflow:hidden !important; width : 140px !important;height: 200px !important; }
+.seven-eleven{ overflow:hidden !important; width : 140px !important;height: 220px !important; }
+.seven-twelve{ overflow:hidden !important; width : 140px !important;height: 240px !important; }
+.seven-thirteen{ overflow:hidden !important; width : 140px !important;height: 260px !important; }
+.seven-fourteen{ overflow:hidden !important; width : 140px !important;height: 280px !important; }
+.seven-fifteen{ overflow:hidden !important; width : 140px !important;height: 300px !important; }
+.seven-sixteen{ overflow:hidden !important; width : 140px !important;height: 320px !important; }
+.seven-seventeen{ overflow:hidden !important; width : 140px !important;height: 340px !important; }
+.seven-eighteen{ overflow:hidden !important; width : 140px !important;height: 360px !important; }
+.seven-nineteen{ overflow:hidden !important; width : 140px !important;height: 380px !important; }
+.seven-twenty{ overflow:hidden !important; width : 140px !important;height: 400px !important; }
+.seven-twenty-one{ overflow:hidden !important; width : 140px !important;height: 420px !important; }
+.seven-twenty-two{ overflow:hidden !important; width : 140px !important;height: 440px !important; }
+.seven-twenty-three{ overflow:hidden !important; width : 140px !important;height: 460px !important; }
+.seven-twenty-four{ overflow:hidden !important; width : 140px !important;height: 480px !important; }
+.eight-zero{ overflow:hidden !important; width : 160px !important;height: 0px !important; }
+.eight-one{ overflow:hidden !important; width : 160px !important;height: 20px !important; }
+.eight-two{ overflow:hidden !important; width : 160px !important;height: 40px !important; }
+.eight-three{ overflow:hidden !important; width : 160px !important;height: 60px !important; }
+.eight-four{ overflow:hidden !important; width : 160px !important;height: 80px !important; }
+.eight-five{ overflow:hidden !important; width : 160px !important;height: 100px !important; }
+.eight-six{ overflow:hidden !important; width : 160px !important;height: 120px !important; }
+.eight-seven{ overflow:hidden !important; width : 160px !important;height: 140px !important; }
+.eight-eight{ overflow:hidden !important; width : 160px !important;height: 160px !important; }
+.eight-nine{ overflow:hidden !important; width : 160px !important;height: 180px !important; }
+.eight-ten{ overflow:hidden !important; width : 160px !important;height: 200px !important; }
+.eight-eleven{ overflow:hidden !important; width : 160px !important;height: 220px !important; }
+.eight-twelve{ overflow:hidden !important; width : 160px !important;height: 240px !important; }
+.eight-thirteen{ overflow:hidden !important; width : 160px !important;height: 260px !important; }
+.eight-fourteen{ overflow:hidden !important; width : 160px !important;height: 280px !important; }
+.eight-fifteen{ overflow:hidden !important; width : 160px !important;height: 300px !important; }
+.eight-sixteen{ overflow:hidden !important; width : 160px !important;height: 320px !important; }
+.eight-seventeen{ overflow:hidden !important; width : 160px !important;height: 340px !important; }
+.eight-eighteen{ overflow:hidden !important; width : 160px !important;height: 360px !important; }
+.eight-nineteen{ overflow:hidden !important; width : 160px !important;height: 380px !important; }
+.eight-twenty{ overflow:hidden !important; width : 160px !important;height: 400px !important; }
+.eight-twenty-one{ overflow:hidden !important; width : 160px !important;height: 420px !important; }
+.eight-twenty-two{ overflow:hidden !important; width : 160px !important;height: 440px !important; }
+.eight-twenty-three{ overflow:hidden !important; width : 160px !important;height: 460px !important; }
+.eight-twenty-four{ overflow:hidden !important; width : 160px !important;height: 480px !important; }
+.nine-zero{ overflow:hidden !important; width : 180px !important;height: 0px !important; }
+.nine-one{ overflow:hidden !important; width : 180px !important;height: 20px !important; }
+.nine-two{ overflow:hidden !important; width : 180px !important;height: 40px !important; }
+.nine-three{ overflow:hidden !important; width : 180px !important;height: 60px !important; }
+.nine-four{ overflow:hidden !important; width : 180px !important;height: 80px !important; }
+.nine-five{ overflow:hidden !important; width : 180px !important;height: 100px !important; }
+.nine-six{ overflow:hidden !important; width : 180px !important;height: 120px !important; }
+.nine-seven{ overflow:hidden !important; width : 180px !important;height: 140px !important; }
+.nine-eight{ overflow:hidden !important; width : 180px !important;height: 160px !important; }
+.nine-nine{ overflow:hidden !important; width : 180px !important;height: 180px !important; }
+.nine-ten{ overflow:hidden !important; width : 180px !important;height: 200px !important; }
+.nine-eleven{ overflow:hidden !important; width : 180px !important;height: 220px !important; }
+.nine-twelve{ overflow:hidden !important; width : 180px !important;height: 240px !important; }
+.nine-thirteen{ overflow:hidden !important; width : 180px !important;height: 260px !important; }
+.nine-fourteen{ overflow:hidden !important; width : 180px !important;height: 280px !important; }
+.nine-fifteen{ overflow:hidden !important; width : 180px !important;height: 300px !important; }
+.nine-sixteen{ overflow:hidden !important; width : 180px !important;height: 320px !important; }
+.nine-seventeen{ overflow:hidden !important; width : 180px !important;height: 340px !important; }
+.nine-eighteen{ overflow:hidden !important; width : 180px !important;height: 360px !important; }
+.nine-nineteen{ overflow:hidden !important; width : 180px !important;height: 380px !important; }
+.nine-twenty{ overflow:hidden !important; width : 180px !important;height: 400px !important; }
+.nine-twenty-one{ overflow:hidden !important; width : 180px !important;height: 420px !important; }
+.nine-twenty-two{ overflow:hidden !important; width : 180px !important;height: 440px !important; }
+.nine-twenty-three{ overflow:hidden !important; width : 180px !important;height: 460px !important; }
+.nine-twenty-four{ overflow:hidden !important; width : 180px !important;height: 480px !important; }
+.ten-zero{ overflow:hidden !important; width : 200px !important;height: 0px !important; }
+.ten-one{ overflow:hidden !important; width : 200px !important;height: 20px !important; }
+.ten-two{ overflow:hidden !important; width : 200px !important;height: 40px !important; }
+.ten-three{ overflow:hidden !important; width : 200px !important;height: 60px !important; }
+.ten-four{ overflow:hidden !important; width : 200px !important;height: 80px !important; }
+.ten-five{ overflow:hidden !important; width : 200px !important;height: 100px !important; }
+.ten-six{ overflow:hidden !important; width : 200px !important;height: 120px !important; }
+.ten-seven{ overflow:hidden !important; width : 200px !important;height: 140px !important; }
+.ten-eight{ overflow:hidden !important; width : 200px !important;height: 160px !important; }
+.ten-nine{ overflow:hidden !important; width : 200px !important;height: 180px !important; }
+.ten-ten{ overflow:hidden !important; width : 200px !important;height: 200px !important; }
+.ten-eleven{ overflow:hidden !important; width : 200px !important;height: 220px !important; }
+.ten-twelve{ overflow:hidden !important; width : 200px !important;height: 240px !important; }
+.ten-thirteen{ overflow:hidden !important; width : 200px !important;height: 260px !important; }
+.ten-fourteen{ overflow:hidden !important; width : 200px !important;height: 280px !important; }
+.ten-fifteen{ overflow:hidden !important; width : 200px !important;height: 300px !important; }
+.ten-sixteen{ overflow:hidden !important; width : 200px !important;height: 320px !important; }
+.ten-seventeen{ overflow:hidden !important; width : 200px !important;height: 340px !important; }
+.ten-eighteen{ overflow:hidden !important; width : 200px !important;height: 360px !important; }
+.ten-nineteen{ overflow:hidden !important; width : 200px !important;height: 380px !important; }
+.ten-twenty{ overflow:hidden !important; width : 200px !important;height: 400px !important; }
+.ten-twenty-one{ overflow:hidden !important; width : 200px !important;height: 420px !important; }
+.ten-twenty-two{ overflow:hidden !important; width : 200px !important;height: 440px !important; }
+.ten-twenty-three{ overflow:hidden !important; width : 200px !important;height: 460px !important; }
+.ten-twenty-four{ overflow:hidden !important; width : 200px !important;height: 480px !important; }
+.eleven-zero{ overflow:hidden !important; width : 220px !important;height: 0px !important; }
+.eleven-one{ overflow:hidden !important; width : 220px !important;height: 20px !important; }
+.eleven-two{ overflow:hidden !important; width : 220px !important;height: 40px !important; }
+.eleven-three{ overflow:hidden !important; width : 220px !important;height: 60px !important; }
+.eleven-four{ overflow:hidden !important; width : 220px !important;height: 80px !important; }
+.eleven-five{ overflow:hidden !important; width : 220px !important;height: 100px !important; }
+.eleven-six{ overflow:hidden !important; width : 220px !important;height: 120px !important; }
+.eleven-seven{ overflow:hidden !important; width : 220px !important;height: 140px !important; }
+.eleven-eight{ overflow:hidden !important; width : 220px !important;height: 160px !important; }
+.eleven-nine{ overflow:hidden !important; width : 220px !important;height: 180px !important; }
+.eleven-ten{ overflow:hidden !important; width : 220px !important;height: 200px !important; }
+.eleven-eleven{ overflow:hidden !important; width : 220px !important;height: 220px !important; }
+.eleven-twelve{ overflow:hidden !important; width : 220px !important;height: 240px !important; }
+.eleven-thirteen{ overflow:hidden !important; width : 220px !important;height: 260px !important; }
+.eleven-fourteen{ overflow:hidden !important; width : 220px !important;height: 280px !important; }
+.eleven-fifteen{ overflow:hidden !important; width : 220px !important;height: 300px !important; }
+.eleven-sixteen{ overflow:hidden !important; width : 220px !important;height: 320px !important; }
+.eleven-seventeen{ overflow:hidden !important; width : 220px !important;height: 340px !important; }
+.eleven-eighteen{ overflow:hidden !important; width : 220px !important;height: 360px !important; }
+.eleven-nineteen{ overflow:hidden !important; width : 220px !important;height: 380px !important; }
+.eleven-twenty{ overflow:hidden !important; width : 220px !important;height: 400px !important; }
+.eleven-twenty-one{ overflow:hidden !important; width : 220px !important;height: 420px !important; }
+.eleven-twenty-two{ overflow:hidden !important; width : 220px !important;height: 440px !important; }
+.eleven-twenty-three{ overflow:hidden !important; width : 220px !important;height: 460px !important; }
+.eleven-twenty-four{ overflow:hidden !important; width : 220px !important;height: 480px !important; }
+.twelve-zero{ overflow:hidden !important; width : 240px !important;height: 0px !important; }
+.twelve-one{ overflow:hidden !important; width : 240px !important;height: 20px !important; }
+.twelve-two{ overflow:hidden !important; width : 240px !important;height: 40px !important; }
+.twelve-three{ overflow:hidden !important; width : 240px !important;height: 60px !important; }
+.twelve-four{ overflow:hidden !important; width : 240px !important;height: 80px !important; }
+.twelve-five{ overflow:hidden !important; width : 240px !important;height: 100px !important; }
+.twelve-six{ overflow:hidden !important; width : 240px !important;height: 120px !important; }
+.twelve-seven{ overflow:hidden !important; width : 240px !important;height: 140px !important; }
+.twelve-eight{ overflow:hidden !important; width : 240px !important;height: 160px !important; }
+.twelve-nine{ overflow:hidden !important; width : 240px !important;height: 180px !important; }
+.twelve-ten{ overflow:hidden !important; width : 240px !important;height: 200px !important; }
+.twelve-eleven{ overflow:hidden !important; width : 240px !important;height: 220px !important; }
+.twelve-twelve{ overflow:hidden !important; width : 240px !important;height: 240px !important; }
+.twelve-thirteen{ overflow:hidden !important; width : 240px !important;height: 260px !important; }
+.twelve-fourteen{ overflow:hidden !important; width : 240px !important;height: 280px !important; }
+.twelve-fifteen{ overflow:hidden !important; width : 240px !important;height: 300px !important; }
+.twelve-sixteen{ overflow:hidden !important; width : 240px !important;height: 320px !important; }
+.twelve-seventeen{ overflow:hidden !important; width : 240px !important;height: 340px !important; }
+.twelve-eighteen{ overflow:hidden !important; width : 240px !important;height: 360px !important; }
+.twelve-nineteen{ overflow:hidden !important; width : 240px !important;height: 380px !important; }
+.twelve-twenty{ overflow:hidden !important; width : 240px !important;height: 400px !important; }
+.twelve-twenty-one{ overflow:hidden !important; width : 240px !important;height: 420px !important; }
+.twelve-twenty-two{ overflow:hidden !important; width : 240px !important;height: 440px !important; }
+.twelve-twenty-three{ overflow:hidden !important; width : 240px !important;height: 460px !important; }
+.twelve-twenty-four{ overflow:hidden !important; width : 240px !important;height: 480px !important; }
+.thirteen-zero{ overflow:hidden !important; width : 260px !important;height: 0px !important; }
+.thirteen-one{ overflow:hidden !important; width : 260px !important;height: 20px !important; }
+.thirteen-two{ overflow:hidden !important; width : 260px !important;height: 40px !important; }
+.thirteen-three{ overflow:hidden !important; width : 260px !important;height: 60px !important; }
+.thirteen-four{ overflow:hidden !important; width : 260px !important;height: 80px !important; }
+.thirteen-five{ overflow:hidden !important; width : 260px !important;height: 100px !important; }
+.thirteen-six{ overflow:hidden !important; width : 260px !important;height: 120px !important; }
+.thirteen-seven{ overflow:hidden !important; width : 260px !important;height: 140px !important; }
+.thirteen-eight{ overflow:hidden !important; width : 260px !important;height: 160px !important; }
+.thirteen-nine{ overflow:hidden !important; width : 260px !important;height: 180px !important; }
+.thirteen-ten{ overflow:hidden !important; width : 260px !important;height: 200px !important; }
+.thirteen-eleven{ overflow:hidden !important; width : 260px !important;height: 220px !important; }
+.thirteen-twelve{ overflow:hidden !important; width : 260px !important;height: 240px !important; }
+.thirteen-thirteen{ overflow:hidden !important; width : 260px !important;height: 260px !important; }
+.thirteen-fourteen{ overflow:hidden !important; width : 260px !important;height: 280px !important; }
+.thirteen-fifteen{ overflow:hidden !important; width : 260px !important;height: 300px !important; }
+.thirteen-sixteen{ overflow:hidden !important; width : 260px !important;height: 320px !important; }
+.thirteen-seventeen{ overflow:hidden !important; width : 260px !important;height: 340px !important; }
+.thirteen-eighteen{ overflow:hidden !important; width : 260px !important;height: 360px !important; }
+.thirteen-nineteen{ overflow:hidden !important; width : 260px !important;height: 380px !important; }
+.thirteen-twenty{ overflow:hidden !important; width : 260px !important;height: 400px !important; }
+.thirteen-twenty-one{ overflow:hidden !important; width : 260px !important;height: 420px !important; }
+.thirteen-twenty-two{ overflow:hidden !important; width : 260px !important;height: 440px !important; }
+.thirteen-twenty-three{ overflow:hidden !important; width : 260px !important;height: 460px !important; }
+.thirteen-twenty-four{ overflow:hidden !important; width : 260px !important;height: 480px !important; }
+.fourteen-zero{ overflow:hidden !important; width : 280px !important;height: 0px !important; }
+.fourteen-one{ overflow:hidden !important; width : 280px !important;height: 20px !important; }
+.fourteen-two{ overflow:hidden !important; width : 280px !important;height: 40px !important; }
+.fourteen-three{ overflow:hidden !important; width : 280px !important;height: 60px !important; }
+.fourteen-four{ overflow:hidden !important; width : 280px !important;height: 80px !important; }
+.fourteen-five{ overflow:hidden !important; width : 280px !important;height: 100px !important; }
+.fourteen-six{ overflow:hidden !important; width : 280px !important;height: 120px !important; }
+.fourteen-seven{ overflow:hidden !important; width : 280px !important;height: 140px !important; }
+.fourteen-eight{ overflow:hidden !important; width : 280px !important;height: 160px !important; }
+.fourteen-nine{ overflow:hidden !important; width : 280px !important;height: 180px !important; }
+.fourteen-ten{ overflow:hidden !important; width : 280px !important;height: 200px !important; }
+.fourteen-eleven{ overflow:hidden !important; width : 280px !important;height: 220px !important; }
+.fourteen-twelve{ overflow:hidden !important; width : 280px !important;height: 240px !important; }
+.fourteen-thirteen{ overflow:hidden !important; width : 280px !important;height: 260px !important; }
+.fourteen-fourteen{ overflow:hidden !important; width : 280px !important;height: 280px !important; }
+.fourteen-fifteen{ overflow:hidden !important; width : 280px !important;height: 300px !important; }
+.fourteen-sixteen{ overflow:hidden !important; width : 280px !important;height: 320px !important; }
+.fourteen-seventeen{ overflow:hidden !important; width : 280px !important;height: 340px !important; }
+.fourteen-eighteen{ overflow:hidden !important; width : 280px !important;height: 360px !important; }
+.fourteen-nineteen{ overflow:hidden !important; width : 280px !important;height: 380px !important; }
+.fourteen-twenty{ overflow:hidden !important; width : 280px !important;height: 400px !important; }
+.fourteen-twenty-one{ overflow:hidden !important; width : 280px !important;height: 420px !important; }
+.fourteen-twenty-two{ overflow:hidden !important; width : 280px !important;height: 440px !important; }
+.fourteen-twenty-three{ overflow:hidden !important; width : 280px !important;height: 460px !important; }
+.fourteen-twenty-four{ overflow:hidden !important; width : 280px !important;height: 480px !important; }
+.fifteen-zero{ overflow:hidden !important; width : 300px !important;height: 0px !important; }
+.fifteen-one{ overflow:hidden !important; width : 300px !important;height: 20px !important; }
+.fifteen-two{ overflow:hidden !important; width : 300px !important;height: 40px !important; }
+.fifteen-three{ overflow:hidden !important; width : 300px !important;height: 60px !important; }
+.fifteen-four{ overflow:hidden !important; width : 300px !important;height: 80px !important; }
+.fifteen-five{ overflow:hidden !important; width : 300px !important;height: 100px !important; }
+.fifteen-six{ overflow:hidden !important; width : 300px !important;height: 120px !important; }
+.fifteen-seven{ overflow:hidden !important; width : 300px !important;height: 140px !important; }
+.fifteen-eight{ overflow:hidden !important; width : 300px !important;height: 160px !important; }
+.fifteen-nine{ overflow:hidden !important; width : 300px !important;height: 180px !important; }
+.fifteen-ten{ overflow:hidden !important; width : 300px !important;height: 200px !important; }
+.fifteen-eleven{ overflow:hidden !important; width : 300px !important;height: 220px !important; }
+.fifteen-twelve{ overflow:hidden !important; width : 300px !important;height: 240px !important; }
+.fifteen-thirteen{ overflow:hidden !important; width : 300px !important;height: 260px !important; }
+.fifteen-fourteen{ overflow:hidden !important; width : 300px !important;height: 280px !important; }
+.fifteen-fifteen{ overflow:hidden !important; width : 300px !important;height: 300px !important; }
+.fifteen-sixteen{ overflow:hidden !important; width : 300px !important;height: 320px !important; }
+.fifteen-seventeen{ overflow:hidden !important; width : 300px !important;height: 340px !important; }
+.fifteen-eighteen{ overflow:hidden !important; width : 300px !important;height: 360px !important; }
+.fifteen-nineteen{ overflow:hidden !important; width : 300px !important;height: 380px !important; }
+.fifteen-twenty{ overflow:hidden !important; width : 300px !important;height: 400px !important; }
+.fifteen-twenty-one{ overflow:hidden !important; width : 300px !important;height: 420px !important; }
+.fifteen-twenty-two{ overflow:hidden !important; width : 300px !important;height: 440px !important; }
+.fifteen-twenty-three{ overflow:hidden !important; width : 300px !important;height: 460px !important; }
+.fifteen-twenty-four{ overflow:hidden !important; width : 300px !important;height: 480px !important; }
+.sixteen-zero{ overflow:hidden !important; width : 320px !important;height: 0px !important; }
+.sixteen-one{ overflow:hidden !important; width : 320px !important;height: 20px !important; }
+.sixteen-two{ overflow:hidden !important; width : 320px !important;height: 40px !important; }
+.sixteen-three{ overflow:hidden !important; width : 320px !important;height: 60px !important; }
+.sixteen-four{ overflow:hidden !important; width : 320px !important;height: 80px !important; }
+.sixteen-five{ overflow:hidden !important; width : 320px !important;height: 100px !important; }
+.sixteen-six{ overflow:hidden !important; width : 320px !important;height: 120px !important; }
+.sixteen-seven{ overflow:hidden !important; width : 320px !important;height: 140px !important; }
+.sixteen-eight{ overflow:hidden !important; width : 320px !important;height: 160px !important; }
+.sixteen-nine{ overflow:hidden !important; width : 320px !important;height: 180px !important; }
+.sixteen-ten{ overflow:hidden !important; width : 320px !important;height: 200px !important; }
+.sixteen-eleven{ overflow:hidden !important; width : 320px !important;height: 220px !important; }
+.sixteen-twelve{ overflow:hidden !important; width : 320px !important;height: 240px !important; }
+.sixteen-thirteen{ overflow:hidden !important; width : 320px !important;height: 260px !important; }
+.sixteen-fourteen{ overflow:hidden !important; width : 320px !important;height: 280px !important; }
+.sixteen-fifteen{ overflow:hidden !important; width : 320px !important;height: 300px !important; }
+.sixteen-sixteen{ overflow:hidden !important; width : 320px !important;height: 320px !important; }
+.sixteen-seventeen{ overflow:hidden !important; width : 320px !important;height: 340px !important; }
+.sixteen-eighteen{ overflow:hidden !important; width : 320px !important;height: 360px !important; }
+.sixteen-nineteen{ overflow:hidden !important; width : 320px !important;height: 380px !important; }
+.sixteen-twenty{ overflow:hidden !important; width : 320px !important;height: 400px !important; }
+.sixteen-twenty-one{ overflow:hidden !important; width : 320px !important;height: 420px !important; }
+.sixteen-twenty-two{ overflow:hidden !important; width : 320px !important;height: 440px !important; }
+.sixteen-twenty-three{ overflow:hidden !important; width : 320px !important;height: 460px !important; }
+.sixteen-twenty-four{ overflow:hidden !important; width : 320px !important;height: 480px !important; }
+.seventeen-zero{ overflow:hidden !important; width : 340px !important;height: 0px !important; }
+.seventeen-one{ overflow:hidden !important; width : 340px !important;height: 20px !important; }
+.seventeen-two{ overflow:hidden !important; width : 340px !important;height: 40px !important; }
+.seventeen-three{ overflow:hidden !important; width : 340px !important;height: 60px !important; }
+.seventeen-four{ overflow:hidden !important; width : 340px !important;height: 80px !important; }
+.seventeen-five{ overflow:hidden !important; width : 340px !important;height: 100px !important; }
+.seventeen-six{ overflow:hidden !important; width : 340px !important;height: 120px !important; }
+.seventeen-seven{ overflow:hidden !important; width : 340px !important;height: 140px !important; }
+.seventeen-eight{ overflow:hidden !important; width : 340px !important;height: 160px !important; }
+.seventeen-nine{ overflow:hidden !important; width : 340px !important;height: 180px !important; }
+.seventeen-ten{ overflow:hidden !important; width : 340px !important;height: 200px !important; }
+.seventeen-eleven{ overflow:hidden !important; width : 340px !important;height: 220px !important; }
+.seventeen-twelve{ overflow:hidden !important; width : 340px !important;height: 240px !important; }
+.seventeen-thirteen{ overflow:hidden !important; width : 340px !important;height: 260px !important; }
+.seventeen-fourteen{ overflow:hidden !important; width : 340px !important;height: 280px !important; }
+.seventeen-fifteen{ overflow:hidden !important; width : 340px !important;height: 300px !important; }
+.seventeen-sixteen{ overflow:hidden !important; width : 340px !important;height: 320px !important; }
+.seventeen-seventeen{ overflow:hidden !important; width : 340px !important;height: 340px !important; }
+.seventeen-eighteen{ overflow:hidden !important; width : 340px !important;height: 360px !important; }
+.seventeen-nineteen{ overflow:hidden !important; width : 340px !important;height: 380px !important; }
+.seventeen-twenty{ overflow:hidden !important; width : 340px !important;height: 400px !important; }
+.seventeen-twenty-one{ overflow:hidden !important; width : 340px !important;height: 420px !important; }
+.seventeen-twenty-two{ overflow:hidden !important; width : 340px !important;height: 440px !important; }
+.seventeen-twenty-three{ overflow:hidden !important; width : 340px !important;height: 460px !important; }
+.seventeen-twenty-four{ overflow:hidden !important; width : 340px !important;height: 480px !important; }
+.eighteen-zero{ overflow:hidden !important; width : 360px !important;height: 0px !important; }
+.eighteen-one{ overflow:hidden !important; width : 360px !important;height: 20px !important; }
+.eighteen-two{ overflow:hidden !important; width : 360px !important;height: 40px !important; }
+.eighteen-three{ overflow:hidden !important; width : 360px !important;height: 60px !important; }
+.eighteen-four{ overflow:hidden !important; width : 360px !important;height: 80px !important; }
+.eighteen-five{ overflow:hidden !important; width : 360px !important;height: 100px !important; }
+.eighteen-six{ overflow:hidden !important; width : 360px !important;height: 120px !important; }
+.eighteen-seven{ overflow:hidden !important; width : 360px !important;height: 140px !important; }
+.eighteen-eight{ overflow:hidden !important; width : 360px !important;height: 160px !important; }
+.eighteen-nine{ overflow:hidden !important; width : 360px !important;height: 180px !important; }
+.eighteen-ten{ overflow:hidden !important; width : 360px !important;height: 200px !important; }
+.eighteen-eleven{ overflow:hidden !important; width : 360px !important;height: 220px !important; }
+.eighteen-twelve{ overflow:hidden !important; width : 360px !important;height: 240px !important; }
+.eighteen-thirteen{ overflow:hidden !important; width : 360px !important;height: 260px !important; }
+.eighteen-fourteen{ overflow:hidden !important; width : 360px !important;height: 280px !important; }
+.eighteen-fifteen{ overflow:hidden !important; width : 360px !important;height: 300px !important; }
+.eighteen-sixteen{ overflow:hidden !important; width : 360px !important;height: 320px !important; }
+.eighteen-seventeen{ overflow:hidden !important; width : 360px !important;height: 340px !important; }
+.eighteen-eighteen{ overflow:hidden !important; width : 360px !important;height: 360px !important; }
+.eighteen-nineteen{ overflow:hidden !important; width : 360px !important;height: 380px !important; }
+.eighteen-twenty{ overflow:hidden !important; width : 360px !important;height: 400px !important; }
+.eighteen-twenty-one{ overflow:hidden !important; width : 360px !important;height: 420px !important; }
+.eighteen-twenty-two{ overflow:hidden !important; width : 360px !important;height: 440px !important; }
+.eighteen-twenty-three{ overflow:hidden !important; width : 360px !important;height: 460px !important; }
+.eighteen-twenty-four{ overflow:hidden !important; width : 360px !important;height: 480px !important; }
+.nineteen-zero{ overflow:hidden !important; width : 380px !important;height: 0px !important; }
+.nineteen-one{ overflow:hidden !important; width : 380px !important;height: 20px !important; }
+.nineteen-two{ overflow:hidden !important; width : 380px !important;height: 40px !important; }
+.nineteen-three{ overflow:hidden !important; width : 380px !important;height: 60px !important; }
+.nineteen-four{ overflow:hidden !important; width : 380px !important;height: 80px !important; }
+.nineteen-five{ overflow:hidden !important; width : 380px !important;height: 100px !important; }
+.nineteen-six{ overflow:hidden !important; width : 380px !important;height: 120px !important; }
+.nineteen-seven{ overflow:hidden !important; width : 380px !important;height: 140px !important; }
+.nineteen-eight{ overflow:hidden !important; width : 380px !important;height: 160px !important; }
+.nineteen-nine{ overflow:hidden !important; width : 380px !important;height: 180px !important; }
+.nineteen-ten{ overflow:hidden !important; width : 380px !important;height: 200px !important; }
+.nineteen-eleven{ overflow:hidden !important; width : 380px !important;height: 220px !important; }
+.nineteen-twelve{ overflow:hidden !important; width : 380px !important;height: 240px !important; }
+.nineteen-thirteen{ overflow:hidden !important; width : 380px !important;height: 260px !important; }
+.nineteen-fourteen{ overflow:hidden !important; width : 380px !important;height: 280px !important; }
+.nineteen-fifteen{ overflow:hidden !important; width : 380px !important;height: 300px !important; }
+.nineteen-sixteen{ overflow:hidden !important; width : 380px !important;height: 320px !important; }
+.nineteen-seventeen{ overflow:hidden !important; width : 380px !important;height: 340px !important; }
+.nineteen-eighteen{ overflow:hidden !important; width : 380px !important;height: 360px !important; }
+.nineteen-nineteen{ overflow:hidden !important; width : 380px !important;height: 380px !important; }
+.nineteen-twenty{ overflow:hidden !important; width : 380px !important;height: 400px !important; }
+.nineteen-twenty-one{ overflow:hidden !important; width : 380px !important;height: 420px !important; }
+.nineteen-twenty-two{ overflow:hidden !important; width : 380px !important;height: 440px !important; }
+.nineteen-twenty-three{ overflow:hidden !important; width : 380px !important;height: 460px !important; }
+.nineteen-twenty-four{ overflow:hidden !important; width : 380px !important;height: 480px !important; }
+.twenty-zero{ overflow:hidden !important; width : 400px !important;height: 0px !important; }
+.twenty-one{ overflow:hidden !important; width : 400px !important;height: 20px !important; }
+.twenty-two{ overflow:hidden !important; width : 400px !important;height: 40px !important; }
+.twenty-three{ overflow:hidden !important; width : 400px !important;height: 60px !important; }
+.twenty-four{ overflow:hidden !important; width : 400px !important;height: 80px !important; }
+.twenty-five{ overflow:hidden !important; width : 400px !important;height: 100px !important; }
+.twenty-six{ overflow:hidden !important; width : 400px !important;height: 120px !important; }
+.twenty-seven{ overflow:hidden !important; width : 400px !important;height: 140px !important; }
+.twenty-eight{ overflow:hidden !important; width : 400px !important;height: 160px !important; }
+.twenty-nine{ overflow:hidden !important; width : 400px !important;height: 180px !important; }
+.twenty-ten{ overflow:hidden !important; width : 400px !important;height: 200px !important; }
+.twenty-eleven{ overflow:hidden !important; width : 400px !important;height: 220px !important; }
+.twenty-twelve{ overflow:hidden !important; width : 400px !important;height: 240px !important; }
+.twenty-thirteen{ overflow:hidden !important; width : 400px !important;height: 260px !important; }
+.twenty-fourteen{ overflow:hidden !important; width : 400px !important;height: 280px !important; }
+.twenty-fifteen{ overflow:hidden !important; width : 400px !important;height: 300px !important; }
+.twenty-sixteen{ overflow:hidden !important; width : 400px !important;height: 320px !important; }
+.twenty-seventeen{ overflow:hidden !important; width : 400px !important;height: 340px !important; }
+.twenty-eighteen{ overflow:hidden !important; width : 400px !important;height: 360px !important; }
+.twenty-nineteen{ overflow:hidden !important; width : 400px !important;height: 380px !important; }
+.twenty-twenty{ overflow:hidden !important; width : 400px !important;height: 400px !important; }
+.twenty-twenty-one{ overflow:hidden !important; width : 400px !important;height: 420px !important; }
+.twenty-twenty-two{ overflow:hidden !important; width : 400px !important;height: 440px !important; }
+.twenty-twenty-three{ overflow:hidden !important; width : 400px !important;height: 460px !important; }
+.twenty-twenty-four{ overflow:hidden !important; width : 400px !important;height: 480px !important; }
+.twenty-one-zero{ overflow:hidden !important; width : 420px !important;height: 0px !important; }
+.twenty-one-one{ overflow:hidden !important; width : 420px !important;height: 20px !important; }
+.twenty-one-two{ overflow:hidden !important; width : 420px !important;height: 40px !important; }
+.twenty-one-three{ overflow:hidden !important; width : 420px !important;height: 60px !important; }
+.twenty-one-four{ overflow:hidden !important; width : 420px !important;height: 80px !important; }
+.twenty-one-five{ overflow:hidden !important; width : 420px !important;height: 100px !important; }
+.twenty-one-six{ overflow:hidden !important; width : 420px !important;height: 120px !important; }
+.twenty-one-seven{ overflow:hidden !important; width : 420px !important;height: 140px !important; }
+.twenty-one-eight{ overflow:hidden !important; width : 420px !important;height: 160px !important; }
+.twenty-one-nine{ overflow:hidden !important; width : 420px !important;height: 180px !important; }
+.twenty-one-ten{ overflow:hidden !important; width : 420px !important;height: 200px !important; }
+.twenty-one-eleven{ overflow:hidden !important; width : 420px !important;height: 220px !important; }
+.twenty-one-twelve{ overflow:hidden !important; width : 420px !important;height: 240px !important; }
+.twenty-one-thirteen{ overflow:hidden !important; width : 420px !important;height: 260px !important; }
+.twenty-one-fourteen{ overflow:hidden !important; width : 420px !important;height: 280px !important; }
+.twenty-one-fifteen{ overflow:hidden !important; width : 420px !important;height: 300px !important; }
+.twenty-one-sixteen{ overflow:hidden !important; width : 420px !important;height: 320px !important; }
+.twenty-one-seventeen{ overflow:hidden !important; width : 420px !important;height: 340px !important; }
+.twenty-one-eighteen{ overflow:hidden !important; width : 420px !important;height: 360px !important; }
+.twenty-one-nineteen{ overflow:hidden !important; width : 420px !important;height: 380px !important; }
+.twenty-one-twenty{ overflow:hidden !important; width : 420px !important;height: 400px !important; }
+.twenty-one-twenty-one{ overflow:hidden !important; width : 420px !important;height: 420px !important; }
+.twenty-one-twenty-two{ overflow:hidden !important; width : 420px !important;height: 440px !important; }
+.twenty-one-twenty-three{ overflow:hidden !important; width : 420px !important;height: 460px !important; }
+.twenty-one-twenty-four{ overflow:hidden !important; width : 420px !important;height: 480px !important; }
+.twenty-two-zero{ overflow:hidden !important; width : 440px !important;height: 0px !important; }
+.twenty-two-one{ overflow:hidden !important; width : 440px !important;height: 20px !important; }
+.twenty-two-two{ overflow:hidden !important; width : 440px !important;height: 40px !important; }
+.twenty-two-three{ overflow:hidden !important; width : 440px !important;height: 60px !important; }
+.twenty-two-four{ overflow:hidden !important; width : 440px !important;height: 80px !important; }
+.twenty-two-five{ overflow:hidden !important; width : 440px !important;height: 100px !important; }
+.twenty-two-six{ overflow:hidden !important; width : 440px !important;height: 120px !important; }
+.twenty-two-seven{ overflow:hidden !important; width : 440px !important;height: 140px !important; }
+.twenty-two-eight{ overflow:hidden !important; width : 440px !important;height: 160px !important; }
+.twenty-two-nine{ overflow:hidden !important; width : 440px !important;height: 180px !important; }
+.twenty-two-ten{ overflow:hidden !important; width : 440px !important;height: 200px !important; }
+.twenty-two-eleven{ overflow:hidden !important; width : 440px !important;height: 220px !important; }
+.twenty-two-twelve{ overflow:hidden !important; width : 440px !important;height: 240px !important; }
+.twenty-two-thirteen{ overflow:hidden !important; width : 440px !important;height: 260px !important; }
+.twenty-two-fourteen{ overflow:hidden !important; width : 440px !important;height: 280px !important; }
+.twenty-two-fifteen{ overflow:hidden !important; width : 440px !important;height: 300px !important; }
+.twenty-two-sixteen{ overflow:hidden !important; width : 440px !important;height: 320px !important; }
+.twenty-two-seventeen{ overflow:hidden !important; width : 440px !important;height: 340px !important; }
+.twenty-two-eighteen{ overflow:hidden !important; width : 440px !important;height: 360px !important; }
+.twenty-two-nineteen{ overflow:hidden !important; width : 440px !important;height: 380px !important; }
+.twenty-two-twenty{ overflow:hidden !important; width : 440px !important;height: 400px !important; }
+.twenty-two-twenty-one{ overflow:hidden !important; width : 440px !important;height: 420px !important; }
+.twenty-two-twenty-two{ overflow:hidden !important; width : 440px !important;height: 440px !important; }
+.twenty-two-twenty-three{ overflow:hidden !important; width : 440px !important;height: 460px !important; }
+.twenty-two-twenty-four{ overflow:hidden !important; width : 440px !important;height: 480px !important; }
+.twenty-three-zero{ overflow:hidden !important; width : 460px !important;height: 0px !important; }
+.twenty-three-one{ overflow:hidden !important; width : 460px !important;height: 20px !important; }
+.twenty-three-two{ overflow:hidden !important; width : 460px !important;height: 40px !important; }
+.twenty-three-three{ overflow:hidden !important; width : 460px !important;height: 60px !important; }
+.twenty-three-four{ overflow:hidden !important; width : 460px !important;height: 80px !important; }
+.twenty-three-five{ overflow:hidden !important; width : 460px !important;height: 100px !important; }
+.twenty-three-six{ overflow:hidden !important; width : 460px !important;height: 120px !important; }
+.twenty-three-seven{ overflow:hidden !important; width : 460px !important;height: 140px !important; }
+.twenty-three-eight{ overflow:hidden !important; width : 460px !important;height: 160px !important; }
+.twenty-three-nine{ overflow:hidden !important; width : 460px !important;height: 180px !important; }
+.twenty-three-ten{ overflow:hidden !important; width : 460px !important;height: 200px !important; }
+.twenty-three-eleven{ overflow:hidden !important; width : 460px !important;height: 220px !important; }
+.twenty-three-twelve{ overflow:hidden !important; width : 460px !important;height: 240px !important; }
+.twenty-three-thirteen{ overflow:hidden !important; width : 460px !important;height: 260px !important; }
+.twenty-three-fourteen{ overflow:hidden !important; width : 460px !important;height: 280px !important; }
+.twenty-three-fifteen{ overflow:hidden !important; width : 460px !important;height: 300px !important; }
+.twenty-three-sixteen{ overflow:hidden !important; width : 460px !important;height: 320px !important; }
+.twenty-three-seventeen{ overflow:hidden !important; width : 460px !important;height: 340px !important; }
+.twenty-three-eighteen{ overflow:hidden !important; width : 460px !important;height: 360px !important; }
+.twenty-three-nineteen{ overflow:hidden !important; width : 460px !important;height: 380px !important; }
+.twenty-three-twenty{ overflow:hidden !important; width : 460px !important;height: 400px !important; }
+.twenty-three-twenty-one{ overflow:hidden !important; width : 460px !important;height: 420px !important; }
+.twenty-three-twenty-two{ overflow:hidden !important; width : 460px !important;height: 440px !important; }
+.twenty-three-twenty-three{ overflow:hidden !important; width : 460px !important;height: 460px !important; }
+.twenty-three-twenty-four{ overflow:hidden !important; width : 460px !important;height: 480px !important; }
+.twenty-four-zero{ overflow:hidden !important; width : 480px !important;height: 0px !important; }
+.twenty-four-one{ overflow:hidden !important; width : 480px !important;height: 20px !important; }
+.twenty-four-two{ overflow:hidden !important; width : 480px !important;height: 40px !important; }
+.twenty-four-three{ overflow:hidden !important; width : 480px !important;height: 60px !important; }
+.twenty-four-four{ overflow:hidden !important; width : 480px !important;height: 80px !important; }
+.twenty-four-five{ overflow:hidden !important; width : 480px !important;height: 100px !important; }
+.twenty-four-six{ overflow:hidden !important; width : 480px !important;height: 120px !important; }
+.twenty-four-seven{ overflow:hidden !important; width : 480px !important;height: 140px !important; }
+.twenty-four-eight{ overflow:hidden !important; width : 480px !important;height: 160px !important; }
+.twenty-four-nine{ overflow:hidden !important; width : 480px !important;height: 180px !important; }
+.twenty-four-ten{ overflow:hidden !important; width : 480px !important;height: 200px !important; }
+.twenty-four-eleven{ overflow:hidden !important; width : 480px !important;height: 220px !important; }
+.twenty-four-twelve{ overflow:hidden !important; width : 480px !important;height: 240px !important; }
+.twenty-four-thirteen{ overflow:hidden !important; width : 480px !important;height: 260px !important; }
+.twenty-four-fourteen{ overflow:hidden !important; width : 480px !important;height: 280px !important; }
+.twenty-four-fifteen{ overflow:hidden !important; width : 480px !important;height: 300px !important; }
+.twenty-four-sixteen{ overflow:hidden !important; width : 480px !important;height: 320px !important; }
+.twenty-four-seventeen{ overflow:hidden !important; width : 480px !important;height: 340px !important; }
+.twenty-four-eighteen{ overflow:hidden !important; width : 480px !important;height: 360px !important; }
+.twenty-four-nineteen{ overflow:hidden !important; width : 480px !important;height: 380px !important; }
+.twenty-four-twenty{ overflow:hidden !important; width : 480px !important;height: 400px !important; }
+.twenty-four-twenty-one{ overflow:hidden !important; width : 480px !important;height: 420px !important; }
+.twenty-four-twenty-two{ overflow:hidden !important; width : 480px !important;height: 440px !important; }
+.twenty-four-twenty-three{ overflow:hidden !important; width : 480px !important;height: 460px !important; }
+.twenty-four-twenty-four{ overflow:hidden !important; width : 480px !important;height: 480px !important; }
+.twenty-five-zero{ overflow:hidden !important; width : 500px !important;height: 0px !important; }
+.twenty-five-one{ overflow:hidden !important; width : 500px !important;height: 20px !important; }
+.twenty-five-two{ overflow:hidden !important; width : 500px !important;height: 40px !important; }
+.twenty-five-three{ overflow:hidden !important; width : 500px !important;height: 60px !important; }
+.twenty-five-four{ overflow:hidden !important; width : 500px !important;height: 80px !important; }
+.twenty-five-five{ overflow:hidden !important; width : 500px !important;height: 100px !important; }
+.twenty-five-six{ overflow:hidden !important; width : 500px !important;height: 120px !important; }
+.twenty-five-seven{ overflow:hidden !important; width : 500px !important;height: 140px !important; }
+.twenty-five-eight{ overflow:hidden !important; width : 500px !important;height: 160px !important; }
+.twenty-five-nine{ overflow:hidden !important; width : 500px !important;height: 180px !important; }
+.twenty-five-ten{ overflow:hidden !important; width : 500px !important;height: 200px !important; }
+.twenty-five-eleven{ overflow:hidden !important; width : 500px !important;height: 220px !important; }
+.twenty-five-twelve{ overflow:hidden !important; width : 500px !important;height: 240px !important; }
+.twenty-five-thirteen{ overflow:hidden !important; width : 500px !important;height: 260px !important; }
+.twenty-five-fourteen{ overflow:hidden !important; width : 500px !important;height: 280px !important; }
+.twenty-five-fifteen{ overflow:hidden !important; width : 500px !important;height: 300px !important; }
+.twenty-five-sixteen{ overflow:hidden !important; width : 500px !important;height: 320px !important; }
+.twenty-five-seventeen{ overflow:hidden !important; width : 500px !important;height: 340px !important; }
+.twenty-five-eighteen{ overflow:hidden !important; width : 500px !important;height: 360px !important; }
+.twenty-five-nineteen{ overflow:hidden !important; width : 500px !important;height: 380px !important; }
+.twenty-five-twenty{ overflow:hidden !important; width : 500px !important;height: 400px !important; }
+.twenty-five-twenty-one{ overflow:hidden !important; width : 500px !important;height: 420px !important; }
+.twenty-five-twenty-two{ overflow:hidden !important; width : 500px !important;height: 440px !important; }
+.twenty-five-twenty-three{ overflow:hidden !important; width : 500px !important;height: 460px !important; }
+.twenty-five-twenty-four{ overflow:hidden !important; width : 500px !important;height: 480px !important; }
+.twenty-six-zero{ overflow:hidden !important; width : 520px !important;height: 0px !important; }
+.twenty-six-one{ overflow:hidden !important; width : 520px !important;height: 20px !important; }
+.twenty-six-two{ overflow:hidden !important; width : 520px !important;height: 40px !important; }
+.twenty-six-three{ overflow:hidden !important; width : 520px !important;height: 60px !important; }
+.twenty-six-four{ overflow:hidden !important; width : 520px !important;height: 80px !important; }
+.twenty-six-five{ overflow:hidden !important; width : 520px !important;height: 100px !important; }
+.twenty-six-six{ overflow:hidden !important; width : 520px !important;height: 120px !important; }
+.twenty-six-seven{ overflow:hidden !important; width : 520px !important;height: 140px !important; }
+.twenty-six-eight{ overflow:hidden !important; width : 520px !important;height: 160px !important; }
+.twenty-six-nine{ overflow:hidden !important; width : 520px !important;height: 180px !important; }
+.twenty-six-ten{ overflow:hidden !important; width : 520px !important;height: 200px !important; }
+.twenty-six-eleven{ overflow:hidden !important; width : 520px !important;height: 220px !important; }
+.twenty-six-twelve{ overflow:hidden !important; width : 520px !important;height: 240px !important; }
+.twenty-six-thirteen{ overflow:hidden !important; width : 520px !important;height: 260px !important; }
+.twenty-six-fourteen{ overflow:hidden !important; width : 520px !important;height: 280px !important; }
+.twenty-six-fifteen{ overflow:hidden !important; width : 520px !important;height: 300px !important; }
+.twenty-six-sixteen{ overflow:hidden !important; width : 520px !important;height: 320px !important; }
+.twenty-six-seventeen{ overflow:hidden !important; width : 520px !important;height: 340px !important; }
+.twenty-six-eighteen{ overflow:hidden !important; width : 520px !important;height: 360px !important; }
+.twenty-six-nineteen{ overflow:hidden !important; width : 520px !important;height: 380px !important; }
+.twenty-six-twenty{ overflow:hidden !important; width : 520px !important;height: 400px !important; }
+.twenty-six-twenty-one{ overflow:hidden !important; width : 520px !important;height: 420px !important; }
+.twenty-six-twenty-two{ overflow:hidden !important; width : 520px !important;height: 440px !important; }
+.twenty-six-twenty-three{ overflow:hidden !important; width : 520px !important;height: 460px !important; }
+.twenty-six-twenty-four{ overflow:hidden !important; width : 520px !important;height: 480px !important; }
+.twenty-seven-zero{ overflow:hidden !important; width : 540px !important;height: 0px !important; }
+.twenty-seven-one{ overflow:hidden !important; width : 540px !important;height: 20px !important; }
+.twenty-seven-two{ overflow:hidden !important; width : 540px !important;height: 40px !important; }
+.twenty-seven-three{ overflow:hidden !important; width : 540px !important;height: 60px !important; }
+.twenty-seven-four{ overflow:hidden !important; width : 540px !important;height: 80px !important; }
+.twenty-seven-five{ overflow:hidden !important; width : 540px !important;height: 100px !important; }
+.twenty-seven-six{ overflow:hidden !important; width : 540px !important;height: 120px !important; }
+.twenty-seven-seven{ overflow:hidden !important; width : 540px !important;height: 140px !important; }
+.twenty-seven-eight{ overflow:hidden !important; width : 540px !important;height: 160px !important; }
+.twenty-seven-nine{ overflow:hidden !important; width : 540px !important;height: 180px !important; }
+.twenty-seven-ten{ overflow:hidden !important; width : 540px !important;height: 200px !important; }
+.twenty-seven-eleven{ overflow:hidden !important; width : 540px !important;height: 220px !important; }
+.twenty-seven-twelve{ overflow:hidden !important; width : 540px !important;height: 240px !important; }
+.twenty-seven-thirteen{ overflow:hidden !important; width : 540px !important;height: 260px !important; }
+.twenty-seven-fourteen{ overflow:hidden !important; width : 540px !important;height: 280px !important; }
+.twenty-seven-fifteen{ overflow:hidden !important; width : 540px !important;height: 300px !important; }
+.twenty-seven-sixteen{ overflow:hidden !important; width : 540px !important;height: 320px !important; }
+.twenty-seven-seventeen{ overflow:hidden !important; width : 540px !important;height: 340px !important; }
+.twenty-seven-eighteen{ overflow:hidden !important; width : 540px !important;height: 360px !important; }
+.twenty-seven-nineteen{ overflow:hidden !important; width : 540px !important;height: 380px !important; }
+.twenty-seven-twenty{ overflow:hidden !important; width : 540px !important;height: 400px !important; }
+.twenty-seven-twenty-one{ overflow:hidden !important; width : 540px !important;height: 420px !important; }
+.twenty-seven-twenty-two{ overflow:hidden !important; width : 540px !important;height: 440px !important; }
+.twenty-seven-twenty-three{ overflow:hidden !important; width : 540px !important;height: 460px !important; }
+.twenty-seven-twenty-four{ overflow:hidden !important; width : 540px !important;height: 480px !important; }
+.twenty-eight-zero{ overflow:hidden !important; width : 560px !important;height: 0px !important; }
+.twenty-eight-one{ overflow:hidden !important; width : 560px !important;height: 20px !important; }
+.twenty-eight-two{ overflow:hidden !important; width : 560px !important;height: 40px !important; }
+.twenty-eight-three{ overflow:hidden !important; width : 560px !important;height: 60px !important; }
+.twenty-eight-four{ overflow:hidden !important; width : 560px !important;height: 80px !important; }
+.twenty-eight-five{ overflow:hidden !important; width : 560px !important;height: 100px !important; }
+.twenty-eight-six{ overflow:hidden !important; width : 560px !important;height: 120px !important; }
+.twenty-eight-seven{ overflow:hidden !important; width : 560px !important;height: 140px !important; }
+.twenty-eight-eight{ overflow:hidden !important; width : 560px !important;height: 160px !important; }
+.twenty-eight-nine{ overflow:hidden !important; width : 560px !important;height: 180px !important; }
+.twenty-eight-ten{ overflow:hidden !important; width : 560px !important;height: 200px !important; }
+.twenty-eight-eleven{ overflow:hidden !important; width : 560px !important;height: 220px !important; }
+.twenty-eight-twelve{ overflow:hidden !important; width : 560px !important;height: 240px !important; }
+.twenty-eight-thirteen{ overflow:hidden !important; width : 560px !important;height: 260px !important; }
+.twenty-eight-fourteen{ overflow:hidden !important; width : 560px !important;height: 280px !important; }
+.twenty-eight-fifteen{ overflow:hidden !important; width : 560px !important;height: 300px !important; }
+.twenty-eight-sixteen{ overflow:hidden !important; width : 560px !important;height: 320px !important; }
+.twenty-eight-seventeen{ overflow:hidden !important; width : 560px !important;height: 340px !important; }
+.twenty-eight-eighteen{ overflow:hidden !important; width : 560px !important;height: 360px !important; }
+.twenty-eight-nineteen{ overflow:hidden !important; width : 560px !important;height: 380px !important; }
+.twenty-eight-twenty{ overflow:hidden !important; width : 560px !important;height: 400px !important; }
+.twenty-eight-twenty-one{ overflow:hidden !important; width : 560px !important;height: 420px !important; }
+.twenty-eight-twenty-two{ overflow:hidden !important; width : 560px !important;height: 440px !important; }
+.twenty-eight-twenty-three{ overflow:hidden !important; width : 560px !important;height: 460px !important; }
+.twenty-eight-twenty-four{ overflow:hidden !important; width : 560px !important;height: 480px !important; }
+.twenty-nine-zero{ overflow:hidden !important; width : 580px !important;height: 0px !important; }
+.twenty-nine-one{ overflow:hidden !important; width : 580px !important;height: 20px !important; }
+.twenty-nine-two{ overflow:hidden !important; width : 580px !important;height: 40px !important; }
+.twenty-nine-three{ overflow:hidden !important; width : 580px !important;height: 60px !important; }
+.twenty-nine-four{ overflow:hidden !important; width : 580px !important;height: 80px !important; }
+.twenty-nine-five{ overflow:hidden !important; width : 580px !important;height: 100px !important; }
+.twenty-nine-six{ overflow:hidden !important; width : 580px !important;height: 120px !important; }
+.twenty-nine-seven{ overflow:hidden !important; width : 580px !important;height: 140px !important; }
+.twenty-nine-eight{ overflow:hidden !important; width : 580px !important;height: 160px !important; }
+.twenty-nine-nine{ overflow:hidden !important; width : 580px !important;height: 180px !important; }
+.twenty-nine-ten{ overflow:hidden !important; width : 580px !important;height: 200px !important; }
+.twenty-nine-eleven{ overflow:hidden !important; width : 580px !important;height: 220px !important; }
+.twenty-nine-twelve{ overflow:hidden !important; width : 580px !important;height: 240px !important; }
+.twenty-nine-thirteen{ overflow:hidden !important; width : 580px !important;height: 260px !important; }
+.twenty-nine-fourteen{ overflow:hidden !important; width : 580px !important;height: 280px !important; }
+.twenty-nine-fifteen{ overflow:hidden !important; width : 580px !important;height: 300px !important; }
+.twenty-nine-sixteen{ overflow:hidden !important; width : 580px !important;height: 320px !important; }
+.twenty-nine-seventeen{ overflow:hidden !important; width : 580px !important;height: 340px !important; }
+.twenty-nine-eighteen{ overflow:hidden !important; width : 580px !important;height: 360px !important; }
+.twenty-nine-nineteen{ overflow:hidden !important; width : 580px !important;height: 380px !important; }
+.twenty-nine-twenty{ overflow:hidden !important; width : 580px !important;height: 400px !important; }
+.twenty-nine-twenty-one{ overflow:hidden !important; width : 580px !important;height: 420px !important; }
+.twenty-nine-twenty-two{ overflow:hidden !important; width : 580px !important;height: 440px !important; }
+.twenty-nine-twenty-three{ overflow:hidden !important; width : 580px !important;height: 460px !important; }
+.twenty-nine-twenty-four{ overflow:hidden !important; width : 580px !important;height: 480px !important; }
+.thirty-zero{ overflow:hidden !important; width : 600px !important;height: 0px !important; }
+.thirty-one{ overflow:hidden !important; width : 600px !important;height: 20px !important; }
+.thirty-two{ overflow:hidden !important; width : 600px !important;height: 40px !important; }
+.thirty-three{ overflow:hidden !important; width : 600px !important;height: 60px !important; }
+.thirty-four{ overflow:hidden !important; width : 600px !important;height: 80px !important; }
+.thirty-five{ overflow:hidden !important; width : 600px !important;height: 100px !important; }
+.thirty-six{ overflow:hidden !important; width : 600px !important;height: 120px !important; }
+.thirty-seven{ overflow:hidden !important; width : 600px !important;height: 140px !important; }
+.thirty-eight{ overflow:hidden !important; width : 600px !important;height: 160px !important; }
+.thirty-nine{ overflow:hidden !important; width : 600px !important;height: 180px !important; }
+.thirty-ten{ overflow:hidden !important; width : 600px !important;height: 200px !important; }
+.thirty-eleven{ overflow:hidden !important; width : 600px !important;height: 220px !important; }
+.thirty-twelve{ overflow:hidden !important; width : 600px !important;height: 240px !important; }
+.thirty-thirteen{ overflow:hidden !important; width : 600px !important;height: 260px !important; }
+.thirty-fourteen{ overflow:hidden !important; width : 600px !important;height: 280px !important; }
+.thirty-fifteen{ overflow:hidden !important; width : 600px !important;height: 300px !important; }
+.thirty-sixteen{ overflow:hidden !important; width : 600px !important;height: 320px !important; }
+.thirty-seventeen{ overflow:hidden !important; width : 600px !important;height: 340px !important; }
+.thirty-eighteen{ overflow:hidden !important; width : 600px !important;height: 360px !important; }
+.thirty-nineteen{ overflow:hidden !important; width : 600px !important;height: 380px !important; }
+.thirty-twenty{ overflow:hidden !important; width : 600px !important;height: 400px !important; }
+.thirty-twenty-one{ overflow:hidden !important; width : 600px !important;height: 420px !important; }
+.thirty-twenty-two{ overflow:hidden !important; width : 600px !important;height: 440px !important; }
+.thirty-twenty-three{ overflow:hidden !important; width : 600px !important;height: 460px !important; }
+.thirty-twenty-four{ overflow:hidden !important; width : 600px !important;height: 480px !important; }
+.thirty-one-zero{ overflow:hidden !important; width : 620px !important;height: 0px !important; }
+.thirty-one-one{ overflow:hidden !important; width : 620px !important;height: 20px !important; }
+.thirty-one-two{ overflow:hidden !important; width : 620px !important;height: 40px !important; }
+.thirty-one-three{ overflow:hidden !important; width : 620px !important;height: 60px !important; }
+.thirty-one-four{ overflow:hidden !important; width : 620px !important;height: 80px !important; }
+.thirty-one-five{ overflow:hidden !important; width : 620px !important;height: 100px !important; }
+.thirty-one-six{ overflow:hidden !important; width : 620px !important;height: 120px !important; }
+.thirty-one-seven{ overflow:hidden !important; width : 620px !important;height: 140px !important; }
+.thirty-one-eight{ overflow:hidden !important; width : 620px !important;height: 160px !important; }
+.thirty-one-nine{ overflow:hidden !important; width : 620px !important;height: 180px !important; }
+.thirty-one-ten{ overflow:hidden !important; width : 620px !important;height: 200px !important; }
+.thirty-one-eleven{ overflow:hidden !important; width : 620px !important;height: 220px !important; }
+.thirty-one-twelve{ overflow:hidden !important; width : 620px !important;height: 240px !important; }
+.thirty-one-thirteen{ overflow:hidden !important; width : 620px !important;height: 260px !important; }
+.thirty-one-fourteen{ overflow:hidden !important; width : 620px !important;height: 280px !important; }
+.thirty-one-fifteen{ overflow:hidden !important; width : 620px !important;height: 300px !important; }
+.thirty-one-sixteen{ overflow:hidden !important; width : 620px !important;height: 320px !important; }
+.thirty-one-seventeen{ overflow:hidden !important; width : 620px !important;height: 340px !important; }
+.thirty-one-eighteen{ overflow:hidden !important; width : 620px !important;height: 360px !important; }
+.thirty-one-nineteen{ overflow:hidden !important; width : 620px !important;height: 380px !important; }
+.thirty-one-twenty{ overflow:hidden !important; width : 620px !important;height: 400px !important; }
+.thirty-one-twenty-one{ overflow:hidden !important; width : 620px !important;height: 420px !important; }
+.thirty-one-twenty-two{ overflow:hidden !important; width : 620px !important;height: 440px !important; }
+.thirty-one-twenty-three{ overflow:hidden !important; width : 620px !important;height: 460px !important; }
+.thirty-one-twenty-four{ overflow:hidden !important; width : 620px !important;height: 480px !important; }
+.thirty-two-zero{ overflow:hidden !important; width : 640px !important;height: 0px !important; }
+.thirty-two-one{ overflow:hidden !important; width : 640px !important;height: 20px !important; }
+.thirty-two-two{ overflow:hidden !important; width : 640px !important;height: 40px !important; }
+.thirty-two-three{ overflow:hidden !important; width : 640px !important;height: 60px !important; }
+.thirty-two-four{ overflow:hidden !important; width : 640px !important;height: 80px !important; }
+.thirty-two-five{ overflow:hidden !important; width : 640px !important;height: 100px !important; }
+.thirty-two-six{ overflow:hidden !important; width : 640px !important;height: 120px !important; }
+.thirty-two-seven{ overflow:hidden !important; width : 640px !important;height: 140px !important; }
+.thirty-two-eight{ overflow:hidden !important; width : 640px !important;height: 160px !important; }
+.thirty-two-nine{ overflow:hidden !important; width : 640px !important;height: 180px !important; }
+.thirty-two-ten{ overflow:hidden !important; width : 640px !important;height: 200px !important; }
+.thirty-two-eleven{ overflow:hidden !important; width : 640px !important;height: 220px !important; }
+.thirty-two-twelve{ overflow:hidden !important; width : 640px !important;height: 240px !important; }
+.thirty-two-thirteen{ overflow:hidden !important; width : 640px !important;height: 260px !important; }
+.thirty-two-fourteen{ overflow:hidden !important; width : 640px !important;height: 280px !important; }
+.thirty-two-fifteen{ overflow:hidden !important; width : 640px !important;height: 300px !important; }
+.thirty-two-sixteen{ overflow:hidden !important; width : 640px !important;height: 320px !important; }
+.thirty-two-seventeen{ overflow:hidden !important; width : 640px !important;height: 340px !important; }
+.thirty-two-eighteen{ overflow:hidden !important; width : 640px !important;height: 360px !important; }
+.thirty-two-nineteen{ overflow:hidden !important; width : 640px !important;height: 380px !important; }
+.thirty-two-twenty{ overflow:hidden !important; width : 640px !important;height: 400px !important; }
+.thirty-two-twenty-one{ overflow:hidden !important; width : 640px !important;height: 420px !important; }
+.thirty-two-twenty-two{ overflow:hidden !important; width : 640px !important;height: 440px !important; }
+.thirty-two-twenty-three{ overflow:hidden !important; width : 640px !important;height: 460px !important; }
+.thirty-two-twenty-four{ overflow:hidden !important; width : 640px !important;height: 480px !important; }*/
+
+/* 16X12 */
+/*.sixteen-twelve {*/
+    /*width: 640px;*/
+    /*height: 480px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+
+/*.sixteen-twelve .callout.top,.sixteen-twelve .callout.top-left,.sixteen-twelve .callout.top-right,.sixteen-twelve .callout.bottom,.sixteen-twelve .callout.bottom-left,.sixteen-twelve .callout.bottom-right{*/
+    /*width: 620px;*/
+    /*height: 440px;*/
+/*}*/
+
+/*.sixteen-twelve .callout.left,.sixteen-twelve .callout.left-top,.sixteen-twelve .callout.left-bottom,.sixteen-twelve .callout.right,.sixteen-twelve .callout.right-top,.sixteen-twelve .callout.right-bottom{*/
+    /*width: 600px;*/
+    /*height: 460px;*/
+/*}*/
+
+
+/* 12X9 */
+/*.twelve-nine {*/
+    /*width: 480px;*/
+    /*height: 360px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.twelve-nine .callout.top,.twelve-nine .callout.top-left,.twelve-nine .callout.top-right,.twelve-nine .callout.bottom,.twelve-nine .callout.bottom-left,.twelve-nine .callout.bottom-right{*/
+    /*width: 460px;*/
+    /*height: 320px;*/
+/*}*/
+
+/*.twelve-nine .callout.left,.twelve-nine .callout.left-top,.twelve-nine .callout.left-bottom,.twelve-nine .callout.right,.twelve-nine .callout.right-top,.twelve-nine .callout.right-bottom{*/
+    /*width: 440px;*/
+    /*height: 340px;*/
+/*}*/
+
+/* 4X3 */
+/*.four-three {*/
+    /*width: 160px;*/
+    /*height: 120px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.four-three .callout.top,.four-three .callout.top-left,.four-three .callout.top-right,.four-three .callout.bottom,.four-three .callout.bottom-left,.four-three .callout.bottom-right{*/
+    /*width: 140px;*/
+    /*height: 80px;*/
+/*}*/
+
+/*.four-three .callout.left,.four-three .callout.left-top,.four-three .callout.left-bottom,.four-three .callout.right,.four-three .callout.right-top,.four-three .callout.right-bottom{*/
+    /*width: 120px;*/
+    /*height: 100px;*/
+/*}*/
+
+/* 16X6 */
+/*.sixteen-six {*/
+    /*width: 640px;*/
+    /*height: 240px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.sixteen-six .callout.top,.sixteen-six .callout.top-left,.sixteen-six .callout.top-right,.sixteen-six .callout.bottom,.sixteen-six .callout.bottom-left,.sixteen-six .callout.bottom-right{*/
+    /*width: 610px;*/
+    /*height: 200px;*/
+/*}*/
+
+/*.sixteen-six .callout.left,.sixteen-six .callout.left-top,.sixteen-six .callout.left-bottom,.sixteen-six .callout.right,.sixteen-six .callout.right-top,.sixteen-six .callout.right-bottom{*/
+    /*width: 590px;*/
+    /*height: 220px;*/
+/*}*/
+
+/* 8X12 */
+/*.eight-twelve {*/
+    /*width: 320px;*/
+    /*height: 480px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.eight-twelve .callout.top,.eight-twelve .callout.top-left,.eight-twelve .callout.top-right,.eight-twelve .callout.bottom,.eight-twelve .callout.bottom-left,.eight-twelve .callout.bottom-right{*/
+    /*width: 300px;*/
+    /*height: 440px;*/
+/*}*/
+
+/*.eight-twelve .callout.left,.eight-twelve .callout.left-top,.eight-twelve .callout.left-bottom,.eight-twelve .callout.right,.eight-twelve .callout.right-top,.eight-twelve .callout.right-bottom{*/
+    /*width: 280px;*/
+    /*height: 420px;*/
+/*}*/
+
+/* 8X6 */
+/*.eight-six {*/
+    /*width: 320px;*/
+    /*height: 240px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.eight-six .callout.top,.eight-six .callout.top-left,.eight-six .callout.top-right,.eight-six .callout.bottom,.eight-six .callout.bottom-left,.eight-six .callout.bottom-right{*/
+    /*width: 300px;*/
+    /*height: 200px;*/
+/*}*/
+
+/*.eight-six .callout.left,.eight-six .callout.left-top,.eight-six .callout.left-bottom,.eight-six .callout.right,.eight-six .callout.right-top,.eight-six .callout.right-bottom{*/
+    /*width: 280px;*/
+    /*height: 220px;*/
+/*}*/
+
+/* 4X8 */
+/*.four-eight {*/
+    /*width: 160px;*/
+    /*height: 320px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.four-eight .callout.top,.four-eight .callout.top-left,.four-eight .callout.top-right,.four-eight .callout.bottom,.four-eight .callout.bottom-left,.four-eight .callout.bottom-right{*/
+    /*width: 140px;*/
+    /*height: 280px;*/
+/*}*/
+
+/*.four-eight .callout.left,.four-eight .callout.left-top,.four-eight .callout.left-bottom,.four-eight .callout.right,.four-eight .callout.right-top,.four-eight .callout.right-bottom{*/
+    /*width: 120px;*/
+    /*height: 300px;*/
+/*}*/
+
+/* 8X2 */
+/*.eight-two {*/
+    /*width: 320px;*/
+    /*height: 80px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.eight-two .callout.top,.eight-two .callout.top-left,.eight-two .callout.top-right,.eight-two .callout.bottom,.eight-two .callout.bottom-left,.eight-two .callout.bottom-right{*/
+    /*width: 300px;*/
+    /*height: 40px;*/
+/*}*/
+
+/*.eight-two .callout.left,.eight-two .callout.left-top,.eight-two .callout.left-bottom,.eight-two .callout.right,.eight-two .callout.right-top,.eight-two .callout.right-bottom{*/
+    /*width: 280px;*/
+    /*height: 60px;*/
+/*}*/
+
+/* 12X2 */
+/*.twelve-two {*/
+    /*width: 480px;*/
+    /*height: 80px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.twelve-two .callout.top,.twelve-two .callout.top-left,.twelve-two .callout.top-right,.twelve-two .callout.bottom,.twelve-two .callout.bottom-left,.twelve-two .callout.bottom-right{*/
+    /*width: 460px;*/
+    /*height: 40px;*/
+/*}*/
+
+/*.twelve-two .callout.left,.twelve-two .callout.left-top,.twelve-two .callout.left-bottom,.twelve-two .callout.right,.twelve-two .callout.right-top,.twelve-two .callout.right-bottom{*/
+    /*width: 440px;*/
+    /*height: 60px;*/
+/*}*/
+
+/* 6X2 */
+/*.six-two {*/
+    /*width: 240px;*/
+    /*height: 80px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.six-two .callout.top,.six-two .callout.top-left,.six-two .callout.top-right,.six-two .callout.bottom,.six-two .callout.bottom-left,.six-two .callout.bottom-right{*/
+    /*width: 220px;*/
+    /*height: 40px;*/
+/*}*/
+
+/*.six-two .callout.left,.six-two .callout.left-top,.six-two .callout.left-bottom,.six-two .callout.right,.six-two .callout.right-top,.six-two .callout.right-bottom{*/
+    /*width: 200px;*/
+    /*height: 60px;*/
+/*}*/
+
+/* 2X2 */
+/*.two-two {*/
+    /*width: 80px;*/
+    /*height: 80px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+
+/*.two-two .callout.top,.two-two .callout.top-left,.two-two .callout.top-right,.two-two .callout.bottom,.two-two .callout.bottom-left,.two-two .callout.bottom-right{*/
+    /*width: 60px;*/
+    /*height: 40px;*/
+/*}*/
+
+/*.two-two .callout.left,.two-two .callout.left-top,.two-two .callout.left-bottom,.two-two .callout.right,.two-two .callout.right-top,.two-two .callout.right-bottom{*/
+    /*width: 40px;*/
+    /*height: 60px;*/
+/*}*/
+
+/*2x5*/
+/*.five-two{*/
+    /*width: 200px;*/
+    /*height: 80px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+
+/*.two-five .callout.top,.two-two .callout.top-left,.two-two .callout.top-right,.two-two .callout.bottom,.two-two .callout.bottom-left,.two-two .callout.bottom-right{*/
+    /*width: 300px;*/
+    /*height: 40px;*/
+/*}*/
+
+/*.two-five .callout.left,.two-two .callout.left-top,.two-two .callout.left-bottom,.two-two .callout.right,.two-two .callout.right-top,.two-two .callout.right-bottom{*/
+    /*width: 300px;*/
+    /*height: 60px;*/
+/*}*/
+
+
+/* 4X4 */
+/*.four-four {*/
+    /*width: 160px;*/
+    /*height: 160px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+
+
+/*.four-four .callout.lft, .four-four .callout.rgt{*/
+    /*width: 120px;*/
+    /*height: 140px;*/
+/*}*/
+
+
+/*.four-four .callout.tp, .four-four .callout.btm{*/
+    /*width: 140px;*/
+    /*height: 120px;*/
+/*}*/
+
+/*.four-four .callout.btm{*/
+    /*width: 140px;*/
+    /*height: 120px;*/
+/*}*/
+
+/*.four-four .callout.top, .four-four .callout.top-left,.four-four .callout.top-right,.four-four .callout.bottom,.four-four .callout.bottom-left,.four-four .callout.bottom-right{*/
+    /*width: 140px;*/
+    /*height: 120px;*/
+/*}*/
+
+/*.four-four .callout.left,.four-four .callout.left-top,.four-four .callout.left-bottom,.four-four .callout.right,.four-four .callout.right-top,.four-four .callout.right-bottom{*/
+    /*width: 120px;*/
+    /*height: 140px;*/
+/*}*/
+
+ /*6X6 */
+/*.six-six {*/
+    /*width: 240px;*/
+    /*height: 240px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.six-six .callout.top,.six-six .callout.top-left,.six-six .callout.top-right,.six-six .callout.bottom,.six-six .callout.bottom-left,.six-six .callout.bottom-right{*/
+    /*width: 220px;*/
+    /*height: 200px;*/
+/*}*/
+
+/*.six-six .callout.left,.six-six .callout.left-top,.six-six .callout.left-bottom,.six-six .callout.right,.six-six .callout.right-top,.six-six .callout.right-bottom{*/
+    /*width: 200px;*/
+    /*height: 220px;*/
+/*}*/
+
+ /*8X8 */
+/*.eight-eight {*/
+    /*width: 320px;*/
+    /*height: 320px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.eight-eight .callout.top,.eight-eight .callout.top-left,.eight-eight .callout.top-right,.eight-eight .callout.bottom,.eight-eight .callout.bottom-left,.eight-eight .callout.bottom-right{*/
+    /*width: 300px;*/
+    /*height: 280px;*/
+/*}*/
+
+/*.eight-eight .callout.left,.eight-eight .callout.left-top,.eight-eight .callout.left-bottom,.eight-eight .callout.right,.eight-eight .callout.right-top,.eight-eight .callout.right-bottom{*/
+    /*width: 280px;*/
+    /*height: 300px;*/
+/*}*/
+
+ /*6X4 */
+/*.six-four {*/
+    /*width: 240px;*/
+    /*height: 160px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.six-four .callout.top,.six-four .callout.top-left,.six-four .callout.top-right,.six-four .callout.bottom,.six-four .callout.bottom-left,.six-four .callout.bottom-right{*/
+    /*width: 220px;*/
+    /*height: 120px;*/
+/*}*/
+
+/*.six-four .callout.left,.six-four .callout.left-top,.six-four .callout.left-bottom,.six-four .callout.right,.six-four .callout.right-top,.six-four .callout.right-bottom{*/
+    /*width: 200px;*/
+    /*height: 140px;*/
+/*}*/
+
+ /*4X6 */
+/*.four-six {*/
+    /*width: 160px;*/
+    /*height: 240px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.four-six .callout.top,.four-six .callout.top-left,.four-six .callout.top-right,.four-six .callout.bottom,.four-six .callout.bottom-left,.four-six .callout.bottom-right{*/
+    /*width: 140px;*/
+    /*height: 200px;*/
+/*}*/
+
+/*.four-six .callout.left,.four-six .callout.left-top,.four-six .callout.left-bottom,.four-six .callout.right,.four-six .callout.right-top,.four-six .callout.right-bottom{*/
+    /*width: 120px;*/
+    /*height: 220px;*/
+/*}*/
+
+ /*12X6 */
+/*.twelve-six {*/
+    /*width: 480px;*/
+    /*height: 240px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.twelve-six .callout.top,.twelve-six .callout.top-left,.twelve-six .callout.top-right,.twelve-six .callout.bottom,.twelve-six .callout.bottom-left,.twelve-six .callout.bottom-right{*/
+    /*width: 460px;*/
+    /*height: 200px;*/
+/*}*/
+
+/*.twelve-six .callout.left,.twelve-six .callout.left-top,.twelve-six .callout.left-bottom,.twelve-six .callout.right,.twelve-six .callout.right-top,.twelve-six .callout.right-bottom{*/
+    /*width: 440px;*/
+    /*height: 220px;*/
+/*}*/
+
+ /*8X4 */
+/*.eight-four {*/
+    /*width: 320px;*/
+    /*height: 160px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.eight-four .callout.top,.eight-four .callout.top-left,.eight-four .callout.top-right,.eight-four .callout.bottom,.eight-four .callout.bottom-left,.eight-four .callout.bottom-right{*/
+    /*width: 300px;*/
+    /*height: 120px;*/
+/*}*/
+
+/*.eight-four .callout.left,.eight-four .callout.left-top,.eight-four .callout.left-bottom,.eight-four .callout.right,.eight-four .callout.right-top,.eight-four .callout.right-bottom{*/
+    /*width: 280px;*/
+    /*height: 140px;*/
+/*}*/
+
+ /*6X8 */
+/*.six-eight {*/
+    /*width: 240px;*/
+    /*height: 320px;*/
+    /*margin: 10px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*.six-eight .callout.top,.six-eight .callout.top-left,.six-eight .callout.top-right,.six-eight .callout.bottom,.six-eight .callout.bottom-left,.six-eight .callout.bottom-right{*/
+    /*width: 220px;*/
+    /*height: 280px;*/
+/*}*/
+
+/*.six-eight .callout.left,.six-eight .callout.left-top,.six-eight .callout.left-bottom,.six-eight .callout.right,.six-eight .callout.right-top,.six-eight .callout.right-bottom{*/
+    /*width: 200px;*/
+    /*height: 300px;*/
+/*}*/
+
+/*8x10*/
+/*.eight-ten*/
+/*{*/
+    /*width: 320px;*/
+    /*height: 400px;*/
+/*}*/
+
+/*------------------------------------------------------------*/
+/* Border Definitions */
+/*--------------------------------------------------*/
+
+.circular {
+    border-radius: 50%;
+}
+
+.rounded {
+    border-radius: 10px;
+}
+
+.straight {
+    border-radius: 0;
+}
+
+.border-left {
+    border-left: 1px solid #000000;
+
+
+}
+
+/*------------------------------------------------------------*/
+/* Padding Definitions */
+/*--------------------------------------------------*/
+
+.left-padding-8px {
+    padding-left: 7px;
+}
+
+.neg-margin-left-8px {
+    margin-left: -5px;
+}
+
+/*------------------------------------------------------------*/
+/* Layer Definitions */
+/*--------------------------------------------------*/
+
+.layer0 {
+    z-index: 0;
+}
+
+.layer1 {
+    z-index: 1;
+}
+
+.layer2 {
+    z-index: 2;
+}
+
+.layer3 {
+    z-index: 3;
+}
+
+.layer4 {
+    z-index: 4;
+}
+
+.layer5 {
+    z-index: 5;
+}
+
+.layer6 {
+    z-index: 6;
+}
+
+.layer7 {
+    z-index: 7;
+}
+
+.layer8 {
+    z-index: 8;
+}
+
+.layer9 {
+    z-index: 9;
+}
+
+/* Horizontal Alignment Definitions */
+/*----------------------------------------*/
+.right-haligned {
+    text-align: right;
+}
+.right-haligned div {
+    margin-left: auto !important;
+}
+
+
+.left-haligned {
+    text-align: left;
+}
+.left-haligned div {
+    margin-right: auto !important;
+}
+
+
+.center-haligned {
+    text-align: center;
+}
+.center-haligned div {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.justified-haligned {
+    text-align: justify;
+}
+
+/*--------------------------------------------*/
+/* Vertical Alignment Definitions */
+/*----------------------------------------*/
+.middle-valigned {
+    display: table !important;
+    vertical-align: middle;
+}
+.middle-valigned > div
+{
+  display:table-cell;
+  vertical-align:middle;
+}
+.middle-valigned div{
+    margin:auto 5px;
+}
+
+.top-valigned {
+    display: inline-flex ;
+    vertical-align: top;
+}
+.top-valigned div{
+    margin-bottom:auto
+}
+
+.bottom-valigned {
+    display: table !important;
+
+    vertical-align: bottom;
+}
+.bottom-valigned > div
+{
+  display:table-cell;
+  vertical-align:bottom ;
+}
+.bottom-valigned div {
+    margin-top:auto;
+}
+
+.inherit-from-parent
+{
+    display: inherit;
+    vertical-align: inherit;
+    text-align: inherit;
+}
+
+/*--------------------------------------------*/
+/* Text Component Classes*/
+/*----------------------------------------*/
+
+.text-block {
+    position: relative;
+    padding: 1px 3px 1px 3px;
+    /*padding: 10px;*/
+    width: inherit;
+    height: inherit;
+    /*font-size:2em;*/
+    display: table-cell;
+
+}
+
+.call-out-text-block{
+    position: relative;
+    padding: 10px;
+    width: inherit;
+    height: inherit;
+    font-size:1em;
+    color: #000000;
+}
+
+
+.bolded {
+    font-weight: bolder;
+}
+
+/*--------------------------------------------*/
+
+/* Left Panel Styling*/
+
+/*--------------------------------------------*/
+
+/* Right Panel Styling*/
+/*----------------------------------------*/
+
+.right-panel {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid #000000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.42) inset, 0 2px 0 rgba(255, 255, 255, 0.1);
+    font-size: 1em;
+    /*height: 92%;*/
+    padding: 0.4em;
+    position: fixed;
+    right: 10px;
+    width: 60px;
+    z-index:9999;
+
+}
+
+.component-buttons {
+    padding: 0.5em;
+    position: relative;
+    font-size: 1em;
+}
+
+.right-buttons,.right-buttons123 {
+    width: 50px;
+    height: 50px;
+    background: #000000;
+    border: none;
+    margin-top: 12%;
+    cursor: pointer;
+    color:#f99300;
+}
+
+.right-buttons:hover,.right-buttons123:hover {
+    /*background: #F47926;*/
+    /*background: -webkit-linear-gradient(#626060, #3d3d3d); *//* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(#626060, #3d3d3d); *//* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient#626060, #3d3d3d); *//* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(#626060, #3d3d3d); *//* Standard syntax */
+
+    /*color:#ffd83a;*/
+    box-shadow: 0px 0px 6px white;
+
+
+}
+
+
+#set_6,#set_7,#set_5,.inter{
+    background: #000000;
+    color: #444444;
+}
+
+#set_6:hover,#set_7:hover,#set_5:hover,.inter:hover{
+    box-shadow: none;
+}
+
+
+.active-left-pullout-menu {
+    /*background: -webkit-linear-gradient(#ffd83a, #caaa2b); *//* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(#ffd83a, #caaa2b); *//* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(#ffd83a, #caaa2b); *//* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(#ffd83a, #caaa2b); *//* Standard syntax */
+    color: white;
+    background:#f99300;
+}
+
+
+.active-right-buttons{
+    /*background: -webkit-linear-gradient(#ffd83a, #caaa2b); *//* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(#ffd83a, #caaa2b); *//* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(#ffd83a, #caaa2b); *//* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(#ffd83a, #caaa2b); *//* Standard syntax */
+    /*color: white;*/
+    color: white;
+    background:#f99300;
+}
+
+
+.pullout-open{
+    display: block;
+}
+
+/*.pullout-close{*/
+    /*display: none;*/
+/*}*/
+
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+    /*border: 1px dotted transparent;*/
+    border: none;
+}
+
+button:focus::-moz-focus-inner,
+input[type="reset"]:focus::-moz-focus-inner,
+input[type="button"]:focus::-moz-focus-inner,
+input[type="submit"]:focus::-moz-focus-inner,
+input[type="file"] > input[type="button"]:focus::-moz-focus-inner {
+    /*padding: 3px;*/
+    /*border-color: #F3F3F3;*/
+}
+
+
+
+
+/*--------------------------------------------*/
+
+/* Center Panel Styling*/
+/*----------------------------------------*/
+
+/*----------------------------------------*/
+
+
+.no-border{
+    border:none;
+}
+
+.trans-parent{
+    background: transparent;
+}
+
+/*text decoration classes*/
+.bold
+{
+    font-weight: bold;
+}
+.underlined
+{
+    text-decoration: underline;
+}
+
+.italic
+{
+    font-style:italic ;
+}
+
+.normal{
+    /*font-style: normal;*/
+}
+
+.strikethrough{
+  text-decoration:line-through;
+}
+
+/*end*/
+
+
+
+/*heading style start*/
+
+.normal-heading{
+    color: #000000;
+    font-size: 12px;
+}
+
+.one-heading{
+    color: rgb(46,116,181);
+    font-size: 18px;
+}
+
+.two-heading{
+    color: rgb(31,77,120);
+    font-size: 16px;
+}
+
+.title-heading{
+    color: #000000;
+    font-size: 24px;
+}
+
+.subtitle-heading{
+    color: rgb(90,90,90);
+    font-size: 12px;
+}
+
+.subemphasis-heading{
+    color: rgb(64,64,64);
+    font-size: 12px;
+    font-style: italic;
+}
+
+.emphasis-heading{
+    color: #000000;
+    font-size: 12px;
+    font-style: italic;
+}
+/*heading style end*/
+
+.pointercur
+{
+    cursor: pointer !important;
+}
+
+.modal
+{
+	z-index:50000 !important;
+}

@@ -1,0 +1,12 @@
+  .slide-container
+    {
+        diaplay:none;
+    }
+    .center-panel{
+        display:none
+    }
+    .nav-controls
+    {
+        position: absolute;
+bottom: 0;
+    }
