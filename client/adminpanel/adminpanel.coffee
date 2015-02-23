@@ -26,8 +26,16 @@ Template.adminpanel.events
 		,3000)
 	'click .add-new-user':(e)->
 		$(".right-form").hide()
-		Blaze.renderWithData(Template['userForm'],{},document.getElementById('new-user'))
+		Blaze.renderWithData(Template['userForm'],{userId:-1},document.getElementById('new-user'))
 		$("#new-user").show()
+
+
+	'click .edit-user-btn':(e)->
+		$(".right-form").hide()
+		Blaze.renderWithData(Template['userForm'],{userId:this._id},document.getElementById('new-user'))
+		$("#new-user").show()
+
+
 Template.adminpanel.rendered = () ->
 	$('.sidelink').first().trigger('click')
 	$('.internal-sidelinks').first().trigger('click')
@@ -48,5 +56,17 @@ Template.userForm.events
 		
 		pid = platforms.findOne()._id
 		p = {platform:pid,first_name:first_name,last_name:last_name,display_name:display_name}
-		Accounts.createUser({email:email,password:'password',platform:pid,personal_profile:p})
 
+		if parseInt($("#user-id").val()) is -1
+
+			Accounts.createUser({email:email,password:'password',platform:pid,personal_profile:p})
+		else
+			console.log $("#user-id").val()
+			Meteor.call('updateUser',$("#user-id").val(),p)
+
+Template.userForm.helpers
+	myuser: (uid) ->
+		if uid isnt -1
+			Meteor.users.findOne(uid)
+		else
+			{}

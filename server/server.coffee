@@ -41,3 +41,7 @@ Meteor.methods
 		        	
 		    
 	)
+
+	updateUser:(uid,p)->
+		Meteor.users.update({_id:uid},{$set:personal_profile:p})
+		return true

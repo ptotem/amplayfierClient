@@ -42,7 +42,7 @@
             </h2>
             <ul id="user-list">
             	{{#each myusers}}
-            	<li id="{{_id}}">{{personal_profile.display_name}} <a href="#" class="btn btn-danger pull-right add-btn">Delete</a><a href="#" class="btn btn-warning pull-right add-btn">Edit</a></li>
+            	<li id="{{_id}}">{{personal_profile.display_name}} <a href="#" class="btn btn-danger pull-right add-btn">Delete</a><a href="#" class="btn btn-warning pull-right add-btn edit-user-btn">Edit</a></li>
             	{{/each}}
             </ul>
 
@@ -81,20 +81,23 @@
 </template>
 
 <template name="userForm">
-
+		{{#with myuser userId}}
             <div class="field-box">
                 <label for="user-name">Full Name</label>
-                <input type="text" id="user-name"/>
+                <input type="text" id="user-name" value="{{personal_profile.display_name}}"/>
                 <br>
                 <label for="user-email">First Name</label>
-                <input type="text" id="user-first-name"/>
+                <input type="text" id="user-first-name" value="{{personal_profile.first_name}}"/>
                 <br>
                 <label for="user-email">Last Name</label>
-                <input type="text" id="user-last-name"/>
+                <input type="text" id="user-last-name" value="{{personal_profile.last_name}}"/>
                 <br>
                 <label for="user-email">Email</label>
-                <input type="email" id="user-email"/>
+                <input type="email" id="user-email" value="{{personal_profile.email}}"/>
+                <input type="hidden" id="user-id" value="{{_id}}"/>
+                
                 
             </div>
+            {{/with}}
             <a href="#" class="btn btn-lg btn-primary add-individual-user">Save </a>
 	</template>
