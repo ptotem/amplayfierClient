@@ -5,5 +5,18 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
+iron:router
+coffeescript
+cfs:standard-packages
+cfs:gridfs
+cfs:filesystem
+gadicohen:headers
+accounts-password
+meteorhacks:npm
+
+
+npm-container
+jquery
+mizzao:jquery-ui
+twbs:bootstrap

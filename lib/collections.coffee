@@ -26,6 +26,14 @@ imageStore = new FS.Store.GridFS("assetFiles",
   ]
 )
 
+
+@excelFiles = new FS.Collection("excelFiles",
+
+  stores: [
+    new FS.Store.FileSystem("raw",{path: "/var/www/userlistfiles"})
+  ]
+)
+
 # @decks = new Meteor.Collection('decks',remote)
 # # @assetFiles = new Meteor.Collection('items', remote); 
 

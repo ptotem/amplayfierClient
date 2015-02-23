@@ -1,0 +1,90 @@
+<template name="adminpanel">
+	<aside id="sidebar">
+    <ul>
+        <li class="active sidelink" target-section="users">Users</li>
+        <li  class="sidelink" target-sections="reports">Reports</li>
+    </ul>
+    <a id="logout" href="#">Logout</a>
+</aside>
+
+<section id="info" class="main default">
+    <h1>Info</h1>
+</section>
+
+<section id="users" class="main">
+    <h1>Users</h1>
+
+    <div class="main-left">
+        <div class="help-area">This is the place where you can add users, either manually or using an excel upload.</div>
+        <ul>
+            <li class="active internal-sidelinks" target-section="users-profiling"><span class="icon hiero-tags"></span>Profiling</li>
+            <li class='internal-sidelinks' target-section="users-users"><span class="icon hiero-user"></span>Users</li>
+        </ul>
+    </div>
+    <div class="main-right">
+        <div id="users-profiling" class="right-form default">
+            <h2>Profiling Parameters
+                <a class="btn btn-warning pull-right add-btn" href="#">Add New</a>
+                <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a tag"/>
+            </h2>
+            <ul id="tag-list"></ul>
+
+        </div>
+
+        <div id="users-users" class="right-form">
+            <h2>User List
+                <a class="btn btn-warning pull-right add-btn user-upload-btn" href="#">Add New</a>
+                <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
+                <input type="text" id="users-filter" class="filter-box pull-right" placeholder="Search for users"/>
+            </h2>
+            <ul id="user-list">
+            	{{#each myusers}}
+            	<li id="{{_id}}">{{personal_profile.display_name}} <a href="#" class="btn btn-danger pull-right add-btn">Delete</a></li>
+            	{{/each}}
+            </ul>
+
+        </div>
+
+        <div id="new-tag" class="right-form">
+            <h2>New Profile Parameter</h2>
+
+            <div class="field-box">
+                <label for="new-tag-key">Parameter Name</label>
+                <input type="text" id="new-tag-key" placeholder="Please put in a unique name"/>
+                <label for="new-tag-value">Parameter Options</label>
+                <input type="text" id="new-tag-value" placeholder="Please put in a comma separated list of possible options for this parameter"/>
+            </div>
+
+            <br/>
+            <a href="#" class="right-form-save">
+                <span class="icon hiero-save"></span>
+                <br/>
+                Save
+            </a>
+        </div>
+
+        <div id="new-user" class="right-form">
+            <h2>New User</h2>
+
+            <div class="field-box">
+                <label for="user-name">Name</label>
+                <input type="text" id="user-name"/>
+                <label for="user-email">Email</label>
+                <input type="text" id="user-email"/>
+                <div id="user-profile-fields"></div>
+            </div>
+
+            <br/>
+            <a href="#" class="right-form-save">
+                <span class="icon hiero-save"></span>
+                <br/>
+                Save
+            </a>
+        </div>
+
+    </div>
+</section>
+<section id="reports" class="main">
+    <h1>Info</h1>
+</section>
+</template>

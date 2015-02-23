@@ -22,3 +22,18 @@ Router.route '/showdeck/:did',
     if @ready()
       @render()
 
+Router.route '/admin',
+
+  template: 'adminpanel',
+  name:'admin',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname}
+    
+  waitOn:()->
+    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('usersOfPlatform',this.data().platformName)]
+  action: ->
+    if @ready()
+      setPlatform(this.data().platformName)
+      @render()
+
