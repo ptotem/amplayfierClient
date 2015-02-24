@@ -22,21 +22,45 @@
         </ul>
     </div>
     <div class="main-right">
-        <div id="users-profiling" class="right-form default">
-            <h2>Profiling Parameters
-                <a class="btn btn-warning pull-right add-btn" href="#">Add New</a>
-                <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a tag"/>
-            </h2>
-            <ul id="tag-list"></ul>
+			<div id="users-profiling" class="right-form ">
+				<h2>Profiling
+					<a class="btn btn-warning pull-right add-btn add-new-profile" href="#">Add New</a>
+					<input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile"/>
+				</h2>
+				<ul id="tag-list" class="full-box">
+				</ul>
 
-        </div>
 
+			</div>
+			<div class="right-form">
+				<div id="new-prf-form" class="full-box" style='display:none'>
+					<div class="row" id="user-list">
+
+						<div class="col-lg-12">
+							<label for="profile-user-name">Profile Name</label>
+							<input type="text" class="form-control" id='profile-name' name="name" placeholder="Enter profile name">
+						</div><br>
+						<div class="col-lg-12">
+							<label for="profile-user-description">Profile Description</label>
+							<!--<textarea cols="5" rows="5" class="form-control" id='profile-desc' name="description" placeholder="Enter profile description name">-->
+							<!--</textarea>-->
+							<textarea id="profile-desc" placeholder="Enter profile description name" rows="3" class="form-control" name="description"></textarea>
+						</div><br>
+						<div class="col-lg-3">
+							<a href="#" class="right-form-save new-profile-btn">
+								<span class="icon hiero-save"></span>
+								<br/>
+								Save
+							</a>                      </div>
+						</div>
+					</div>
+				</div>
         <div id="users-users" class="right-form">
             <h2>User List
                 <a class="btn btn-warning pull-right add-btn add-new-user" href="#">Add New</a>
                 <a class="btn btn-warning pull-right add-btn user-upload-btn" href="#">Upload New</a>
-                
-                
+
+
                 <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
                 <input type="text" id="users-filter" class="filter-box pull-right" placeholder="Search for users"/>
             </h2>
@@ -70,7 +94,7 @@
             <h2>New User</h2>
 
 
-         
+
         </div>
 
     </div>
@@ -93,10 +117,10 @@
                 <input type="text" id="user-last-name" value="{{personal_profile.last_name}}"/>
                 <br>
                 <label for="user-email">Email</label>
-                <input type="email" id="user-email" value="{{personal_profile.email}}"/>
+                <input type="email" id="user-email" value="{{decodeUserEmail personal_profile.email}}"/>
                 <input type="hidden" id="user-id" value="{{_id}}"/>
-                
-                
+
+
             </div>
             {{/with}}
             <a href="#" class="btn btn-lg btn-primary add-individual-user">Save </a>

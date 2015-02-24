@@ -1,0 +1,49 @@
+<template name="loginPage">
+
+
+  <div class="container-fluid page-wrapper" style="background:url({{getAssetUrl backId}}) ;background-size: 100% 100%;
+  background-repeat: no-repeat;height:100%;">
+  <div class="row">
+    <div class="col-md-4 col-sm-5 col-sm-offset-4 col-md-offset-4 ">
+      <div class="logo">
+        <!-- <img src="assets/theme/images/playthorize-logo.png"> -->
+        <img src="{{getAssetUrl logoId}}" style="margin-left: auto;
+        margin-right: auto;height: 128px;">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-5 col-sm-offset-4 col-md-offset-4 ">
+      <div class="login-back">
+        <form class="login-form" id="loginForm">
+          <div class="form-group has-feedback">
+            <label class="control-label">Username</label>
+            <input type="text" class="form-control textbox_style" placeholder="" id="email">
+            <i class="fa fa-user form-control-feedback" style="margin-top:25px;"></i>
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label">Password</label>
+            <input type="password" class="form-control textbox_style" placeholder="" id="password">
+            <i class="fa fa-lock form-control-feedback" style="margin-top:25px;"></i>
+          </div>
+          <input type="hidden" class="form-control textbox_style" value="{{getPlatName}}" id="platformname">
+
+          <div class="row">
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-group btn-dark btn-sm">Log In</button>
+            </div>
+            <div class="col-lg-6 pull-right">
+              <span style="padding:3%"><a href="#">Forgot your password?</a></span>
+            </div>
+          </div>
+          <ul>
+
+          </ul>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>

@@ -6,7 +6,7 @@ Meteor.methods
 		d = deckHtml.insert({deckname:dname,platformId:p,tenantId:tid,deckId:did,htmlContent:htmlString})
 		console.log d
 		return true
-		
+
 	syncAssets:(a)->
 		console.log a
 		if a?
@@ -18,6 +18,7 @@ Meteor.methods
 			)
 
 	bulkInsertUsers : Meteor.bindEnvironment((fileid,pid)->
+		platformName = platforms.findOne(pid).tenantName
 		file = excelFiles.findOne(fileid)
 		Fiber = Npm.require('fibers');
 		Future = Npm.require('fibers/future');
@@ -33,13 +34,13 @@ Meteor.methods
 		        else
 		        	Fiber(()->
 		        		for r,i in result
-				             r = result[i]
-				             personal_profile = {platform:pid,email:r['email'],first_name:r['first_name'],last_name:r['last_name'],display_name:r['username']}
-				             Accounts.createUser({email:r['email'],password:r['password'],platform:pid,personal_profile:personal_profile})
+				             newEmail = encodeEmail(r['email'],platformName)
+				             personal_profile = {platform:pid,email:newEmail,first_name:r['first_name'],last_name:r['last_name'],display_name:r['username']}
+				             Accounts.createUser({email:newEmail,password:r['password'],platform:pid,personal_profile:personal_profile})
 
 		        	).run()
-		        	
-		    
+
+
 	)
 
 	updateUser:(uid,p)->

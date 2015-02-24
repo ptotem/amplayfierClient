@@ -35,9 +35,9 @@ imageStore = new FS.Store.GridFS("assetFiles",
 )
 
 # @decks = new Meteor.Collection('decks',remote)
-# # @assetFiles = new Meteor.Collection('items', remote); 
+# # @assetFiles = new Meteor.Collection('items', remote);
 
 # remote.subscribe('tempDecks', ()->
 #   items = assetFiles.find().fetch();
-#   console.log(items.length);  
+#   console.log(items.length);
 # )

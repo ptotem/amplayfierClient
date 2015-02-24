@@ -1,9 +1,18 @@
 Template.adminpanel.events
+
+	'click .add-new-profile': (e) ->
+		# $("#tag-list").hide()
+    # $("#new-prf-form").show()
+    # $("#new-prf-form").parent().show()
+
+
 	'click .sidelink': (e) ->
 		$('.active').removeClass('active')
 		$(e.currentTarget).addClass('active')
 		$('.main').hide()
 		$("#"+$(e.currentTarget).attr('target-section')).show()
+
+
 	'click .internal-sidelinks': (e) ->
 		$('.active').removeClass('active')
 		$(e.currentTarget).addClass('active')
@@ -49,13 +58,17 @@ Template.adminpanel.helpers
 
 Template.userForm.events
 	'click .add-individual-user': (e) ->
+
 		email = $("#user-email").val()
+		console.log email
+		email = encodeEmail(email,platformName)
+		console.log email
 		display_name =  $("#user-name").val()
 		first_name =  $("#user-first-name").val()
 		last_name =  $("#user-last-name").val()
-		
+
 		pid = platforms.findOne()._id
-		p = {platform:pid,first_name:first_name,last_name:last_name,display_name:display_name}
+		p = {platform:pid,first_name:first_name,last_name:last_name,display_name:display_name,email:email}
 
 		if parseInt($("#user-id").val()) is -1
 
@@ -63,6 +76,7 @@ Template.userForm.events
 		else
 			console.log $("#user-id").val()
 			Meteor.call('updateUser',$("#user-id").val(),p)
+			createNotification('Profile has been updated',1)
 
 Template.userForm.helpers
 	myuser: (uid) ->
