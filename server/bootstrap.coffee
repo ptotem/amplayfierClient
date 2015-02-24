@@ -1,13 +1,20 @@
 
 
-# Meteor.startup(()->
-#   startUpRoutine()
-# )
+Meteor.startup(()->
+  startUpRoutine()
+)
 #
-# @startUpRoutine  =()->
-#   generateSeedUsers()
+@startUpRoutine  =()->
+  generateSeedUsers()
 
-# @generateSeedUsers = ()->
+@generateSeedUsers = ()->
+    deckHtml.remove({})
+    tid = platforms.findOne()._id
+    deckHtml.insert({deckname:"dname-1",platformId:tid,tenantId:-1,deckId:"123",variants:["hello","hi","cool"]})
+    deckHtml.insert({deckname:"dname-2",platformId:tid,tenantId:-1,deckId:"122"})
+    deckHtml.insert({deckname:"dname-3",platformId:tid,tenantId:-1,deckId:"121",variants:["its","not","working"]})
+    deckHtml.insert({deckname:"dname-4",platformId:tid,tenantId:-1,deckId:"120"})
+    deckHtml.insert({deckname:"dname-5",platformId:tid,tenantId:-1,deckId:"119",variants:["dark","knight","rises"]})
     # platforms.insert({tenantId:-1,tenantName:"rakesh"})
     # Meteor.users.remove({seed_user:true})
     # Accounts.createUser({email:"sunny@ptotem.com",password:"p20o20e13",role:"admin",tid:-1,personal_profile:{},seed_user:true})

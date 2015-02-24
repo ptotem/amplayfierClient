@@ -287,6 +287,10 @@ img.uploaded-image{
     padding: 1em;
 }
 
+#tag-list .search-field{
+  padding:0 !important;
+}
+
 #question-list li,#tag-list li,#user-list li {
     color: #333;
     padding: 0.75em;

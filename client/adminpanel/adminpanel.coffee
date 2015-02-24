@@ -1,4 +1,26 @@
 Template.adminpanel.events
+	'click .add-individual-variant' :(e) ->
+		arr = []
+		$('.userDecks').each (i, v) ->
+		  #console.log $(v).find('.deckname').val()
+		  a = {}
+		  a[$(v).find('.deckname').val()] = $(v).find('.variant-chosen').val()
+		  arr.push a
+		  return
+		platId=platforms.findOne()._id
+		profile = {name : $('#currentProfileName').val(),description: $('#currentProfileDesc').val()}
+		platforms.update({_id:platId},{$pull:{profiles:profile}})
+		profile.variants = arr
+		platforms.update({_id:platId},{$push:{profiles:profile}})
+		console.log platforms.findOne({_id:platId}).profile
+
+	'click .add-variants-btn': (e) ->
+		# deckHtmlId = $(e)
+		console.log this.name
+		$(".right-form").hide()
+		$('#new-prf-form-profile').remove()
+		Blaze.renderWithData(Template['addVariant'],{profileName:this.name,profile:this},document.getElementById('add-variant-profile'))
+		$("#add-variant-profile").show()
 	'click .profile-delete-btn': (e) ->
 	    #alert("Testing delete")
       platId=platforms.findOne()._id
@@ -70,8 +92,6 @@ Template.adminpanel.helpers
     console.log profiles
     profiles
 
-		# ...
-
 Template.userForm.events
 	'click .add-individual-user': (e) ->
 
@@ -108,3 +128,21 @@ Template.addUserProfile.events
 		platId=platforms.findOne()._id
 		platforms.update({_id:platId},{$push:{profiles:profile}})
 		createNotification("Profile has been added successfully",1)
+
+
+Template.addVariant.helpers
+	userDeckHtml:()->
+		deckHtml.find().fetch()
+
+	deckVariants:(deckId)->
+		variants=[]
+		deck = deckHtml.findOne(deckId)
+		for j in deck.variants
+			variants.push({userVariants:j})
+		variants
+
+
+Template.addVariant.rendered = () ->
+	setTimeout(()->
+		$('.variant-chosen').chosen()
+	,500)

@@ -31,6 +31,7 @@
 					{{#each getPlatformProfiles}}
 					<li><span class="tag-label">{{name}}</span>
 						<!-- <span class="tag-options">{{values}}</span> -->
+						<a href="#" class="btn btn-warning btn-xs pull-right list-btn delete-btn add-variants-btn">Add Variants</a>
 						<a href="#" class="btn btn-danger btn-xs pull-right list-btn delete-btn profile-delete-btn">Delete</a>
 						<!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
 					</li>
@@ -46,6 +47,15 @@
 
 
 			</div>
+
+			<div id="add-variant-profile" class="right-form">
+				<h2>Add variant</h2>
+
+
+
+			</div>
+
+
 
         <div id="users-users" class="right-form">
             <h2>User List
@@ -138,3 +148,30 @@
 					</div>
 				</div>
 			</div>	</template>
+
+<template name="addVariant">
+	<div id="add-varant-to-profile" class="full-box">
+		<input type="hidden" name="profileName" id="currentProfileName" value={{profile.name}}>
+		<input type="hidden" name="profileDesc" id="currentProfileDesc" value={{profile.description}}>
+
+		<ul id="tag-list" class="full-box">
+			{{#each userDeckHtml}}
+			<li>
+				<div class="userDecks">
+					<span class="tag-label">{{deckname}}</span>
+					<input class="deckname" type="hidden" name="deck_name" value="{{deckname}}">
+					<select data-placeholder="Tag your Variant" class="chosen-select variant-chosen" tabindex="-1" style="width:150px;padding:0;">
+						{{#each deckVariants _id}}
+						<option>{{userVariants}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+		<a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
+
+	</div>
+
+
+</template>
