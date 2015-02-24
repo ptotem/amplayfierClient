@@ -1,0 +1,2 @@
+Template.storyWrapper.rendered = () ->
+  initPage()

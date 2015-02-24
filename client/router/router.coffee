@@ -29,7 +29,7 @@ Router.route '/admin',
   data:()->
     pname =  headers.get('host').split('.')[0]
     {platformName:pname}
-    
+
   waitOn:()->
     [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('usersOfPlatform',this.data().platformName)]
   action: ->
@@ -37,3 +37,8 @@ Router.route '/admin',
       setPlatform(this.data().platformName)
       @render()
 
+Router.route '/storyWrapper',
+  template: 'storyWrapper',
+  name: 'storyWrapper',
+  data:()->
+    someRandomData = "This is just testing...."
