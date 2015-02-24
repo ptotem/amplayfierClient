@@ -28,33 +28,25 @@
 					<input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile"/>
 				</h2>
 				<ul id="tag-list" class="full-box">
+					{{#each getPlatformProfiles}}
+					<li><span class="tag-label">{{name}}</span>
+						<!-- <span class="tag-options">{{values}}</span> -->
+						<a href="#" class="btn btn-danger btn-xs pull-right list-btn delete-btn profile-delete-btn">Delete</a>
+						<!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
+					</li>
+					{{/each}}
 				</ul>
 
 
 			</div>
-			<div class="right-form">
-				<div id="new-prf-form" class="full-box" style='display:none'>
-					<div class="row" id="user-list">
 
-						<div class="col-lg-12">
-							<label for="profile-user-name">Profile Name</label>
-							<input type="text" class="form-control" id='profile-name' name="name" placeholder="Enter profile name">
-						</div><br>
-						<div class="col-lg-12">
-							<label for="profile-user-description">Profile Description</label>
-							<!--<textarea cols="5" rows="5" class="form-control" id='profile-desc' name="description" placeholder="Enter profile description name">-->
-							<!--</textarea>-->
-							<textarea id="profile-desc" placeholder="Enter profile description name" rows="3" class="form-control" name="description"></textarea>
-						</div><br>
-						<div class="col-lg-3">
-							<a href="#" class="right-form-save new-profile-btn">
-								<span class="icon hiero-save"></span>
-								<br/>
-								Save
-							</a>                      </div>
-						</div>
-					</div>
-				</div>
+			<div id="new-user-profile" class="right-form">
+				<h2>New Profile</h2>
+
+
+
+			</div>
+
         <div id="users-users" class="right-form">
             <h2>User List
                 <a class="btn btn-warning pull-right add-btn add-new-user" href="#">Add New</a>
@@ -125,3 +117,24 @@
             {{/with}}
             <a href="#" class="btn btn-lg btn-primary add-individual-user">Save </a>
 	</template>
+
+
+	<template name="addUserProfile">
+		<div id="new-prf-form-profile" class="full-box">
+			<div class="row" id="user-list">
+
+				<div class="col-lg-12">
+					<label for="profile-user-name">Profile Name</label>
+					<input type="text" class="form-control" id='profile-name' name="name" placeholder="Enter profile name">
+				</div><br>
+				<div class="col-lg-12">
+					<label for="profile-user-description">Profile Description</label>
+					<!--<textarea cols="5" rows="5" class="form-control" id='profile-desc' name="description" placeholder="Enter profile description name">-->
+					<!--</textarea>-->
+					<textarea id="profile-desc" placeholder="Enter profile description name" rows="3" class="form-control" name="description"></textarea>
+				</div><br>
+				<div class="col-lg-3">
+					<a href="#" class="btn btn-lg btn-primary add-individual-profile">Save </a>
+					</div>
+				</div>
+			</div>	</template>

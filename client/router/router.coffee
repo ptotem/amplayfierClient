@@ -59,6 +59,7 @@ Router.route '/admin',
   action: ->
     if @ready()
       setPlatform(this.data().platformName)
+      setTenant()
       @render()
 
 Router.route '/storyWrapper',

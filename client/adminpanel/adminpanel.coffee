@@ -1,10 +1,16 @@
 Template.adminpanel.events
-
 	'click .add-new-profile': (e) ->
-		# $("#tag-list").hide()
-    # $("#new-prf-form").show()
-    # $("#new-prf-form").parent().show()
+		$(".right-form").hide()
+		$('#new-prf-form-profile').remove()
+		Blaze.renderWithData(Template['addUserProfile'],{userId:-1},document.getElementById('new-user-profile'))
+		$("#new-user-profile").show()
 
+  'click .profile-delete-btn': (e) ->
+    platId=platforms.findOne()._id
+    platforms.update({_id:platId},{$pull:{profiles:this}})
+    alert("platId")
+    createNotification("Profile has been removed successfully",1)
+    e.preventDefault()
 
 	'click .sidelink': (e) ->
 		$('.active').removeClass('active')
@@ -54,6 +60,15 @@ Template.adminpanel.rendered = () ->
 Template.adminpanel.helpers
 	myusers: () ->
 		Meteor.users.find().fetch()
+
+	getPlatformProfiles:(uid)->
+    profiles = []
+    for p in platforms.findOne().profiles
+      p["uid"] = uid
+      profiles.push p
+    console.log profiles
+    profiles
+
 		# ...
 
 Template.userForm.events
@@ -84,3 +99,11 @@ Template.userForm.helpers
 			Meteor.users.findOne(uid)
 		else
 			{}
+
+
+Template.addUserProfile.events
+	'click .add-individual-profile':(e)->
+		profile = {name:$("#profile-name").val(),description:$("#profile-desc").val()}
+		platId=platforms.findOne()._id
+		platforms.update({_id:platId},{$push:{profiles:profile}})
+		createNotification("Profile has been added successfully",1)
