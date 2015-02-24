@@ -1,15 +1,20 @@
-Router.onBeforeAction (->
-  # all properties available in the route function
-  # are also available here such as this.params
-  if !Meteor.userId()
-    # if the user is not logged in, render the Login template
-    @render 'loginPage'
-  else
-    # otherwise don't hold up the rest of hooks or our route/action function
-    # from running
-    @next()
-  return
-  ),{except:['login','admin']}
+Router.onRun (->
+    if !Meteor.userId()?
+        this.render("loading")
+        # createNotification(errorMessages.loginFristError,0)
+        window.location = "/login"
+    else
+      if this.path is "/" and headers.get('host').split(".").length is 3
+        window.location = "platform/"+headers.get('host').split(".")[0]
+      else
+        this.render()
+    return
+  ),
+  # except: ["login","store","listing","platforPreview","resetpassword","signup"]
+  except: ["login"]
+
+
+
 
 
 Router.route '/login',
@@ -18,9 +23,12 @@ Router.route '/login',
     data:()->
       pname =  headers.get('host').split('.')[0]
       {platformName:pname}
+    waitOn:()->
+      [Meteor.subscribe('loginPlatform',this.data().platformName)]
     action: ->
-      setPlatform(this.data().platformName)
-      @render()
+      if @ready
+        setPlatform(this.data().platformName)
+        @render()
 
 
 Router.route '/',

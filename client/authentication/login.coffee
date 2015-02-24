@@ -1,10 +1,8 @@
-# Template.loginPage.helpers
-#   backId:()->
-#     tenants.findOne().tenantBack
-#   logoId:()->
-#     tenants.findOne().tenantLogo
-#   getPlatName:()->
-#     tenants.findOne().tenantName
+Template.loginPage.helpers
+  backId:()->
+    platforms.findOne().backgroundUrl
+  logoId:()->
+    platforms.findOne().platformLogo
 
 
 Template.loginPage.events
@@ -17,3 +15,11 @@ Template.loginPage.events
      userPassword = $(e.currentTarget).find("#password").val()
      authenticatePassword(newEmail,userPassword,"/")
      false
+
+
+Template.loginPage.rendered = ()->
+  $('body').css('height','100%')
+  if platforms.findOne().tenantIcon?
+    faviconlink = platforms.findOne().tenantIcon
+  else
+    faviconlink = 'http://faviconicon.com/uploads/2010-09-23/1285245556-624813-256.png'

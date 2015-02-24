@@ -7,7 +7,7 @@ Template.adminpanel.events
 		  a[$(v).find('.deckname').val()] = $(v).find('.variant-chosen').val()
 		  arr.push a
 		  return
-		platId=platforms.findOne()._id
+		platId=platforms.findOne({tenantName:platformName})._id
 		profile = {name : $('#currentProfileName').val(),description: $('#currentProfileDesc').val()}
 		platforms.update({_id:platId},{$pull:{profiles:profile}})
 		profile.variants = arr
@@ -22,10 +22,8 @@ Template.adminpanel.events
 		Blaze.renderWithData(Template['addVariant'],{profileName:this.name,profile:this},document.getElementById('add-variant-profile'))
 		$("#add-variant-profile").show()
 	'click .profile-delete-btn': (e) ->
-	    #alert("Testing delete")
-      platId=platforms.findOne()._id
+      platId=platforms.findOne({tenantName:platformName})._id
       platforms.update({_id:platId},{$pull:{profiles:this}})
-      alert("platId")
       createNotification("Profile has been removed successfully",1)
       e.preventDefault()
 
@@ -54,7 +52,7 @@ Template.adminpanel.events
 		f = new FS.File(document.getElementById("new-user-excel").files[0])
 		f.platformId = -1
 		nef = excelFiles.insert(f)
-		pid = platforms.findOne()._id
+		pid = platforms.findOne({tenantName:platformName})._id
 		console.log nef
 		setTimeout(()->
 			Meteor.call('bulkInsertUsers',nef._id,pid,(err,res)->
@@ -86,7 +84,7 @@ Template.adminpanel.helpers
 
 	getPlatformProfiles:(uid)->
     profiles = []
-    for p in platforms.findOne().profiles
+    for p in platforms.findOne({tenantName:platformName}).profiles
       p["uid"] = uid
       profiles.push p
     console.log profiles
@@ -103,7 +101,7 @@ Template.userForm.events
 		first_name =  $("#user-first-name").val()
 		last_name =  $("#user-last-name").val()
 
-		pid = platforms.findOne()._id
+		pid = platforms.findOne({tenantName:platformName})._id
 		p = {platform:pid,first_name:first_name,last_name:last_name,display_name:display_name,email:email}
 
 		if parseInt($("#user-id").val()) is -1
@@ -125,7 +123,7 @@ Template.userForm.helpers
 Template.addUserProfile.events
 	'click .add-individual-profile':(e)->
 		profile = {name:$("#profile-name").val(),description:$("#profile-desc").val()}
-		platId=platforms.findOne()._id
+		platId=platforms.findOne({tenantName:platformName})._id
 		platforms.update({_id:platId},{$push:{profiles:profile}})
 		createNotification("Profile has been added successfully",1)
 
@@ -137,12 +135,7 @@ Template.addVariant.helpers
 	deckVariants:(deckId)->
 		variants=[]
 		deck = deckHtml.findOne(deckId)
-		for j in deck.variants
-			variants.push({userVariants:j})
+		if deck.variants?
+			for j in deck.variants
+				variants.push({userVariants:j})
 		variants
-
-
-Template.addVariant.rendered = () ->
-	setTimeout(()->
-		$('.variant-chosen').chosen()
-	,500)
