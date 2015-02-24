@@ -1,16 +1,17 @@
 Template.adminpanel.events
+	'click .profile-delete-btn': (e) ->
+	    #alert("Testing delete")
+      platId=platforms.findOne()._id
+      platforms.update({_id:platId},{$pull:{profiles:this}})
+      alert("platId")
+      createNotification("Profile has been removed successfully",1)
+      e.preventDefault()
+
 	'click .add-new-profile': (e) ->
 		$(".right-form").hide()
 		$('#new-prf-form-profile').remove()
 		Blaze.renderWithData(Template['addUserProfile'],{userId:-1},document.getElementById('new-user-profile'))
 		$("#new-user-profile").show()
-
-  'click .profile-delete-btn': (e) ->
-    platId=platforms.findOne()._id
-    platforms.update({_id:platId},{$pull:{profiles:this}})
-    alert("platId")
-    createNotification("Profile has been removed successfully",1)
-    e.preventDefault()
 
 	'click .sidelink': (e) ->
 		$('.active').removeClass('active')
