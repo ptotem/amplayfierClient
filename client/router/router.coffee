@@ -1,17 +1,17 @@
-Router.onRun (->
-    if !Meteor.userId()?
-        this.render("loading")
-        # createNotification(errorMessages.loginFristError,0)
-        window.location = "/login"
-    else
-      if this.path is "/" and headers.get('host').split(".").length is 3
-        window.location = "platform/"+headers.get('host').split(".")[0]
-      else
-        this.render()
-    return
-  ),
-  # except: ["login","store","listing","platforPreview","resetpassword","signup"]
-  except: ["login"]
+# Router.onRun (->
+#     if !Meteor.userId()?
+#         this.render("loading")
+#         # createNotification(errorMessages.loginFristError,0)
+#         window.location = "/login"
+#     else
+#       if this.path is "/" and headers.get('host').split(".").length is 3
+#         window.location = "platform/"+headers.get('host').split(".")[0]
+#       else
+#         this.render()
+#     return
+#   ),
+#   # except: ["login","store","listing","platforPreview","resetpassword","signup"]
+#   except: ["login"]
 
 
 
@@ -72,19 +72,27 @@ Router.route '/admin',
 Router.route '/storyWrapper',
   template: 'storyWrapper',
   name: 'storyWrapper',
-  data:()->
-    someRandomData = "This is just testing...."
+  # data:()->
+  #   someRandomData = "This is just testing...."
+  waitOn:()->
+    Meteor.subscribe('temps')
+  action:()->
+    if @ready()
+      @render()
+    else
+      @render('loading')
+
 
 Router.route '/indexreport',
   template: 'reportIndex',
   name: 'reportIndex',
 
 #
-#Router.route '/indexreport',
-#  template: 'reportIndex',
-#  name: 'reportIndex',
-#  data:()->
-#    pname =  headers.get('host').split('.')[0]
-#    {platformName:pname}
-#  waitOn:()->
-#    [Meteor.subscribe('indexReport')]
+Router.route '/deckreport',
+ template: 'adminDeckReport',
+ name: 'deckreport',
+ data:()->
+   pname =  headers.get('host').split('.')[0]
+   {platformName:pname}
+ waitOn:()->
+   [Meteor.subscribe('indexReport')]
