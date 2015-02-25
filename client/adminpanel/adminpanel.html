@@ -4,7 +4,7 @@
         <li class="active sidelink" target-section="users">Users</li>
         <li  class="sidelink" target-sections="reports">Reports</li>
     </ul>
-    <a id="logout" href="#">Logout</a>
+{{>adminLogout}}
 </aside>
 
 <section id="info" class="main ">
@@ -174,4 +174,8 @@
 	</div>
 
 
+</template>
+
+<template name="adminLogout">
+    <a id="logout" href="#">Logout</a>
 </template>

@@ -36,11 +36,6 @@ Template.adminpanel.events
 		Blaze.renderWithData(Template['addUserProfile'],{userId:-1},document.getElementById('new-user-profile'))
 		$("#new-user-profile").show()
 
-  'click #logout': (e) ->
-    Meteor.logout()
-    setTimeout (->
-      window.location.href =  window.location.href
-    ),1000
 
 
   'click .sidelink': (e) ->
@@ -150,3 +145,11 @@ Template.addVariant.helpers
 			for j in deck.variants
 				variants.push({userVariants:j})
 		variants
+
+
+Template.adminLogout.events
+  'click #logout': (e) ->
+    Meteor.logout()
+    setTimeout (->
+      window.location.href =  window.location.href
+    ),1000
