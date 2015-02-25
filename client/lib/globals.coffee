@@ -1,2 +1,3 @@
 @setPlatform = (pname)->
 	@platformName = pname
+

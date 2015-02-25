@@ -1,6 +1,7 @@
 @deckHtml = new Meteor.Collection("deckHtml");
 @platforms = new Meteor.Collection('platforms');
 @decks = new Meteor.Collection('decks');
+@reports = new Meteor.Collection('reports');
 
 # remote = DDP.connect('http://localhost:3000/');
 

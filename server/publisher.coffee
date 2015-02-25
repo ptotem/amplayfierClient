@@ -19,3 +19,7 @@ Meteor.publish("loginPlatform",(tname)->
   this.ready()
   platforms.find({tenantName:tname})
 )
+Meteor.publish("reportsOfSlide",(pname) ->
+  p = platforms.findOne({tenantName:pname})._id
+  Meteor.reports.find({platform:p})
+)

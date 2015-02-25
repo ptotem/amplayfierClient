@@ -164,3 +164,17 @@
 @evaluateLicense = (user) ->
   console.log "---------"
   console.log("Code for restricting the user based on their license type will come here.")
+
+@setReport = (repObj)->
+  #Meteor.call('addReport', {"slideId":"1", "userId":Meteor.userId(),"completed":true,attempts:5,date:new Date()})
+  Meteor.call('addReport', repObj)
+
+@updateReport = (queryString, parameters) ->
+  queryString.userId = Meteor.userId()
+  Meteor.call('updateReport',queryString, parameters)
+
+@getCurrentSlideId = (deckId)->
+  #todo: to be changed when actual slide content is getting appended
+  parsed = $(".help-area").append($(deckHtml.findOne({deckId:deckId}).htmlContent))
+  slideId = $(parsed).find(".active").attr("data-slideid")
+  slideId

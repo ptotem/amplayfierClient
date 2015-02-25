@@ -1,4 +1,10 @@
 Meteor.methods
+  addReport:(repObj) ->
+    reports.insert(repObj)
+
+  updateReport:(queryString, parameters) ->
+    reports.update(queryString,{$set: parameters})
+
 	storeHtml:(tid,did,tname,dname,htmlString)->
 		# deckHtml.remove({})
 		p = platforms.insert({tenantId:tid,tenantName:tname})
@@ -46,3 +52,6 @@ Meteor.methods
 	updateUser:(uid,p)->
 		Meteor.users.update({_id:uid},{$set:personal_profile:p})
 		return true
+
+
+
