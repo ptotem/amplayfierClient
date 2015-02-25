@@ -13,7 +13,7 @@ Template.loginPage.events
      newEmail = encodeEmail(userEmail,pn)
      console.log newEmail
      userPassword = $(e.currentTarget).find("#password").val()
-     authenticatePassword(newEmail,userPassword,"/")
+     authenticatePassword(newEmail,userPassword,"/admin")
      false
 
 

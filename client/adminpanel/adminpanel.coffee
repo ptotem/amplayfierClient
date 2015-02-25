@@ -1,18 +1,21 @@
 Template.adminpanel.events
+
 	'click .add-individual-variant' :(e) ->
-		arr = []
-		$('.userDecks').each (i, v) ->
-		  #console.log $(v).find('.deckname').val()
-		  a = {}
-		  a[$(v).find('.deckname').val()] = $(v).find('.variant-chosen').val()
-		  arr.push a
-		  return
-		platId=platforms.findOne({tenantName:platformName})._id
-		profile = {name : $('#currentProfileName').val(),description: $('#currentProfileDesc').val()}
-		platforms.update({_id:platId},{$pull:{profiles:profile}})
-		profile.variants = arr
-		platforms.update({_id:platId},{$push:{profiles:profile}})
-		console.log platforms.findOne({_id:platId}).profile
+    arr = []
+    $('.userDecks').each (i, v) ->
+      #console.log $(v).find('.deckname').val()
+      a = {}
+      a[$(v).find('.deckname').val()] = $(v).find('.variant-chosen').val()
+      arr.push a
+      return
+    platId = platforms.findOne()._id
+    profile = {name: $('#currentProfileName').val(), description: $('#currentProfileDesc').val()}
+    platforms.update({_id: platId}, {$pull: {profiles: profile}})
+    profile.variants = arr
+    platforms.update({_id: platId}, {$push: {profiles: profile}})
+    console.log platforms.findOne({_id: platId}).profile
+    createNotification("Variants are added to this profile", 1)
+
 
 	'click .add-variants-btn': (e) ->
 		# deckHtmlId = $(e)
@@ -22,7 +25,7 @@ Template.adminpanel.events
 		Blaze.renderWithData(Template['addVariant'],{profileName:this.name,profile:this},document.getElementById('add-variant-profile'))
 		$("#add-variant-profile").show()
 	'click .profile-delete-btn': (e) ->
-      platId=platforms.findOne({tenantName:platformName})._id
+      platId=platforms.findOne()._id
       platforms.update({_id:platId},{$pull:{profiles:this}})
       createNotification("Profile has been removed successfully",1)
       e.preventDefault()
@@ -33,7 +36,14 @@ Template.adminpanel.events
 		Blaze.renderWithData(Template['addUserProfile'],{userId:-1},document.getElementById('new-user-profile'))
 		$("#new-user-profile").show()
 
-	'click .sidelink': (e) ->
+  'click #logout': (e) ->
+    Meteor.logout()
+    setTimeout (->
+      window.location.href =  window.location.href
+    ),1000
+
+
+  'click .sidelink': (e) ->
 		$('.active').removeClass('active')
 		$(e.currentTarget).addClass('active')
 		$('.main').hide()
@@ -52,7 +62,7 @@ Template.adminpanel.events
 		f = new FS.File(document.getElementById("new-user-excel").files[0])
 		f.platformId = -1
 		nef = excelFiles.insert(f)
-		pid = platforms.findOne({tenantName:platformName})._id
+		pid = platforms.findOne()._id
 		console.log nef
 		setTimeout(()->
 			Meteor.call('bulkInsertUsers',nef._id,pid,(err,res)->
@@ -84,10 +94,11 @@ Template.adminpanel.helpers
 
 	getPlatformProfiles:(uid)->
     profiles = []
-    for p in platforms.findOne({tenantName:platformName}).profiles
-      p["uid"] = uid
-      profiles.push p
-    console.log profiles
+    if platforms.findOne().profiles?
+      for p in platforms.findOne().profiles
+        p["uid"] = uid
+        profiles.push p
+      console.log profiles
     profiles
 
 Template.userForm.events
@@ -101,7 +112,7 @@ Template.userForm.events
 		first_name =  $("#user-first-name").val()
 		last_name =  $("#user-last-name").val()
 
-		pid = platforms.findOne({tenantName:platformName})._id
+		pid = platforms.findOne()._id
 		p = {platform:pid,first_name:first_name,last_name:last_name,display_name:display_name,email:email}
 
 		if parseInt($("#user-id").val()) is -1
@@ -123,7 +134,7 @@ Template.userForm.helpers
 Template.addUserProfile.events
 	'click .add-individual-profile':(e)->
 		profile = {name:$("#profile-name").val(),description:$("#profile-desc").val()}
-		platId=platforms.findOne({tenantName:platformName})._id
+		platId=platforms.findOne()._id
 		platforms.update({_id:platId},{$push:{profiles:profile}})
 		createNotification("Profile has been added successfully",1)
 
