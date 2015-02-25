@@ -23,3 +23,7 @@ Meteor.publish("reportsOfSlide",(pname) ->
   p = platforms.findOne({tenantName:pname})._id
   Meteor.reports.find({platform:p})
 )
+
+Meteor.publish("indexReport",() ->
+  reports.find().fetch()
+)

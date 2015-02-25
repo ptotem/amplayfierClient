@@ -74,3 +74,17 @@ Router.route '/storyWrapper',
   name: 'storyWrapper',
   data:()->
     someRandomData = "This is just testing...."
+
+Router.route '/indexreport',
+  template: 'reportIndex',
+  name: 'reportIndex',
+
+#
+#Router.route '/indexreport',
+#  template: 'reportIndex',
+#  name: 'reportIndex',
+#  data:()->
+#    pname =  headers.get('host').split('.')[0]
+#    {platformName:pname}
+#  waitOn:()->
+#    [Meteor.subscribe('indexReport')]

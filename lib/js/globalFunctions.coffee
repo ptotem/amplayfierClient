@@ -173,8 +173,39 @@
   queryString.userId = Meteor.userId()
   Meteor.call('updateReport',queryString, parameters)
 
+@updateGameReport = (queryString,parameters) ->
+  Meteor.call('updateGameReport',queryString,parameters)
+
 @getCurrentSlideId = (deckId)->
   #todo: to be changed when actual slide content is getting appended
   parsed = $(".help-area").append($(deckHtml.findOne({deckId:deckId}).htmlContent))
   slideId = $(parsed).find(".active").attr("data-slideid")
   slideId
+
+#Todo: to be removed later
+#Folowing is written to generate random reports data to implement the view part
+
+@generateRandomReport = () ->
+  slideIds = ["Slide1","Slide2","Slide3","Slide4","Slide5"]
+  userIds = ["user1","user2","user3","user4","user5"]
+  i = 0
+  while i < 5
+    j = 0
+    while j < slideIds.length
+      k = 0
+      while k < userIds.length
+        setReport
+          slideId: j
+          userId: k
+          completed: true
+          createdAt: new Date
+          attempts: 4
+          timeTaken: 15
+        k++
+      j++
+    i++
+
+
+
+
+

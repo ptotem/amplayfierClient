@@ -5,6 +5,9 @@ Meteor.methods
   updateReport:(queryString, parameters) ->
     reports.update(queryString,{$set: parameters})
 
+  updateGameReport:(queryString,parameters) ->
+    reports.update(queryString,{$push:{gameData:parameters}})
+
 	storeHtml:(tid,did,tname,dname,htmlString)->
 		# deckHtml.remove({})
 		p = platforms.insert({tenantId:tid,tenantName:tname})
