@@ -205,6 +205,14 @@
       j++
     i++
 
+_.mixin
+  sum: (arr) ->
+    _.reduce arr, ((s, x) ->
+      s + x
+    ), 0
+  avg: (arr) ->
+    _.sum(arr) / arr.length
+
 
 
 

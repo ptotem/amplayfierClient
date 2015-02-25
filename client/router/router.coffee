@@ -62,7 +62,7 @@ Router.route '/admin',
     pname =  headers.get('host').split('.')[0]
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('usersOfPlatform',this.data().platformName)]
+    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('usersOfPlatform',this.data().platformName), Meteor.subscribe('indexReport')]
   action: ->
     if @ready()
       setPlatform(this.data().platformName)
@@ -78,6 +78,8 @@ Router.route '/storyWrapper',
 Router.route '/indexreport',
   template: 'reportIndex',
   name: 'reportIndex',
+  waitOn:()->
+    [Meteor.subscribe('indexReport')]
 
 #
 #Router.route '/indexreport',

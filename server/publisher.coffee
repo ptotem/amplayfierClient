@@ -25,5 +25,5 @@ Meteor.publish("reportsOfSlide",(pname) ->
 )
 
 Meteor.publish("indexReport",() ->
-  reports.find().fetch()
+  reports.find({})
 )
