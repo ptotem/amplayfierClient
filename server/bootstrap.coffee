@@ -15,7 +15,7 @@ Meteor.startup(()->
     deckHtml.insert({deckname:"dname-3",platformId:tid,tenantId:-1,deckId:"121",variants:["its","not","working"]})
     deckHtml.insert({deckname:"dname-4",platformId:tid,tenantId:-1,deckId:"120"})
     deckHtml.insert({deckname:"dname-5",platformId:tid,tenantId:-1,deckId:"119",variants:["dark","knight","rises"]})
-    # platforms.insert({tenantId:-1,tenantName:"rakesh"})
+    # platforms.insert({tenantId:-1,tenantName:"rakesh", licenseType: ""})
     # Meteor.users.remove({seed_user:true})
     # Accounts.createUser({email:"sunny@ptotem.com",password:"p20o20e13",role:"admin",tid:-1,personal_profile:{},seed_user:true})
     # Accounts.createUser({email:"author@ptotem.com",password:"author123",role:"author",tid:-1,personal_profile:{},seed_user:true})

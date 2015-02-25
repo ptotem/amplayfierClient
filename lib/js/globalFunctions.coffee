@@ -160,3 +160,7 @@
 
 @encodeEmail = (userEmail,pn) ->
 	userEmail.substr(0, userEmail.indexOf('@')) + '|' + pn + userEmail.substr(userEmail.indexOf('@'))
+
+@evaluateLicense = (user) ->
+  console.log "---------"
+  console.log("Code for restricting the user based on their license type will come here.")
