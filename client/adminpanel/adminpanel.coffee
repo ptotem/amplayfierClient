@@ -89,7 +89,7 @@ Template.adminpanel.helpers
 
 	getPlatformProfiles:(uid)->
     profiles = []
-    if platforms.findOne().profiles?
+    if platforms.findOne().profiles != undefined
       for p in platforms.findOne().profiles
         p["uid"] = uid
         profiles.push p
