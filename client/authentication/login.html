@@ -1,16 +1,23 @@
 <template name="loginPage">
 
 
-  <div class="container-fluid page-wrapper" style="background:url({{backId}}) ;background-size: 100% 100%;
+  <div class="container-fluid page-wrapper" style="background-image: url('/assets/images/bg.jpg');background-size: 100% 100%;
   background-repeat: no-repeat;height:100%;">
   <div class="row">
-    <div class="col-md-4 col-sm-5 col-sm-offset-4 col-md-offset-4 ">
+    <!--<div class="col-md-4 col-sm-5 col-sm-offset-4 col-md-offset-4 ">
       <div class="logo">
-        <!-- <img src="assets/theme/images/playthorize-logo.png"> -->
-        <img src="{{logoId}}" style="margin-left: auto;
+        &lt;!&ndash; <img src="assets/theme/images/playthorize-logo.png"> &ndash;&gt;
+        <img src="/assets/images/amplayfier-logo.png" style="margin-left: auto;
         margin-right: auto;height: 128px;">
       </div>
+    </div>-->
+
+    <div class="col-md-4 col-sm-5 col-sm-offset-4 col-md-offset-4" style="line-height: 2.5em; padding-top: 1%; text-align: center;">
+      <div style="vertical-align: middle">
+        <img style="vertical-align:middle; max-height:100px;" src="/assets/images/amplayfier-new-logo.png">
+      </div>
     </div>
+
   </div>
 
   <div class="row">
@@ -19,22 +26,22 @@
         <form class="login-form" id="loginForm">
           <div class="form-group has-feedback">
             <label class="control-label">Username</label>
-            <input type="text" class="form-control textbox_style" placeholder="" id="email">
-            <i class="fa fa-user form-control-feedback" style="margin-top:25px;"></i>
+            <input type="text" class="form-control textbox_style" placeholder="Username" id="email">
+            <i class="fa fa-user form-control-feedback" style="margin-top: 10px;"></i>
           </div>
           <div class="form-group has-feedback">
             <label class="control-label">Password</label>
-            <input type="password" class="form-control textbox_style" placeholder="" id="password">
-            <i class="fa fa-lock form-control-feedback" style="margin-top:25px;"></i>
+            <input type="password" class="form-control textbox_style" placeholder="Password" id="password">
+            <i class="fa fa-lock form-control-feedback" style="margin-top: 10px;"></i>
           </div>
           <input type="hidden" class="form-control textbox_style" value="{{getPlatName}}" id="platformname">
 
           <div class="row">
             <div class="col-md-6">
-              <button type="submit" class="btn btn-group btn-dark btn-sm">Log In</button>
+              <span><a href="#">Forgot Password?</a></span>
             </div>
             <div class="col-lg-6 pull-right">
-              <span style="padding:3%"><a href="#">Forgot your password?</a></span>
+              <button type="submit" class="btn btn-group btn-warning pull-right">Log In</button>
             </div>
           </div>
           <ul>

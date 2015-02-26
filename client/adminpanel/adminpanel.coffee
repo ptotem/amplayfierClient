@@ -1,11 +1,11 @@
 Template.adminpanel.events
-	'click .sync-platform-data':(e)->
-		Meteor.call("authorizeConnection",tenantId,platformName,(err,res)->
-			console.log err
-			console.log res
-		)
+  'click .sync-platform-data': (e)->
+    Meteor.call("authorizeConnection", tenantId, platformName, (err, res)->
+      console.log err
+      console.log res
+    )
 
-	'click .add-individual-variant' :(e) ->
+  'click .add-individual-variant': (e) ->
     arr = []
     $('.userDecks').each (i, v) ->
       #console.log $(v).find('.deckname').val()
@@ -22,77 +22,78 @@ Template.adminpanel.events
     createNotification("Variants are added to this profile", 1)
 
 
-	'click .add-variants-btn': (e) ->
-		# deckHtmlId = $(e)
-		console.log this.name
-		$(".right-form").hide()
-		$('#new-prf-form-profile').remove()
-		Blaze.renderWithData(Template['addVariant'],{profileName:this.name,profile:this},document.getElementById('add-variant-profile'))
-		$("#add-variant-profile").show()
-	'click .profile-delete-btn': (e) ->
-      platId=platforms.findOne()._id
-      platforms.update({_id:platId},{$pull:{profiles:this}})
-      createNotification("Profile has been removed successfully",1)
-      e.preventDefault()
+  'click .add-variants-btn': (e) ->
+    # deckHtmlId = $(e)
+    console.log this.name
+    $(".right-form").hide()
+    $('#new-prf-form-profile').remove()
+    Blaze.renderWithData(Template['addVariant'], {profileName: this.name, profile: this},
+      document.getElementById('add-variant-profile'))
+    $("#add-variant-profile").show()
+  'click .profile-delete-btn': (e) ->
+    platId = platforms.findOne()._id
+    platforms.update({_id: platId}, {$pull: {profiles: this}})
+    createNotification("Profile has been removed successfully", 1)
+    e.preventDefault()
 
-	'click .add-new-profile': (e) ->
-		$(".right-form").hide()
-		$('#new-prf-form-profile').remove()
-		Blaze.renderWithData(Template['addUserProfile'],{userId:-1},document.getElementById('new-user-profile'))
-		$("#new-user-profile").show()
-
+  'click .add-new-profile': (e) ->
+    $(".right-form").hide()
+    $('#new-prf-form-profile').remove()
+    Blaze.renderWithData(Template['addUserProfile'], {userId: -1}, document.getElementById('new-user-profile'))
+    $("#new-user-profile").show()
 
 
   'click .sidelink': (e) ->
-		$('.active').removeClass('active')
-		$(e.currentTarget).addClass('active')
-		$('.main').hide()
-		$("#"+$(e.currentTarget).attr('target-section')).show()
+    $('.sidelink').removeClass('active')
+    $(e.currentTarget).addClass('active')
+    $('.main').hide();
+    $("#" + $(e.currentTarget).attr('target-section')).show()
 
 
-	'click .internal-sidelinks': (e) ->
-		$('.active').removeClass('active')
-		$(e.currentTarget).addClass('active')
-		$('.right-form ').hide()
-		$("#"+$(e.currentTarget).attr('target-section')).show()
-	'click .user-upload-btn':(e)->
-		$('.user-upload').trigger('click')
+  'click .internal-sidelinks': (e) ->
+    $('.internal-sidelinks').removeClass('active')
+    $(e.currentTarget).addClass('active')
+    $('.right-form ').hide()
+    $("#" + $(e.currentTarget).attr('target-section')).show()
+  'click .user-upload-btn': (e)->
+    $('.user-upload').trigger('click')
 
-	'change .user-upload':(e)->
-		f = new FS.File(document.getElementById("new-user-excel").files[0])
-		f.platformId = -1
-		nef = excelFiles.insert(f)
-		pid = platforms.findOne()._id
-		console.log nef
-		setTimeout(()->
-			Meteor.call('bulkInsertUsers',nef._id,pid,(err,res)->
-				if res
-					console.log "Users have been uploaded..."
-			)
-		,3000)
-	'click .add-new-user':(e)->
-		$(".right-form").hide()
-		Blaze.renderWithData(Template['userForm'],{userId:-1},document.getElementById('new-user'))
-		$("#new-user").show()
+  'change .user-upload': (e)->
+    f = new FS.File(document.getElementById("new-user-excel").files[0])
+    f.platformId = -1
+    nef = excelFiles.insert(f)
+    pid = platforms.findOne()._id
+    console.log nef
+    setTimeout(()->
+      Meteor.call('bulkInsertUsers', nef._id, pid, (err, res)->
+        if res
+          console.log "Users have been uploaded..."
+      )
+    , 3000)
+  'click .add-new-user': (e)->
+    $(".right-form").hide()
+    Blaze.renderWithData(Template['userForm'], {userId: -1}, document.getElementById('new-user'))
+    $("#new-user").show()
 
 
-	'click .edit-user-btn':(e)->
-		$(".right-form").hide()
-		Blaze.renderWithData(Template['userForm'],{userId:this._id},document.getElementById('new-user'))
-		$("#new-user").show()
+  'click .edit-user-btn': (e)->
+    $(".right-form").hide()
+    Blaze.renderWithData(Template['userForm'], {userId: this._id}, document.getElementById('new-user'))
+    $("#new-user").show()
 
 
 Template.adminpanel.rendered = () ->
-	$('.sidelink').first().trigger('click')
-	$('.internal-sidelinks').first().trigger('click')
-
-
+  $('.sidelink').first().trigger('click')
+  $('.internal-sidelinks').first().trigger('click')
+  $('#tag-list').mCustomScrollbar();
+  $('#user-list').mCustomScrollbar();
+#  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
-	myusers: () ->
-		Meteor.users.find().fetch()
+  myusers: () ->
+    Meteor.users.find().fetch()
 
-	getPlatformProfiles:(uid)->
+  getPlatformProfiles: (uid)->
     profiles = []
     if platforms.findOne().profiles != undefined
       for p in platforms.findOne().profiles
@@ -102,59 +103,58 @@ Template.adminpanel.helpers
     profiles
 
 Template.userForm.events
-	'click .add-individual-user': (e) ->
+  'click .add-individual-user': (e) ->
+    email = $("#user-email").val()
+    console.log email
+    email = encodeEmail(email, platformName)
+    console.log email
+    display_name = $("#user-name").val()
+    first_name = $("#user-first-name").val()
+    last_name = $("#user-last-name").val()
 
-		email = $("#user-email").val()
-		console.log email
-		email = encodeEmail(email,platformName)
-		console.log email
-		display_name =  $("#user-name").val()
-		first_name =  $("#user-first-name").val()
-		last_name =  $("#user-last-name").val()
+    pid = platforms.findOne()._id
+    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: email}
 
-		pid = platforms.findOne()._id
-		p = {platform:pid,first_name:first_name,last_name:last_name,display_name:display_name,email:email}
+    if parseInt($("#user-id").val()) is -1
 
-		if parseInt($("#user-id").val()) is -1
-
-			Accounts.createUser({email:email,password:'password',platform:pid,personal_profile:p})
-		else
-			console.log $("#user-id").val()
-			Meteor.call('updateUser',$("#user-id").val(),p)
-			createNotification('Profile has been updated',1)
+      Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p})
+    else
+      console.log $("#user-id").val()
+      Meteor.call('updateUser', $("#user-id").val(), p)
+      createNotification('Profile has been updated', 1)
 
 Template.userForm.helpers
-	myuser: (uid) ->
-		if uid isnt -1
-			Meteor.users.findOne(uid)
-		else
-			{}
+  myuser: (uid) ->
+    if uid isnt -1
+      Meteor.users.findOne(uid)
+    else
+      {}
 
 
 Template.addUserProfile.events
-	'click .add-individual-profile':(e)->
-		profile = {name:$("#profile-name").val(),description:$("#profile-desc").val()}
-		platId=platforms.findOne()._id
-		platforms.update({_id:platId},{$push:{profiles:profile}})
-		createNotification("Profile has been added successfully",1)
+  'click .add-individual-profile': (e)->
+    profile = {name: $("#profile-name").val(), description: $("#profile-desc").val()}
+    platId = platforms.findOne()._id
+    platforms.update({_id: platId}, {$push: {profiles: profile}})
+    createNotification("Profile has been added successfully", 1)
 
 
 Template.addVariant.helpers
-	userDeckHtml:()->
-		deckHtml.find().fetch()
+  userDeckHtml: ()->
+    deckHtml.find().fetch()
 
-	deckVariants:(deckId)->
-		variants=[]
-		deck = deckHtml.findOne(deckId)
-		if deck.variants?
-			for j in deck.variants
-				variants.push({userVariants:j})
-		variants
+  deckVariants: (deckId)->
+    variants = []
+    deck = deckHtml.findOne(deckId)
+    if deck.variants?
+      for j in deck.variants
+        variants.push({userVariants: j})
+    variants
 
 
 Template.adminLogout.events
   'click #logout': (e) ->
     Meteor.logout()
     setTimeout (->
-      window.location.href =  window.location.href
-    ),1000
+      window.location.href = window.location.href
+    ), 1000

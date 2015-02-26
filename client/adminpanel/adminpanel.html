@@ -1,29 +1,54 @@
+<template name='wizardHeader'>
+
+		<div class="col-md-8" style="line-height: 2.5em; padding-top: 1%;">
+			<div style="display:table-cell; vertical-align: middle">
+				<img style="vertical-align:middle; max-height:100px;" src="/assets/images/amplayfier-logo.png">
+			</div>
+			<div style="display: table-cell; vertical-align: middle; padding-left: 10px;">
+				<div class="bold" style="font-size:3em;color:orange;">AMPLAYFIER</div>
+				<span style="font-size:1.5em;">Administrator Panel</span>
+			</div>
+		</div>
+		<div class="col-md-2 pull-right">
+			<img class="pull-right sync-platform-data" src="/assets/images/sync.png">
+		</div>
+</template>
+
+
 <template name="adminpanel">
 	<aside id="sidebar">
     <ul>
-        <li class="active sidelink" target-section="users">Users <a href="#" class="btn btn-warning sync-platform-data">Sync</a></li>
-        <li  class="sidelink" target-sections="reports">Reports</li>
+        <li class="active sidelink" target-section="users">Manage Users</li>
+        <li class="sidelink" target-section="reports">Manage Data <br> & Analytics</li>
     </ul>
 {{>adminLogout}}
 </aside>
+{{>wizardHeader}}
 
 <section id="info" class="main ">
     <h1>Info</h1>
 </section>
 
 <section id="users" class="main default">
-    <h1>Users</h1>
+    <!--<h1>
+		Users
+		<div class="sync-platform-data">
+			<i class="fa fa-refresh fa-5" style="font-size: 1.3em;"></i> <br>
+			<span style="font-size: 0.45em;">Sync</span>
+		</div>
+	</h1>-->
+
 
     <div class="main-left">
         <div class="help-area">This is the place where you can add users, either manually or using an excel upload.</div>
         <ul>
-            <li class="active internal-sidelinks" target-section="users-profiling"><span class="icon hiero-tags"></span>Profiling</li>
-            <li class='internal-sidelinks' target-section="users-users"><span class="icon hiero-user"></span>Users</li>
+            <li class="active internal-sidelinks" target-section="users-profiling"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Profiling</li>
+            <li class='internal-sidelinks' target-section="users-users"><i class="fa fa-users" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>User List</li>
         </ul>
     </div>
     <div class="main-right">
 			<div id="users-profiling" class="right-form ">
-				<h2>Profiling
+				<h2 style="margin-top: 0;">Profiling
 					<a class="btn btn-warning pull-right add-btn add-new-profile" href="#">Add New</a>
 					<input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile"/>
 				</h2>
@@ -42,7 +67,7 @@
 			</div>
 
 			<div id="new-user-profile" class="right-form">
-				<h2>New Profile</h2>
+				<h2 style="margin-top: 0;">New Profile</h2>
 
 
 
@@ -58,9 +83,10 @@
 
 
         <div id="users-users" class="right-form">
-            <h2>User List
+            <h2 style="margin-top: 0;">User List
                 <a class="btn btn-warning pull-right add-btn add-new-user" href="#">Add New</a>
-                <a class="btn btn-warning pull-right add-btn user-upload-btn" href="#">Upload New</a>
+				<a class="btn btn-warning pull-right add-btn user-upload-btn" href="#">Upload New</a>
+                <a class="btn btn-warning pull-right add-btn download-template-btn" href="#">Download Template</a>
 
 
                 <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
@@ -93,7 +119,7 @@
         </div>
 
         <div id="new-user" class="right-form">
-            <h2>New User</h2>
+            <h2 style="margin-top: 0;">New User</h2>
 
 
 
@@ -101,31 +127,69 @@
 
     </div>
 </section>
+
 <section id="reports" class="main">
-    <h1>Info</h1>
+    <!--<h1>Info</h1>-->
+	<div class="main-left">
+		<div class="help-area">This is the place where you can add users, either manually or using an excel upload.</div>
+		<ul>
+			<li class="active" target-section=""><i class="fa fa-bar-chart-o" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Reports</li>
+		</ul>
+	</div>
+	<div class="main-right">
+		<div class="right-form ">
+			<h2 style="margin-top: 0;">Reports
+				<a class="btn btn-warning pull-right add-btn download-report-btn" href="#">Download Reports</a>
+			</h2>
+			<ul id="tag-list" class="full-box">
+				{{#each getPlatformProfiles}}
+				<li><span class="tag-label">{{name}}</span>
+					<!-- <span class="tag-options">{{values}}</span> -->
+					<a href="#" class="btn btn-warning btn-xs pull-right list-btn delete-btn add-variants-btn">Add Variants</a>
+					<a href="#" class="btn btn-danger btn-xs pull-right list-btn delete-btn profile-delete-btn">Delete</a>
+					<!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+
+	</div>
 </section>
+
 </template>
 
 <template name="userForm">
+
+
 		{{#with myuser userId}}
-            <div class="field-box">
-                <label for="user-name">Full Name</label>
-                <input type="text" id="user-name" value="{{personal_profile.display_name}}"/>
-                <br>
-                <label for="user-email">First Name</label>
-                <input type="text" id="user-first-name" value="{{personal_profile.first_name}}"/>
-                <br>
-                <label for="user-email">Last Name</label>
-                <input type="text" id="user-last-name" value="{{personal_profile.last_name}}"/>
-                <br>
-                <label for="user-email">Email</label>
-                <input type="email" id="user-email" value="{{decodeUserEmail personal_profile.email}}"/>
-                <input type="hidden" id="user-id" value="{{_id}}"/>
+			<!--<div class="field-box">-->
+				<div class="row" style="list-style: none; height: 30em; overflow: auto; border: 1px solid orange; padding: 1em;">
 
+					<div class="col-lg-12">
+						<label for="user-name">Display Name</label>
+						<input type="text" class="form-control" id="user-name" value="{{personal_profile.display_name}}" placeholder="Enter name"/>
+					</div><br><br>
+					<div class="col-lg-12">
+						<label for="user-email">First Name</label>
+						<input type="text" class="form-control" id="user-first-name" value="{{personal_profile.first_name}}" placeholder="Enter first name"/>
+					</div><br><br>
+					<div class="col-lg-12">
+						<label for="user-email">Last Name</label>
+						<input type="text" class="form-control" id="user-last-name" value="{{personal_profile.last_name}}" placeholder="Enter last name"/>
+					</div><br><br>
+					<div class="col-lg-12">
+						<label for="user-email">Email ID</label>
+						<input type="email" class="form-control" id="user-email" value="{{decodeUserEmail personal_profile.email}}" placeholder="Enter name"/>
+						<input type="hidden" id="user-id" value="{{_id}}"/>
+					</div><br><br>
+					<div class="col-lg-12">
+						<a href="#" class="btn btn-lg btn-warning add-individual-user pull-right">Save </a>
+					</div>
+				</div>
+			<!--</div>-->
 
-            </div>
             {{/with}}
-            <a href="#" class="btn btn-lg btn-primary add-individual-user">Save </a>
+
 	</template>
 
 
@@ -136,15 +200,15 @@
 				<div class="col-lg-12">
 					<label for="profile-user-name">Profile Name</label>
 					<input type="text" class="form-control" id='profile-name' name="name" placeholder="Enter profile name">
-				</div><br>
+				</div><br><br>
 				<div class="col-lg-12">
 					<label for="profile-user-description">Profile Description</label>
 					<!--<textarea cols="5" rows="5" class="form-control" id='profile-desc' name="description" placeholder="Enter profile description name">-->
 					<!--</textarea>-->
-					<textarea id="profile-desc" placeholder="Enter profile description name" rows="3" class="form-control" name="description"></textarea>
+					<textarea id="profile-desc" placeholder="Enter profile description" rows="3" class="form-control" name="description"></textarea>
 				</div><br>
-				<div class="col-lg-3">
-					<a href="#" class="btn btn-lg btn-primary add-individual-profile">Save </a>
+				<div class="col-lg-12">
+					<a href="#" style="margin-top: 1%;" class="btn btn-lg btn-warning add-individual-profile pull-right">Save </a>
 					</div>
 				</div>
 			</div>	</template>
