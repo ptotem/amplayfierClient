@@ -2,6 +2,9 @@
 @platforms = new Meteor.Collection('platforms');
 @decks = new Meteor.Collection('decks');
 @reports = new Meteor.Collection('reports');
+@individualGameAttempts = new Meteor.Collection("individualGameAttempts")
+@individualQuestionAttempts = new Meteor.Collection("individualQuestionAttempts")
+
 
 # remote = DDP.connect('http://localhost:3000/');
 

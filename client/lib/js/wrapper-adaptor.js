@@ -248,6 +248,7 @@ function createPortraitView() {
         }
 
         for (j in thisNodeData.decks) {
+            console.log(thisNodeData.decks[j]);
             var deckStatus = "";
             rightBlock += '<a href="#" class="zone-portrait-deck zone-portrait-button zone-button ' + deckStatus + '" id="portraitdeck-' + j + '-' + thisNodeData.decks[j] + '">' + getDeck(thisNodeData.decks[j]).name + '</a>'
         }
@@ -269,6 +270,10 @@ function createPortraitView() {
 
 /* Open the Story Zone in the Landscape view and bind the Decks  */
 function landscapeOpen(sequence) {
+    console.log(sequence);
+    if(sequence==0)
+      sequence = sequence+1
+
     var thisNode = getNodeData(sequence);
     var thisNodeConfig = getNodeConfig(sequence);
     var $storyZone = $('#story-zone');
@@ -386,7 +391,7 @@ function bindNodes() {
                     if (storyConfig.formal) {
                         desc = (getNodeData(seq).description == "") ? getNodeConfig(seq).description : getNodeData(seq).description;
                     } else {
-                        desc = getNodeData(seq).subtitle
+                        desc = (getNodeData(seq).subtitle == "") ? getNodeConfig(seq).subtitle : getNodeData(seq).subtitle;
                     }
 
                     if (status == "final" || !platformData.sequential) {
@@ -474,6 +479,8 @@ function updateWrapper() {
 /* Open a Deck in the Story Zone */
 // TODO: THIS IS TEST CODE. IT HAS TO BE INTEGRATED WITH AMPLAYFIER AND THIS CODE HAS TO BE REMOVED.
 function showDeck(deckId) {
+    console.log ("deckId")
+    console.log (deckId)
 
     // This is the function to call if the Deck has been completed
     completeDeck(deckId);
@@ -482,7 +489,7 @@ function showDeck(deckId) {
     var $storyZone = $('#story-zone');
 
     // This is the code for the playbar
-    $('<div class="story-zone-playbar"><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a><a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a></div>').appendTo($storyZone);
+    $('<div class="story-zone-playbar"><a href="#" class="prev-slide btn btn-warning pull-left playbar-btn"> < </a><a href="#" class="next-slide btn btn-info  pull-left playbar-btn"> > </a><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a><a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a></div>').appendTo($storyZone);
 
     // This is the div where the deck gets shown
     var $projector = $('<div class="projector projection"></div>').appendTo($storyZone);
@@ -565,7 +572,7 @@ function isPortrait() {
 
 /* Get Sequence Number of node where event happens */
 function getSequence(obj) {
-    return parseInt($(obj).attr("id").split("-")[2]);
+    return $(obj).attr("id").split("-")[2];
 }
 
 /* Get Configuration for a given Node  */
@@ -585,7 +592,7 @@ function getNodeData(sequence) {
 /* Get Deck by Id */
 function getDeck(id) {
     return jQuery.grep(wrapperDecks, function (a) {
-        return (a._id == id);
+        return (a.deckId== id);
     })[0];
 }
 
@@ -599,10 +606,11 @@ function checkDeck(id) {
 
 /* Mark a Deck as complete */
 function completeDeck(id) {
+  console.log (id)
     jQuery.grep(deckStates, function (a) {
         return (a.deckId == id);
     })[0].state = true;
     updateWrapper();
 }
 
-window.initPage = initPage; 
+window.initPage = initPage;

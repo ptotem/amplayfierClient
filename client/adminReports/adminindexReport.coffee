@@ -1,7 +1,7 @@
-Template.reportIndex.helpers
+Template.adminDeckReport.helpers
+  allReports:()->
+    reports.find().fetch()
 
-Template.reportIndex.rendered = () ->
-#  reports = reports.find().fetch()
-  console.log(_.map(reports.find().fetch(), (num, key) ->
-    num.slideId
-  ))
+Template.adminDeckReport.rendered = () ->
+  $('#example').DataTable()
+

@@ -1,4 +1,43 @@
 Meteor.methods
+	syncTenantAssets:(fl)->
+
+		filelist = " "
+		exec = Npm.require('child_process').exec
+		pwd =  process.env["PWD"]
+		for fn in fl
+			filelist = filelist + fn["path"] + " "
+			child = exec('wget -P  '+ pwd + "/.cfs/files/assetFiles/" + fn["fname"] + "/" + filelist , (stderr,stdres,stdout)->
+				console.log stderr
+				console.log stdres
+				console.log stdout
+			)
+		return true
+
+	storeHtml:(tid,did,tname,dname,htmlString)->
+		# deckHtml.remove({})
+		# p = platforms.insert({tenantId:tid,tenantName:tname})
+		# console.log p
+		d = deckHtml.insert({name:dname,platformId:"T5YDbhsrzpjwgFB6n",tenantId:tid,deckId:did,htmlContent:htmlString})
+		console.log d
+		return true
+
+  storeNodes:(sConfig,nodes,tid,tname)->
+    p = platforms.insert({tenantId:tid,tenantName:tname,nodes:nodes,storyConfig:sConfig})
+    return true
+  readWrapperImages:(f,listOfFiles)->
+    console.log "----------------------------------"
+    console.log listOfFiles
+    filelist = " "
+    exec = Npm.require('child_process').exec
+    for fn in listOfFiles
+      console.log "fn"
+      console.log fn
+      filelist = filelist + ' http://192.168.0.104:3000/assets/storyWrapper/img-spaceWrapper/'+fn + "  "
+    console.log filelist
+    child = exec('wget -P  /var/www/ampsamp '+ filelist)
+
+
+
   addReport:(repObj) ->
     reports.insert(repObj)
 
@@ -8,13 +47,9 @@ Meteor.methods
   updateGameReport:(queryString,parameters) ->
     reports.update(queryString,{$push:{gameData:parameters}})
 
-	storeHtml:(tid,did,tname,dname,htmlString)->
-		# deckHtml.remove({})
-		p = platforms.insert({tenantId:tid,tenantName:tname})
-		console.log p
-		d = deckHtml.insert({deckname:dname,platformId:p,tenantId:tid,deckId:did,htmlContent:htmlString})
-		console.log d
-		return true
+
+
+
 
 	syncAssets:(a)->
 		console.log a
@@ -55,6 +90,3 @@ Meteor.methods
 	updateUser:(uid,p)->
 		Meteor.users.update({_id:uid},{$set:personal_profile:p})
 		return true
-
-
-
