@@ -66,18 +66,20 @@ Router.route '/admin',
   action: ->
     if @ready()
       setPlatform(this.data().platformName)
-      setTenant()
+      setTenant(this.data().platformName)
       @render()
 
 Router.route '/storyWrapper',
   template: 'storyWrapper',
   name: 'storyWrapper',
-  # data:()->
-  #   someRandomData = "This is just testing...."
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname}
   waitOn:()->
-    Meteor.subscribe('temps')
+    [Meteor.subscribe('platformData',this.data().platformName)]
   action:()->
     if @ready()
+      setPlatform(this.data().platformName)
       @render()
     else
       @render('loading')

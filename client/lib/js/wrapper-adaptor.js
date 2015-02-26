@@ -270,10 +270,6 @@ function createPortraitView() {
 
 /* Open the Story Zone in the Landscape view and bind the Decks  */
 function landscapeOpen(sequence) {
-    console.log(sequence);
-    if(sequence==0)
-      sequence = sequence+1
-
     var thisNode = getNodeData(sequence);
     var thisNodeConfig = getNodeConfig(sequence);
     var $storyZone = $('#story-zone');
@@ -315,6 +311,7 @@ function landscapeOpen(sequence) {
     }
 
     for (i in thisNode.decks) {
+        console.log("thisNode.decks[i] " + thisNode.decks[i] )
         var deckStatus = "";
         $deck = $('<a href="#" class="zone-deck zone-button ' + deckStatus + '" id="deck-' + i + '-' + thisNode.decks[i] + '">' + getDeck(thisNode.decks[i]).name + '</a>').appendTo($buttonBank);
     }

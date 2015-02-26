@@ -1,4 +1,9 @@
 Template.adminpanel.events
+	'click .sync-platform-data':(e)->
+		Meteor.call("authorizeConnection",tenantId,platformName,(err,res)->
+			console.log err
+			console.log res
+		)
 
 	'click .add-individual-variant' :(e) ->
     arr = []

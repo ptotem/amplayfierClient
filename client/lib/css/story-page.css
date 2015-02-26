@@ -120,16 +120,16 @@ body.story-page {
 
 .story-zone-tale {
     position: absolute;
-    padding: 20px;
-    top: 15%;
+    padding: 10px;
+    top: 1.4%;
     right: 0;
-    font-size: 0.9em;
+    font-size: 0.85em;
     background: white;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     color: black;
     width: 50%;
-    height: 20%;
+    height: 33%;
     opacity: 0.8;
 }
 
@@ -358,17 +358,17 @@ a.zone-button:visited {
     body, #story-wrapper{
         overflow: auto
     }
-    
+
     #story-presenter{
         position:fixed;
         z-index:999999;
     }
-    
+
     #story-nameplate{
         position: fixed;
         z-index:999999;
     }
-    
+
     #story-nodes {
         display: none;
     }

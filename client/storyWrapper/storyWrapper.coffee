@@ -29,12 +29,12 @@
 
 Template.storyWrapper.rendered = () ->
 
-  console.log platforms.findOne('T5YDbhsrzpjwgFB6n').nodes
-  if platforms.findOne('T5YDbhsrzpjwgFB6n')?
-    window.platformData.nodes = platforms.findOne('T5YDbhsrzpjwgFB6n').nodes
+  console.log platforms.findOne().nodes
+  if platforms.findOne()?
+    window.platformData.nodes = platforms.findOne().nodes
     find = '/assets';
     re = new RegExp(find, 'g');
-    s = platforms.findOne('T5YDbhsrzpjwgFB6n').storyConfig.replace(re,"http://192.168.0.104:3000/assets")
+    s = platforms.findOne().storyConfig.replace(re,"http://192.168.0.104:3000/assets")
 
     window.storyConfig = JSON.parse(s);
     window.wrapperDecks = deckHtml.find().fetch()
@@ -42,5 +42,7 @@ Template.storyWrapper.rendered = () ->
 
 Template.storyWrapper.events
   'click .zone-deck':(e)->
+    deckId = $(e.currentTarget).attr("id").split("-")[2]
+    console.log deckId
     initDeck()
-    Blaze.renderWithData(Template.homePage,{},document.getElementsByClassName("projector")[0])
+    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])

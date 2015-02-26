@@ -14,8 +14,8 @@
   @deck = deck_id
 @setFolder = (fldrId)->
   @folder = fldrId
-@setTenant = (tid)->
-  @tenantId = tid
+@setTenant = (tname)->
+  @tenantId = platforms.findOne({tenantName:tname}).tenantId
 @setStoryWrapperId = (swid)->
   @storyWrapperId = swid
 @setDiscEdit  =(discount_id)->
@@ -204,8 +204,3 @@
         k++
       j++
     i++
-
-
-
-
-
