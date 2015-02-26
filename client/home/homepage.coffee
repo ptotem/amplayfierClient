@@ -33,7 +33,7 @@ Template.homePage.helpers
 			find = '/cfs';
 			re = new RegExp(find, 'g');
 			# deckHtml.findOne('AdmkhjDGiqM9Kw3Y4').htmlContent
-			deckHtml.findOne().htmlContent.replace(re,"/cfs123")
+			deckHtml.findOne().htmlContent.replace(re,"/mycfsfiles")
 
 
 

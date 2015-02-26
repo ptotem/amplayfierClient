@@ -13,7 +13,7 @@ Meteor.methods
 				p = platforms.findOne({tenantId:tid})
 				for c in res
 					console.log "-----------------"
-					console.log c.dName 
+					console.log c.dName
 					deckHtml.insert({name:c.dName,platformId:p._id,tenantId:tid,deckId:c.deckId,htmlContent:c.deckContent})
 		)
 		x.call('requestStoryWrapperForTenant',tid,Meteor.settings.secret,(err,res)->
@@ -30,7 +30,15 @@ Meteor.methods
 			if !err
 				Meteor.call('syncTenantAssets',res,tid)
 		)
-
+		x.call('requestJSForTenant',tid,Meteor.settings.secret,(err,res)->
+			console.log err
+			console.log res
+			if !err
+				for c in res
+					console.log "-----------------"
+					console.log c.dName
+					deckJs.insert({deckId:c.deckId,panelId:c.panelId,jsContent:c.JSContent})
+		)
 	createPlatform:(tid,tname)->
 		p = platforms.insert({tenantId:tid,tenantName:tname})
 
@@ -74,7 +82,7 @@ Meteor.methods
 		pwd =  process.env["PWD"]
 		for fn in fl
 			filelist = filelist + fn["path"] + " "
-			child = exec('wget -P  '+ pwd + "/.cfs/files/assetFiles/" + fn["fname"] + "/" + filelist , (stderr,stdres,stdout)->
+			child = exec('wget -P  '+ pwd + "/public/mycfsfiles/files/assetFiles/" + fn["fname"] + "/" + filelist , (stderr,stdres,stdout)->
 				console.log stderr
 				console.log stdres
 				console.log stdout
@@ -91,7 +99,7 @@ Meteor.methods
     for fn in listOfFiles
       console.log "fn"
       console.log fn
-      filelist = filelist + ' http://192.168.0.104:3000/assets/storyWrapper/img-spaceWrapper/'+fn + "  "
+      filelist = filelist + ' http://192.168.0.108:3000/assets/storyWrapper/img-spaceWrapper/'+fn + "  "
     console.log filelist
     child = exec('wget -P  /var/www/ampsamp '+ filelist)
 

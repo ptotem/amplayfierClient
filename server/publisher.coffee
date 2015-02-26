@@ -31,3 +31,7 @@ Meteor.publish("reportsOfSlide",(pname) ->
 Meteor.publish("indexReport",() ->
   reports.find({})
 )
+
+Meteor.publish('thisJs',()->
+	deckJs.find({})
+)
