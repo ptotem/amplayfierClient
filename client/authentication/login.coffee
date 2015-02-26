@@ -1,8 +1,14 @@
 Template.loginPage.helpers
   backId:()->
-    platforms.findOne().backgroundUrl
+    if platforms.findOne().backgroundUrl?
+      platforms.findOne().backgroundUrl
+    else
+      "/assets/images/bg.jpg"
   logoId:()->
-    platforms.findOne().platformLogo
+    if platforms.findOne().platformLogo?
+      platforms.findOne().platformLogo
+    else
+      "/assets/images/amplayfier-new-logo.png"
 
 
 Template.loginPage.events
