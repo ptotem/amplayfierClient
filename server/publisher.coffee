@@ -1,10 +1,10 @@
-Meteor.publish('temps',()->
-	[platforms.find({}),deckHtml.find({})]
-)
+#Meteor.publish('temps',()->
+#	[platforms.find({}),deckHtml.find({})]
+#)
 
 Meteor.publish('platformData',(pname)->
   pid = platforms.findOne({tenantName:pname})._id
-  [platforms.find({tenantName:pname}),deckHtml.find({platformId:pid})]
+  [platforms.find({tenantName:pname})]
 )
 
 
