@@ -14,9 +14,14 @@
     executeInteractions($('.slide-container').first().find('.slide-wrapper').attr('panel-id'))
     $('.slide-container').first().find('.center-panel').first().show()
     $('.slide-container').first().addClass 'active'
+    if $('.active').has('iframe').length isnt 0
+      setCurrentGameId("true")
+      setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
+      triggerInitGame()
+    else
+      setCurrentGameId("false")
     $('.next-slide').on 'click', (e) ->
       nextItem = $('.active').next()
-      console.log nextItem
       $('.active').hide()
       $('.active').removeClass 'active'
       nextItem.show()
@@ -24,6 +29,13 @@
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
 
       nextItem.addClass 'active'
+      if $('.active').has('iframe').length isnt 0
+        setCurrentGameId("true")
+        setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
+        triggerInitGame()
+      else
+        setCurrentGameId("false")
+
       return
     $('.prev-slide').on 'click', (e) ->
       nextItem = $('.active').prev()
@@ -32,6 +44,13 @@
       nextItem.show()
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
       nextItem.addClass 'active'
+      if $('.active').has('iframe').length isnt 0
+        setCurrentGameId("true")
+        setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
+        triggerInitGame()
+      else
+        setCurrentGameId("false")
+
       nextItem.find('.center-panel').first().show()
       nextItem.show()
       return
@@ -41,7 +60,7 @@
 
 
 Template.storyWrapper.rendered = () ->
-
+  setCurrentIntegratedGameId('HgfmdZ4J2xZFcGwPq')
 
   console.log platforms.findOne().nodes
   if platforms.findOne()?

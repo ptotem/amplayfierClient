@@ -67,6 +67,14 @@ Meteor.methods
 				)
 
 		)
+		x.call('syncIntegratedGames',tid,Meteor.settings.secret,(err,res)->
+			console.log err
+			console.log res
+			if !err
+				for c in res
+					gameData.insert({deckId:c.deckId,igId:c.igId,questions:c.questions})
+		)
+
 	createPlatform:(tid,tname)->
 		p = platforms.insert({tenantId:tid,tenantName:tname})
 

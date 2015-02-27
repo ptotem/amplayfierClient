@@ -39,3 +39,7 @@ Meteor.publish('thisJs',()->
 Meteor.publish('allUsers',()->
 	Meteor.users.find({})
 )
+
+Meteor.publish('gameQuestionbank',()->
+	gameData.find({})
+)
