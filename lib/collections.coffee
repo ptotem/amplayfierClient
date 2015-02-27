@@ -7,6 +7,8 @@
 @individualQuestionAttempts = new Meteor.Collection("individualQuestionAttempts")
 @reportMeta = new Meteor.Collection("reportMeta")
 @gameData = new Meteor.Collection("gameData")
+@customizationDecks = new Meteor.Collection("customizationDecks")
+
 
 
 # remote = DDP.connect('http://localhost:3000/');
