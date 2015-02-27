@@ -1,6 +1,5 @@
 Meteor.methods
 	authorizeConnection:(tid,tname)->
-		console.log Meteor.settings.creatorIp
 		x = DDP.connect(Meteor.settings.creatorIp)
 		x.call('authorizeRemoteConnection',Meteor.settings.clientIp,Meteor.settings.secret,(err,res)->
 			console.log err
@@ -12,14 +11,11 @@ Meteor.methods
 				deckHtml.remove({})
 				p = platforms.findOne({tenantId:tid})
 				for c in res
-					console.log "-----------------"
-					console.log c.dName
 					deckHtml.insert({name:c.dName,platformId:p._id,tenantId:tid,deckId:c.deckId,htmlContent:c.deckContent})
 		)
 		x.call('requestStoryWrapperForTenant',tid,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
-			# platforms.remove({})
 			if !err
 				platforms.update({tenantId:tid},{$set:{tenantName:tname,nodes:res.nodes,storyConfig:res.sconfig}})
 
@@ -35,9 +31,14 @@ Meteor.methods
 			console.log res
 			if !err
 				for c in res
-					console.log "-----------------"
-					console.log c.dName
 					deckJs.insert({deckId:c.deckId,panelId:c.panelId,jsContent:c.JSContent})
+		)
+		x.call('requestTenantMetaData',tid,Meteor.settings.secret,(err,res)->
+			console.log err
+			console.log res
+			if !err
+				Meteor.call('syncTenantAssets',res,tid)
+				platforms.update({tenantId:tid},{$set:{backgroundUrl:res.backImage,platformLogo:res.logoImage,tenantIcon:res.favIc}})
 		)
 	createPlatform:(tid,tname)->
 		p = platforms.insert({tenantId:tid,tenantName:tname})
