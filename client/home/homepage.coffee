@@ -29,11 +29,11 @@
 
 Template.homePage.helpers
 	getHtmlContent: () ->
-		if deckHtml.findOne('AdmkhjDGiqM9Kw3Y4')?
+		if deckHtml.findOne()?
 			find = '/cfs';
 			re = new RegExp(find, 'g');
 			# deckHtml.findOne('AdmkhjDGiqM9Kw3Y4').htmlContent
-			deckHtml.findOne('AdmkhjDGiqM9Kw3Y4').htmlContent.replace(re,"/cfs123")
+			deckHtml.findOne().htmlContent.replace(re,"/mycfsfiles")
 
 
 

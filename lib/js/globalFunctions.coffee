@@ -8,19 +8,19 @@
 
 
 @setTitle = (t)->
-    document.title = t  ;
-    $('head').append('<link rel="icon" sizes="16x16 32x32" href="/assets/images/favicon.ico?v=2">')
-@setDeck  =(deck_id)->
+  document.title = t;
+  $('head').append('<link rel="icon" sizes="16x16 32x32" href="/assets/images/favicon.ico?v=2">')
+@setDeck = (deck_id)->
   @deck = deck_id
 @setFolder = (fldrId)->
   @folder = fldrId
-@setTenant = (tid)->
-  @tenantId = tid
+@setTenant = (tname)->
+  @tenantId = platforms.findOne({tenantName: tname}).tenantId
 @setStoryWrapperId = (swid)->
   @storyWrapperId = swid
-@setDiscEdit  =(discount_id)->
+@setDiscEdit = (discount_id)->
   @editDisc = discount_id
-@createNotification = (text,type)->
+@createNotification = (text, type)->
   # type indicates the type of notification
   # 0 -> failure
   # 1 -> success
@@ -38,26 +38,23 @@
   new Date(tm).toTimeString()
 
 
-@showModal = (templateName,templateArgs,docId)->
-    $(".modal").remove()
-    Blaze.renderWithData(Template[templateName],templateArgs,document.getElementById(docId))
-    $(".modal").modal()
+@showModal = (templateName, templateArgs, docId)->
+  $(".modal").remove()
+  Blaze.renderWithData(Template[templateName], templateArgs, document.getElementById(docId))
+  $(".modal").modal()
 
 
-@getImageFromAsset  =(aid)->
+@getImageFromAsset = (aid)->
   if assetFiles.findOne(aid)?
     assetFiles.findOne(aid).url()
 
 @executeInteractionsforDeck = ()->
 #  dep.depend()
-
   for stat in currentSlide.interactions
     h = new hieroDSL(stat.name)
     h.executeStatement();
   $(".wrapper").trigger("myload")
-@editTemplate  = (templateId)->
-
-
+@editTemplate = (templateId)->
   console.log "-----------------------------------------------------------------" + templateId
   template = htemplates.findOne(templateId)
   if template.gameTemplate?
@@ -75,46 +72,42 @@
   if Session.get("playerOn")?
     setTimeout(()->
       executeInteractions()
-      $(".component").attr("contenteditable",false)
+      $(".component").attr("contenteditable", false)
       deactivateAllComponents()
-    ,100)
+    , 100)
 
   dep.changed()
 @setCurrentSlide = (slideId)->
   if slideId is -1
     @currentSlide is -1
   else
-  # if deck?
-     # timeScores.insert({user_id:Meteor.userId(),end_time:new Date().getTime(),deck_id:deck,panel_id:@currentSlide._id})
+    # if deck?
+    # timeScores.insert({user_id:Meteor.userId(),end_time:new Date().getTime(),deck_id:deck,panel_id:@currentSlide._id})
     @currentSlide = panels.findOne(slideId)
-    Session.set("activeLayer",currentSlide.layers[0].id)
+    Session.set("activeLayer", currentSlide.layers[0].id)
     # if deck?
     #   timeScores.insert({user_id:Meteor.userId(),start_time:new Date().getTime(),deck_id:deck,panel_id:@currentSlide._id})
     if Session.get("playerOn")?
       setTimeout(()->
         executeInteractions()
 
-      ,100)
+      , 100)
 
     dep.changed()
 @fixBackground = (templateId)->
   if htemplates.findOne(templateId).slides.length is 0
-    $(".slide-wrapper").css("background-image","url('/assets/images/clicktoaddpanel.png')")
-    $(".slide-wrapper").css("cursor","pointer")
+    $(".slide-wrapper").css("background-image", "url('/assets/images/clicktoaddpanel.png')")
+    $(".slide-wrapper").css("cursor", "pointer")
   else
-    $(".slide-wrapper").css("background-image","url('/assets/images/grid-bkg1.png')")
+    $(".slide-wrapper").css("background-image", "url('/assets/images/grid-bkg1.png')")
 
 
 @deactivateAllComponents = ()->
-
-
-
   $(".component").removeClass("active")
   if Session.get("playerOn")?
-    $(".component").each (index,element)->
-      $(element).find(".actual-text").attr("contenteditable","false")
+    $(".component").each (index, element)->
+      $(element).find(".actual-text").attr("contenteditable", "false")
 @executeInteractions = ()->
-
   if Session.get('playerOn')?
     # $(".component").hide()
 
@@ -127,39 +120,36 @@
 
 @centerIcon = ->
   $('.component-with-icon').each (index, element)  ->
-    imgcompwidth= $(element).width()
-    imgcompheight= $(element).height()
-    top = ($(element).height()/2 - 20 )
-    left = ($(element).width()/2 - 20 )
-    $(element).find('.add-newimage').css('top',top)
-    $(element).find('.add-newimage').css('left',left)
+    imgcompwidth = $(element).width()
+    imgcompheight = $(element).height()
+    top = ($(element).height() / 2 - 20 )
+    left = ($(element).width() / 2 - 20 )
+    $(element).find('.add-newimage').css('top', top)
+    $(element).find('.add-newimage').css('left', left)
 
 @convertPptxToDeck = (fid)->
-        # pptxFiles.update({_id:fid},{$set:{processed:true}})
-        Meteor.call("convertPptxToImage",fid,-1,Meteor.userId(),(err,res)->
-          if res is "true"
-            Meteor.call("convertImgToDeck",fid,-1,Meteor.userId(),deck,(err,res)->
-              if res is "true"
-                # removeWaiters()
-                createNotification(successMessages.deckCreatedSuccess,1)
-              else
-                # removeWaiters()
-                createNotification(serverMessages[res],0)
-            )
-          else
-            # removeWaiters()
-            createNotification(serverMessages[res],0)
-
-        )
-
-
+  # pptxFiles.update({_id:fid},{$set:{processed:true}})
+  Meteor.call("convertPptxToImage", fid, -1, Meteor.userId(), (err, res)->
+    if res is "true"
+      Meteor.call("convertImgToDeck", fid, -1, Meteor.userId(), deck, (err, res)->
+        if res is "true"
+          # removeWaiters()
+          createNotification(successMessages.deckCreatedSuccess, 1)
+        else
+          # removeWaiters()
+          createNotification(serverMessages[res], 0)
+      )
+    else
+      # removeWaiters()
+      createNotification(serverMessages[res], 0)
+  )
 
 
 @decodeEmail = (email) ->
   email.replace /\|.*@/g, '@'
 
-@encodeEmail = (userEmail,pn) ->
-	userEmail.substr(0, userEmail.indexOf('@')) + '|' + pn + userEmail.substr(userEmail.indexOf('@'))
+@encodeEmail = (userEmail, pn) ->
+  userEmail.substr(0, userEmail.indexOf('@')) + '|' + pn + userEmail.substr(userEmail.indexOf('@'))
 
 @evaluateLicense = (user) ->
   console.log "---------"
@@ -171,14 +161,14 @@
 
 @updateReport = (queryString, parameters) ->
   queryString.userId = Meteor.userId()
-  Meteor.call('updateReport',queryString, parameters)
+  Meteor.call('updateReport', queryString, parameters)
 
-@updateGameReport = (queryString,parameters) ->
-  Meteor.call('updateGameReport',queryString,parameters)
+@updateGameReport = (queryString, parameters) ->
+  Meteor.call('updateGameReport', queryString, parameters)
 
 @getCurrentSlideId = (deckId)->
   #todo: to be changed when actual slide content is getting appended
-  parsed = $(".help-area").append($(deckHtml.findOne({deckId:deckId}).htmlContent))
+  parsed = $(".help-area").append($(deckHtml.findOne({deckId: deckId}).htmlContent))
   slideId = $(parsed).find(".active").attr("data-slideid")
   slideId
 
@@ -186,8 +176,8 @@
 #Folowing is written to generate random reports data to implement the view part
 
 @generateRandomReport = () ->
-  slideIds = ["Slide1","Slide2","Slide3","Slide4","Slide5"]
-  userIds = ["user1","user2","user3","user4","user5"]
+  slideIds = ["Slide1", "Slide2", "Slide3", "Slide4", "Slide5"]
+  userIds = ["user1", "user2", "user3", "user4", "user5"]
   i = 0
   while i < 5
     j = 0
@@ -212,8 +202,6 @@ _.mixin
     ), 0
   avg: (arr) ->
     _.sum(arr) / arr.length
-
-
 
 
 
