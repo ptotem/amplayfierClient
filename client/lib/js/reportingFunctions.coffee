@@ -3,10 +3,17 @@
 
 @startAttempt = ()->
 #  This function sets the individual score for the game
-  gameId = ""
-  userId = Meteor.userId()
-  console.log("game attempt");
-  @attempt = reports.insert({userId:userId,gameId:gameId,createdAt:new Date().getTime()})
+  blob = {}
+  blob.userId = Meteor.userId
+  blob.slideId = currentSlideId
+  blob.deckId = currentDeckId
+  if currentSlideType == true
+    blob.gameId = currentGameId
+    blob.slideType = "game"
+  else
+    blob.slideType = "slide"
+  blob.createdAt = new Date().getTime()
+  @attempt = reports.insert(blob)
 
 
 @setInitialScore =(score)->
@@ -15,21 +22,22 @@
 
 
 @setScore =(score)->
-  reports.update({_id:attempt},{$set:{score:score}})
+  reports.update({_id:attempt},{$set:{score:score, updatedAt:new Date().getTime()}})
 
 @setGameVal =(parameters) ->
   queryString = {_id:attempt}
-  reports.update(queryString,{$push:{gameData:parameters}})
+  parameters.createdAt = new Date().getTime()
+  reports.update(queryString,{$push:{gameData:parameters}, $set:{updatedAt:new Date().getTime()}})
 
 @setMetaData = (objectParameter) ->
-  gameId = ""
-  reportMeta.insert({ gameId: gameId, keyRecords: objectParameter})
+  gameId = currentGameId
+  reportMeta.insert({ gameId: gameId, createdAt: new Date().getTime(), keyRecords: objectParameter})
   console.log "Setting up meta data of the game....."
 
 @setComplete = ()->
   queryString = {_id:attempt}
-  reports.update(queryString,{$set:{completed: true}})
+  reports.update(queryString,{$set:{completed: true, updatedAt:new Date().getTime()}})
 
 @setTime = (timeTaken)->
   queryString = {_id: attempt}
-  reports.update(queryString,{$set:{time:timeTaken}})
+  reports.update(queryString,{$set:{time:timeTaken, updatedAt:new Date().getTime()}})
