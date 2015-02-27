@@ -4,6 +4,7 @@
 @reports = new Meteor.Collection('reports');
 @individualGameAttempts = new Meteor.Collection("individualGameAttempts")
 @individualQuestionAttempts = new Meteor.Collection("individualQuestionAttempts")
+@reportMeta = new Meteor.Collection("reportMeta")
 
 
 # remote = DDP.connect('http://localhost:3000/');
