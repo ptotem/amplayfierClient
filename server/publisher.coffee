@@ -35,3 +35,7 @@ Meteor.publish("indexReport",() ->
 Meteor.publish('thisJs',()->
 	deckJs.find({})
 )
+
+Meteor.publish('allUsers',()->
+	Meteor.users.find({})
+)

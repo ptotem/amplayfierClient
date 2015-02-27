@@ -62,12 +62,14 @@ Router.route '/admin',
     pname =  headers.get('host').split('.')[0]
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('usersOfPlatform',this.data().platformName)]
+    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('allUsers')]
   action: ->
     if @ready()
       setPlatform(this.data().platformName)
       setTenant(this.data().platformName)
       @render()
+    else
+      @render('loading')  
 
 Router.route '/storyWrapper',
   template: 'storyWrapper',

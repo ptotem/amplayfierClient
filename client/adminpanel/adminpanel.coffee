@@ -105,7 +105,7 @@ Template.adminpanel.helpers
 Template.userForm.events
   'click .add-individual-user': (e) ->
     email = $("#user-email").val()
-    console.log email
+    console.log parseInt($("#user-id").val())
     email = encodeEmail(email, platformName)
     console.log email
     display_name = $("#user-name").val()
@@ -115,7 +115,7 @@ Template.userForm.events
     pid = platforms.findOne()._id
     p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: email}
 
-    if parseInt($("#user-id").val()) is -1
+    if parseInt($("#user-id").val()) is NaN
 
       Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p})
     else
