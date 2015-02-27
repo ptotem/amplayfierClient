@@ -40,6 +40,33 @@ Meteor.methods
 				Meteor.call('syncTenantAssets',res,tid)
 				platforms.update({tenantId:tid},{$set:{backgroundUrl:res.backImage,platformLogo:res.logoImage,tenantIcon:res.favIc}})
 		)
+		x.call('syncTenantGames',tid,Meteor.settings.secret,(err,res)->
+			console.log err
+			console.log res
+			exec = Npm.require('child_process').exec
+			pwd =  process.env["PWD"]
+			for g in res
+
+				child = exec('wget -P  '+ pwd + "/public/games/" + g["gameFileId"] + " " + g["gameFilePath"] , (stderr,stdres,stdout)->
+					console.log stderr
+					console.log stdres
+					console.log stdout
+					if stdout
+						console.log "successful"
+						child = exec('mkdir   '+ pwd + "/public/mygames/" + g["igId"], (stderr,stdres,stdout)->
+							console.log stderr
+							console.log stdres
+							console.log stdout
+						)
+						child = exec('unzip   '+ pwd + "/public/games/" + g["gameFileId"] + "/"+ g["fileName"] + " -d" +  pwd + "/public/mygames/" + g["igId"], (stderr,stdres,stdout)->
+							console.log stderr
+							console.log stdres
+							console.log stdout
+						)
+
+				)
+
+		)
 	createPlatform:(tid,tname)->
 		p = platforms.insert({tenantId:tid,tenantName:tname})
 

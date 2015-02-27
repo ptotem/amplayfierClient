@@ -16,7 +16,7 @@
     $('.slide-container').first().addClass 'active'
     $('.next-slide').on 'click', (e) ->
       nextItem = $('.active').next()
-
+      console.log nextItem
       $('.active').hide()
       $('.active').removeClass 'active'
       nextItem.show()
@@ -48,7 +48,7 @@ Template.storyWrapper.rendered = () ->
     window.platformData.nodes = platforms.findOne().nodes
     find = '/assets';
     re = new RegExp(find, 'g');
-    s = platforms.findOne().storyConfig.replace(re,"http://192.168.0.108:3000/assets")
+    s = platforms.findOne().storyConfig.replace(re,"http://192.168.0.125:3000/assets")
 
     window.storyConfig = JSON.parse(s);
     window.wrapperDecks = deckHtml.find().fetch()
