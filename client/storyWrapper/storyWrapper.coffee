@@ -65,11 +65,12 @@ Template.storyWrapper.rendered = () ->
   console.log platforms.findOne().nodes
   if platforms.findOne()?
     window.platformData.nodes = platforms.findOne().nodes
-    find = '/assets';
-    re = new RegExp(find, 'g');
-    s = platforms.findOne().storyConfig.replace(re,"http://192.168.0.125:3000/assets")
+    # find = /^\/(^)\/storyWrapper/';
+    # re = new RegExp(find, 'g');
+    s = platforms.findOne().storyConfig
 
     window.storyConfig = JSON.parse(s);
+    window.storyConfig.imgsrc = "/myassetFiles/"
     window.wrapperDecks = deckHtml.find().fetch()
     initPage()
 
