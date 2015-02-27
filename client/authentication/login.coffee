@@ -1,12 +1,16 @@
 Template.loginPage.helpers
   backId:()->
     if platforms.findOne().backgroundUrl?
-      platforms.findOne().backgroundUrl
+      find = '/cfs'
+      re = new RegExp(find, 'g')
+      platforms.findOne().backgroundUrl.replace(re,"/mycfsfiles")
     else
       "/assets/images/bg.jpg"
   logoId:()->
     if platforms.findOne().platformLogo?
-      platforms.findOne().platformLogo
+      find = '/cfs'
+      re = new RegExp(find, 'g')
+      platforms.findOne().platformLogo.replace(re,"/mycfsfiles")
     else
       "/assets/images/amplayfier-new-logo.png"
 
@@ -26,6 +30,8 @@ Template.loginPage.events
 Template.loginPage.rendered = ()->
   $('body').css('height','100%')
   if platforms.findOne().tenantIcon?
-    faviconlink = platforms.findOne().tenantIcon
+    find = '/cfs'
+    re = new RegExp(find, 'g')
+    faviconlink = platforms.findOne().tenantIcon.replace(re,"/mycfsfiles")
   else
     faviconlink = 'http://faviconicon.com/uploads/2010-09-23/1285245556-624813-256.png'

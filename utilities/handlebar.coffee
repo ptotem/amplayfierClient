@@ -54,5 +54,5 @@ UI.registerHelper "getTitle" , (key)->
     ribbonTitles[key]
 
 UI.registerHelper "decodeUserEmail" , (email)->
-    console.log email
-    decodeEmail(email)
+    if email?
+      decodeEmail(email)

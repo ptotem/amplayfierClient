@@ -1,6 +1,5 @@
 Meteor.methods
 	authorizeConnection:(tid,tname)->
-		console.log Meteor.settings.creatorIp
 		x = DDP.connect(Meteor.settings.creatorIp)
 		x.call('authorizeRemoteConnection',Meteor.settings.clientIp,Meteor.settings.secret,(err,res)->
 			console.log err
@@ -12,14 +11,11 @@ Meteor.methods
 				deckHtml.remove({})
 				p = platforms.findOne({tenantId:tid})
 				for c in res
-					console.log "-----------------"
-					console.log c.dName
 					deckHtml.insert({name:c.dName,platformId:p._id,tenantId:tid,deckId:c.deckId,htmlContent:c.deckContent})
 		)
 		x.call('requestStoryWrapperForTenant',tid,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
-			# platforms.remove({})
 			if !err
 				platforms.update({tenantId:tid},{$set:{tenantName:tname,nodes:res.nodes,storyConfig:res.sconfig}})
 
@@ -35,10 +31,50 @@ Meteor.methods
 			console.log res
 			if !err
 				for c in res
-					console.log "-----------------"
-					console.log c.dName
 					deckJs.insert({deckId:c.deckId,panelId:c.panelId,jsContent:c.JSContent})
 		)
+		x.call('requestTenantMetaData',tid,Meteor.settings.secret,(err,res)->
+			console.log err
+			console.log res
+			if !err
+				Meteor.call('syncTenantAssets',res,tid)
+				platforms.update({tenantId:tid},{$set:{backgroundUrl:res.backImage,platformLogo:res.logoImage,tenantIcon:res.favIc}})
+		)
+		x.call('syncTenantGames',tid,Meteor.settings.secret,(err,res)->
+			console.log err
+			console.log res
+			exec = Npm.require('child_process').exec
+			pwd =  process.env["PWD"]
+			for g in res
+
+				child = exec('wget -P  '+ pwd + "/public/games/" + g["gameFileId"] + " " + g["gameFilePath"] , (stderr,stdres,stdout)->
+					console.log stderr
+					console.log stdres
+					console.log stdout
+					if stdout
+						console.log "successful"
+						child = exec('mkdir   '+ pwd + "/public/mygames/" + g["igId"], (stderr,stdres,stdout)->
+							console.log stderr
+							console.log stdres
+							console.log stdout
+						)
+						child = exec('unzip   '+ pwd + "/public/games/" + g["gameFileId"] + "/"+ g["fileName"] + " -d" +  pwd + "/public/mygames/" + g["igId"], (stderr,stdres,stdout)->
+							console.log stderr
+							console.log stdres
+							console.log stdout
+						)
+
+				)
+
+		)
+		x.call('syncIntegratedGames',tid,Meteor.settings.secret,(err,res)->
+			console.log err
+			console.log res
+			if !err
+				for c in res
+					gameData.insert({deckId:c.deckId,igId:c.igId,questions:c.questions})
+		)
+
 	createPlatform:(tid,tname)->
 		p = platforms.insert({tenantId:tid,tenantName:tname})
 
