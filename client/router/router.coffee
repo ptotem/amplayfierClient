@@ -1,13 +1,17 @@
 Router.onBeforeAction (->
   # all properties available in the route function
   # are also available here such as this.params
+  console.log "---------------------------"
+  console.log Meteor.userId()
   if !Meteor.userId()?
     # if the user is not logged in, render the Login template
     @render 'loading'
+    console.log "/login"
     window.location = "/login"
   else
     # otherwise don't hold up the rest of hooks or our route/action function
     # from running
+    console.log "/loginNExt"
     @next()
   return
   ),{except:['login']}
