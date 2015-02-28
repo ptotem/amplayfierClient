@@ -38,8 +38,8 @@ Router.route '/',
   data:()->
     pname =  headers.get('host').split('.')[0]
     {platformName:pname}
-  # waitOn:()->
-  #   [Meteor.subscribe('platformData',this.data().platformName)]
+  waitOn:()->
+    [Meteor.subscribe('platformData',this.data().platformName)]
   action: ->
     if @ready
       @render()
