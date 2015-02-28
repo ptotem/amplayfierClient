@@ -1,7 +1,7 @@
 Router.onBeforeAction (->
   # all properties available in the route function
   # are also available here such as this.params
-  if !Meteor.userId()
+  if !Meteor.userId()?
     # if the user is not logged in, render the Login template
     @render 'loading'
     window.location = "/login"
@@ -37,7 +37,10 @@ Router.route '/',
   waitOn:()->
     [Meteor.subscribe('platformData',this.data().platformName)]
   action: ->
-    @render()
+    if @ready
+      @render()
+    else
+      @render('loading')
 
 Router.route '/showdeck/:did',
 
