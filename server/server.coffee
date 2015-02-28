@@ -261,25 +261,24 @@ Meteor.methods
 		future = new Future();
 		xlsxj = Meteor.npmRequire("xlsx-to-json")
 		xlsxj
-		    input: '/var/www/userlistfiles/'+file.copies.raw.key
-		    output: "output.json"
-		    , (err, result) ->
-		        if err
-		          console.error err
-		          console.log "if"
-		        else
-		        	Fiber(()->
-                for r,i in result
-                  if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(platforms.findOne().userLimit)
-                    newEmail = encodeEmail(r['email'], platformName)
-                    personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
-                    Accounts.createUser({email: newEmail, password: r['password'], platform: pid, personal_profile: personal_profile})
-										future.return(true)
-                  else
-                    future.return(false)
-										break
-		        	).run()
-							return future.wait()
+      input: '/var/www/userlistfiles/'+file.copies.raw.key
+      output: "output.json" , (err, result) ->
+        if err
+          console.error err
+          console.log "if"
+        else
+          Fiber(()->
+            for r,i in result
+              if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(platforms.findOne().userLimit)
+                newEmail = encodeEmail(r['email'], platformName)
+                personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
+                Accounts.createUser({email: newEmail, password: r['password'], platform: pid, personal_profile: personal_profile})
+                future.return(true)
+              else
+                future.return(false)
+                break
+          ).run()
+          return future.wait()
 
 
 	)
