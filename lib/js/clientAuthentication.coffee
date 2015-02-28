@@ -124,6 +124,7 @@
   Meteor.call("checkUserStatus",userObj.email,(err,res)->
     if res is "true"
       Accounts.createUser(userObj ,(err)->
+        console.log userObj
         if err is 403
           $("#overlay").hide()
           createNotification(errorMessages.alredyLoginError,0)

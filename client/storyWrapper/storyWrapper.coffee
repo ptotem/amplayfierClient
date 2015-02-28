@@ -17,7 +17,10 @@
     if $('.active').has('iframe').length isnt 0
       setCurrentGameId("true")
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
-      triggerInitGame()
+      setTimeout(()->
+        triggerInitGame()
+      ,100)
+
     else
       setCurrentGameId("false")
     $('.next-slide').on 'click', (e) ->
@@ -65,11 +68,12 @@ Template.storyWrapper.rendered = () ->
   console.log platforms.findOne().nodes
   if platforms.findOne()?
     window.platformData.nodes = platforms.findOne().nodes
-    find = '/assets';
-    re = new RegExp(find, 'g');
-    s = platforms.findOne().storyConfig.replace(re,"http://192.168.0.125:3000/assets")
+    # find = /^\/(^)\/storyWrapper/';
+    # re = new RegExp(find, 'g');
+    s = platforms.findOne().storyConfig
 
     window.storyConfig = JSON.parse(s);
+    window.storyConfig.imgsrc = "/myassetFiles/"
     window.wrapperDecks = deckHtml.find().fetch()
     initPage()
 

@@ -43,3 +43,7 @@ Meteor.publish('allUsers',()->
 Meteor.publish('gameQuestionbank',()->
 	gameData.find({})
 )
+
+Meteor.publish('customizationDecks',()->
+	customizationDecks.find({})
+)
