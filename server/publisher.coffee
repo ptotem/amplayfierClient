@@ -6,7 +6,7 @@ Meteor.publish('platformData', (pname)->
   this.ready()
   pid = platforms.findOne({tenantName: pname})._id
   console.log pid
-  [platforms.find({tenantName: pname}), deckHtml.find({platformId: pid})]
+  [platforms.find({tenantName: pname})]
 )
 
 
