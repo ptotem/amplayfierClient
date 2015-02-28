@@ -1,6 +1,6 @@
 Template.loginPage.helpers
   backId:()->
-    if platforms.findOne().backgroundUrl? 
+    if platforms.findOne().backgroundUrl?
       find = '/cfs'
       re = new RegExp(find, 'g')
       platforms.findOne().backgroundUrl.replace(re,"http://amplayfier.com/cfs")

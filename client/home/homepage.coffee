@@ -25,6 +25,9 @@
 #
 # 	,3000)
 
+Template.deckList.rendered  = ->
+	if !Meteor.userId()
+		window.location="/login"
 
 
 Template.homePage.helpers
