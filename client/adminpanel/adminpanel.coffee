@@ -116,8 +116,10 @@ Template.userForm.events
     p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: email}
 
     if parseInt($("#user-id").val()) is NaN
-
-      Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p})
+      if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count < parseInt(platforms.findOne().userLimit)
+        Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p})
+      else
+        createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
     else
       console.log $("#user-id").val()
       Meteor.call('updateUser', $("#user-id").val(), p)
