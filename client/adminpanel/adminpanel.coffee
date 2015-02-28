@@ -23,12 +23,9 @@ Template.adminpanel.events
 
 
   'click .add-variants-btn': (e) ->
-    # deckHtmlId = $(e)
-    console.log this.name
     $(".right-form").hide()
-    $('#new-prf-form-profile').remove()
-    Blaze.renderWithData(Template['addVariant'], {profileName: this.name, profile: this},
-      document.getElementById('add-variant-profile'))
+    $('#add-varant-to-profile').remove()
+    Blaze.renderWithData(Template['addVariant'], {profileName: this.name, profile: this},document.getElementById('add-variant-profile'))
     $("#add-variant-profile").show()
   'click .profile-delete-btn': (e) ->
     platId = platforms.findOne()._id
@@ -72,14 +69,20 @@ Template.adminpanel.events
     , 3000)
   'click .add-new-user': (e)->
     $(".right-form").hide()
+    $('#myuserCreate').remove()
     Blaze.renderWithData(Template['userForm'], {userId: -1}, document.getElementById('new-user'))
     $("#new-user").show()
 
 
   'click .edit-user-btn': (e)->
     $(".right-form").hide()
+    $('#myuserCreate').remove()
     Blaze.renderWithData(Template['userForm'], {userId: this._id}, document.getElementById('new-user'))
     $("#new-user").show()
+
+  'click .delete-user-btn':(e)->
+    Meteor.call('removeUser',this._id)
+    createNotification('Profile has been removed', 1)
 
 
 Template.adminpanel.rendered = () ->
@@ -105,9 +108,8 @@ Template.adminpanel.helpers
 Template.userForm.events
   'click .add-individual-user': (e) ->
     email = $("#user-email").val()
-    console.log parseInt($("#user-id").val())
     email = encodeEmail(email, platformName)
-    console.log email
+
     display_name = $("#user-name").val()
     first_name = $("#user-first-name").val()
     last_name = $("#user-last-name").val()
@@ -115,11 +117,10 @@ Template.userForm.events
     pid = platforms.findOne()._id
     p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: email}
 
-    if parseInt($("#user-id").val()) is NaN
-
+    if $("#user-id").val() == ''
       Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p})
+      createNotification('Profile has been created', 1)
     else
-      console.log $("#user-id").val()
       Meteor.call('updateUser', $("#user-id").val(), p)
       createNotification('Profile has been updated', 1)
 

@@ -17,7 +17,10 @@
     if $('.active').has('iframe').length isnt 0
       setCurrentGameId("true")
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
-      triggerInitGame()
+      setTimeout(()->
+        triggerInitGame()
+      ,100)
+
     else
       setCurrentGameId("false")
     $('.next-slide').on 'click', (e) ->
