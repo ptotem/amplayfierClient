@@ -1,6 +1,6 @@
 Template.adminpanel.events
   'click .sync-platform-data': (e)->
-    Meteor.call("authorizeConnection", tenantId, platformName, (err, res)->
+    Meteor.call("fetchDataFromCreator", tenantId, (err, res)->
       console.log err
       console.log res
     )
@@ -63,8 +63,10 @@ Template.adminpanel.events
     console.log nef
     setTimeout(()->
       Meteor.call('bulkInsertUsers', nef._id, pid, (err, res)->
-        if res
-          console.log "Users have been uploaded..."
+        if res is true
+          createNotification('Users successfully created',1)
+        else
+          createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
       )
     , 3000)
   'click .add-new-user': (e)->
@@ -98,11 +100,11 @@ Template.adminpanel.helpers
 
   getPlatformProfiles: (uid)->
     profiles = []
-    if platforms.findOne().profiles != undefined
-      for p in platforms.findOne().profiles
-        p["uid"] = uid
-        profiles.push p
-      console.log profiles
+    # if platforms.findOne().profiles != undefined
+    #   for p in platforms.findOne().profiles
+    #     p["uid"] = uid
+    #     profiles.push p
+    #   console.log profiles
     profiles
 
 Template.userForm.events

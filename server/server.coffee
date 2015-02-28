@@ -1,6 +1,6 @@
-@getTenantHtml=(tid)->
+@getTenantHtml=(tid,secretKey)->
 			x = DDP.connect(Meteor.settings.creatorIp)
-			x.call('requestHTMLForTenant',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+			x.call('requestHTMLForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
 				if !err
@@ -11,9 +11,9 @@
 						deckHtml.insert({name:c.dName,platformId:p._id,tenantId:tid,deckId:c.deckId,htmlContent:c.deckContent})
 			)
 
-@getTenantJs=(tid)->
+@getTenantJs=(tid,secretKey)->
 		x = DDP.connect(Meteor.settings.creatorIp)
-		x.call('requestJSForTenant',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+		x.call('requestJSForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
 			if !err
@@ -24,9 +24,9 @@
 					deckJs.insert({deckId:c.deckId,panelId:c.panelId,jsContent:c.JSContent,platformId:p._id})
 		)
 
-@getTenantMetaData=(tid)->
+@getTenantMetaData=(tid,secretKey)->
 		x = DDP.connect(Meteor.settings.creatorIp)
-		x.call('requestTenantMetaData',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+		x.call('requestTenantMetaData',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
 			if !err
@@ -34,9 +34,9 @@
 				platforms.update({tenantId:tid},{$set:{backgroundUrl:res.backImage,platformLogo:res.logoImage,tenantIcon:res.favIc}})
 		)
 
-@getIntegratedGames=(tid)->
+@getIntegratedGames=(tid,secretKey)->
 		x = DDP.connect(Meteor.settings.creatorIp)
-		x.call('syncTenantGames',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+		x.call('syncTenantGames',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
 			exec = Npm.require('child_process').exec
@@ -69,9 +69,9 @@
 
 		)
 
-@getIntegratedGameQuestions=(tid)->
+@getIntegratedGameQuestions=(tid,secretKey)->
 			x = DDP.connect(Meteor.settings.creatorIp)
-			x.call('syncIntegratedGameQuestions',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+			x.call('syncIntegratedGameQuestions',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
 				if !err
@@ -81,9 +81,9 @@
 						gameData.insert({deckId:c.deckId,igId:c.igId,questions:c.questions,platformId:p._id})
 			)
 
-@getCustomizationData=(tid)->
+@getCustomizationData=(tid,secretKey)->
 			x = DDP.connect(Meteor.settings.creatorIp)
-			x.call('syncCustomizationData',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+			x.call('syncCustomizationData',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
 				if !err
@@ -93,9 +93,9 @@
 						customizationDecks.insert({intGameId:c.integratedGame,custKey:c.custKey,custVal:c.custVal,dataType:c.dataType,platformId:p._id})
 			)
 
-@getRequestForTenant=(tid)->
+@getRequestForTenant=(tid,secretKey)->
 			x = DDP.connect(Meteor.settings.creatorIp)
-			x.call('requestStoryWrapperForTenant',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+			x.call('requestStoryWrapperForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
 				pname = platforms.findOne({tenantId:tid}).tenantName
@@ -104,9 +104,9 @@
 
 			)
 
-@getAllAssetsForTenant=(tid)->
+@getAllAssetsForTenant=(tid,secretKey)->
 			x = DDP.connect(Meteor.settings.creatorIp)
-			x.call('requestAssetForTenant',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+			x.call('requestAssetForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
 				if !err
@@ -122,20 +122,21 @@ Meteor.methods
 	createAdminOnClient:(email,tid,platformName)->
 		Accounts.createUser({email:encodeEmail(email,platformName),password:"password",role:"admin",tid:tid,personal_profile:{},seed_user:false})
 
-	sampleConnection:(tid)->
+	fetchDataFromCreator:(tid)->
 		x = DDP.connect(Meteor.settings.creatorIp)
-		x.call('checkCreatorConnection',tid,"5464ea0d3c9e6d88f4cf1e28",Meteor.settings.secret,(err,res)->
+		secretKey = platforms.findOne({tenantId:tid}).secretKey
+		x.call('checkCreatorConnection',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
 			if res is 200
-				getTenantHtml(tid)
-				getTenantJs(tid)
-				getTenantMetaData(tid)
-				getIntegratedGames(tid)
-				getIntegratedGameQuestions(tid)
-				getCustomizationData(tid)
-				getRequestForTenant(tid)
-				getAllAssetsForTenant(tid)
+				getTenantHtml(tid,secretKey)
+				getTenantJs(tid,secretKey)
+				getTenantMetaData(tid,secretKey)
+				getIntegratedGames(tid,secretKey)
+				getIntegratedGameQuestions(tid,secretKey)
+				getCustomizationData(tid,secretKey)
+				getRequestForTenant(tid,secretKey)
+				getAllAssetsForTenant(tid,secretKey)
 
 		)
 
@@ -273,11 +274,12 @@ Meteor.methods
                     newEmail = encodeEmail(r['email'], platformName)
                     personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
                     Accounts.createUser({email: newEmail, password: r['password'], platform: pid, personal_profile: personal_profile})
+										future.return(true)
                   else
-										#TODO: add fnuctionality to return error code and handle the error code at client level to show notifications.
-                    # createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
-                    break
+                    future.return(false)
+										break
 		        	).run()
+							return future.wait()
 
 
 	)

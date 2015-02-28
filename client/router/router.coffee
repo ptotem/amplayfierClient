@@ -55,16 +55,17 @@ Router.route '/showdeck/:did',
       @render()
 
 Router.route '/admin',
-
   template: 'adminpanel',
   name:'admin',
   data:()->
     pname =  headers.get('host').split('.')[0]
+    console.log pname
     {platformName:pname}
   waitOn:()->
     [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('allUsers')]
   action: ->
     if @ready()
+      console.log "ddd"
       setPlatform(this.data().platformName)
       setTenant(this.data().platformName)
       @render()

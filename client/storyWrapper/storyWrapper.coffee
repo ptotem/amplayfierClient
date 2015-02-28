@@ -86,7 +86,7 @@ Template.storyWrapper.rendered = () ->
     s = platforms.findOne().storyConfig
 
     window.storyConfig = JSON.parse(s);
-    window.storyConfig.imgsrc = "/myassetFiles/"
+    window.storyConfig.imgsrc = "http://192.168.0.114:3000" + window.storyConfig.imgsrc
     window.wrapperDecks = deckHtml.find().fetch()
     initPage()
 
