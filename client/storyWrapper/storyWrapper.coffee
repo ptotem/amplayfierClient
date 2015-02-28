@@ -14,15 +14,20 @@
     executeInteractions($('.slide-container').first().find('.slide-wrapper').attr('panel-id'))
     $('.slide-container').first().find('.center-panel').first().show()
     $('.slide-container').first().addClass 'active'
+
     if $('.active').has('iframe').length isnt 0
       setCurrentGameId("true")
+      setCurrentSlideId(11)
+      setCurrentDeckId(11)
+      setCurrentSlideType("true")
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
       setTimeout(()->
         triggerInitGame()
-      ,100)
+      ,500)
 
     else
       setCurrentGameId("false")
+    callStartAttempt(false)
     $('.next-slide').on 'click', (e) ->
       nextItem = $('.active').next()
       $('.active').hide()
@@ -31,14 +36,18 @@
       nextItem.find('.center-panel').first().show()
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
 
+
       nextItem.addClass 'active'
       if $('.active').has('iframe').length isnt 0
         setCurrentGameId("true")
+        setCurrentSlideId(11)
+        setCurrentDeckId(11)
+        setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         triggerInitGame()
       else
         setCurrentGameId("false")
-
+      callStartAttempt(true)
       return
     $('.prev-slide').on 'click', (e) ->
       nextItem = $('.active').prev()
@@ -46,14 +55,18 @@
       $('.active').removeClass 'active'
       nextItem.show()
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
+
       nextItem.addClass 'active'
       if $('.active').has('iframe').length isnt 0
         setCurrentGameId("true")
+        setCurrentSlideId(11)
+        setCurrentDeckId(11)
+        setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         triggerInitGame()
       else
         setCurrentGameId("false")
-
+      callStartAttempt(true)
       nextItem.find('.center-panel').first().show()
       nextItem.show()
       return

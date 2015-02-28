@@ -269,12 +269,13 @@ Meteor.methods
 		        else
 		        	Fiber(()->
                 for r,i in result
-                  if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count < parseInt(platforms.findOne().userLimit)
+                  if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(platforms.findOne().userLimit)
                     newEmail = encodeEmail(r['email'], platformName)
                     personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
                     Accounts.createUser({email: newEmail, password: r['password'], platform: pid, personal_profile: personal_profile})
                   else
-                    createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
+										#TODO: add fnuctionality to return error code and handle the error code at client level to show notifications.
+                    # createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
                     break
 		        	).run()
 
@@ -287,4 +288,4 @@ Meteor.methods
 
 	removeUser:(uid)->
 		Meteor.users.remove({_id:uid})
-		return true	
+		return true

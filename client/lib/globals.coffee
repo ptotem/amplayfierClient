@@ -9,6 +9,19 @@
 	@currentIntegratedGame = id
 	@currentGameId = 1
 
+@setCurrentSlideId = (slideId)->
+	@currentSlideId = slideId
+
+@setCurrentDeckId = (deckId)->
+	@currentDeckId = deckId
+
+@setCurrentSlideType = (type)->
+	@currentSlideType = true
+
+@callStartAttempt = (type)->
+	if type is false
+		startAttempt()
+
 
 @getQuestionsFromBank = (integratedGameId)->
 	console.log integratedGameId
