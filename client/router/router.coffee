@@ -4,7 +4,7 @@ Router.onBeforeAction (->
   if !Meteor.userId()
     # if the user is not logged in, render the Login template
     @render 'loading'
-    window.location = "/login"
+    window.location.href = "/login"
   else
     # otherwise don't hold up the rest of hooks or our route/action function
     # from running
