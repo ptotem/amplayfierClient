@@ -1,16 +1,16 @@
 Template.loginPage.helpers
   backId:()->
-    if platforms.findOne().backgroundUrl?
+    if platforms.findOne().backgroundUrl? 
       find = '/cfs'
       re = new RegExp(find, 'g')
-      platforms.findOne().backgroundUrl.replace(re,"http://192.168.0.114:3000/cfs")
+      platforms.findOne().backgroundUrl.replace(re,"http://amplayfier.com/cfs")
     else
       "/assets/images/bg.jpg"
   logoId:()->
     if platforms.findOne().platformLogo?
       find = '/cfs'
       re = new RegExp(find, 'g')
-      platforms.findOne().platformLogo.replace(re,"http://192.168.0.114:3000/cfs")
+      platforms.findOne().platformLogo.replace(re,"http://amplayfier.com/cfs")
     else
       "/assets/images/amplayfier-new-logo.png"
 
@@ -32,6 +32,6 @@ Template.loginPage.rendered = ()->
   if platforms.findOne().tenantIcon?
     find = '/cfs'
     re = new RegExp(find, 'g')
-    faviconlink = platforms.findOne().tenantIcon.replace(re,"http://192.168.0.114:3000/cfs")
+    faviconlink = platforms.findOne().tenantIcon.replace(re,"http://amplayfier.com/cfs")
   else
     faviconlink = 'http://faviconicon.com/uploads/2010-09-23/1285245556-624813-256.png'

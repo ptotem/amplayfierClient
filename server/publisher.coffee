@@ -26,6 +26,7 @@ Meteor.publish('usersOfPlatform', (pname)->
 )
 Meteor.publish("loginPlatform", (tname)->
   this.ready()
+  console.log tname
   platforms.find({tenantName: tname})
 )
 Meteor.publish("reportsOfSlide", (pname) ->
