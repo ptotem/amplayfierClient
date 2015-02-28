@@ -1,5 +1,9 @@
+@remoteIp = "http://192.168.89.112:4000"
+
+@myip = "http://192.168.89.118:4000"
+
 @getTenantHtml=(tid,secretKey)->
-			x = DDP.connect(Meteor.settings.creatorIp)
+			x = DDP.connect(remoteIp)
 			x.call('requestHTMLForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
@@ -12,7 +16,7 @@
 			)
 
 @getTenantJs=(tid,secretKey)->
-		x = DDP.connect(Meteor.settings.creatorIp)
+		x = DDP.connect(remoteIp)
 		x.call('requestJSForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
@@ -25,7 +29,7 @@
 		)
 
 @getTenantMetaData=(tid,secretKey)->
-		x = DDP.connect(Meteor.settings.creatorIp)
+		x = DDP.connect(remoteIp)
 		x.call('requestTenantMetaData',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
@@ -35,7 +39,7 @@
 		)
 
 @getIntegratedGames=(tid,secretKey)->
-		x = DDP.connect(Meteor.settings.creatorIp)
+		x = DDP.connect(remoteIp)
 		x.call('syncTenantGames',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
@@ -70,7 +74,7 @@
 		)
 
 @getIntegratedGameQuestions=(tid,secretKey)->
-			x = DDP.connect(Meteor.settings.creatorIp)
+			x = DDP.connect(remoteIp)
 			x.call('syncIntegratedGameQuestions',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
@@ -82,7 +86,7 @@
 			)
 
 @getCustomizationData=(tid,secretKey)->
-			x = DDP.connect(Meteor.settings.creatorIp)
+			x = DDP.connect(remoteIp)
 			x.call('syncCustomizationData',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
@@ -94,7 +98,7 @@
 			)
 
 @getRequestForTenant=(tid,secretKey)->
-			x = DDP.connect(Meteor.settings.creatorIp)
+			x = DDP.connect(remoteIp)
 			x.call('requestStoryWrapperForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
@@ -105,7 +109,7 @@
 			)
 
 @getAllAssetsForTenant=(tid,secretKey)->
-			x = DDP.connect(Meteor.settings.creatorIp)
+			x = DDP.connect(remoteIp)
 			x.call('requestAssetForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
 				console.log err
 				console.log res
@@ -123,7 +127,7 @@ Meteor.methods
 		Accounts.createUser({email:encodeEmail(email,platformName),password:"password",role:"admin",tid:tid,personal_profile:{},seed_user:false})
 
 	fetchDataFromCreator:(tid)->
-		x = DDP.connect(Meteor.settings.creatorIp)
+		x = DDP.connect(remoteIp)
 		secretKey = platforms.findOne({tenantId:tid}).secretKey
 		x.call('checkCreatorConnection',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
@@ -141,7 +145,7 @@ Meteor.methods
 		)
 
 	authorizeConnection:(tid,tname)->
-		x = DDP.connect(Meteor.settings.creatorIp)
+		x = DDP.connect(remoteIp)
 		x.call('authorizeRemoteConnection',Meteor.settings.clientIp,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
