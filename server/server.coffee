@@ -136,7 +136,7 @@ Meteor.methods
 				getTenantHtml(tid,secretKey)
 				getTenantJs(tid,secretKey)
 				getTenantMetaData(tid,secretKey)
-				getIntegratedGames(tid,secretKey)
+				# getIntegratedGames(tid,secretKey)
 				getIntegratedGameQuestions(tid,secretKey)
 				getCustomizationData(tid,secretKey)
 				getRequestForTenant(tid,secretKey)
@@ -154,6 +154,7 @@ Meteor.methods
 
 
 	createPlatform:(tid,tname,secretKey)->
+		console.log "Rejmore platfomr recevived"
 
 		if !platforms.findOne({tenantId:tid})?
 			# TODO:Archive Platforms before wiping current platform
