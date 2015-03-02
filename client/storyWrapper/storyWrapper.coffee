@@ -97,7 +97,7 @@ Template.storyWrapper.events
   'click .zone-deck':(e)->
     deckId = $(e.currentTarget).attr("id").split("-")[2]
     window.userdata["decks"] = []
-    for d in _.compact(decks.find({gameDeck:false}).fetch())
+    for d in _.compact(deckHtml.find().fetch())
       window.userdata["decks"].push({deckId:d._id,complete:isModuleComplete(d._id,Meteor.userId())})
     markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
 
