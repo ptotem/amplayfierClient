@@ -26,6 +26,7 @@
       ,500)
     else
       setCurrentGameId("false")
+    startTime()
     callStartAttempt(false)
     $('.next-slide').on 'click', (e) ->
       nextItem = $('.active').next()
@@ -48,7 +49,10 @@
         ,500)
       else
         setCurrentGameId("false")
+      setComplete()
+      setTime(getTime())
       callStartAttempt(true)
+      startTime()
       return
     $('.prev-slide').on 'click', (e) ->
       nextItem = $('.active').prev()
@@ -69,7 +73,10 @@
         ,500)
       else
         setCurrentGameId("false")
+      setComplete()
+      setTime(getTime())
       callStartAttempt(true)
+      startTime()
       nextItem.find('.center-panel').first().show()
       nextItem.show()
       return

@@ -45,3 +45,12 @@
 @setTime = (timeTaken)->
   queryString = {_id: attempt}
   reports.update(queryString,{$set:{time:timeTaken, updatedAt:new Date().getTime()}})
+
+@getTime = ()->
+  time = new Date().getTime()
+  diff = time - Session.get("startTime")
+  Session.set("startTime",0)
+  diff
+
+@startTime = ()->
+  Session.set("startTime",new Date().getTime())
