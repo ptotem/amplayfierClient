@@ -96,6 +96,12 @@ Template.storyWrapper.rendered = () ->
 Template.storyWrapper.events
   'click .zone-deck':(e)->
     deckId = $(e.currentTarget).attr("id").split("-")[2]
+    window.userdata["decks"] = []
+    for d in _.compact(decks.find({gameDeck:false}).fetch())
+      window.userdata["decks"].push({deckId:d._id,complete:isModuleComplete(d._id,Meteor.userId())})
+    markModuleAsComplete(d,Meteor.userId(),tenantId,"true")
+
+
     setCurrentDeckId(deckId)
     initDeck()
     Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])

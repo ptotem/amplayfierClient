@@ -67,3 +67,9 @@ Meteor.publish('customizationDecks',()->
   this.ready()
   customizationDecks.find({})
 )
+
+Meteor.publish("userCompletions",(tname)->
+  tid = platforms.findOne({tenantName:tname})._id
+  this.ready()
+  userCompletions.find({tenantId:tid})
+)

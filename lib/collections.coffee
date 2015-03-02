@@ -10,6 +10,8 @@
 @customizationDecks = new Meteor.Collection("customizationDecks")
 @archivePlatforms = new Meteor.Collection("archivePlatforms")
 @platformType = new Meteor.Collection("platformType")
+@userCompletions = new Meteor.Collection("userCompletions")
+
 
 
 
