@@ -99,7 +99,7 @@ Template.storyWrapper.events
     window.userdata["decks"] = []
     for d in _.compact(decks.find({gameDeck:false}).fetch())
       window.userdata["decks"].push({deckId:d._id,complete:isModuleComplete(d._id,Meteor.userId())})
-    markModuleAsComplete(d,Meteor.userId(),tenantId,"true")
+    markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
 
 
     setCurrentDeckId(deckId)

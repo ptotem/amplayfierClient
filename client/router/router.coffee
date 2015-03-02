@@ -93,7 +93,7 @@ Router.route '/',
     pname =  headers.get('host').split('.')[0]
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank'),Meteor.subscribe('customizationDecks'),Meteor.subscribe("userCompletions",this.data().tenantName)]
+    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank'),Meteor.subscribe('customizationDecks')]
   action:()->
     if @ready()
       setPlatform(this.data().platformName)
