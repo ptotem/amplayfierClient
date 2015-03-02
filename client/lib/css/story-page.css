@@ -206,6 +206,7 @@ body.story-page {
     color: white;
     background: black;
     overflow: hidden;
+    z-index:30000
 }
 
 .projector-nav {
