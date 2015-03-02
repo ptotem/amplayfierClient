@@ -12,7 +12,7 @@
 					p = platforms.findOne({tenantId:tid})
 					deckHtml.remove({platformId:p._id})
 					for c in res
-						deckHtml.insert({name:c.dName,platformId:p._id,tenantId:tid,deckId:c.deckId,htmlContent:c.deckContent,,variants:["Basic","Intermediate","Advanced"]})
+						deckHtml.insert({name:c.dName,platformId:p._id,tenantId:tid,deckId:c.deckId,htmlContent:c.deckContent,variants:["Basic","Intermediate","Advanced"]})
 			)
 
 @getTenantJs=(tid,secretKey)->
