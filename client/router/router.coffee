@@ -1,8 +1,17 @@
+@availablePlatform = (t,platName)->
+  Meteor.call("isPlatformAvailable",platName,(err,res)->
+    if res is false
+      window.location ="/notAuthorised"
+  )
+
+
+
+
+
+
 Router.onBeforeAction (->
   # all properties available in the route function
   # are also available here such as this.params
-  console.log "---------------------------"
-  console.log Meteor.userId()
   if !Meteor.userId()?
     # if the user is not logged in, render the Login template
     @render 'loading'
@@ -14,7 +23,7 @@ Router.onBeforeAction (->
     console.log "/loginNExt"
     @next()
   return
-  ),{except:['login']}
+  ),{except:['login','notAuthorised']}
 
 
 
@@ -29,6 +38,7 @@ Router.route '/login',
     action: ->
       if @ready
         setPlatform(this.data().platformName)
+        availablePlatform(this,this.data().platformName)
         @render()
 
 
@@ -66,7 +76,7 @@ Router.route '/admin',
     console.log pname
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('allUsers')]
+    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('thisUser',Meteor.userId())]
   action: ->
     if @ready()
       console.log "ddd"
@@ -107,3 +117,8 @@ Router.route '/deckreport',
    {platformName:pname}
  waitOn:()->
    [Meteor.subscribe('indexReport')]
+
+
+Router.route '/notAuthorised',
+  template: 'notAuthorised',
+  name: 'notAuthorised',
