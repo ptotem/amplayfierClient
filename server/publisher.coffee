@@ -47,15 +47,23 @@ Meteor.publish('thisJs', ()->
 
 Meteor.publish('allUsers',()->
   this.ready()
-	Meteor.users.find({})
+  console.log "-----------------------"
+  console.log Meteor.users.find({})
+  Meteor.users.find({})
 )
+
+Meteor.publish("thisUser",(uid)->
+  this.ready()
+  tid = Meteor.users.find({_id:uid},{fields:{personal_profile:1,services:1,role:1,profiles:1}})
+)
+
 
 Meteor.publish('gameQuestionbank',()->
   this.ready()
-	gameData.find({})
+  gameData.find({})
 )
 
 Meteor.publish('customizationDecks',()->
   this.ready()
-	customizationDecks.find({})
+  customizationDecks.find({})
 )

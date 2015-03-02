@@ -88,11 +88,15 @@ Template.adminpanel.events
 
 
 Template.adminpanel.rendered = () ->
-  $('.sidelink').first().trigger('click')
-  $('.internal-sidelinks').first().trigger('click')
-  $('#tag-list').mCustomScrollbar();
-  $('#user-list').mCustomScrollbar();
-#  $(".content").mCustomScrollbar();
+  if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
+    window.location = "/storyWrapper"
+  else
+
+    $('.sidelink').first().trigger('click')
+    $('.internal-sidelinks').first().trigger('click')
+    $('#tag-list').mCustomScrollbar();
+    $('#user-list').mCustomScrollbar();
+  #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
   myusers: () ->
