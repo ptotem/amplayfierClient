@@ -17,9 +17,6 @@
     callStartAttempt(false)
     if $('.center-panel:visible').has('iframe').length isnt 0
       setCurrentGameId("true")
-      setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
-      setCurrentSlideId($('.center-panel:visible').attr('template-id'))
-      setVariantName($('.center-panel:visible').attr('variant-name'))
 
       setCurrentSlideType(true)
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
@@ -29,6 +26,10 @@
     else
       setCurrentGameId("false")
       setCurrentSlideType(false)
+      setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
+      setCurrentSlideId($('.center-panel:visible').attr('template-id'))
+      setVariantName($('.center-panel:visible').attr('variant-name'))
+
     startTime()
 
 
@@ -43,9 +44,6 @@
       callStartAttempt(true)
       if $('.center-panel:visible').has('iframe').length isnt 0
         setCurrentGameId("true")
-        setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
-        setCurrentSlideId($('.center-panel:visible').attr('template-id'))
-        setVariantName($('.center-panel:visible').attr('variant-name'))
         setCurrentSlideType(true)
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         setTimeout(()->
@@ -54,6 +52,10 @@
       else
         setCurrentGameId("false")
         setCurrentSlideType(false)
+        setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
+        setCurrentSlideId($('.center-panel:visible').attr('template-id'))
+        setVariantName($('.center-panel:visible').attr('variant-name'))
+
       setComplete()
       setTime(getTime())
 
@@ -70,9 +72,6 @@
       callStartAttempt(true)
       if $('.center-panel:visible').has('iframe').length isnt 0
         setCurrentGameId("true")
-        setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
-        setCurrentSlideId($('.center-panel:visible').attr('template-id'))
-        setVariantName($('.center-panel:visible').attr('variant-name'))
         setCurrentSlideType(true)
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         setTimeout(()->
@@ -81,6 +80,10 @@
       else
         setCurrentGameId("false")
         setCurrentSlideType(false)
+        setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
+        setCurrentSlideId($('.center-panel:visible').attr('template-id'))
+        setVariantName($('.center-panel:visible').attr('variant-name'))
+        
       setComplete()
       setTime(getTime())
 
