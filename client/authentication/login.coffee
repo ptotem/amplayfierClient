@@ -1,18 +1,23 @@
 Template.loginPage.helpers
   backId:()->
+    backgroundUrl=""
     if platforms.findOne().backgroundUrl?
       find = '/cfs'
       re = new RegExp(find, 'g')
-      platforms.findOne().backgroundUrl.replace(re,"http://amplayfier.com/cfs")
+      backgroundUrl=platforms.findOne().backgroundUrl.replace(re,"http://amplayfier.com/cfs")
     else
-      "/assets/images/bg.jpg"
+      backgroundUrl="/assets/images/bg.jpg"
+    backgroundUrl
+
   logoId:()->
+    platformLogo=""
     if platforms.findOne().platformLogo?
       find = '/cfs'
       re = new RegExp(find, 'g')
-      platforms.findOne().platformLogo.replace(re,"http://amplayfier.com/cfs")
+      platformLogo=platforms.findOne().platformLogo.replace(re,"http://amplayfier.com/cfs")
     else
-      "/assets/images/amplayfier-new-logo.png"
+      platformLogo="/assets/images/amplayfier-new-logo.png"
+    platformLogo
 
 
 Template.loginPage.events
@@ -30,13 +35,16 @@ Template.loginPage.events
 Template.loginPage.rendered = ()->
   console.log "Searching for platforms.."
   $('body').css('height','100%')
+  faviconlink=""
   if platforms.findOne().tenantIcon?
     find = '/cfs'
     re = new RegExp(find, 'g')
     faviconlink = platforms.findOne().tenantIcon.replace(re,"http://amplayfier.com/cfs")
   else
     faviconlink = 'http://faviconicon.com/uploads/2010-09-23/1285245556-624813-256.png'
+  faviconlink
 
+    
   #Functionality to add a guest user and redirecting it back to '/storywrapper' if platform is open
   platformId = platforms.findOne()._id
   Meteor.call('getPlatformType',platformId,(err,res)->
