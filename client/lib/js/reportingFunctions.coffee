@@ -5,7 +5,11 @@
 #  This function sets the individual score for the game
   blob = {}
   blob.userId = Meteor.userId()
-  blob.slideId = currentPanelId
+  blob.slideId = currentSlideId
+  console.log "------------------------------"
+  console.log currentPanelId
+  console.log currentDeckId
+  console.log "------------------------------"
   blob.deckId = currentDeckId
   if currentSlideType == true
     blob.gameId = currentGameId
