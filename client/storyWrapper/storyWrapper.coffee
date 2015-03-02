@@ -15,10 +15,9 @@
     $('.slide-container').first().find('.center-panel').first().show()
     $('.slide-container').first().addClass 'active'
 
-    if $('.active').has('iframe').length isnt 0
+    if $('.center-panel:visible').has('iframe').length isnt 0
       setCurrentGameId("true")
-      setCurrentSlideId(11)
-
+      setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
       setCurrentSlideType(true)
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
       setTimeout(()->
@@ -27,9 +26,9 @@
     else
       setCurrentGameId("false")
       setCurrentSlideType(false)
-
     startTime()
     callStartAttempt(false)
+
     $('.next-slide').on 'click', (e) ->
       nextItem = $('.active').next()
       $('.active').hide()
@@ -37,13 +36,10 @@
       nextItem.show()
       nextItem.find('.center-panel').first().show()
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
-
-
       nextItem.addClass 'active'
-      if $('.active').has('iframe').length isnt 0
+      if $('.center-panel:visible').has('iframe').length isnt 0
         setCurrentGameId("true")
-        setCurrentSlideId(11)
-
+        setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
         setCurrentSlideType(true)
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         setTimeout(()->
@@ -57,18 +53,17 @@
       callStartAttempt(true)
       startTime()
       return
+
     $('.prev-slide').on 'click', (e) ->
       nextItem = $('.active').prev()
       $('.active').hide()
       $('.active').removeClass 'active'
       nextItem.show()
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
-
       nextItem.addClass 'active'
-      if $('.active').has('iframe').length isnt 0
+      if $('.center-panel:visible').has('iframe').length isnt 0
         setCurrentGameId("true")
-        setCurrentSlideId(11)
-
+        setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
         setCurrentSlideType(true)
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         setTimeout(()->

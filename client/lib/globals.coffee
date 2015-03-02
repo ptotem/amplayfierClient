@@ -9,9 +9,9 @@
 	@currentIntegratedGame = id
 	@currentGameId = 1
 
-@setCurrentSlideId = (slideId)->
+@setCurrentPanelId = (panelId)->
 	console.log "setting slideId...."
-	@currentSlideId = slideId
+	@currentPanelId = panelId
 
 @setCurrentDeckId = (deckId)->
 	@currentDeckId = deckId
