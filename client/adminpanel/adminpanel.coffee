@@ -129,7 +129,7 @@ Template.userForm.events
     if $("#user-id").val() == ''
       if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(platforms.findOne().userLimit)
         Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p})
-        createNotification('Profile has been created', 1)
+        createNotification('User has been created', 1)
       else
         createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
     else
