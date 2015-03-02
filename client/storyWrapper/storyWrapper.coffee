@@ -90,15 +90,17 @@ Template.storyWrapper.rendered = () ->
 
     window.storyConfig = JSON.parse(s);
     window.storyConfig.imgsrc = "http://amplayfier.com" + window.storyConfig.imgsrc
-    window.wrapperDecks = deckHtml.find().fetch()
+    pid=platforms.findOne({tenantName: platformName})._id
+    window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
+    window.userdata["decks"] = []
+    for d in _.compact(deckHtml.find({platformId:pid}).fetch())
+      window.userdata["decks"].push({deckId:d.deckId,complete:isModuleComplete(d._id,Meteor.userId())})
+
     initPage()
 
 Template.storyWrapper.events
   'click .zone-deck':(e)->
     deckId = $(e.currentTarget).attr("id").split("-")[2]
-    window.userdata["decks"] = []
-    for d in _.compact(deckHtml.find({deckId:deckId}).fetch())
-      window.userdata["decks"].push({deckId:d.deckId,complete:isModuleComplete(d._id,Meteor.userId())})
     markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
 
 
