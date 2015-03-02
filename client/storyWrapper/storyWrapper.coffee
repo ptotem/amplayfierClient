@@ -18,7 +18,7 @@
     if $('.slide-container').has('iframe').length isnt 0
       setCurrentGameId("true")
       setCurrentSlideId(11)
-      setCurrentDeckId(11)
+
       setCurrentSlideType("false")
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
       setTimeout(()->
@@ -40,7 +40,7 @@
       if $('.slide-container').has('iframe').length isnt 0
         setCurrentGameId("true")
         setCurrentSlideId(11)
-        setCurrentDeckId(11)
+
         setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         triggerInitGame()
@@ -59,7 +59,7 @@
       if $('.slide-container').has('iframe').length isnt 0
         setCurrentGameId("true")
         # setCurrentSlideId(11)
-        setCurrentDeckId(11)
+
         setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         triggerInitGame()
@@ -92,5 +92,6 @@ Template.storyWrapper.rendered = () ->
 Template.storyWrapper.events
   'click .zone-deck':(e)->
     deckId = $(e.currentTarget).attr("id").split("-")[2]
+    setCurrentDeckId(deckId)
     initDeck()
     Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])
