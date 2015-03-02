@@ -24,10 +24,9 @@
       setTimeout(()->
         triggerInitGame()
       ,500)
-
     else
       setCurrentGameId("false")
-    callStartAttempt(false)
+    # callStartAttempt(false)
     $('.next-slide').on 'click', (e) ->
       nextItem = $('.active').next()
       $('.active').hide()
