@@ -1,6 +1,7 @@
 @markModuleAsComplete = (deckId,userId,tenantId,completed)->
   if !isModuleComplete(deckId,userId)
     userCompletions.insert({deckId:deckId,userId:userId,createdAt:new Date().getTime(),tenantId:tenantId,completed:completed})
+    setComplete()
 
 
 @isModuleComplete = (deckId,userId)->
