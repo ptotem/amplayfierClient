@@ -9,6 +9,16 @@
 	@currentIntegratedGame = id
 
 
+
+
+
+@setCurrentDeckId = (deckId)->
+	console.log "setting deckId...."
+	console.log deckId
+
+	@currentDeckId = deckId
+
+
 @setCurrentSlideId = (templateId)->
 	console.log "setting templateId...."
 	console.log templateId
@@ -19,13 +29,6 @@
 	console.log panelId
 	@currentPanelId = panelId
 
-
-
-@setCurrentDeckId = (deckId)->
-	console.log "setting deckId...."
-	console.log deckId
-
-	@currentDeckId = deckId
 
 @setCurrentSlideType = (type)->
 	@currentSlideType = true
