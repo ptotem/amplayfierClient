@@ -12,7 +12,7 @@
     $('.slide-container').first().show()
     $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
     executeInteractions($('.slide-container').first().find('.slide-wrapper').attr('panel-id'))
-    $('.slide-container').first().find('.center-panel').first().show()
+    $('.slide-container').first().find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
     $('.slide-container').first().addClass 'active'
     if $('.center-panel:visible').has('iframe').length isnt 0
       setCurrentGameId("true")
@@ -39,7 +39,8 @@
       $('.active').hide()
       $('.active').removeClass 'active'
       nextItem.show()
-      nextItem.find('.center-panel').first().show()
+      # nextItem.find('.center-panel').first().show()
+      nextItem.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
       nextItem.addClass 'active'
       callStartAttempt(true)
@@ -89,7 +90,8 @@
       setTime(getTime())
 
       startTime()
-      nextItem.find('.center-panel').first().show()
+      nextItem.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
+      # nextItem.find('.center-panel').first().show()
       nextItem.show()
       return
 
@@ -118,6 +120,13 @@ Template.storyWrapper.rendered = () ->
 Template.storyWrapper.events
   'click .zone-deck':(e)->
     deckId = $(e.currentTarget).attr("id").split("-")[2]
+    for p in platforms.findOne().profiles
+      if p.name is Meteor.user().profile
+        for v in p.variants
+          if v[deckId]?
+            setVariantToShow(v[deckId])
+            # variantToShow = v[deckId]
+
     markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
 
 

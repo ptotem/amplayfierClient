@@ -18,6 +18,8 @@
 
 	@currentDeckId = deckId
 
+@setVariantToShow = (vname)->
+	@variantToShow = vname
 
 @setCurrentSlideId = (templateId)->
 	console.log "setting templateId...."
@@ -28,7 +30,7 @@
 @setCurrentPanelId = (panelId)->
 	console.log "setting templateId...."
 	console.log panelId
-	
+
 	@currentPanelId = panelId
 
 @setVariantName = (variantName)->
