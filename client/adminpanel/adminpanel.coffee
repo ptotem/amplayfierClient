@@ -1,9 +1,12 @@
 Template.adminpanel.events
   'click .sync-platform-data': (e)->
-    Meteor.call("fetchDataFromCreator", tenantId, (err, res)->
-      console.log err
-      console.log res
-    )
+    if platforms.findOne().platformSync is true
+      createNotification('Cannot Sync',0)
+    else
+      Meteor.call("fetchDataFromCreator", tenantId, (err, res)->
+        console.log err
+        console.log res
+      )
 
   'click .add-individual-variant': (e) ->
     arr = []

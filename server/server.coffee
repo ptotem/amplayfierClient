@@ -129,6 +129,7 @@ Meteor.methods
 	fetchDataFromCreator:(tid)->
 		x = DDP.connect(remoteIp)
 		secretKey = platforms.findOne({tenantId:tid}).secretKey
+
 		x.call('checkCreatorConnection',tid,secretKey,Meteor.settings.secret,(err,res)->
 			console.log err
 			console.log res
@@ -141,7 +142,7 @@ Meteor.methods
 				getCustomizationData(tid,secretKey)
 				getRequestForTenant(tid,secretKey)
 				getAllAssetsForTenant(tid,secretKey)
-
+				platforms.update({tenantId:tid},{$set:{platformSync:true}})
 		)
 
 	authorizeConnection:(tid,tname)->
@@ -160,7 +161,7 @@ Meteor.methods
 			# TODO:Archive Platforms before wiping current platform
 			# archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
 			# platforms.remove({tenantId:tid})
-			platforms.insert({tenantId:tid,tenantName:tname,secretKey:secretKey})
+			platforms.insert({tenantId:tid,tenantName:tname,secretKey:secretKey,platformSync:false})
 			return true
 		else
 			return false

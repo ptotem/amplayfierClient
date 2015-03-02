@@ -13,7 +13,7 @@
 #    platformType.insert({platformId:"YpqpefGhPfQXecggT",platformLimit:100,platformLicenseType:"free"})
   #  htmlContent ='<div class="slide active" data-slideId="1"></div><div class="slide" data-slideId="2"></div><div class="slide" data-slideId="3"></div>'
 #    deckHtml.remove({})
-#    tid = platforms.insert({tenantId:123,tenantName:"sample", licenseType: ""})
+#    tid = platforms.insert({tenantId:"gejwshGxzzsHwE9RK",tenantName:"checkV2", licenseType: ""})
 #    deckHtml.insert({deckname:"dname-1",platformId:tid,tenantId:-1,deckId:"123",variants:["hello","hi","cool"]})
 #    deckHtml.insert({deckname:"dname-2",platformId:tid,tenantId:-1,deckId:"122"})
 #    deckHtml.insert({deckname:"dname-3",platformId:tid,tenantId:-1,deckId:"121",variants:["its","not","working"]})
