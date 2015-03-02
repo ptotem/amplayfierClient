@@ -15,7 +15,7 @@
     $('.slide-container').first().find('.center-panel').first().show()
     $('.slide-container').first().addClass 'active'
 
-    if $('.slide-container').has('iframe').length isnt 0
+    if $('.active').has('iframe').length isnt 0
       setCurrentGameId("true")
       setCurrentSlideId(11)
 
@@ -40,7 +40,7 @@
 
 
       nextItem.addClass 'active'
-      if $('.slide-container').has('iframe').length isnt 0
+      if $('.active').has('iframe').length isnt 0
         setCurrentGameId("true")
         setCurrentSlideId(11)
 
@@ -65,7 +65,7 @@
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
 
       nextItem.addClass 'active'
-      if $('.slide-container').has('iframe').length isnt 0
+      if $('.active').has('iframe').length isnt 0
         setCurrentGameId("true")
         setCurrentSlideId(11)
 
