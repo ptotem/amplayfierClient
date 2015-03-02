@@ -123,6 +123,10 @@
 
 Meteor.methods
 
+	assignUserProfile:(uid,prf)->
+		Meteor.users.update({_id:uid},{$set:{profile:prf}})
+		true
+
 	createAdminOnClient:(email,tid,platformName)->
 		Accounts.createUser({email:encodeEmail(email,platformName),password:"password",role:"admin",tid:tid,personal_profile:{},seed_user:false})
 

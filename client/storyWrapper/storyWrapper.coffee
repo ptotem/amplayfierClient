@@ -98,8 +98,6 @@
 
 
 Template.storyWrapper.rendered = () ->
-  setCurrentIntegratedGameId('HgfmdZ4J2xZFcGwPq')
-
   console.log platforms.findOne().nodes
   if platforms.findOne()?
     window.platformData.nodes = platforms.findOne().nodes

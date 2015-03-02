@@ -47,7 +47,7 @@ Meteor.publish('thisJs', ()->
   deckJs.find({})
 )
 
-Meteor.publish('allUsers',()->
+Meteor.publish('allUsers',(pname)->
   this.ready()
   console.log "-----------------------"
   console.log Meteor.users.find({})

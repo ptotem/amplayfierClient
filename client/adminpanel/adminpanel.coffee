@@ -1,4 +1,10 @@
 Template.adminpanel.events
+  'change .user-profile-chosen':(e)->
+    Meteor.call("assignUserProfile",$(e.currentTarget).attr("user-id"),$(e.currentTarget).val(),(err,res)->
+      if res
+        createNotification("Profile has been assigned successfully",1)
+    )
+
   'click .sync-platform-data': (e)->
     if platforms.findOne().platformSync is true
       createNotification('Cannot Sync',0)
@@ -92,6 +98,7 @@ Template.adminpanel.events
 
 Template.adminpanel.rendered = () ->
   if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
+    
     window.location = "/"
   else
 
@@ -104,6 +111,17 @@ Template.adminpanel.rendered = () ->
 Template.adminpanel.helpers
   myusers: () ->
     Meteor.users.find().fetch()
+  profileForUsers :(uid)->
+    profiles = []
+    if platforms.findOne().profiles != undefined
+      for p in platforms.findOne().profiles
+        if Meteor.users.findOne(uid).profile is p
+          p["selected"] = true
+        else
+          p['selected'] = false
+        profiles.push p
+
+    profiles
 
   getPlatformProfiles: (uid)->
     profiles = []
@@ -163,7 +181,7 @@ Template.addVariant.helpers
       for j in deck.variants
         variants.push({userVariants: j})
     variants
-    
+
 
 Template.adminLogout.events
   'click #logout': (e) ->
