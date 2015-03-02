@@ -7,10 +7,8 @@
 @setCurrentIntegratedGameId = (id)->
 	@currentIntegratedGameId = id
 	@currentIntegratedGame = id
-	@currentGameId = 1
 
 @setCurrentPanelId = (panelId)->
-	console.log "setting slideId...."
 	@currentPanelId = panelId
 
 @setCurrentDeckId = (deckId)->

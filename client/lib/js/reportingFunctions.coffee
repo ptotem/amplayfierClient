@@ -6,10 +6,6 @@
   blob = {}
   blob.userId = Meteor.userId()
   blob.slideId = currentPanelId
-  console.log "------------------------------"
-  console.log currentPanelId
-  console.log currentDeckId
-  console.log "------------------------------"
   blob.deckId = currentDeckId
   if currentSlideType == true
     blob.gameId = currentGameId
