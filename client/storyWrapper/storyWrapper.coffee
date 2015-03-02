@@ -17,7 +17,7 @@
 
     if $('.active').has('iframe').length isnt 0
       setCurrentGameId("true")
-      setCurrentSlideId(11)
+      # setCurrentSlideId(11)
       setCurrentDeckId(11)
       setCurrentSlideType("true")
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
@@ -39,7 +39,7 @@
       nextItem.addClass 'active'
       if $('.active').has('iframe').length isnt 0
         setCurrentGameId("true")
-        setCurrentSlideId(11)
+        # setCurrentSlideId(11)
         setCurrentDeckId(11)
         setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
@@ -58,7 +58,7 @@
       nextItem.addClass 'active'
       if $('.active').has('iframe').length isnt 0
         setCurrentGameId("true")
-        setCurrentSlideId(11)
+        # setCurrentSlideId(11)
         setCurrentDeckId(11)
         setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
