@@ -14,7 +14,6 @@
     executeInteractions($('.slide-container').first().find('.slide-wrapper').attr('panel-id'))
     $('.slide-container').first().find('.center-panel').first().show()
     $('.slide-container').first().addClass 'active'
-    callStartAttempt(false)
     if $('.center-panel:visible').has('iframe').length isnt 0
       setCurrentGameId("true")
 
@@ -29,8 +28,10 @@
       setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
       setCurrentSlideId($('.center-panel:visible').attr('template-id'))
       setVariantName($('.center-panel:visible').attr('variant-name'))
-
+    callStartAttempt(false)
     startTime()
+
+
 
 
     $('.next-slide').on 'click', (e) ->
@@ -83,7 +84,7 @@
         setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
         setCurrentSlideId($('.center-panel:visible').attr('template-id'))
         setVariantName($('.center-panel:visible').attr('variant-name'))
-        
+
       setComplete()
       setTime(getTime())
 

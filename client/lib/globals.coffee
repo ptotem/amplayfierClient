@@ -22,11 +22,13 @@
 @setCurrentSlideId = (templateId)->
 	console.log "setting templateId...."
 	console.log templateId
+
 	@currentTemplateId = templateId
 
 @setCurrentPanelId = (panelId)->
 	console.log "setting templateId...."
 	console.log panelId
+	
 	@currentPanelId = panelId
 
 @setVariantName = (variantName)->
