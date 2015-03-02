@@ -19,7 +19,7 @@
       setCurrentGameId("true")
       setCurrentSlideId(11)
       setCurrentDeckId(11)
-      setCurrentSlideType("false")
+      setCurrentSlideType("true")
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
       setTimeout(()->
         triggerInitGame()
