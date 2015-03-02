@@ -19,6 +19,8 @@
       setCurrentGameId("true")
       setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
       setCurrentSlideId($('.center-panel:visible').attr('template-id'))
+      setVariantName($('.center-panel:visible').attr('variant-name'))
+
       setCurrentSlideType(true)
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
       setTimeout(()->
@@ -42,6 +44,7 @@
         setCurrentGameId("true")
         setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
         setCurrentSlideId($('.center-panel:visible').attr('template-id'))
+        setVariantName($('.center-panel:visible').attr('variant-name'))
         setCurrentSlideType(true)
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         setTimeout(()->
@@ -67,6 +70,7 @@
         setCurrentGameId("true")
         setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
         setCurrentSlideId($('.center-panel:visible').attr('template-id'))
+        setVariantName($('.center-panel:visible').attr('variant-name'))
         setCurrentSlideType(true)
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         setTimeout(()->

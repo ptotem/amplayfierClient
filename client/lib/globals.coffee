@@ -29,6 +29,8 @@
 	console.log panelId
 	@currentPanelId = panelId
 
+@setVariantName = (variantName)->
+	@currentVariant = variantName
 
 @setCurrentSlideType = (type)->
 	@currentSlideType = true

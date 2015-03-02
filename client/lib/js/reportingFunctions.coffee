@@ -6,6 +6,7 @@
   blob = {}
   blob.userId = Meteor.userId()
   blob.slideId = currentSlideId
+
   console.log "------------------------------"
   console.log currentPanelId
   console.log currentDeckId
@@ -16,6 +17,9 @@
     blob.slideType = "game"
   else
     blob.slideType = "slide"
+    blob.panelId = currentPanelId
+    blob.variantName = currentVariant
+    
   blob.createdAt = new Date().getTime()
   @attempt = reports.insert(blob)
 
