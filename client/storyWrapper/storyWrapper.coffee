@@ -26,6 +26,8 @@
       ,500)
     else
       setCurrentGameId("false")
+      setCurrentSlideType(false)
+
     startTime()
     callStartAttempt(false)
     $('.next-slide').on 'click', (e) ->
@@ -49,6 +51,7 @@
         ,500)
       else
         setCurrentGameId("false")
+        setCurrentSlideType(false)
       setComplete()
       setTime(getTime())
       callStartAttempt(true)
@@ -73,6 +76,7 @@
         ,500)
       else
         setCurrentGameId("false")
+        setCurrentSlideType(false)
       setComplete()
       setTime(getTime())
       callStartAttempt(true)
