@@ -5,12 +5,8 @@
 #  This function sets the individual score for the game
   blob = {}
   blob.userId = Meteor.userId()
-  blob.slideId = currentSlideId
+  blob.slideId = currentTemplateId
 
-  console.log "------------------------------"
-  console.log currentPanelId
-  console.log currentDeckId
-  console.log "------------------------------"
   blob.deckId = currentDeckId
   if currentSlideType == true
     blob.gameId = currentGameId
@@ -19,7 +15,7 @@
     blob.slideType = "slide"
     blob.panelId = currentPanelId
     blob.variantName = currentVariant
-    
+
   blob.createdAt = new Date().getTime()
   @attempt = reports.insert(blob)
 
