@@ -19,7 +19,7 @@
       setCurrentGameId("true")
       setCurrentSlideId(11)
 
-      setCurrentSlideType("true")
+      setCurrentSlideType(true)
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
       setTimeout(()->
         triggerInitGame()
@@ -42,7 +42,7 @@
         setCurrentGameId("true")
         setCurrentSlideId(11)
 
-        setCurrentSlideType("true")
+        setCurrentSlideType(true)
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         setTimeout(()->
           triggerInitGame()
@@ -66,7 +66,7 @@
         setCurrentGameId("true")
         setCurrentSlideId(11)
 
-        setCurrentSlideType("true")
+        setCurrentSlideType(true)
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
         setTimeout(()->
           triggerInitGame()
