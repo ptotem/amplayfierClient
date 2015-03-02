@@ -2,6 +2,7 @@
 
 
 @startAttempt = ()->
+  console.log "startAttempt"
 #  This function sets the individual score for the game
   blob = {}
   blob.userId = Meteor.userId()

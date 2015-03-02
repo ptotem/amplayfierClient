@@ -14,7 +14,7 @@
     executeInteractions($('.slide-container').first().find('.slide-wrapper').attr('panel-id'))
     $('.slide-container').first().find('.center-panel').first().show()
     $('.slide-container').first().addClass 'active'
-
+    callStartAttempt(false)
     if $('.center-panel:visible').has('iframe').length isnt 0
       setCurrentGameId("true")
       setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
@@ -30,7 +30,7 @@
       setCurrentGameId("false")
       setCurrentSlideType(false)
     startTime()
-    callStartAttempt(false)
+
 
     $('.next-slide').on 'click', (e) ->
       nextItem = $('.active').next()
@@ -40,6 +40,7 @@
       nextItem.find('.center-panel').first().show()
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
       nextItem.addClass 'active'
+      callStartAttempt(true)
       if $('.center-panel:visible').has('iframe').length isnt 0
         setCurrentGameId("true")
         setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
@@ -55,7 +56,7 @@
         setCurrentSlideType(false)
       setComplete()
       setTime(getTime())
-      callStartAttempt(true)
+
       startTime()
       return
 
@@ -66,6 +67,7 @@
       nextItem.show()
       executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
       nextItem.addClass 'active'
+      callStartAttempt(true)
       if $('.center-panel:visible').has('iframe').length isnt 0
         setCurrentGameId("true")
         setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
@@ -81,7 +83,7 @@
         setCurrentSlideType(false)
       setComplete()
       setTime(getTime())
-      callStartAttempt(true)
+
       startTime()
       nextItem.find('.center-panel').first().show()
       nextItem.show()
