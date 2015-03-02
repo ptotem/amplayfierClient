@@ -10,6 +10,7 @@
 	@currentGameId = 1
 
 @setCurrentSlideId = (slideId)->
+	console.log "setting slideId...."
 	@currentSlideId = slideId
 
 @setCurrentDeckId = (deckId)->
