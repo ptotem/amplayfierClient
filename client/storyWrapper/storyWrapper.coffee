@@ -19,7 +19,7 @@
       setCurrentGameId("true")
       setCurrentSlideId(11)
 
-      setCurrentSlideType("false")
+      setCurrentSlideType("true")
       setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
       setTimeout(()->
         triggerInitGame()
@@ -64,7 +64,7 @@
       nextItem.addClass 'active'
       if $('.slide-container').has('iframe').length isnt 0
         setCurrentGameId("true")
-        # setCurrentSlideId(11)
+        setCurrentSlideId(11)
 
         setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
