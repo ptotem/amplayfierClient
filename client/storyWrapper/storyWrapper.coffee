@@ -79,6 +79,10 @@
 
 
 Template.storyWrapper.rendered = () ->
+  for d in _.compact(deckHtml.find({deckId:"7sqTAiXP2kW4cACTb"}).fetch())
+    console.log d._id
+    window.userdata["decks"].push({deckId:d._id,complete:isModuleComplete(d._id,Meteor.userId())})
+
   setCurrentIntegratedGameId('HgfmdZ4J2xZFcGwPq')
 
   console.log platforms.findOne().nodes
