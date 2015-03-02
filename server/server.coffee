@@ -295,3 +295,8 @@ Meteor.methods
 	removeUser:(uid)->
 		Meteor.users.remove({_id:uid})
 		return true
+
+	getPlatformType:(platformId)->
+		p = platformType.findOne({platformId:platforms.findOne()._id})
+		if p.platformLimit is -1
+			return true

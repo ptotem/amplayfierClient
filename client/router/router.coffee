@@ -42,7 +42,7 @@ Router.route '/login',
         @render()
 
 
-Router.route '/',
+Router.route '/deckList',
   template: 'deckList',
   name:'platformData',
   data:()->
@@ -86,7 +86,7 @@ Router.route '/admin',
     else
       @render('loading')
 
-Router.route '/storyWrapper',
+Router.route '/',
   template: 'storyWrapper',
   name: 'storyWrapper',
   data:()->

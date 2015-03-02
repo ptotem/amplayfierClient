@@ -1,15 +1,17 @@
 
-
+#
 # Meteor.startup(()->
-#  # startUpRoutine()
+#  startUpRoutine()
 # )
 #
 # @startUpRoutine  =()->
-#  generateSeedUsers()
-#
+ # generateSeedUsers()
+
 #
 # @generateSeedUsers = ()->
-#    htmlContent ='<div class="slide active" data-slideId="1"></div><div class="slide" data-slideId="2"></div><div class="slide" data-slideId="3"></div>'
+#    platformType.remove({})
+#    platformType.insert({platformId:"YpqpefGhPfQXecggT",platformLimit:100,platformLicenseType:"free"})
+  #  htmlContent ='<div class="slide active" data-slideId="1"></div><div class="slide" data-slideId="2"></div><div class="slide" data-slideId="3"></div>'
 #    deckHtml.remove({})
 #    tid = platforms.insert({tenantId:123,tenantName:"sample", licenseType: ""})
 #    deckHtml.insert({deckname:"dname-1",platformId:tid,tenantId:-1,deckId:"123",variants:["hello","hi","cool"]})

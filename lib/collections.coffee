@@ -9,7 +9,7 @@
 @gameData = new Meteor.Collection("gameData")
 @customizationDecks = new Meteor.Collection("customizationDecks")
 @archivePlatforms = new Meteor.Collection("archivePlatforms")
-
+@platformType = new Meteor.Collection("platformType")
 
 
 
