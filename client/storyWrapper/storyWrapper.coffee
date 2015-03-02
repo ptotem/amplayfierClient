@@ -43,7 +43,9 @@
 
         setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
-        triggerInitGame()
+        setTimeout(()->
+          triggerInitGame()
+        ,500)
       else
         setCurrentGameId("false")
       callStartAttempt(true)
@@ -62,7 +64,9 @@
 
         setCurrentSlideType("true")
         setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
-        triggerInitGame()
+        setTimeout(()->
+          triggerInitGame()
+        ,500)
       else
         setCurrentGameId("false")
       callStartAttempt(true)
