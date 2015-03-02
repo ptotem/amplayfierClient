@@ -163,7 +163,7 @@ Template.addVariant.helpers
       for j in deck.variants
         variants.push({userVariants: j})
     variants
-
+    
 
 Template.adminLogout.events
   'click #logout': (e) ->

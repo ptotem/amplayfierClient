@@ -95,7 +95,16 @@
             </h2>
             <ul id="user-list">
             	{{#each myusers}}
-            	<li id="{{_id}}">{{personal_profile.display_name}} <a href="#" class="btn btn-danger pull-right btn-xs delete-user-btn" style="margin-left: 0.5%;margin-top: -0.3%;">Delete</a><a style="margin-top: -0.3%;" href="#" class="btn btn-warning pull-right btn-xs edit-user-btn">Edit</a></li>
+            	<li id="{{_id}}">{{personal_profile.display_name}}
+								<select data-placeholder="Tag your Variant" class="profile-chosen" tabindex="-1" style="width:150px;padding:0;">
+									{{#each getPlatformProfiles _id}}
+									<option>{{{{name}}}}</option>
+									{{/each}}
+								</select>
+
+								<a href="#" class="btn btn-danger pull-right btn-xs delete-user-btn" style="margin-left: 0.5%;margin-top: -0.3%;">Delete</a>
+								<a style="margin-top: -0.3%;" href="#" class="btn btn-warning pull-right btn-xs edit-user-btn">Edit</a>
+								</li>
             	{{/each}}
             </ul>
 
