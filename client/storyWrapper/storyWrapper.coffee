@@ -79,10 +79,6 @@
 
 
 Template.storyWrapper.rendered = () ->
-  for d in _.compact(deckHtml.find({deckId:"7sqTAiXP2kW4cACTb"}).fetch())
-    console.log d._id
-    window.userdata["decks"].push({deckId:d._id,complete:isModuleComplete(d._id,Meteor.userId())})
-
   setCurrentIntegratedGameId('HgfmdZ4J2xZFcGwPq')
 
   console.log platforms.findOne().nodes
@@ -102,7 +98,7 @@ Template.storyWrapper.events
     deckId = $(e.currentTarget).attr("id").split("-")[2]
     window.userdata["decks"] = []
     for d in _.compact(deckHtml.find({deckId:deckId}).fetch())
-      window.userdata["decks"].push({deckId:d._id,complete:isModuleComplete(d._id,Meteor.userId())})
+      window.userdata["decks"].push({deckId:d.deckId,complete:isModuleComplete(d._id,Meteor.userId())})
     markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
 
 
