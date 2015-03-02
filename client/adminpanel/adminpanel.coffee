@@ -98,7 +98,6 @@ Template.adminpanel.events
 
 Template.adminpanel.rendered = () ->
   if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
-    
     window.location = "/"
   else
 
