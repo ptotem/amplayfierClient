@@ -7,6 +7,13 @@
 
 @executeSlideLoad = (item)->
     item.show()
+    $('.prev-slide').show()
+    $('.next-slide').show()
+    
+    if $('.active').is(":first-child")
+      $('.prev-slide').hide()
+    if $('.active').is(":last-child")
+      $(".next-slide").hide()
     # panelId = $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
     # executeInteractions(panelId)
     item.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
