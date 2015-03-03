@@ -7,6 +7,7 @@
 
 @executeSlideLoad = (item)->
     item.show()
+    item.addClass('active')
     $('.prev-slide').show()
     $('.next-slide').show()
     
