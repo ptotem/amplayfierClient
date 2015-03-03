@@ -132,7 +132,7 @@ Meteor.methods
 		x = DDP.connect(remoteIp)
 		secretKey = platforms.findOne({tenantId:tid}).secretKey
 
-		x.call('checkCreatorConnection',tid,secretKey,Meteor.settings.secret,(err,res)->
+		x.call('checkCreatorConnection',tid,secretKey,(err,res)->
 			console.log err
 			console.log res
 			if res is 200
@@ -159,7 +159,7 @@ Meteor.methods
 			platforms.update({tenantId:tid},{$set:{platformSync:false}})
 			return true
 		else
-			return false	
+			return false
 
 	createPlatform:(tid,tname,secretKey)->
 		console.log "Rejmore platfomr recevived"
