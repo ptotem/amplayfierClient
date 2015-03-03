@@ -152,7 +152,7 @@ Template.userForm.events
     p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: email}
 
     if $("#user-id").val() == ''
-      if !platforms.findOne().userLimit?
+      if platforms.findOne().userLimit?
         if  platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(platforms.findOne().userLimit)
           params = {email: email, password: 'password', platform: pid, personal_profile: p}
           Meteor.call('addIndividualUser', params, pid, (err, res)->
