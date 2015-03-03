@@ -79,13 +79,14 @@
 
 
 Template.storyWrapper.rendered = () ->
-  Meteor.call('checkIfUserPasswordSet',Meteor.userId(),(err,res)->
-    if !res
-      window.location = "/setpassword/"+Meteor.userId()
+  if Meteor.userId()?
+    Meteor.call('checkIfUserPasswordSet',Meteor.userId(),(err,res)->
+      if !res
+        window.location = "/setpassword/"+Meteor.userId()
 
 
 
-  )
+    )
   console.log platforms.findOne().nodes
   if platforms.findOne()?
     window.platformData.nodes = platforms.findOne().nodes

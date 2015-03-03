@@ -347,3 +347,18 @@ Meteor.methods
   resetUserPasswordAdmin:(uid)->
     Meteor.users.update({_id:uid},{$set:{passwordSet:false}})
 
+
+  forgotMyPassword:(email,captchaData)->
+    verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(@connection.clientAddress, captchaData)
+    if !verifyCaptchaResponse.success
+      console.log 'reCAPTCHA check failed!', verifyCaptchaResponse
+      throw new (Meteor.Error)(422, 'Captcha Failed: ' + verifyCaptchaResponse.error)
+    else
+      u = Meteor.users.findOne({"personal_profile.email":email})
+      if u?
+
+        console.log u._id
+        Accounts.sendResetPasswordEmail(u._id,email.split("@")[0].split("|")[0]+"@"+email.split("@")[1])
+        console.log 'reCAPTCHA verification passed!'
+      else
+        throw new (Meteor.Error)(422, 'User not found')

@@ -9,7 +9,7 @@ Accounts.onCreateUser (options, user) ->
   user.role = options.role || "player"
   user.personal_profile.registration_date = new Date().getTime()
   user.passwordSet = false
-
+  user.emails.push { address: options.email.split("@")[0].split("|")[0]+"@"+options.email.split("@")[1],verified: false }
 #  Accounts.setPassword(user._id,newpass)
   user.personal_profile.tags = ['unspecified']
   newpass = options.personal_profile['initialPass']

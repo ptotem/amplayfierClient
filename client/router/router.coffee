@@ -14,7 +14,7 @@ Router.onBeforeAction (->
    pname = headers.get('host').split('.')[0]
    availablePlatform(pname)
    # If the control is here that means the platform exists...
-   if !Meteor.userId()?
+   if !Meteor.userId()? and Router.current().url.indexOf('reset-password') is -1
      # if the user is not logged in, render the Login template
      @render 'loading'
     
@@ -25,7 +25,7 @@ Router.onBeforeAction (->
     
      @next()
    return
-   ),{except:['login','notAuthorised','setPassword']}
+   ),{except:['login','notAuthorised','forgot','reset']}
 
 
 
@@ -44,6 +44,27 @@ Router.route '/login',
         @render()
       else
         @render('loading')
+
+Router.route '/forgotpassword',
+  template: "forgotPassword",
+  name:'forgot',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname}
+  action:()->
+    setPlatform(this.data().platformName)
+
+    @render()
+
+
+Router.route '/reset-password/:token',
+  template: "resetPassword",
+  name:'reset',
+  data:()->
+    {token:this.params.token}
+  action:()->
+    setToken(this.data().token)
+    @render()
 
 
 Router.route '/deckList',

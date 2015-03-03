@@ -1,4 +1,13 @@
 
+Meteor.startup(()->
+  # startUpRoutine()
+
+
+  reCAPTCHA.config({
+    privatekey: '6Le9gwITAAAAAC8oUhSpzgFSwBYyD_QzLyJ9I28P'
+  });
+)
+
 #
 # Meteor.startup(()->
 #  startUpRoutine()
