@@ -46,10 +46,11 @@ Template.adminpanel.events
     Blaze.renderWithData(Template['addVariant'], {profileName: this.name, profile: this},document.getElementById('add-variant-profile'))
     $("#add-variant-profile").show()
   'click .profile-delete-btn': (e) ->
-    platId = platforms.findOne()._id
-    platforms.update({_id: platId}, {$pull: {profiles: this}})
-    createNotification("Profile has been removed successfully", 1)
-    e.preventDefault()
+    if window.confirm("Are you sure you want to delete the profile?")
+      platId = platforms.findOne()._id
+      platforms.update({_id: platId}, {$pull: {profiles: this}})
+      createNotification("Profile has been removed successfully", 1)
+      e.preventDefault()
 
   'click .add-new-profile': (e) ->
     $(".right-form").hide()
@@ -130,7 +131,7 @@ Template.adminpanel.helpers
   profileForUsers :(uid)->
     profiles = []
     if platforms.findOne().profiles?
-      for p in platforms.findOne().profiles
+      for p in platforms.findOne().profiles.reverse()
         if Meteor.users.findOne(uid).profile is p
           p["selected"] = true
         else
@@ -142,11 +143,11 @@ Template.adminpanel.helpers
   getPlatformProfiles: (uid)->
     dep.depend()
     profiles = []
-    if platforms.findOne().profiles != undefined
-      for p in platforms.findOne().profiles
+    if platforms.findOne().profiles?
+      for p in platforms.findOne().profiles.reverse()
         p["uid"] = uid
         profiles.push p
-      console.log profiles
+
     profiles
 
 Template.userForm.events
@@ -189,6 +190,7 @@ Template.addUserProfile.events
     platId = platforms.findOne()._id
     platforms.update({_id: platId}, {$push: {profiles: profile}})
     createNotification("Profile has been added successfully", 1)
+    $(".internal-sidelinks.active").trigger('click')
 
 
 Template.addVariant.helpers
