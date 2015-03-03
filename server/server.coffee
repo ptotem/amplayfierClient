@@ -316,10 +316,10 @@ Meteor.methods
 			return false
 
   addIndividualUser:(parameter)->
-    u = Accounts.createUser(parameter)
+		u = Accounts.createUser(parameter)
 		console.log "-----------------------------------"
 		console.log u
-    if u?
-      return true
-    else
+		if u?
+			return true
+		else
 			return false
