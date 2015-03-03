@@ -18,6 +18,7 @@
     blob.variantName = currentVariant
 
   blob.createdAt = new Date().getTime()
+  Session.set("currentSlideScore",0)
   @attempt = reports.insert(blob)
 
 
@@ -55,3 +56,6 @@
 
 @startTime = ()->
   Session.set("startTime",new Date().getTime())
+
+@setPanelReport = (panelId, points)->
+  panelReport.create({slideId: currentSlideId, userId : Meteor.userId(), panelId: panelId, points: points, createdAt: new Date().getTime()})

@@ -11,6 +11,7 @@
 @archivePlatforms = new Meteor.Collection("archivePlatforms")
 @platformType = new Meteor.Collection("platformType")
 @userCompletions = new Meteor.Collection("userCompletions")
+@panelReport = new Metero.Collection("panelReport")
 
 
 

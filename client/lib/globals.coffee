@@ -62,3 +62,17 @@
 		customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k}).custVal
 	else
 		403
+
+@setCurrentSlideScore = (minTime, maxTime, points) ->
+  if parseInt(attempt.timtTaken/1000) > minTime
+    score = points
+  else
+    score = 0
+  Session.set("currentSlideScore", 0)
+  score
+
+@setPanel = (panelId, points) ->
+  setPanelReport(panelId, parseInt(points))
+  score = Session.get("currentSlideScore")
+  score = score + parseInt(points)
+  Session.set("currentSlideScore", score)
