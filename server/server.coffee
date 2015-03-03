@@ -146,7 +146,7 @@ Meteor.methods
 				getCustomizationData(tid,secretKey)
 				getRequestForTenant(tid,secretKey)
 				# getAllAssetsForTenant(tid,secretKey)
-				platforms.update({tenantId:tid},{$set:{platformSync:true}})
+				platforms.update({tenantId:tid},{$set:{platformSync:true,issyncing:false}})
 		)
 
 	authorizeConnection:(tid,tname)->
