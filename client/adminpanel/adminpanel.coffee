@@ -1,4 +1,14 @@
 Template.adminpanel.events
+  'keyup #tag-filter':(e)->
+    jQuery.expr[":"].contains = jQuery.expr.createPseudo((arg) ->
+      (elem) ->
+        jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0
+    )
+    srch = $(e.currentTarget).val()
+    $(".tag-item").hide()
+    $(".tag-item:contains(" + srch + ")").show()
+
+
   'change .user-profile-chosen':(e)->
     Meteor.call("assignUserProfile",$(e.currentTarget).attr("user-id"),$(e.currentTarget).val(),(err,res)->
       if res
