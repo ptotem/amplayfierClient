@@ -98,12 +98,13 @@ Template.adminpanel.events
 
 
 Template.adminpanel.rendered = () ->
-#  Tracker.autorun(()->
-#    if platforms.findOne().issyncing is true
-#      $('#overlay').show()
-#    else
-#      $('#overlay').hide()
-#  )
+  Tracker.autorun(()->
+    if platforms.findOne().issyncing is true
+      $('#overlay').show()
+    else
+      if $("#overlay").is(":visible")
+        $('#overlay').hide()
+  )
 
   if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
     window.location = "/"
