@@ -96,7 +96,7 @@
             </h2>
             <ul id="user-list">
             	{{#each myusers}}
-            	<li id="{{_id}}">{{personal_profile.display_name}}
+            	<li id="{{_id}}" class="user-item">{{personal_profile.display_name}}
 								<select data-placeholder="Give your user a profile " user-id="{{_id}}" class="user-profile-chosen" tabindex="-1" style="width:150px;padding:0;">
 									{{#each profileForUsers _id}}
 									{{#if selected}}

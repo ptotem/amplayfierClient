@@ -1,12 +1,10 @@
 Template.adminpanel.events
   'keyup #tag-filter':(e)->
-    jQuery.expr[":"].contains = jQuery.expr.createPseudo((arg) ->
-      (elem) ->
-        jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0
-    )
-    srch = $(e.currentTarget).val()
-    $(".tag-item").hide()
-    $(".tag-item:contains(" + srch + ")").show()
+    searchBar($(e.currentTarget).val(),".tag-item")
+  'keyup #users-filter':(e)->
+    searchBar($(e.currentTarget).val(),".user-item")
+
+
 
 
   'change .user-profile-chosen':(e)->

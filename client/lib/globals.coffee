@@ -1,3 +1,14 @@
+@searchBar = (searchVal,targetDiv)->
+  jQuery.expr[":"].contains = jQuery.expr.createPseudo((arg) ->
+    (elem) ->
+      jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0
+  )
+  srch = searchVal
+  $(targetDiv).hide()
+  $(targetDiv+":contains(" + srch + ")").show()
+
+
+
 @dep = new Deps.Dependency;
 
 @setPlatform = (pname)->
