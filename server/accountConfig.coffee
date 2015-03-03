@@ -1,3 +1,12 @@
+Accounts.emailTemplates.resetPassword.text = (user, url) ->
+  url = url.replace('#/', '');
+  pname = platforms.findOne(user.platform).tenantName
+
+  url = url.replace("http://","http://"+pname+".")
+  # url = url.replace('http://localhost:3000/', "http://"+process.env.domain_name);
+  return "Click this link to reset your password: " + url
+
+
 Accounts.onCreateUser (options, user) ->
   console.log "options " + options.personal_profile.initialPass
   console.log user
