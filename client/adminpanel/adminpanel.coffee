@@ -152,9 +152,14 @@ Template.userForm.events
     p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: email}
 
     if $("#user-id").val() == ''
-      if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(platforms.findOne().userLimit)
-        Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p})
-        createNotification('User has been created', 1)
+      if (!platforms.findOne().userLimit?) and (platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(platforms.findOne().userLimit))
+        params = {email: email, password: 'password', platform: pid, personal_profile: p}
+        Meteor.call('addIndividualUser', params, pid, (err, res)->
+          if res is true
+            createNotification('User has been created', 1)
+          else
+            createNotification(err, 0)
+        )
       else
         createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
     else
