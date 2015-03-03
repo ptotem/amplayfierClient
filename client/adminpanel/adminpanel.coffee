@@ -6,8 +6,8 @@ Template.adminpanel.events
     )
 
   'click .sync-platform-data': (e)->
+    platforms.update({_id:platId = platforms.findOne()._id},{$set:{issyncing:true}})
     if platforms.findOne().platformSync is true
-      platforms.update({_id:platId = platforms.findOne()._id},{$set:{issyncing:true}})
       createNotification('Cannot Sync',0)
     else
       Meteor.call("fetchDataFromCreator", tenantId, (err, res)->
