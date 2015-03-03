@@ -329,6 +329,15 @@ Meteor.methods
     if addedUsers >= ul
       return false
     else
-      Accounts.createUser({email: p['email'], password: 'password', platform: pid, personal_profile: p})
+      newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
+      p['initialPass'] = newpass
+      Accounts.createUser({email: p['email'], password: newpass, platform: pid, personal_profile: p})
 
-  		
+
+  checkIfUserPasswordSet:(uid)->
+    Meteor.users.findOne({_id:uid}).passwordSet
+  passwordIsSet:(uid)->
+    Meteor.users.update({_id:uid},{$set:{passwordSet:true}})
+  resetUserPasswordAdmin:(uid)->
+    Meteor.users.update({_id:uid},{$set:{passwordSet:false}})
+

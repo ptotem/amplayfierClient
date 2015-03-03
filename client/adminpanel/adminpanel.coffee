@@ -4,7 +4,10 @@ Template.adminpanel.events
   'keyup #users-filter':(e)->
     searchBar($(e.currentTarget).val(),".user-item")
 
-
+  'click .reset-user-password-btn':(e)->
+    Meteor.call("resetUserPasswordAdmin",this._id,(err,res)->
+      createNotification("Password has been reset",1)
+    )
 
 
   'change .user-profile-chosen':(e)->
@@ -108,6 +111,10 @@ Template.adminpanel.events
 
 
 Template.adminpanel.rendered = () ->
+  $('select').chosen({
+    "width":"30%"
+
+  })
   Tracker.autorun(()->
     if platforms.findOne().issyncing is true
       $('#overlay').show()
@@ -167,12 +174,14 @@ Template.userForm.events
 
     if $("#user-id").val() == ''
       Meteor.call("addIndividualUser",p,pid,(res,err)->
-        console.log err
         console.log res
-        if res
-          createNotification("User successfully added",1)
+        if res?
+          createNotification(res.message,0)
         else
-          createNotification('User Limit reached',0)
+          if res
+            createNotification("User successfully added",1)
+          else
+            createNotification('User Limit reached',0)
       )
     
     else

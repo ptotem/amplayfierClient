@@ -25,7 +25,7 @@ Router.onBeforeAction (->
     
      @next()
    return
-   ),{except:['login','notAuthorised']}
+   ),{except:['login','notAuthorised','setPassword']}
 
 
 
@@ -114,7 +114,17 @@ Router.route '/indexreport',
   waitOn:()->
     [Meteor.subscribe('indexReport')]
 
-#
+
+
+
+Router.route '/setpassword/:uid/',
+  template: 'setpassword',
+  name: 'setPassword',
+  data:()->
+    {uid:this.params.uid}
+
+
+
 Router.route '/deckreport',
  template: 'adminDeckReport',
  name: 'deckreport',
