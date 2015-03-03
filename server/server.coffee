@@ -165,7 +165,7 @@ Meteor.methods
 			# TODO:Archive Platforms before wiping current platform
 			# archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
 			# platforms.remove({tenantId:tid})
-			platforms.insert({tenantId:tid,tenantName:tname,secretKey:secretKey,platformSync:false})
+			platforms.insert({tenantId:tid,tenantName:tname,secretKey:secretKey,platformSync:false,issyncing:false})
 			return true
 		else
 			return false
@@ -320,4 +320,3 @@ Meteor.methods
     else
       future.return(false)
     return future.wait()
-
