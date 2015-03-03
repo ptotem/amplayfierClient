@@ -7,6 +7,7 @@ Template.adminpanel.events
 
   'click .sync-platform-data': (e)->
     if platforms.findOne().platformSync is true
+      platforms.update({_id:platId = platforms.findOne()._id},{$set:{issyncing:true}})
       createNotification('Cannot Sync',0)
     else
       Meteor.call("fetchDataFromCreator", tenantId, (err, res)->
@@ -97,6 +98,13 @@ Template.adminpanel.events
 
 
 Template.adminpanel.rendered = () ->
+  Tracker.autorun(()->
+    if platforms.findOne().issyncing is true
+      $('#overlay').show()
+    else
+      $('#overlay').hide()
+  )
+
   if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
     window.location = "/"
   else

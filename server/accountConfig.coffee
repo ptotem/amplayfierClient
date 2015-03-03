@@ -7,7 +7,7 @@ Accounts.onCreateUser (options, user) ->
   user.personal_profile = options.personal_profile
   user.carts=[]
   user.personal_profile.email = options.email
-  user.role = "player"
+  user.role = options.role || "player"
   user.personal_profile.registration_date = new Date().getTime()
 
   user.personal_profile.tags = ['unspecified']
