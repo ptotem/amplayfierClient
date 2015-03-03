@@ -311,3 +311,13 @@ Meteor.methods
 				return false
 		else
 			return false
+
+  addIndividualUser:(parameter)->
+    future = new Future();
+    u = Accounts.createUser(parameter)
+    if u?
+      future.return(true)
+    else
+      future.return(false)
+    return future.wait()
+
