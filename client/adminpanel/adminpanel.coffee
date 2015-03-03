@@ -98,12 +98,12 @@ Template.adminpanel.events
 
 
 Template.adminpanel.rendered = () ->
-  Tracker.autorun(()->
-    if platforms.findOne().issyncing is true
-      $('#overlay').show()
-    else
-      $('#overlay').hide()
-  )
+#  Tracker.autorun(()->
+#    if platforms.findOne().issyncing is true
+#      $('#overlay').show()
+#    else
+#      $('#overlay').hide()
+#  )
 
   if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
     window.location = "/"
@@ -111,8 +111,8 @@ Template.adminpanel.rendered = () ->
 
     $('.sidelink').first().trigger('click')
     $('.internal-sidelinks').first().trigger('click')
-    $('#tag-list').mCustomScrollbar();
-    $('#user-list').mCustomScrollbar();
+#    $('#tag-list').mCustomScrollbar();
+#    $('#user-list').mCustomScrollbar();
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
@@ -120,7 +120,7 @@ Template.adminpanel.helpers
     Meteor.users.find().fetch()
   profileForUsers :(uid)->
     profiles = []
-    if platforms.findOne().profiles != undefined
+    if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
         if Meteor.users.findOne(uid).profile is p
           p["selected"] = true
@@ -131,6 +131,7 @@ Template.adminpanel.helpers
     profiles
 
   getPlatformProfiles: (uid)->
+    dep.depend()
     profiles = []
     if platforms.findOne().profiles != undefined
       for p in platforms.findOne().profiles

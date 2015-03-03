@@ -1,3 +1,5 @@
+@dep = new Deps.Dependency;
+
 @setPlatform = (pname)->
 	@platformName = pname
 
