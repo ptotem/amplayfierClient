@@ -303,5 +303,8 @@ Meteor.methods
 
 	getPlatformType:(platformId)->
 		p = platformType.findOne({platformId:platforms.findOne()._id})
-		if p.platformLimit is -1
-			return true
+		if p.platformLimit?
+			if p.platformLimit is -1
+				return true
+		else
+			return false

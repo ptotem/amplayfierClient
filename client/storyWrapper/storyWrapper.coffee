@@ -5,94 +5,55 @@
   for d in deckJs.find({panelId:p}).fetch()
     eval(d.jsContent)
 
-
-@initDeck = ()->
-  setTimeout(()->
-    console.log "grg"
-    $('.slide-container').first().show()
-    $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
-    executeInteractions($('.slide-container').first().find('.slide-wrapper').attr('panel-id'))
-    $('.slide-container').first().find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
-    $('.slide-container').first().addClass 'active'
+@executeSlideLoad = (item)->
+    item.show()
+    # panelId = $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
+    # executeInteractions(panelId)
+    item.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
+    item.addClass 'active'
     if $('.center-panel:visible').has('iframe').length isnt 0
       setCurrentGameId("true")
-
       setCurrentSlideType(true)
-      setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
+      integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
+      setCurrentIntegratedGameId(integratedGameId)
       setTimeout(()->
         triggerInitGame()
       ,500)
     else
       setCurrentGameId("false")
       setCurrentSlideType(false)
-      setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
-      setCurrentSlideId($('.center-panel:visible').attr('template-id'))
-      setVariantName($('.center-panel:visible').attr('variant-name'))
+      panelId = $('.center-panel:visible').find('.slide-wrapper').attr('panel-id')
+      variantName = $('.center-panel:visible').attr('variant-name')
+      templateId = $('.center-panel:visible').attr('template-id')
+      setCurrentPanelId(panelId)
+      setCurrentSlideId(templateId)
+      executeInteractions(panelId)
+      setVariantName(variantName)
     callStartAttempt(false)
     startTime()
 
 
 
-
+@initDeck = ()->
+  setTimeout(()->
+    executeSlideLoad($('.slide-container').first())
     $('.next-slide').on 'click', (e) ->
+      setComplete()
+      setTime(getTime())
       nextItem = $('.active').next()
       $('.active').hide()
       $('.active').removeClass 'active'
-      nextItem.show()
-      # nextItem.find('.center-panel').first().show()
-      nextItem.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
-      executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
-      nextItem.addClass 'active'
-      callStartAttempt(true)
-      if $('.center-panel:visible').has('iframe').length isnt 0
-        setCurrentGameId("true")
-        setCurrentSlideType(true)
-        setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
-        setTimeout(()->
-          triggerInitGame()
-        ,500)
-      else
-        setCurrentGameId("false")
-        setCurrentSlideType(false)
-        setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
-        setCurrentSlideId($('.center-panel:visible').attr('template-id'))
-        setVariantName($('.center-panel:visible').attr('variant-name'))
-
-      setComplete()
-      setTime(getTime())
-
-      startTime()
+      executeSlideLoad(nextItem)
+      
       return
 
     $('.prev-slide').on 'click', (e) ->
-      nextItem = $('.active').prev()
-      $('.active').hide()
-      $('.active').removeClass 'active'
-      nextItem.show()
-      executeInteractions(nextItem.find('.slide-wrapper').attr('panel-id'))
-      nextItem.addClass 'active'
-      callStartAttempt(true)
-      if $('.center-panel:visible').has('iframe').length isnt 0
-        setCurrentGameId("true")
-        setCurrentSlideType(true)
-        setCurrentIntegratedGameId($('.active').find('iframe').attr('integrated-game-id'))
-        setTimeout(()->
-          triggerInitGame()
-        ,500)
-      else
-        setCurrentGameId("false")
-        setCurrentSlideType(false)
-        setCurrentPanelId($('.center-panel:visible').find('.slide-wrapper').attr('panel-id'))
-        setCurrentSlideId($('.center-panel:visible').attr('template-id'))
-        setVariantName($('.center-panel:visible').attr('variant-name'))
-
       setComplete()
       setTime(getTime())
-
-      startTime()
-      nextItem.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
-      # nextItem.find('.center-panel').first().show()
-      nextItem.show()
+      prevItem = $('.active').prev()
+      $('.active').hide()
+      $('.active').removeClass 'active'
+      executeSlideLoad(prevItem)
       return
 
   ,100)
