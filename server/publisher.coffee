@@ -3,12 +3,14 @@
 #)
 
 Meteor.publish('platformData', (pname)->
-  this.ready()
-  pid = platforms.findOne({tenantName: pname})._id
-  tid = platforms.findOne({tenantName: pname}).tenantId
-
-  console.log pid
-  [platforms.find({tenantName: pname}), deckHtml.find({platformId: pid}),userCompletions.find({tenantId:tid})]
+  if platforms.findOne({tenantName: pname})?
+    this.ready()
+    pid = platforms.findOne({tenantName: pname})._id
+    tid = platforms.findOne({tenantName: pname}).tenantId
+    console.log pid
+    [platforms.find({tenantName: pname}), deckHtml.find({platformId: pid}),userCompletions.find({tenantId:tid})]
+  else
+    []
 )
 
 

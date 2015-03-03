@@ -1,7 +1,7 @@
-@availablePlatform = (t,platName)->
+@availablePlatform = (platName)->
   Meteor.call("isPlatformAvailable",platName,(err,res)->
     if res is false
-      window.location ="/notAuthorised"
+      window.location = "/notAuthorised"
   )
 
 
@@ -10,8 +10,12 @@
 
 
 Router.onBeforeAction (->
-  # all properties available in the route function
-  # are also available here such as this.params
+  # First check if the platform exists. If it does not, then just show the unauthorized page.
+  pname = headers.get('host').split('.')[0]
+  console.log pname
+  availablePlatform(pname)
+
+
   if !Meteor.userId()?
     # if the user is not logged in, render the Login template
     @render 'loading'
