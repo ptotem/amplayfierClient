@@ -102,8 +102,9 @@ Template.adminpanel.events
     $("#new-user").show()
 
   'click .delete-user-btn':(e)->
-    Meteor.call('removeUser',this._id)
-    createNotification('Profile has been removed', 1)
+    if window.confirm("Are you sure you want to delete the user?")
+      Meteor.call('removeUser',this._id)
+      createNotification('Profile has been removed', 1)
 
 
 Template.adminpanel.rendered = () ->
