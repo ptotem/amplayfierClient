@@ -10,7 +10,9 @@
     item.addClass('active')
     $('.prev-slide').show()
     $('.next-slide').show()
-    
+    # $('.center-panel:visible').attr('has-data') is false
+    #   $('.center-panel')
+
     if $('.active').is(":first-child")
       console.log "frst slide"
       $('.prev-slide').hide()
@@ -46,6 +48,9 @@
 
 @initDeck = ()->
   setTimeout(()->
+    $(".center-panel[has-data='false']").remove()
+    $(".slide-container:empty").remove()
+
     executeSlideLoad($('.slide-container').first())
     $('.next-slide').on 'click', (e) ->
       setComplete()
@@ -54,7 +59,7 @@
       $('.active').hide()
       $('.active').removeClass 'active'
       executeSlideLoad(nextItem)
-      
+
       return
 
     $('.prev-slide').on 'click', (e) ->
