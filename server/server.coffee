@@ -135,14 +135,14 @@ Meteor.methods
 		x.call('checkCreatorConnection',tid,secretKey,(err,res)->
 			console.log err
 			console.log res
-			if res is 200
-				getTenantHtml(tid,secretKey)
-				getTenantJs(tid,secretKey)
-				getTenantMetaData(tid,secretKey)
+			if res isnt -1
+				getTenantHtml(tid,res)
+				getTenantJs(tid,res)
+				getTenantMetaData(tid,res)
 				# getIntegratedGames(tid,secretKey)
-				getIntegratedGameQuestions(tid,secretKey)
-				getCustomizationData(tid,secretKey)
-				getRequestForTenant(tid,secretKey)
+				getIntegratedGameQuestions(tid,res)
+				getCustomizationData(tid,res)
+				getRequestForTenant(tid,res)
 				# getAllAssetsForTenant(tid,secretKey)
 				platforms.update({tenantId:tid},{$set:{platformSync:true,issyncing:false}})
 		)
