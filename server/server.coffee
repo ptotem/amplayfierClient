@@ -317,6 +317,8 @@ Meteor.methods
 
   addIndividualUser:(parameter)->
     u = Accounts.createUser(parameter)
+		console.log "-----------------------------------"
+		console.log u
     if u?
       return true
     else
