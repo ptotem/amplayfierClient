@@ -9,23 +9,23 @@
 
 
 
-Router.onBeforeAction (->
-  # First check if the platform exists. If it does not, then just show the unauthorized page.
-  pname = headers.get('host').split('.')[0]
-  availablePlatform(pname)
-  # If the control is here that means the platform exists...
-  if !Meteor.userId()?
-    # if the user is not logged in, render the Login template
-    @render 'loading'
+# Router.onBeforeAction (->
+#   # First check if the platform exists. If it does not, then just show the unauthorized page.
+#   pname = headers.get('host').split('.')[0]
+#   availablePlatform(pname)
+#   # If the control is here that means the platform exists...
+#   if !Meteor.userId()?
+#     # if the user is not logged in, render the Login template
+#     @render 'loading'
     
-    window.location = "/login"
-  else
-    # otherwise don't hold up the rest of hooks or our route/action function
-    # from running
+#     window.location = "/login"
+#   else
+#     # otherwise don't hold up the rest of hooks or our route/action function
+#     # from running
     
-    @next()
-  return
-  ),{except:['login','notAuthorised']}
+#     @next()
+#   return
+#   ),{except:['login','notAuthorised']}
 
 
 
