@@ -11,8 +11,10 @@
     $('.next-slide').show()
     
     if $('.active').is(":first-child")
+      console.log "frst slide"
       $('.prev-slide').hide()
     if $('.active').is(":last-child")
+      console.log "last slide"
       $(".next-slide").hide()
     # panelId = $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
     # executeInteractions(panelId)
