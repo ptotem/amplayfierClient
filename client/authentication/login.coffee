@@ -1,22 +1,22 @@
 Template.loginPage.helpers
   backId:()->
-    backgroundUrl=""
+    backgroundUrl = ""
     if platforms.findOne().backgroundUrl?
       find = '/cfs'
       re = new RegExp(find, 'g')
-      backgroundUrl=platforms.findOne().backgroundUrl.replace(re,"http://amplayfier.com/cfs")
+      backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://amplayfier.com/cfs")
     else
-      backgroundUrl="/assets/images/bg.jpg"
+      backgroundUrl = "/assets/images/bg.jpg"
     backgroundUrl
 
   logoId:()->
-    platformLogo=""
+    platformLogo = ""
     if platforms.findOne().platformLogo?
       find = '/cfs'
       re = new RegExp(find, 'g')
-      platformLogo=platforms.findOne().platformLogo.replace(re,"http://amplayfier.com/cfs")
+      platformLogo = platforms.findOne().platformLogo.replace(re,"http://amplayfier.com/cfs")
     else
-      platformLogo="/assets/images/amplayfier-new-logo.png"
+      platformLogo = "/assets/images/amplayfier-new-logo.png"
     platformLogo
 
 
@@ -26,16 +26,16 @@ Template.loginPage.events
      userEmail = $(e.currentTarget).find("#email").val().toString()
     #  newEmail = userEmail.substr(0, userEmail.indexOf('@')) + '|' + pn + userEmail.substr(userEmail.indexOf('@'))
      newEmail = encodeEmail(userEmail,pn)
-     console.log newEmail
+     
      userPassword = $(e.currentTarget).find("#password").val()
      authenticatePassword(newEmail,userPassword,"/admin")
      false
 
 
 Template.loginPage.rendered = ()->
-  console.log "Searching for platforms.."
+  
   $('body').css('height','100%')
-  faviconlink=""
+  faviconlink = ""
   if platforms.findOne().tenantIcon?
     find = '/cfs'
     re = new RegExp(find, 'g')
@@ -55,5 +55,5 @@ Template.loginPage.rendered = ()->
         Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p,role:"player"})
         #createNotification('Guest user id is created, welcome guest', 1)
         authenticatePassword(email,'password',"/")
-        console.log("checking if auto login is done");
+       
   )

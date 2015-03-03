@@ -1,12 +1,12 @@
+# This is not the best approch. Evals can be dangerous
+# TODO: Revisit this
+
 @executeInteractions = (p)->
-  # $(".component").hide()
   for d in deckJs.find({panelId:p}).fetch()
-    console.log d.jsContent
     eval(d.jsContent)
 
 
 @initDeck = ()->
-
   setTimeout(()->
     console.log "grg"
     $('.slide-container').first().show()

@@ -12,19 +12,17 @@
 Router.onBeforeAction (->
   # First check if the platform exists. If it does not, then just show the unauthorized page.
   pname = headers.get('host').split('.')[0]
-  console.log pname
   availablePlatform(pname)
-
-
+  # If the control is here that means the platform exists...
   if !Meteor.userId()?
     # if the user is not logged in, render the Login template
     @render 'loading'
-    console.log "/login"
+    
     window.location = "/login"
   else
     # otherwise don't hold up the rest of hooks or our route/action function
     # from running
-    console.log "/loginNExt"
+    
     @next()
   return
   ),{except:['login','notAuthorised']}
@@ -42,8 +40,10 @@ Router.route '/login',
     action: ->
       if @ready
         setPlatform(this.data().platformName)
-        availablePlatform(this,this.data().platformName)
+        # availablePlatform(this,this.data().platformName)
         @render()
+      else
+        @render('loading')
 
 
 Router.route '/deckList',
