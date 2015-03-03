@@ -2,9 +2,9 @@
 
 @myip = "http://192.168.89.118:4000"
 
-@getTenantHtml=(tid,secretKey)->
+@getTenantHtml=(tid,secretKey,res)->
 			x = DDP.connect(remoteIp)
-			x.call('requestHTMLForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
+			x.call('requestHTMLForTenant',tid,secretKey,res,(err,res)->
 				console.log err
 				console.log res
 				if !err
@@ -15,9 +15,9 @@
 						deckHtml.insert({name:c.dName,platformId:p._id,tenantId:tid,deckId:c.deckId,htmlContent:c.deckContent,variants:["Basic","Intermediate","Advanced"]})
 			)
 
-@getTenantJs=(tid,secretKey)->
+@getTenantJs=(tid,secretKey,res)->
 		x = DDP.connect(remoteIp)
-		x.call('requestJSForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
+		x.call('requestJSForTenant',tid,secretKey,res,(err,res)->
 			console.log err
 			console.log res
 			if !err
@@ -28,9 +28,9 @@
 					deckJs.insert({deckId:c.deckId,panelId:c.panelId,jsContent:c.JSContent,platformId:p._id})
 		)
 
-@getTenantMetaData=(tid,secretKey)->
+@getTenantMetaData=(tid,secretKey,res)->
 		x = DDP.connect(remoteIp)
-		x.call('requestTenantMetaData',tid,secretKey,Meteor.settings.secret,(err,res)->
+		x.call('requestTenantMetaData',tid,secretKey,res,(err,res)->
 			console.log err
 			console.log res
 			if !err
@@ -38,9 +38,9 @@
 				platforms.update({tenantId:tid},{$set:{backgroundUrl:res.backImage,platformLogo:res.logoImage,tenantIcon:res.favIc}})
 		)
 
-@getIntegratedGames=(tid,secretKey)->
+@getIntegratedGames=(tid,secretKey,res)->
 		x = DDP.connect(remoteIp)
-		x.call('syncTenantGames',tid,secretKey,Meteor.settings.secret,(err,res)->
+		x.call('syncTenantGames',tid,secretKey,res,(err,res)->
 			console.log err
 			console.log res
 			exec = Npm.require('child_process').exec
@@ -73,9 +73,9 @@
 
 		)
 
-@getIntegratedGameQuestions=(tid,secretKey)->
+@getIntegratedGameQuestions=(tid,secretKey,res)->
 			x = DDP.connect(remoteIp)
-			x.call('syncIntegratedGameQuestions',tid,secretKey,Meteor.settings.secret,(err,res)->
+			x.call('syncIntegratedGameQuestions',tid,secretKey,res,(err,res)->
 				console.log err
 				console.log res
 				if !err
@@ -85,9 +85,9 @@
 						gameData.insert({deckId:c.deckId,igId:c.igId,questions:c.questions,platformId:p._id})
 			)
 
-@getCustomizationData=(tid,secretKey)->
+@getCustomizationData=(tid,secretKey,res)->
 			x = DDP.connect(remoteIp)
-			x.call('syncCustomizationData',tid,secretKey,Meteor.settings.secret,(err,res)->
+			x.call('syncCustomizationData',tid,secretKey,res,(err,res)->
 				console.log err
 				console.log res
 				if !err
@@ -97,9 +97,9 @@
 						customizationDecks.insert({intGameId:c.integratedGame,custKey:c.custKey,custVal:c.custVal,dataType:c.dataType,platformId:p._id})
 			)
 
-@getRequestForTenant=(tid,secretKey)->
+@getRequestForTenant=(tid,secretKey,res)->
 			x = DDP.connect(remoteIp)
-			x.call('requestStoryWrapperForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
+			x.call('requestStoryWrapperForTenant',tid,secretKey,res,(err,res)->
 				console.log err
 				console.log res
 				pname = platforms.findOne({tenantId:tid}).tenantName
@@ -108,9 +108,9 @@
 
 			)
 
-@getAllAssetsForTenant=(tid,secretKey)->
+@getAllAssetsForTenant=(tid,secretKey,res)->
 			x = DDP.connect(remoteIp)
-			x.call('requestAssetForTenant',tid,secretKey,Meteor.settings.secret,(err,res)->
+			x.call('requestAssetForTenant',tid,secretKey,res,(err,res)->
 				console.log err
 				console.log res
 				if !err
@@ -136,13 +136,13 @@ Meteor.methods
 			console.log err
 			console.log res
 			if res isnt -1
-				getTenantHtml(tid,res)
-				getTenantJs(tid,res)
-				getTenantMetaData(tid,res)
+				getTenantHtml(tid,secretKey,res)
+				getTenantJs(tid,secretKey,res)
+				getTenantMetaData(tid,secretKey,res)
 				# getIntegratedGames(tid,secretKey)
-				getIntegratedGameQuestions(tid,res)
-				getCustomizationData(tid,res)
-				getRequestForTenant(tid,res)
+				getIntegratedGameQuestions(tid,secretKey,res)
+				getCustomizationData(tid,secretKey,res)
+				getRequestForTenant(tid,secretKey,res)
 				# getAllAssetsForTenant(tid,secretKey)
 				platforms.update({tenantId:tid},{$set:{platformSync:true,issyncing:false}})
 		)
