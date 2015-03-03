@@ -130,9 +130,13 @@ Meteor.methods
     true
 
   createAdminOnClient: (email, tid, platformName)->
+    pid = platforms.findOne({tenantId: tid})._id
+    personal_profile = {platform: pid, email: encodeEmail(email,platformName),  first_name:platformName, last_name: 'Admin', display_name: 'Administrator'}
+    newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
+    personal_profile['initialPass'] = newpass
     Accounts.createUser({
       email: encodeEmail(email,
-        platformName), password: "password", role: "admin", tid: tid, personal_profile: {}, seed_user: false
+        platformName), password: newpass, role: "admin", platform: pid, personal_profile: personal_profile
     })
 
   fetchDataFromCreator: (tid)->
@@ -291,6 +295,8 @@ Meteor.methods
               if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(ul)
                 newEmail = encodeEmail(r['email'], platformName)
                 personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
+                newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
+                personal_profile['initialPass'] = newpass
                 Accounts.createUser({email: newEmail, password: r['password'], platform: pid, personal_profile: personal_profile})
 
               else
