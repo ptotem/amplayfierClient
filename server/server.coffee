@@ -119,8 +119,6 @@
 					Meteor.call('syncTenantAssets',res,tid)
 			)
 
-
-
 Meteor.methods
 
 	assignUserProfile:(uid,prf)->
@@ -156,7 +154,12 @@ Meteor.methods
 			console.log res
 		)
 
-
+	makePlatformReadyForSyn:(tid,secretKey)->
+		if !platforms.findOne({tenantId:tid})?
+			platforms.update({tenantId:tid},{$set:{platformSync:false}})
+			return true
+		else
+			return false	
 
 	createPlatform:(tid,tname,secretKey)->
 		console.log "Rejmore platfomr recevived"
