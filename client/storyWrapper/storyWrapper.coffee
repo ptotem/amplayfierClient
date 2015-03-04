@@ -13,7 +13,7 @@
     # $('.center-panel:visible').attr('has-data') is false
     #   $('.center-panel')
     #$($('.center-panel:visible').find('.slide-wrapper')).bind 'show', ->
-    $('.story-wrapper').on 'show', ->
+    $('.slide-wrapper').on 'show', ->
       alert("Event trigger...");
       minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
       maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
