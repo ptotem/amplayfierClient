@@ -62,7 +62,8 @@
 	gameData.findOne({igId:integratedGameId}).questions
 
 @triggerInitGame = ()->
-	document.getElementsByTagName('iframe')[0].contentWindow.$("body").trigger("loadGame");
+  console.log "Game Init triuggeeed"
+  document.getElementsByTagName('iframe')[0].contentWindow.$("body").trigger("loadGame");
 
 @getImageInGame = ()->
 	console.log "getImageInGame"
