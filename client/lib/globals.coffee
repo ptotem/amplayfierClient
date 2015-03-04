@@ -107,3 +107,5 @@
 @setPanelData = (panelId, minTime, points) ->
   setPanelScore(points, minTime)
   setPanel(panelId)
+
+
