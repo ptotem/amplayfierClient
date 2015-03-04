@@ -34,6 +34,7 @@
       setCurrentGameId("true")
       setCurrentSlideType(true)
       integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
+      console.log "this is a agme"
       setCurrentIntegratedGameId(integratedGameId)
       setTimeout(()->
         triggerInitGame()
