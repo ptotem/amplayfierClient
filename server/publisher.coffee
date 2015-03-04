@@ -71,3 +71,8 @@ Meteor.publish('customizationDecks',()->
   this.ready()
   customizationDecks.find({})
 )
+
+Meteor.publish('panelReport',()->
+  this.ready()
+  panelReport.find({})
+)
