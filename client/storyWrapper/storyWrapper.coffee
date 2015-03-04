@@ -115,7 +115,7 @@ Template.storyWrapper.rendered = () ->
     s = platforms.findOne().storyConfig
 
     window.storyConfig = JSON.parse(s);
-    window.storyConfig.imgsrc = "http://amplayfier.com" + window.storyConfig.imgsrc
+    window.storyConfig.imgsrc = "http://amplayfier.co.in" + window.storyConfig.imgsrc
     pid=platforms.findOne({tenantName: platformName})._id
     window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
     window.userdata["decks"] = []
