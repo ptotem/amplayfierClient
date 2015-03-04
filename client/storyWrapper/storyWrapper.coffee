@@ -69,8 +69,8 @@
     $('.prev-slide').on 'click', (e) ->
       setComplete()
       setTime(getTime())
-      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
-      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
+      minTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("min-time"))
+      maxTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("max-time"))
       Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
       setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
 #      setPanel()
