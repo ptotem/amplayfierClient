@@ -12,6 +12,13 @@
     $('.next-slide').show()
     # $('.center-panel:visible').attr('has-data') is false
     #   $('.center-panel')
+    #$($('.center-panel:visible').find('.slide-wrapper')).bind 'show', ->
+    $('.slide-wrapper').on 'show', ->
+      alert("Event trigger...");
+      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
+      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
+      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
+      setPanelData(minTime,maxTime,Session.get("currentSlideScore"))
 
     if $('.active').is(":first-child")
       console.log "frst slide"
@@ -55,7 +62,10 @@
     $('.next-slide').on 'click', (e) ->
       setComplete()
       setTime(getTime())
-#      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
+      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
+      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
+      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
+      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
       nextItem = $('.active').next()
       $('.active').hide()
       $('.active').removeClass 'active'
@@ -66,6 +76,10 @@
     $('.prev-slide').on 'click', (e) ->
       setComplete()
       setTime(getTime())
+      minTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("min-time"))
+      maxTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("max-time"))
+      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
+      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
 #      setPanel()
 #      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
       prevItem = $('.active').prev()

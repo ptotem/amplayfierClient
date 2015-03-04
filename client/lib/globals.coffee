@@ -77,22 +77,39 @@
 		403
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
-  if parseInt(attempt.timtTaken/1000) > minTime
-    score = points
-  else
-    score = 0
-  Session.set("currentSlideScore", 0)
-  score
+  console.log attempt
+  console.log(reports.find().fetch())
+  attr = reports.findOne({_id : attempt})
+  setTimeout (->
+    console.log "----------------- Set Current Slide Score -----------------------------"
+    console.log "-----------------------------------------------------------------------"
+    console.log attr
+    console.log "Time Spent:" + parseInt(attr.time/1000)
+    console.log "Min Time:" + minTime
+    console.log "Points :" + points
+    if parseInt(attr.time/1000) > minTime
+      console.log "Min time spent"
+      score = points
+      setScore(score)
+    else
+      console.log "Min time not spent"
+      score = 0
+      setScore(score)
+    console.log "-----------------------------------------------------------------------"
+    Session.set("currentSlideScore", 0)
+    score
+  ), 100
+
 
 @setPanel = (panelId, points) ->
   @currentPanel = setPanelReport(panelId, parseInt(points))
-  
+
 
 @setPanelScore = (points,minTime) ->
-	if currentPanel?	
+	if currentPanel?
 		calculatedTimeSpent = new Date().getTime() - currentPanel.createdAt
 		pt = 0
-		if calculatedTimeSpent > minTime 
+		if calculatedTimeSpent > minTime
 			pt = points
 			currentPanel.update({score: points, timeTaken: calculatedTimeSpent})
 			currentPanel = null
@@ -102,4 +119,8 @@
 			currentPanel = null
 			score = Session.get("currentSlideScore")
 			score = score + parseInt(pt)
-			Session.set("currentSlideScore", score)	
+			Session.set("currentSlideScore", score)
+
+@setPanelData = (panelId, minTime, points) ->
+  # setPanelScore(points, minTime)
+  setPanel(panelId)

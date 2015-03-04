@@ -58,4 +58,4 @@
   Session.set("startTime",new Date().getTime())
 
 @setPanelReport = (panelId, points)->
-  panelReport.create({slideId: currentSlideId, userId : Meteor.userId(), panelId: panelId, points: points, createdAt: new Date().getTime()})
+  panelReport.create({slideId: currentTemplateId, userId : Meteor.userId(), panelId: panelId, points: points, createdAt: new Date().getTime()})
