@@ -130,6 +130,8 @@ Template.storyWrapper.events
         for v in p.variants
           if v[deckId]?
             setVariantToShow(v[deckId])
+    setVariantToShow("Basic")
+
             # variantToShow = v[deckId]
 
     markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
