@@ -78,6 +78,7 @@
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
   console.log attempt
+  console.log(reports.find().fetch())
   attr = reports.findOne({_id : attempt})
   setTimeout (->
     console.log "----------------- Set Current Slide Score -----------------------------"
