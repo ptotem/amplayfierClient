@@ -329,15 +329,21 @@ Meteor.methods
       return false
 
   addIndividualUser: (p, pid)->
-    ul = platforms.findOne(pid).userLimit || 100
+    ul = platforms.findOne(pid).userLimit || -1
+#    ul = 1
     addedUsers = Meteor.users.find({platform: pid}).fetch().length
     console.log addedUsers
-    if addedUsers >= ul
-      return false
-    else
+    if ul is -1
       newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
       p['initialPass'] = newpass
       Accounts.createUser({email: p['email'], password: newpass, platform: pid, personal_profile: p})
+    else
+      if addedUsers >= ul
+        return false
+      else
+        newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
+        p['initialPass'] = newpass
+        Accounts.createUser({email: p['email'], password: newpass, platform: pid, personal_profile: p})
 
 
   checkIfUserPasswordSet:(uid)->

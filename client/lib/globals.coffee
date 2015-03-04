@@ -102,4 +102,8 @@
 			currentPanel = null
 			score = Session.get("currentSlideScore")
 			score = score + parseInt(pt)
-			Session.set("currentSlideScore", score)	
+			Session.set("currentSlideScore", score)
+
+@setPanelData = (panelId, minTime, points) ->
+  setPanelScore(points, minTime)
+  setPanel(panelId)
