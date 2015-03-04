@@ -77,10 +77,14 @@
 		403
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
+  console.log "Time Spent:" + parseInt(attempt.timtTaken/1000)
+  console.log "Min Time:" + minTime
   if parseInt(attempt.timtTaken/1000) > minTime
     score = points
+    setScore(score)
   else
     score = 0
+    setScore(score)
   Session.set("currentSlideScore", 0)
   score
 
