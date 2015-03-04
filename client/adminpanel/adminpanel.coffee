@@ -111,10 +111,10 @@ Template.adminpanel.events
 
 
 Template.adminpanel.rendered = () ->
-  $('select').chosen({
-    "width":"30%"
-
-  })
+#  $('select').chosen({
+#    "width":"30%"
+#
+#  })
   Tracker.autorun(()->
     if platforms.findOne().issyncing is true
       $('#overlay').show()
@@ -173,15 +173,18 @@ Template.userForm.events
     p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: email}
 
     if $("#user-id").val() == ''
-      Meteor.call("addIndividualUser",p,pid,(res,err)->
-        console.log res
-        if res?
-          createNotification(res.message,0)
+      Meteor.call("addIndividualUser",p,pid,(err,res)->
+
+
+        if err?
+          createNotification(err.message,0)
         else
-          if res
-            createNotification("User successfully added",1)
-          else
+          if !res
             createNotification('User Limit reached',0)
+
+          else
+            createNotification("User successfully added",1)
+
       )
     
     else

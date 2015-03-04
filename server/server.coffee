@@ -329,7 +329,8 @@ Meteor.methods
       return false
 
   addIndividualUser: (p, pid)->
-    ul = platforms.findOne(pid).userLimit || 100
+    ul = platforms.findOne(pid).userLimit || 1
+#    ul = 1
     addedUsers = Meteor.users.find({platform: pid}).fetch().length
     console.log addedUsers
     if addedUsers >= ul
