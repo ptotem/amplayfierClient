@@ -103,13 +103,13 @@
 
 @setPanel = (panelId, points) ->
   @currentPanel = setPanelReport(panelId, parseInt(points))
-  
+
 
 @setPanelScore = (points,minTime) ->
-	if currentPanel?	
+	if currentPanel?
 		calculatedTimeSpent = new Date().getTime() - currentPanel.createdAt
 		pt = 0
-		if calculatedTimeSpent > minTime 
+		if calculatedTimeSpent > minTime
 			pt = points
 			currentPanel.update({score: points, timeTaken: calculatedTimeSpent})
 			currentPanel = null
@@ -122,7 +122,5 @@
 			Session.set("currentSlideScore", score)
 
 @setPanelData = (panelId, minTime, points) ->
-  setPanelScore(points, minTime)
+  # setPanelScore(points, minTime)
   setPanel(panelId)
-
-
