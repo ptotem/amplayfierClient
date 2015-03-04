@@ -30,7 +30,9 @@
     # executeInteractions(panelId)
     item.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
     item.addClass 'active'
-    if $('.slide-container.active').has('iframe').length isnt 0
+    console.log ">>>>>"
+    console.log parseInt($('.slide-container.active').has('iframe').length)
+    if parseInt($('.slide-container.active').has('iframe').length) isnt 0
       setCurrentGameId("true")
       setCurrentSlideType(true)
       integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
