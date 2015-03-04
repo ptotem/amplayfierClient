@@ -33,6 +33,7 @@
     console.log ">>>>>"
     console.log parseInt($('.slide-container.active').has('iframe').length)
     if parseInt($('.slide-container.active').has('iframe').length) isnt 0
+      console.log "TGame"
       setCurrentGameId("true")
       setCurrentSlideType(true)
       integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
