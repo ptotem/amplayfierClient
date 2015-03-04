@@ -12,11 +12,11 @@
     $('.next-slide').show()
     # $('.center-panel:visible').attr('has-data') is false
     #   $('.center-panel')
-    # $($('.center-panel:visible').find('.slide-wrapper').find('.component:hidden')).on 'show', ->
-    #   minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
-    #   maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
-    #   Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
-    #   setPanelData(minTime,maxTime,Session.get("currentSlideScore"))
+    $($('.center-panel:visible').find('.slide-wrapper').find('.component:hidden')).on 'show', ->
+      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
+      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
+      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
+      setPanelData(minTime,maxTime,Session.get("currentSlideScore"))
 
     if $('.active').is(":first-child")
       console.log "frst slide"
