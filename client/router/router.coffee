@@ -17,12 +17,12 @@ Router.onBeforeAction (->
    if !Meteor.userId()? and Router.current().url.indexOf('reset-password') is -1
      # if the user is not logged in, render the Login template
      @render 'loading'
-    
+
      window.location = "/login"
    else
      # otherwise don't hold up the rest of hooks or our route/action function
      # from running
-    
+
      @next()
    return
    ),{except:['login','notAuthorised','forgot','reset']}
@@ -118,7 +118,7 @@ Router.route '/',
     pname =  headers.get('host').split('.')[0]
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank'),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport')]
+    [Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank'),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport')]
   action:()->
     if @ready()
       setPlatform(this.data().platformName)
