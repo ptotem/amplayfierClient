@@ -63,7 +63,8 @@
 
 @triggerInitGame = ()->
   console.log "Game Init triuggeeed"
-  document.getElementsByTagName('iframe')[0].contentWindow.$("body").trigger("loadGame");
+  $('.slide-container.active').find('iframe')[0].contentWindow.$("body").trigger("loadGame")
+#  document.getElementsByTagName('iframe')[0].contentWindow.$("body").trigger("loadGame");
 
 @getImageInGame = ()->
 	console.log "getImageInGame"
