@@ -41,7 +41,7 @@
       setCurrentIntegratedGameId(integratedGameId)
       setTimeout(()->
         triggerInitGame()
-      ,500)
+      ,2000)
     else
       setCurrentGameId("false")
       setCurrentSlideType(false)
