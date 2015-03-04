@@ -77,10 +77,15 @@
 		403
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
-  console.log "Time Spent:" + parseInt(attempt.time/1000)
+  console.log attempt
+  attr = reports.findOne(attempt)
+  console.log "----------------- Set Current Slide Score -----------------------------"
+  console.log "-----------------------------------------------------------------------"
+  console.log attr
+  console.log "Time Spent:" + parseInt(attr.time/1000)
   console.log "Min Time:" + minTime
   console.log "Points :" + points
-  if parseInt(attempt.time/1000) > minTime
+  if parseInt(attr.time/1000) > minTime
     console.log "Min time spent"
     score = points
     setScore(score)
@@ -88,6 +93,7 @@
     console.log "Min time not spent"
     score = 0
     setScore(score)
+  console.log "-----------------------------------------------------------------------"
   Session.set("currentSlideScore", 0)
   score
 
