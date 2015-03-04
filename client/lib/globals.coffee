@@ -78,7 +78,7 @@
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
   console.log attempt
-  attr = reports.findOne(attempt)
+  attr = reports.findOne({_id : attempt.toString()})
   console.log "----------------- Set Current Slide Score -----------------------------"
   console.log "-----------------------------------------------------------------------"
   console.log attr
