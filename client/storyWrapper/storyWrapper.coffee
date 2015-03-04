@@ -62,34 +62,34 @@
     $(".slide-container:empty").remove()
 
     executeSlideLoad($('.slide-container').first())
-    $('.next-slide').on 'click', (e) ->
-      setComplete()
-      setTime(getTime())
-      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
-      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
-      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
-      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
-      nextItem = $('.active').next()
-      $('.active').hide()
-      $('.active').removeClass 'active'
-      executeSlideLoad(nextItem)
-
-      return
-
-    $('.prev-slide').on 'click', (e) ->
-      setComplete()
-      setTime(getTime())
-      minTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("min-time"))
-      maxTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("max-time"))
-      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
-      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
-#      setPanel()
+#    $('.next-slide').on 'click', (e) ->
+#      setComplete()
+#      setTime(getTime())
+#      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
+#      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
+#      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
 #      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
-      prevItem = $('.active').prev()
-      $('.active').hide()
-      $('.active').removeClass 'active'
-      executeSlideLoad(prevItem)
-      return
+#      nextItem = $('.active').next()
+#      $('.active').hide()
+#      $('.active').removeClass 'active'
+#      executeSlideLoad(nextItem)
+#
+#      return
+#
+#    $('.prev-slide').on 'click', (e) ->
+#      setComplete()
+#      setTime(getTime())
+#      minTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("min-time"))
+#      maxTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("max-time"))
+#      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
+#      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
+##      setPanel()
+##      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
+#      prevItem = $('.active').prev()
+#      $('.active').hide()
+#      $('.active').removeClass 'active'
+#      executeSlideLoad(prevItem)
+#      return
 
   ,100)
 
