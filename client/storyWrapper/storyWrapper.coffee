@@ -8,7 +8,8 @@
 
 @readHTML = ()->
   $(".actual-text").each((index,ele)->
-    $(ele).html(jQuery.parseHTML($(ele).text()))
+#    $(ele).html(jQuery.parseHTML($(ele).text()))
+    console.log $(ele).text()
 
   )
 
