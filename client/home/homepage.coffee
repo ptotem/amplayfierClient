@@ -36,8 +36,8 @@ Template.homePage.helpers
       find = '/cfs';
       re = new RegExp(find, 'g');
 
-      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://amplayfier.co.in/cfs")
-      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(/"/g, '');
+      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://amplayfier.co.in/cfs").replace(/"/g, '')
+      
 
 
 
