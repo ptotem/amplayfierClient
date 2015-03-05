@@ -8,6 +8,7 @@
 
 @readHTML = ()->
   $(".actual-text").each((index,ele)->
+    $(".actual-text").attr("contenteditable",false)
     $(ele).html(jQuery.parseHTML($(ele).text()))
     console.log $(ele).text()
 
