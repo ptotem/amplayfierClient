@@ -186,7 +186,7 @@ Template.userForm.events
             createNotification("User successfully added",1)
 
       )
-    
+
     else
       Meteor.call('updateUser', $("#user-id").val(), p)
       createNotification('Profile has been updated', 1)
