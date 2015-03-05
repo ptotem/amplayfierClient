@@ -5,9 +5,17 @@
   for d in deckJs.find({panelId:p}).fetch()
     eval(d.jsContent)
 
+
+@readHTML = ()->
+  $(".actual-text").each((index,ele)->
+    $(ele).html(jQuery.parseHTML($(ele).text()))
+
+  )
+
 @executeSlideLoad = (item)->
     item.show()
     item.addClass('active')
+    readHTML()
     $('.prev-slide').show()
     $('.next-slide').show()
     # $('.center-panel:visible').attr('has-data') is false

@@ -37,7 +37,7 @@ Template.homePage.helpers
       re = new RegExp(find, 'g');
 
       deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://amplayfier.co.in/cfs")
-      
+
 
 
 
