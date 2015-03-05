@@ -58,8 +58,10 @@
 
 
 @getQuestionsFromBank = (integratedGameId)->
-	console.log integratedGameId
-	gameData.findOne({igId:integratedGameId}).questions
+  console.log integratedGameId
+  console.log ">>><><><>><><><><><<>"
+  console.log   gameData.findOne({igId:integratedGameId}).questions
+  gameData.findOne({igId:integratedGameId}).questions
 
 @triggerInitGame = ()->
   console.log "Game Init triuggeeed"
