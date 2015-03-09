@@ -484,8 +484,8 @@ function showDeck(deckId) {
     var $storyZone = $('#story-zone');
 
     // This is the code for the playbar
-    $('<div class="story-zone-playbar"><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a><a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a></div>').appendTo($storyZone);
-
+    //$('<div class="story-zone-playbar"><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a><a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a></div>').appendTo($storyZone);
+    $('<div class="story-zone-playbar"><a href="#" class="prev-slide btn btn-warning pull-left playbar-btn"> < </a><a href="#" class="next-slide btn btn-info  pull-left playbar-btn"> > </a><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a><a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a></div>').appendTo($storyZone);
     // This is the div where the deck gets shown
     var $projector = $('<div class="projector projection"></div>').appendTo($storyZone);
 
