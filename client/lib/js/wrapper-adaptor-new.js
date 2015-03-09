@@ -524,22 +524,24 @@ function showDeck(deckId) {
         $('#full-wrapper').slideDown(function () {
             var $fullProjector = $('<div class="fullprojector fullprojection"></div>').appendTo($(this));
             var $fullCloser = $('<div class="fullcloser fullprojection"><button type="button" class="btn btn-danger btn-lg" style="color: black"> Close </button></div>').appendTo($(this));
+            $(".projector").empty();
             initDeck();
 
+
             Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("fullprojector")[0]);
-            if (thisDeck.hasGame) {
-                for (var j = 1; j < thisDeck.gameSlide; j++) {
-                    $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
-                }
-                $fullProjector.append('<div> <iframe src="games/' + thisDeck.gameName + '/index.html" width="640" height="480"></iframe></div>')
-                for (var j = thisDeck.gameSlide; j < thisDeck.slides + 1; j++) {
-                    $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
-                }
-            } else {
-                for (var j = 1; j < thisDeck.slides + 1; j++) {
-                    $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
-                }
-            }
+            //if (thisDeck.hasGame) {
+            //    for (var j = 1; j < thisDeck.gameSlide; j++) {
+            //        $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
+            //    }
+            //    $fullProjector.append('<div> <iframe src="games/' + thisDeck.gameName + '/index.html" width="640" height="480"></iframe></div>')
+            //    for (var j = thisDeck.gameSlide; j < thisDeck.slides + 1; j++) {
+            //        $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
+            //    }
+            //} else {
+            //    for (var j = 1; j < thisDeck.slides + 1; j++) {
+            //        $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
+            //    }
+            //}
 
             $fullProjector.slick({
                 autoplay: false,
