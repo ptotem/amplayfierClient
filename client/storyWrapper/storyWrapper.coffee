@@ -5,9 +5,19 @@
   for d in deckJs.find({panelId:p}).fetch()
     eval(d.jsContent)
 
+
+@readHTML = ()->
+  $(".actual-text").each((index,ele)->
+    $(".actual-text").attr("contenteditable",false)
+    $(ele).html(jQuery.parseHTML($(ele).text()))
+    console.log $(ele).text()
+
+  )
+
 @executeSlideLoad = (item)->
     item.show()
     item.addClass('active')
+
     $('.prev-slide').show()
     $('.next-slide').show()
     # $('.center-panel:visible').attr('has-data') is false
@@ -61,6 +71,7 @@
 
 @initDeck = ()->
   setTimeout(()->
+    readHTML()
     $(".center-panel[has-data='false']").remove()
     $(".slide-container:empty").remove()
 
@@ -115,7 +126,7 @@ Template.storyWrapper.rendered = () ->
     s = platforms.findOne().storyConfig
 
     window.storyConfig = JSON.parse(s);
-    window.storyConfig.imgsrc = "http://amplayfier.co.in" + window.storyConfig.imgsrc
+    window.storyConfig.imgsrc = "http://amplayfier.com" + window.storyConfig.imgsrc
     pid=platforms.findOne({tenantName: platformName})._id
     window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
     window.userdata["decks"] = []
