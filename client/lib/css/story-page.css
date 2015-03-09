@@ -260,6 +260,12 @@ body.story-page {
         margin-left: 10%;
         width: 80%;
     }
+    #full-wrapper .story-zone-playbar
+    {
+        left:10%;
+    }
+
+
 }
 
 
@@ -286,8 +292,8 @@ body.story-page {
 #full-wrapper .story-zone-playbar
 {
     position: relative;
-    top: 75%;
-    left: 0;
+    top: 0%;
+    left: 20%;
     background: #000;
     width: 640px;
     height: 40px;
