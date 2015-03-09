@@ -156,4 +156,4 @@ Template.storyWrapper.events
 
     setCurrentDeckId(deckId)
     initDeck()
-    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])
