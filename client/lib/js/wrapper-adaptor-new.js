@@ -605,6 +605,8 @@ function getNodeData(sequence) {
 
 /* Get Deck by Id */
 function getDeck(id) {
+    console.log("-------------------------------")
+    console.log(id)
     return jQuery.grep(wrapperDecks, function (a) {
         return (a.deckId == id);
     })[0];
