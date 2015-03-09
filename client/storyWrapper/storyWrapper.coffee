@@ -151,7 +151,7 @@ Template.storyWrapper.events
 
             # variantToShow = v[deckId]
 
-    markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
+#    markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
 
 
     setCurrentDeckId(deckId)
