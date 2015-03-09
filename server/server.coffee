@@ -11,12 +11,6 @@
 @remoteIp = "http://192.168.89.112:4000"
 
 
-
-
-
-
-
-
 @getTenantHtml = (tid, secretKey, res)->
   x = DDP.connect(remoteIp)
   x.call('requestHTMLForTenant', tid, secretKey, res, (err, res)->
