@@ -139,11 +139,12 @@ Template.storyWrapper.rendered = () ->
 Template.storyWrapper.events
   'click .zone-deck':(e)->
     deckId = $(e.currentTarget).attr("id").split("-")[2]
-    for p in platforms.findOne().profiles
-      if p.name is Meteor.user().profile
-        for v in p.variants
-          if v[deckId]?
-            setVariantToShow(v[deckId])
+    if platforms.findOne().profiles?
+      for p in platforms.findOne().profiles
+        if p.name is Meteor.user().profile
+          for v in p.variants
+            if v[deckId]?
+              setVariantToShow(v[deckId])
     setVariantToShow("Basic")
 
             # variantToShow = v[deckId]
