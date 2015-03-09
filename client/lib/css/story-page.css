@@ -251,7 +251,7 @@ body.story-page {
 .fullprojector {
     margin-left: 20%;
     width: 60%;
-    height: 74%;
+    height: 480px;
     overflow: hidden;
 }
 
@@ -283,7 +283,7 @@ body.story-page {
     position: relative;
 }
 
-.fullprojector .story-zone-playbar
+#full-wrapper .story-zone-playbar
 {
     position: relative;
     top: 75%;
