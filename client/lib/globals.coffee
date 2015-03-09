@@ -58,17 +58,21 @@
 
 
 @getQuestionsFromBank = (integratedGameId)->
-	console.log integratedGameId
-	gameData.findOne({igId:integratedGameId}).questions
+  gameData.findOne({igId:integratedGameId}).questions
 
 @triggerInitGame = ()->
   console.log "Game Init triuggeeed"
   $('.slide-container.active').find('iframe')[0].contentWindow.$("body").trigger("loadGame")
 #  document.getElementsByTagName('iframe')[0].contentWindow.$("body").trigger("loadGame");
 
-@getImageInGame = ()->
-	console.log "getImageInGame"
-	403
+@getImageInGame = (a,k)->
+  console.log k
+  # 403
+  if customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k})?
+    customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k}).custVal
+  else
+    403
+
 
 @getTextInGame = (a,k)->
 	console.log k
