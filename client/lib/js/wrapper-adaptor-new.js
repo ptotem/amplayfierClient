@@ -525,7 +525,7 @@ function showDeck(deckId) {
             var $fullProjector = $('<div class="fullprojector fullprojection"></div>').appendTo($(this));
             var $fullCloser = $('<div class="fullcloser fullprojection"><button type="button" class="btn btn-danger btn-lg" style="color: black"> Close </button></div>').appendTo($(this));
             $(".projector").empty();
-            //$('<div class="story-zone-playbar"><a href="#" class="prev-slide btn btn-warning pull-left playbar-btn"> < </a><a href="#" class="next-slide btn btn-info  pull-left playbar-btn"> > </a><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a></div>').appendTo($fullProjector);
+            $('<div class="story-zone-playbar"><a href="#" class="prev-slide btn btn-warning pull-left playbar-btn"> < </a><a href="#" class="next-slide btn btn-info  pull-left playbar-btn"> > </a><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a></div>').appendTo($fullProjector);
             initDeck();
 
 
