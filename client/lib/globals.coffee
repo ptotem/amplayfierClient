@@ -55,7 +55,9 @@
 @callStartAttempt = (type)->
 	if type is false
 		startAttempt()
-@deckId = (did)->
+
+
+@setDeckId = (did)->
   @currentDisplayedDeckId = did
 
 @getQuestionsFromBank = (integratedGameId)->
