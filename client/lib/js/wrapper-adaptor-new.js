@@ -590,7 +590,7 @@ function isPortrait() {
 
 /* Get Sequence Number of node where event happens */
 function getSequence(obj) {
-    return parseInt($(obj).attr("id").split("-")[2]);
+    return $(obj).attr("id").split("-")[2]
 }
 
 /* Get Configuration for a given Node  */
