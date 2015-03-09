@@ -627,6 +627,8 @@ function checkDeck(id) {
 
 /* Mark a Deck as complete */
 function completeDeck(id) {
+    console.log(id)
+    console.log("ddddddddddddddddddddddddd")
     jQuery.grep(deckStates, function (a) {
         return (a.deckId == id);
     })[0].state = true;
