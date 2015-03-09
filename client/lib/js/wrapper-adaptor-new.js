@@ -254,9 +254,9 @@ function createPortraitView() {
         var leftBlock, rightBlock = "";
 
         if (storyConfig.formal) {
-            // leftBlock = (thisNodeData.description == "" ? thisNodeConfig.description : thisNodeData.description);
+            leftBlock = (thisNodeData.description.toString() == "" ? thisNodeConfig.description.toString() : thisNodeData.description.toString());
         } else {
-            leftBlock = ('<img src="' + storyConfig.imgsrc + "/" + thisNodeConfig.photo + '" class="story-zone-photo-portrait"/>') + (thisNodeData.description == "" ? thisNodeConfig.description : thisNodeData.description);
+            leftBlock = ('<img src="' + storyConfig.imgsrc + "/" + thisNodeConfig.photo + '" class="story-zone-photo-portrait"/>') + (thisNodeData.description.toString() == "" ? thisNodeConfig.description.toString() : thisNodeData.description.toString());
         }
 
         for (j in thisNodeData.decks) {
@@ -309,14 +309,14 @@ function landscapeOpen(sequence) {
             fontSize: storyConfig.nodestyle.descSize,
             color: storyConfig.nodestyle.descColor
         });
-        $('<div class="story-zone-tale-formal">' + (thisNode.description == "") ? thisNodeConfig.description : thisNode.description + '</div>').appendTo($storyZone);
+        $('<div class="story-zone-tale-formal">' + (thisNode.description.toString() == "") ? thisNodeConfig.description.toString() : thisNode.description.toString() + '</div>').appendTo($storyZone);
 
         $buttonBank = $('<div id="button-bank-formal"></div>').appendTo($storyZone);
 
     } else {
         $('<img src="' + storyConfig.imgsrc + "/" + thisNodeConfig.photo + '" class="story-zone-photo"/>').appendTo($storyZone);
         $('<div class="story-zone-name">' + ((thisNode.title == "") ? thisNodeConfig.name : thisNode.title) + '</div>').appendTo($storyZone);
-        $('<div class="story-zone-tale">' + ((thisNode.description == "") ? thisNodeConfig.description : thisNode.description) + '</div>').appendTo($storyZone);
+        $('<div class="story-zone-tale">' + ((thisNode.description.toString() == "") ? thisNodeConfig.description.toString() : thisNode.description.toString()) + '</div>').appendTo($storyZone);
 
         $buttonBank = $('<div id="button-bank"></div>').appendTo($storyZone);
     }
@@ -381,7 +381,7 @@ function bindNodes() {
                 var desc;
                 if (status != "incomplete") {
                     if (storyConfig.formal) {
-                        desc = (getNodeData(seq).description == "") ? getNodeConfig(seq).description : getNodeData(seq).description;
+                        desc = (getNodeData(seq).description.toString() == "") ? getNodeConfig(seq).description.toString() : getNodeData(seq).description.toString();
                     } else {
                         desc = getNodeData(seq).subtitle
                     }
