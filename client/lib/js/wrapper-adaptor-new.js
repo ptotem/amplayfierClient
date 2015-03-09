@@ -89,6 +89,8 @@ function refreshNodeStates() {
 
 /* Get the State of a Node */
 function getNodeState(sequence) {
+    console.log(sequence)
+    console.log("seqqqqqqqqq")
     return jQuery.grep(nodeStates, function (a) {
         return (a.sequence == sequence);
     })[0].state;
@@ -96,6 +98,9 @@ function getNodeState(sequence) {
 
 /* Set the State of a Node */
 function setNodeState(sequence, state) {
+    console.log(sequence)
+    console.log(state)
+    console.log("seqqqqqqqqq")
     jQuery.grep(nodeStates, function (a) {
         return (a.sequence == sequence);
     })[0].state = state;
