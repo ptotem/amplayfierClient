@@ -272,6 +272,28 @@ body.story-page {
     height: 100%;
 }
 
+.fullprojector .slide-container
+{
+    position: relative;
+
+}
+
+.fullprojector .center-panel-container{
+    position: relative;
+}
+
+.fullprojector .story-zone-playbar
+{
+    position: relative;
+    top: 67%;
+    left: 0;
+    background: #000;
+    width: 640px;
+    height: 40px;
+    padding: 2px;
+    overflow: hidden;
+}
+
 .fullcloser {
     position: absolute;
     top: 2%;
