@@ -524,6 +524,8 @@ function showDeck(deckId) {
         $('#full-wrapper').slideDown(function () {
             var $fullProjector = $('<div class="fullprojector fullprojection"></div>').appendTo($(this));
             var $fullCloser = $('<div class="fullcloser fullprojection"><button type="button" class="btn btn-danger btn-lg" style="color: black"> Close </button></div>').appendTo($(this));
+            initDeck();
+
             Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("fullprojector")[0]);
             if (thisDeck.hasGame) {
                 for (var j = 1; j < thisDeck.gameSlide; j++) {
