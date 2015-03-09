@@ -7,8 +7,8 @@
 
 #Dev server credentials
 
-@myip = "http://192.168.89.112:4000"
-@remoteIp = "http://192.168.89.118:4000"
+@myip = "http://192.168.89.118:4000"
+@remoteIp = "http://192.168.89.112:4000"
 
 
 
