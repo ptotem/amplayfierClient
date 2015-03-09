@@ -55,7 +55,8 @@
 @callStartAttempt = (type)->
 	if type is false
 		startAttempt()
-
+@deckId = (did)->
+  @currentDisplayedDeckId = did
 
 @getQuestionsFromBank = (integratedGameId)->
   gameData.findOne({igId:integratedGameId}).questions

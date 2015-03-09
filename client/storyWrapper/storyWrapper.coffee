@@ -137,10 +137,13 @@ Template.storyWrapper.rendered = () ->
     initPage()
 
 Template.storyWrapper.events
+#  'click .fullscreener':(e)->
+#    Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("projector")[0])
+
   'click .zone-deck':(e)->
-    console.log "Zone deckssss"
-    console.log $(e.currentTarget).attr("id").split("-")[2]
+
     deckId = $(e.currentTarget).attr("id").split("-")[2]
+    setDeckId(deckId)
     if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
         if p.name is Meteor.user().profile
