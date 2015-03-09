@@ -138,6 +138,8 @@ Template.storyWrapper.rendered = () ->
 
 Template.storyWrapper.events
   'click .zone-deck':(e)->
+    console.log "Zone deckssss"
+    console.log $(e.currentTarget).attr("id").split("-")[2]
     deckId = $(e.currentTarget).attr("id").split("-")[2]
     if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
