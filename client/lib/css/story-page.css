@@ -268,6 +268,7 @@ body.story-page {
 .fullprojector .slick-list {
     padding-top: 10px;
     padding-bottom: 10px;
+    height: 100%;
 }
 
 .fullcloser {
