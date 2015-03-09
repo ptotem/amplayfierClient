@@ -251,7 +251,8 @@ body.story-page {
 .fullprojector {
     margin-left: 20%;
     width: 60%;
-    height: 100%;
+    height: 74%;
+    overflow: hidden;
 }
 
 @media (max-width: 1050px) and (orientation: landscape) {
@@ -285,7 +286,7 @@ body.story-page {
 .fullprojector .story-zone-playbar
 {
     position: relative;
-    top: 67%;
+    top: 75%;
     left: 0;
     background: #000;
     width: 640px;
