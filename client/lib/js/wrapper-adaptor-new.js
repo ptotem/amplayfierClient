@@ -309,7 +309,7 @@ function landscapeOpen(sequence) {
             fontSize: storyConfig.nodestyle.descSize,
             color: storyConfig.nodestyle.descColor
         });
-        //$('<div class="story-zone-tale-formal">' + (thisNode.description.toString() == "") ? thisNodeConfig.description.toString() : thisNode.description.toString() + '</div>').appendTo($storyZone);
+        $('<div class="story-zone-tale-formal">' + ((thisNode.description.toString() == "") ? thisNodeConfig.description.toString() : thisNode.description.toString()) + '</div>').appendTo($storyZone);
 
         $buttonBank = $('<div id="button-bank-formal"></div>').appendTo($storyZone);
 
