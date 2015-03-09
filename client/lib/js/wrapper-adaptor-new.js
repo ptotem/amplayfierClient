@@ -254,7 +254,7 @@ function createPortraitView() {
         var leftBlock, rightBlock = "";
 
         if (storyConfig.formal) {
-            leftBlock = (thisNodeData.description == "" ? thisNodeConfig.description : thisNodeData.description);
+            // leftBlock = (thisNodeData.description == "" ? thisNodeConfig.description : thisNodeData.description);
         } else {
             leftBlock = ('<img src="' + storyConfig.imgsrc + "/" + thisNodeConfig.photo + '" class="story-zone-photo-portrait"/>') + (thisNodeData.description == "" ? thisNodeConfig.description : thisNodeData.description);
         }
