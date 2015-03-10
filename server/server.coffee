@@ -7,14 +7,8 @@
 
 #Dev server credentials
 
-#@myip = "http://192.168.89.112:4000"
-#@remoteIp = "http://192.168.89.118:4000"
-
-
-
-
-
-
+#@myip = "http://192.168.89.118:4000"
+#@remoteIp = "http://192.168.89.112:4000"
 
 
 @getTenantHtml = (tid, secretKey, res)->
@@ -188,8 +182,6 @@ Meteor.methods
       return false
 
   createPlatform: (tid, tname, secretKey)->
-    console.log "Rejmore platfomr recevived"
-
     if !platforms.findOne({tenantId: tid})?
       # TODO:Archive Platforms before wiping current platform
       # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
@@ -197,6 +189,7 @@ Meteor.methods
       platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,profiles:{name: "unspecified", description: "This is the description for unspecified"}})
       return true
     else
+      platforms.update({tenantId:tid},{$set:{secretKey:secretKey}})
       return false
 
   isReadyForCommunication: (secretKey)->

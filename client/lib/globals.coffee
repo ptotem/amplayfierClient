@@ -57,6 +57,9 @@
 		startAttempt()
 
 
+@setDeckId = (did)->
+  @currentDisplayedDeckId = did
+
 @getQuestionsFromBank = (integratedGameId)->
   gameData.findOne({igId:integratedGameId}).questions
 
