@@ -183,6 +183,7 @@ Template.userForm.events
             createNotification('User Limit reached',0)
 
           else
+            Meteor.call("sendUserAddMailGunMail",email)
             createNotification("User successfully added",1)
 
       )
