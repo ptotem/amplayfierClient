@@ -484,8 +484,8 @@ function showDeck(deckId) {
     var $storyZone = $('#story-zone');
 
     // This is the code for the playbar
-    $('<div class="story-zone-playbar"><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a><a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a></div>').appendTo($storyZone);
-
+    //$('<div class="story-zone-playbar"><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a><a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a></div>').appendTo($storyZone);
+    $('<div class="story-zone-playbar"><a href="#" class="prev-slide btn btn-warning pull-left playbar-btn"> < </a><a href="#" class="next-slide btn btn-info  pull-left playbar-btn"> > </a><div class="projector-nav"></div><a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a><a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a></div>').appendTo($storyZone);
     // This is the div where the deck gets shown
     var $projector = $('<div class="projector projection"></div>').appendTo($storyZone);
 
@@ -524,33 +524,42 @@ function showDeck(deckId) {
         $('#full-wrapper').slideDown(function () {
             var $fullProjector = $('<div class="fullprojector fullprojection"></div>').appendTo($(this));
             var $fullCloser = $('<div class="fullcloser fullprojection"><button type="button" class="btn btn-danger btn-lg" style="color: black"> Close </button></div>').appendTo($(this));
+            $(".projector").empty();
+            $('<div class="story-zone-playbar"><a href="#" class="prev-slide btn btn-warning pull-left playbar-btn"> < </a><a href="#" class="next-slide btn btn-info  pull-left playbar-btn"> > </a><div class="projector-nav"></div></div>').appendTo($('#full-wrapper'));
+            initDeck();
 
-            if (thisDeck.hasGame) {
-                for (var j = 1; j < thisDeck.gameSlide; j++) {
-                    $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
-                }
-                $fullProjector.append('<div> <iframe src="games/' + thisDeck.gameName + '/index.html" width="640" height="480"></iframe></div>')
-                for (var j = thisDeck.gameSlide; j < thisDeck.slides + 1; j++) {
-                    $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
-                }
-            } else {
-                for (var j = 1; j < thisDeck.slides + 1; j++) {
-                    $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
-                }
-            }
 
-            $fullProjector.slick({
-                autoplay: false,
-                arrows: true,
-                infinite: false,
-                prevArrow: '<button type="button" class="btn btn-warning btn-lg" style="color: black"> Previous </button>',
-                nextArrow: '<button type="button" class="btn btn-warning btn-lg pull-right" style="color: black"> Next </button>'
-            });
+            Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("fullprojector")[0]);
+            //if (thisDeck.hasGame) {
+            //    for (var j = 1; j < thisDeck.gameSlide; j++) {
+            //        $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
+            //    }
+            //    $fullProjector.append('<div> <iframe src="games/' + thisDeck.gameName + '/index.html" width="640" height="480"></iframe></div>')
+            //    for (var j = thisDeck.gameSlide; j < thisDeck.slides + 1; j++) {
+            //        $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
+            //    }
+            //} else {
+            //    for (var j = 1; j < thisDeck.slides + 1; j++) {
+            //        $fullProjector.append('<div><img src="img/decks/' + deckId + '/Slide' + j + '.JPG"/></div>')
+            //    }
+            //}
+
+            //$fullProjector.slick({
+            //    autoplay: false,
+            //    arrows: true,
+            //    infinite: false,
+            //    prevArrow: '<button type="button" class="btn btn-warning btn-lg" style="color: black"> Previous </button>',
+            //    nextArrow: '<button type="button" class="btn btn-warning btn-lg pull-right" style="color: black"> Next </button>'
+            //});
 
             $fullCloser.on('click', function () {
                 $('#full-wrapper').fadeOut();
                 $('#story-wrapper').fadeIn();
+                $('.fullprojector').empty();
                 $('.fullprojection').remove();
+                initDeck();
+                Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("projector")[0])
+
             })
 
         });

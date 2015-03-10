@@ -126,7 +126,7 @@ Template.storyWrapper.rendered = () ->
     s = platforms.findOne().storyConfig
 
     window.storyConfig = JSON.parse(s);
-    window.storyConfig.imgsrc = "http://amplayfier.com" + window.storyConfig.imgsrc
+    window.storyConfig.imgsrc = "http://amplayfier.co.in" + window.storyConfig.imgsrc
 
     pid=platforms.findOne({tenantName: platformName})._id
     window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
@@ -137,10 +137,13 @@ Template.storyWrapper.rendered = () ->
     initPage()
 
 Template.storyWrapper.events
+#  'click .fullscreener':(e)->
+#    Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("projector")[0])
+
   'click .zone-deck':(e)->
-    console.log "Zone deckssss"
-    console.log $(e.currentTarget).attr("id").split("-")[2]
+
     deckId = $(e.currentTarget).attr("id").split("-")[2]
+    setDeckId(deckId)
     if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
         if p.name is Meteor.user().profile
@@ -156,4 +159,4 @@ Template.storyWrapper.events
 
     setCurrentDeckId(deckId)
     initDeck()
-    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])
