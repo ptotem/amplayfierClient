@@ -180,6 +180,8 @@ Meteor.methods
       return true
     else
       return false
+  deletePlatform:(tid,tenantName,secretKey)->
+    platforms.update({tenantId:tid},{$set:{tenantName:new Meteor.Collection.ObjectID()._str,oldTenantName:tenantName,oldTenantId:tid,tenantId:-1}})
 
   createPlatform: (tid, tname, secretKey)->
     if !platforms.findOne({tenantId: tid})?
