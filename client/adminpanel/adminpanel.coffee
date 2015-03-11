@@ -17,7 +17,8 @@ Template.adminpanel.events
     )
 
   'click .sync-platform-data': (e)->
-    platforms.update({_id:platId = platforms.findOne()._id},{$set:{issyncing:true}})
+    tenantId = platforms.findOne().tenantId
+    platforms.update({_id:platforms.findOne()._id},{$set:{issyncing:true}})
     if platforms.findOne().platformSync is true
       createNotification('Cannot Sync',0)
     else
