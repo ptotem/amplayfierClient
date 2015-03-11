@@ -25,6 +25,8 @@ Template.adminpanel.events
       Meteor.call("fetchDataFromCreator", tenantId, (err, res)->
         console.log err
         console.log res
+        if err
+          platforms.update({_id:platforms.findOne()._id},{$set:{issyncing:false}})
       )
 
   'click .add-individual-variant': (e) ->
