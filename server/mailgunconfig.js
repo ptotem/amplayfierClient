@@ -9,7 +9,7 @@ sendUserAddMailGunMail: function(to,fname,lName,currUserFname,currUserLname) {
 
   NigerianPrinceGun.send({
     'to': to,
-    'from': 'postmaster@ptotemydemo.com',
+    'from': 'info@amplayfier.com',
     'html': generateUserAdditionMail(to,fname,lName,currUserFname,currUserLname),
     'text': "someText",
     'subject': publishMail.subject,
