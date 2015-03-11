@@ -189,7 +189,7 @@ Meteor.methods
       platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,profiles:{name: "unspecified", description: "This is the description for unspecified"}})
       return true
     else
-      platforms.update({tenantId:tid},{$set:{secretKey:secretKey}})
+      platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
       return false
 
   isReadyForCommunication: (secretKey)->
