@@ -4,13 +4,13 @@ var mailgunoptions = {
 }
 // window.mailgunoptions = options
 Meteor.methods({
-sendUserAddMailGunMail: function(to,fname,lName) {
+sendUserAddMailGunMail: function(to,fname,lName,currUserFname,currUserLname) {
   var NigerianPrinceGun = new Mailgun(mailgunoptions);
 
   NigerianPrinceGun.send({
     'to': to,
     'from': 'postmaster@ptotemydemo.com',
-    'html': generateUserAdditionMail(to),
+    'html': generateUserAdditionMail(to,fname,lName,currUserFname,currUserLname),
     'text': "someText",
     'subject': publishMail.subject,
   });

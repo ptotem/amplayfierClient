@@ -163,14 +163,16 @@ Template.adminpanel.helpers
 Template.userForm.events
   'click .add-individual-user': (e) ->
     email = $("#user-email").val()
-    email = encodeEmail(email, platformName)
+    newemail = encodeEmail(email, platformName)
 
     display_name = $("#user-name").val()
     first_name = $("#user-first-name").val()
     last_name = $("#user-last-name").val()
+    currUserFname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.first_name
+    currUserLname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.last_name
 
     pid = platforms.findOne()._id
-    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: email}
+    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail}
 
     if $("#user-id").val() == ''
       Meteor.call("addIndividualUser",p,pid,(err,res)->
@@ -183,13 +185,14 @@ Template.userForm.events
             createNotification('User Limit reached',0)
 
           else
-            Meteor.call("sendUserAddMailGunMail",email)
+            Meteor.call("sendUserAddMailGunMail",email,first_name,last_name,currUserFname,currUserLname)
             createNotification("User successfully added",1)
 
       )
 
     else
       Meteor.call('updateUser', $("#user-id").val(), p)
+      Meteor.call("sendUserAddMailGunMail",email,first_name,last_name,currUserFname,currUserLname)
       createNotification('Profile has been updated', 1)
 
 Template.userForm.helpers
