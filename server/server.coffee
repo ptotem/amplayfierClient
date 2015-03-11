@@ -188,7 +188,7 @@ Meteor.methods
       # TODO:Archive Platforms before wiping current platform
       # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
       # platforms.remove({tenantId:tid})
-      platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false})
+      platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,profiles:{name: "unspecified", description: "This is the description for unspecified"}})
       return true
     else
       platforms.update({tenantId:tid},{$set:{secretKey:secretKey}})
@@ -346,7 +346,7 @@ Meteor.methods
     if ul is -1
       newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
       p['initialPass'] = newpass
-      Accounts.createUser({email: p['email'], password: newpass, platform: pid, personal_profile: p})
+      Accounts.createUser({email: p['email'], password: newpass, platform: pid, personal_profile: p,profile:"unspecified"})
     else
       if addedUsers >= ul
         return false
