@@ -35,7 +35,7 @@ Accounts.onCreateUser (options, user) ->
     to: emailReceipient
     from: "info@amplayfier.com"
 
-    html: generateRegistrationMail(emailReceipient,options.personal_profile.display_name,newpass)
+    html: generateRegistrationMail(emailReceipient,options.personal_profile.display_name,options.email.split("@")[0].split("|")[1],newpass)
     text: "someText"
     subject: registerMail.subject
 

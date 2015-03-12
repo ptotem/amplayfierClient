@@ -4,7 +4,7 @@
 @registerMail =
   subject:"Welcome, Let's get started...."
   text:'SampleTExt'
-@generateRegistrationMail = (email,dname,pass)->
+@generateRegistrationMail = (email,dname,pname,pass)->
   return '<div class="main-wrapper" style="height: 480px;width: 640px;background-size:100% 100%;margin:0 auto;position: relative;background-image:
 url(http://amplayfier.com/assets/mailerimages/background.jpg);">
     <div class="top-left" style="width:60% ;float:left;background-color: rgba(132, 132, 132,0.2);height:30%;position:relative">
@@ -29,8 +29,8 @@ url(http://amplayfier.com/assets/mailerimages/background.jpg);">
     <div class="bottom-left" style="width:60% ;float:left;height:70%;position:relative;">
      <div style="font-family: arial;color: #000000;margin:10%">
         <div><p>Hello,'+email+' </p></div>
-         <div><p>Welcome to Amplayfier!</p></div>
-         <div><p>You can login using '+pass+'</p></div>
+         <div><p>Welcome to your Amplayfier portal !</p></div>
+         <div><p>You can login using your email id and your portal secret key : '+pass+'</p></div>
 
 
          <div><p>We hope you enjoy yourself. A new way to communicate will be your experience. Since we at Amplayfier encourage everyone to,</p> </div>       <h2 style="font-size: 20px;line-height: 0;color:#848484;font-family: arial">Say It With Games!</h2>
@@ -42,7 +42,7 @@ url(http://amplayfier.com/assets/mailerimages/background.jpg);">
     </div>
 
     <div class="bottom-right" style="width:40% ;float:left;height:70%;position:relative;background-color: rgba(242, 141, 55,0.6)">
-    <div style="padding: 3%;text-align: center;font-family: arial,sans-serif;margin-top:35%;background-color:rgb(132,132, 132);  width: 75%;margin-left: 10%;"><a style="text-decoration:none;color:black" href="http://amplayfier.com/" target="_blank">Create Now</a></div>
+    <div style="padding: 3%;text-align: center;font-family: arial,sans-serif;margin-top:35%;background-color:rgb(132,132, 132);  width: 75%;margin-left: 10%;"><a style="text-decoration:none;color:black" href="http://'+pname+'.amplayfier.com/" target="_blank">Admin Panel</a></div>
         <div class="social-container" style="padding-top:65%">
       <span style="margin-left: 4%;font-size: 1em;float:left;font-family: arial;color:black">Follow us:-</span>
       <div class="fb" style="width: 15%;float:left;margin-top: 0px;">
