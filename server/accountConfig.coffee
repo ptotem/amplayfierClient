@@ -22,19 +22,19 @@ Accounts.onCreateUser (options, user) ->
 #  Accounts.setPassword(user._id,newpass)
   user.personal_profile.tags = ['unspecified']
   newpass = options.personal_profile['initialPass']
-  if !Meteor.users.find({'personal_profile.email':options.email})
-    emailReceipient = options.email.split("@")[0].split("|")[0]+""+options.email.split("@")[1]
-    mailgunoptions =
-      apiKey: "key-036bf41682cc241d89084bfcaba352a4"
+  
+  emailReceipient = options.email.split("@")[0].split("|")[0]+""+options.email.split("@")[1]
+  mailgunoptions =
+    apiKey: "key-036bf41682cc241d89084bfcaba352a4"
 
-      domain: "amplayfier.com"
-    NigerianPrinceGun = new Mailgun(mailgunoptions)
-    NigerianPrinceGun.send
-      to: emailReceipient
-      from: "info@amplayfier.com"
+    domain: "amplayfier.com"
+  NigerianPrinceGun = new Mailgun(mailgunoptions)
+  NigerianPrinceGun.send
+    to: emailReceipient
+    from: "info@amplayfier.com"
 
-      html: generateRegistrationMail(options.email,options.personal_profile.display_name,newpass)
-      text: "someText"
-      subject: registerMail.subject
+    html: generateRegistrationMail(options.email,options.personal_profile.display_name,newpass)
+    text: "someText"
+    subject: registerMail.subject
 
   user
