@@ -23,7 +23,7 @@ Accounts.onCreateUser (options, user) ->
   user.personal_profile.tags = ['unspecified']
   newpass = options.personal_profile['initialPass']
   
-  emailReceipient = options.email.split("@")[0].split("|")[0]+""+options.email.split("@")[1]
+  emailReceipient = options.email.split("@")[0].split("|")[0]+"@"+options.email.split("@")[1]
   console.log "Sending email"
   console.log emailReceipient
   mailgunoptions =
