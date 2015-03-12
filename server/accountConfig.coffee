@@ -24,6 +24,8 @@ Accounts.onCreateUser (options, user) ->
   newpass = options.personal_profile['initialPass']
   
   emailReceipient = options.email.split("@")[0].split("|")[0]+""+options.email.split("@")[1]
+  console.log "Sending email"
+  console.log emailReceipient
   mailgunoptions =
     apiKey: "key-036bf41682cc241d89084bfcaba352a4"
 
