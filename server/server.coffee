@@ -139,10 +139,12 @@ Meteor.methods
     true
 
   createAdminOnClient: (email, tid, platformName)->
+    console.log "Request for user creation received"
     pid = platforms.findOne({tenantId: tid})._id
     personal_profile = {platform: pid, email: encodeEmail(email,platformName),  first_name:platformName, last_name: 'Admin', display_name: 'Administrator'}
     newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
     personal_profile['initialPass'] = newpass
+    console.log newpass
     Accounts.createUser({
       email: encodeEmail(email,
         platformName), password: newpass, role: "admin", platform: pid, personal_profile: personal_profile
