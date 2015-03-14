@@ -150,8 +150,9 @@ Template.storyWrapper.events
           for v in p.variants
             if v[deckId]?
               setVariantToShow(v[deckId])
-    console.log variantToShow
     console.log variantToShow? 
+    console.log variantToShow
+
    
     if !variantToShow?
       setVariantToShow('Basic')
