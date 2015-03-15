@@ -71,6 +71,9 @@ Template.adminpanel.events
     $('.main').hide();
     $("#" + $(e.currentTarget).attr('target-section')).show()
 
+  'click .download-template-btn':(e)->
+    window.open "/assets/downloadables/user_test_data.xlsx","_blank"
+
 
   'click .internal-sidelinks': (e) ->
     $('.internal-sidelinks').removeClass('active')
