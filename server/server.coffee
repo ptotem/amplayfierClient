@@ -140,6 +140,7 @@ Meteor.methods
 
   createAdminOnClient: (email, tid, platformName)->
     console.log "Request for user creation received"
+    
     pid = platforms.findOne({tenantId: tid})._id
     personal_profile = {platform: pid, email: encodeEmail(email,platformName),  first_name:platformName, last_name: 'Admin', display_name: 'Administrator'}
     newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
@@ -190,7 +191,7 @@ Meteor.methods
       # TODO:Archive Platforms before wiping current platform
       # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
       # platforms.remove({tenantId:tid})
-      platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,profiles:{name: "unspecified", description: "This is the description for unspecified"}})
+      platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,profiles:[{name: "unspecified", description: "This is the description for unspecified"}]})
       return true
     else
       platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
