@@ -389,7 +389,7 @@ Meteor.methods
           to: email.split("@")[0].split("|")[0]+"@"+email.split("@")[1]
           from: "info@amplayfier.com"
 
-          html: generateNewPassWordMail(email.split("@")[0].split("|")[0]+"@"+email.split("@")[1],options.personal_profile.display_name,email.split("@")[0].split("|")[1],newpass)
+          html: generateNewPassWordMail(email.split("@")[0].split("|")[0]+"@"+email.split("@")[1],u.personal_profile.display_name,email.split("@")[0].split("|")[1],newpass)
           text: "someText"
           subject: 'New Password'
         # Accounts.sendResetPasswordEmail(u._id,email.split("@")[0].split("|")[0]+"@"+email.split("@")[1])
