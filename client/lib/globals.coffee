@@ -23,6 +23,8 @@
 
 
 
+@setTitle = (t)->
+    document.title = t  ;
 
 
 @setCurrentDeckId = (deckId)->

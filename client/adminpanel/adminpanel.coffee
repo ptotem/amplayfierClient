@@ -118,6 +118,7 @@ Template.adminpanel.rendered = () ->
 #    "width":"30%"
 #
 #  })
+  setTitle('amplayfier | Manage User Profiles & Reports');
   Tracker.autorun(()->
     if platforms.findOne().issyncing is true
       $('#overlay').show()
@@ -157,7 +158,7 @@ Template.adminpanel.helpers
     dep.depend()
     profiles = []
     if platforms.findOne().profiles?
-      for p in platforms.findOne().profiles.reverse()
+      for p in platforms.findOne().profiles
         p["uid"] = uid
         profiles.push p
 
