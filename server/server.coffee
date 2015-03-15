@@ -380,6 +380,7 @@ Meteor.methods
         console.log u._id
         newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
         Accounts.setPassword(u._id, newpass)
+        Meteor.users.update({_id:u._id},{$set:{passwordSet:false}})
         mailgunoptions =
           apiKey: "key-036bf41682cc241d89084bfcaba352a4"
 
