@@ -143,7 +143,7 @@ Template.adminpanel.helpers
   profileForUsers :(uid)->
     profiles = []
     if platforms.findOne().profiles?
-      for p in platforms.findOne().profiles.reverse()
+      for p in platforms.findOne().profiles
         console.log Meteor.users.findOne(uid).profile
         if Meteor.users.findOne(uid).profile is p.name
           p["selected"] = true
