@@ -310,7 +310,7 @@ Meteor.methods
                 personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
                 newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
                 personal_profile['initialPass'] = newpass
-                Accounts.createUser({email: newEmail, password: r['password'], platform: pid, personal_profile: personal_profile})
+                Accounts.createUser({email: newEmail, password: newpass, platform: pid, personal_profile: personal_profile})
 
               else
                future.return(false)
@@ -349,6 +349,7 @@ Meteor.methods
     if ul is -1
       newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
       p['initialPass'] = newpass
+      
       Accounts.createUser({email: p['email'], password: newpass, platform: pid, personal_profile: p,profile:"unspecified"})
     else
       if addedUsers >= ul
