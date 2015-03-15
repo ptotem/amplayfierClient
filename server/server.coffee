@@ -378,7 +378,21 @@ Meteor.methods
       if u?
 
         console.log u._id
-        Accounts.sendResetPasswordEmail(u._id,email.split("@")[0].split("|")[0]+"@"+email.split("@")[1])
+        newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
+        Accounts.setPassword(u._id, newpass)
+        mailgunoptions =
+          apiKey: "key-036bf41682cc241d89084bfcaba352a4"
+
+          domain: "amplayfier.com"
+        NigerianPrinceGun = new Mailgun(mailgunoptions)
+        NigerianPrinceGun.send
+          to: email.split("@")[0].split("|")[0]+"@"+email.split("@")[1]
+          from: "info@amplayfier.com"
+
+          html: generateNewPassWordMail(email.split("@")[0].split("|")[0]+"@"+email.split("@")[1],options.personal_profile.display_name,email.split("@")[0].split("|")[1],newpass)
+          text: "someText"
+          subject: 'New Password'
+        # Accounts.sendResetPasswordEmail(u._id,email.split("@")[0].split("|")[0]+"@"+email.split("@")[1])
         console.log 'reCAPTCHA verification passed!'
       else
         throw new (Meteor.Error)(422, 'User not found')
