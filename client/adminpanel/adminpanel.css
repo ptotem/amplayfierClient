@@ -363,7 +363,7 @@ input.filter-box{
     display: block;
 }
 
-.sync-platform-data {
+.sync-platform-data , .preview-icon-admin {
     /*if text starts*/
     /*float: right;
     line-height: 0.5em;
