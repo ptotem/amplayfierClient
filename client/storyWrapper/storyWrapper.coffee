@@ -141,7 +141,7 @@ Template.storyWrapper.events
 #    Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("projector")[0])
 
   'click .admin-icon':(e)->
-    window.open("/admin", '_blank');
+    window.location="/"
 
 
 

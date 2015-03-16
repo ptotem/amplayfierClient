@@ -30,7 +30,7 @@ Template.adminpanel.events
       )
 
   'click .preview-icon-admin':(e)->
-    window.open("/", '_blank');
+    window.location="/admin"
 
   'click .add-individual-variant': (e) ->
     arr = []
