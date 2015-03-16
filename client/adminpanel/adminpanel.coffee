@@ -71,6 +71,7 @@ Template.adminpanel.events
     $('.main').hide();
     $("#" + $(e.currentTarget).attr('target-section')).show()
     $("#" + $(e.currentTarget).attr('target-section')).find(".internal-sidelinks").first().trigger('click')
+    $("#" + $(e.currentTarget).attr('target-section')).find(".help-area").first().show()
 
   'click .download-template-btn':(e)->
     window.open "/assets/downloadables/userdata_template.xlsx","_blank"
