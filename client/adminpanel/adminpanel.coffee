@@ -73,7 +73,7 @@ Template.adminpanel.events
     $("#" + $(e.currentTarget).attr('target-section')).find(".internal-sidelinks").first().trigger('click')
 
   'click .download-template-btn':(e)->
-    window.open "/assets/downloadables/user_test_data.xlsx","_blank"
+    window.open "/assets/downloadables/userdata_template.xlsx","_blank"
 
 
   'click .internal-sidelinks': (e) ->
