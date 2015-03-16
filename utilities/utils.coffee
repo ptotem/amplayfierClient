@@ -259,6 +259,15 @@ UI.registerHelper "syncImage",() ->
   else
     "/assets/images/sync_icon.png"
 
+UI.registerHelper "previewImage",() ->
+  if Meteor.users.findOne({_id:Meteor.userId()}).role is "admin"
+    "/assets/images/preview_icon.png"
+
+UI.registerHelper "adminImage",() ->
+  if Meteor.users.findOne({_id:Meteor.userId()}).role is "admin"
+    "/assets/images/admin_icon.png"
+
+
   #    small helper that reads the application name from the configuration file
 
   #    small helper that reads the application name from the configuration file
