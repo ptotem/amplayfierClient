@@ -1,22 +1,25 @@
 Template.loginPage.helpers
   backId:()->
     backgroundUrl = ""
-    if platforms.findOne().backgroundUrl?
-      find = '/cfs'
-      re = new RegExp(find, 'g')
-      backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://amplayfier.com/cfs")
-    else
-      backgroundUrl = "/assets/images/bg.jpg"
+    if platforms.findOne()?
+
+      if platforms.findOne().backgroundUrl?
+        find = '/cfs'
+        re = new RegExp(find, 'g')
+        backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://amplayfier.com/cfs")
+      else
+        backgroundUrl = "/assets/images/bg.jpg"
     backgroundUrl
 
   logoId:()->
     platformLogo = ""
-    if platforms.findOne().platformLogo?
-      find = '/cfs'
-      re = new RegExp(find, 'g')
-      platformLogo = platforms.findOne().platformLogo.replace(re,"http://amplayfier.com/cfs")
-    else
-      platformLogo = "/assets/images/amplayfier-new-logo.png"
+    if platforms.findOne()?
+      if platforms.findOne().platformLogo?
+        find = '/cfs'
+        re = new RegExp(find, 'g')
+        platformLogo = platforms.findOne().platformLogo.replace(re,"http://amplayfier.com/cfs")
+      else
+        platformLogo = "/assets/images/amplayfier-new-logo.png"
     platformLogo
 
 
@@ -36,16 +39,17 @@ Template.loginPage.rendered = ()->
   
   $('body').css('height','100%')
   faviconlink = ""
-  if platforms.findOne().tenantIcon?
-    find = '/cfs'
-    re = new RegExp(find, 'g')
-    faviconlink = platforms.findOne().tenantIcon.replace(re,"http://amplayfier.com/cfs")
-  else
-    faviconlink = 'http://faviconicon.com/uploads/2010-09-23/1285245556-624813-256.png'
-  console.log "-------"  
-  console.log faviconlink
-  console.log "-------"
-  $('head').append('<link rel="icon" sizes="16x16 32x32" href="'+faviconlink+'">')
+  if platforms.findOne()?
+    if platforms.findOne().tenantIcon?
+      find = '/cfs'
+      re = new RegExp(find, 'g')
+      faviconlink = platforms.findOne().tenantIcon.replace(re,"http://amplayfier.com/cfs")
+    else
+      faviconlink = 'http://faviconicon.com/uploads/2010-09-23/1285245556-624813-256.png'
+    console.log "-------"  
+    console.log faviconlink
+    console.log "-------"
+    $('head').append('<link rel="icon" sizes="16x16 32x32" href="'+faviconlink+'">')
 
 
   #Functionality to add a guest user and redirecting it back to '/storywrapper' if platform is open
