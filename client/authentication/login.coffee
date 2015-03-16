@@ -43,6 +43,7 @@ Template.loginPage.rendered = ()->
   else
     faviconlink = 'http://faviconicon.com/uploads/2010-09-23/1285245556-624813-256.png'
   faviconlink
+  $('head').append('<link rel="icon" sizes="16x16 32x32" href="'+faviconlink+'">')
 
 
   #Functionality to add a guest user and redirecting it back to '/storywrapper' if platform is open
