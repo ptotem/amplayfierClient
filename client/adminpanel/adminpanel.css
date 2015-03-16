@@ -377,6 +377,15 @@ input.filter-box{
     cursor: pointer;
 }
 
+.admin-icon{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    max-height: 60px;
+    cursor: pointer;
+}
+
 #tag-filter, #users-filter {
     height: 34px;
     padding: 0 0 0 1%;
