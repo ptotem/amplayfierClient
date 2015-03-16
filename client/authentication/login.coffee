@@ -39,7 +39,7 @@ Template.loginPage.rendered = ()->
   
   $('body').css('height','100%')
   faviconlink = ""
-  Tracker.autorun(()0->
+  Tracker.autorun(()->
     if platforms.findOne()?
       if platforms.findOne().tenantIcon?
         find = '/cfs'
