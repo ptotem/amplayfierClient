@@ -70,6 +70,7 @@ Template.adminpanel.events
     $(e.currentTarget).addClass('active')
     $('.main').hide();
     $("#" + $(e.currentTarget).attr('target-section')).show()
+    $("#" + $(e.currentTarget).attr('target-section')).find(".internal-sidelinks").first().trigger('click')
 
   'click .download-template-btn':(e)->
     window.open "/assets/downloadables/user_test_data.xlsx","_blank"
