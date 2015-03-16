@@ -77,11 +77,13 @@ Template.adminpanel.events
 
 
   'click .internal-sidelinks': (e) ->
+    console.log  $("#" + $(e.currentTarget).attr('help-area'))
     $('.internal-sidelinks').removeClass('active')
     $(e.currentTarget).addClass('active')
     $('.right-form ').hide()
     $("#" + $(e.currentTarget).attr('target-section')).show()
     $("#" + $(e.currentTarget).attr('help-area')).show()
+
 
 
   'click .user-upload-btn': (e)->
