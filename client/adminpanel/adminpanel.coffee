@@ -29,6 +29,9 @@ Template.adminpanel.events
           platforms.update({_id:platforms.findOne()._id},{$set:{issyncing:false}})
       )
 
+  'click .preview-icon-admin':(e)->
+    window.open("/", '_blank');
+
   'click .add-individual-variant': (e) ->
     arr = []
     $('.userDecks').each (i, v) ->

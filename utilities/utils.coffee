@@ -256,8 +256,7 @@ UI.registerHelper "blockUnblockPlatformClass",(uid) ->
 UI.registerHelper "syncImage",() ->
   if platforms.findOne().platformSync is false
     "/assets/images/sync_icon_notification.png"
-  else
-    "/assets/images/sync_icon.png"
+
 
 UI.registerHelper "previewImage",() ->
   if Meteor.users.findOne({_id:Meteor.userId()}).role is "admin"
