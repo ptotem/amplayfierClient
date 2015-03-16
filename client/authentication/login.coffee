@@ -46,7 +46,7 @@ Template.loginPage.rendered = ()->
         re = new RegExp(find, 'g')
         faviconlink = platforms.findOne().tenantIcon.replace(re,"http://amplayfier.com/cfs")
       else
-        faviconlink = 'http://faviconicon.com/uploads/2010-09-23/1285245556-624813-256.png'
+        faviconlink = '/assets/downloadables/defaultfavicon.ico'
       console.log "-------"  
       console.log faviconlink
       console.log "-------"
