@@ -81,6 +81,9 @@ Template.adminpanel.events
     $(e.currentTarget).addClass('active')
     $('.right-form ').hide()
     $("#" + $(e.currentTarget).attr('target-section')).show()
+    $("#" + $(e.currentTarget).attr('help-area')).show()
+
+
   'click .user-upload-btn': (e)->
     $('.user-upload').trigger('click')
 
