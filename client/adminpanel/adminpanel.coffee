@@ -29,6 +29,9 @@ Template.adminpanel.events
           platforms.update({_id:platforms.findOne()._id},{$set:{issyncing:false}})
       )
 
+  'click .preview-icon-admin':(e)->
+    window.location="/admin"
+
   'click .add-individual-variant': (e) ->
     arr = []
     $('.userDecks').each (i, v) ->
@@ -71,16 +74,23 @@ Template.adminpanel.events
     $('.main').hide();
     $("#" + $(e.currentTarget).attr('target-section')).show()
     $("#" + $(e.currentTarget).attr('target-section')).find(".internal-sidelinks").first().trigger('click')
+    $("#" + $(e.currentTarget).attr('target-section')).find(".help-area").first().show()
 
   'click .download-template-btn':(e)->
     window.open "/assets/downloadables/userdata_template.xlsx","_blank"
 
 
   'click .internal-sidelinks': (e) ->
+
     $('.internal-sidelinks').removeClass('active')
     $(e.currentTarget).addClass('active')
     $('.right-form ').hide()
     $("#" + $(e.currentTarget).attr('target-section')).show()
+    $('.help-area').hide()
+    $("#" + $(e.currentTarget).attr('help-area')).show()
+
+
+
   'click .user-upload-btn': (e)->
     $('.user-upload').trigger('click')
 

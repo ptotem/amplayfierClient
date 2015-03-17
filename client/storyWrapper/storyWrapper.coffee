@@ -140,6 +140,11 @@ Template.storyWrapper.events
 #  'click .fullscreener':(e)->
 #    Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("projector")[0])
 
+  'click .admin-icon':(e)->
+    window.location="/"
+
+
+
   'click .zone-deck':(e)->
 
     deckId = $(e.currentTarget).attr("id").split("-")[2]

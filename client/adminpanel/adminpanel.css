@@ -363,7 +363,7 @@ input.filter-box{
     display: block;
 }
 
-.sync-platform-data {
+.sync-platform-data , .preview-icon-admin {
     /*if text starts*/
     /*float: right;
     line-height: 0.5em;
@@ -374,6 +374,15 @@ input.filter-box{
     vertical-align: middle;
     max-height: 60px;
     margin: 13% 10% 0 0;
+    cursor: pointer;
+}
+
+.admin-icon{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    max-height: 60px;
     cursor: pointer;
 }
 

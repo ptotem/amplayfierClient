@@ -256,8 +256,16 @@ UI.registerHelper "blockUnblockPlatformClass",(uid) ->
 UI.registerHelper "syncImage",() ->
   if platforms.findOne().platformSync is false
     "/assets/images/sync_icon_notification.png"
-  else
-    "/assets/images/sync_icon.png"
+
+
+UI.registerHelper "previewImage",() ->
+  if Meteor.users.findOne({_id:Meteor.userId()}).role is "admin"
+    "/assets/images/preview_icon.png"
+
+UI.registerHelper "adminImage",() ->
+  if Meteor.users.findOne({_id:Meteor.userId()}).role is "admin"
+    "/assets/images/admin_icon.png"
+
 
   #    small helper that reads the application name from the configuration file
 
