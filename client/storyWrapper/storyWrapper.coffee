@@ -123,7 +123,7 @@ Template.storyWrapper.rendered = () ->
     window.platformData.nodes = platforms.findOne().nodes
     nodesToBeRemoved = []
     for n in platforms.findOne().nodes
-      if !n.decks?
+      if n.decks is null
         nodesToBeRemoved.push n
     window.platformData.nodes = _.difference(platforms.findOne().nodes,nodesToBeRemoved)
     # find = /^\/(^)\/storyWrapper/';
