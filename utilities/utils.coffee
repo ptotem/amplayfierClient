@@ -266,6 +266,12 @@ UI.registerHelper "adminImage",() ->
   if Meteor.users.findOne({_id:Meteor.userId()}).role is "admin"
     "/assets/images/admin_icon.png"
 
+UI.registerHelper "styleForAdmin",() ->
+  if platforms.findOne().platformSync is false
+    "block"  
+  else  
+    "none"
+
 
   #    small helper that reads the application name from the configuration file
 
