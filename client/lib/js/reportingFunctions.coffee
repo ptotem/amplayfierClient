@@ -36,9 +36,10 @@
   reports.update(queryString,{$push:{gameData:parameters}, $set:{updatedAt:new Date().getTime()}})
 
 @setMetaData = (objectParameter) ->
-  gameId = currentGameId
-  reportMeta.insert({ gameId: gameId, createdAt: new Date().getTime(), keyRecords: objectParameter})
-  console.log "Setting up meta data of the game....."
+  if currentGameId?
+    gameId = currentGameId
+    reportMeta.insert({ gameId: gameId, createdAt: new Date().getTime(), keyRecords: objectParameter})
+    console.log "Setting up meta data of the game....."
 
 @setComplete = ()->
   queryString = {_id:attempt}
