@@ -46,12 +46,13 @@
       console.log "TGame"
       setCurrentGameId("true")
       setCurrentSlideType(true)
-      integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
-      console.log "this is a agme"
-      setCurrentIntegratedGameId(integratedGameId)
-      setCurrentSlideId(1)
-
+      
       setTimeout(()->
+        integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
+        console.log "this is a agme"
+        setCurrentIntegratedGameId(integratedGameId)
+        setCurrentSlideId(1)
+
         triggerInitGame()
       ,2000)
     else
