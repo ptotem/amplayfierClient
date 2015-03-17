@@ -125,6 +125,7 @@ Template.storyWrapper.rendered = () ->
     for n in platforms.findOne().nodes
       if n.decks is null
         nodesToBeRemoved.push n
+    console.log nodesToBeRemoved
     window.platformData.nodes = _.difference(platforms.findOne().nodes,nodesToBeRemoved)
     # find = /^\/(^)\/storyWrapper/';
     # re = new RegExp(find, 'g');
