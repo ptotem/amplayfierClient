@@ -42,7 +42,7 @@ url(http://amplayfier.com/assets/mailerimages/background.jpg);">
     </div>
 
     <div class="bottom-right" style="width:40% ;float:left;height:70%;position:relative;background-color: rgba(242, 141, 55,0.6)">
-    <div style="padding: 3%;text-align: center;font-family: arial,sans-serif;margin-top:35%;background-color:rgb(132,132, 132);  width: 75%;margin-left: 10%;"><a style="text-decoration:none;color:black" href="http://'+pname+'.amplayfier.com/" target="_blank">Admin Panel</a></div>
+    <div style="padding: 3%;text-align: center;font-family: arial,sans-serif;margin-top:35%;background-color:rgb(132,132, 132);  width: 75%;margin-left: 10%;"><a style="text-decoration:none;color:black" href="http://'+pname+'.amplayfier.com/" target="_blank">Login in Now</a></div>
         <div class="social-container" style="padding-top:65%">
       <span style="margin-left: 4%;font-size: 1em;float:left;font-family: arial;color:black">Follow us:-</span>
       <div class="fb" style="width: 15%;float:left;margin-top: 0px;">
