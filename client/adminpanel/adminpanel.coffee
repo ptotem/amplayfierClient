@@ -1,4 +1,12 @@
 Template.adminpanel.events
+
+  'click .send-mass-mail':(e)->
+    Meteor.call('sendMassMail',platforms.findOne()._id,$('#emailSubject').val(),$('#emailBody').code())
+
+  'click .send-individual-mail':(e)->
+    emailIds = $('#usersemails').val()
+    Meteor.call('sendMultipleMail',platforms.findOne()._id,emailIds,$('#emailSubjectIndi').val(),$('#emailBodyIndi').code())
+
   'keyup #tag-filter':(e)->
     searchBar($(e.currentTarget).val(),".tag-item")
   'keyup #users-filter':(e)->
@@ -88,6 +96,9 @@ Template.adminpanel.events
     $("#" + $(e.currentTarget).attr('target-section')).show()
     $('.help-area').hide()
     $("#" + $(e.currentTarget).attr('help-area')).show()
+    if $(e.currentTarget).hasClass('chosen-sel')
+        $('#usersemails').chosen({width:'100%'})
+
 
 
 
@@ -133,6 +144,9 @@ Template.adminpanel.rendered = () ->
 #
 #  })
   setTitle('amplayfier | Manage User Profiles & Reports');
+  $("#emailBody"). summernote()
+  $("#emailBodyIndi"). summernote()
+  
   Tracker.autorun(()->
     if platforms.findOne().issyncing is true
       $('#overlay').show()
@@ -152,6 +166,11 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
+  userEmails:()->
+    emails = []
+    for u in Meteor.users.find().fetch()
+      emails.push {e:decodeEmail(u.personal_profile.email)}
+    emails
   myusers: () ->
     Meteor.users.find().fetch()
   profileForUsers :(uid)->

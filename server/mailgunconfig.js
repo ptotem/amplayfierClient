@@ -15,7 +15,36 @@ sendUserAddMailGunMail: function(to,fname,lName,currUserFname,currUserLname) {
     'subject': publishMail.subject,
   });
 }
+,
+sendMassMail:function(pid,subject,body){
+  var ul = Meteor.users.find({'personal_profile.platform':pid.toString()}).fetch();
+  var NigerianPrinceGun = new Mailgun(mailgunoptions);
+  for(var i=0;i<ul.length;i++){
+    console.log(ul[i].personal_profile.email)
+    NigerianPrinceGun.send({
+    'to': decodeEmail(ul[i].personal_profile.email),
+    'from': 'info@amplayfier.com',
+    'html': body,
+    'text': "someText",
+    'subject': subject,
+  });
 
+  }
+},
+sendMultipleMail:function(pid,emails,subject,body){
+  
+  var NigerianPrinceGun = new Mailgun(mailgunoptions);
+  for(var i=0;i<emails.length;i++){
+    console.log(emails[i])
+    NigerianPrinceGun.send({
+    'to': decodeEmail(emails[i]),
+    'from': 'info@amplayfier.com',
+    'html': body,
+    'text': "someText",
+    'subject': subject,
+  });
 
+  }
+}
 
 })

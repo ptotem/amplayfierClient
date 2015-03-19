@@ -24,14 +24,53 @@
     <ul>
         <li class="active sidelink" target-section="users">Manage Users</li>
         <li class="sidelink" target-section="reports">Manage Reports </li>
+        <li class="sidelink" target-section="announcements">Announcements </li>
+        
     </ul>
 {{>adminLogout}}
 </aside>
 {{>wizardHeader}}
 
-<section id="info" class="main ">
-    <h1>Info</h1>
+<section id="announcements" class="main ">
+	  <div class="main-left">
+
+        <div  class="help-area" id="mass-mail-help" >You can create and manage a number of profiles for each portal. A profile allows you to target your content to specific users based on their profiles. Create a profile by clicking on the Add New button</div>
+        <div style="display: none" class="help-area" id="user-mail-list-help">You can now add users to your portal. You can add individual users or upload a large user set. If you want to upload your users, make sure you download the user template</div>
+        <ul>
+            <li  help-area="mass-mail-help" class="active internal-sidelinks" target-section="mass-mail"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Mass Mail</li>
+            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="users-mail"><i class="fa fa-users" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Individual Mails</li>
+        </ul>
+    </div>
+    <div class="main-right">
+    	<div id="mass-mail" class="right-form ">
+    	<h2 style="margin-top: 0;">Mass Mail<a class="btn btn-warning pull-right add-btn send-mass-mail" href="#">Send</a>
+    	</h2>
+    	<form>
+    <input type="text" class="form-control" id="emailSubject" placeholder="Enter email  subject" style="width:100%">
+   <div id="emailBody"></div>
+  
+
+</form>
+    	</div>
+
+    		<div id="users-mail" class="right-form ">
+    	<h2 style="margin-top: 0;">Individual Mail<a class="btn btn-warning pull-right add-btn send-individual-mail" href="#">Send</a>
+    	</h2>
+    	<form>
+   	<select id="usersemails" multiple>
+   		{{#each userEmails}}
+   		<option value="{{e}}">{{e}}</option>
+   		{{/each}}
+   	</select>
+    <input type="text" class="form-control" id="emailSubjectIndi" placeholder="Enter email  subject" style="width:100%">
+   <div id="emailBodyIndi"></div>
+  
+
+</form>
+    	</div>
+    </div>
 </section>
+
 
 <section id="users" class="main default">
     <!--<h1>

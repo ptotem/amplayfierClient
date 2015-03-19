@@ -1,4 +1,4 @@
-#Test server credentials
+  #Test server credentials
 
 #@remoteIp = "http://192.168.89.120:4000"
 #
@@ -361,7 +361,7 @@ Meteor.methods
 
 
   checkIfUserPasswordSet:(uid)->
-    Meteor.users.findOne({_id:uid}).passwordSet
+    Meteor.users.findOne({_id:uid}).passwordIsSet
   passwordIsSet:(uid)->
     Meteor.users.update({_id:uid},{$set:{passwordSet:true}})
   resetUserPasswordAdmin:(uid)->

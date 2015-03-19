@@ -1,3 +1,4 @@
+
 @searchBar = (searchVal,targetDiv)->
   jQuery.expr[":"].contains = jQuery.expr.createPseudo((arg) ->
     (elem) ->

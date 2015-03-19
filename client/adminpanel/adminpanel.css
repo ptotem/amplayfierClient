@@ -390,10 +390,27 @@ input.filter-box{
     height: 34px;
     padding: 0 0 0 1%;
 }
-
-.chosen-container
+.chosen-container{
+    margin-bottom: 2%;
+    margin-top:2%;
+}
+/*.chosen-container
 {
     left:38%;
     margin-top:-1%;
     height: 20px;
+}
+*/
+.note-editable
+{
+    height: 300px;
+}
+
+.btn-toolbar
+{
+    margin-left:0 !important;
+}
+
+.note-editor{
+    top:50px;
 }
