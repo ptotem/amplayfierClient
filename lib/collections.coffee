@@ -49,6 +49,28 @@ imageStore = new FS.Store.GridFS("assetFiles",
   ]
 )
 
+@repositoryFiles = new FS.Collection("repoFiles",
+	stores: [
+    new FS.Store.FileSystem("repo",{path: "/var/www/repofiles"})
+  ]
+
+)
+
+
+
+@repositoryFiles.on('stored', (fileObj, storeName) ->
+  if storeName is "repo"
+    Fiber = Npm.require('fibers');
+    Future = Npm.require('fibers/future');
+    future = new Future();
+    Fiber(()->
+    	repositoryFiles.update({_id:fileObj._id},{$set:{stored:true}})
+    ).run()
+	
+    
+)
+
+
 # @decks = new Meteor.Collection('decks',remote)
 # # @assetFiles = new Meteor.Collection('items', remote);
 

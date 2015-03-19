@@ -1,4 +1,27 @@
 Template.adminpanel.events
+  'click .upload-file':(e)->
+    $('#new-user-files').trigger('click')
+  'change  #new-user-files':(e)->
+    $("#overlay").show()
+    Session.set("docLeft",document.getElementById('new-user-files').files.length)
+    for f in document.getElementById('new-user-files').files
+      plfile = new FS.File(f)
+      plfile.platform = platforms.findOne()._id
+      x = repositoryFiles.insert(plfile)
+      x.on("uploaded",()->
+        nowLeft = parseInt(Session.get("docLeft")) - 1
+        Session.set("docLeft",nowLeft)
+       
+      )
+      Tracker.autorun(()->
+        if Session.get("docLeft") is 0
+          $("#overlay").hide()
+      )
+
+
+  'click .file-delete-btn':(e)->
+    repositoryFiles.remove({_id:this._id})
+
 
   'click .send-mass-mail':(e)->
     Meteor.call('sendMassMail',platforms.findOne()._id,$('#emailSubject').val(),$('#emailBody').code())
@@ -11,6 +34,9 @@ Template.adminpanel.events
     searchBar($(e.currentTarget).val(),".tag-item")
   'keyup #users-filter':(e)->
     searchBar($(e.currentTarget).val(),".user-item")
+  'keyup #file-filter':(e)->
+    searchBar($(e.currentTarget).val(),".file-item")
+
 
   'click .reset-user-password-btn':(e)->
     Meteor.call("resetUserPasswordAdmin",this._id,(err,res)->
@@ -157,15 +183,17 @@ Template.adminpanel.rendered = () ->
 
   if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
     window.location = "/"
-  else
+  
 
-    $('.sidelink').first().trigger('click')
-    $('.internal-sidelinks').first().trigger('click')
+  $('.sidelink').first().trigger('click')
+    # $('.internal-sidelinks').first().trigger('click')
 #    $('#tag-list').mCustomScrollbar();
 #    $('#user-list').mCustomScrollbar();
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
+  platformFiles:()->
+    repositoryFiles.find().fetch()
   userEmails:()->
     emails = []
     for u in Meteor.users.find().fetch()

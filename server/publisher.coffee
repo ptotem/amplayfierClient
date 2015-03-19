@@ -76,3 +76,11 @@ Meteor.publish('panelReport',()->
   this.ready()
   panelReport.find({})
 )
+Meteor.publish('repositoryFiles',(pname)->
+  this.ready()
+  
+  pid = platforms.findOne({tenantName: pname})._id
+  repositoryFiles.find({platform:pid})
+)
+
+

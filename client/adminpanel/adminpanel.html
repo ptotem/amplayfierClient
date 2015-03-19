@@ -24,26 +24,63 @@
     <ul>
         <li class="active sidelink" target-section="users">Manage Users</li>
         <li class="sidelink" target-section="reports">Manage Reports </li>
-        <li class="sidelink" target-section="announcements">Announcements </li>
+        <li class="sidelink" target-section="announcements">Portal Mailers </li>
+        <li class="sidelink" target-section="repository">Repository </li>
+        
         
     </ul>
 {{>adminLogout}}
 </aside>
 {{>wizardHeader}}
 
+<section id="repository" class="main ">
+	  <div class="main-left">
+
+        <div  class="help-area" id="repo-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+        <ul>
+            <li  help-area="repo-help" class="active internal-sidelinks" target-section="repo-sec"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Files</li>
+            
+        </ul>
+    </div>
+    <div class="main-right">
+    	<div id="repo-sec" class="right-form ">
+    	<h2 style="margin-top: 0;">Portal Documents 
+    		
+    		<a class="btn btn-warning pull-right add-btn upload-file" href="#">Upload</a>
+    		<input type="text" id="file-filter" class="filter-box pull-right" placeholder="Search for a File"/>
+    		  <input type="file" class="file-upload" id='new-user-files' style="display:none" multiple/>
+    	</h2>
+    	<ul id="tag-list" class="full-box">
+					{{#each platformFiles}}
+					<li class="file-item"><span class="tag-label">{{name}}</span>
+						<!-- <span class="tag-options">{{values}}</span> -->
+						<a href="#" class="btn btn-danger btn-xs pull-right list-btn  file-delete-btn">Delete</a>
+						<a href="{{getUrl _id}}" class="btn btn-warning btn-xs pull-right  " target="_blank">Download</a>
+
+						<!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
+					</li>
+					{{/each}}
+				</ul>
+
+    	</div>
+
+    		
+    </div>
+</section>
+
 <section id="announcements" class="main ">
 	  <div class="main-left">
 
-        <div  class="help-area" id="mass-mail-help" >You can create and manage a number of profiles for each portal. A profile allows you to target your content to specific users based on their profiles. Create a profile by clicking on the Add New button</div>
-        <div style="display: none" class="help-area" id="user-mail-list-help">You can now add users to your portal. You can add individual users or upload a large user set. If you want to upload your users, make sure you download the user template</div>
+        <div  class="help-area" id="mass-mail-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+        <div style="display: none" class="help-area" id="user-mail-list-help">If you want to communicate with just a few users of your portal, send out a customized mailer from this section. Just select the users you want to mail, put in a subject, your mail body and hit send.</div>
         <ul>
-            <li  help-area="mass-mail-help" class="active internal-sidelinks" target-section="mass-mail"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Mass Mail</li>
-            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="users-mail"><i class="fa fa-users" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Individual Mails</li>
+            <li  help-area="mass-mail-help" class="active internal-sidelinks" target-section="mass-mail"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Mailers</li>
+            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="users-mail"><i class="fa fa-users" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>User Mailers</li>
         </ul>
     </div>
     <div class="main-right">
     	<div id="mass-mail" class="right-form ">
-    	<h2 style="margin-top: 0;">Mass Mail<a class="btn btn-warning pull-right add-btn send-mass-mail" href="#">Send</a>
+    	<h2 style="margin-top: 0;">Portal Mail<a class="btn btn-warning pull-right add-btn send-mass-mail" href="#">Send</a>
     	</h2>
     	<form>
     <input type="text" class="form-control" id="emailSubject" placeholder="Enter email  subject" style="width:100%">
@@ -54,7 +91,7 @@
     	</div>
 
     		<div id="users-mail" class="right-form ">
-    	<h2 style="margin-top: 0;">Individual Mail<a class="btn btn-warning pull-right add-btn send-individual-mail" href="#">Send</a>
+    	<h2 style="margin-top: 0;">User Mailers<a class="btn btn-warning pull-right add-btn send-individual-mail" href="#">Send</a>
     	</h2>
     	<form>
    	<select id="usersemails" multiple>

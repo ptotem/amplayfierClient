@@ -386,7 +386,7 @@ input.filter-box{
     cursor: pointer;
 }
 
-#tag-filter, #users-filter {
+#tag-filter, #users-filter,#file-filter {
     height: 34px;
     padding: 0 0 0 1%;
 }
@@ -413,4 +413,24 @@ input.filter-box{
 
 .note-editor{
     top:50px;
+}
+.note-toolbar .btn-group{
+    margin-top:-3%;
+    margin-bottom: 4%;
+}
+
+.note-insert 
+{
+    margin-bottom:0 !important;
+}
+
+.note-view{
+        margin-bottom:0 !important;
+
+
+    } 
+.note-help{
+        margin-bottom:0 !important;
+
+
 }
