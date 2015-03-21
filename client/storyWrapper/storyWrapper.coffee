@@ -1,8 +1,12 @@
 # This is not the best approch. Evals can be dangerous
 # TODO: Revisit this
 
+# TODO: please chnage this
 @executeInteractions = (p)->
-  for d in deckJs.find({panelId:p}).fetch()
+  # for d in deckJs.find({panelId:p}).fetch()
+  for d in deckJs.find().fetch()
+
+    console.log d.jsContent
     eval(d.jsContent)
 
 
@@ -30,10 +34,10 @@
     #   Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
     #   setPanelData(minTime,maxTime,Session.get("currentSlideScore"))
 
-    if $('.active').is(":first-child")
+    if $('.slide-container.active').is(":first-child")
       console.log "frst slide"
       $('.prev-slide').hide()
-    if $('.active').is(":last-child")
+    if $('.slide-container.active').is(":last-child")
       console.log "last slide"
       $(".next-slide").hide()
     # panelId = $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
@@ -71,6 +75,7 @@
 
 
 @initDeck = ()->
+
   setTimeout(()->
     readHTML()
     $(".center-panel[has-data='false']").remove()
@@ -111,6 +116,8 @@
 
 
 Template.storyWrapper.rendered = () ->
+
+
   if Meteor.userId()?
     Meteor.call('checkIfUserPasswordSet',Meteor.userId(),(err,res)->
       if !res
@@ -134,9 +141,9 @@ Template.storyWrapper.rendered = () ->
     s = platforms.findOne().storyConfig
 
     window.storyConfig = JSON.parse(s);
-    window.storyConfig.imgsrc = "http://amplayfier.com" + window.storyConfig.imgsrc
+    window.storyConfig.imgsrc = "http://lvh.me:3000" + window.storyConfig.imgsrc
 
-    pid=platforms.findOne({tenantName: platformName})._id
+    pid = platforms.findOne({tenantName: platformName})._id
     window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
     window.userdata["decks"] = []
     for d in _.compact(deckHtml.find({platformId:pid}).fetch())
@@ -149,7 +156,8 @@ Template.storyWrapper.events
 #    Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("projector")[0])
 
   'click .admin-icon':(e)->
-    window.location = "/admin"
+    $('.menu').slideToggle('slow')
+    # window.location = "/admin"
 
 
 

@@ -23,12 +23,7 @@ Template.adminpanel.events
     repositoryFiles.remove({_id:this._id})
 
 
-  'click .send-mass-mail':(e)->
-    Meteor.call('sendMassMail',platforms.findOne()._id,$('#emailSubject').val(),$('#emailBody').code())
 
-  'click .send-individual-mail':(e)->
-    emailIds = $('#usersemails').val()
-    Meteor.call('sendMultipleMail',platforms.findOne()._id,emailIds,$('#emailSubjectIndi').val(),$('#emailBodyIndi').code())
 
   'keyup #tag-filter':(e)->
     searchBar($(e.currentTarget).val(),".tag-item")
@@ -170,9 +165,8 @@ Template.adminpanel.rendered = () ->
 #
 #  })
   setTitle('amplayfier | Manage User Profiles & Reports');
-  $("#emailBody"). summernote()
-  $("#emailBodyIndi"). summernote()
-  
+
+
   Tracker.autorun(()->
     if platforms.findOne().issyncing is true
       $('#overlay').show()
@@ -194,11 +188,7 @@ Template.adminpanel.rendered = () ->
 Template.adminpanel.helpers
   platformFiles:()->
     repositoryFiles.find().fetch()
-  userEmails:()->
-    emails = []
-    for u in Meteor.users.find().fetch()
-      emails.push {e:decodeEmail(u.personal_profile.email)}
-    emails
+
   myusers: () ->
     Meteor.users.find().fetch()
   profileForUsers :(uid)->

@@ -80,30 +80,18 @@
     </div>
     <div class="main-right">
     	<div id="mass-mail" class="right-form ">
-    	<h2 style="margin-top: 0;">Portal Mail<a class="btn btn-warning pull-right add-btn send-mass-mail" href="#">Send</a>
+    	<h2 style="margin-top: 0;">Portal Mail
     	</h2>
-    	<form>
-    <input type="text" class="form-control" id="emailSubject" placeholder="Enter email  subject" style="width:100%">
-   <div id="emailBody"></div>
-  
 
-</form>
+        {{>massMailerForm}}
+
+
     	</div>
 
     		<div id="users-mail" class="right-form ">
-    	<h2 style="margin-top: 0;">User Mailers<a class="btn btn-warning pull-right add-btn send-individual-mail" href="#">Send</a>
+    	<h2 style="margin-top: 0;">User Mailers
     	</h2>
-    	<form>
-   	<select id="usersemails" multiple>
-   		{{#each userEmails}}
-   		<option value="{{e}}">{{e}}</option>
-   		{{/each}}
-   	</select>
-    <input type="text" class="form-control" id="emailSubjectIndi" placeholder="Enter email  subject" style="width:100%">
-   <div id="emailBodyIndi"></div>
-  
-
-</form>
+    	{{>individualMailer}}
     	</div>
     </div>
 </section>

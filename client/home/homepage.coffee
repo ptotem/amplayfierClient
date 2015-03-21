@@ -27,7 +27,7 @@
 
 Template.deckList.rendered  = ->
 	if !Meteor.userId()
-		window.location="/login"
+		window.location = "/login"
 
 
 Template.homePage.helpers
@@ -37,12 +37,12 @@ Template.homePage.helpers
 #			find = '/cfs';
 #			re = new RegExp(find, 'g');
 #			# deckHtml.findOne('AdmkhjDGiqM9Kw3Y4').htmlContent
-#			deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://amplayfier.com/cfs")
+#			deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://lvh.me:3000/cfs")
 #=======
       find = '/cfs';
       re = new RegExp(find, 'g');
 
-      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://amplayfier.com/cfs")
+      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://lvh.me:3000/cfs")
 
 
 
