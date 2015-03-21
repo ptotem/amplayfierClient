@@ -11,6 +11,12 @@
 @remoteIp = "http://192.168.89.112:4000"
 
 
+# for local
+@myip = "http://127.0.0.1:4000"
+@remoteIp = "http://127.0.0.1:3000"
+
+
+
 @getTenantHtml = (tid, secretKey, res)->
   x = DDP.connect(remoteIp)
   x.call('requestHTMLForTenant', tid, secretKey, res, (err, res)->
@@ -361,7 +367,9 @@ Meteor.methods
 
 
   checkIfUserPasswordSet:(uid)->
+    console.log Meteor.users.findOne({_id:uid}).passwordIsSet
     Meteor.users.findOne({_id:uid}).passwordIsSet
+    true
   passwordIsSet:(uid)->
     Meteor.users.update({_id:uid},{$set:{passwordSet:true}})
   resetUserPasswordAdmin:(uid)->

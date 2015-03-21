@@ -1,6 +1,10 @@
 
 Meteor.startup(()->
   # startUpRoutine()
+  @mailgunoptions =
+    apiKey: 'key-036bf41682cc241d89084bfcaba352a4',
+    domain: 'amplayfier.com',
+    defaultFrom:'info@amplayfier.com'
 
 
   reCAPTCHA.config({
