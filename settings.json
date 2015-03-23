@@ -1,5 +1,12 @@
 {
   "creatorIp":"http://192.168.0.114:3000",
   "secret":"8479242be2dbd9624736effe",
-  "clientIp":"192.168.0.109"
+  "clientIp":"192.168.0.109",
+  "bucket":"amplayfiertest",
+  "accessKeyId":"AKIAI2AGIMJZA7GRHJZA",
+  "secretAccessKey":"+ZEofIPi+yURed+Co9Uai6cMeQVU4dtuZ87pA0NA",
+  "folder":"sample",
+  "region":"ap-southeast-1"
+
+
 }
