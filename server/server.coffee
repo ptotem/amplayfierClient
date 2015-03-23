@@ -140,6 +140,7 @@
 
 Meteor.methods
 
+
   assignUserProfile: (uid, prf)->
     Meteor.users.update({_id: uid}, {$set: {profile: prf}})
     true

@@ -1,26 +1,5 @@
 Template.adminpanel.events
-  'click .upload-file':(e)->
-    $('#new-user-files').trigger('click')
-  'change  #new-user-files':(e)->
-    $("#overlay").show()
-    Session.set("docLeft",document.getElementById('new-user-files').files.length)
-    for f in document.getElementById('new-user-files').files
-      plfile = new FS.File(f)
-      plfile.platform = platforms.findOne()._id
-      x = repositoryFiles.insert(plfile)
-      x.on("uploaded",()->
-        nowLeft = parseInt(Session.get("docLeft")) - 1
-        Session.set("docLeft",nowLeft)
-       
-      )
-      Tracker.autorun(()->
-        if Session.get("docLeft") is 0
-          $("#overlay").hide()
-      )
 
-
-  'click .file-delete-btn':(e)->
-    repositoryFiles.remove({_id:this._id})
 
 
 
@@ -175,9 +154,9 @@ Template.adminpanel.rendered = () ->
         $('#overlay').hide()
   )
 
-  if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
-    window.location = "/"
-  
+#  if Meteor.users.findOne({_id:Meteor.userId()}).role is "player"
+#    window.location = "/"
+#
 
   $('.sidelink').first().trigger('click')
     # $('.internal-sidelinks').first().trigger('click')
@@ -186,8 +165,6 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
-  platformFiles:()->
-    repositoryFiles.find().fetch()
 
   myusers: () ->
     Meteor.users.find().fetch()

@@ -1,7 +1,12 @@
+initDMS(3,{})
 
 Meteor.startup(()->
   # startUpRoutine()
+  console.log "ass"
+
+
   @mailgunoptions =
+
     apiKey: 'key-036bf41682cc241d89084bfcaba352a4',
     domain: 'amplayfier.com',
     defaultFrom:'info@amplayfier.com'

@@ -83,4 +83,3 @@ Meteor.publish('repositoryFiles',(pname)->
   repositoryFiles.find({platform:pid})
 )
 
-

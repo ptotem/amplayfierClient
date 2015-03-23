@@ -27,8 +27,7 @@ UI.registerHelper "getUserName", (uid)->
 
 UI.registerHelper "timestampToTime", (tm)->
   timeStampToTime(tm)
-UI.registerHelper 'getUrl',(id)->
-  repositoryFiles.findOne(id).url()
+
 
 UI.registerHelper "getImageFromAsset", (aid)->
   getImageFromAsset(aid)

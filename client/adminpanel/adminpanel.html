@@ -19,6 +19,7 @@
 
 
 <template name="adminpanel">
+    <div id="main-admin-container">
 {{>loading}}	
 	<aside id="sidebar">
     <ul>
@@ -46,20 +47,11 @@
     	<div id="repo-sec" class="right-form ">
     	<h2 style="margin-top: 0;">Portal Documents 
     		
-    		<a class="btn btn-warning pull-right add-btn upload-file" href="#">Upload</a>
-    		<input type="text" id="file-filter" class="filter-box pull-right" placeholder="Search for a File"/>
-    		  <input type="file" class="file-upload" id='new-user-files' style="display:none" multiple/>
+
+    		{{> uploadFileBtn}}
     	</h2>
     	<ul id="tag-list" class="full-box">
-					{{#each platformFiles}}
-					<li class="file-item"><span class="tag-label">{{name}}</span>
-						<!-- <span class="tag-options">{{values}}</span> -->
-						<a href="#" class="btn btn-danger btn-xs pull-right list-btn  file-delete-btn">Delete</a>
-						<a href="{{getUrl _id}}" class="btn btn-warning btn-xs pull-right  " target="_blank">Download</a>
-
-						<!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
-					</li>
-					{{/each}}
+                {{>documentList}}
 				</ul>
 
     	</div>
@@ -235,7 +227,8 @@
 
 	</div>
 </section>
-
+        {{>chatBox}}
+    </div>
 </template>
 
 <template name="userForm">
