@@ -23,18 +23,68 @@
 {{>loading}}	
 	<aside id="sidebar">
     <ul>
+        {{#if can 'add_user'}}
         <li class="active sidelink" target-section="users">Manage Users</li>
+            {{/if}}
         <li class="sidelink" target-section="reports">Manage Reports </li>
         <li class="sidelink" target-section="announcements">Portal Mailers </li>
         <li class="sidelink" target-section="repository">Repository </li>
-        
-        
+        <li class="sidelink" target-section="roles">Roles </li>
+
+
     </ul>
 {{>adminLogout}}
 </aside>
 {{>wizardHeader}}
 
-<section id="repository" class="main ">
+
+
+        <section id="roles" class="main ">
+            <div class="main-left">
+
+                <div  class="help-area" id="role-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+                <ul>
+                    <li  help-area="role-help" class="active internal-sidelinks" target-section="roles-list"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Files</li>
+                    <li  help-area="role-help" class="active internal-sidelinks" target-section="roles-new"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>New Role</li>
+                    <li  help-area="role-help" class="active internal-sidelinks" target-section="roles-assign"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Assign</li>
+
+
+
+
+                </ul>
+            </div>
+            <div class="main-right">
+                <div id="roles-list" class="right-form ">
+                    <h2 style="margin-top: 0;">Portal Roles</h2>
+
+                        {{>roleList setUniqKey}}
+
+                </div>
+
+                <div id="roles-new" class="right-form ">
+                    <h2 style="margin-top: 0;">New Role</h2>
+                    <ul id="tag-list" class="full-box">
+                        {{>newRoleForm}}
+                    </ul>
+
+                </div>
+
+                <div id="roles-assign" class="right-form ">
+                    <h2 style="margin-top: 0;">New Role</h2>
+                    <ul id="tag-list" class="full-box">
+                        {{>roleAssignment}}
+                    </ul>
+
+                </div>
+
+
+
+
+            </div>
+        </section>
+
+
+        <section id="repository" class="main ">
 	  <div class="main-left">
 
         <div  class="help-area" id="repo-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
@@ -66,8 +116,8 @@
         <div  class="help-area" id="mass-mail-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
         <div style="display: none" class="help-area" id="user-mail-list-help">If you want to communicate with just a few users of your portal, send out a customized mailer from this section. Just select the users you want to mail, put in a subject, your mail body and hit send.</div>
         <ul>
-            <li  help-area="mass-mail-help" class="active internal-sidelinks" target-section="mass-mail"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Mailers</li>
-            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="users-mail"><i class="fa fa-users" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>User Mailers</li>
+            <li  help-area="mass-mail-help" class="active internal-sidelinks" target-section="mass-mail"><i class="fa fa-users" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Mailers</li>
+            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="users-mail"><i class="fa fa-user" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>User Mailers</li>
         </ul>
     </div>
     <div class="main-right">
@@ -254,7 +304,15 @@
 						<label for="user-email">Email ID</label>
 						<input type="email" class="form-control" id="user-email" value="{{decodeUserEmail personal_profile.email}}" placeholder="Enter name"/>
 						<input type="hidden" id="user-id" value="{{_id}}"/>
-					</div><br><br>
+					</div>
+                    <div class="col-lg-12">
+						<label for="user-email">Reporting Manager</label>
+						<select class="reporting-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
+
+					</div>
+
+
+                    <br><br>
 					<div class="col-lg-12">
 						<a href="#" class="btn btn-lg btn-warning add-individual-user pull-right">Save </a>
 					</div>

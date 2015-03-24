@@ -152,7 +152,10 @@ Meteor.methods
     personal_profile = {platform: pid, email: encodeEmail(email,platformName),  first_name:platformName, last_name: 'Admin', display_name: 'Administrator'}
     newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
     personal_profile['initialPass'] = newpass
-    console.log newpass
+    capabilitiesKeys = _.pluck(capabilities.find().fetch(),'code')
+    r = addRoles("superadmin","This is the super admin role",capabilitiesKeys,pid)
+    personal_profile['role'] = r
+
     Accounts.createUser({
       email: encodeEmail(email,
         platformName), password: newpass, role: "admin", platform: pid, personal_profile: personal_profile
@@ -330,6 +333,12 @@ Meteor.methods
     Meteor.users.update({_id: uid}, {
       $set:
         personal_profile: p
+    })
+    return true
+  updateUserRole: (uid, newRole)->
+    Meteor.users.update({_id: uid}, {
+      $set:
+        'personal_profile.role': newRole
     })
     return true
 

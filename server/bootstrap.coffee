@@ -1,8 +1,31 @@
 initDMS(3,{})
 
+
 Meteor.startup(()->
   # startUpRoutine()
-  console.log "ass"
+  resetCapabilities()
+  addCapabilities("Can add user",'add_user')
+  addCapabilities("Can edit user",'edit_user')
+  addCapabilities("Can delete user",'delete_user')
+  addCapabilities("Can upload users",'upload_user')
+  addCapabilities("Can send mass communication",'send_mass_communication')
+  addCapabilities("Can send individual communication",'send_individual_communication')
+  addCapabilities("Can add roles",'add_roles')
+  addCapabilities("Can delete roles",'delete_roles')
+  addCapabilities("Can update roles",'update_roles')
+
+  addCapabilities("Can assign roles",'assign_user')
+  addCapabilities("Can upload documents",'upload_documents')
+  addCapabilities("Can download documents",'download_documents')
+  addCapabilities("Can delete documents",'delete_documents')
+  addCapabilities("Can view reports",'view_reports')
+  addCapabilities("Can customize reports",'customize_reports')
+
+
+
+
+
+
 
 
   @mailgunoptions =
@@ -16,6 +39,8 @@ Meteor.startup(()->
     privatekey: '6Le9gwITAAAAAC8oUhSpzgFSwBYyD_QzLyJ9I28P'
   });
 )
+
+
 
 #
 # Meteor.startup(()->

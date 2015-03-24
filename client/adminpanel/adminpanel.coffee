@@ -165,7 +165,8 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
-
+  setUniqKey:()->
+    {uniqKey:platforms.findOne()._id}
   myusers: () ->
     Meteor.users.find().fetch()
   profileForUsers :(uid)->
@@ -200,11 +201,12 @@ Template.userForm.events
     display_name = $("#user-name").val()
     first_name = $("#user-first-name").val()
     last_name = $("#user-last-name").val()
+    reportingTo = $(".reporting-mgr").val()
     currUserFname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.first_name
     currUserLname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.last_name
 
     pid = platforms.findOne()._id
-    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail}
+    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail,reportingManager:reportingTo}
 
     if $("#user-id").val() == ''
       Meteor.call("addIndividualUser",p,pid,(err,res)->
@@ -233,6 +235,9 @@ Template.userForm.helpers
       Meteor.users.findOne(uid)
     else
       {}
+  myusers: () ->
+    Meteor.users.find().fetch()
+
 
 
 Template.addUserProfile.events
