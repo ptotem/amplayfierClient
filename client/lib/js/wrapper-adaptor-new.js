@@ -89,8 +89,6 @@ function refreshNodeStates() {
 
 /* Get the State of a Node */
 function getNodeState(sequence) {
-    console.log(sequence)
-    console.log("seqqqqqqqqq")
     return jQuery.grep(nodeStates, function (a) {
         return (a.sequence == sequence);
     })[0].state;
@@ -98,9 +96,6 @@ function getNodeState(sequence) {
 
 /* Set the State of a Node */
 function setNodeState(sequence, state) {
-    console.log(sequence)
-    console.log(state)
-    console.log("seqqqqqqqqq")
     jQuery.grep(nodeStates, function (a) {
         return (a.sequence == sequence);
     })[0].state = state;
@@ -230,8 +225,6 @@ function createLandscapeView() {
     for (i in platformData.nodes) {
         var thisNodeData = platformData.nodes[i];
         var thisNodeConfig = getNodeConfig(thisNodeData.sequence);
-        console.log(thisNodeData);
-        console.log(thisNodeConfig);
 
         $('#story-nodes').append('<a href="#" tabindex="0" data-toggle="popover" class="story-node" id="story-node-' + i + '" style="top:' + thisNodeConfig.py + '%;left:' + thisNodeConfig.px + '%;width:' + (thisNodeConfig.width + ((thisNodeConfig.width == "auto") ? "" : "%")) + ';"></a>');
 
@@ -427,6 +420,7 @@ function bindNodes() {
                 opacity: 0
             });
             landscapeOpen(seq);
+            nodeOpenEvent.trigger();
             $('#story-zone-close').on('click', closeStoryZone);
         } else {
             alert("This chapter has not been unlocked yet");
@@ -604,7 +598,7 @@ function getSequence(obj) {
 
 /* Get Configuration for a given Node  */
 function getNodeConfig(sequence) {
-    console.log(sequence);
+
     return jQuery.grep(storyConfig.nodes, function (a) {
         return (parseInt(a.sequence) == sequence);
     })[0];
@@ -619,8 +613,6 @@ function getNodeData(sequence) {
 
 /* Get Deck by Id */
 function getDeck(id) {
-    console.log("-------------------------------")
-    console.log(id)
     return jQuery.grep(wrapperDecks, function (a) {
         return (a.deckId == id);
     })[0];
@@ -636,8 +628,7 @@ function checkDeck(id) {
 
 /* Mark a Deck as complete */
 function completeDeck(id) {
-    console.log(id)
-    console.log("ddddddddddddddddddddddddd")
+
     jQuery.grep(deckStates, function (a) {
         return (a.deckId == id);
     })[0].state = true;

@@ -29,31 +29,23 @@
 
 
 @setCurrentDeckId = (deckId)->
-	console.log "setting deckId...."
-	console.log deckId
-
 	@currentDeckId = deckId
 
 @setVariantToShow = (vname)->
 	@variantToShow = vname
 
 @setCurrentSlideId = (templateId)->
-	console.log "setting templateId...."
-	console.log templateId
 
 	@currentTemplateId = templateId
 
 @setCurrentPanelId = (panelId)->
-	console.log "setting templateId...."
-	console.log panelId
-
 	@currentPanelId = panelId
 
 @setVariantName = (variantName)->
 	@currentVariant = variantName
 
 @setCurrentSlideType = (type)->
-	@currentSlideType = true
+	@currentSlideType = type
 
 @callStartAttempt = (type)->
 	if type is false
@@ -67,12 +59,12 @@
   gameData.findOne({igId:integratedGameId}).questions
 
 @triggerInitGame = ()->
-  console.log "Game Init triuggeeed"
+
   $('.slide-container.active').find('iframe')[0].contentWindow.$("body").trigger("loadGame")
 #  document.getElementsByTagName('iframe')[0].contentWindow.$("body").trigger("loadGame");
 
 @getImageInGame = (a,k)->
-  console.log k
+
   # 403
   if customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k})?
     customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k}).custVal
@@ -81,7 +73,7 @@
 
 
 @getTextInGame = (a,k)->
-	console.log k
+
 	# 403
 	if customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k})?
 		customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k}).custVal
@@ -89,28 +81,16 @@
 		403
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
-  console.log attempt
-  console.log(reports.find().fetch())
+
   attr = reports.findOne({_id : attempt})
-  setTimeout (->
-    console.log "----------------- Set Current Slide Score -----------------------------"
-    console.log "-----------------------------------------------------------------------"
-    console.log attr
-    console.log "Time Spent:" + parseInt(attr.time/1000)
-    console.log "Min Time:" + minTime
-    console.log "Points :" + points
-    if parseInt(attr.time/1000) > minTime
-      console.log "Min time spent"
-      score = points
-      setScore(score)
-    else
-      console.log "Min time not spent"
-      score = 0
-      setScore(score)
-    console.log "-----------------------------------------------------------------------"
-    Session.set("currentSlideScore", 0)
-    score
-  ), 100
+  if parseInt(attr.time/1000) > minTime
+    score = points
+    setScore(score)
+  else
+    score = 0
+    setScore(score)
+  Session.set("currentSlideScore", 0)
+  true
 
 
 @setPanel = (panelId, points) ->
@@ -136,3 +116,4 @@
 @setPanelData = (panelId, minTime, points) ->
   # setPanelScore(points, minTime)
   setPanel(panelId)
+

@@ -1,4 +1,6 @@
 
+
+
 @deckHtml = new Meteor.Collection("deckHtml");
 @deckJs = new Meteor.Collection("deckJs");
 @platforms = new Meteor.Collection('platforms');
@@ -13,7 +15,34 @@
 @platformType = new Meteor.Collection("platformType")
 @userCompletions = new Meteor.Collection("userCompletions")
 @panelReport = new Meteor.Collection("panelReport")
+@userActivity = new Meteor.Collection('userActivity');
 
+
+@userActivity.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+
+@reports.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+@userCompletions.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
 
 
 
@@ -78,3 +107,11 @@ imageStore = new FS.Store.GridFS("assetFiles",
 #   items = assetFiles.find().fetch();
 #   console.log(items.length);
 # )
+
+@loginEvent = new AppEvent('userLogin','client','registerLogin')
+@logoutEvent = new AppEvent('userLogout','client','registerLogout')
+@landOnWrapperEvent = new AppEvent('landOnWrapper','client','landOnWrapper')
+@newUserEvent = new AppEvent('newUser','both','newUser')
+@nodeOpenEvent = new AppEvent('nodeOpen','client','nodeOpen')
+@deckOpenEvent = new AppEvent('deckOpen','client','deckOpen')
+

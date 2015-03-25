@@ -4,6 +4,7 @@ initDMS(3,{})
 Meteor.startup(()->
   # startUpRoutine()
   resetCapabilities()
+
   addCapabilities("Can add user",'add_user')
   addCapabilities("Can edit user",'edit_user')
   addCapabilities("Can delete user",'delete_user')
@@ -39,6 +40,9 @@ Meteor.startup(()->
     privatekey: '6Le9gwITAAAAAC8oUhSpzgFSwBYyD_QzLyJ9I28P'
   });
 )
+
+
+
 
 
 

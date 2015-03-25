@@ -83,3 +83,10 @@ Meteor.publish('repositoryFiles',(pname)->
   repositoryFiles.find({platform:pid})
 )
 
+Meteor.publish('userCompletions',(pname,uid)->
+  this.ready()
+
+  pid = platforms.findOne({tenantName: pname})._id
+  userCompletions.find({platformId:pid,userId:uid})
+)
+

@@ -2,14 +2,14 @@
 
 
 @startAttempt = ()->
-  console.log "startAttempt"
+
 #  This function sets the individual score for the game
   blob = {}
   blob.userId = Meteor.userId()
   blob.slideId = currentTemplateId
-
   blob.deckId = currentDeckId
-  if currentSlideType == true
+
+  if currentSlideType
     blob.gameId = currentGameId
     blob.slideType = "game"
   else
@@ -28,6 +28,7 @@
 
 
 @setScore =(score)->
+  console.log score
   reports.update({_id:attempt},{$set:{score:score, updatedAt:new Date().getTime()}})
 
 @setGameVal =(parameters) ->
@@ -47,7 +48,7 @@
 
 @setTime = (timeTaken)->
   queryString = {_id: attempt}
-  reports.update(queryString,{$set:{time:timeTaken, updatedAt:new Date().getTime()}})
+  reports.update(queryString,{$set:{completed:true,time:timeTaken, updatedAt:new Date().getTime()}})
 
 @getTime = ()->
   time = new Date().getTime()

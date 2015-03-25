@@ -5,8 +5,6 @@
 @executeInteractions = (p)->
   # for d in deckJs.find({panelId:p}).fetch()
   for d in deckJs.find().fetch()
-
-    console.log d.jsContent
     eval(d.jsContent)
 
 
@@ -14,7 +12,7 @@
   $(".actual-text").each((index,ele)->
     $(".actual-text").attr("contenteditable",false)
     $(ele).html(jQuery.parseHTML($(ele).text()))
-    console.log $(ele).text()
+
 
   )
 
@@ -35,25 +33,24 @@
     #   setPanelData(minTime,maxTime,Session.get("currentSlideScore"))
 
     if $('.slide-container.active').is(":first-child")
-      console.log "frst slide"
+
       $('.prev-slide').hide()
     if $('.slide-container.active').is(":last-child")
-      console.log "last slide"
+      markModuleAsComplete(currentDisplayedDeckId,Meteor.userId(),platforms.findOne()._id,"true")
+
       $(".next-slide").hide()
     # panelId = $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
     # executeInteractions(panelId)
     item.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
     item.addClass 'active'
-    console.log ">>>>>"
-    console.log parseInt($('.slide-container.active').has('iframe').length)
     if parseInt($('.slide-container.active').has('iframe').length) isnt 0
-      console.log "TGame"
+
       setCurrentGameId("true")
       setCurrentSlideType(true)
       
       setTimeout(()->
         integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
-        console.log "this is a agme"
+
         setCurrentIntegratedGameId(integratedGameId)
         setCurrentSlideId(1)
 
@@ -83,32 +80,36 @@
 
     executeSlideLoad($('.slide-container').first())
     $('.next-slide').on 'click', (e) ->
-      setComplete()
+#      setComplete()
       setTime(getTime())
       minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
       maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
-      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
-      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
-      nextItem = $('.active').next()
-      $('.active').hide()
-      $('.active').removeClass 'active'
-      executeSlideLoad(nextItem)
+      points = $('.center-panel:visible').find(".slide-wrapper").attr("points")
+
+
+      Session.set("currentSlideScore",points)
+      if setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
+        nextItem = $('.active').next()
+        $('.active').hide()
+        $('.active').removeClass 'active'
+        executeSlideLoad(nextItem)
 
       return
 
     $('.prev-slide').on 'click', (e) ->
-      setComplete()
+#      setComplete()
       setTime(getTime())
       minTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("min-time"))
       maxTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("max-time"))
-      Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
-      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
+      points = $('.center-panel:visible').find(".slide-wrapper").attr("points")
+      Session.set("currentSlideScore",points)
+      if setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
 #      setPanel()
 #      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
-      prevItem = $('.active').prev()
-      $('.active').hide()
-      $('.active').removeClass 'active'
-      executeSlideLoad(prevItem)
+        prevItem = $('.active').prev()
+        $('.active').hide()
+        $('.active').removeClass 'active'
+        executeSlideLoad(prevItem)
       return
 
   ,100)
@@ -126,7 +127,7 @@ Template.storyWrapper.rendered = () ->
 
 
     )
-  console.log platforms.findOne().nodes
+
   if platforms.findOne()?
     window.platformData.nodes = platforms.findOne().nodes
     # nodesToBeRemoved = []
@@ -147,7 +148,7 @@ Template.storyWrapper.rendered = () ->
     window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
     window.userdata["decks"] = []
     for d in _.compact(deckHtml.find({platformId:pid}).fetch())
-      window.userdata["decks"].push({deckId:d.deckId,complete:isModuleComplete(d._id,Meteor.userId())})
+      window.userdata["decks"].push({deckId:d.deckId,complete:isModuleComplete(d.deckId,Meteor.userId())})
 
     initPage()
 
@@ -164,6 +165,7 @@ Template.storyWrapper.events
   'click .zone-deck':(e)->
 
     deckId = $(e.currentTarget).attr("id").split("-")[2]
+    deckOpenEvent.trigger();
     setDeckId(deckId)
     if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
@@ -171,8 +173,7 @@ Template.storyWrapper.events
           for v in p.variants
             if v[deckId]?
               setVariantToShow(v[deckId])
-    console.log variantToShow? 
-    
+
 
    
     if !variantToShow?
@@ -182,7 +183,7 @@ Template.storyWrapper.events
 
             # variantToShow = v[deckId]
 
-    markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
+#    markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
 
 
     setCurrentDeckId(deckId)
