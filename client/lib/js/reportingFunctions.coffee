@@ -28,8 +28,9 @@
 
 
 @setScore =(score)->
-  console.log score
+
   reports.update({_id:attempt},{$set:{score:score, updatedAt:new Date().getTime()}})
+  Meteor.call('addUserScore',Meteor.userId(),score)
 
 @setGameVal =(parameters) ->
   queryString = {_id:attempt}

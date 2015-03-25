@@ -421,3 +421,10 @@ Meteor.methods
         console.log 'reCAPTCHA verification passed!'
       else
         throw new (Meteor.Error)(422, 'User not found')
+
+
+
+  addUserScore:(uid,score)->
+      oldScore  = Meteor.users.findOne(uid).personal_profile.score || 0
+      newScore = parseInt(oldScore) + parseInt(score)
+      Meteor.users.update({_id:uid},{$set:{'personal_profile.score':newScore}})
