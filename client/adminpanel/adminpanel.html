@@ -118,6 +118,8 @@
         <ul>
             <li  help-area="mass-mail-help" class="active internal-sidelinks" target-section="mass-mail"><i class="fa fa-users" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Mailers</li>
             <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="users-mail"><i class="fa fa-user" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>User Mailers</li>
+            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="site-notifications"><i class="fa fa-user" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>System Notifications</li>
+
         </ul>
     </div>
     <div class="main-right">
@@ -134,6 +136,14 @@
     	<h2 style="margin-top: 0;">User Mailers
     	</h2>
     	{{>individualMailer}}
+    	</div>
+
+        <div id="site-notifications" class="right-form ">
+    	<h2 style="margin-top: 0;">System Notifications <a href="#" class="btn btn-warning pull-right add-btn download-report-btn new-noti">New</a>
+    	</h2>
+        <div class="noti-container">
+    	{{>systemNotifications passKey}}
+        </div>
     	</div>
     </div>
 </section>

@@ -1,5 +1,7 @@
 Template.adminpanel.events
-
+  'click .new-noti':(e)->
+    $('.noti-container').empty()
+    Blaze.renderWithData(Template['newNotification'],{ukey:platforms.findOne()._id},document.getElementsByClassName('noti-container')[0])
 
 
 
@@ -165,6 +167,9 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
+
+  passKey:()->
+    {ukey:platforms.findOne()._id}
   setUniqKey:()->
     {uniqKey:platforms.findOne()._id}
   myusers: () ->

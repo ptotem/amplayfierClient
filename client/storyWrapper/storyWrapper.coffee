@@ -155,6 +155,10 @@ Template.storyWrapper.rendered = () ->
 Template.storyWrapper.events
 #  'click .fullscreener':(e)->
 #    Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("projector")[0])
+  'click #noti-link':(e)->
+    setTimeout(()->
+      markAllNotiRead(Meteor.userId())
+    ,2000)
 
   'click .admin-icon':(e)->
     $('.menu').slideToggle('slow')
@@ -190,4 +194,11 @@ Template.storyWrapper.events
     initDeck()
     Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])
   'click #dashboard-launcher':(e)->
+
     initDash()
+
+Template.storyWrapper.helpers
+  getPortalName:()->
+    platforms.findOne().tenantName
+  passKey:()->
+    {ukey:platforms.findOne()._id}

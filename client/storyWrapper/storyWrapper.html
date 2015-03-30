@@ -132,7 +132,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a href="#notifications" data-toggle="tab" title="NOTIFICATIONS">
+                                                    <a href="#notifications" data-toggle="tab" id="noti-link" title="NOTIFICATIONS">
                                                         <span class="round-tabs two"><i class="fa fa-bell-o"></i></span>
                                                     </a>
                                                 </li>
@@ -157,40 +157,24 @@
 
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active" id="home">
-                                                <h3 class="head text-center">Welcome to the XYZ portal</h3>
+                                                <h3 class="head text-center">Welcome to the {{getPortalName}} portal</h3>
                                                 <p class="narrow text-center">
                                                     You can access critical information here
                                                 </p>
 
                                                 <p class="text-center">
-                                                    <a href="" class="btn btn-primary btn-outline-rounded"> admin panel <span style="margin-left:10px;" class="fa fa-send"></span></a>
+                                                    <a href="/admin" class="btn btn-primary btn-outline-rounded" target="_blank"> admin panel <span style="margin-left:10px;" class="fa fa-send"></span></a>
                                                 </p>
 
                                             </div>
                                             <div class="tab-pane fade" id="notifications">
                                                 <h3 class="head text-center">
                                                     Notifications
-                                                    <span class="notification-badge badge badge-warning">3</span>
+                                                    <span class="notification-badge badge badge-warning">{{getUnreadNoti}}</span>
                                                 </h3>
 
                                                 <div class="list-group" id="notifications-center">
-                                                    <a href="#" class="list-group-item active">Cras justo odio</a>
-                                                    <a href="#" class="list-group-item active">Dapibus ac facilisis in</a>
-                                                    <a href="#" class="list-group-item active">Morbi leo risus</a>
-                                                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                   {{>plainNotificationList passKey}}
                                                 </div>
 
 
