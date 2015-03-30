@@ -1,4 +1,4 @@
-initDMS(3,{})
+initDMS(1,{})
 
 
 Meteor.startup(()->
