@@ -22,8 +22,12 @@
     </div>
         </div>
     </div>
-    <div id="story-wrapper" class="col-sm-12">
 
+
+    <div id="story-wrapper" class="col-sm-12">
+        <a href="#" id="dashboard-launcher" data-toggle="modal" data-target="#story-dashboard">
+            <img src="/assets/dashboardimages/dashboardbtn.png"><span id="dashbtn">DASHBOARD</span>
+        </a>
       <div id="story-nodes"></div>
       <div id="story-zone"></div>
       <img id="story-presenter" src="#" alt=""/>
@@ -38,6 +42,438 @@
 
     <div id="full-wrapper">
 
+    </div>
+
+    <div class="modal fade" id="story-dashboard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="z-index:100000">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-3">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <div class="dashboard-card hovercard">
+                                        <div class="dashboard-cardheader">
+
+                                        </div>
+                                        <div class="avatar">
+                                            <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                                        </div>
+                                        <div class="info">
+                                            <div class="title">
+                                                <a href="#">Script Eden</a>
+                                            </div>
+                                            <div class="desc">Senior Designer</div>
+                                            <button type="button" class="btn btn-labeled btn-primary" href="#" style="margin-top:20px;">
+                                                Update &nbsp;&nbsp;&nbsp;
+                                                <span class="btn-label"><i class="fa fa-pencil"></i></span>
+                                            </button>
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="story-badges text-center">
+                                                <div class="story-badge received" id="story-badge-1" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot.png" alt="">
+                                                </div>
+                                                <div class="story-badge received" id="story-badge-2" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot.png" alt="">
+                                                </div>
+                                                <div class="story-badge" id="story-badge-3" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
+                                                </div>
+                                                <div class="story-badge" id="story-badge-4" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
+                                                </div>
+                                                <div class="story-badge" id="story-badge-5" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
+                                                </div>
+                                                <div class="story-badge" id="story-badge-6" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
+                                                </div>
+                                                <div class="story-badge" id="story-badge-7" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
+                                                </div>
+                                                <div class="story-badge" id="story-badge-8" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
+                                                </div>
+                                                <div class="story-badge" id="story-badge-9" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
+                                                </div>
+                                                <div class="story-badge" id="story-badge-10" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-danger btn-dash">Logout</a>
+
+                        </div>
+                        <div class="col-lg-6">
+
+                            <!--                            <section style="background:#efefe9;">-->
+                            <section>
+                                <div class="row">
+                                    <div class="board">
+                                        <div class="board-inner">
+                                            <ul class="nav nav-tabs" id="myTab">
+                                                <div class="liner"></div>
+                                                <li class="active">
+                                                    <a href="#home" data-toggle="tab" title="WELCOME">
+                                                        <span class="round-tabs one"><i class="fa fa-home"></i></span>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#notifications" data-toggle="tab" title="NOTIFICATIONS">
+                                                        <span class="round-tabs two"><i class="fa fa-bell-o"></i></span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#rewards-center" data-toggle="tab" title="REWARD CENTER">
+                                                        <span class="round-tabs three"><i class="fa fa-gift"></i></span> </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#documents" data-toggle="tab" title="DOCUMENTS ARCHIVE">
+                                                        <span class="round-tabs four"><i class="fa fa-briefcase"></i></span>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#dashboard-help" data-toggle="tab" title="HELP">
+                                                        <span class="round-tabs five"><i class="fa fa-question"></i></span> </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="home">
+                                                <h3 class="head text-center">Welcome to the XYZ portal</h3>
+                                                <p class="narrow text-center">
+                                                    You can access critical information here
+                                                </p>
+
+                                                <p class="text-center">
+                                                    <a href="" class="btn btn-primary btn-outline-rounded"> admin panel <span style="margin-left:10px;" class="fa fa-send"></span></a>
+                                                </p>
+
+                                            </div>
+                                            <div class="tab-pane fade" id="notifications">
+                                                <h3 class="head text-center">
+                                                    Notifications
+                                                    <span class="notification-badge badge badge-warning">3</span>
+                                                </h3>
+
+                                                <div class="list-group" id="notifications-center">
+                                                    <a href="#" class="list-group-item active">Cras justo odio</a>
+                                                    <a href="#" class="list-group-item active">Dapibus ac facilisis in</a>
+                                                    <a href="#" class="list-group-item active">Morbi leo risus</a>
+                                                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="tab-pane fade" id="rewards-center">
+                                                <h3 class="head text-center">
+                                                    Rewards Center
+                                                    <br>
+                                                    <small style="color:#428bca">Credits available: </small>
+                                                    <div class="label label-primary">8000 CR</div>
+                                                </h3>
+
+                                                <div class="rewards-collection">
+                                                    <div class="col-md-12 no-padding lib-item" data-category="view">
+                                                        <div class="lib-panel">
+                                                            <div class="row box-shadow">
+                                                                <div class="col-md-3">
+                                                                    <img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="lib-row lib-header">
+                                                                        Example library
+                                                                        <div class="lib-header-seperator"></div>
+                                                                    </div>
+                                                                    <div class="lib-row lib-desc">
+                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                                                        <div class="lib-desc-seperator"></div>
+                                                                    </div>
+                                                                    <div class="lib-row lib-price">
+                                                                        <div class="label label-primary">1000 CR</div>
+                                                                        <div class="btn pull-right btn-warning">Redeem</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 no-padding lib-item" data-category="view">
+                                                        <div class="lib-panel">
+                                                            <div class="row box-shadow">
+                                                                <div class="col-md-3">
+                                                                    <img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="lib-row lib-header">
+                                                                        Example library
+                                                                        <div class="lib-header-seperator"></div>
+                                                                    </div>
+                                                                    <div class="lib-row lib-desc">
+                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                                                        <div class="lib-desc-seperator"></div>
+                                                                    </div>
+                                                                    <div class="lib-row lib-price">
+                                                                        <div class="label label-primary">1000 CR</div>
+                                                                        <div class="btn pull-right btn-warning">Redeem</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 no-padding lib-item" data-category="view">
+                                                        <div class="lib-panel">
+                                                            <div class="row box-shadow">
+                                                                <div class="col-md-3">
+                                                                    <img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="lib-row lib-header">
+                                                                        Example library
+                                                                        <div class="lib-header-seperator"></div>
+                                                                    </div>
+                                                                    <div class="lib-row lib-desc">
+                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                                                        <div class="lib-desc-seperator"></div>
+                                                                    </div>
+                                                                    <div class="lib-row lib-price">
+                                                                        <div class="label label-primary">1000 CR</div>
+                                                                        <div class="btn pull-right btn-warning">Redeem</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="documents">
+                                                <h3 class="head text-center">
+                                                    Documents Archive
+                                                </h3>
+
+                                                <div id="documents-collection">
+                                                    <div class="col-md-6 no-padding lib-item" data-category="view">
+                                                        <div class="lib-panel">
+                                                            <div class="row box-shadow">
+                                                                <div class="col-md-3">
+                                                                    <img class="lib-img-show" src="/assets/dashboardimages/pdf-icon.png">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="lib-row lib-header">
+                                                                        Example library
+
+                                                                    </div>
+                                                                    <div class="lib-row lib-desc">
+                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 no-padding lib-item" data-category="view">
+                                                        <div class="lib-panel">
+                                                            <div class="row box-shadow">
+                                                                <div class="col-md-3">
+                                                                    <img class="lib-img-show" src="/assets/dashboardimages/pdf-icon.png">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="lib-row lib-header">
+                                                                        Example library
+
+                                                                    </div>
+                                                                    <div class="lib-row lib-desc">
+                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 no-padding lib-item" data-category="view">
+                                                        <div class="lib-panel">
+                                                            <div class="row box-shadow">
+                                                                <div class="col-md-3">
+                                                                    <img class="lib-img-show" src="/assets/dashboardimages/pdf-icon.png">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="lib-row lib-header">
+                                                                        Example library
+
+                                                                    </div>
+                                                                    <div class="lib-row lib-desc">
+                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 no-padding lib-item" data-category="view">
+                                                        <div class="lib-panel">
+                                                            <div class="row box-shadow">
+                                                                <div class="col-md-3">
+                                                                    <img class="lib-img-show" src="/assets/dashboardimages/pdf-icon.png">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="lib-row lib-header">
+                                                                        Example library
+
+                                                                    </div>
+                                                                    <div class="lib-row lib-desc">
+                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 no-padding lib-item" data-category="view">
+                                                        <div class="lib-panel">
+                                                            <div class="row box-shadow">
+                                                                <div class="col-md-3">
+                                                                    <img class="lib-img-show" src="/assets/dashboardimages/pdf-icon.png">
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <div class="lib-row lib-header">
+                                                                        Example library
+
+                                                                    </div>
+                                                                    <div class="lib-row lib-desc">
+                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="dashboard-help">
+                                                <h3 class="head text-center">
+                                                    Frequently Asked Questions
+                                                </h3>
+                                                <div id="faq-section">
+                                                    <div class="panel-group" id="faq-accordion" role="tablist" aria-multiselectable="false">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="faqHeadingOne">
+                                                                <h4 class="panel-title">
+                                                                    <a class="collapsed" data-toggle="collapse" data-parent="#faq-accordion" href="#collapseFaqOne" aria-expanded="false" aria-controls="collapseFaqOne">Faq Question #1</a>
+                                                                </h4>
+                                                            </div>
+                                                            <div id="collapseFaqOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faqHeadingOne">
+                                                                <div class="panel-body">
+                                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="faqHeadingTwo">
+                                                                <h4 class="panel-title">
+                                                                    <a class="collapsed" data-toggle="collapse" data-parent="#faq-accordion" href="#collapseFaqTwo" aria-expanded="false" aria-controls="collapseFaqTwo">Faq Question #2</a>
+                                                                </h4>
+                                                            </div>
+                                                            <div id="collapseFaqTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faqHeadingTwo">
+                                                                <div class="panel-body">
+                                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="row">
+                                <div id="dashboard-score-block">
+                                    1000 points
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="chat-wrapper">
+                                    <table class="chat-table">
+                                        <tr class="chat-row" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='chatpop'><img src='/assets/dashboardimages/user.jpg' class='popimg pull-left'> <div class='popname'>John Doe</div><div class='popstatus away'>Away</div>Score: <span class='pop-score-label'>17000</span><br> Rank: <span class='pop-rank-label'>1</span></div><div class='chatpop-badges'><div class='story-badges text-center'><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge '><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div></div></div>">
+                                            <td class="chat-user-photo"><img src="/assets/dashboardimages/user.jpg">
+                                            </td>
+                                            <td class="chat-user-name">John Doe</td>
+                                            <td class="chat-user-rank">1</td>
+                                            <td class="chat-user-score">17000</td>
+                                            <td class="chat-user-activity">
+                                                <img src="/assets/dashboardimages/greendot.png" alt="">
+                                            </td>
+                                        </tr>
+                                        <tr class="chat-row" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='chatpop'><img src='/assets/dashboardimages/user.jpg' class='popimg pull-left'> <div class='popname'>John Doe</div><div class='popstatus away'>Away</div>Score: <span class='pop-score-label'>8000</span><br> Rank: <span class='pop-rank-label'>200</span></div><div class='chatpop-badges'><div class='story-badges text-center'><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge '><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div></div></div>">
+                                            <td class="chat-user-photo"><img src="/assets/dashboardimages/user.jpg">
+                                            </td>
+                                            <td class="chat-user-name">John Doe</td>
+                                            <td class="chat-user-rank">200</td>
+                                            <td class="chat-user-score">8000</td>
+                                            <td class="chat-user-activity">
+                                                <img src="/assets/dashboardimages/graydot.png" alt="">
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div style="margin-left:20px;">
+                                    <input name="loc" type="text" placeholder="Search for a user" style="width:86.7%;height:37px;padding:5px;">
+                                    <button type="submit" class="btn btn-warning" style="height:39px;margin-left:-5px;margin-top:-3px;"> <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="dash-btn-bank">
+                                    <a href="#" class="btn btn-danger btn-dash" data-dismiss="modal">Close Dashboard</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <!-- Modals -->

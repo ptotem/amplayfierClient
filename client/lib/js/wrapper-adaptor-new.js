@@ -231,7 +231,31 @@ function createLandscapeView() {
     }
     bindNodes();
 }
-
+/* Initialize the Page */
+function initDash() {
+    $('#story-username').html(userdata.name);
+    $('#story-dashboard .user-image img').attr('src', userdata.image);
+    $('#story-points').html(userdata.startpoints);
+    $('a[title]').tooltip();
+    $('.chat-row').popover({
+        html:true,
+        trigger:'hover'
+    });
+    $('.story-badge').popover({
+        html:true,
+        trigger:'hover',
+        placement:'right'
+    });
+    $('#reward-center').slick({
+        autoplay: false,
+        arrows: true,
+        infinite: false,
+        appendArrows: $('.projector-nav'),
+        prevArrow: '<button type="button" class="btn btn-warning playbar-btn small-prev-nav"> < Previous Section </button>',
+        nextArrow: '<button type="button" class="btn btn-info playbar-btn small-next-nav"> Next Section > </button>'
+    });
+}
+window.initDash = initDash;
 /* Add the Nodes in the Portrait View and bind the decks directly */
 function createPortraitView() {
 

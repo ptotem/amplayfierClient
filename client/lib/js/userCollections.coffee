@@ -5,7 +5,7 @@
 
 
 @isModuleComplete = (deckId,userId)->
-  console.log userCompletions.find({deckId:deckId,userId:userId}).fetch()
+
   if userCompletions.find({deckId:deckId,userId:userId}).fetch().length isnt 0
     userCompletions.find({deckId:deckId,userId:userId}).fetch()[0].completed
   else

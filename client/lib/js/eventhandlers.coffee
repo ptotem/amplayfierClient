@@ -9,7 +9,10 @@
 
 @nodeOpen = ()->
   userActivity.insert({entityId:Meteor.userId(),entityType:'node',message:Meteor.user().personal_profile.display_name+" open node at "+new Date().getTime(),createdAt:new Date().getTime()})
+  nodeOpenMedal.assign()
 
 @deckOpen = ()->
   userActivity.insert({entityId:Meteor.userId(),entityType:'deck',message:Meteor.user().personal_profile.display_name+" open deck at "+new Date().getTime(),createdAt:new Date().getTime()})
-
+  nodeOpenMedal.assign()
+@getScore = ()->
+  Meteor.user().personal_profile.score

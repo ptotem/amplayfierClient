@@ -189,3 +189,5 @@ Template.storyWrapper.events
     setCurrentDeckId(deckId)
     initDeck()
     Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])
+  'click #dashboard-launcher':(e)->
+    initDash()

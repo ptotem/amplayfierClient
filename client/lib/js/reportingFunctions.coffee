@@ -41,7 +41,7 @@
   if currentGameId?
     gameId = currentGameId
     reportMeta.insert({ gameId: gameId, createdAt: new Date().getTime(), keyRecords: objectParameter})
-    console.log "Setting up meta data of the game....."
+
 
 @setComplete = ()->
   queryString = {_id:attempt}
