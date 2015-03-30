@@ -197,6 +197,8 @@ Template.storyWrapper.rendered = () ->
     initPage()
 
 Template.storyWrapper.events
+  'click .btn-logout':(e)->
+    Meteor.logout()
   'click .user-edit-btn':(e)->
     $('.modal').modal('hide')
     $('.user-edit-form').remove()
