@@ -15,4 +15,7 @@
   userActivity.insert({entityId:Meteor.userId(),entityType:'deck',message:Meteor.user().personal_profile.display_name+" open deck at "+new Date().getTime(),createdAt:new Date().getTime()})
   nodeOpenMedal.assign()
 @getScore = ()->
-  Meteor.user().personal_profile.score
+  Meteor.user().score
+@getCurrency = ()->
+  console.log "curren"
+  Meteor.user().currency

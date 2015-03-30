@@ -230,7 +230,7 @@ Template.userForm.events
       )
 
     else
-      Meteor.call('updateUser', $("#user-id").val(), p)
+
       Meteor.call("sendUserAddMailGunMail",email,first_name,last_name,currUserFname,currUserLname)
       createNotification('Profile has been updated', 1)
 

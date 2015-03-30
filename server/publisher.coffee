@@ -58,7 +58,7 @@ Meteor.publish('allUsers',(pname)->
 
 Meteor.publish("thisUser",(uid)->
   this.ready()
-  tid = Meteor.users.find({_id:uid},{fields:{personal_profile:1,services:1,role:1,profile:1,badges:1,unreadNoti:1}})
+  tid = Meteor.users.find({_id:uid},{fields:{personal_profile:1,services:1,role:1,profile:1,badges:1,unreadNoti:1,currency:1,score:1}})
 )
 
 

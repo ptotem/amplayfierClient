@@ -2,6 +2,10 @@ initDMS(1,{})
 
 
 Meteor.startup(()->
+  Accounts.onLogin((a)->
+    Meteor.users.update({_id:a.user._id},{$set:{firstLogin:true}})
+
+  )
   # startUpRoutine()
   resetCapabilities()
 

@@ -80,7 +80,12 @@ Template.userEditForm.events
 
       $('.prev-slide').hide()
     if $('.slide-container.active').is(":last-child")
-      markModuleAsComplete(currentDisplayedDeckId,Meteor.userId(),platforms.findOne()._id,"true")
+      setTimeout(()->
+
+
+        markModuleAsComplete(currentDisplayedDeckId,Meteor.userId(),platforms.findOne()._id,"true")
+      ,500)
+
 
       $(".next-slide").hide()
     # panelId = $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
@@ -167,12 +172,11 @@ Template.storyWrapper.rendered = () ->
     Meteor.call('checkIfUserPasswordSet',Meteor.userId(),(err,res)->
       if !res
         window.location = "/setpassword/"+Meteor.userId()
-
-
-
     )
 
   if platforms.findOne()?
+    if Meteor.user().badges.indexOf(firstLand.name) is -1
+      firstLand.assign()
     window.platformData.nodes = platforms.findOne().nodes
     # nodesToBeRemoved = []
     # for n in platforms.findOne().nodes
@@ -254,3 +258,5 @@ Template.storyWrapper.helpers
     platforms.findOne().tenantName
   passKey:()->
     {ukey:platforms.findOne()._id}
+  faqs:()->
+    faq

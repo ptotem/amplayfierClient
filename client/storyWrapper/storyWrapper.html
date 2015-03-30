@@ -131,36 +131,39 @@
                                         </div>
                                         <div class="bottom">
                                             <div class="story-badges text-center">
-                                                <div class="story-badge received" id="story-badge-1" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot.png" alt="">
-                                                </div>
-                                                <div class="story-badge received" id="story-badge-2" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot.png" alt="">
-                                                </div>
-                                                <div class="story-badge" id="story-badge-3" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
-                                                </div>
-                                                <div class="story-badge" id="story-badge-4" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
-                                                </div>
-                                                <div class="story-badge" id="story-badge-5" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
-                                                </div>
-                                                <div class="story-badge" id="story-badge-6" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
-                                                </div>
-                                                <div class="story-badge" id="story-badge-7" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
-                                                </div>
-                                                <div class="story-badge" id="story-badge-8" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
-                                                </div>
-                                                <div class="story-badge" id="story-badge-9" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
-                                                </div>
-                                                <div class="story-badge" id="story-badge-10" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
-                                                    <img src="/assets/dashboardimages/shoot-bw.png" alt="">
-                                                </div>
+                                                {{#each currentUser.badges}}
+                                                    <div class="story-badge received" id="story-badge-1" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>{{name}} </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                        <img src="{{imgPath}}" alt="">
+                                                    </div>
+                                                    {{/each}}
+
+                                                <!--<div class="story-badge received" id="story-badge-2" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot.png" alt="">-->
+                                                <!--</div>-->
+                                                <!--<div class="story-badge" id="story-badge-3" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--</div>-->
+                                                <!--<div class="story-badge" id="story-badge-4" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--</div>-->
+                                                <!--<div class="story-badge" id="story-badge-5" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--</div>-->
+                                                <!--<div class="story-badge" id="story-badge-6" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--</div>-->
+                                                <!--<div class="story-badge" id="story-badge-7" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--</div>-->
+                                                <!--<div class="story-badge" id="story-badge-8" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--</div>-->
+                                                <!--<div class="story-badge" id="story-badge-9" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--</div>-->
+                                                <!--<div class="story-badge" id="story-badge-10" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
+                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--</div>-->
 
                                             </div>
 
@@ -329,30 +332,22 @@
                                                 </h3>
                                                 <div id="faq-section">
                                                     <div class="panel-group-faq" id="faq-accordion" role="tablist" aria-multiselectable="false">
-                                                        <div class="panel panel-default">
-                                                            <div class="panel-heading" role="tab" id="faqHeadingOne">
-                                                                <h4 class="panel-title">
-                                                                    <a class="collapsed" data-toggle="collapse" data-parent="#faq-accordion" href="#collapseFaqOne" aria-expanded="false" aria-controls="collapseFaqOne">Faq Question #1</a>
-                                                                </h4>
-                                                            </div>
-                                                            <div id="collapseFaqOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faqHeadingOne">
-                                                                <div class="panel-body">
-                                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        {{#each faqs}}
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="faqHeadingOne">
+                                                                    <h4 class="panel-title">
+                                                                        <a class="collapsed" data-toggle="collapse" data-parent="#faq-accordion" href="#{{index}}" aria-expanded="false" aria-controls="collapseFaqOne">{{question}}</a>
+                                                                    </h4>
+                                                                </div>
+                                                                <div id="{{index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faqHeadingOne">
+                                                                    <div class="panel-body">
+                                                                        {{answer}}
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="panel panel-default">
-                                                            <div class="panel-heading" role="tab" id="faqHeadingTwo">
-                                                                <h4 class="panel-title">
-                                                                    <a class="collapsed" data-toggle="collapse" data-parent="#faq-accordion" href="#collapseFaqTwo" aria-expanded="false" aria-controls="collapseFaqTwo">Faq Question #2</a>
-                                                                </h4>
-                                                            </div>
-                                                            <div id="collapseFaqTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faqHeadingTwo">
-                                                                <div class="panel-body">
-                                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
+                                                        {{/each}}
+
 
                                                     </div>
                                                 </div>
@@ -373,29 +368,8 @@
                             </div>
                             <div class="row">
                                 <div id="chat-wrapper">
-                                    <table class="chat-table">
-                                        <tr class="chat-row" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='chatpop'><img src='/assets/dashboardimages/user.jpg' class='popimg pull-left'> <div class='popname'>John Doe</div><div class='popstatus away'>Away</div>Score: <span class='pop-score-label'>17000</span><br> Rank: <span class='pop-rank-label'>1</span></div><div class='chatpop-badges'><div class='story-badges text-center'><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge '><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div></div></div>">
-                                            <td class="chat-user-photo"><img src="/assets/dashboardimages/user.jpg">
-                                            </td>
-                                            <td class="chat-user-name">John Doe</td>
-                                            <td class="chat-user-rank">1</td>
-                                            <td class="chat-user-score">17000</td>
-                                            <td class="chat-user-activity">
-                                                <img src="/assets/dashboardimages/greendot.png" alt="">
-                                            </td>
-                                        </tr>
-                                        <tr class="chat-row" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='chatpop'><img src='/assets/dashboardimages/user.jpg' class='popimg pull-left'> <div class='popname'>John Doe</div><div class='popstatus away'>Away</div>Score: <span class='pop-score-label'>8000</span><br> Rank: <span class='pop-rank-label'>200</span></div><div class='chatpop-badges'><div class='story-badges text-center'><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge '><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div></div></div>">
-                                            <td class="chat-user-photo"><img src="/assets/dashboardimages/user.jpg">
-                                            </td>
-                                            <td class="chat-user-name">John Doe</td>
-                                            <td class="chat-user-rank">200</td>
-                                            <td class="chat-user-score">8000</td>
-                                            <td class="chat-user-activity">
-                                                <img src="/assets/dashboardimages/graydot.png" alt="">
-                                            </td>
-                                        </tr>
+                                    {{>chatBoxPoints}}
 
-                                    </table>
                                 </div>
                             </div>
 

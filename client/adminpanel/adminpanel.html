@@ -23,9 +23,8 @@
 {{>loading}}	
 	<aside id="sidebar">
     <ul>
-        {{#if can 'add_user'}}
         <li class="active sidelink" target-section="users">Manage Users</li>
-            {{/if}}
+
         <li class="sidelink" target-section="reports">Manage Reports </li>
         <li class="sidelink" target-section="announcements">Portal Mailers </li>
         <li class="sidelink" target-section="repository">Repository </li>
@@ -287,7 +286,7 @@
 
 	</div>
 </section>
-        {{>chatBox}}
+
     </div>
 </template>
 

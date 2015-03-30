@@ -81,14 +81,20 @@
 		403
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
-
+  maxTime = 1
+  console.log attempt
   attr = reports.findOne({_id : attempt})
-  if parseInt(attr.time/1000) > minTime
+  if parseInt(attr.time/1000) > maxTime
     score = points
+    scorePercentage = 100
     setScore(score)
   else
-    score = 0
+    score = parseInt(attr.time/1000)*points/maxTime
+    scorePercentage = parseInt(attr.time/1000)*100/maxTime
+
     setScore(score)
+  console.log scorePercentage
+  reports.update({_id:attempt},{$set:scorePercentage:scorePercentage})
   Session.set("currentSlideScore", 0)
   true
 
@@ -117,3 +123,7 @@
   # setPanelScore(points, minTime)
   setPanel(panelId)
 
+
+
+
+@faq  = [{index:1,question:"This is  question 1",answer:'This is the answer to the question 1'},{index:2,question:"This is  question 2",answer:'This is the answer to the question 2'},{index:3,question:"This is  question 3",answer:'This is the answer to the question 3'}]

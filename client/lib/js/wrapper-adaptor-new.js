@@ -75,15 +75,30 @@ function initNodeStates() {
 
 /* Refresh Node States when decks are completed */
 function refreshNodeStates() {
+    flag = true;
     for (i in platformData.nodes) {
         var thisNodeData = platformData.nodes[i];
-        var thisNodeState = "complete"
+        var thisNodeState = "complete";
         var requiredDecks = thisNodeData.decks;
         for (deck in requiredDecks) {
             if (!checkDeck(requiredDecks[deck])) thisNodeState = "incomplete";
+
         }
+        if(thisNodeState === "complete")
+        {
+
+            chapterCompletion.assign()
+        }
+        else
+            flag = false;
         setNodeState(thisNodeData.sequence, thisNodeState);
     }
+    console.log(flag);
+    if(flag)
+    {
+        allChapterCompletion.assign()
+    }
+
     drawNodes();
 }
 
@@ -603,6 +618,11 @@ function closeStoryZone() {
 function closeDeck() {
     $('.projection').remove();
     $('.story-zone-playbar').remove();
+    setTime(getTime());
+    minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
+    maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
+    points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
+    setCurrentSlideScore(minTime, maxTime, points);
 }
 
 
