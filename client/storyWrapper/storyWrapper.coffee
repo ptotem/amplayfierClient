@@ -1,3 +1,47 @@
+Template.userEditForm.events
+  'click .update-user':(e)->
+    display_name = $("#user-name").val()
+    first_name = $("#user-first-name").val()
+    last_name = $("#user-last-name").val()
+    designation = $("#user-designation").val()
+    if document.getElementById('profile-pic').files.length isnt 0
+      profilePic = new FS.File(document.getElementById('profile-pic').files[0])
+      profilePic.owner = Meteor.userId()
+      profilePic.stored = false
+      pp = assetFiles.insert(profilePic)
+      ppid = pp._id
+    else
+      ppid = Meteor.user().personal_profile.profilePicId
+    if document.getElementById('cover-pic').files.length isnt 0
+      coverPic = new FS.File(document.getElementById('cover-pic').files[0])
+      coverPic.owner = Meteor.userId()
+      coverPic.stored = false
+      cp = assetFiles.insert(coverPic)
+      cpid = cp._id
+    else
+      cpid = Meteor.user().personal_profile.coverPicId
+    if $('#user-password-old').val().length isnt 0
+      Accounts.changePassword($('#user-password-old').val(),$('#user-password-new').val(),(err)->
+        if err?
+          createNotification(err.message,1)
+      )
+    $('#overlay').show()
+    Tracker.autorun(()->
+      console.log assetFiles.findOne(ppid).stored
+      if assetFiles.findOne(ppid).stored and assetFiles.findOne(cpid).stored
+        Meteor.users.update({_id:Meteor.userId()},{$set:{personal_profile:{coverPicId:cpid,profilePicId:ppid,first_name:first_name,last_name:last_name,display_name:display_name,designation:designation}}})
+        $('.modal').modal('hide')
+        $('.user-edit-form').remove()
+        $('#overlay').hide()
+
+
+    )
+
+
+
+
+
+
 # This is not the best approch. Evals can be dangerous
 # TODO: Revisit this
 
@@ -153,6 +197,12 @@ Template.storyWrapper.rendered = () ->
     initPage()
 
 Template.storyWrapper.events
+  'click .user-edit-btn':(e)->
+    $('.modal').modal('hide')
+    $('.user-edit-form').remove()
+    Blaze.renderWithData(Template['userEditForm'], {}, document.getElementById('story-wrapper'))
+    $(".modal").modal()
+
 #  'click .fullscreener':(e)->
 #    Blaze.renderWithData(Template.homePage,{deckId:currentDisplayedDeckId},document.getElementsByClassName("projector")[0])
   'click #noti-link':(e)->

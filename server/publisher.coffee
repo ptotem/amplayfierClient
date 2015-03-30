@@ -90,3 +90,10 @@ Meteor.publish('userCompletions',(pname,uid)->
   userCompletions.find({platformId:pid,userId:uid})
 )
 
+Meteor.publish('userAssetFiles',(uid)->
+  this.ready()
+
+
+  assetFiles.find({owner:uid})
+)
+

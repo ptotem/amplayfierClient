@@ -45,6 +45,25 @@
     true
 
 
+@reportMeta.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+
+Meteor.users.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+
+
 
 # remote = DDP.connect('http://localhost:3000/');
 
@@ -61,6 +80,17 @@ imageStore = new FS.Store.GridFS("assetFiles",
 
 )
 
+@assetFiles.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+  download:(userId,doc)->
+    true
+
 @gameFiles = new FS.Collection("gameFiles",
 
   stores: [
@@ -70,6 +100,17 @@ imageStore = new FS.Store.GridFS("assetFiles",
   ]
 )
 
+@assetFiles.on('stored', (fileObj, storeName) ->
+  if storeName is "assetFiles"
+    Fiber = Npm.require('fibers');
+    Future = Npm.require('fibers/future');
+    future = new Future();
+    Fiber(()->
+      assetFiles.update({_id:fileObj._id},{$set:{stored:true}})
+    ).run()
+
+
+)
 
 @excelFiles = new FS.Collection("excelFiles",
 
@@ -108,10 +149,33 @@ imageStore = new FS.Store.GridFS("assetFiles",
 #   console.log(items.length);
 # )
 
-@loginEvent = new AppEvent('userLogin','client','registerLogin')
-@logoutEvent = new AppEvent('userLogout','client','registerLogout')
-@landOnWrapperEvent = new AppEvent('landOnWrapper','client','landOnWrapper')
-@newUserEvent = new AppEvent('newUser','both','newUser')
-@nodeOpenEvent = new AppEvent('nodeOpen','client','nodeOpen')
-@deckOpenEvent = new AppEvent('deckOpen','client','deckOpen')
+#System variable definition
+@currency = new SysVar('currency')
+@score = new SysVar('points')
+score.assignUpdateRoutine('addScore','incrementScore')
+
+score.assignGetValFunction('getScore')
+
+
+#Define badges
+@nodeOpenMedal = new Badge('nodeOpenMedal',[score])
+@deckOpenMedal = new Badge('deckOpenMedal',[score])
+nodeOpenMedal.on('assign',(t)->
+  console.log score.getValue()
+  score.setValue(10)
+)
+
+#nodeOpenMedal.onAssign(score,'addScore')
+#
+#deckOpenMedal.onAssign(score,'mScore')
+
+
+
+
+@loginEvent = new AppEvent('userLogin','client',['registerLogin'])
+@logoutEvent = new AppEvent('userLogout','client',['registerLogout'])
+@landOnWrapperEvent = new AppEvent('landOnWrapper','client',['landOnWrapper'])
+@newUserEvent = new AppEvent('newUser','both',['newUser'])
+@nodeOpenEvent = new AppEvent('nodeOpen','client',['nodeOpen'])
+@deckOpenEvent = new AppEvent('deckOpen','client',['deckOpen'])
 

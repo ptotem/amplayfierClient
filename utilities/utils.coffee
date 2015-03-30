@@ -32,7 +32,7 @@ UI.registerHelper "getUserFullName", ->
   #    small helper that reads the application name from the configuration file
   if Meteor.user()?
     if Meteor.user().personal_profile?
-      Meteor.user().personal_profile.firstname + " " + Meteor.user().personal_profile.lastname
+      Meteor.user().personal_profile.first_name + " " + Meteor.user().personal_profile.last_name
 
 
 

@@ -1,28 +1,83 @@
+<template name="userEditForm">
+    <div class="modal fade user-edit-form">
+        <div class="modal-dialog" style="z-index: 100000;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    {{#with currentUser}}
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">First Name</label>
+                            <input type="text" class="form-control" id="user-first-name" value="{{personal_profile.first_name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Email</label>
+                            <input type="email" class="form-control" id="user-email" value="{{personal_profile.email}}" disabled>
+                        </div>
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Last Name</label>
+                        <input type="text" class="form-control" id="user-last-name" value="{{personal_profile.last_name}}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Display Name</label>
+                        <input type="text" class="form-control" id="user-name" value="{{personal_profile.display_name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Designation</label>
+                        <input type="text" class="form-control" id="user-designation" value="{{personal_profile.designation}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Change Password</label>
+                        <div class="col-md-12 no-padding">
+                            <div class="col-md-5 no-padding"> <input type="password" class="form-control" id="user-password-old" placeholder="Enter old password" ></div>
+                            <div class="col-md-5 col-md-offset-2 no-padding"> <input type="password" class="form-control" id="user-password-new" placeholder="Enter new password"></div>
+
+                        </div>
+
+
+                    </div>
+
+
+                        <div class="form-group">
+                        <label for="exampleInputPassword1">Pictures</label>
+                        <div class="col-md-12 no-padding">
+                            <div class="col-md-5 no-padding"> <input type="file" id="cover-pic"></div>
+                            <div class="col-md-5 col-md-offset-2 no-padding">  <input type="file" id="profile-pic"></div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    </form>
+                        {{/with}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary update-user">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</template>
+
 <template name="storyWrapper">
   <!-- <h1>Just to test</h1> -->
   <!-- <body class="story-page" onload="initPage()"> -->
 
-    <div class="admin-preview">
-      <div class='img-cont'>
-        <img class="admin-icon" src="{{adminImage}}">
-      </div>
-        <div class='menu' style="display:none">
-            <div id="sidebar-wrapper" class="sidebar-toggle">
-      <ul class="sidebar-nav">
-          <li>
-              <a href="#item1">Admin Panel</a>
-          </li>
-          <li>
-              <a href="http://localhost/AmplayfierReporter/aggregateReport.html" target="_blank">My Report</a>
-          </li>
-          <li>
-              <a href="#item3">Chat</a>
-          </li>
-        </ul>
-    </div>
-        </div>
-    </div>
 
+    <div id="overlay"></div>
 
     <div id="story-wrapper" class="col-sm-12">
         <a href="#" id="dashboard-launcher" data-toggle="modal" data-target="#story-dashboard">
@@ -58,18 +113,18 @@
                                 <div class="col-lg-12">
 
                                     <div class="dashboard-card hovercard">
-                                        <div class="dashboard-cardheader">
+                                        <div class="dashboard-cardheader" style="background: url('{{getAssetUrl currentUser.personal_profile.coverPicId}}')">
 
                                         </div>
                                         <div class="avatar">
-                                            <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                                            <img alt="" src="{{getAssetUrl currentUser.personal_profile.profilePicId}}">
                                         </div>
                                         <div class="info">
                                             <div class="title">
-                                                <a href="#">Script Eden</a>
+                                                <a href="#">{{getUserFullName}}</a>
                                             </div>
-                                            <div class="desc">Senior Designer</div>
-                                            <button type="button" class="btn btn-labeled btn-primary" href="#" style="margin-top:20px;">
+                                            <div class="desc">{{currentUser.personal_profile.designation}}</div>
+                                            <button type="button" class="btn btn-labeled btn-primary user-edit-btn" href="#" style="margin-top:20px;">
                                                 Update &nbsp;&nbsp;&nbsp;
                                                 <span class="btn-label"><i class="fa fa-pencil"></i></span>
                                             </button>
