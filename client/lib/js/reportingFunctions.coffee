@@ -2,6 +2,7 @@
 
 
 @startAttempt = (expectedLength)->
+  console.log "start attempt called"
 
 #  This function sets the individual score for the game
   blob = {}
@@ -20,14 +21,18 @@
   blob.createdAt = new Date().getTime()
   blob.deckComplete = false
   blob.slideCount = expectedLength
+  blob.userId = Meteor.userId()
+  blob.deckId = currentDeckId
+  blob.platformId = platforms.findOne()._id
   Session.set("currentSlideScore",0)
   @attempt = reports.insert(blob)
 
 
 @endAttempt = ()->
-  if reports.findOne(attempt).slideData.length is reports.findOne(attempt).slideCount
-    reports.update({_id:attempt},{$set:{deckComplete:true}})
+  if reports.findOne(attempt).slideData.length >= reports.findOne(attempt).slideCount
+    reports.update({_id:attempt},{$set:{attemptComplete:true}})
     markModuleAsComplete(currentDisplayedDeckId,Meteor.userId(),platforms.findOne()._id,"true")
+    deckCompleteEvent.trigger({uid:Meteor.userId(),rid:attempt})
 
 @setInitialScore =(score)->
   reports.update({_id:attempt},{$set:{initScore:score}})

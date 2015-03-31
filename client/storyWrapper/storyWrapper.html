@@ -246,75 +246,35 @@
                                                 </h3>
 
                                                 <div class="rewards-collection">
-                                                    <div class="col-md-12 no-padding lib-item" data-category="view">
-                                                        <div class="lib-panel">
-                                                            <div class="row box-shadow">
-                                                                <div class="col-md-3">
-                                                                    <img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    <div class="lib-row lib-header">
-                                                                        Example library
-                                                                        <div class="lib-header-seperator"></div>
+                                                    {{#each rewards}}
+                                                        <div class="col-md-12 no-padding lib-item" data-category="view">
+                                                            <div class="lib-panel">
+                                                                <div class="row box-shadow">
+                                                                    <div class="col-md-3">
+                                                                        <!--<img class="lib-img-show img-responsive" src="http://lorempixel.com/850/850/?random=123">-->
+                                                                        <img class="lib-img-show img-responsive" src="{{getAssetUrl rewardImage}}">
+                                                                        
                                                                     </div>
-                                                                    <div class="lib-row lib-desc">
-                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-                                                                        <div class="lib-desc-seperator"></div>
-                                                                    </div>
-                                                                    <div class="lib-row lib-price">
-                                                                        <div class="label label-primary">1000 CR</div>
-                                                                        <div class="btn pull-right btn-warning">Redeem</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 no-padding lib-item" data-category="view">
-                                                        <div class="lib-panel">
-                                                            <div class="row box-shadow">
-                                                                <div class="col-md-3">
-                                                                    <img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    <div class="lib-row lib-header">
-                                                                        Example library
-                                                                        <div class="lib-header-seperator"></div>
-                                                                    </div>
-                                                                    <div class="lib-row lib-desc">
-                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-                                                                        <div class="lib-desc-seperator"></div>
-                                                                    </div>
-                                                                    <div class="lib-row lib-price">
-                                                                        <div class="label label-primary">1000 CR</div>
-                                                                        <div class="btn pull-right btn-warning">Redeem</div>
+                                                                    <div class="col-md-9">
+                                                                        <div class="lib-row lib-header">
+                                                                            {{name}}
+                                                                            <div class="lib-header-seperator"></div>
+                                                                        </div>
+                                                                        <div class="lib-row lib-desc">
+                                                                            {{description}}
+                                                                            <div class="lib-desc-seperator"></div>
+                                                                        </div>
+                                                                        <div class="lib-row lib-price">
+                                                                            <div class="label label-primary">{{value}} CR</div>
+                                                                            <div class="btn pull-right btn-warning">Redeem</div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12 no-padding lib-item" data-category="view">
-                                                        <div class="lib-panel">
-                                                            <div class="row box-shadow">
-                                                                <div class="col-md-3">
-                                                                    <img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    <div class="lib-row lib-header">
-                                                                        Example library
-                                                                        <div class="lib-header-seperator"></div>
-                                                                    </div>
-                                                                    <div class="lib-row lib-desc">
-                                                                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-                                                                        <div class="lib-desc-seperator"></div>
-                                                                    </div>
-                                                                    <div class="lib-row lib-price">
-                                                                        <div class="label label-primary">1000 CR</div>
-                                                                        <div class="btn pull-right btn-warning">Redeem</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        {{/each}}
+
+
 
 
                                                 </div>

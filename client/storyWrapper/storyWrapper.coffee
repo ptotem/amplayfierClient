@@ -84,17 +84,23 @@ Template.userEditForm.events
     )
     item.addClass 'active'
 
-    if parseInt($('.slide-container.active').has('iframe').length) isnt 0
+    if parseInt(item.has('iframe').length) isnt 0
+      integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
+      setCurrentIntegratedGameId(integratedGameId)
+      setCurrentSlideId(1)
+      triggerInitGame()
 
-      setCurrentGameId("true")
-      setCurrentSlideType(true)
-      
-      setTimeout(()->
-        integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
-        setCurrentIntegratedGameId(integratedGameId)
-        setCurrentSlideId(1)
-        triggerInitGame()
-      ,2000)
+#    if parseInt($('.slide-container.active').has('iframe').length) isnt 0
+#
+#      setCurrentGameId("true")
+#      setCurrentSlideType(true)
+#
+#      setTimeout(()->
+#        integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
+#        setCurrentIntegratedGameId(integratedGameId)
+#        setCurrentSlideId(1)
+#        triggerInitGame()
+#      ,2000)
 
 
 #    callStartAttempt(false)
@@ -102,7 +108,8 @@ Template.userEditForm.events
 
 
 @transitionSlide = ()->
-  $('.active:visible').hide('slow',(e)->
+  console.log $('.slide-container.active:visible')
+  $('.slide-container.active:visible').hide('slow',(e)->
     setTime(getTime())
     minTime = $($(this).find(".center-panel")).find(".slide-wrapper").attr("min-time")
     maxTime = $($(this).find(".center-panel")).find(".slide-wrapper").attr("max-time")
@@ -202,7 +209,7 @@ Template.storyWrapper.events
   'click .zone-deck':(e)->
 
     deckId = $(e.currentTarget).attr("id").split("-")[2]
-    deckOpenEvent.trigger();
+
     setDeckId(deckId)
     if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
@@ -237,3 +244,5 @@ Template.storyWrapper.helpers
     {ukey:platforms.findOne()._id}
   faqs:()->
     faq
+  rewards:()->
+    systemRewards.find().fetch()

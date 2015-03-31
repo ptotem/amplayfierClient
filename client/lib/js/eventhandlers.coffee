@@ -1,5 +1,6 @@
 @registerLogin = ()->
-  userActivity.insert({entityId:Meteor.userId(),entityType:'user',message:Meteor.user().personal_profile.display_name+" logged in at "+new Date().getTime(),createdAt:new Date().getTime()})
+  console.log "usr has logged in"
+  userActivity.insert({entityId:Meteor.userId(),entityType:'user',message:" logged in at "+new Date().getTime(),createdAt:new Date().getTime()})
 @registerLogout = ()->
   userActivity.insert({entityId:Meteor.userId(),entityType:'user',message:Meteor.user().personal_profile.display_name+" logged out at "+new Date().getTime(),createdAt:new Date().getTime()})
 @landOnWrapper = ()->
@@ -17,9 +18,13 @@
 @getScore = ()->
   Meteor.user().score
 @getCurrency = ()->
-  console.log "curren"
+
   Meteor.user().currency
 
 
 @deckComplete  = ()->
   console.log "deck is marked as complete on client"
+
+@chapterComplete  = ()->
+  console.log "deck is marked as complete on client"
+

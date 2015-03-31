@@ -29,6 +29,8 @@
         <li class="sidelink" target-section="announcements">Portal Mailers </li>
         <li class="sidelink" target-section="repository">Repository </li>
         <li class="sidelink" target-section="roles">Roles </li>
+        <li class="sidelink" target-section="rewards">Rewards </li>
+
 
 
     </ul>
@@ -38,6 +40,64 @@
 
 
 
+        <section id="rewards" class="main ">
+            <div class="main-left">
+
+                <div  class="help-area" id="reward-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+                <ul>
+                    <li  help-area="reward-help" class="active internal-sidelinks" target-section="rewards-list"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Rewards</li>
+                    <li  help-area="reward-help" class="active internal-sidelinks" target-section="rewards-new"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>New Reward</li>
+
+
+
+
+
+                </ul>
+            </div>
+            <div class="main-right">
+                <div id="rewards-list" class="right-form ">
+                    <h2 style="margin-top: 0;">Reward List</h2>
+                    <ul id="tag-list" class="full-box">
+                        {{#each rewards}}
+                            <li>{{name}} <a href="#" class="btn btn-danger btn-xs delete-reward pull-right">Delete</a></li>
+                        {{/each}}
+                    </ul>
+
+
+                </div>
+
+                <div id="rewards-new" class="right-form ">
+                    <h2 style="margin-top: 0;">New Reward</h2>
+                    <div class="field-box">
+                        <label for="new-reward-name">Reward Name</label>
+                        <input type="text" id="new-reward-name" placeholder="Please put in a reward name"/>
+                        <label for="new-reward-desc">Reward Description</label>
+                        <input type="text" id="new-reward-desc" placeholder="Please put in a Description for reward"/>
+                        <label for="new-reward-file">Reward Image</label>
+                        <input type="file" id="new-reward-file" placeholder="Please upload a file for reward"/>
+                        <label for="new-reward-file">Reward Value</label>
+                        <input type="number" id="new-reward-value" placeholder="Please put in worth of the reward"/>
+
+                    </div>
+
+                    <br/>
+                    <a href="#" class="right-form-save new-reward-save">
+                        <span class="icon hiero-save "></span>
+                        <br/>
+                        Save
+                    </a>
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </section>
         <section id="roles" class="main ">
             <div class="main-left">
 

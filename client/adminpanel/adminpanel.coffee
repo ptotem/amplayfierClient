@@ -1,4 +1,31 @@
 Template.adminpanel.events
+
+  'click .delete-reward':(e)->
+    systemRewards.remove({_id:this._id})
+  'click .new-reward-save':(e)->
+    if document.getElementById('new-reward-file').files.length is 0
+      createNotification("Please upload a reward image",1)
+    else
+      rewardFile = new FS.File(document.getElementById('new-reward-file').files[0])
+      rewardFile.platform = platforms.findOne()._id
+      rewardFile.stored = false
+      rewardName = $("#new-reward-name").val()
+      rewardDesc = $("#new-reward-desc").val()
+      rewardVal = $("#new-reward-value").val()
+      $("#overlay").show()
+      rf = assetFiles.insert(rewardFile)
+      rfid = rf._id
+      Tracker.autorun(()->
+        console.log assetFiles.findOne(rfid).stored
+        if assetFiles.findOne(rfid).stored
+          systemRewards.insert({name:rewardName,description:rewardDesc,value:rewardVal,rewardImage:rfid,pid:platforms.findOne()._id})
+          $("#overlay").hide()
+
+      )
+
+
+
+
   'click .new-noti':(e)->
     $('.noti-container').empty()
     Blaze.renderWithData(Template['newNotification'],{ukey:platforms.findOne()._id},document.getElementsByClassName('noti-container')[0])
@@ -167,6 +194,9 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
+
+  rewards:()->
+    systemRewards.find().fetch()
 
   passKey:()->
     {ukey:platforms.findOne()._id}

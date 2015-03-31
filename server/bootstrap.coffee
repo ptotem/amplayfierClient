@@ -1,8 +1,6 @@
 initDMS(1,{})
 
-Accounts.onLogin(()->
-  console.log "loin"
-)
+
 Meteor.startup(()->
 
   # startUpRoutine()
@@ -45,6 +43,48 @@ Meteor.startup(()->
 )
 
 
+reports.deny
+  update:(uid,docs,fields,modifier)->
+    if fields.indexOf('deckComplete') isnt -1
+      true
+    else
+      false
+
+
+
+reports.find().observeChanges
+  changed:(id,field)->
+#    if reports.findOne(attempt).slideData.length is reports.findOne(attempt).slideCount
+
+
+      if field['attemptComplete']?
+        thisreport = reports.findOne(id)
+        if thisreport.slideData.length >= thisreport.slideCount
+          reports.update({_id:id},{$set:{deckComplete:true}})
+#        we now check for individual node completions in this platform and assign badges accordingly so the user cannot cheat
+        nodeflag = true
+        for n,i in platforms.findOne(thisreport.platformId).nodes
+          if n.decks?
+            flag = true
+            for d in n.decks
+#              console.log _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete')
+              if  _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete').length is 0 or _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete').indexOf(true) is -1
+                flag = false
+#            console.log flag
+            if flag
+              userNodeStatus.insert({userId:thisreport.userId,nodeSeq:i,status:'complete'})
+              chapterCompleteEvent.trigger({uid:thisreport.userId,node:i})
+            else
+              nodeflag = false
+        console.log "sasa"
+        console.log nodeflag
+        console.log "sasa"
+        if nodeflag
+          allChapterCompleteEvent.trigger({uid:thisreport.userId})
+
+
+
+
 #
 #Meteor.users.find().observeChanges
 #  added: (post) ->
@@ -54,7 +94,12 @@ Meteor.startup(()->
 #  changed: (id,fields)->
 #    console.log fields
 #
-
+#reports.observeChanges
+#  changed:(id,fields)->
+#    console.log "********************"
+#    console.log id
+#    console.log fields
+#    console.log "********************"
 
 #
 # Meteor.startup(()->

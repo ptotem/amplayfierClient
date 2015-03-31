@@ -16,9 +16,19 @@
 @userCompletions = new Meteor.Collection("userCompletions")
 @panelReport = new Meteor.Collection("panelReport")
 @userActivity = new Meteor.Collection('userActivity');
+@userNodeStatus = new Meteor.Collection('userNodeStatus');
+@systemRewards = new Meteor.Collection('systemRewards');
 
 
 @userActivity.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+@systemRewards.allow
   insert:(userId, role) ->
     true
   update:(userId, doc, fieldNames, modifier)->
@@ -167,69 +177,6 @@ nodeOpenMedal.on('assign',(t)->
   score.setValue(10)
 )
 
-@firstLand = new Badge('firstTimeLandModal','/assets/badgeimages/wellstarted.png',[score])
-firstLand.on('assign',(t)->
-  oldcurrency = currency.getValue()
-  newcurrency = oldcurrency + 100
-  currency.setValue(newcurrency)
-  Meteor.users.update({_id:Meteor.userId()},{$addToSet:{badges:t}})
-)
-@chapterCompletion = new Badge("chapterCompleteMedal",'/assets/badgeimages/milestone.png',[score,currency])
-chapterCompletion.on('assign',(t)->
-  oldcurrency = currency.getValue()
-  newcurrency = oldcurrency + 50
-  currency.setValue(newcurrency)
-  Meteor.users.update({_id:Meteor.userId()},{$addToSet:{badges:t}})
-)
-
-
-@allThroughDecks = new Badge("allDeckFullScoreMedal",'/assets/badgeimages/through.png',[score,currency])
-allThroughDecks.on('assign',(t)->
-  console.log "all through assigned"
-  oldcurrency = currency.getValue()
-  newcurrency = oldcurrency + 200
-  currency.setValue(newcurrency)
-  Meteor.users.update({_id:Meteor.userId()},{$addToSet:{badges:t}})
-)
-
-
-
-
-@allChapterCompletion = new Badge("allChapterCompleteMedal",'/assets/badgeimages/alldone.png',[score,currency])
-allChapterCompletion.on('assign',(t)->
-
-  oldcurrency = currency.getValue()
-  newcurrency = oldcurrency + 100
-  currency.setValue(newcurrency)
-  Meteor.users.update({_id:Meteor.userId()},{$addToSet:{badges:t}})
-  flag = true
-  for n in platformData.nodes
-    if n.decks?
-      for d in n.decks
-  #      console.log n
-        slideRep = _.groupBy(reports.find({userId:Meteor.userId(),deckId:d}).fetch(),(x)->
-          x.slideId
-        )
-        if _.isEmpty(slideRep)
-          flag = false
-        for k in Object.keys(slideRep)
-          console.log "---------------"
-          console.log slideRep[k]
-          console.log  _.compact(_.pluck(slideRep[k],'scorePercentage'))
-          if  _.compact(_.pluck(slideRep[k],'scorePercentage')).indexOf(100) is -1
-            flag = false
-  console.log flag
-  if flag
-    allThroughDecks.assign()
-
-
-
-
-
-
-#    reports.find({userId:Meteor.userId,})
-
-)
 
 
 #nodeOpenMedal.onAssign(score,'addScore')
@@ -238,11 +185,17 @@ allChapterCompletion.on('assign',(t)->
 
 
 
-
-@loginEvent = new AppEvent('userLogin','client',['registerLogin'])
+#
+@loginEvent = new AppEvent('userLogin','both',['registerLogin'])
 @logoutEvent = new AppEvent('userLogout','client',['registerLogout'])
-@landOnWrapperEvent = new AppEvent('landOnWrapper','client',['landOnWrapper'])
-@newUserEvent = new AppEvent('newUser','both',['newUser'])
-@nodeOpenEvent = new AppEvent('nodeOpen','client',['nodeOpen'])
-@deckOpenEvent = new AppEvent('deckOpen','client',['deckOpen'])
+#@landOnWrapperEvent = new AppEvent('landOnWrapper','client',['landOnWrapper'])
+#@newUserEvent = new AppEvent('newUser','both',['newUser'])
+#@nodeOpenEvent = new AppEvent('nodeOpen','client',['nodeOpen'])
+#@deckOpenEvent = new AppEvent('deckOpen','client',['deckOpen'])
+@deckCompleteEvent = new AppEvent('deckComplete','both',['deckComplete'])
+@chapterCompleteEvent = new AppEvent('chapterComplete','server',['chapterComplete'])
+@allChapterCompleteEvent = new AppEvent('allChapterComplete','server',['allChapterComplete'])
+
+
+
 

@@ -80,6 +80,7 @@ function refreshNodeStates() {
         var thisNodeData = platformData.nodes[i];
         var thisNodeState = "complete";
         var requiredDecks = thisNodeData.decks;
+
         for (deck in requiredDecks) {
             if (!checkDeck(requiredDecks[deck])) thisNodeState = "incomplete";
 
@@ -87,16 +88,17 @@ function refreshNodeStates() {
         if(thisNodeState === "complete")
         {
 
-            chapterCompletion.assign()
+            //chapterCompletion.assign()
+            chapterCompleteEvent.trigger({uid:Meteor.userId(),node: thisNodeData.sequnce})
         }
         else
             flag = false;
         setNodeState(thisNodeData.sequence, thisNodeState);
     }
-    console.log(flag);
+
     if(flag)
     {
-        allChapterCompletion.assign()
+        //allChapterCompletion.assign()
     }
 
     drawNodes();
@@ -459,7 +461,7 @@ function bindNodes() {
                 opacity: 0
             });
             landscapeOpen(seq);
-            nodeOpenEvent.trigger();
+
             $('#story-zone-close').on('click', closeStoryZone);
         } else {
             alert("This chapter has not been unlocked yet");
