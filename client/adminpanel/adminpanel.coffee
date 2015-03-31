@@ -12,13 +12,15 @@ Template.adminpanel.events
       rewardName = $("#new-reward-name").val()
       rewardDesc = $("#new-reward-desc").val()
       rewardVal = $("#new-reward-value").val()
+      rewardStock = $("#new-reward-stock").val()
+
       $("#overlay").show()
       rf = assetFiles.insert(rewardFile)
       rfid = rf._id
       Tracker.autorun(()->
         console.log assetFiles.findOne(rfid).stored
         if assetFiles.findOne(rfid).stored
-          systemRewards.insert({name:rewardName,description:rewardDesc,value:rewardVal,rewardImage:rfid,pid:platforms.findOne()._id})
+          systemRewards.insert({stock:rewardStock,name:rewardName,description:rewardDesc,value:rewardVal,rewardImage:rfid,pid:platforms.findOne()._id})
           $("#overlay").hide()
 
       )

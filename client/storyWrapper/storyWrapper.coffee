@@ -186,6 +186,8 @@ Template.storyWrapper.rendered = () ->
 
 Template.storyWrapper.events
   'click .redeem-reward':(e)->
+    if this.stock is 0
+      createNotification("Sorry out of stock",0)
     if this.value > currency.getValue()
       createNotification("You do not have enough credits",0)
     Meteor.call('redeemReward',Meteor.userId(),this._id,(err,res)->

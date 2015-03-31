@@ -429,9 +429,13 @@ Meteor.methods
       newScore = parseInt(oldScore) + parseInt(score)
       Meteor.users.update({_id:uid},{$set:{'personal_profile.score':newScore}})
   redeemReward:(uid,rid)->
-    if Meteor.users.findOne(uid).currency > systemRewards.findOne(rid).value
+    u = Meteor.users.findOne(uid)
+    r = systemRewards.findOne(rid)
+    if u.currency > r.value
       Meteor.users.update({_id:uid},{$push:{redeemedRewards:rid}})
-      updatedCurrency = parseInt(Meteor.users.findOne(uid).currency) - parseInt(systemRewards.findOne(rid).value)
+      updatedCurrency = parseInt(u.currency) - parseInt(r.value)
       Meteor.users.update({_id:uid},{$set:{currency:updatedCurrency}})
+      s = parseInt(r.stock) - 1
+      systemRewards.update({_id:rid},{$set:{stock:s}})
 
 
