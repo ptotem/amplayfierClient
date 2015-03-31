@@ -1,11 +1,10 @@
 initDMS(1,{})
 
-
+Accounts.onLogin(()->
+  console.log "loin"
+)
 Meteor.startup(()->
-  Accounts.onLogin((a)->
-    Meteor.users.update({_id:a.user._id},{$set:{firstLogin:true}})
 
-  )
   # startUpRoutine()
   resetCapabilities()
 
@@ -46,8 +45,15 @@ Meteor.startup(()->
 )
 
 
-
-
+#
+#Meteor.users.find().observeChanges
+#  added: (post) ->
+#  # When new posts are added, the user gain the points.
+##    Meteor.users.update post.userId, $inc: 'profile.points': 5
+#    return
+#  changed: (id,fields)->
+#    console.log fields
+#
 
 
 #

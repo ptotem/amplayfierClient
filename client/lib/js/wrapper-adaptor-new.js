@@ -623,6 +623,7 @@ function closeDeck() {
     maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
     points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
     setCurrentSlideScore(minTime, maxTime, points);
+    endAttempt()
 }
 
 

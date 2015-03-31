@@ -1,26 +1,33 @@
 #This function is used to record an attempt of the game by any user
 
 
-@startAttempt = ()->
+@startAttempt = (expectedLength)->
 
 #  This function sets the individual score for the game
   blob = {}
-  blob.userId = Meteor.userId()
-  blob.slideId = currentTemplateId
-  blob.deckId = currentDeckId
-
-  if currentSlideType
-    blob.gameId = currentGameId
-    blob.slideType = "game"
-  else
-    blob.slideType = "slide"
-    blob.panelId = currentPanelId
-    blob.variantName = currentVariant
+#  blob.userId = Meteor.userId()
+#  blob.slideId = currentTemplateId
+#  blob.deckId = currentDeckId
+#
+#  if currentSlideType
+#    blob.gameId = currentGameId
+#    blob.slideType = "game"
+#  else
+#    blob.slideType = "slide"
+#    blob.panelId = currentPanelId
+#    blob.variantName = currentVariant
 
   blob.createdAt = new Date().getTime()
+  blob.deckComplete = false
+  blob.slideCount = expectedLength
   Session.set("currentSlideScore",0)
   @attempt = reports.insert(blob)
 
+
+@endAttempt = ()->
+  if reports.findOne(attempt).slideData.length is reports.findOne(attempt).slideCount
+    reports.update({_id:attempt},{$set:{deckComplete:true}})
+    markModuleAsComplete(currentDisplayedDeckId,Meteor.userId(),platforms.findOne()._id,"true")
 
 @setInitialScore =(score)->
   reports.update({_id:attempt},{$set:{initScore:score}})

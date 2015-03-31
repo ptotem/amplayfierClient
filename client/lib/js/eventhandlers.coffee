@@ -9,7 +9,7 @@
 
 @nodeOpen = ()->
   userActivity.insert({entityId:Meteor.userId(),entityType:'node',message:Meteor.user().personal_profile.display_name+" open node at "+new Date().getTime(),createdAt:new Date().getTime()})
-  nodeOpenMedal.assign()
+#  nodeOpenMedal.assign()
 
 @deckOpen = ()->
   userActivity.insert({entityId:Meteor.userId(),entityType:'deck',message:Meteor.user().personal_profile.display_name+" open deck at "+new Date().getTime(),createdAt:new Date().getTime()})
@@ -19,3 +19,7 @@
 @getCurrency = ()->
   console.log "curren"
   Meteor.user().currency
+
+
+@deckComplete  = ()->
+  console.log "deck is marked as complete on client"

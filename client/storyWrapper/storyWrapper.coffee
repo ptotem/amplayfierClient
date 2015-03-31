@@ -66,32 +66,24 @@ Template.userEditForm.events
 
     $('.prev-slide').show()
     $('.next-slide').show()
-    # $('.center-panel:visible').attr('has-data') is false
-    #   $('.center-panel')
-    #$($('.center-panel:visible').find('.slide-wrapper')).bind 'show', ->
-    # $('.slide-wrapper').on 'show', ->
-    #   alert("Event trigger...");
-    #   minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
-    #   maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
-    #   Session.set("currentSlideScore",parseInt($('.center-panel:visible').find(".slide-wrapper").attr("points")))
-    #   setPanelData(minTime,maxTime,Session.get("currentSlideScore"))
-
     if $('.slide-container.active').is(":first-child")
-
-      $('.prev-slide').hide()
+     $('.prev-slide').hide()
     if $('.slide-container.active').is(":last-child")
-      setTimeout(()->
-
-
-        markModuleAsComplete(currentDisplayedDeckId,Meteor.userId(),platforms.findOne()._id,"true")
-      ,500)
-
-
       $(".next-slide").hide()
-    # panelId = $('.slide-container').first().find('.slide-wrapper').attr('panel-id')
-    # executeInteractions(panelId)
-    item.find('.center-panel[variant-name="'+variantToShow+'"]').first().show()
+    item.find('.center-panel[variant-name="'+variantToShow+'"]').first().show('slow',()->
+      startTime()
+      setCurrentGameId("false")
+      setCurrentSlideType(false)
+      panelId = $(this).find('.slide-wrapper').attr('panel-id')
+      variantName = $(this).attr('variant-name')
+      templateId = $(this).attr('template-id')
+      setCurrentPanelId(panelId)
+      setCurrentSlideId(templateId)
+      executeInteractions(panelId)
+      setVariantName(variantName)
+    )
     item.addClass 'active'
+
     if parseInt($('.slide-container.active').has('iframe').length) isnt 0
 
       setCurrentGameId("true")
@@ -99,67 +91,52 @@ Template.userEditForm.events
       
       setTimeout(()->
         integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
-
         setCurrentIntegratedGameId(integratedGameId)
         setCurrentSlideId(1)
-
         triggerInitGame()
       ,2000)
-    else
-      setCurrentGameId("false")
-      setCurrentSlideType(false)
-      panelId = $('.center-panel:visible').find('.slide-wrapper').attr('panel-id')
-      variantName = $('.center-panel:visible').attr('variant-name')
-      templateId = $('.center-panel:visible').attr('template-id')
-      setCurrentPanelId(panelId)
-      setCurrentSlideId(templateId)
-      executeInteractions(panelId)
-      setVariantName(variantName)
-    callStartAttempt(false)
-    startTime()
 
+
+#    callStartAttempt(false)
+
+
+
+@transitionSlide = ()->
+  $('.active:visible').hide('slow',(e)->
+    setTime(getTime())
+    minTime = $($(this).find(".center-panel")).find(".slide-wrapper").attr("min-time")
+    maxTime = $($(this).find(".center-panel")).find(".slide-wrapper").attr("max-time")
+    points = $($(this).find(".center-panel")).find(".slide-wrapper").attr("points")
+    Session.set("currentSlideScore",points)
+    setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
+
+#        console.log $($(this).find(".center-panel")).attr('template-id')
+  )
 
 
 @initDeck = ()->
 
+
   setTimeout(()->
     readHTML()
+    startAttempt($(".slide-container").length)
+
     $(".center-panel[has-data='false']").remove()
     $(".slide-container:empty").remove()
-
     executeSlideLoad($('.slide-container').first())
     $('.next-slide').on 'click', (e) ->
-#      setComplete()
-      setTime(getTime())
-      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time")
-      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time")
-      points = $('.center-panel:visible').find(".slide-wrapper").attr("points")
-
-
-      Session.set("currentSlideScore",points)
-      if setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
-        nextItem = $('.active').next()
-        $('.active').hide()
-        $('.active').removeClass 'active'
-        executeSlideLoad(nextItem)
-
-      return
+      nextItem = $('.active').next()
+      transitionSlide()
+      $('.active').removeClass 'active'
+      executeSlideLoad(nextItem)
 
     $('.prev-slide').on 'click', (e) ->
-#      setComplete()
-      setTime(getTime())
-      minTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("min-time"))
-      maxTime = parseInt($('.center-panel:visible').find(".slide-wrapper").attr("max-time"))
-      points = $('.center-panel:visible').find(".slide-wrapper").attr("points")
-      Session.set("currentSlideScore",points)
-      if setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
-#      setPanel()
-#      setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
-        prevItem = $('.active').prev()
-        $('.active').hide()
-        $('.active').removeClass 'active'
-        executeSlideLoad(prevItem)
-      return
+
+      prevItem = $('.active').prev()
+      transitionSlide()
+      $('.active').removeClass 'active'
+      executeSlideLoad(prevItem)
+
 
   ,100)
 
@@ -175,8 +152,8 @@ Template.storyWrapper.rendered = () ->
     )
 
   if platforms.findOne()?
-    if Meteor.user().badges.indexOf(firstLand.name) is -1
-      firstLand.assign()
+#    if Meteor.user().badges.indexOf(firstLand.name) is -1
+#      firstLand.assign()
     window.platformData.nodes = platforms.findOne().nodes
     # nodesToBeRemoved = []
     # for n in platforms.findOne().nodes
