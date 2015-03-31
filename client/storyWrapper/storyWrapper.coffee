@@ -185,6 +185,15 @@ Template.storyWrapper.rendered = () ->
     initPage()
 
 Template.storyWrapper.events
+  'click .redeem-reward':(e)->
+    if this.value > currency.getValue()
+      createNotification("You do not have enough credits",0)
+    Meteor.call('redeemReward',Meteor.userId(),this._id,(err,res)->
+      if res
+        createNotification("Reward is redeemed, you would have got an email",1)
+
+    )
+
   'click .btn-logout':(e)->
     Meteor.logout()
   'click .user-edit-btn':(e)->
@@ -246,3 +255,5 @@ Template.storyWrapper.helpers
     faq
   rewards:()->
     systemRewards.find().fetch()
+  getCurrency:()->
+    currency.getValue()

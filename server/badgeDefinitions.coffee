@@ -3,7 +3,7 @@ firstLand.on('assign',(t,args)->
   console.log "lgin medal"
   oldcurrency = currency.getValue(args['uid'])
   newcurrency = oldcurrency + 100
-  currency.setValue(newcurrency)
+  currency.setValue(newcurrency,Meteor.userId())
   Meteor.users.update({_id:Meteor.userId()},{$addToSet:{badges:t}})
 )
 
@@ -21,7 +21,7 @@ chapterCompletion.on('chapterComplete',(t,args)->
     console.log "sungle node completion medal"
     oldcurrency = currency.getValue(args['uid'])
     newcurrency = oldcurrency + 50
-    currency.setValue(newcurrency)
+    currency.setValue(newcurrency,args['uid'])
     Meteor.users.update({_id:args['uid']},{$addToSet:{badges:t}})
     userNodeStatus.remove({userId:args['uid'],nodeSeq:args['node']})
 )
@@ -32,7 +32,7 @@ allThroughDecks.on('allChapterComplete',(t,args)->
   console.log "all deck complete medal"
   oldcurrency = currency.getValue(args['uid'])
   newcurrency = oldcurrency + 50
-  currency.setValue(newcurrency)
+  currency.setValue(newcurrency,args['uid'])
   Meteor.users.update({_id:args['uid']},{$addToSet:{badges:t}})
 #  console.log "all through assigned"
 #  oldcurrency = currency.getValue()

@@ -50,6 +50,13 @@ reports.deny
     else
       false
 
+Meteor.users.deny
+  update:(uid,docs,fields,modifier)->
+    if fields.indexOf('currency') isnt -1 or fields.indexOf('score') isnt -1 or fields.indexOf('redeemedRewards') isnt -1
+      true
+    else
+      false
+
 
 
 reports.find().observeChanges
@@ -76,9 +83,6 @@ reports.find().observeChanges
               chapterCompleteEvent.trigger({uid:thisreport.userId,node:i})
             else
               nodeflag = false
-        console.log "sasa"
-        console.log nodeflag
-        console.log "sasa"
         if nodeflag
           allChapterCompleteEvent.trigger({uid:thisreport.userId})
 
@@ -92,7 +96,7 @@ reports.find().observeChanges
 ##    Meteor.users.update post.userId, $inc: 'profile.points': 5
 #    return
 #  changed: (id,fields)->
-#    console.log fields
+#    if fields['currency']
 #
 #reports.observeChanges
 #  changed:(id,fields)->
