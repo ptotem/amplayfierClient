@@ -30,6 +30,7 @@
         <li class="sidelink" target-section="repository">Repository </li>
         <li class="sidelink" target-section="roles">Roles </li>
         <li class="sidelink" target-section="rewards">Rewards </li>
+        <li class="sidelink" target-section="badges">Badges </li>
 
 
 
@@ -38,7 +39,40 @@
 </aside>
 {{>wizardHeader}}
 
+        <section id="badges" class="main ">
+            <div class="main-left">
 
+                <div  class="help-area" id="badges-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+                <ul>
+                    <li  help-area="badges-help" class="active internal-sidelinks" target-section="badges-list"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Badges</li>
+
+
+
+
+
+                </ul>
+            </div>
+            <div class="main-right">
+                <div id="badges-list" class="right-form ">
+                    <h2 style="margin-top: 0;">Badges List <a href="#" class="btn btn-warning pull-right add-btn update-badge-values">Update</a></h2>
+                    <ul id="tag-list" class="full-box">
+                        {{#each badges}}
+                            <li class="badge-item" badge-name="{{name}}">{{name}} <input type="text" class=" pull-right" style="width:10% ;" value="{{value}}" /></li>
+                        {{/each}}
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </section>
 
         <section id="rewards" class="main ">
             <div class="main-left">

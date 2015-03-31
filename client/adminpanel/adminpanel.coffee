@@ -1,5 +1,14 @@
 Template.adminpanel.events
+  'click .update-badge-values':(e)->
+    badgeList = []
+    $('.badge-item').each((ind,ele)->
+      badgeList.push {name:$(ele).attr('badge-name'),value:$(ele).find('input').val()}
+    )
+    pid = platforms.findOne()._id
+    console.log badgeList
+    platforms.update({_id:pid},{$set:{badges:badgeList}})
 
+    createNotification("Badges have been updated",1)
   'click .delete-reward':(e)->
     systemRewards.remove({_id:this._id})
   'click .new-reward-save':(e)->
@@ -199,6 +208,8 @@ Template.adminpanel.helpers
 
   rewards:()->
     systemRewards.find().fetch()
+  badges:()->
+    platforms.findOne().badges
 
   passKey:()->
     {ukey:platforms.findOne()._id}

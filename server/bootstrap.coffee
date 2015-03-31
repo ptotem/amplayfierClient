@@ -1,10 +1,18 @@
 initDMS(1,{})
 
+@systemBadges = new Meteor.Collection('systemBadges')
+createBadges = ()->
+  systemBadges.remove({})
+  systemBadges.insert({name:"firstTimeLandMedal",value:100})
+  systemBadges.insert({name:"chapterCompleteMedal",value:100})
+  systemBadges.insert({name:"allDeckFullScoreMedal",value:100})
+
 
 Meteor.startup(()->
 
   # startUpRoutine()
   resetCapabilities()
+  createBadges()
 
   addCapabilities("Can add user",'add_user')
   addCapabilities("Can edit user",'edit_user')
@@ -80,11 +88,11 @@ reports.find().observeChanges
 #            console.log flag
             if flag
               userNodeStatus.insert({userId:thisreport.userId,nodeSeq:i,status:'complete'})
-              chapterCompleteEvent.trigger({uid:thisreport.userId,node:i})
+              chapterCompleteEvent.trigger({uid:thisreport.userId,node:i,pid:thisreport.platformId})
             else
               nodeflag = false
         if nodeflag
-          allChapterCompleteEvent.trigger({uid:thisreport.userId})
+          allChapterCompleteEvent.trigger({uid:thisreport.userId,pid:thisreport.platformId})
 
 
 

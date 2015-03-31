@@ -14,7 +14,7 @@
 @registerLogin = (args)->
   Meteor.users.update({_id:args['uid']},{$inc:{loginCount:1}})
   if Meteor.users.findOne(args['uid']).loginCount is 1
-    firstLand.assign({uid:args['uid']})
+    firstLand.assign(args)
 
 @getScore = (uid)->
   Meteor.users.findOne(uid).score

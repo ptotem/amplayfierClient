@@ -81,7 +81,7 @@
       createNotification(errorMessages.loginError,0)
     else
       createNotification(successMessages.welcomeSuccess,1)
-      loginEvent.trigger({uid:Meteor.userId()})
+      loginEvent.trigger({uid:Meteor.userId(),pid:platforms.findOne()._id})
       if parsed_url
         setTimeout(()->
           $("#overlay").hide()

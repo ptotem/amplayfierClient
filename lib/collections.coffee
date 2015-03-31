@@ -20,6 +20,24 @@
 @systemRewards = new Meteor.Collection('systemRewards');
 
 
+
+@platforms.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+
+@platforms.deny
+  update:(uid,docs,fields,modifier)->
+    if fields.indexOf('tenantId') isnt -1 or fields.indexOf('tenantName') isnt -1
+      true
+    else
+      false
+
+
 @userActivity.allow
   insert:(userId, role) ->
     true
