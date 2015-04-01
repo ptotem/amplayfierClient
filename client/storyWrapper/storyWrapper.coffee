@@ -29,7 +29,15 @@ Template.userEditForm.events
     Tracker.autorun(()->
       console.log assetFiles.findOne(ppid).stored
       if assetFiles.findOne(ppid).stored and assetFiles.findOne(cpid).stored
-        Meteor.users.update({_id:Meteor.userId()},{$set:{personal_profile:{coverPicId:cpid,profilePicId:ppid,first_name:first_name,last_name:last_name,display_name:display_name,designation:designation}}})
+        pp = Meteor.user().personal_profile
+        pp['coverPicId'] = cpid
+        pp['profilePicId'] = ppid
+        pp['first_name'] = first_name
+        pp['last_name'] = last_name
+        pp['display_name'] = display_name
+        pp['designation'] = designation
+        
+        Meteor.users.update({_id:Meteor.userId()},{$set:{personal_profile:pp}})
         $('.modal').modal('hide')
         $('.user-edit-form').remove()
         $('#overlay').hide()
