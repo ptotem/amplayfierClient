@@ -322,12 +322,17 @@ Meteor.methods
         else
           Fiber(()->
             for r,i in result
-              if platforms.findOne().userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(ul)
+              if platforms.findOne(pid).userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(ul)
                 newEmail = encodeEmail(r['email'], platformName)
                 personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
                 newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
                 personal_profile['initialPass'] = newpass
-                Accounts.createUser({email: newEmail, password: newpass, platform: pid, personal_profile: personal_profile})
+                if roles.findOne({unikey:pid,rolename:r['role']})? and Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)})?
+                  personal_profile['role'] = roles.findOne({unikey:pid,rolename:r['role']})._id
+                  personal_profile['reportingManager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)})._id
+                  console.log "User is dine"
+                  Accounts.createUser({email: newEmail, password: newpass, platform: pid, personal_profile: personal_profile})
+
 
               else
                future.return(false)

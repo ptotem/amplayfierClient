@@ -217,6 +217,8 @@ Template.adminpanel.helpers
     {uniqKey:platforms.findOne()._id}
   myusers: () ->
     Meteor.users.find().fetch()
+  roles:()->
+    roles.find().fetch()
   profileForUsers :(uid)->
     profiles = []
     if platforms.findOne().profiles?
@@ -250,11 +252,13 @@ Template.userForm.events
     first_name = $("#user-first-name").val()
     last_name = $("#user-last-name").val()
     reportingTo = $(".reporting-mgr").val()
+    role = $('.user-role').val()
     currUserFname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.first_name
     currUserLname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.last_name
 
     pid = platforms.findOne()._id
-    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail,reportingManager:reportingTo}
+
+    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail,reportingManager:reportingTo,role:role}
 
     if $("#user-id").val() == ''
       Meteor.call("addIndividualUser",p,pid,(err,res)->
@@ -273,7 +277,16 @@ Template.userForm.events
       )
 
     else
+      p = Meteor.users.findOne($("#user-id").val()).personal_profile
 
+      p['platform'] = pid
+      p['first_name'] = first_name
+      p['last_name'] = last_name
+      p['display_name'] = display_name
+      p['reportingManager'] = reportingTo
+      p['role'] = role
+
+      Meteor.call('updateUser',$("#user-id").val(),p)
       Meteor.call("sendUserAddMailGunMail",email,first_name,last_name,currUserFname,currUserLname)
       createNotification('Profile has been updated', 1)
 
@@ -285,7 +298,16 @@ Template.userForm.helpers
       {}
   myusers: () ->
     Meteor.users.find().fetch()
+  roles:()->
+    roles.find().fetch()
 
+Template.userForm.rendered = ()->
+  uid = this.data.userId
+  u = Meteor.users.findOne(uid).personal_profile
+  setTimeout(()->
+    $('.reporting-mgr').val(u.reportingManager)
+    $(".user-role").val(u.role)
+  ,500)
 
 
 Template.addUserProfile.events

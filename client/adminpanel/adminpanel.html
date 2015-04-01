@@ -19,6 +19,12 @@
 
 
 <template name="adminpanel">
+    <style>
+        li.active:after{
+            display: none;
+
+        }
+    </style>
     <div id="main-admin-container">
 {{>loading}}	
 	<aside id="sidebar">
@@ -42,9 +48,9 @@
         <section id="badges" class="main ">
             <div class="main-left">
 
-                <div  class="help-area" id="badges-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+                <div  class="help-area" id="badges-help" >You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal. </div>
                 <ul>
-                    <li  help-area="badges-help" class="active internal-sidelinks" target-section="badges-list"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Badges</li>
+                    <li  help-area="badges-help" class="active internal-sidelinks" target-section="badges-list"><i class="fa fa-certificate" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Badges</li>
 
 
 
@@ -54,7 +60,7 @@
             </div>
             <div class="main-right">
                 <div id="badges-list" class="right-form ">
-                    <h2 style="margin-top: 0;">Badges List <a href="#" class="btn btn-warning pull-right add-btn update-badge-values">Update</a></h2>
+                    <h2 style="margin-top: 0;">All Badges  <a href="#" class="btn btn-warning pull-right add-btn update-badge-values">Update</a></h2>
                     <ul id="tag-list" class="full-box">
                         {{#each badges}}
                             <li class="badge-item" badge-name="{{name}}">{{name}} <input type="text" class=" pull-right" style="width:10% ;" value="{{value}}" /></li>
@@ -77,10 +83,12 @@
         <section id="rewards" class="main ">
             <div class="main-left">
 
-                <div  class="help-area" id="reward-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+                <div  class="help-area" id="reward-list-help" >You can view all the rewards present in your portal. This list contains all the rewards which a user of your portal can buy for Amplayfier Credits.</div>
+                <div  style="display: none" class="help-area" id="reward-new-help" >You can add rewards to your portal over here. In the name and description field you need to put in the name and description of your reward. You also need to upload an image for the reward and define the amount of credits as well as stock for the reward. </div>
+
                 <ul>
-                    <li  help-area="reward-help" class="active internal-sidelinks" target-section="rewards-list"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Rewards</li>
-                    <li  help-area="reward-help" class="active internal-sidelinks" target-section="rewards-new"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>New Reward</li>
+                    <li  help-area="reward-list-help" class="active internal-sidelinks" target-section="rewards-list"><i class="fa fa-trophy" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Rewards</li>
+                    <li  help-area="reward-new-help" class="active internal-sidelinks" target-section="rewards-new"><i class="fa fa-plus" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>New Reward</li>
 
 
 
@@ -90,7 +98,7 @@
             </div>
             <div class="main-right">
                 <div id="rewards-list" class="right-form ">
-                    <h2 style="margin-top: 0;">Reward List</h2>
+                    <h2 style="margin-top: 0;">All Rewards </h2>
                     <ul id="tag-list" class="full-box">
                         {{#each rewards}}
                             <li>{{name}} <a href="#" class="btn btn-danger btn-xs delete-reward pull-right">Delete</a></li>
@@ -102,28 +110,35 @@
 
                 <div id="rewards-new" class="right-form ">
                     <h2 style="margin-top: 0;">New Reward</h2>
-                    <div class="field-box">
-                        <label for="new-reward-name">Reward Name</label>
-                        <input type="text" id="new-reward-name" placeholder="Please put in a reward name"/>
-                        <label for="new-reward-desc">Reward Description</label>
-                        <input type="text" id="new-reward-desc" placeholder="Please put in a Description for reward"/>
-                        <label for="new-reward-file">Reward Image</label>
-                        <input type="file" id="new-reward-file" placeholder="Please upload a file for reward"/>
-                        <label for="new-reward-file">Reward Value</label>
-                        <input type="number" id="new-reward-value" placeholder="Please put in worth of the reward"/>
-                        <label for="new-reward-stock">Reward Stock</label>
-                        <input type="number" id="new-reward-stock" placeholder="Please put in stock of the reward"/>
-
+                    <div class="col-lg-12">    <label for="new-reward-name">Reward Name</label>
+                        <input type="text" id="new-reward-name" placeholder="Please put in a reward name" class="form-control"/>
                     </div>
+                    <br><br>
 
-                    <br/>
-                    <a href="#" class="right-form-save new-reward-save">
-                        <span class="icon hiero-save "></span>
-                        <br/>
-                        Save
-                    </a>
+                    <div class="col-lg-12">
+                        <label for="new-reward-desc">Reward Description</label>
+                        <input type="text" id="new-reward-desc" placeholder="Please put in a Description for reward" class="form-control"/>
+                        </div>
+                    <br><br>
+                    <div class="col-lg-12">
+                        <label for="new-reward-file">Reward Image</label>
+                        <input style="border: 0;" type="file" id="new-reward-file" placeholder="Please upload a file for reward" class="form-control"/>
+                        </div>
+                    <br><br>
+                    <div class="col-lg-12">
+                        <label for="new-reward-file">Reward Value</label>
+                        <input type="number" id="new-reward-value" placeholder="Please put in worth of the reward" class="form-control"/>
+                        </div>
+                    <br><br>
+                    <div class="col-lg-12">
+                        <label for="new-reward-stock">Reward Stock</label>
+                        <input type="number" id="new-reward-stock" placeholder="Please put in stock of the reward" class="form-control"/>
+                        </div>
+                    <br><br>
 
-
+                    <div class="col-lg-12">
+                        <a href="#" class="btn btn-lg btn-warning  pull-right new-reward-save">Save </a>
+                    </div>
 
                 </div>
 
@@ -137,11 +152,14 @@
         <section id="roles" class="main ">
             <div class="main-left">
 
-                <div  class="help-area" id="role-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+                <div class="help-area" id="role-list-help" >You can manage and delete the roles you have created. Once you click on the Manage button, you can select what a particular role is capable of doing on the portal. All you need to do is check the capabilities. </div>
+                <div style="display: none" class="help-area" id="role-new-help" >You can create new roles over here. All you need to do it click on the New button and you have to give it a name. Once you have added a role, you can manage it from the previous tab.</div>
+                <div style="display: none" class="help-area" id="role-assign-help" >You can assign the roles you have created to users on your portal. All you need to do is select a role from the dropdown which you wish to assign to a particular user.</div>
+
                 <ul>
-                    <li  help-area="role-help" class="active internal-sidelinks" target-section="roles-list"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Files</li>
-                    <li  help-area="role-help" class="active internal-sidelinks" target-section="roles-new"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>New Role</li>
-                    <li  help-area="role-help" class="active internal-sidelinks" target-section="roles-assign"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Assign</li>
+                    <li  help-area="role-list-help" class="active internal-sidelinks" target-section="roles-list"><i class="fa fa-bars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Roles</li>
+                    <li  help-area="role-new-help" class="active internal-sidelinks" target-section="roles-new"><i class="fa fa-plus" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>New Role</li>
+                    <li  help-area="role-assign-help" class="active internal-sidelinks" target-section="roles-assign"><i class="fa fa-crosshairs" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Assign Role</li>
 
 
 
@@ -150,7 +168,7 @@
             </div>
             <div class="main-right">
                 <div id="roles-list" class="right-form ">
-                    <h2 style="margin-top: 0;">Portal Roles</h2>
+                    <h2 style="margin-top: 0;">All Roles</h2>
 
                         {{>roleList setUniqKey}}
 
@@ -165,7 +183,7 @@
                 </div>
 
                 <div id="roles-assign" class="right-form ">
-                    <h2 style="margin-top: 0;">New Role</h2>
+                    <h2 style="margin-top: 0;">Assign Role</h2>
                     <ul id="tag-list" class="full-box">
                         {{>roleAssignment}}
                     </ul>
@@ -182,15 +200,15 @@
         <section id="repository" class="main ">
 	  <div class="main-left">
 
-        <div  class="help-area" id="repo-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
+        <div  class="help-area" id="repo-help" >You can use the file repository to upload files for your users. The users of your portal can proceed to download these files from their dashboard. These files will be available to all users of your portal.</div>
         <ul>
-            <li  help-area="repo-help" class="active internal-sidelinks" target-section="repo-sec"><i class="fa fa-binoculars" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Files</li>
+            <li  help-area="repo-help" class="active internal-sidelinks" target-section="repo-sec"><i class="fa fa-hdd-o" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>File Repository</li>
             
         </ul>
     </div>
     <div class="main-right">
     	<div id="repo-sec" class="right-form ">
-    	<h2 style="margin-top: 0;">Portal Documents 
+    	<h2 style="margin-top: 0;">File Repository
     		
 
     		{{> uploadFileBtn}}
@@ -210,10 +228,12 @@
 
         <div  class="help-area" id="mass-mail-help" >You can send out mailers to every user on your portal from this section. Simply put in your subject, your mail body and hit send. You can use the portal mailer to send out reminders or updates to every user on it.</div>
         <div style="display: none" class="help-area" id="user-mail-list-help">If you want to communicate with just a few users of your portal, send out a customized mailer from this section. Just select the users you want to mail, put in a subject, your mail body and hit send.</div>
+        <div style="display: none" class="help-area" id="system-noti-list-help">You can send your users notifications within Amplayfier. The user will be able to view these notifications in their dashboard. These notifications will be sent out to all the users of your portal.</div>
+
         <ul>
             <li  help-area="mass-mail-help" class="active internal-sidelinks" target-section="mass-mail"><i class="fa fa-users" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Portal Mailers</li>
-            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="users-mail"><i class="fa fa-user" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>User Mailers</li>
-            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="site-notifications"><i class="fa fa-user" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>System Notifications</li>
+            <li help-area="user-mail-list-help"  class='internal-sidelinks chosen-sel' target-section="users-mail"><i class="fa fa-user" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i><span style="  font-size: 1em;margin-left: 3%">User Mailers</span></li>
+            <li help-area="system-noti-list-help"  class='internal-sidelinks chosen-sel' target-section="site-notifications"><i class="fa fa-cogs" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>System Notifications</li>
 
         </ul>
     </div>
@@ -409,12 +429,20 @@
 						<label for="user-email">Email ID</label>
 						<input type="email" class="form-control" id="user-email" value="{{decodeUserEmail personal_profile.email}}" placeholder="Enter name"/>
 						<input type="hidden" id="user-id" value="{{_id}}"/>
-					</div>
+					</div><br><br>
                     <div class="col-lg-12">
 						<label for="user-email">Reporting Manager</label>
 						<select class="reporting-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
 
 					</div>
+                    <div class="col-lg-12">
+						<label for="user-email">Role</label>
+                        <select class="user-role">{{#each roles}}<option value="{{_id}}">{{rolename}}</option>{{/each}}</select>
+
+
+					</div>
+
+
 
 
                     <br><br>

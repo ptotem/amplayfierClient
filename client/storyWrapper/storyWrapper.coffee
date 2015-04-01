@@ -36,7 +36,7 @@ Template.userEditForm.events
         pp['last_name'] = last_name
         pp['display_name'] = display_name
         pp['designation'] = designation
-        
+
         Meteor.users.update({_id:Meteor.userId()},{$set:{personal_profile:pp}})
         $('.modal').modal('hide')
         $('.user-edit-form').remove()
@@ -267,3 +267,17 @@ Template.storyWrapper.helpers
     systemRewards.find().fetch()
   getCurrency:()->
     currency.getValue()
+  remainingBadges:()->
+    remainingBadges = []
+
+    basePath = "/assets/badgeimages/"
+    allBadgeList = [basePath+'milestone.png',basePath+'alldone.png',basePath+'god.png',basePath+'flawless.png',basePath+'mastermind.png',basePath+'mrperfect.png',basePath+'revisionary.png',basePath+'rocketman.png',basePath+'thorough.png',basePath+'wellstarted.png']
+
+    userBadges = _.pluck(Meteor.user().badges,'imgPath')
+    console.log userBadges
+#    remainingBadges =
+    console.log _.difference(allBadgeList,userBadges)
+    for r in _.difference(allBadgeList,userBadges)
+      remainingBadges.push {imgPath:r.replace(".png","-bw.png")}
+
+    remainingBadges

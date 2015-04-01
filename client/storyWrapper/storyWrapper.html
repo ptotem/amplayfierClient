@@ -75,7 +75,11 @@
 <template name="storyWrapper">
   <!-- <h1>Just to test</h1> -->
   <!-- <body class="story-page" onload="initPage()"> -->
-
+    <style>
+        .popover{
+            z-index: 20000000 !important;
+        }
+    </style>
 
     <div id="overlay"></div>
 
@@ -136,10 +140,12 @@
                                                         <img src="{{imgPath}}" alt="">
                                                     </div>
                                                     {{/each}}
+                                                {{#each remainingBadges}}
+                                                    <div class="story-badge received" id="story-badge-2" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
+                                                        <img src="{{imgPath}}" alt="">
+                                                    </div>
+                                                    {{/each}}
 
-                                                <!--<div class="story-badge received" id="story-badge-2" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot.png" alt="">-->
-                                                <!--</div>-->
                                                 <!--<div class="story-badge" id="story-badge-3" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
                                                     <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->

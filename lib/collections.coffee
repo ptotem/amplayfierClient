@@ -146,6 +146,14 @@ imageStore = new FS.Store.GridFS("assetFiles",
     new FS.Store.FileSystem("raw",{path: "/var/www/userlistfiles"})
   ]
 )
+@excelFiles.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
 
 @repositoryFiles = new FS.Collection("repoFiles",
 	stores: [
