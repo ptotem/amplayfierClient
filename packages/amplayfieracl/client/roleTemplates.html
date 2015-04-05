@@ -1,0 +1,64 @@
+
+
+<template name="roleList">
+    <ul id="tag-list" class="full-box role-list">
+    {{#each listOfRoles}}
+            <li>{{rolename}} <a href="#" class="manage-role btn btn-warning btn-xs pull-right list-btn" >Manage</a><a href="#" class="delete-role btn btn-danger btn-xs pull-right list-btn" >Delete</a></li>
+
+        {{/each}}
+
+    </ul>
+    <ul id="tag-list" class="full-box capability-list">
+        {{#each capabilityList}}
+            {{#if capabilityAdded code}}
+                <li><input type="checkbox" name="capa" checked  value="{{code}}" style='width:10%' class="capability-name capaInRole">{{name}}</li>
+                {{else}}
+                <li><input type="checkbox" name="capa"  value="{{code}}" style='width:10%' class="capability-name capaInRole">{{name}}</li>
+                {{/if}}
+
+
+        {{/each}}
+
+
+    </ul>
+    <a href="#" class="btn btn-primary fix-capability">Submit</a>
+    <a href="#" class="btn btn-danger show-roles">Back</a>
+
+
+
+</template>
+
+<template name="roleAssignment">
+    {{#each listOfUsers}}
+        <li>{{personal_profile.display_name}} ({{getRoleName personal_profile.role}})
+            <select class="userRoleAssignment" style="float:right">
+                {{#each listOfRoles}}
+                <option value="{{_id}}">
+                    {{rolename}}
+                </option>
+
+                        {{/each}}
+            </select>
+        </li>
+
+    {{/each}}
+
+</template>
+
+
+
+<template name="newRoleForm">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Role Name</label>
+            <input type="text" class="form-control" id="rolename" placeholder="Enter Role name">
+        </div>
+        <div class="form-group">
+            <label for="roledesc">Role Description</label>
+            <textarea id="roledesc"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default create-role">Submit</button>
+    </form>
+
+</template>

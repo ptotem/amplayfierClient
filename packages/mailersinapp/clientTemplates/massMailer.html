@@ -1,0 +1,62 @@
+<template name="massMailerForm">
+    <input type="text" class="form-control" id="emailSubject" placeholder="Enter email  subject" style="width:100%">
+    <div id="emailBody"></div>
+    <input type="submit" class='btn btn-success send-mass-mail' value="Send" style="margin-top:10%;width:10%">
+
+</template>
+
+<template name="individualMailer">
+    <form>
+        <select id="usersemails" multiple>
+            {{#each userEmails}}
+                <option value="{{e}}">{{e}}</option>
+            {{/each}}
+        </select>
+        <input type="text" class="form-control" id="emailSubjectIndi" placeholder="Enter email  subject" style="width:100%">
+        <div id="emailBodyIndi"></div>
+        <input type="submit" class='btn btn-success send-individual-mail' value="Send" style="margin-top:10%;width:10%">
+
+
+    </form>
+</template>
+
+
+<template name="systemNotifications">
+
+
+    <ul id="tag-list" class="full-box">
+       {{#each notifications}}
+               <li>{{message}}
+                   <a href="#" class="btn btn-danger btn-xs pull-right delete-notification">Delete</a>
+                   {{#if active}}
+                   <a href="#" class="btn btn-xs btn-warning pull-right deactivate-notification">Deactivate</a>
+                       {{else}}
+                       <a href="#" class="btn btn-xs btn-success pull-right activate-notification">Activate</a>
+                       {{/if}}
+
+               </li>
+           {{/each}}
+    </ul>
+
+</template>
+
+<template name="newNotification">
+    <textarea class="form-control" id="notificationMessage" placeholder="Enter Notification Message" style="width:100%"></textarea>
+
+    <input type="submit" class='btn btn-success create-notification' value="Create Notification" style="margin-top:4%;width:50%">
+</template>
+
+
+<template name="plainNotificationList">
+
+
+        {{#each unreadnotifications}}
+            <a href="#" class="list-group-item active">{{message}}</a>
+        {{/each}}
+        {{#each readnotifications}}
+            <a href="#" class="list-group-item">{{message}}</a>
+        {{/each}}
+
+
+
+</template>
