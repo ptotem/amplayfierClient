@@ -105,7 +105,7 @@ body.story-page {
     position: absolute;
     padding: 10px;
     bottom: 20%;
-    font-size: 1.5em;
+    font-size: 1.0em;
     background: black;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -206,7 +206,7 @@ body.story-page {
     top: 0;
     left: 0;
     font-size: 1.5em;
-    color: white;
+    color: black;
     background: black;
     overflow: hidden;
     z-index:30000
@@ -424,4 +424,28 @@ a.zone-button:visited {
         margin-top: 10%;
     }
 
+}
+
+
+.white-text
+{
+    color:white !important;
+}
+
+.node-display-text
+{
+    font-size:0.8em !important;
+}
+
+.node-display-title
+{
+    font-size:1em !important;
+}
+
+.list-for-pepsi ul {
+    list-style-image: url('/assets/images/starbullet2.png');
+}
+.zone-display-text
+{
+    font-size:1em !important;
 }

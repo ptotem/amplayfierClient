@@ -1,7 +1,6 @@
-@firstLand = new Badge('firstTimeLandMedal','Badge Description','/assets/badgeimages/wellstarted.png',[score])
+@firstLand = new Badge('firstTimeLandMedal','Well Started','Badge Description','/assets/badgeimages/wellstarted.png',[score])
 firstLand.on('assign',(t,args)->
-  console.log "lgin medal"
-  console.log args
+
   oldcurrency = currency.getValue(args['uid'])
   newcurrency = oldcurrency + parseInt(_.where(platforms.findOne(args['pid']).badges,{name:'firstTimeLandMedal'})[0].value)
   currency.setValue(newcurrency,Meteor.userId())
@@ -15,7 +14,7 @@ firstLand.on('assign',(t,args)->
 
 
 
-@chapterCompletion = new Badge("chapterCompleteMedal",'Badge Description','/assets/badgeimages/milestone.png',[score,currency])
+@chapterCompletion = new Badge("chapterCompleteMedal","Milestone",'Badge Description','/assets/badgeimages/milestone.png',[score,currency])
 chapterCompletion.on('chapterComplete',(t,args)->
   console.log userNodeStatus.findOne({userId:args['uid'],nodeSeq:args['node']})?
   if userNodeStatus.findOne({userId:args['uid'],nodeSeq:args['node']})?
@@ -28,7 +27,7 @@ chapterCompletion.on('chapterComplete',(t,args)->
 )
 
 
-@allThroughDecks = new Badge("allDeckFullScoreMedal",'Badge Description','/assets/badgeimages/thorough.png',[score,currency])
+@allThroughDecks = new Badge("allDeckFullScoreMedal","All Done",'Badge Description','/assets/badgeimages/thorough.png',[score,currency])
 allThroughDecks.on('allChapterComplete',(t,args)->
   console.log "all deck complete medal"
   oldcurrency = currency.getValue(args['uid'])

@@ -17,9 +17,9 @@
     firstLand.assign(args)
 
 @getScore = (uid)->
-  Meteor.users.findOne(uid).score
+  Meteor.users.findOne(uid).score || 0
 @getCurrency = (uid)->
-  Meteor.users.findOne(uid).currency
+  Meteor.users.findOne(uid).currency || 0
 
 @chapterComplete  = (args)->
   ""

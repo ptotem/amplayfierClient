@@ -1,9 +1,14 @@
+/*.component {
+    color:black;
+}*/
+
 #dashboard-launcher {
     position: absolute;
-    top: -5px;
+    top: -10px;
     right: 0;
     font-size: 3em;
     width:30%;
+    z-index:10;
 }
 
 #dashboard-launcher img{

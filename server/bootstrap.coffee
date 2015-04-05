@@ -3,9 +3,17 @@ initDMS(1,{})
 @systemBadges = new Meteor.Collection('systemBadges')
 createBadges = ()->
   systemBadges.remove({})
-  systemBadges.insert({name:"firstTimeLandMedal",value:100})
-  systemBadges.insert({name:"chapterCompleteMedal",value:100})
-  systemBadges.insert({name:"allDeckFullScoreMedal",value:100})
+  systemBadges.insert({name:"firstTimeLandMedal",display_name:"Well Started",value:100})
+  systemBadges.insert({name:"chapterCompleteMedal",display_name:"Milestone",value:50})
+  systemBadges.insert({name:"allDeckFullScoreMedal",display_name:"All Done",value:100})
+  systemBadges.insert({name:"fullScoreInDecks",display_name:"Through Decks",value:200})
+  systemBadges.insert({name:"fullScoreInAGame",display_name:"Flawless Victory",value:10})
+  systemBadges.insert({name:"fullScoreInAllGames",display_name:"Mr. Perfect",value:500})
+  systemBadges.insert({name:"fullScoreInEverything",display_name:"Master Mind",value:500})
+  systemBadges.insert({name:"revisionary",display_name:"Revisionary",value:500})
+  systemBadges.insert({name:"topHat",display_name:"Top Hat",value:1000})
+  systemBadges.insert({name:"god",display_name:"God of all things",value:1000})
+
 
 
 Meteor.startup(()->

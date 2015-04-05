@@ -87,6 +87,10 @@ Template.userEditForm.events
       templateId = $(this).attr('template-id')
       setCurrentPanelId(panelId)
       setCurrentSlideId(templateId)
+      if $(this).find('video').get().length isnt 0
+        $(this).find('video').get(0).play()
+
+
       executeInteractions(panelId)
       setVariantName(variantName)
     )
@@ -124,6 +128,8 @@ Template.userEditForm.events
     points = $($(this).find(".center-panel")).find(".slide-wrapper").attr("points")
     Session.set("currentSlideScore",points)
     setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
+    if $(this).find('video').get().length isnt 0
+      $(this).find('video').get(0).pause()
 
 #        console.log $($(this).find(".center-panel")).attr('template-id')
   )
@@ -134,6 +140,8 @@ Template.userEditForm.events
 
   setTimeout(()->
     readHTML()
+    for v in document.getElementsByTagName('video')
+      v.pause()
     startAttempt($(".slide-container").length)
 
     $(".center-panel[has-data='false']").remove()
@@ -193,6 +201,11 @@ Template.storyWrapper.rendered = () ->
     initPage()
 
 Template.storyWrapper.events
+
+  'keyup #chat-user-search':(e)->
+    searchBar($(e.currentTarget).val(),".chat-row")
+
+
   'click .redeem-reward':(e)->
     if this.stock is 0
       createNotification("Sorry out of stock",0)
@@ -274,9 +287,7 @@ Template.storyWrapper.helpers
     allBadgeList = [basePath+'milestone.png',basePath+'alldone.png',basePath+'god.png',basePath+'flawless.png',basePath+'mastermind.png',basePath+'mrperfect.png',basePath+'revisionary.png',basePath+'rocketman.png',basePath+'thorough.png',basePath+'wellstarted.png']
 
     userBadges = _.pluck(Meteor.user().badges,'imgPath')
-    console.log userBadges
 #    remainingBadges =
-    console.log _.difference(allBadgeList,userBadges)
     for r in _.difference(allBadgeList,userBadges)
       remainingBadges.push {imgPath:r.replace(".png","-bw.png")}
 
