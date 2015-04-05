@@ -5,6 +5,8 @@ firstLand.on('assign',(t,args)->
   newcurrency = oldcurrency + parseInt(_.where(platforms.findOne(args['pid']).badges,{name:'firstTimeLandMedal'})[0].value)
   currency.setValue(newcurrency,Meteor.userId())
   Meteor.users.update({_id:Meteor.userId()},{$addToSet:{badges:t}})
+  createUserNotification(args['uid'],args['pid'],"You have won the Well Started badge")
+
 )
 
 #
@@ -24,6 +26,7 @@ chapterCompletion.on('chapterComplete',(t,args)->
     currency.setValue(newcurrency,args['uid'])
     Meteor.users.update({_id:args['uid']},{$addToSet:{badges:t}})
     userNodeStatus.remove({userId:args['uid'],nodeSeq:args['node']})
+    createUserNotification(args['uid'],args['pid'],"You have won the Milestone badge")
 )
 
 
@@ -34,6 +37,7 @@ allThroughDecks.on('allChapterComplete',(t,args)->
   newcurrency = oldcurrency + parseInt(_.where(platforms.findOne(args['pid']).badges,{name:'allDeckFullScoreMedal'})[0].value)
   currency.setValue(newcurrency,args['uid'])
   Meteor.users.update({_id:args['uid']},{$addToSet:{badges:t}})
+  createUserNotification(args['uid'],args['pid'],"You have won the All Done badge")
 #  console.log "all through assigned"
 #  oldcurrency = currency.getValue()
 #  newcurrency = oldcurrency + 200

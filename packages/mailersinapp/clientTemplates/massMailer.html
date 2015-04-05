@@ -41,6 +41,12 @@
 </template>
 
 <template name="newNotification">
+    <select id="usersemails2" multiple>
+        <option value="-1">Everyone</option>
+        {{#each userEmails}}
+            <option value="{{_id}}">{{e}}</option>
+        {{/each}}
+    </select>
     <textarea class="form-control" id="notificationMessage" placeholder="Enter Notification Message" style="width:100%"></textarea>
 
     <input type="submit" class='btn btn-success create-notification' value="Create Notification" style="margin-top:4%;width:50%">

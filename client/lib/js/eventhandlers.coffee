@@ -1,5 +1,6 @@
 @registerLogin = ()->
   userActivity.insert({entityId:Meteor.userId(),entityType:'user',message:" logged in at "+new Date().getTime(),createdAt:new Date().getTime()})
+  createUserNotification(Meteor.userId(),'You have successfully logged in')
 @registerLogout = ()->
   userActivity.insert({entityId:Meteor.userId(),entityType:'user',message:Meteor.user().personal_profile.display_name+" logged out at "+new Date().getTime(),createdAt:new Date().getTime()})
 @landOnWrapper = ()->

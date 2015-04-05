@@ -23,7 +23,14 @@ if Meteor.isClient
 
 
   Template.individualMailer.rendered = ->
-    $("#emailBodyIndi"). summernote()
+    $("#emailBodyIndi").summernote()
+  Template.newNotification.helpers
+    userEmails:()->
+      emails = []
+
+      for u in Meteor.users.find().fetch()
+        emails.push {_id:u._id,e:decodeEmail(u.personal_profile.email)}
+      emails
   Template.individualMailer.helpers
     userEmails:()->
       emails = []
@@ -31,12 +38,23 @@ if Meteor.isClient
       for u in Meteor.users.find().fetch()
         emails.push {e:decodeEmail(u.personal_profile.email)}
       emails
+
   Template.newNotification.rendered = ->
     Session.set("uniKeyForNoti",this.data.ukey)
+    setTimeout(()->
+      $('#usersemails2').chosen({width:'100%'})
+    ,500)
+
   Template.newNotification.events
     'click .create-notification':(e)->
       notiMsg = $("#notificationMessage").val()
-      notifications.insert({message:notiMsg,createdAt:new Date().getTime(),active:true,uid:Session.get("uniKeyForNoti")})
+      notiTarget = $("#usersemails2").val()
+      for u in notiTarget
+        createUserNotification(u,Session.get("uniKeyForNoti"),notiMsg)
+
+
+#      createUserNotification()
+#      notifications.insert({message:notiMsg,createdAt:new Date().getTime(),active:true,uid:Session.get("uniKeyForNoti")})
 
   Template.systemNotifications.rendered = ->
     ukey = this.data.ukey
@@ -56,7 +74,7 @@ if Meteor.isClient
   Template.plainNotificationList.rendered = ->
 
       ukey = this.data.ukey
-      Meteor.subscribe('notifications',ukey)
+      Meteor.subscribe('userNotifications',ukey,Meteor.userId())
 #      $('.list-group-item').splice(0,Meteor.user().unreadNoti).addClass('active')
   Template.plainNotificationList.helpers
     unreadnotifications:()->

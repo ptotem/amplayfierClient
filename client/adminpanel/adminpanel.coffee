@@ -138,6 +138,8 @@ Template.adminpanel.events
     $("#" + $(e.currentTarget).attr('help-area')).show()
     if $(e.currentTarget).hasClass('chosen-sel')
         $('#usersemails').chosen({width:'100%'})
+        $('#usersemails2').chosen({width:'100%'})
+
 
 
 

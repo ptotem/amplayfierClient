@@ -60,11 +60,12 @@ class @SysVar
 class @Badge
 #  This is the class definition for badges
 #  The dev can define badges and set properties here
-  constructor:(name,description,imgPath,sysVars)->
+  constructor:(name,display_name,description,imgPath,sysVars)->
     @name = name
     @sysVars = sysVars
     @imgPath = imgPath
     @description = description
+    @display_name  = display_name
     @eventListener = []
 
   assign:(methodArgs)->

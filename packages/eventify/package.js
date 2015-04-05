@@ -20,6 +20,7 @@ Package.onUse(function(api) {
     api.use('underscore', 'client');
     api.addFiles('lib/event.coffee');
     api.addFiles('server/server.coffee');
+    api.addFiles('client/clientGlobals.coffee');
     api.addFiles('eventify.js');
 });
 

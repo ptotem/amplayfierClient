@@ -36,3 +36,7 @@ if Meteor.isServer
   Meteor.publish('notifications',(pid)->
     notifications.find({uid:pid})
   )
+
+  Meteor.publish('userNotifications',(pid,usrid)->
+    notifications.find({$or:[{uid:pid,userId:"-1"},{uid:pid,userId:usrid}]})
+  )
