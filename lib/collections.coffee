@@ -18,10 +18,19 @@
 @userActivity = new Meteor.Collection('userActivity');
 @userNodeStatus = new Meteor.Collection('userNodeStatus');
 @systemRewards = new Meteor.Collection('systemRewards');
-
+@scoreQuestions = new Meteor.Collection('scoreQuestions')
 
 
 @platforms.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+
+@scoreQuestions.allow
   insert:(userId, role) ->
     true
   update:(userId, doc, fieldNames, modifier)->

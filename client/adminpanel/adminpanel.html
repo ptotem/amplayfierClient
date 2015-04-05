@@ -38,6 +38,8 @@
         <li class="sidelink" target-section="rewards">Rewards </li>
         <li class="sidelink" target-section="badges">Badges </li>
         <li class="sidelink" target-section="enrollments">Enrollments </li>
+        <li class="sidelink" target-section="questions-for-admin">Questions </li>
+
 
 
 
@@ -47,6 +49,66 @@
 </aside>
 {{>wizardHeader}}
 
+
+
+        <section id="questions-for-admin" class="main ">
+            <div class="main-left">
+
+                <div  class="help-area" id="question-help" >You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal. </div>
+                <ul>
+                    <li  help-area="question-help" class="active internal-sidelinks" target-section="question-for-admin-list"><i class="fa fa-certificate" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Questions</li>
+
+
+
+
+
+                </ul>
+            </div>
+            <div class="main-right">
+                <div id="question-for-admin-list" class="right-form ">
+                    <h2 style="margin-top: 0;">All Questions  <a href="#" class="btn btn-warning pull-right add-btn new-question-for-admin">New </a></h2>
+                    <ul id="tag-list" class="full-box">
+                        {{#each questions}}
+                            <li class="question-for-admin-item">{{statement}} <a href="#" class="btn btn-danger btn-xs delete-question pull-right">Delete</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+
+
+                </div>
+
+
+                <div id="new-question-for-admin" class="right-form ">
+                    <h2 style="margin-top: 0;">New Question  <a href="#" class="btn btn-warning pull-right add-btn ">New </a></h2>
+                    <div class="col-lg-12">    <label for="new-reward-name">Statement</label>
+                        <input type="text" id="new-question-name" placeholder="Please put in a question statment" class="form-control"/>
+                    </div>
+                    <br><br>
+                    <div class="col-lg-12">    <label for="new-question-min">Question Min</label>
+                        <input type="text" id="new-question-min" placeholder="Please put min score the manager can give" class="form-control"/>
+                    </div>
+                    <br><br>
+                    <div class="col-lg-12">    <label for="new-question-max">Question Max</label>
+                        <input type="text" id="new-question-max" placeholder="Please put in maximum score a manager can give" class="form-control"/>
+                    </div>
+                    <br><br>
+                    <div class="col-lg-12">
+                        <a href="#" class="btn btn-lg btn-warning  pull-right new-question-for-admin-save">Save </a>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </section>
         <section id="enrollments" class="main ">
             <div class="main-left">
 
@@ -65,7 +127,7 @@
                     <h2 style="margin-top: 0;">All enrollments  <a href="#" class="btn btn-warning pull-right add-btn node-date-assignment">Update</a></h2>
                     <ul id="tag-list" class="full-box">
                         {{#each nodes}}
-                            <li class="badge-item" node-seq="{{sequence}}">{{title}} <input node-seq="{{sequence}}" type="text" class=" node-date pull-right" style="width:10% ;" value="{{timestampToDate endDate}}" />
+                            <li class="badge-item" node-seq="{{sequence}}">{{title}} <input node-seq="{{sequence}}" type="text" class=" node-date pull-right" style="width:20% ;" value="{{timestampToDate endDate}}" />
                     </li>
                         {{/each}}
                     </ul>

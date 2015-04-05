@@ -1,4 +1,18 @@
 Template.adminpanel.events
+  'click .delete-question':(e)->
+    scoreQuestions.remove({_id:this._id})
+  'click .new-question-for-admin-save':(e)->
+    nqName = $("#new-question-name").val()
+    nqMax = $("#new-question-max").val()
+    nqMin = $("#new-question-min").val()
+
+    scoreQuestions.insert({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id})
+
+
+  'click .new-question-for-admin':(e)->
+    $("#question-for-admin-list").hide()
+    $("#new-question-for-admin").show()
+
   'click .node-date-assignment':(e)->
     nodes = platforms.findOne().nodes
     pid = platforms.findOne()._id
@@ -231,6 +245,8 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
+  questions:()->
+    scoreQuestions.find().fetch()
   nodes:()->
     platforms.findOne().nodes
 

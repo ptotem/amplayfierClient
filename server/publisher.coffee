@@ -110,3 +110,10 @@ Meteor.publish('platformAssetFiles',(pname)->
   assetFiles.find({platform:pid})
 )
 
+Meteor.publish('scoreQuestions',(pname)->
+  this.ready()
+  pid = platforms.findOne({tenantName: pname})._id
+
+  scoreQuestions.find({platform:pid})
+)
+
