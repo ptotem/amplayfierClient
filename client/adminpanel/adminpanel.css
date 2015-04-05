@@ -406,3 +406,8 @@ input.filter-box{
     background: #000000;
     border-radius:50%;
 }
+
+.bootstrap-datetimepicker-widget{
+    top:112px;
+    left:310px !important;
+}

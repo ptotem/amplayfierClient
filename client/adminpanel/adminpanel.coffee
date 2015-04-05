@@ -1,4 +1,14 @@
 Template.adminpanel.events
+  'click .node-date-assignment':(e)->
+    nodes = platforms.findOne().nodes
+    pid = platforms.findOne()._id
+    $(".node-date").each((ind,ele)->
+      if $(ele).val().length isnt 0
+
+        nodes[parseInt($(ele).attr('node-seq'))].endDate = new Date($(ele).val()).getTime()
+    )
+    platforms.update({_id:pid},{$set:{nodes:nodes}})
+
   'click .update-badge-values':(e)->
     badgeList = []
     $('.badge-item').each((ind,ele)->
@@ -186,6 +196,20 @@ Template.adminpanel.rendered = () ->
 #
 #  })
   setTitle('amplayfier | Manage User Profiles & Reports');
+  $('.node-date').datepicker()
+  $(".node-date").each((ind,ele)->
+    if platforms.findOne().nodes[ind].endDate?
+      ed = platforms.findOne().nodes[ind].endDate
+    else
+      ed = new Date().getTime()
+    edate = new Date(ed)
+
+    $(ele).datepicker  'setDate', new Date(edate.getFullYear(),edate.getMonth() , edate.getDate())
+
+  )
+#  $(".node-date").datetimepicker(
+#    defaultDate:new Date()
+#  )
 
 
   Tracker.autorun(()->
@@ -207,6 +231,8 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
+  nodes:()->
+    platforms.findOne().nodes
 
   rewards:()->
     systemRewards.find().fetch()

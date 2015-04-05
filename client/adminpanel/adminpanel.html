@@ -37,6 +37,8 @@
         <li class="sidelink" target-section="roles">Roles </li>
         <li class="sidelink" target-section="rewards">Rewards </li>
         <li class="sidelink" target-section="badges">Badges </li>
+        <li class="sidelink" target-section="enrollments">Enrollments </li>
+
 
 
 
@@ -45,6 +47,41 @@
 </aside>
 {{>wizardHeader}}
 
+        <section id="enrollments" class="main ">
+            <div class="main-left">
+
+                <div  class="help-area" id="badges-help" >You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal. </div>
+                <ul>
+                    <li  help-area="enrollments-help" class="active internal-sidelinks" target-section="enrollments-list"><i class="fa fa-certificate" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Nodes</li>
+
+
+
+
+
+                </ul>
+            </div>
+            <div class="main-right">
+                <div id="enrollments-list" class="right-form ">
+                    <h2 style="margin-top: 0;">All enrollments  <a href="#" class="btn btn-warning pull-right add-btn node-date-assignment">Update</a></h2>
+                    <ul id="tag-list" class="full-box">
+                        {{#each nodes}}
+                            <li class="badge-item" node-seq="{{sequence}}">{{title}} <input node-seq="{{sequence}}" type="text" class=" node-date pull-right" style="width:10% ;" value="{{timestampToDate endDate}}" />
+                    </li>
+                        {{/each}}
+                    </ul>
+
+
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </section>
         <section id="badges" class="main ">
             <div class="main-left">
 
