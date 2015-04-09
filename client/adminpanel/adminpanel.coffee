@@ -1,12 +1,20 @@
 Template.adminpanel.events
   'click .delete-question':(e)->
     scoreQuestions.remove({_id:this._id})
+  'click .delete-question-btn':(e)->
+    assesments.remove({_id:this._id})
+
+  'click .add-question':(e)->
+    $("#question-for-admin-list").hide()
+    $("#add-question").show()
+
+
+
   'click .new-question-for-admin-save':(e)->
     nqName = $("#new-question-name").val()
     nqMax = $("#new-question-max").val()
     nqMin = $("#new-question-min").val()
-
-    scoreQuestions.insert({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id})
+    assesments.insert({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id,_id:assesments.findOne()._id})
 
   'click .new-assessment-for-admin-save':(e)->
     newassessment = $("#new-assessment").val()
@@ -18,6 +26,11 @@ Template.adminpanel.events
     $("#question-for-admin-list").hide()
     $("#new-question-for-admin").show()
     $("#new-question-for-admin").find("#new-assessment").val('')
+
+  'click .view-question':(e)->
+    $("#question-for-admin-list").hide()
+    $("#view-question-for-admin-list").show()
+
 
 
   'click .node-date-assignment':(e)->

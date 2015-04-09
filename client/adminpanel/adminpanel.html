@@ -56,7 +56,7 @@
 
                 <div  class="help-area" id="question-help" >You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal. </div>
                 <ul>
-                    <li  help-area="question-help" class="active internal-sidelinks" target-section="question-for-admin-list"><i class="fa fa-certificate" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Questions</li>
+                    <li  help-area="question-help" class="active internal-sidelinks" target-section="question-for-admin-list"><i class="fa fa-certificate" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Assessment</li>
 
 
 
@@ -71,8 +71,8 @@
                         {{#each assessments}}
                             <li class="question-for-admin-item">{{assessmentName}} <a href="#" class="btn btn-danger pull-right list-btn btn-xs add-question">Add question</a>
 															<a href="#" class="btn btn-warning btn-xs upload-question list-btn pull-right">Upload questions</a>
-															<a href="#" class="btn btn-danger btn-xs delete-question-btn list-btn pull-right">Delete questions</a>
-															<a href="#" class="btn btn-warning btn-xs View-question pull-right list-btn">View question</a>
+															<a href="#" class="btn btn-danger btn-xs delete-question-btn list-btn pull-right">Delete assessments</a>
+															<a href="#" class="btn btn-warning btn-xs view-question pull-right list-btn">View question</a>
                             </li>
                         {{/each}}
                     </ul>
@@ -82,7 +82,7 @@
 
 
                 <div id="new-question-for-admin" class="right-form ">
-                    <h2 style="margin-top: 0;">New Question  <a href="#" class="btn btn-warning pull-right add-btn ">New </a></h2>
+                    <h2 style="margin-top: 0;">New Assessment  <a href="#" class="btn btn-warning pull-right add-btn ">New </a></h2>
 										<div class="col-lg-12">    <label for="new-assessment">New Assessment</label>
 												<input type="text" id="new-assessment" placeholder="Please put assessment" class="form-control"/>
 										</div>
@@ -105,14 +105,45 @@
 
 
                 </div>
+								<div id="add-question" class="right-form ">
+										<h2 style="margin-top: 0;">New Question<a href="#" class="btn btn-warning pull-right add-btn ">New </a></h2>
+										<div class="col-lg-12">    <label for="new-reward-name">Statement</label>
+												<input type="text" id="new-question-name" placeholder="Please put in a question statment" class="form-control"/>
+										</div>
+										<br><br>
+										<div class="col-lg-12">    <label for="new-question-min">Question Min</label>
+												<input type="text" id="new-question-min" placeholder="Please put min score the manager can give" class="form-control"/>
+										</div>
+										<br><br>
+										<div class="col-lg-12">    <label for="new-question-max">Question Max</label>
+												<input type="text" id="new-question-max" placeholder="Please put in maximum score a manager can give" class="form-control"/>
+										</div>
+										<br><br>
+										<div class="col-lg-12">
+												<a href="#" class="btn btn-lg btn-warning  pull-right new-question-for-admin-save">Save </a>
+										</div>
+								</div>
+								<div id="view-question-for-admin-list" class="right-form ">
+										<h2 style="margin-top: 0;">All Question</h2>
+										<ul id="tag-list" class="full-box">
+												{{#each assessments}}
+														<div class="col-lg-12"><label for="view-statement">Statement</label>
+																<div id="view-statement">{{statement}}</div>
+														</div>
+														<br><br>
+														<div class="col-lg-12"><label for="view-min">Question Min</label>
+																<div id="view-min">{{min}}</div>
+														</div>
+														<br><br>
+														<div class="col-lg-12"><label for="view-max">Question Max</label>
+																<div id="view-max">{{max}}</div>
+														</div>
+														<br><br>
+												{{/each}}
+										</ul>
 
 
-
-
-
-
-
-
+								</div>
             </div>
         </section>
         <section id="enrollments" class="main ">
@@ -121,12 +152,7 @@
                 <div  class="help-area" id="badges-help" >You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal. </div>
                 <ul>
                     <li  help-area="enrollments-help" class="active internal-sidelinks" target-section="enrollments-list"><i class="fa fa-certificate" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Nodes</li>
-
-
-
-
-
-                </ul>
+								</ul>
             </div>
             <div class="main-right">
                 <div id="enrollments-list" class="right-form ">
