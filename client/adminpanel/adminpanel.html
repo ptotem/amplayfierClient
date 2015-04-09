@@ -67,12 +67,17 @@
             <div class="main-right">
                 <div id="question-for-admin-list" class="right-form ">
                     <h2 style="margin-top: 0;">All Assessment  <a href="#" class="btn btn-warning pull-right add-btn new-question-for-admin">New </a></h2>
+                    <input type="file" class="assessment-question-upload" id='new-question-for-assessment-excel' style="display:none" />
                     <ul id="tag-list" class="full-box">
                         {{#each assessments}}
-                            <li class="question-for-admin-item">{{assessmentName}} <a href="#" class="btn btn-danger pull-right list-btn btn-xs add-question">Add question</a>
-															<a href="#" class="btn btn-warning btn-xs upload-question list-btn pull-right">Upload questions</a>
-															<a href="#" class="btn btn-danger btn-xs delete-question-btn list-btn pull-right">Delete assessments</a>
+
+                            <li class="question-for-admin-item">{{assessmentName}}
+
+                                <a href="#" class="btn btn-danger pull-right list-btn btn-xs add-question">Add question</a>
+															<a href="#" class="btn btn-warning btn-xs upload-assessment list-btn pull-right" id="{{_id}}">Upload questions</a>
+															<a href="#" class="btn btn-danger btn-xs delete-question-btn list-btn pull-right">Delete questions</a>
 															<a href="#" class="btn btn-warning btn-xs view-question pull-right list-btn">View question</a>
+
                             </li>
                         {{/each}}
                     </ul>
@@ -126,7 +131,7 @@
 								<div id="view-question-for-admin-list" class="right-form ">
 										<h2 style="margin-top: 0;">All Question</h2>
 										<ul id="tag-list" class="full-box">
-												{{#each assessments}}
+												{{#each viewQuestion}}
 														<div class="col-lg-12"><label for="view-statement">Statement</label>
 																<div id="view-statement">{{statement}}</div>
 														</div>
@@ -139,6 +144,7 @@
 																<div id="view-max">{{max}}</div>
 														</div>
 														<br><br>
+														<hr>
 												{{/each}}
 										</ul>
 

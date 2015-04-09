@@ -163,9 +163,29 @@ imageStore = new FS.Store.GridFS("assetFiles",
 @excelFiles = new FS.Collection("excelFiles",
 
   stores: [
-    new FS.Store.FileSystem("raw",{path: "/var/www/userlistfiles"})
+    new FS.Store.FileSystem("raw",{path: "/var/www/assessmentquestionlistfiles"})
   ]
 )
+
+
+@excelFiles.on("stored",(fileObj,storeName)->
+
+  if storeName is "raw"
+    Fiber = Npm.require('fibers');
+    Future = Npm.require('fibers/future');
+    future = new Future();
+    Fiber(()->
+      if excelFiles.findOne(fileObj._id)?
+        # console.log fileObj
+        excelFiles.update({_id:fileObj._id},{$set:{stored:true}})
+      # console.log fileObj.url()
+    ).run()
+
+)
+
+
+
+
 @excelFiles.allow
   insert:(userId, role) ->
     true
