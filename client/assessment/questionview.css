@@ -46,7 +46,8 @@
   position:fixed;
   bottom:0px;
 }
-/*.questionlist
+.questionlist
 {
-  border:1px solid red;
-}*/
+  overflow-y: auto;
+  overflow-x: hidden;
+}
