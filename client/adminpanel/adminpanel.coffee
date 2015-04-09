@@ -1,4 +1,31 @@
 Template.adminpanel.events
+  'click .upload-assessment':(e)->
+    $('.assessment-question-upload').trigger('click')
+    Session.set("statementName",$(e.currentTarget).attr('data-statement'))
+
+  'change .assessment-question-upload': (e)->
+    if document.getElementById('new-question-for-assessment-excel').files.length is 0
+      createNotification("Please upload a excel",1)
+    else
+      assessmentQuestions = new FS.File(document.getElementById('new-question-for-assessment-excel').files[0])
+      assessmentQuestions.platform = platforms.findOne()._id
+      assessmentQuestions.stored = false
+      $("#overlay").show()
+      rf = excelFiles.insert(assessmentQuestions)
+      rfid = rf._id
+      statementId=Session.get("statementName")
+      Tracker.autorun(()->
+        console.log excelFiles.findOne(rfid).stored
+        if excelFiles.findOne(rfid).stored
+          Meteor.call('bulkInsertAssessmentQuestions',rfid,platforms.findOne()._id,statementId)
+          $("#overlay").hide()
+
+      )
+
+
+
+
+
   'click .delete-question':(e)->
     scoreQuestions.remove({_id:this._id})
   'click .new-question-for-admin-save':(e)->

@@ -67,10 +67,13 @@
             <div class="main-right">
                 <div id="question-for-admin-list" class="right-form ">
                     <h2 style="margin-top: 0;">All Assessment  <a href="#" class="btn btn-warning pull-right add-btn new-question-for-admin">New </a></h2>
+                    <input type="file" class="assessment-question-upload" id='new-question-for-assessment-excel' style="display:none" />
                     <ul id="tag-list" class="full-box">
                         {{#each assessments}}
-                            <li class="question-for-admin-item">{{assessmentName}} <a href="#" class="btn btn-danger pull-right list-btn btn-xs add-question">Add question</a>
-															<a href="#" class="btn btn-warning btn-xs upload-question list-btn pull-right">Upload questions</a>
+                            <li class="question-for-admin-item">{{assessmentName}}
+
+                                <a href="#" class="btn btn-danger pull-right list-btn btn-xs add-question">Add question</a>
+															<a href="#" class="btn btn-warning btn-xs upload-assessment list-btn pull-right" data-statement="{{_id}}">Upload questions</a>
 															<a href="#" class="btn btn-danger btn-xs delete-question-btn list-btn pull-right">Delete questions</a>
 															<a href="#" class="btn btn-warning btn-xs View-question pull-right list-btn">View question</a>
                             </li>
