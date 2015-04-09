@@ -20,6 +20,12 @@ Template.adminpanel.events
       if $(ele).val().length isnt 0
 
         nodes[parseInt($(ele).attr('node-seq'))].endDate = new Date($(ele).val()).getTime()
+        if parseInt($(ele).next().val()) > 100
+          pm = 100
+        else
+          pm = $(ele).next().val()
+        nodes[parseInt($(ele).attr('node-seq'))].passingMarks = pm
+
     )
     platforms.update({_id:pid},{$set:{nodes:nodes}})
 
