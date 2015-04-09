@@ -8,10 +8,17 @@ Template.adminpanel.events
 
     scoreQuestions.insert({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id})
 
+  'click .new-assessment-for-admin-save':(e)->
+    newassessment = $("#new-assessment").val()
+    assesments.insert({assessmentName:newassessment,platform:platforms.findOne()._id})
+
+
 
   'click .new-question-for-admin':(e)->
     $("#question-for-admin-list").hide()
     $("#new-question-for-admin").show()
+    $("#new-question-for-admin").find("#new-assessment").val('')
+
 
   'click .node-date-assignment':(e)->
     nodes = platforms.findOne().nodes
@@ -251,6 +258,8 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
+  assessments:()->
+    assesments.find().fetch()
   questions:()->
     scoreQuestions.find().fetch()
   nodes:()->
