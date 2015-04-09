@@ -26,7 +26,7 @@
         }
     </style>
     <div id="main-admin-container">
-{{>loading}}	
+{{>loading}}
 	<aside id="sidebar">
     <ul>
         <li class="active sidelink" target-section="users">Manage Users</li>
@@ -38,7 +38,7 @@
         <li class="sidelink" target-section="rewards">Rewards </li>
         <li class="sidelink" target-section="badges">Badges </li>
         <li class="sidelink" target-section="enrollments">Enrollments </li>
-        <li class="sidelink" target-section="questions-for-admin">Questions </li>
+            <li class="sidelink" target-section="questions-for-admin">Assessment </li>
 
 
 
@@ -66,10 +66,13 @@
             </div>
             <div class="main-right">
                 <div id="question-for-admin-list" class="right-form ">
-                    <h2 style="margin-top: 0;">All Questions  <a href="#" class="btn btn-warning pull-right add-btn new-question-for-admin">New </a></h2>
+                    <h2 style="margin-top: 0;">All Assessment  <a href="#" class="btn btn-warning pull-right add-btn new-question-for-admin">New </a></h2>
                     <ul id="tag-list" class="full-box">
                         {{#each questions}}
-                            <li class="question-for-admin-item">{{statement}} <a href="#" class="btn btn-danger btn-xs delete-question pull-right">Delete</a>
+                            <li class="question-for-admin-item">{{statement}} <a href="#" class="btn btn-danger pull-right list-btn btn-xs add-question">Add question</a>
+															<a href="#" class="btn btn-warning btn-xs upload-question list-btn pull-right">Upload questions</a>
+															<a href="#" class="btn btn-danger btn-xs delete-question-btn list-btn pull-right">Delete questions</a>
+															<a href="#" class="btn btn-warning btn-xs View-question pull-right list-btn">View question</a>
                             </li>
                         {{/each}}
                     </ul>
@@ -80,7 +83,10 @@
 
                 <div id="new-question-for-admin" class="right-form ">
                     <h2 style="margin-top: 0;">New Question  <a href="#" class="btn btn-warning pull-right add-btn ">New </a></h2>
-                    <div class="col-lg-12">    <label for="new-reward-name">Statement</label>
+										<div class="col-lg-12">    <label for="new-assessment">New Assessment</label>
+												<input type="text" id="new-assessment" placeholder="Please put assessment" class="form-control"/>
+										</div>
+                    <!-- <div class="col-lg-12">    <label for="new-reward-name">Statement</label>
                         <input type="text" id="new-question-name" placeholder="Please put in a question statment" class="form-control"/>
                     </div>
                     <br><br>
@@ -94,7 +100,7 @@
                     <br><br>
                     <div class="col-lg-12">
                         <a href="#" class="btn btn-lg btn-warning  pull-right new-question-for-admin-save">Save </a>
-                    </div>
+                    </div> -->
 
 
 
@@ -127,7 +133,7 @@
                     <h2 style="margin-top: 0;">All enrollments  <a href="#" class="btn btn-warning pull-right add-btn node-date-assignment">Update</a></h2>
                     <ul id="tag-list" class="full-box">
                         {{#each nodes}}
-                            <li class="badge-item" node-seq="{{sequence}}">{{title}} <input node-seq="{{sequence}}" type="text" class=" node-date pull-right" style="width:20% ;" value="{{timestampToDate endDate}}" />
+                            <li class="badge-item" node-seq="{{sequence}}">{{title}} <input node-seq="{{sequence}}" type="text" class=" node-date pull-right" style="width:20% ;" value="{{timestampToDate endDate}}" /> <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right" style="width:10% ;" value="{{passingMarks}}" />
                     </li>
                         {{/each}}
                     </ul>
@@ -302,13 +308,13 @@
         <div  class="help-area" id="repo-help" >You can use the file repository to upload files for your users. The users of your portal can proceed to download these files from their dashboard. These files will be available to all users of your portal.</div>
         <ul>
             <li  help-area="repo-help" class="active internal-sidelinks" target-section="repo-sec"><i class="fa fa-hdd-o" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>File Repository</li>
-            
+
         </ul>
     </div>
     <div class="main-right">
     	<div id="repo-sec" class="right-form ">
     	<h2 style="margin-top: 0;">File Repository
-    		
+
 
     		{{> uploadFileBtn}}
     	</h2>
@@ -318,7 +324,7 @@
 
     	</div>
 
-    		
+
     </div>
 </section>
 
