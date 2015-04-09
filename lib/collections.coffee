@@ -19,6 +19,7 @@
 @userNodeStatus = new Meteor.Collection('userNodeStatus');
 @systemRewards = new Meteor.Collection('systemRewards');
 @scoreQuestions = new Meteor.Collection('scoreQuestions')
+@assesments = new Meteor.Collection('assesments')
 
 
 @platforms.allow
@@ -181,8 +182,8 @@ imageStore = new FS.Store.GridFS("assetFiles",
     Fiber(()->
     	repositoryFiles.update({_id:fileObj._id},{$set:{stored:true}})
     ).run()
-	
-    
+
+
 )
 
 
@@ -230,7 +231,3 @@ nodeOpenMedal.on('assign',(t)->
 @deckCompleteEvent = new AppEvent('deckComplete','both',['deckComplete'])
 @chapterCompleteEvent = new AppEvent('chapterComplete','server',['chapterComplete'])
 @allChapterCompleteEvent = new AppEvent('allChapterComplete','server',['allChapterComplete'])
-
-
-
-
