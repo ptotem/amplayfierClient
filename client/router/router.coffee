@@ -57,6 +57,9 @@ Router.route '/forgotpassword',
     @render()
 
 
+
+
+
 Router.route '/reset-password/:token',
   template: "resetPassword",
   name:'reset',
@@ -111,6 +114,9 @@ Router.route '/admin',
     else
       @render('loading')
 
+Router.route '/assessment',
+  template: 'assessmentQuestion',
+  name:'assessment',
 
 Router.route '/',
   template: 'storyWrapper',
