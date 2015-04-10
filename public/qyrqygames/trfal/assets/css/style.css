@@ -1,0 +1,182 @@
+/*@import url(http://fonts.googleapis.com/css?family=Comfortaa);*/
+/* -------------- Please do not change the CSS for the below elements ----------- */
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#ptotemy-game {
+    position: fixed;
+    width: 640px;
+    height: 480px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#log {
+    display: none;
+    pointer-events: none;
+}
+
+#entities,
+#items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 640px;
+    height: 480px;
+    pointer-events: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.environment,
+.location,
+.entity,
+.item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+/* -------------- You can change CSS of elements below this as will ----------- */
+
+#gameheader {
+    left: 17%;
+    top: 4%;
+    font-size: 2.5em;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    width:60%;
+}
+
+.is-disabled {
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+#statement-area {
+    height: 15%;
+    left: 20%;
+    padding: 3%;
+    top: 25%;
+    width: 55%;
+    text-align: center;
+    color: black;
+}
+
+#options {
+    height: 60%;
+    top: 45%;
+    width: 100%;
+    text-align: center
+}
+
+#options li {
+    cursor: pointer;
+    float: left;
+    height: 40%;
+    list-style-type: none;
+    margin: 2%;
+    padding: 2%;
+    width: 39%;
+}
+
+#options li:hover {
+    background-color: darkgray;
+    padding-bottom: 0;
+}
+
+#result {
+    display: none;
+    z-index: 99999;
+}
+
+#replay {
+    left: 20%;
+    top: 80%;
+    width: 60%;
+    height: 20%;
+    font-size: 2em;
+    z-index: 99999;
+}
+
+#quiz {
+    display: none;
+}
+
+#knowmore {
+    display: none;
+}
+
+#timer {
+    background: none repeat scroll 0 0 black;
+    border-radius: 50%;
+    color: white;
+    font-size: 4.2em;
+    height: 80px;
+    left: 42%;
+    padding: 13px;
+    text-align: center;
+    top: 53%;
+    width: 80px;
+    z-index: 9999;
+}
+
+#progressBar {
+    width: 60%;
+    left: 20%;
+    height: 10%;
+    top: 80%;
+    background: #ccc;
+    z-index: 999999;
+}
+
+#progressBar .location {
+    display: inline-block;
+    position: relative;
+}
+
+.correctProgress {
+    width: 100%;
+    height: 100%;
+    background: #7d9b53;
+}
+
+.incorrectProgress {
+    width: 100%;
+    height: 100%;
+    background: #ad594e;
+}
+
+#score {
+    top: 30%;
+    width: 100%;
+    font-size: 4em;
+    text-align: center;
+}
