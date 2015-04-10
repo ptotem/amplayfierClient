@@ -211,6 +211,15 @@ Template.storyWrapper.helpers
     else
       "left"
 
+Template.individualStoryZone.rendered = ->
+  $('.zone-deck').popover({
+    placement: 'left',
+    trigger: "hover",
+    html: true,
+  });
+
+
+
 Template.individualStoryZone.events
   'click #story-zone-close':(e)->
     $('#story-zone').fadeOut()
@@ -219,6 +228,13 @@ Template.individualStoryZone.events
       opacity: 1
     });
 
+Template.individualStoryZone.helpers
+  deckOfNode:(s)->
+
+    deckList = []
+    for d in platforms.findOne().nodes[s].decks
+      deckList.push {deckName:deckHtml.findOne({deckId:d}).name}
+    deckList
 
 
 
@@ -242,7 +258,7 @@ Template.storyWrapper.events
     nodePhoto = storyConfig.imgsrc + "/" + node.photo
     nodeTitle = node.title
     nodeDescription = node.description
-    Blaze.renderWithData(Template.individualStoryZone,{nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
+    Blaze.renderWithData(Template.individualStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
     $('#story-zone').fadeIn()
 
 

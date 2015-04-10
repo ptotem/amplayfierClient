@@ -3,6 +3,14 @@
     <img src="{{nodePhoto}}" class="story-zone-photo"/>
     <div class="story-zone-name">{{nodeTitle}}</div>
     <div class="story-zone-tale">{{nodeDescription}}</div>
+    <div id="button-bank">
+        {{#each deckOfNode seq}}
+        <a href="#" class="zone-deck zone-button" data-toggle="popover" title="{{deckName}}" data-content="This is the description of the deck <br/><div class='popover-content-block incomplete-popover-content'>Incomplete</div>"  id="deck">{{deckName}}</a>
+            {{/each}}
+
+    </div>
+
+
 
 </template>
 
