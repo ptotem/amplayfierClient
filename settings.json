@@ -3,10 +3,17 @@
   "secret":"8479242be2dbd9624736effe",
   "clientIp":"192.168.0.109",
   "bucket":"amplayfiertest",
-  "accessKeyId":"AKIAI2AGIMJZA7GRHJZA",
-  "secretAccessKey":"+ZEofIPi+yURed+Co9Uai6cMeQVU4dtuZ87pA0NA",
+  "accessKeyId":"AKIAID7GJWA7XC5TJPPA",
+  "secretAccessKey":"c08ynkTSQ1wHgbwJT4SS+YVfVJIX97qtxhe/bKSz",
   "folder":"sample",
-  "region":"ap-southeast-1"
+  "region":"ap-southeast-1",
+
+  "public":{
+    "nodeenrollments":1,
+    "orghierarchy":1,
+    "mainLink":"http://lvh.me:3000"
+  }
+
 
 
 }
