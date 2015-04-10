@@ -1,3 +1,12 @@
+<template name="individualStoryZone">
+    <a id="story-zone-close" href="#" class="btn btn-lg">Close</a>
+    <img src="{{nodePhoto}}" class="story-zone-photo"/>
+    <div class="story-zone-name">{{nodeTitle}}</div>
+    <div class="story-zone-tale">{{nodeDescription}}</div>
+
+</template>
+
+
 <template name="userEditForm">
     <div class="modal fade user-edit-form">
         <div class="modal-dialog" style="z-index: 100000;">
@@ -91,13 +100,15 @@
         </a>
       <div id="story-nodes">
           {{#each nodes}}
-              <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{subtitle}}" data-placement="{{getPlacement px}}" class="story-node" id="story-node-' + i + '" style="top:{{py}}%;left:{{px}}%;width:{{width}}%">
+              <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{subtitle}}" data-placement="{{getPlacement px}}" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{py}}%;left:{{px}}%;width:{{width}}%">
                   <img src="http://lvh.me:3000/assets/storyWrapper/img-streetWrapper/{{active}}" alt="">
               </a>
               {{/each}}
 
       </div>
-      <div id="story-zone"></div>
+      <div id="story-zone">
+
+      </div>
       <img id="story-presenter" src="{{getStoryPresenter}}" alt="Story Presenter"/>
       <img id="story-nameplate" src="{{getNamePlate}}" alt="Story Name Plate"/>
 

@@ -211,6 +211,14 @@ Template.storyWrapper.helpers
     else
       "left"
 
+Template.individualStoryZone.events
+  'click #story-zone-close':(e)->
+    $('#story-zone').fadeOut()
+    $('.story-node').css({
+      "pointer-events": "auto",
+      opacity: 1
+    });
+
 
 
 
@@ -219,6 +227,25 @@ Template.storyWrapper.events
     $(e.currentTarget).css({"box-shadow": storyConfig.nodestyle.hover})
   'click .story-node':(e)->
     $('[data-toggle="popover"]').popover('hide');
+    $('.story-node').css({
+      "pointer-events": "none",
+      opacity: 0
+    });
+    if window.innerWidth > 1050
+      $('#story-nameplate').animate width: storyConfig.nameplate.reduced + '%'
+    else
+      if !isPortrait()
+        $('#story-nameplate').fadeOut()
+    $('#story-zone').empty()
+    seq = $(e.currentTarget).attr('seq')
+    node = platforms.findOne().nodes[seq]
+    nodePhoto = storyConfig.imgsrc + "/" + node.photo
+    nodeTitle = node.title
+    nodeDescription = node.description
+    Blaze.renderWithData(Template.individualStoryZone,{nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
+    $('#story-zone').fadeIn()
+
+
 
 
   'mouseleave .story-node':(e)->
