@@ -123,6 +123,8 @@ reports.find().observeChanges
   #            console.log flag
               if flag
                 userNodeStatus.insert({userId:thisreport.userId,nodeSeq:i,status:'complete'})
+                userNodeCompletions.insert({platformId:thisreport.platformId,userId:thisreport.userId,nodeSeq:i,status:'complete',createdAt:new Date().getTime()})
+
                 chapterCompleteEvent.trigger({uid:thisreport.userId,node:i,pid:thisreport.platformId})
               else
                 nodeflag = false

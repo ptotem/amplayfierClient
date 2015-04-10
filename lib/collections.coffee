@@ -20,6 +20,7 @@
 @systemRewards = new Meteor.Collection('systemRewards');
 @scoreQuestions = new Meteor.Collection('scoreQuestions')
 @assesments = new Meteor.Collection('assesments')
+@userNodeCompletions = new Meteor.Collection('userNodeCompletions')
 
 
 @platforms.allow
@@ -84,6 +85,14 @@
   remove:(userId, doc)->
     true
 @userCompletions.allow
+  insert:(userId, role) ->
+    false
+  update:(userId, doc, fieldNames, modifier)->
+
+    false
+  remove:(userId, doc)->
+    false
+@userNodeCompletions.allow
   insert:(userId, role) ->
     false
   update:(userId, doc, fieldNames, modifier)->
@@ -258,6 +267,6 @@ nodeOpenMedal.on('assign',(t)->
 #@newUserEvent = new AppEvent('newUser','both',['newUser'])
 #@nodeOpenEvent = new AppEvent('nodeOpen','client',['nodeOpen'])
 #@deckOpenEvent = new AppEvent('deckOpen','client',['deckOpen'])
-@deckCompleteEvent = new AppEvent('deckComplete','both',['deckComplete'])
+@deckCompleteEvent = new AppEvent('deckComplete','server',['deckComplete'])
 @chapterCompleteEvent = new AppEvent('chapterComplete','server',['chapterComplete'])
 @allChapterCompleteEvent = new AppEvent('allChapterComplete','server',['allChapterComplete'])

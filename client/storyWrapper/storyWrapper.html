@@ -5,7 +5,7 @@
     <div class="story-zone-tale">{{nodeDescription}}</div>
     <div id="button-bank">
         {{#each deckOfNode seq}}
-        <a href="#" class="zone-deck zone-button" data-toggle="popover" title="{{deckName}}" data-content="This is the description of the deck <br/><div class='popover-content-block incomplete-popover-content'>Incomplete</div>"  id="deck-name-{{deckId}}">{{deckName}}</a>
+        <a href="#" class="zone-deck zone-button" data-toggle="popover" title="{{deckName}}" data-content="This is the description of the deck <br/><div class='popover-content-block {{status}}-popover-content'>{{status}}</div>"  id="deck-name-{{deckId}}">{{deckName}}</a>
             {{/each}}
 
     </div>
@@ -109,7 +109,7 @@
       <div id="story-nodes">
           {{#each nodes}}
               <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{subtitle}}" data-placement="{{getPlacement px}}" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{py}}%;left:{{px}}%;width:{{width}}%">
-                  <img src="http://lvh.me:3000/assets/storyWrapper/img-streetWrapper/{{active}}" alt="">
+                  <img src="{{getNodeStatusPic sequence}}" alt="">
               </a>
               {{/each}}
 

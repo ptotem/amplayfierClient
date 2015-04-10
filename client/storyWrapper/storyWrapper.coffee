@@ -184,9 +184,7 @@ Template.storyWrapper.rendered = () ->
     window.platformData.nodes = platforms.findOne().nodes
 
     setTitle(storyConfig.name)
-
-
-    window.storyConfig.imgsrc = "http://lvh.me:3000" + window.storyConfig.imgsrc
+    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
     pid = platforms.findOne({tenantName: platformName})._id
     window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
     window.userdata["decks"] = []
@@ -206,6 +204,13 @@ Template.storyWrapper.helpers
     )
   getNodeUrl:(pic)->
     "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
+  getNodeStatusPic:(seq)->
+    if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
+      console.log Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.nodestyle.complete
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.nodestyle.complete
+    else
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
+
   getPlacement:(px)->
     if px < 50
       "right"
@@ -235,7 +240,11 @@ Template.individualStoryZone.helpers
 
     deckList = []
     for d in platforms.findOne().nodes[s].decks
-      deckList.push {deckId:d,deckName:deckHtml.findOne({deckId:d}).name}
+      if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
+        status = 'complete'
+      else
+        status = 'incomplete'
+      deckList.push {deckId:d,deckName:deckHtml.findOne({deckId:d}).name,status:status}
     deckList
 
 

@@ -30,7 +30,7 @@ function initPage() {
         //createLandscapeView();
         createPortraitView();
         initNodeStates();
-        drawNodes();
+        //drawNodes();
         $('#story-wrapper').fadeIn('slow');
 
     }, 1000);
