@@ -165,6 +165,12 @@ Template.userEditForm.events
 
 
 
+
+Template.storyWrapper.created = ()->
+  s = platforms.findOne().storyConfig
+  window.storyConfig = JSON.parse(s);
+
+
 Template.storyWrapper.rendered = () ->
 
 
@@ -175,32 +181,75 @@ Template.storyWrapper.rendered = () ->
     )
 
   if platforms.findOne()?
-#    if Meteor.user().badges.indexOf(firstLand.name) is -1
-#      firstLand.assign()
     window.platformData.nodes = platforms.findOne().nodes
-    # nodesToBeRemoved = []
-    # for n in platforms.findOne().nodes
-    #   if n.decks isnt null
-    #     nodesToBeRemoved.push n
-    # console.log nodesToBeRemoved
-    # console.log _.difference(platforms.findOne().nodes,nodesToBeRemoved)
-    # window.platformData.nodes = nodesToBeRemoved
-    # find = /^\/(^)\/storyWrapper/';
-    # re = new RegExp(find, 'g');
-    s = platforms.findOne().storyConfig
 
-    window.storyConfig = JSON.parse(s);
+    setTitle(storyConfig.name)
+
+
     window.storyConfig.imgsrc = "http://lvh.me:3000" + window.storyConfig.imgsrc
-
     pid = platforms.findOne({tenantName: platformName})._id
     window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
     window.userdata["decks"] = []
     for d in _.compact(deckHtml.find({platformId:pid}).fetch())
       window.userdata["decks"].push({deckId:d.deckId,complete:isModuleComplete(d.deckId,Meteor.userId())})
-
+    $('.story-node').popover({trigger:'hover',html: true})
     initPage()
 
+Template.storyWrapper.helpers
+  getNamePlate : ()->
+    Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.nameplate.image
+  getStoryPresenter: ()->
+    Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.presenter.image
+  nodes:()->
+
+    platforms.findOne().nodes
+  getNodeUrl:(pic)->
+    "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
+  getPlacement:(px)->
+    if px < 50
+      "right"
+    else
+      "left"
+
+Template.individualStoryZone.events
+  'click #story-zone-close':(e)->
+    $('#story-zone').fadeOut()
+    $('.story-node').css({
+      "pointer-events": "auto",
+      opacity: 1
+    });
+
+
+
+
 Template.storyWrapper.events
+  'mouseenter .story-node':(e)->
+    $(e.currentTarget).css({"box-shadow": storyConfig.nodestyle.hover})
+  'click .story-node':(e)->
+    $('[data-toggle="popover"]').popover('hide');
+    $('.story-node').css({
+      "pointer-events": "none",
+      opacity: 0
+    });
+    if window.innerWidth > 1050
+      $('#story-nameplate').animate width: storyConfig.nameplate.reduced + '%'
+    else
+      if !isPortrait()
+        $('#story-nameplate').fadeOut()
+    $('#story-zone').empty()
+    seq = $(e.currentTarget).attr('seq')
+    node = platforms.findOne().nodes[seq]
+    nodePhoto = storyConfig.imgsrc + "/" + node.photo
+    nodeTitle = node.title
+    nodeDescription = node.description
+    Blaze.renderWithData(Template.individualStoryZone,{nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
+    $('#story-zone').fadeIn()
+
+
+
+
+  'mouseleave .story-node':(e)->
+    $(e.currentTarget).css({"box-shadow": 'none'})
 
   'keyup #chat-user-search':(e)->
     searchBar($(e.currentTarget).val(),".chat-row")

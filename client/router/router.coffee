@@ -114,9 +114,18 @@ Router.route '/admin',
     else
       @render('loading')
 
-Router.route '/assessment',
+Router.route '/assessment/:aid',
   template: 'assessmentQuestion',
   name:'assessment',
+  data:()->
+    {assessmentId:this.params.aid}
+  waitOn:()->
+    [Meteor.subscribe('thisAssessment',this.data().assessmentId)]
+  action: ->
+    if @ready()
+      @render()
+
+
 
 Router.route '/',
   template: 'storyWrapper',

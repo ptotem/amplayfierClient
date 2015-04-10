@@ -41,6 +41,22 @@
   width: 100%;
   height: 20px;
 }
+
+/*.mainquestion-divnone
+{
+  height:auto;
+  overflow-y :auto;
+  background-color:red;
+}*/
+
+.ratings_white{
+    content: url('../assets/questionview/whitestar.png');
+}
+
+.ratings_star{
+    content: url('../assets/questionview/bluestar.png');
+}
+
 .bottomstrip
 {
   position:fixed;
@@ -51,3 +67,4 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+

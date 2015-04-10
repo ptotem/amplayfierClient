@@ -19,6 +19,13 @@ Meteor.publish('thisDeck', (did)->
   deckHtml.find({_id: did})
 )
 
+Meteor.publish('thisAssessment', (aid)->
+  this.ready()
+  assesments.find({_id: aid})
+)
+
+
+
 Meteor.publish('excelFiles', ()->
   this.ready()
   excelFiles.find({})
