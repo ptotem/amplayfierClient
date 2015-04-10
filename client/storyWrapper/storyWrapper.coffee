@@ -120,7 +120,7 @@ Template.userEditForm.events
 
 
 @transitionSlide = ()->
-  console.log $('.slide-container.active:visible')
+
   $('.slide-container.active:visible').hide('slow',(e)->
     setTime(getTime())
     minTime = $($(this).find(".center-panel")).find(".slide-wrapper").attr("min-time")
@@ -241,7 +241,17 @@ Template.individualStoryZone.helpers
 
 
 Template.storyWrapper.events
-  'mouseenter .story-node':(e)->
+
+  'click .fullscreener':(e)->
+    $('#story-wrapper').fadeOut()
+    $('#full-wrapper-cont').append($('#story-zone').find('.projector-container').html())
+    $('#full-wrapper').slideDown()
+
+#      initDeck()
+#      Blaze.renderWithData Template.homePage, { deckId: currentDisplayedDeckId }, document.getElementsByClassName('fullprojector')[0]
+
+
+    'mouseenter .story-node':(e)->
     $(e.currentTarget).css({"box-shadow": storyConfig.nodestyle.hover})
   'click .story-node':(e)->
     $('[data-toggle="popover"]').popover('hide');
@@ -261,6 +271,9 @@ Template.storyWrapper.events
     nodeTitle = node.title
     nodeDescription = node.description
     Blaze.renderWithData(Template.individualStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
+
+
+
     $('#story-zone').fadeIn()
 
 
@@ -304,7 +317,17 @@ Template.storyWrapper.events
     # window.location = "/admin"
 
   'click #story-block-close':(e)->
-    $("#story-zone-close").trigger('click')
+    $('.projection').remove();
+    $('.story-zone-playbar').remove();
+
+    setTime(getTime());
+    minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
+    maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
+    points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
+    setCurrentSlideScore(minTime, maxTime, points);
+    endAttempt()
+
+#    $("#story-zone-close").trigger('click')
 
   'click .zone-deck':(e)->
 
@@ -334,6 +357,8 @@ Template.storyWrapper.events
     initDeck()
 #    $('#story-zone').append('')
     Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+
+
   'click #dashboard-launcher':(e)->
 
     initDash()

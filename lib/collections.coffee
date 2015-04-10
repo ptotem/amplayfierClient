@@ -79,18 +79,18 @@
   insert:(userId, role) ->
     true
   update:(userId, doc, fieldNames, modifier)->
-
+    console.log doc
     true
   remove:(userId, doc)->
     true
 @userCompletions.allow
   insert:(userId, role) ->
-    true
+    false
   update:(userId, doc, fieldNames, modifier)->
 
-    true
+    false
   remove:(userId, doc)->
-    true
+    false
 
 
 @reportMeta.allow

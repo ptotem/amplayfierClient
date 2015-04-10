@@ -294,9 +294,9 @@ body.story-page {
 
 #full-wrapper .story-zone-playbar
 {
-    position: relative;
-    top: 0%;
-    left: 20%;
+    position: absolute;
+    top: 68%;
+    left: 10%;
     background: #000;
     width: 640px;
     height: 40px;
@@ -452,4 +452,9 @@ a.zone-button:visited {
 .no-padding-for-pepsi .actual-text{
     padding:0 !important;
 
+}
+
+#full-wrapper .projector
+{
+    position: relative;
 }
