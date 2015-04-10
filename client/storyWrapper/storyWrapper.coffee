@@ -201,8 +201,9 @@ Template.storyWrapper.helpers
   getStoryPresenter: ()->
     Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.presenter.image
   nodes:()->
-
-    platforms.findOne().nodes
+    _.reject(platforms.findOne().nodes,(i)->
+         !i.decks?
+    )
   getNodeUrl:(pic)->
     "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
   getPlacement:(px)->
