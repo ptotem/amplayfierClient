@@ -57,6 +57,9 @@ Router.route '/forgotpassword',
     @render()
 
 
+
+
+
 Router.route '/reset-password/:token',
   template: "resetPassword",
   name:'reset',
@@ -101,7 +104,7 @@ Router.route '/admin',
     console.log pname
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('scoreQuestions',this.data().platformName),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('repositoryFiles',this.data().platformName),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('thisUser',Meteor.userId())]
+    [Meteor.subscribe('scoreQuestions',this.data().platformName),Meteor.subscribe('assesments',this.data().platformName),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('repositoryFiles',this.data().platformName),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('thisUser',Meteor.userId())]
   action: ->
     if @ready()
       console.log "ddd"
@@ -110,6 +113,18 @@ Router.route '/admin',
       @render()
     else
       @render('loading')
+
+Router.route '/assessment/:aid',
+  template: 'assessmentQuestion',
+  name:'assessment',
+  data:()->
+    {assessmentId:this.params.aid}
+  waitOn:()->
+    [Meteor.subscribe('thisAssessment',this.data().assessmentId)]
+  action: ->
+    if @ready()
+      @render()
+
 
 
 Router.route '/',

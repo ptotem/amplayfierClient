@@ -19,6 +19,13 @@ Meteor.publish('thisDeck', (did)->
   deckHtml.find({_id: did})
 )
 
+Meteor.publish('thisAssessment', (aid)->
+  this.ready()
+  assesments.find({_id: aid})
+)
+
+
+
 Meteor.publish('excelFiles', ()->
   this.ready()
   excelFiles.find({})
@@ -84,7 +91,7 @@ Meteor.publish('panelReport',()->
 )
 Meteor.publish('repositoryFiles',(pname)->
   this.ready()
-  
+
   pid = platforms.findOne({tenantName: pname})._id
   repositoryFiles.find({platform:pid})
 )
@@ -117,3 +124,9 @@ Meteor.publish('scoreQuestions',(pname)->
   scoreQuestions.find({platform:pid})
 )
 
+Meteor.publish('assesments',(pname)->
+  this.ready()
+  pid = platforms.findOne({tenantName: pname})._id
+
+  assesments.find({platform:pid})
+)

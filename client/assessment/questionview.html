@@ -1,0 +1,68 @@
+<template name="assessmentQuestion">
+  <div class="container back-container">
+
+     {{#each assessments}}
+
+    <div class="row">
+      <div class="col-md-12 text-center formheading">{{assessmentName}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center formheading">FEEDBACK FORM</div>
+    </div><br><br>
+    <div class="questionlist">
+    <div class="row">
+      <div class="col-md-1 col-md-offset-3 text-center" style="display:table">
+          <div class="main-option">A</div>
+      </div>
+        <div class="col-md-8" style="display:table">
+            <div class="mainquestion">CE understands the right profile for appointing a spoke?</div>
+        </div>
+    </div>
+    <br>
+      {{#each assessmentsQues _id}}
+    <div class="row">
+      <div class="col-md-9 col-md-offset-4 subquestion">{{statement}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-9 col-md-offset-4">
+          {{#each loopCount max}}
+          <div class="col-md-1 text-center ratings_div">
+              <img class="ratings_stars" src="../assets/questionview/bluestar.png" width="65%">
+          </div>
+          {{/each}}
+
+      </div>
+    </div>
+
+        <br>
+       {{/each}}
+
+    <!--<div class="row">-->
+      <!--<div class="col-md-9 col-md-offset-4 subquestion">b. PepsiCo share of spoke business : 20% to 50%</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-9 col-md-offset-4"><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div></div>-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-9 col-md-offset-4 subquestion">c. High personal involvement in business and market</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-9 col-md-offset-4"><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div></div>-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-9 col-md-offset-4 subquestion">d. Location : Proximity to retailers</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-9 col-md-offset-4"><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div></div>-->
+    <!--</div>-->
+    <!--<br>-->
+  </div>
+    <div class="dividerstyle"></div>
+
+    {{/each}}
+
+  </div>
+
+</template>

@@ -1,17 +1,69 @@
 Template.adminpanel.events
+  'click .upload-assessment':(e)->
+    $('.assessment-question-upload').trigger('click')
+    Session.set("statementName",$(e.currentTarget).attr('id'))
+
+  'change .assessment-question-upload': (e)->
+    if document.getElementById('new-question-for-assessment-excel').files.length is 0
+      createNotification("Please upload a excel",1)
+    else
+      assessmentQuestions = new FS.File(document.getElementById('new-question-for-assessment-excel').files[0])
+      assessmentQuestions.platform = platforms.findOne()._id
+      assessmentQuestions.stored = false
+      $("#overlay").show()
+      rf = excelFiles.insert(assessmentQuestions)
+      rfid = rf._id
+      statementId=Session.get("statementName")
+      Tracker.autorun(()->
+        console.log excelFiles.findOne(rfid).stored
+        if excelFiles.findOne(rfid).stored
+          Meteor.call('bulkInsertAssessmentQuestions',rfid,platforms.findOne()._id,statementId)
+          $("#overlay").hide()
+
+      )
+
+
+
+
+
   'click .delete-question':(e)->
     scoreQuestions.remove({_id:this._id})
+  'click .delete-question-btn':(e)->
+    assesments.remove({_id:this._id})
+
+  'click .add-question':(e)->
+    $("#question-for-admin-list").hide()
+    $("#add-question").show()
+    Session.set("newquesId",this._id)
+    console.log(this._id)
+
+
   'click .new-question-for-admin-save':(e)->
+
     nqName = $("#new-question-name").val()
     nqMax = $("#new-question-max").val()
     nqMin = $("#new-question-min").val()
+    manualData={statement:nqName,min:nqMin,max:nqMax}
+    assesments.update({_id:Session.get("newquesId")},{$push:{scoreQuestions:manualData}})
+    # assesments.update({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id,_id:assesments.findOne()._id})
 
-    scoreQuestions.insert({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id})
+  'click .new-assessment-for-admin-save':(e)->
+    newassessment = $("#new-assessment").val()
+    assesments.insert({assessmentName:newassessment,platform:platforms.findOne()._id})
+
 
 
   'click .new-question-for-admin':(e)->
     $("#question-for-admin-list").hide()
     $("#new-question-for-admin").show()
+    $("#new-question-for-admin").find("#new-assessment").val('')
+
+  'click .view-question':(e)->
+    $("#question-for-admin-list").hide()
+    $("#view-question-for-admin-list").show()
+    Session.set("viewquesId",this._id)
+
+
 
   'click .node-date-assignment':(e)->
     nodes = platforms.findOne().nodes
@@ -251,6 +303,10 @@ Template.adminpanel.rendered = () ->
   #  $(".content").mCustomScrollbar();
 
 Template.adminpanel.helpers
+  assessments:()->
+    assesments.find().fetch()
+  viewQuestion:()->
+    assesments.findOne(Session.get("viewquesId")).scoreQuestions
   questions:()->
     scoreQuestions.find().fetch()
   nodes:()->
