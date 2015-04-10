@@ -486,10 +486,10 @@ function bindZoneSections(zoneDecks, direction) {
         }
     });
 
-    zoneDecks.unbind("click").on('click', function () {
-        if (isPortrait()) portraitOpen();
-        showDeck(getSequence(this));
-    });
+    //zoneDecks.unbind("click").on('click', function () {
+    //    if (isPortrait()) portraitOpen();
+    //    showDeck(getSequence(this));
+    //});
 
 }
 

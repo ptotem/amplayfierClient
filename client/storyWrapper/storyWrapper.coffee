@@ -234,7 +234,7 @@ Template.individualStoryZone.helpers
 
     deckList = []
     for d in platforms.findOne().nodes[s].decks
-      deckList.push {deckName:deckHtml.findOne({deckId:d}).name}
+      deckList.push {deckId:d,deckName:deckHtml.findOne({deckId:d}).name}
     deckList
 
 
@@ -330,7 +330,8 @@ Template.storyWrapper.events
 
     setCurrentDeckId(deckId)
     initDeck()
-    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])
+#    $('#story-zone').append('')
+    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
   'click #dashboard-launcher':(e)->
 
     initDash()

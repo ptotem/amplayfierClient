@@ -5,7 +5,7 @@
     <div class="story-zone-tale">{{nodeDescription}}</div>
     <div id="button-bank">
         {{#each deckOfNode seq}}
-        <a href="#" class="zone-deck zone-button" data-toggle="popover" title="{{deckName}}" data-content="This is the description of the deck <br/><div class='popover-content-block incomplete-popover-content'>Incomplete</div>"  id="deck">{{deckName}}</a>
+        <a href="#" class="zone-deck zone-button" data-toggle="popover" title="{{deckName}}" data-content="This is the description of the deck <br/><div class='popover-content-block incomplete-popover-content'>Incomplete</div>"  id="deck-name-{{deckId}}">{{deckName}}</a>
             {{/each}}
 
     </div>
@@ -115,6 +115,9 @@
 
       </div>
       <div id="story-zone">
+          <div class="projector projection">
+
+          </div>
 
       </div>
       <img id="story-presenter" src="{{getStoryPresenter}}" alt="Story Presenter"/>

@@ -449,3 +449,7 @@ a.zone-button:visited {
 {
     font-size:1em !important;
 }
+.no-padding-for-pepsi .actual-text{
+    padding:0 !important;
+
+}
