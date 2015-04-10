@@ -229,6 +229,7 @@ Template.individualStoryZone.events
       opacity: 1
     });
 
+
 Template.individualStoryZone.helpers
   deckOfNode:(s)->
 
@@ -302,7 +303,8 @@ Template.storyWrapper.events
     $('.menu').slideToggle('slow')
     # window.location = "/admin"
 
-
+  'click #story-block-close':(e)->
+    $("#story-zone-close").trigger('click')
 
   'click .zone-deck':(e)->
 
