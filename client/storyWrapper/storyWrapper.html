@@ -89,10 +89,17 @@
         <a href="#" id="dashboard-launcher" data-toggle="modal" data-target="#story-dashboard">
             <img src="/assets/dashboardimages/dashboardbtn.png"><span id="dashbtn">DASHBOARD</span>
         </a>
-      <div id="story-nodes"></div>
+      <div id="story-nodes">
+          {{#each nodes}}
+              <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{subtitle}}" data-placement="{{getPlacement px}}" class="story-node" id="story-node-' + i + '" style="top:{{py}}%;left:{{px}}%;width:{{width}}%">
+                  <img src="http://lvh.me:3000/assets/storyWrapper/img-streetWrapper/{{active}}" alt="">
+              </a>
+              {{/each}}
+
+      </div>
       <div id="story-zone"></div>
-      <img id="story-presenter" src="#" alt=""/>
-      <img id="story-nameplate" src="#" alt=""/>
+      <img id="story-presenter" src="{{getStoryPresenter}}" alt="Story Presenter"/>
+      <img id="story-nameplate" src="{{getNamePlate}}" alt="Story Name Plate"/>
 
       <div id="portrait-wrapper">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">

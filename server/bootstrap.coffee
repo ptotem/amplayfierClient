@@ -1,4 +1,22 @@
+Mailer.config({
+  from: 'Team Amplayfier  <info@ptotem.com',
+  replyTo: 'Team Amplayfier <info@ptotem.com'
+});
+
+
+
 initDMS(1,{})
+
+@initMailers = ()->
+  Mailer.init
+    templates: Templates
+    helpers: TemplateHelpers
+#    layout:
+#      name: 'emailLayout'
+#      path: 'layout.html'
+#      scss: 'layout.scss'
+
+
 
 @systemBadges = new Meteor.Collection('systemBadges')
 createBadges = ()->
@@ -17,7 +35,9 @@ createBadges = ()->
 
 
 Meteor.startup(()->
+#  SyncedCron.start();
 
+  initMailers()
   # startUpRoutine()
   resetCapabilities()
   createBadges()
