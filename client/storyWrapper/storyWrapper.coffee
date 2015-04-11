@@ -207,7 +207,7 @@ Template.storyWrapper.helpers
   getNodeStatusPic:(seq)->
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
       console.log Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.nodestyle.complete
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.nodestyle.complete
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
     else
       Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
 
@@ -239,12 +239,17 @@ Template.individualStoryZone.helpers
   deckOfNode:(s)->
 
     deckList = []
-    for d in platforms.findOne().nodes[s].decks
+    flag = 'auto'
+    for d,i in platforms.findOne().nodes[s].decks
       if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
         status = 'complete'
       else
         status = 'incomplete'
-      deckList.push {deckId:d,deckName:deckHtml.findOne({deckId:d}).name,status:status}
+
+
+      deckList.push {flag:flag,deckId:d,deckName:deckHtml.findOne({deckId:d}).name,status:status}
+      if status is 'incomplete' and i is 0
+        flag = 'none'
     deckList
 
 
