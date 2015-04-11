@@ -1,4 +1,14 @@
 Template.adminpanel.events
+  'click .download-report-btn':(e)->
+    Meteor.call('exportData',(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'export.zip')
+    )
+
+
   'click .upload-assessment':(e)->
     $('.assessment-question-upload').trigger('click')
     Session.set("statementName",$(e.currentTarget).attr('id'))
