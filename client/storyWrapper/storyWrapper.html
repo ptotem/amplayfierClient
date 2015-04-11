@@ -1,3 +1,20 @@
+<template name="individualStoryZone">
+    <a id="story-zone-close" href="#" class="btn btn-lg">Close</a>
+    <img src="{{nodePhoto}}" class="story-zone-photo"/>
+    <div class="story-zone-name">{{nodeTitle}}</div>
+    <div class="story-zone-tale">{{nodeDescription}}</div>
+    <div id="button-bank">
+        {{#each deckOfNode seq}}
+        <a href="#" style="pointer-events: {{flag}}" class="zone-deck zone-button" data-toggle="popover" title="{{deckName}}" data-content="This is the description of the deck <br/><div class='popover-content-block {{status}}-popover-content'>{{status}}</div>"  id="deck-name-{{deckId}}">{{deckName}}</a>
+            {{/each}}
+
+    </div>
+
+
+
+</template>
+
+
 <template name="userEditForm">
     <div class="modal fade user-edit-form">
         <div class="modal-dialog" style="z-index: 100000;">
@@ -89,10 +106,19 @@
         <a href="#" id="dashboard-launcher" data-toggle="modal" data-target="#story-dashboard">
             <img src="/assets/dashboardimages/dashboardbtn.png"><span id="dashbtn">DASHBOARD</span>
         </a>
-      <div id="story-nodes"></div>
-      <div id="story-zone"></div>
-      <img id="story-presenter" src="#" alt=""/>
-      <img id="story-nameplate" src="#" alt=""/>
+      <div id="story-nodes">
+          {{#each nodes}}
+              <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{subtitle}}" data-placement="{{getPlacement px}}" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{py}}%;left:{{px}}%;width:{{width}}%">
+                  <img src="{{getNodeStatusPic sequence}}" alt="">
+              </a>
+              {{/each}}
+
+      </div>
+      <div id="story-zone">
+
+      </div>
+      <img id="story-presenter" src="{{getStoryPresenter}}" alt="Story Presenter"/>
+      <img id="story-nameplate" src="{{getNamePlate}}" alt="Story Name Plate"/>
 
       <div id="portrait-wrapper">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -102,6 +128,11 @@
     </div>
 
     <div id="full-wrapper">
+        <div class="fullprojector fullprojection" id="full-wrapper-cont">
+
+
+        </div>
+        <div class="fullcloser fullprojection"><button type="button" class="btn btn-danger btn-lg" style="color: black"> Close </button></div>
 
     </div>
 

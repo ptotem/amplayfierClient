@@ -120,7 +120,7 @@ Template.userEditForm.events
 
 
 @transitionSlide = ()->
-  console.log $('.slide-container.active:visible')
+
   $('.slide-container.active:visible').hide('slow',(e)->
     setTime(getTime())
     minTime = $($(this).find(".center-panel")).find(".slide-wrapper").attr("min-time")
@@ -165,6 +165,12 @@ Template.userEditForm.events
 
 
 
+
+Template.storyWrapper.created = ()->
+  s = platforms.findOne().storyConfig
+  window.storyConfig = JSON.parse(s);
+
+
 Template.storyWrapper.rendered = () ->
 
 
@@ -175,32 +181,120 @@ Template.storyWrapper.rendered = () ->
     )
 
   if platforms.findOne()?
-#    if Meteor.user().badges.indexOf(firstLand.name) is -1
-#      firstLand.assign()
     window.platformData.nodes = platforms.findOne().nodes
-    # nodesToBeRemoved = []
-    # for n in platforms.findOne().nodes
-    #   if n.decks isnt null
-    #     nodesToBeRemoved.push n
-    # console.log nodesToBeRemoved
-    # console.log _.difference(platforms.findOne().nodes,nodesToBeRemoved)
-    # window.platformData.nodes = nodesToBeRemoved
-    # find = /^\/(^)\/storyWrapper/';
-    # re = new RegExp(find, 'g');
-    s = platforms.findOne().storyConfig
 
-    window.storyConfig = JSON.parse(s);
-    window.storyConfig.imgsrc = "http://lvh.me:3000" + window.storyConfig.imgsrc
-
+    setTitle(storyConfig.name)
+    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
     pid = platforms.findOne({tenantName: platformName})._id
     window.wrapperDecks = _.compact(deckHtml.find({platformId:pid}).fetch())
     window.userdata["decks"] = []
     for d in _.compact(deckHtml.find({platformId:pid}).fetch())
       window.userdata["decks"].push({deckId:d.deckId,complete:isModuleComplete(d.deckId,Meteor.userId())})
-
+    $('.story-node').popover({trigger:'hover',html: true})
     initPage()
 
+Template.storyWrapper.helpers
+  getNamePlate : ()->
+    Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.nameplate.image
+  getStoryPresenter: ()->
+    Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.presenter.image
+  nodes:()->
+    _.reject(platforms.findOne().nodes,(i)->
+         !i.decks?
+    )
+  getNodeUrl:(pic)->
+    "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
+  getNodeStatusPic:(seq)->
+    if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
+      console.log Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.nodestyle.complete
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
+    else
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
+
+  getPlacement:(px)->
+    if px < 50
+      "right"
+    else
+      "left"
+
+Template.individualStoryZone.rendered = ->
+  $('.zone-deck').popover({
+    placement: 'left',
+    trigger: "hover",
+    html: true,
+  });
+
+
+
+Template.individualStoryZone.events
+  'click #story-zone-close':(e)->
+    $('#story-zone').fadeOut()
+    $('.story-node').css({
+      "pointer-events": "auto",
+      opacity: 1
+    });
+
+
+Template.individualStoryZone.helpers
+  deckOfNode:(s)->
+
+    deckList = []
+    flag = 'auto'
+    for d,i in platforms.findOne().nodes[s].decks
+      if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
+        status = 'complete'
+      else
+        status = 'incomplete'
+
+
+      deckList.push {flag:flag,deckId:d,deckName:deckHtml.findOne({deckId:d}).name,status:status}
+      if status is 'incomplete' and i is 0
+        flag = 'none'
+    deckList
+
+
+
 Template.storyWrapper.events
+
+  'click .fullscreener':(e)->
+    $('#story-wrapper').fadeOut()
+    $('#full-wrapper-cont').append($('#story-zone').find('.projector-container').html())
+    $('#full-wrapper').slideDown()
+
+#      initDeck()
+#      Blaze.renderWithData Template.homePage, { deckId: currentDisplayedDeckId }, document.getElementsByClassName('fullprojector')[0]
+
+
+    'mouseenter .story-node':(e)->
+    $(e.currentTarget).css({"box-shadow": storyConfig.nodestyle.hover})
+  'click .story-node':(e)->
+    $('[data-toggle="popover"]').popover('hide');
+    $('.story-node').css({
+      "pointer-events": "none",
+      opacity: 0
+    });
+    if window.innerWidth > 1050
+      $('#story-nameplate').animate width: storyConfig.nameplate.reduced + '%'
+    else
+      if !isPortrait()
+        $('#story-nameplate').fadeOut()
+    $('#story-zone').empty()
+    seq = $(e.currentTarget).attr('seq')
+    node = platforms.findOne().nodes[seq]
+    nodePhoto = storyConfig.imgsrc + "/" + node.photo
+    nodeTitle = node.title
+    nodeDescription = node.description
+    Blaze.renderWithData(Template.individualStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
+
+
+
+    $('#story-zone').fadeIn()
+
+
+
+
+  'mouseleave .story-node':(e)->
+    $(e.currentTarget).css({"box-shadow": 'none'})
 
   'keyup #chat-user-search':(e)->
     searchBar($(e.currentTarget).val(),".chat-row")
@@ -236,7 +330,18 @@ Template.storyWrapper.events
     $('.menu').slideToggle('slow')
     # window.location = "/admin"
 
+  'click #story-block-close':(e)->
+    $('.projection').remove();
+    $('.story-zone-playbar').remove();
 
+    setTime(getTime());
+    minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
+    maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
+    points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
+    setCurrentSlideScore(minTime, maxTime, points);
+    endAttempt()
+
+#    $("#story-zone-close").trigger('click')
 
   'click .zone-deck':(e)->
 
@@ -264,7 +369,10 @@ Template.storyWrapper.events
 
     setCurrentDeckId(deckId)
     initDeck()
-    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementsByClassName("projector")[0])
+#    $('#story-zone').append('')
+    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+
+
   'click #dashboard-launcher':(e)->
 
     initDash()

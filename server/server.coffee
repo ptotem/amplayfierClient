@@ -423,6 +423,18 @@ Meteor.methods
     Meteor.users.update({_id:uid},{$set:{passwordSet:true}})
   resetUserPasswordAdmin:(uid)->
     Meteor.users.update({_id:uid},{$set:{passwordSet:false}})
+  resetPasswordAdmin:(uid)->
+    newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
+    u = Meteor.users.findOne(uid)
+    Accounts.setPassword(u._id, newpass)
+    Meteor.users.update({_id:u._id},{$set:{passwordSet:false}})
+
+    e = decodeEmail(u.personal_profile.email)
+    n = u.personal_profile.display_name
+    sendGeneralMail(e,"Your password has been reset !",'resetPassword',{uname:n,uemail:e,pass:newpass})
+
+
+
 
 
   forgotMyPassword:(email,captchaData)->

@@ -7,3 +7,14 @@
 
     data: {}                                # Optional. Render your email with a data object.
   })
+
+@sendGeneralMail = (to,subject,templateName,data)->
+  Mailer.send({
+    to: to,           # 'To: ' address. Required.
+    subject: subject,                     # Required.
+    template: templateName,               # Required.
+    from:'info@ptotem.com'
+
+    data: data                                # Optional. Render your email with a data object.
+  })
+

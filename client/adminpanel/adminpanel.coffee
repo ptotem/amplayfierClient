@@ -255,6 +255,19 @@ Template.adminpanel.events
     $('#myuserCreate').remove()
     Blaze.renderWithData(Template['userForm'], {userId: this._id}, document.getElementById('new-user'))
     $("#new-user").show()
+  'click .block-user-btn':(e)->
+    if window.confirm("Are you sure you want to block this user ?")
+      console.log "yes"
+    else
+      console.log "no"
+  'click .reset-user-btn':(e)->
+    if window.confirm("Are you sure you want to block this user ?")
+
+      Meteor.call('resetPasswordAdmin',this._id)
+      console.log "yes"
+    else
+      console.log "no"
+
 
   'click .delete-user-btn':(e)->
     if window.confirm("Are you sure you want to delete the user?")

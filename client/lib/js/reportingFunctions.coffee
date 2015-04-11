@@ -2,7 +2,6 @@
 
 
 @startAttempt = (expectedLength)->
-  console.log "start attempt called"
 
 #  This function sets the individual score for the game
   blob = {}
@@ -31,8 +30,7 @@
 @endAttempt = ()->
   if reports.findOne(attempt).slideData.length >= reports.findOne(attempt).slideCount
     reports.update({_id:attempt},{$set:{attemptComplete:true}})
-    markModuleAsComplete(currentDisplayedDeckId,Meteor.userId(),platforms.findOne()._id,"true")
-    deckCompleteEvent.trigger({uid:Meteor.userId(),rid:attempt})
+
 
 @setInitialScore =(score)->
   reports.update({_id:attempt},{$set:{initScore:score}})
