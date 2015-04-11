@@ -15,10 +15,30 @@ Meteor.methods(
     future = new Future()
 
     users = Meteor.users.find().fetch()
+    finalDataJSON = []
     userNodeCompletionData = userNodeCompletions.find().fetch()
+    for unc in userNodeCompletionData
+      u = Meteor.users.findOne(unc.userId)
+      finalDataJSON.push({
+        first_name:u.personal_profile.first_name,
+        last_name:u.personal_profile.last_name,
+        profile:u.profile,
+        role:roles.findOne(u.personal_profile.role).rolename,
+        node_number:unc.nodeSeq,
+        node_name:platforms.findOne(unc.platformId).nodes[unc.nodeSeq].title,
+        status:unc.status,
+        completion_date:new Date(unc.createdAt).toString(),
+        score:100
+
+
+
+
+      })
+
+
     Fiber(()->
       csv =  fastCsv
-      csv.writeToString(userNodeCompletionData,
+      csv.writeToString(finalDataJSON,
         {headers: true},
         (error,data) ->
           if error

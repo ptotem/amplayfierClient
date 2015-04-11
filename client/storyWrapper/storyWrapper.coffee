@@ -204,10 +204,10 @@ Template.storyWrapper.helpers
       if i.sequence isnt 0
         console.log "sas"
 
-        !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:i.sequence-1})? or parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) < parseInt(i.startDay)
+        !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:i.sequence-1})? or parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) > parseInt(i.startDay)
       else
         console.log "sgaga"
-        parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) < parseInt(i.startDay)
+        parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) > parseInt(i.startDay)
     )
   getNodeUrl:(pic)->
     "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
