@@ -68,15 +68,15 @@ Template.adminpanel.events
   'click .node-date-assignment':(e)->
     nodes = platforms.findOne().nodes
     pid = platforms.findOne()._id
-    $(".node-date").each((ind,ele)->
+    $(".node-day").each((ind,ele)->
       if $(ele).val().length isnt 0
 
-        nodes[parseInt($(ele).attr('node-seq'))].endDate = new Date($(ele).val()).getTime()
-        if parseInt($(ele).next().val()) > 100
-          pm = 100
-        else
-          pm = $(ele).next().val()
-        nodes[parseInt($(ele).attr('node-seq'))].passingMarks = pm
+#        nodes[parseInt($(ele).attr('node-seq'))].startDate = new Date($(ele).val()).getTime()
+#        if parseInt($(ele).next().val()) > 100
+#          pm = 100
+#        else
+        pm = $(ele).val()
+        nodes[parseInt($(ele).attr('node-seq'))].startDay = pm
 
     )
     platforms.update({_id:pid},{$set:{nodes:nodes}})

@@ -200,13 +200,24 @@ Template.storyWrapper.helpers
     Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.presenter.image
   nodes:()->
     _.reject(platforms.findOne().nodes,(i)->
-         !i.decks?
+#         !i.decks? and parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) < parseInt(i.startDay)
+      if i.sequence isnt 0
+        console.log "sas"
+
+        !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:i.sequence-1})? or parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) < parseInt(i.startDay)
+      else
+        console.log "sgaga"
+        parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) < parseInt(i.startDay)
     )
   getNodeUrl:(pic)->
     "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
   getNodeStatusPic:(seq)->
+    if seq isnt 0
+      if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
+        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
-      console.log Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.nodestyle.complete
+
       Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
     else
       Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
