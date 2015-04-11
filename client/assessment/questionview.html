@@ -1,8 +1,6 @@
 <template name="assessmentQuestion">
   <div class="container back-container">
-
-     {{#each assessments}}
-
+    {{#each assessments}}
     <div class="row">
       <div class="col-md-12 text-center formheading">{{assessmentName}}</div>
     </div>
@@ -25,11 +23,13 @@
     </div>
     <div class="row">
       <div class="col-md-9 col-md-offset-4">
-          {{#each loopCount max}}
-          <div class="col-md-1 text-center ratings_div">
-              <img class="ratings_stars" src="../assets/questionview/bluestar.png" width="65%">
+
+          <div class="col-md-10 ratings_div">
+            {{#each loopCount max}}
+              <img class="ratings_stars" src="../assets/questionview/bluestar.png" width="4%" style="float:left">
+            {{/each}}
           </div>
-          {{/each}}
+
 
       </div>
     </div>
