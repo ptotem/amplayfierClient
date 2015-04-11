@@ -44,7 +44,7 @@ Meteor.methods(
           if error
             console.log error
           else
-            console.log data
+
             zip.file('friends.csv', data)
             future.return(zip.generate({type: "base64"}))
       )
