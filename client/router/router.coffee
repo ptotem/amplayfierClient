@@ -114,16 +114,21 @@ Router.route '/admin',
     else
       @render('loading')
 
-Router.route '/assessment/:aid',
+Router.route '/assessment/:aid/:mid',
   template: 'assessmentQuestion',
   name:'assessment',
   data:()->
-    {assessmentId:this.params.aid}
+    pname =  headers.get('host').split('.')[0]
+    {assessmentId:this.params.aid,managerId:this.params.mid,platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('thisAssessment',this.data().assessmentId)]
+    [Meteor.subscribe('thisAssessment',this.data().assessmentId),Meteor.subscribe('assesmentScore',this.data().platformName),Meteor.subscribe('platformData',this.data().platformName)]
   action: ->
     if @ready()
+      setAssessmentId(this.data().assessmentId)
+      setManagerId(this.data().managerId)
       @render()
+    else
+      @render('loading')
 
 
 

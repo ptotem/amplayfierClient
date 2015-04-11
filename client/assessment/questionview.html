@@ -18,6 +18,8 @@
     </div>
     <br>
       {{#each assessmentsQues _id}}
+
+    <div class="statementQue">
     <div class="row">
       <div class="col-md-9 col-md-offset-4 subquestion">{{statement}}</div>
     </div>
@@ -26,43 +28,44 @@
 
           <div class="col-md-10 ratings_div">
             {{#each loopCount max}}
-              <img class="ratings_stars" src="../assets/questionview/bluestar.png" width="4%" style="float:left">
+              <img class="ratings_stars" src="/../assets/questionview/bluestar.png" width="4%" style="float:left">
             {{/each}}
           </div>
 
 
       </div>
     </div>
-
+    </div>
         <br>
        {{/each}}
-
-    <!--<div class="row">-->
-      <!--<div class="col-md-9 col-md-offset-4 subquestion">b. PepsiCo share of spoke business : 20% to 50%</div>-->
-    <!--</div>-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-9 col-md-offset-4"><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div></div>-->
-    <!--</div>-->
-    <!--<br>-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-9 col-md-offset-4 subquestion">c. High personal involvement in business and market</div>-->
-    <!--</div>-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-9 col-md-offset-4"><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div></div>-->
-    <!--</div>-->
-    <!--<br>-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-9 col-md-offset-4 subquestion">d. Location : Proximity to retailers</div>-->
-    <!--</div>-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-9 col-md-offset-4"><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div><div class="col-md-1 text-center"><img src="../assets/questionview/bluestar.png" width="65%"></div></div>-->
-    <!--</div>-->
-    <!--<br>-->
   </div>
     <div class="dividerstyle"></div>
 
     {{/each}}
 
+
+      <div class="row">
+          <div class="col-md-2 col-md-offset-10">
+              <div id="statement-submit" style="background: url('/../assets/questionview/submitbutton.png');width: 100%;height: 35px;background-size: 100% 100%;cursor: pointer;"></div>
+          </div>
+      </div>
+
   </div>
 
+</template>
+
+<template name="alreadyGiven">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Already</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You had already given this assessment</p>
+                </div>
+             </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
 </template>

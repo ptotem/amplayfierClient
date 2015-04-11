@@ -21,6 +21,8 @@
 @scoreQuestions = new Meteor.Collection('scoreQuestions')
 @assesments = new Meteor.Collection('assesments')
 @userNodeCompletions = new Meteor.Collection('userNodeCompletions')
+@assesmentScore = new Meteor.Collection('assesmentScore')
+
 
 
 @platforms.allow
@@ -42,6 +44,15 @@
     true
 
 @assesments.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+
+@assesmentScore.allow
   insert:(userId, role) ->
     true
   update:(userId, doc, fieldNames, modifier)->
