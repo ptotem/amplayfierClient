@@ -1,7 +1,7 @@
-@markModuleAsComplete = (deckId,userId,tenantId,completed)->
+@markModuleAsComplete = (deckId,userId,tenantId,completed,attempt,score)->
 
   if !isModuleComplete(deckId,userId)
-    userCompletions.insert({deckId:deckId,userId:userId,createdAt:new Date().getTime(),platformId:tenantId,completed:completed})
+    userCompletions.insert({attempt:attempt,score:score,deckId:deckId,userId:userId,createdAt:new Date().getTime(),platformId:tenantId,completed:completed})
 
 
 

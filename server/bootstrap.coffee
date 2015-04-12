@@ -1,3 +1,20 @@
+@getDeckScore = (id)->
+  r = reports.findOne(id)
+  maxPossiblePoints = 0
+  totalIdealTime = 0
+  actualPoints = 0
+  actualTime = 0
+
+  for sd in r.slideData
+    totalIdealTime+= parseInt(sd['slideMaxTime'])
+    actualTime+= parseInt(sd['slideTime'])
+    actualPoints+= parseFloat(sd['slideScore'])
+    maxPossiblePoints+=parseInt(sd['slidePoints'])
+#  maxPossiblePoints
+  actualPoints*100/maxPossiblePoints
+#  parseInt(actualTime*100/totalIdealTime)
+
+
 
 
 Mailer.config({
@@ -110,7 +127,8 @@ reports.find().observeChanges
           thisreport = reports.findOne(id)
           if thisreport.slideData.length >= thisreport.slideCount
             reports.update({_id:id},{$set:{deckComplete:true}})
-            markModuleAsComplete(thisreport.deckId,thisreport.userId,thisreport.platformId,true)
+            deckScore = getDeckScore(id)
+            markModuleAsComplete(thisreport.deckId,thisreport.userId,thisreport.platformId,true,id,deckScore)
             deckCompleteEvent.trigger({uid:thisreport.userId,rid:id})
 
   #        we now check for individual node completions in this platform and assign badges accordingly so the user cannot cheat
