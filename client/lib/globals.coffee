@@ -22,7 +22,8 @@
 	@currentIntegratedGameId = id
 	@currentIntegratedGame = id
 
-
+@setGameMaxPoints = (pts)->
+  @gameMaxPoints = pts
 
 @setTitle = (t)->
     document.title = t  ;

@@ -99,6 +99,7 @@ Template.userEditForm.events
     if parseInt(item.has('iframe').length) isnt 0
       integratedGameId = $('.active').find('iframe').attr('integrated-game-id')
       setCurrentIntegratedGameId(integratedGameId)
+      setGameMaxPoints($('.active').find('iframe').attr('maxPoints'))
       setCurrentSlideId(1)
       triggerInitGame()
 
