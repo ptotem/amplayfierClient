@@ -10,6 +10,8 @@
 @individualQuestionAttempts = new Meteor.Collection("individualQuestionAttempts")
 @reportMeta = new Meteor.Collection("reportMeta")
 @gameData = new Meteor.Collection("gameData")
+@gameValData = new Meteor.Collection("gameValData")
+
 @customizationDecks = new Meteor.Collection("customizationDecks")
 @archivePlatforms = new Meteor.Collection("archivePlatforms")
 @platformType = new Meteor.Collection("platformType")
@@ -21,6 +23,7 @@
 @scoreQuestions = new Meteor.Collection('scoreQuestions')
 @assesments = new Meteor.Collection('assesments')
 @userNodeCompletions = new Meteor.Collection('userNodeCompletions')
+
 
 
 @platforms.allow
@@ -42,6 +45,14 @@
     true
 
 @assesments.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+@gameValData.allow
   insert:(userId, role) ->
     true
   update:(userId, doc, fieldNames, modifier)->

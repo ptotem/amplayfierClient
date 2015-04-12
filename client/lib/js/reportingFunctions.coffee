@@ -2,6 +2,7 @@
 
 
 @startAttempt = (expectedLength)->
+  console.log "start attempt caled"
 
 #  This function sets the individual score for the game
   blob = {}
@@ -43,9 +44,19 @@
   Meteor.call('addUserScore',Meteor.userId(),score)
 
 @setGameVal =(parameters) ->
+
   queryString = {_id:attempt}
+
   parameters.createdAt = new Date().getTime()
-  reports.update(queryString,{$push:{gameData:parameters}, $set:{updatedAt:new Date().getTime()}})
+  parameters['attempt'] = attempt
+  parameters['gameId']= currentIntegratedGameId
+  parameters['userId'] = Meteor.userId()
+  parameters['platformId'] = platforms.findOne()._id
+#  reports.update({_id:attempt},{$push:{slideData:{slideId:currentTemplateId,panelId:currentPanelId,slideScore:score,slideTime:slideTime,slideMaxTime:maxTime,slideMinTime:minTime,slidePoints:points,percentageScore:scorePercentage}}})
+#  Session.set("currentSlideScore", 0)
+#  true
+#  reports.update({_id:attempt},{$push:{slideData:{slideId:-1,panelId:currentIntegratedGameId,slideScore:score,slideTime:slideTime,slideMaxTime:maxTime,slideMinTime:minTime,slidePoints:points,percentageScore:scorePercentage}}})
+  gameValData.insert(parameters)
 
 @setMetaData = (objectParameter) ->
   if currentGameId?
