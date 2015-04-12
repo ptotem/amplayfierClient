@@ -21,6 +21,7 @@ chapterCompletion.on('chapterComplete',(t,args)->
   console.log userNodeStatus.findOne({userId:args['uid'],nodeSeq:args['node']})?
   if userNodeStatus.findOne({userId:args['uid'],nodeSeq:args['node']})?
     console.log "sungle node completion medal"
+
     oldcurrency = currency.getValue(args['uid'])
     newcurrency = oldcurrency + parseInt(_.where(platforms.findOne(args['pid']).badges,{name:'chapterCompleteMedal'})[0].value)
     currency.setValue(newcurrency,args['uid'])
@@ -30,22 +31,31 @@ chapterCompletion.on('chapterComplete',(t,args)->
 )
 
 
-@allThroughDecks = new Badge("allDeckFullScoreMedal","All Done",'Badge Description','/assets/badgeimages/thorough.png',[score,currency])
-allThroughDecks.on('allChapterComplete',(t,args)->
-  console.log "all deck complete medal"
+@allNodeComplete = new Badge("allNodeComplete","All Done",'Badge Description','/assets/badgeimages/alldone.png',[score,currency])
+allNodeComplete.on('allchapterComplete',(t,args)->
+
   oldcurrency = currency.getValue(args['uid'])
-  newcurrency = oldcurrency + parseInt(_.where(platforms.findOne(args['pid']).badges,{name:'allDeckFullScoreMedal'})[0].value)
+  newcurrency = oldcurrency + parseInt(_.where(platforms.findOne(args['pid']).badges,{name:'allNodeComplete'})[0].value)
   currency.setValue(newcurrency,args['uid'])
   Meteor.users.update({_id:args['uid']},{$addToSet:{badges:t}})
   createUserNotification(args['uid'],args['pid'],"You have won the All Done badge")
-#  console.log "all through assigned"
-#  oldcurrency = currency.getValue()
-#  newcurrency = oldcurrency + 200
-#  currency.setValue(newcurrency)
-#  Meteor.users.update({_id:Meteor.userId()},{$addToSet:{badges:t}})
+
 )
 
 
+@fullScoreInNode = new Badge("fullScoreInDecks","Through Decks",'Badge Description','/assets/badgeimages/thorough.png',[score,currency])
+fullScoreInNode.on('chapterComplete',(t,args)->
+  console.log "-----------"
+  console.log args['status']
+  console.log "-----------"
+  if args['status']
+    oldcurrency = currency.getValue(args['uid'])
+    newcurrency = oldcurrency + parseInt(_.where(platforms.findOne(args['pid']).badges,{name:'fullScoreInDecks'})[0].value)
+    currency.setValue(newcurrency,args['uid'])
+    Meteor.users.update({_id:args['uid']},{$addToSet:{badges:t}})
+    createUserNotification(args['uid'],args['pid'],"You have won the All Through decks badge")
+
+)
 
 
 #@allChapterCompletion = new Badge("allChapterCompleteMedal",'Badge Description','/assets/badgeimages/alldone.png',[score,currency])

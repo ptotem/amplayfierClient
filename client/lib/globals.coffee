@@ -82,7 +82,7 @@
 		403
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
-#  maxTime = 1
+  maxTime = 4
   attr = reports.findOne({_id : attempt})
   slideTime = parseInt(attr.time/1000);
   if parseInt(attr.time/1000) > maxTime

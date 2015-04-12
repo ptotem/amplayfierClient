@@ -1,3 +1,8 @@
+@clearAllData = ()->
+  reports.remove({})
+  userCompletions.remove({})
+  userNodeCompletions.remove({})
+
 @getDeckScore = (id)->
   r = reports.findOne(id)
   maxPossiblePoints = 0
@@ -11,9 +16,15 @@
     actualPoints+= parseFloat(sd['slideScore'])
     maxPossiblePoints+=parseInt(sd['slidePoints'])
 #  maxPossiblePoints
-  actualPoints*100/maxPossiblePoints
+  [maxPossiblePoints,actualPoints,actualPoints*100/maxPossiblePoints]
 #  parseInt(actualTime*100/totalIdealTime)
-
+#
+@getNodeScore = (seq,uid,pid)->
+  flag = true
+  for d in platforms.findOne(pid).nodes[seq].decks
+    if _.pluck(userCompletions.find({userId:uid,deckId:d}).fetch(),'perscore').indexOf(100) is -1
+      flag = false
+  flag
 
 
 
@@ -42,7 +53,7 @@ createBadges = ()->
   systemBadges.remove({})
   systemBadges.insert({name:"firstTimeLandMedal",display_name:"Well Started",value:100})
   systemBadges.insert({name:"chapterCompleteMedal",display_name:"Milestone",value:50})
-  systemBadges.insert({name:"allDeckFullScoreMedal",display_name:"All Done",value:100})
+  systemBadges.insert({name:"allNodeComplete",display_name:"All Done",value:100})
   systemBadges.insert({name:"fullScoreInDecks",display_name:"Through Decks",value:200})
   systemBadges.insert({name:"fullScoreInAGame",display_name:"Flawless Victory",value:10})
   systemBadges.insert({name:"fullScoreInAllGames",display_name:"Mr. Perfect",value:500})
@@ -127,8 +138,11 @@ reports.find().observeChanges
           thisreport = reports.findOne(id)
           if thisreport.slideData.length >= thisreport.slideCount
             reports.update({_id:id},{$set:{deckComplete:true}})
-            deckScore = getDeckScore(id)
-            markModuleAsComplete(thisreport.deckId,thisreport.userId,thisreport.platformId,true,id,deckScore)
+            ds = getDeckScore(id)
+            deckScore = ds[2]
+            deckMaxScore = ds[0]
+            deckActualScore = ds[1]
+            markModuleAsComplete(thisreport.deckId,thisreport.userId,thisreport.platformId,true,id,deckScore,deckActualScore,deckMaxScore)
             deckCompleteEvent.trigger({uid:thisreport.userId,rid:id})
 
   #        we now check for individual node completions in this platform and assign badges accordingly so the user cannot cheat
@@ -143,9 +157,10 @@ reports.find().observeChanges
   #            console.log flag
               if flag
                 userNodeStatus.insert({userId:thisreport.userId,nodeSeq:i,status:'complete'})
+#                getNodeScore(id,i,thisreport.userId)
                 userNodeCompletions.insert({platformId:thisreport.platformId,userId:thisreport.userId,nodeSeq:i,status:'complete',createdAt:new Date().getTime()})
-
-                chapterCompleteEvent.trigger({uid:thisreport.userId,node:i,pid:thisreport.platformId})
+                sts = getNodeScore(i,thisreport.userId,thisreport.platformId)
+                chapterCompleteEvent.trigger({status:sts,uid:thisreport.userId,node:i,pid:thisreport.platformId})
               else
                 nodeflag = false
           if nodeflag
