@@ -201,14 +201,14 @@ Template.storyWrapper.helpers
   nodes:()->
     _.reject(platforms.findOne().nodes,(i)->
 #         !i.decks? and parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) < parseInt(i.startDay)
-      if i.sequence isnt 0
-        console.log "sas"
-
-        !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:i.sequence-1})? or parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) > parseInt(i.startDay)
-      else
-        console.log "sgaga"
-        console.log  parseInt(i.startDay)
-        console.log parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400)
+#      if i.sequence isnt 0
+#        console.log "sas"
+#
+#        parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) > parseInt(i.startDay)
+#      else
+#        console.log "sgaga"
+#        console.log  parseInt(i.startDay)
+#        console.log parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400)
         parseInt(((new Date().getTime() - Meteor.user().createdAt.getTime())/1000)/86400) < parseInt(i.startDay)
     )
   getNodeUrl:(pic)->
