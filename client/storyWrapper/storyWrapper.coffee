@@ -345,11 +345,12 @@ Template.storyWrapper.events
     # window.location = "/admin"
 
   'click #story-block-close':(e)->
-    setTime(getTime());
-    minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
-    maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
-    points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
-    setCurrentSlideScore(minTime, maxTime, points);
+    if $('.active').has('iframe').length is 0
+      setTime(getTime());
+      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
+      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
+      points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
+      setCurrentSlideScore(minTime, maxTime, points);
     endAttempt()
 
     $('.projection').remove();
