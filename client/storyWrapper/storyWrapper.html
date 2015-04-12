@@ -135,7 +135,14 @@
         <div class="fullcloser fullprojection"><button type="button" class="btn btn-danger btn-lg" style="color: black"> Close </button></div>
 
     </div>
+    {{>storyDashboard}}
 
+
+    <!-- Modals -->
+</template>
+
+
+<template name="storyDashboard">
     <div class="modal fade" id="story-dashboard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="z-index:100000">
             <div class="modal-content">
@@ -172,36 +179,36 @@
                                                     <div class="story-badge received" id="story-badge-1" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>{{name}} </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
                                                         <img src="{{imgPath}}" alt="">
                                                     </div>
-                                                    {{/each}}
+                                                {{/each}}
                                                 {{#each remainingBadges}}
                                                     <div class="story-badge received" id="story-badge-2" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">
                                                         <img src="{{imgPath}}" alt="">
                                                     </div>
-                                                    {{/each}}
+                                                {{/each}}
 
                                                 <!--<div class="story-badge" id="story-badge-3" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->
                                                 <!--<div class="story-badge" id="story-badge-4" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->
                                                 <!--<div class="story-badge" id="story-badge-5" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->
                                                 <!--<div class="story-badge" id="story-badge-6" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->
                                                 <!--<div class="story-badge" id="story-badge-7" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->
                                                 <!--<div class="story-badge" id="story-badge-8" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->
                                                 <!--<div class="story-badge" id="story-badge-9" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->
                                                 <!--<div class="story-badge" id="story-badge-10" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='popname'>Perfect first module </div><hr/><p class='poppara'>Complete a module to earn this badge.</p>">-->
-                                                    <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
+                                                <!--<img src="/assets/dashboardimages/shoot-bw.png" alt="">-->
                                                 <!--</div>-->
 
                                             </div>
@@ -271,7 +278,7 @@
                                                 </h3>
 
                                                 <div class="list-group" id="notifications-center">
-                                                   {{>plainNotificationList passKey}}
+                                                    {{>plainNotificationList passKey}}
                                                 </div>
 
 
@@ -292,10 +299,10 @@
                                                                     <div class="col-md-3 reward-img-container" style="background:  url('{{getAssetUrl rewardImage}}');background-size:100% 100%;">
                                                                         <!--<img class="lib-img-show img-responsive" src="http://lorempixel.com/850/850/?random=123">-->
                                                                         {{#if equals stock 0}}
-                                                                        <img class="lib-img-show img-responsive" src="/assets/images/overlay.png">
-                                                                            {{else}}
+                                                                            <img class="lib-img-show img-responsive" src="/assets/images/overlay.png">
+                                                                        {{else}}
                                                                             <div style="height: 156px;width:156px;"></div>
-                                                                            {{/if}}
+                                                                        {{/if}}
 
                                                                     </div>
                                                                     <div class="col-md-9">
@@ -320,7 +327,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        {{/each}}
+                                                    {{/each}}
 
 
 
@@ -332,7 +339,7 @@
                                                     Documents Archive
                                                 </h3>
 
-                                               {{>docCollection}}
+                                                {{>docCollection}}
                                             </div>
                                             <div class="tab-pane fade" id="dashboard-help">
                                                 <h3 class="head text-center">
@@ -401,5 +408,4 @@
         </div>
     </div>
 
-    <!-- Modals -->
 </template>

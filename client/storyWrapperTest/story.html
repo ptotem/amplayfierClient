@@ -1,0 +1,37 @@
+<template name="storyWrapperTest">
+    <div id="overlay"></div>
+    <div id="story-wrapper" class="col-sm-12" style="overflow: auto;">
+        <a href="#" id="dashboard-launcher" data-toggle="modal" data-target="#story-dashboard">
+            <img src="/assets/dashboardimages/dashboardbtn.png"><span id="dashbtn">DASHBOARD</span>
+        </a>
+    <div class="container" id="story-test">
+        <div id="story-zone">
+
+        </div>
+        <div class="row">
+            <h2>{{storyHeading}}</h2>
+
+
+            <hr>
+            <section id="pinBoot">
+                {{#each nodes}}
+                <article class="white-panel story-node" seq="{{sequence}}"><img src="{{getNodeStatusPic sequence}}" alt="">
+                    <h4><a href="#">{{title}}</a></h4>
+
+                    <p>{{description}}</p>
+                </article>
+                {{/each}}
+            </section>
+
+
+            <hr>
+
+
+        </div>
+
+
+    </div>
+    </div>
+
+    {{>storyDashboard}}
+</template>
