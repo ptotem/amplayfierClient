@@ -253,6 +253,7 @@ Template.individualStoryZone.helpers
   deckOfNode:(s)->
 
     deckList = []
+    console.log s
     flag = 'auto'
     for d,i in platforms.findOne().nodes[s].decks
       if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
