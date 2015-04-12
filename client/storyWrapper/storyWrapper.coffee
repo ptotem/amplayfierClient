@@ -344,15 +344,16 @@ Template.storyWrapper.events
     # window.location = "/admin"
 
   'click #story-block-close':(e)->
-    $('.projection').remove();
-    $('.story-zone-playbar').remove();
-
     setTime(getTime());
     minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
     maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
     points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
     setCurrentSlideScore(minTime, maxTime, points);
     endAttempt()
+
+    $('.projection').remove();
+    $('.story-zone-playbar').remove();
+
 
 #    $("#story-zone-close").trigger('click')
 
