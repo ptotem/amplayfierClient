@@ -1,8 +1,12 @@
 <template name="homePage">
+    <div class="projector-container">
+    <div class="projector projection">
   <div class="center-panel-container">
     {{{getHtmlContent}}}
 
     </div>
+
+
 
 
 <div class="nav-controls" style="display:none;">
@@ -10,7 +14,15 @@
     <div class="prev-slide btn btn-danger pull-right playbar-btn">Prev</div>
 
 </div>
-
+    </div>
+    <div class="story-zone-playbar">
+        <a href="#" class="prev-slide btn btn-warning pull-left playbar-btn"> &lt; </a>
+        <a href="#" class="next-slide btn btn-info  pull-left playbar-btn"> &gt; </a>
+        <div class="projector-nav"></div>
+        <a id="story-block-close" href="#" class="btn btn-danger pull-right playbar-btn">Exit Deck</a>
+        <a href="#" class="btn btn-primary fullscreener pull-right playbar-btn">Full Screen</a>
+    </div>
+    </div>
 </template>
 
 

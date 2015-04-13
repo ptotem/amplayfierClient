@@ -22,7 +22,8 @@
 	@currentIntegratedGameId = id
 	@currentIntegratedGame = id
 
-
+@setGameMaxPoints = (pts)->
+  @gameMaxPoints = pts
 
 @setTitle = (t)->
     document.title = t  ;
@@ -81,8 +82,7 @@
 		403
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
-#  maxTime = 1
-  console.log attempt
+  maxTime = 4
   attr = reports.findOne({_id : attempt})
   slideTime = parseInt(attr.time/1000);
   if parseInt(attr.time/1000) > maxTime
@@ -94,9 +94,6 @@
     scorePercentage = parseInt(attr.time/1000)*100/maxTime
 
 #    setScore(score)
-  console.log scorePercentage
-  console.log currentPanelId
-  console.log currentTemplateId
 
   reports.update({_id:attempt},{$push:{slideData:{slideId:currentTemplateId,panelId:currentPanelId,slideScore:score,slideTime:slideTime,slideMaxTime:maxTime,slideMinTime:minTime,slidePoints:points,percentageScore:scorePercentage}}})
   Session.set("currentSlideScore", 0)

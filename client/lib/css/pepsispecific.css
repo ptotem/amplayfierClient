@@ -1,0 +1,12 @@
+.component table, th, td {
+    border: 1px solid black;
+    padding:5px;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+}
+.component tr:first-child{
+    background: #0070C0 ;
+    color:white;
+
+}

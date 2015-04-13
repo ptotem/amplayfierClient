@@ -10,6 +10,8 @@
 @individualQuestionAttempts = new Meteor.Collection("individualQuestionAttempts")
 @reportMeta = new Meteor.Collection("reportMeta")
 @gameData = new Meteor.Collection("gameData")
+@gameValData = new Meteor.Collection("gameValData")
+
 @customizationDecks = new Meteor.Collection("customizationDecks")
 @archivePlatforms = new Meteor.Collection("archivePlatforms")
 @platformType = new Meteor.Collection("platformType")
@@ -19,6 +21,9 @@
 @userNodeStatus = new Meteor.Collection('userNodeStatus');
 @systemRewards = new Meteor.Collection('systemRewards');
 @scoreQuestions = new Meteor.Collection('scoreQuestions')
+@assesments = new Meteor.Collection('assesments')
+@userNodeCompletions = new Meteor.Collection('userNodeCompletions')
+
 
 
 @platforms.allow
@@ -38,6 +43,24 @@
     true
   remove:(userId, doc)->
     true
+
+@assesments.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+@gameValData.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+
 
 @platforms.deny
   update:(uid,docs,fields,modifier)->
@@ -68,18 +91,26 @@
   insert:(userId, role) ->
     true
   update:(userId, doc, fieldNames, modifier)->
-
+    console.log doc
     true
   remove:(userId, doc)->
     true
 @userCompletions.allow
   insert:(userId, role) ->
-    true
+    false
   update:(userId, doc, fieldNames, modifier)->
 
-    true
+    false
   remove:(userId, doc)->
-    true
+    false
+@userNodeCompletions.allow
+  insert:(userId, role) ->
+    false
+  update:(userId, doc, fieldNames, modifier)->
+
+    false
+  remove:(userId, doc)->
+    false
 
 
 @reportMeta.allow
@@ -152,9 +183,29 @@ imageStore = new FS.Store.GridFS("assetFiles",
 @excelFiles = new FS.Collection("excelFiles",
 
   stores: [
-    new FS.Store.FileSystem("raw",{path: "/var/www/userlistfiles"})
+    new FS.Store.FileSystem("raw",{path: "/var/www/assessmentquestionlistfiles"})
   ]
 )
+
+
+@excelFiles.on("stored",(fileObj,storeName)->
+
+  if storeName is "raw"
+    Fiber = Npm.require('fibers');
+    Future = Npm.require('fibers/future');
+    future = new Future();
+    Fiber(()->
+      if excelFiles.findOne(fileObj._id)?
+        # console.log fileObj
+        excelFiles.update({_id:fileObj._id},{$set:{stored:true}})
+      # console.log fileObj.url()
+    ).run()
+
+)
+
+
+
+
 @excelFiles.allow
   insert:(userId, role) ->
     true
@@ -181,8 +232,8 @@ imageStore = new FS.Store.GridFS("assetFiles",
     Fiber(()->
     	repositoryFiles.update({_id:fileObj._id},{$set:{stored:true}})
     ).run()
-	
-    
+
+
 )
 
 
@@ -227,10 +278,6 @@ nodeOpenMedal.on('assign',(t)->
 #@newUserEvent = new AppEvent('newUser','both',['newUser'])
 #@nodeOpenEvent = new AppEvent('nodeOpen','client',['nodeOpen'])
 #@deckOpenEvent = new AppEvent('deckOpen','client',['deckOpen'])
-@deckCompleteEvent = new AppEvent('deckComplete','both',['deckComplete'])
+@deckCompleteEvent = new AppEvent('deckComplete','server',['deckComplete'])
 @chapterCompleteEvent = new AppEvent('chapterComplete','server',['chapterComplete'])
 @allChapterCompleteEvent = new AppEvent('allChapterComplete','server',['allChapterComplete'])
-
-
-
-

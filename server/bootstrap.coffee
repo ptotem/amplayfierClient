@@ -1,11 +1,59 @@
+@clearAllData = ()->
+  reports.remove({})
+  userCompletions.remove({})
+  userNodeCompletions.remove({})
+
+@getDeckScore = (id)->
+  r = reports.findOne(id)
+  maxPossiblePoints = 0
+  totalIdealTime = 0
+  actualPoints = 0
+  actualTime = 0
+
+  for sd in r.slideData
+    totalIdealTime+= parseInt(sd['slideMaxTime'])
+    actualTime+= parseInt(sd['slideTime'])
+    actualPoints+= parseFloat(sd['slideScore'])
+    maxPossiblePoints+=parseInt(sd['slidePoints'])
+#  maxPossiblePoints
+  [maxPossiblePoints,actualPoints,actualPoints*100/maxPossiblePoints]
+#  parseInt(actualTime*100/totalIdealTime)
+#
+@getNodeScore = (seq,uid,pid)->
+  flag = true
+  for d in platforms.findOne(pid).nodes[seq].decks
+    if _.pluck(userCompletions.find({userId:uid,deckId:d}).fetch(),'perscore').indexOf(100) is -1
+      flag = false
+  flag
+
+
+
+Mailer.config({
+  from: 'Team Amplayfier  <info@ptotem.com',
+  replyTo: 'Team Amplayfier <info@ptotem.com'
+});
+
+
+
 initDMS(1,{})
+
+@initMailers = ()->
+  Mailer.init
+    templates: Templates
+    helpers: TemplateHelpers
+#    layout:
+#      name: 'emailLayout'
+#      path: 'layout.html'
+#      scss: 'layout.scss'
+
+
 
 @systemBadges = new Meteor.Collection('systemBadges')
 createBadges = ()->
   systemBadges.remove({})
   systemBadges.insert({name:"firstTimeLandMedal",display_name:"Well Started",value:100})
   systemBadges.insert({name:"chapterCompleteMedal",display_name:"Milestone",value:50})
-  systemBadges.insert({name:"allDeckFullScoreMedal",display_name:"All Done",value:100})
+  systemBadges.insert({name:"allNodeComplete",display_name:"All Done",value:100})
   systemBadges.insert({name:"fullScoreInDecks",display_name:"Through Decks",value:200})
   systemBadges.insert({name:"fullScoreInAGame",display_name:"Flawless Victory",value:10})
   systemBadges.insert({name:"fullScoreInAllGames",display_name:"Mr. Perfect",value:500})
@@ -17,7 +65,9 @@ createBadges = ()->
 
 
 Meteor.startup(()->
+#  SyncedCron.start();
 
+  initMailers()
   # startUpRoutine()
   resetCapabilities()
   createBadges()
@@ -75,32 +125,46 @@ Meteor.users.deny
 
 
 
+
+
 reports.find().observeChanges
   changed:(id,field)->
 #    if reports.findOne(attempt).slideData.length is reports.findOne(attempt).slideCount
 
+      if field['deckComplete']?
+        false
+      else
+        if field['attemptComplete']?
+          thisreport = reports.findOne(id)
+          if thisreport.slideData.length >= thisreport.slideCount
+            reports.update({_id:id},{$set:{deckComplete:true}})
+            ds = getDeckScore(id)
+            deckScore = ds[2]
+            deckMaxScore = ds[0]
+            deckActualScore = ds[1]
+            markModuleAsComplete(thisreport.deckId,thisreport.userId,thisreport.platformId,true,id,deckScore,deckActualScore,deckMaxScore)
+            deckCompleteEvent.trigger({uid:thisreport.userId,rid:id})
 
-      if field['attemptComplete']?
-        thisreport = reports.findOne(id)
-        if thisreport.slideData.length >= thisreport.slideCount
-          reports.update({_id:id},{$set:{deckComplete:true}})
-#        we now check for individual node completions in this platform and assign badges accordingly so the user cannot cheat
-        nodeflag = true
-        for n,i in platforms.findOne(thisreport.platformId).nodes
-          if n.decks?
-            flag = true
-            for d in n.decks
-#              console.log _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete')
-              if  _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete').length is 0 or _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete').indexOf(true) is -1
-                flag = false
-#            console.log flag
-            if flag
-              userNodeStatus.insert({userId:thisreport.userId,nodeSeq:i,status:'complete'})
-              chapterCompleteEvent.trigger({uid:thisreport.userId,node:i,pid:thisreport.platformId})
-            else
-              nodeflag = false
-        if nodeflag
-          allChapterCompleteEvent.trigger({uid:thisreport.userId,pid:thisreport.platformId})
+  #        we now check for individual node completions in this platform and assign badges accordingly so the user cannot cheat
+          nodeflag = true
+          for n,i in platforms.findOne(thisreport.platformId).nodes
+            if n.decks?
+              flag = true
+              for d in n.decks
+  #              console.log _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete')
+                if  _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete').length is 0 or _.pluck(reports.find({userId:thisreport.userId,deckId:d}).fetch(),'deckComplete').indexOf(true) is -1
+                  flag = false
+  #            console.log flag
+              if flag
+                userNodeStatus.insert({userId:thisreport.userId,nodeSeq:i,status:'complete'})
+#                getNodeScore(id,i,thisreport.userId)
+                userNodeCompletions.insert({platformId:thisreport.platformId,userId:thisreport.userId,nodeSeq:i,status:'complete',createdAt:new Date().getTime()})
+                sts = getNodeScore(i,thisreport.userId,thisreport.platformId)
+                chapterCompleteEvent.trigger({status:sts,uid:thisreport.userId,node:i,pid:thisreport.platformId})
+              else
+                nodeflag = false
+          if nodeflag
+            allChapterCompleteEvent.trigger({uid:thisreport.userId,pid:thisreport.platformId})
 
 
 

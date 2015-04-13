@@ -341,6 +341,33 @@ Meteor.methods
     return future.wait()
   )
 
+
+  bulkInsertAssessmentQuestions: Meteor.bindEnvironment((fileid, pid,statementId) ->
+    platformName = platforms.findOne(pid).tenantName
+    file = excelFiles.findOne(fileid)
+    Fiber = Npm.require('fibers');
+    Future = Npm.require('fibers/future');
+    future = new Future();
+    xlsxj = Meteor.npmRequire("xlsx-to-json")
+
+    xlsxj
+      input: '/var/www/assessmentquestionlistfiles/' + file.copies.raw.key
+      output: "output.json", (err, result) ->
+        if err
+          console.error err
+          console.log "if"
+        else
+          Fiber(()->
+            for r,i in result
+              excelData={statement:r["statement"],min:r["min"],max:r["max"]}
+              console.log excelData
+              assesments.update({_id:statementId},{$push:{scoreQuestions:excelData}})
+          ).run()
+    return future.wait()
+  )
+
+
+
   updateUser: (uid, p)->
     Meteor.users.update({_id: uid}, {
       $set:
@@ -396,6 +423,18 @@ Meteor.methods
     Meteor.users.update({_id:uid},{$set:{passwordSet:true}})
   resetUserPasswordAdmin:(uid)->
     Meteor.users.update({_id:uid},{$set:{passwordSet:false}})
+  resetPasswordAdmin:(uid)->
+    newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
+    u = Meteor.users.findOne(uid)
+    Accounts.setPassword(u._id, newpass)
+    Meteor.users.update({_id:u._id},{$set:{passwordSet:false}})
+
+    e = decodeEmail(u.personal_profile.email)
+    n = u.personal_profile.display_name
+    sendGeneralMail(e,"Your password has been reset !",'resetPassword',{uname:n,uemail:e,pass:newpass})
+
+
+
 
 
   forgotMyPassword:(email,captchaData)->

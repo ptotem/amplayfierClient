@@ -7,14 +7,11 @@ var i;
 /* Initialize the Page */
 function initPage() {
 
-    /* Set the Title of the Platform */
-    $('title').text(storyConfig.name);
 
-    /* Set the Story Nameplate */
-    $('#story-nameplate').attr('src', storyConfig.imgsrc + "/" + storyConfig.nameplate.image);
+
 
     /* Set the Story Presenter */
-    $('#story-presenter').attr('src', storyConfig.imgsrc + "/" + storyConfig.presenter.image);
+    //$('#story-presenter').attr('src', storyConfig.imgsrc + "/" + storyConfig.presenter.image);
 
     /* Set the Story Zone Design */
     $('#story-zone').css({
@@ -30,10 +27,10 @@ function initPage() {
     /* Show the screen */
     setTimeout(function () {
         initDeckStates();
-        createLandscapeView();
+        //createLandscapeView();
         createPortraitView();
         initNodeStates();
-        drawNodes();
+        //drawNodes();
         $('#story-wrapper').fadeIn('slow');
 
     }, 1000);
@@ -489,10 +486,10 @@ function bindZoneSections(zoneDecks, direction) {
         }
     });
 
-    zoneDecks.unbind("click").on('click', function () {
-        if (isPortrait()) portraitOpen();
-        showDeck(getSequence(this));
-    });
+    //zoneDecks.unbind("click").on('click', function () {
+    //    if (isPortrait()) portraitOpen();
+    //    showDeck(getSequence(this));
+    //});
 
 }
 
@@ -637,6 +634,7 @@ function closeDeck() {
 function isPortrait() {
     return (window.innerHeight > window.innerWidth)
 }
+window.isPortrait = isPortrait;
 
 /* Get Sequence Number of node where event happens */
 function getSequence(obj) {

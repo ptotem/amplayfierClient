@@ -57,6 +57,9 @@ Router.route '/forgotpassword',
     @render()
 
 
+
+
+
 Router.route '/reset-password/:token',
   template: "resetPassword",
   name:'reset',
@@ -101,7 +104,7 @@ Router.route '/admin',
     console.log pname
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('scoreQuestions',this.data().platformName),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('repositoryFiles',this.data().platformName),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('thisUser',Meteor.userId())]
+    [Meteor.subscribe('scoreQuestions',this.data().platformName),Meteor.subscribe('assesments',this.data().platformName),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('repositoryFiles',this.data().platformName),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('thisUser',Meteor.userId())]
   action: ->
     if @ready()
       console.log "ddd"
@@ -110,6 +113,18 @@ Router.route '/admin',
       @render()
     else
       @render('loading')
+
+Router.route '/assessment/:aid',
+  template: 'assessmentQuestion',
+  name:'assessment',
+  data:()->
+    {assessmentId:this.params.aid}
+  waitOn:()->
+    [Meteor.subscribe('thisAssessment',this.data().assessmentId)]
+  action: ->
+    if @ready()
+      @render()
+
 
 
 Router.route '/',
@@ -128,6 +143,25 @@ Router.route '/',
       @render()
     else
       @render('loading')
+
+Router.route '/story',
+  template: 'storyWrapperTest',
+  name: 'storyWrapperTest',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname}
+  waitOn:()->
+    [Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank'),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport')]
+  action:()->
+    if @ready()
+      setPlatform(this.data().platformName)
+      setTenant(this.data().platformName)
+
+      @render()
+    else
+      @render('loading')
+
+
 
 
 Router.route '/indexreport',
