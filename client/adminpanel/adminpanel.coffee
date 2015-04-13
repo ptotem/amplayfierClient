@@ -1,4 +1,10 @@
 Template.adminpanel.events
+  'click .checkbox-assessment':(e)->
+    if $(e.currentTarget).is(':checked')
+      $(e.currentTarget).prev().removeAttr('disabled')
+    else
+      $(e.currentTarget).prev().attr('disabled', 'disabled')
+
   'click .download-report-btn':(e)->
     Meteor.call('exportData',(err,res)->
       if err
@@ -78,15 +84,27 @@ Template.adminpanel.events
   'click .node-date-assignment':(e)->
     nodes = platforms.findOne().nodes
     pid = platforms.findOne()._id
-    $(".node-day").each((ind,ele)->
-      if $(ele).val().length isnt 0
+    $(".enrollment-node").each((ind,ele)->
+      if $(ele).find('.node-day').val().length is 0
+        val = 1
+      else
+        val = $(ele).find('.node-day').val()
+      assessMent = $(ele).find('.checkbox-assessment').is(":checked")
+      selAssessment = $(ele).find('.select-asessment').val()
+      nodes[parseInt($(ele).attr('node-seq'))].startDay = val
+      nodes[parseInt($(ele).attr('node-seq'))].assessmentNode = assessMent
+      nodes[parseInt($(ele).attr('node-seq'))].selAssessment = selAssessment
+      console.log nodes[parseInt($(ele).attr('node-seq'))].assessmentNode
+
 
 #        nodes[parseInt($(ele).attr('node-seq'))].startDate = new Date($(ele).val()).getTime()
 #        if parseInt($(ele).next().val()) > 100
 #          pm = 100
 #        else
-        pm = $(ele).val()
-        nodes[parseInt($(ele).attr('node-seq'))].startDay = pm
+#        pm = $(ele).val()
+
+#        console.log $(ele).next().is(':checked')
+#        nodes[$(ele).next().is(':checked')].nodeAssessment
 
     )
     platforms.update({_id:pid},{$set:{nodes:nodes}})
@@ -290,6 +308,9 @@ Template.adminpanel.rendered = () ->
 #    "width":"30%"
 #
 #  })
+
+
+
   setTitle('amplayfier | Manage User Profiles & Reports');
   $('.node-date').datepicker()
   $(".node-date").each((ind,ele)->

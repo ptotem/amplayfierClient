@@ -32,13 +32,13 @@
         <li class="active sidelink" target-section="users">Manage Users</li>
 
         <li class="sidelink" target-section="reports">Manage Reports </li>
-        <li class="sidelink" target-section="announcements">Portal Mailers </li>
+        <li class="sidelink" target-section="announcements">Mailers </li>
         <li class="sidelink" target-section="repository">Repository </li>
         <li class="sidelink" target-section="roles">Roles </li>
         <li class="sidelink" target-section="rewards">Rewards </li>
         <li class="sidelink" target-section="badges">Badges </li>
         <li class="sidelink" target-section="enrollments">Enrollments </li>
-            <li class="sidelink" target-section="questions-for-admin">Assessment </li>
+            <li class="sidelink" target-section="questions-for-admin">Assessments </li>
 
 
 
@@ -56,7 +56,7 @@
 
                 <div  class="help-area" id="question-help" >You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal. </div>
                 <ul>
-                    <li  help-area="question-help" class="active internal-sidelinks" target-section="question-for-admin-list"><i class="fa fa-certificate" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Assessment</li>
+                    <li  help-area="question-help" class="active internal-sidelinks" target-section="question-for-admin-list"><i class="fa fa-check-square-o" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>Assessments</li>
 
 
 
@@ -66,7 +66,7 @@
             </div>
             <div class="main-right">
                 <div id="question-for-admin-list" class="right-form ">
-                    <h2 style="margin-top: 0;">All Assessment  <a href="#" class="btn btn-warning pull-right add-btn new-question-for-admin">New </a></h2>
+                    <h2 style="margin-top: 0;">Assessments  <a href="#" class="btn btn-warning pull-right add-btn new-question-for-admin">New </a></h2>
                     <input type="file" class="assessment-question-upload" id='new-question-for-assessment-excel' style="display:none" />
                     <ul id="tag-list" class="full-box">
                         {{#each assessments}}
@@ -157,7 +157,7 @@
 
                 <div  class="help-area" id="badges-help" >You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal. </div>
                 <ul>
-                    <li  help-area="enrollments-help" class="active internal-sidelinks" target-section="enrollments-list"><i class="fa fa-certificate" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Nodes</li>
+                    <li  help-area="enrollments-help" class="active internal-sidelinks" target-section="enrollments-list"><i class="fa fa-fax" style="font-size: 2em;; margin-right: 1em; vertical-align: middle;"></i>All Nodes</li>
 								</ul>
             </div>
             <div class="main-right">
@@ -165,10 +165,31 @@
                     <h2 style="margin-top: 0;">All enrollments  <a href="#" class="btn btn-warning pull-right add-btn node-date-assignment">Update</a></h2>
                     <ul id="tag-list" class="full-box">
                         {{#each nodes}}
-                            <li class="badge-item" node-seq="{{sequence}}">{{title}}
+                            <li class="badge-item enrollment-node" node-seq="{{sequence}}">{{title}}
                                 <!--<input node-seq="{{sequence}}" type="text" class=" node-date pull-right" style="width:20% ;" value="{{timestampToDate endDate}}" /> -->
                                 <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" />
-                    </li>
+                                {{#if assessmentNode}}
+                                <select class="pull-right select-asessment" style="margin-right: 2%;">
+                                    {{#each assessments}}
+                                        <option value="{{_id}}">{{assessmentName}}</option>
+                                    {{/each}}
+                                </select>
+                                    <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value="">
+
+
+
+                                {{else}}
+                                    <select class="pull-right select-asessment"  disabled style="margin-right: 2%;">
+                                        {{#each assessments}}
+                                            <option value="-1">{{assessmentName}}</option>
+                                        {{/each}}
+                                    </select>
+                                    <input type="checkbox"  class="pull-right checkbox-assessment" style="width: 5%;" value="">
+
+                                {{/if}}
+
+
+                            </li>
                         {{/each}}
                     </ul>
 
@@ -378,7 +399,7 @@
     </div>
     <div class="main-right">
     	<div id="mass-mail" class="right-form ">
-    	<h2 style="margin-top: 0;">Portal Mail
+    	<h2 style="margin-top: 0;">Portal Mailers
     	</h2>
 
         {{>massMailerForm}}
@@ -636,6 +657,7 @@
 					<span class="tag-label">{{name}}</span>
 					<input class="deckname" type="hidden" name="deck_name" value="{{deckId}}">
 					<select data-placeholder="Tag your Variant" class="variant-chosen" tabindex="-1" style="width:150px;padding:0;">
+                        <option>None</option>
 						{{#each deckVariants _id}}
 						<option>{{userVariants}}</option>
 						{{/each}}

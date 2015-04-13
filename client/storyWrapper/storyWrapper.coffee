@@ -394,11 +394,11 @@ Template.storyWrapper.events
 
     initDash()
 
-Template.storyWrapper.helpers
-  getPortalName:()->
-    platforms.findOne().tenantName
+
+
+Template.storyDashboard.helpers
   passKey:()->
-    {ukey:platforms.findOne()._id}
+    {getNodeStatusPic:platforms.findOne()._id}
   faqs:()->
     faq
   rewards:()->
@@ -412,8 +412,14 @@ Template.storyWrapper.helpers
     allBadgeList = [basePath+'milestone.png',basePath+'alldone.png',basePath+'god.png',basePath+'flawless.png',basePath+'mastermind.png',basePath+'mrperfect.png',basePath+'revisionary.png',basePath+'rocketman.png',basePath+'thorough.png',basePath+'wellstarted.png']
 
     userBadges = _.pluck(Meteor.user().badges,'imgPath')
-#    remainingBadges =
+    #    remainingBadges =
     for r in _.difference(allBadgeList,userBadges)
       remainingBadges.push {imgPath:r.replace(".png","-bw.png")}
 
     remainingBadges
+
+Template.storyWrapper.helpers
+  getPortalName:()->
+    platforms.findOne().tenantName
+
+

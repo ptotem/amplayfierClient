@@ -483,4 +483,8 @@ Meteor.methods
       s = parseInt(r.stock) - 1
       systemRewards.update({_id:rid},{$set:{stock:s}})
 
+  updateFlunkCount:(uid)->
+    Meteor.users.update({_id:uid},{$inc:{flunkCount:1}})
+
+
 

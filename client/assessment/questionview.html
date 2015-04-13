@@ -1,5 +1,5 @@
 <template name="assessmentQuestion">
-  <div class="container back-container">
+  <div class="container back-container" id="assessment-container">
     {{#each assessments}}
     <div class="row">
       <div class="col-md-12 text-center formheading">{{assessmentName}}</div>
@@ -54,18 +54,22 @@
 
 </template>
 
-<template name="alreadyGiven">
+<template name="assessmentModal">
     <div class="modal fade">
-        <div class="modal-dialog">
+        <div class="modal-dialog" style="z-index: 9999">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Already</h4>
+                    <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                    <p>You had already given this assessment</p>
+                    <p>Do you want the candidate to proceed?</p>
                 </div>
-             </div><!-- /.modal-content -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default assessment-certify-no">No</button>
+                    <button type="button" class="btn btn-primary assessment-certify">Yes</button>
+                </div>
+            </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
-    </div>
+    </div><!-- /.modal -->
 </template>

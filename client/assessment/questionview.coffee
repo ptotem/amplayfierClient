@@ -20,7 +20,9 @@ Template.assessmentQuestion.events
       selectedData.push({statement: statement, rating: rating})
     assesmentScore.update({_id: assess}, {$set: {userScore: selectedData}})
     createNotification("Your Score has been recorded", 1)
-    window.location = "/admin"
+    $('.modal').remove()
+    Blaze.renderWithData(Template['assessmentModal'], {}, document.getElementById('assessment-container'))
+    $('.modal').modal()
 
 
 Template.assessmentQuestion.rendered = () ->
@@ -52,3 +54,16 @@ Template.assessmentQuestion.helpers
       countArr.push {}
       i++
     countArr
+
+
+Template.assessmentModal.events
+
+  'click .assessment-certify':(e)->
+    Meteor.call('certifiedImg',Meteor.userId(),'assessment')
+    $('modal').remove()
+
+  'click .assessment-certify-no':(e)->
+    Meteor.call('updateFlunkCount',Meteor.userId())
+    $('modal').remove()
+
+

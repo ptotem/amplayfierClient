@@ -25,8 +25,10 @@
   i = parseInt(args['node'])
   nn = platforms.findOne(args['pid']).nodes[i].title
   nnn = platforms.findOne(args['pid']).nodes[i+1].title
-
-  sendGeneralMail('rakesh@ptotem.com',"Congratulations !",'assessmentMail',{uname:"Rakesh",email:'rakesh@ptotem.com',nodename:nn,nextnodename:nnn})
+  assessmentNode = platforms.findOne(args['pid']).nodes[i].assessmentNode
+  if assessmentNode == true
+   setAssessmentId = platforms.findOne(args['pid']).nodes[i].selAssessment
+   sendGeneralMail('rushabh@ptotem.com',"Congratulations !",'assessmentMail',{uname:"Rakesh",email:'rakesh@ptotem.com',nodename:nn,nextnodename:nnn,link:Meteor.absoluteUrl()+"assessment/"+setAssessmentId+"/"+args['uid']})
 
 
 
