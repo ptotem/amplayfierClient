@@ -14,28 +14,26 @@
   border:1px solid white;
   color:white;
   padding:2%;
-
+}
+.dashboard-txt
+{
+  color:white;
 }
 .box-style:hover
 {
   background-color:#013f82;
+  cursor:pointer;
 }
 .box-txt
 {
-
   transform: rotate(-45deg);
-  /*margin-top: 19%;*/
   text-align:center;
   margin-top: 7%;
-
-
 }
 .logo-style
 {
-
   width:200px;
   height:200px;
-  /*transform: rotate(45deg);*/
 }
 .about-txt
 {
@@ -45,9 +43,9 @@
 
 .integrate-box
 {
-   left: 9%;
-   position: absolute;
-   top: 34%;
+  left: 9%;
+  position: absolute;
+  top: 34%;
 }
 .prepare-box
 {
@@ -64,8 +62,8 @@
 .familiarize-box
 {
   position: absolute;
-left: 32%;
-top: 68%;
+  left: 32%;
+  top: 68%;
 }
 @media
   (max-device-width: 1280px)

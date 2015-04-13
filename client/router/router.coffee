@@ -125,6 +125,11 @@ Router.route '/assessment/:aid',
     if @ready()
       @render()
 
+Router.route '/wrapperpage',
+  template: 'wrapperPage',
+  name:'wrapperpage',
+
+
 
 
 Router.route '/',
