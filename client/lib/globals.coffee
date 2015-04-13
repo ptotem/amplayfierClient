@@ -12,6 +12,13 @@
 
 @dep = new Deps.Dependency;
 
+
+@setAssessmentId = (aid)->
+  @assessmentId = aid
+
+@setManagerId = (mid)->
+  @managerId = mid
+
 @setPlatform = (pname)->
 	@platformName = pname
 

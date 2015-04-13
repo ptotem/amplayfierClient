@@ -130,3 +130,10 @@ Meteor.publish('assesments',(pname)->
 
   assesments.find({platform:pid})
 )
+
+Meteor.publish('assesmentScore',(pname)->
+  this.ready()
+  pid = platforms.findOne({tenantName: pname})._id
+
+  assesmentScore.find({})
+)
