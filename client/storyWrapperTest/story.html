@@ -1,6 +1,7 @@
 <template name="storyWrapperTest">
     <div id="overlay"></div>
-    <div id="story-wrapper" class="col-sm-12" style="overflow: auto;">
+    {{>wrapperPage}}
+    <div id="story-wrapper" class="col-sm-12" style="overflow: auto;display:none">
         <a href="#" id="dashboard-launcher" data-toggle="modal" data-target="#story-dashboard">
             <img src="/assets/dashboardimages/dashboardbtn.png"><span id="dashbtn">DASHBOARD</span>
         </a>

@@ -1,7 +1,7 @@
 Template.storyWrapperTest.rendered = ->
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
-  $("#story-wrapper").fadeIn(2000)
+#  $("#story-wrapper").fadeIn(2000)
 
   $('#pinBoot').pinterest_grid({
     no_columns: 4,
@@ -25,13 +25,13 @@ Template.storyWrapperTest.helpers
   getNodeStatusPic:(seq)->
     if seq isnt 0
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
-        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].photo
+        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
 
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].photo
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
     else
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].photo
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
 
 
 
