@@ -1,0 +1,395 @@
+@import url(http://fonts.googleapis.com/css?family=Archivo+Narrow:700);
+
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-family: arial;
+    font-size: 0.94em;
+}
+
+#ptotemy-game {
+    position: fixed;
+    width: 640px;
+    height: 480px;
+    z-index: 1;
+}
+
+#log {
+    display: none;
+}
+
+img {
+    width: 100%;
+}
+
+.environment, .location, .entity, .item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#entities, #items {
+    display: none;
+}
+
+#messagebox {
+    /*background: rgba(1, 1, 1, 0.9);*/
+    /*display: table-cell;*/
+    /*text-align: center;*/
+    /*vertical-align: middle;*/
+    width: 640px;
+    height: 480px;
+    display: none;
+    z-index: 10;
+}
+
+#messagebox * {
+    position: absolute;
+    color: white;
+}
+
+#game-back {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#game-logo {
+    width: 40%;
+    left: 30%;
+    top: 5%;
+}
+
+#game-logo img {
+    width: 100%;
+    /*margin-top: 3%;*/
+}
+
+.startpage-button {
+    display: table;
+    text-align: center;
+
+    height: 7.5%;
+    width: 30%;
+
+    cursor: pointer;
+}
+
+#startgame {
+    top: 65%;
+    left: 35%;
+}
+
+#showinst {
+    top: 75%;
+    left: 35%;
+}
+
+.startpage-button img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.startpage-button span {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative !important;
+}
+
+#game-logo-inst {
+    width: 20%;
+    left: 40%;
+    top: 3%;
+}
+
+#instructions {
+    height: 250px;
+    width: 89%;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-shadow: 1px 1px 1px rgba(1, 1, 1, 1);
+
+    top: 27%;
+    left: 5%;
+
+    display: table;
+}
+
+#inst-header{
+    position: absolute;
+    font-weight: bold;
+    font-size: 2em;
+    top: 3%;
+    left: 38%;
+}
+
+#inst-content{
+    position: absolute;
+    height: 75%;
+    width: 94%;
+    overflow-y: auto;
+    text-align: justify;
+    line-height: 20px;
+    top: 19%;
+    left: 3%;
+}
+
+#inst-content span {
+    height: 100%;
+    width: 100%;
+}
+
+#inst-content span p {
+    position: relative !important;
+    display:block;
+    padding-right: 20px;
+}
+
+#startgame-inst {
+    top: 85%;
+    left: 65%;
+}
+
+#start-game {
+    margin-top: 3%;
+    margin-right: 3%;
+    height: 35px;
+    width: 125px;
+    float: right;
+    cursor: pointer;
+}
+
+#endmessage {
+    position: absolute;
+    display: table !important;
+    top: 40%;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+}
+
+#endmessage span {
+    position: static !important;
+    display: table-cell !important;
+    /*width: ;*/
+}
+
+#playagain {
+    top: 70%;
+    left: 35%;
+}
+
+#logo{
+    width: 19%;
+    top: 3%;
+    left: 33.5%;
+}
+
+#help {
+    width: 20%;
+    height: 6%;
+    top: 85%;
+    left: 3%;
+    color : #3d2510;
+    display: table;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+    /*background: rgba(1, 1, 1, 0.5);*/
+}
+
+#help span {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+#help img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+#qholder {
+    height: 25%;
+    left: 2.5%;
+    top: 24.3%;
+    width: 71%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 7px;
+}
+
+#character {
+    width: 34%;
+    margin-top: -13.5%;
+    margin-left: -5.5%;
+}
+
+#ladder {
+    background: rgba(255, 255, 255, 0.1);
+    height: 60%;
+    left: 76%;
+    top: 4%;
+    width: 21%;
+    /*padding-top: 1%;border: 2px solid white;*/
+    border-radius: 4px;
+    /*display: none;*/
+}
+
+#ladder .location {
+    position: relative !important;
+    margin-left: 10%;
+    margin-top: 2%;
+    /*padding: 2%;*/
+    height: 9%;
+    width: 80%;
+    text-align: center;
+    color: white;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display: table;
+}
+
+#ladder .location span {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+}
+
+.completed {
+    color: #2d2d2d;
+}
+
+#player {
+    position: absolute;
+    z-index: 0;
+}
+
+#player img {
+    width: 100%;
+    height: 100%;
+}
+
+#lifelines {
+    height: 10%;
+    left: 72.5%;
+    top: 83%;
+    width: 25%;
+}
+
+#lifelines div {
+    position: relative;
+    margin-left: 8%;
+    width: 25%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.complete {
+    cursor: default !important;
+    /*pointer-events: none !important;*/
+}
+
+#text {
+    position: absolute !important;
+    width: 100% !important;
+    cursor: default !important;
+    top: 105%;
+    cursor: default !important;
+}
+
+#text span {
+    height: auto !important;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    color: whitesmoke;
+    /*border: 1px solid whitesmoke;*/
+    border-radius: 5px;
+}
+
+#ll1 {
+    left: 2%;
+}
+
+#ll2 {
+    left: 32%;
+}
+
+#ll3 {
+    left: 19%;
+}
+
+#lifelinepanel {
+    height: auto;
+    left: 75%;
+    bottom: 19% !important;
+    top: auto;
+    width: 22%;
+    color: white;
+    text-align: center;
+    display: table;
+    padding: 0.5%;
+    z-index: 3;
+}
+
+#lifelinepanel * {
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 2%;
+    /*height: auto;*/
+    /*display: block;*/
+}
+
+.button {
+    border: 1px solid #3d2510;
+    border-radius: 5px;
+    padding: 2% 5% !important;
+    margin-left: 5%;
+    margin-bottom: 4%;
+    cursor: pointer;
+}
+
+#close {
+    margin-left: 0 !important;
+}
+
+.lifeline-panel {
+    vertical-align: bottom;
+    height: auto;
+    /*width: 92%;*/
+    /*padding: 4%;*/
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.lifeline-panel * {
+    display: table-cell;
+    color: #3d2510;
+    vertical-align: bottom;
+}
+
+.lifeline-text {
+    margin-bottom: 10%;
+}
+
+#poll-chart {
+    height: 120px !important;
+    width: 130px !important;
+    display: none;
+    margin-bottom: 5%;
+    pointer-events: none;
+}
