@@ -22,7 +22,13 @@
   Meteor.users.findOne(uid).currency || 0
 
 @chapterComplete  = (args)->
-  ""
+  i = parseInt(args['node'])
+  nn = platforms.findOne(args['pid']).nodes[i].title
+  nnn = platforms.findOne(args['pid']).nodes[i+1].title
+
+  sendGeneralMail('rakesh@ptotem.com',"Congratulations !",'assessmentMail',{uname:"Rakesh",email:'rakesh@ptotem.com',nodename:nn,nextnodename:nnn})
+
+
 
 @allChapterComplete  = (args)->
   ""

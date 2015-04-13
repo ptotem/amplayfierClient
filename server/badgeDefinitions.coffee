@@ -18,7 +18,7 @@ firstLand.on('assign',(t,args)->
 
 @chapterCompletion = new Badge("chapterCompleteMedal","Milestone",'Badge Description','/assets/badgeimages/milestone.png',[score,currency])
 chapterCompletion.on('chapterComplete',(t,args)->
-  console.log userNodeStatus.findOne({userId:args['uid'],nodeSeq:args['node']})?
+
   if userNodeStatus.findOne({userId:args['uid'],nodeSeq:args['node']})?
     console.log "sungle node completion medal"
 
