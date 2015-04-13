@@ -130,6 +130,11 @@ Router.route '/assessment/:aid/:mid',
     else
       @render('loading')
 
+Router.route '/wrapperpage',
+  template: 'wrapperPage',
+  name:'wrapperpage',
+
+
 
 
 Router.route '/',
