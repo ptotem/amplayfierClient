@@ -22,6 +22,11 @@
 @remoteIp = "http://127.0.0.1:3000"
 
 
+# for final
+@myip = Meteor.settings.cientIP
+@remoteIp = Meteor.settings.creatorIP
+
+
 
 @getTenantHtml = (tid, secretKey, res)->
   x = DDP.connect(remoteIp)
