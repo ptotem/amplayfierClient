@@ -153,7 +153,7 @@ Meteor.methods
 
   createAdminOnClient: (email, tid, platformName)->
     console.log "Request for user creation received"
-    
+
     pid = platforms.findOne({tenantId: tid})._id
     personal_profile = {platform: pid, email: encodeEmail(email,platformName),  first_name:platformName, last_name: 'Admin', display_name: 'Administrator'}
     newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
@@ -327,11 +327,12 @@ Meteor.methods
                 personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
                 newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
                 personal_profile['initialPass'] = newpass
-                if roles.findOne({unikey:pid,rolename:r['role']})? and Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)})?
+                if roles.findOne({unikey:pid,rolename:r['role']})? and Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)}) and Meteor.users.findOne({'personal_profile.email':encodeEmail(r['hrmanager'], platformName)})?
                   personal_profile['role'] = roles.findOne({unikey:pid,rolename:r['role']})._id
                   personal_profile['reportingManager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)})._id
+                  personal_profile['hrmanager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['hrmanager'], platformName)})._id
                   console.log "User is dine"
-                  Accounts.createUser({email: newEmail, password: newpass, platform: pid, personal_profile: personal_profile})
+                  Accounts.createUser({email: newEmail, password : newpass, platform: pid, personal_profile: personal_profile})
 
 
               else
@@ -404,7 +405,7 @@ Meteor.methods
     if ul is -1
       newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
       p['initialPass'] = newpass
-      
+
       Accounts.createUser({email: p['email'], password: newpass, platform: pid, personal_profile: p,profile:"unspecified"})
     else
       if addedUsers >= ul

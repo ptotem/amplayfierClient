@@ -194,7 +194,7 @@ imageStore = new FS.Store.GridFS("assetFiles",
 @excelFiles = new FS.Collection("excelFiles",
 
   stores: [
-    new FS.Store.FileSystem("raw",{path: "/var/www/assessmentquestionlistfiles"})
+    new FS.Store.FileSystem("raw",{path: "/var/www/userlistfiles"})
   ]
 )
 

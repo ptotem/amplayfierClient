@@ -258,19 +258,37 @@ Template.adminpanel.events
     $('.user-upload').trigger('click')
 
   'change .user-upload': (e)->
-    f = new FS.File(document.getElementById("new-user-excel").files[0])
-    f.platformId = -1
-    nef = excelFiles.insert(f)
-    pid = platforms.findOne()._id
-    console.log nef
-    setTimeout(()->
-      Meteor.call('bulkInsertUsers', nef._id, pid, (err, res)->
-        if res is true
-          createNotification('Users successfully created',1)
-        else
-          createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
+    if document.getElementById('new-user-excel').files.length is 0
+      createNotification("Please upload a excel",1)
+    else
+      assessmentQuestions = new FS.File(document.getElementById('new-user-excel').files[0])
+      assessmentQuestions.platform = platforms.findOne()._id
+      assessmentQuestions.stored = false
+      $("#overlay").show()
+      rf = excelFiles.insert(assessmentQuestions)
+      rfid = rf._id
+      Tracker.autorun(()->
+        console.log excelFiles.findOne(rfid).stored
+        if excelFiles.findOne(rfid).stored
+          Meteor.call('bulkInsertUsers',rfid,platforms.findOne()._id)
+          $("#overlay").hide()
+
       )
-    , 3000)
+#    f = new FS.File(document.getElementById("new-user-excel").files[0])
+#    f.platformId = -1
+#    nef = excelFiles.insert(f)
+#    pid = platforms.findOne()._id
+#    console.log nef
+#    setTimeout(()->
+#      Meteor.call('bulkInsertUsers', nef._id, pid, (err, res)->
+#        if res is true
+#          createNotification('Users successfully created',1)
+#        else
+#          createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
+#      )
+#    , 3000)
+
+
   'click .add-new-user': (e)->
     $(".right-form").hide()
     $('#myuserCreate').remove()
@@ -402,13 +420,14 @@ Template.userForm.events
     first_name = $("#user-first-name").val()
     last_name = $("#user-last-name").val()
     reportingTo = $(".reporting-mgr").val()
+    hrManagerTo = $(".hr-mgr").val()
     role = $('.user-role').val()
     currUserFname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.first_name
     currUserLname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.last_name
 
     pid = platforms.findOne()._id
 
-    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail,reportingManager:reportingTo,role:role}
+    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail,reportingManager:reportingTo,role:role,hrmanager:hrManagerTo}
 
     if $("#user-id").val() == ''
       Meteor.call("addIndividualUser",p,pid,(err,res)->
@@ -435,7 +454,8 @@ Template.userForm.events
       p['display_name'] = display_name
       p['reportingManager'] = reportingTo
       p['role'] = role
-
+      p['hrmanager'] = hrManagerTo
+      console.log hrManagerTo
       Meteor.call('updateUser',$("#user-id").val(),p)
       Meteor.call("sendUserAddMailGunMail",email,first_name,last_name,currUserFname,currUserLname)
       createNotification('Profile has been updated', 1)
@@ -456,6 +476,7 @@ Template.userForm.rendered = ()->
   u = Meteor.users.findOne(uid).personal_profile
   setTimeout(()->
     $('.reporting-mgr').val(u.reportingManager)
+    $('.hr-mgr').val(u.hrmanager)
     $(".user-role").val(u.role)
   ,500)
 
