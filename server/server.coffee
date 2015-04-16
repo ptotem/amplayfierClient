@@ -187,8 +187,7 @@ Meteor.methods
         getIntegratedGameQuestions(tid, secretKey, res)
         getCustomizationData(tid, secretKey, res)
         getRequestForTenant(tid, secretKey, res)
-#        TODO:uncomment 
-        getAllAssetsForTenant(tid,secretKey)
+        # getAllAssetsForTenant(tid,secretKey)
         platforms.update({tenantId: tid}, {$set: {platformSync: true, issyncing: false}})
     )
 
