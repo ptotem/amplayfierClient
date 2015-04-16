@@ -1,7 +1,7 @@
 Templates = {};
 
 Templates.sampleMail = {
-    path: 'sample-email/template.html',    // Relative to the 'private' dir.
+    path: '/root/build/bundle/programs/server/assets/app/sample-email/newuser.html',    // Relative to the 'private' dir.
     scss: 'sample-email/style.scss',       // Mail specific SCSS.
 
     helpers: {
