@@ -4,7 +4,7 @@
     subject: 'Subject',                     # Required.
     template: 'sampleMail',               # Required.
     from:'info@ptotem.com'
-
+    baseUrl: process.env.ROOT_URL,
     data: {}                                # Optional. Render your email with a data object.
   })
 
@@ -14,7 +14,7 @@
     subject: subject,                     # Required.
     template: templateName,               # Required.
     from:'info@ptotem.com'
-
+    baseUrl: process.env.ROOT_URL,
     data: data                                # Optional. Render your email with a data object.
   })
 

@@ -22,7 +22,7 @@ Templates.sampleMail = {
     }
 };
 Templates.resetPassword = {
-    path: '/var/www/assets/sample-email/sample-emailresetpassword.html',    // Relative to the 'private' dir.
+    path: '/var/www/assets/sample-email/sample-email/resetpassword.html',    // Relative to the 'private' dir.
     scss: '/var/www/assets/sample-email/sample-email/style.scss',       // Mail specific SCSS.
 
     helpers: {
