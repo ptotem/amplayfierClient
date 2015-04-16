@@ -1,7 +1,7 @@
 Templates = {};
 
 Templates.sampleMail = {
-    path: '/root/build/bundle/programs/server/assets/app/sample-email/newuser.html',    // Relative to the 'private' dir.
+    path: '/root/build/bundle/programs/server/assets/app/sample-email/template.html',    // Relative to the 'private' dir.
     scss: 'sample-email/style.scss',       // Mail specific SCSS.
 
     helpers: {
@@ -22,7 +22,7 @@ Templates.sampleMail = {
     }
 };
 Templates.resetPassword = {
-    path: 'sample-email/resetpassword.html',    // Relative to the 'private' dir.
+    path: '/root/build/bundle/programs/server/assets/app/sample-email/resetpassword.html',    // Relative to the 'private' dir.
     scss: 'sample-email/style.scss',       // Mail specific SCSS.
 
     helpers: {
@@ -44,7 +44,7 @@ Templates.resetPassword = {
 };
 
 Templates.newRegister = {
-    path: 'sample-email/newuser.html',    // Relative to the 'private' dir.
+    path: '/root/build/bundle/programs/server/assets/app/sample-email/newuser.html',    // Relative to the 'private' dir.
 
 
     helpers: {
@@ -67,7 +67,7 @@ Templates.newRegister = {
 
 
 Templates.assessmentMail = {
-    path: 'sample-email/assessmentMail.html',    // Relative to the 'private' dir.
+    path: '/root/build/bundle/programs/server/assets/app/sample-email/assessmentMail.html',    // Relative to the 'private' dir.
 
 
     helpers: {
