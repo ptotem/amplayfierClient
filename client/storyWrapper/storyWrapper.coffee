@@ -1,4 +1,5 @@
 Template.userEditForm.events
+
   'click .update-user':(e)->
     display_name = $("#user-name").val()
     first_name = $("#user-first-name").val()
