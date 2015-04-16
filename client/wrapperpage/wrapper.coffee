@@ -11,6 +11,11 @@ Template.wrapperPage.events
       )
     ,1000)
 
+  'click .pepsi-home-dash':(e)->
+    $('#dashboard-launcher').trigger('click')
 
+  'click #dashboard-launcher':(e)->
+
+    initDash()
 
 

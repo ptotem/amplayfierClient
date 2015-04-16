@@ -1,5 +1,4 @@
 Template.userEditForm.events
-
   'click .update-user':(e)->
     display_name = $("#user-name").val()
     first_name = $("#user-first-name").val()
@@ -248,6 +247,7 @@ Template.individualStoryZone.events
       "pointer-events": "auto",
       opacity: 1
     });
+    $('.story-zone-wrapper').hide()
 
 
 Template.individualStoryZone.helpers

@@ -9,6 +9,7 @@
     font-size: 3em;
     width:30%;
     z-index:10;
+    outline: none;
 }
 
 #dashboard-launcher img{

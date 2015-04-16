@@ -1,7 +1,12 @@
 <template name="wrapperPage">
 <div class="container-fluid background wrapper-story">
   <div class="row">
-  <div class="col-md-2 pull-right" style="cursor:pointer"><img src="../assets/wrapperimg/Dashboard.png"></div>
+  <div class="col-md-2 pull-right" style="cursor:pointer">
+      <a href="#" id="dashboard-launcher" data-toggle="modal" data-target="#story-dashboard" style="display: none;">
+          <img class="pepsi-home-dash" src="../assets/wrapperimg/Dashboard.png">
+      </a>
+      <img class="pepsi-home-dash" src="../assets/wrapperimg/Dashboard.png">
+  </div>
   </div>
 <div class="row">
 <div class="col-md-7 col-md-offset-1" style="margin-top: 7%">
@@ -32,5 +37,5 @@
 
 
 
-
+    {{>storyDashboard}}
 </template>
