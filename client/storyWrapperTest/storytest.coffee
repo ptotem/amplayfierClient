@@ -117,6 +117,7 @@ Template.storyWrapperTest.events
     if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
         if p.name is Meteor.user().profile
+          console.log p.name
           for v in p.variants
             if v[deckId]?
               setVariantToShow(v[deckId])

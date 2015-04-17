@@ -18,10 +18,10 @@
 
 #dashbtn{
     position: absolute;
-    top:10px;
-    left:27%;
-    font-size: 32px;
-    color:#333;
+    top: 10px;
+    left: 33%;
+    font-size: 0.6em;
+    color: #333;
 }
 
 #dashbtn:hover {
@@ -256,10 +256,13 @@
     background-color: white;
 }
 
+
+
 .dashboard-card.hovercard .dashboard-cardheader {
     /*background: url("http://lorempixel.com/850/280/nature/4/");*/
     background-size: cover;
-    height: 135px;
+    height: 157px;
+
 }
 
 .dashboard-card.hovercard .avatar {
@@ -678,4 +681,73 @@ li.active:after {
     height: 355px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+/* New CSS for the responsiveness */
+
+@media( orientation:portrait) {
+    #dashboard-launcher {
+        width: 50%;
+    }
+    #chat-wrapper {
+        height: 370px;
+    }
+    .chat-user-photo {
+        width: 7.5%;
+    }
+    .board {
+        margin-top: 0;
+        height: 530px;
+    }
+    .btn-dash {
+        font-size: 1.2em;
+    }
+    .tab-pane {
+        height: 420px;
+}
+    .rewards-collection,
+    #documents-collection,
+    #notifications-center,
+    #faq-section {
+        height: 300px;
+    }
+    .dashboard-card.hovercard .dashboard-cardheader
+    {
+        height:111px;
+    }
+    #dashbtn
+    {
+        position: absolute;
+        top: 10px;
+        left: 28%;
+        font-size: 1.2em;
+        color: #333;
+    }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1281px) {
+    #dashboard-launcher {
+        top: -15px;
+    }
+    #dashbtn {
+        /*font-size: 0.7em;*/
+        top: 15px;
+    }
+    .dashboard-card.hovercard {
+        padding-bottom: 10px;
+    }
+    .lib-price {
+        font-size: 10px;
+    }
+    .lib-price .btn {
+        margin-right: 0.5em;
+    }
+    .dashboard-card.hovercard .dashboard-cardheader
+    {
+        height:193px;
+    }
+    #chat-wrapper
+    {
+        height: 444px;
+    }
+
 }

@@ -384,11 +384,11 @@ a.zone-button:visited {
     text-decoration: none;
 }
 
-@media (max-width: 1050px) and (orientation: landscape) {
-    #story-wrapper {
-        margin-top: 10%;
-    }
-}
+/*@media (max-width: 1050px) and (orientation: landscape) {*/
+    /*#story-wrapper {*/
+        /*margin-top: 10%;*/
+    /*}*/
+/*}*/
 
 @media (orientation: portrait) {
     body, #story-wrapper{
