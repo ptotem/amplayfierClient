@@ -374,7 +374,7 @@ Template.storyWrapper.events
               setVariantToShow(v[deckId])
 
 
-   
+
     if !variantToShow?
       setVariantToShow('Basic')
 
@@ -422,5 +422,3 @@ Template.storyDashboard.helpers
 Template.storyWrapper.helpers
   getPortalName:()->
     platforms.findOne().tenantName
-
-

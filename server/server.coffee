@@ -158,7 +158,7 @@ Meteor.methods
 
   createAdminOnClient: (email, tid, platformName)->
     console.log "Request for user creation received"
-    
+
     pid = platforms.findOne({tenantId: tid})._id
     personal_profile = {platform: pid, email: encodeEmail(email,platformName),  first_name:platformName, last_name: 'Admin', display_name: 'Administrator'}
     newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
@@ -356,7 +356,7 @@ Meteor.methods
     xlsxj = Meteor.npmRequire("xlsx-to-json")
 
     xlsxj
-      input: '/var/www/assessmentquestionlistfiles/' + file.copies.raw.key
+      input: '/var/www/userlistfiles/' + file.copies.raw.key
       output: "output.json", (err, result) ->
         if err
           console.error err
@@ -409,7 +409,7 @@ Meteor.methods
     if ul is -1
       newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
       p['initialPass'] = newpass
-      
+
       Accounts.createUser({email: p['email'], password: newpass, platform: pid, personal_profile: p,profile:"unspecified"})
     else
       if addedUsers >= ul
@@ -490,6 +490,3 @@ Meteor.methods
 
   updateFlunkCount:(uid)->
     Meteor.users.update({_id:uid},{$inc:{flunkCount:1}})
-
-
-

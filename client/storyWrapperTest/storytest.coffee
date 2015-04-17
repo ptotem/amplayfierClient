@@ -111,7 +111,9 @@ Template.storyWrapperTest.events
 
   'click .zone-deck':(e)->
 
+
     deckId = $(e.currentTarget).attr("id").split("-")[2]
+
 
     setDeckId(deckId)
     if platforms.findOne().profiles?
@@ -142,5 +144,3 @@ Template.storyWrapperTest.events
 
   'click #dashboard-launcher':(e)->
     initDash()
-
-

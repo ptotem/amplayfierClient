@@ -32,10 +32,11 @@
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   text-align:center;
-  font-size: 0.8em;
-  margin-right: 3%;
+  font-size: 0.7em;
+  margin-right: 13%;
   line-height: 1.7em;
   margin-top: 0;
+  margin-left: 5%;
 }
 .logo-style
 {
@@ -46,7 +47,7 @@
 {
   color: white;
   margin-top: 16%;
-  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .integrate-box
