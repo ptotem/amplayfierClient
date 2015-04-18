@@ -41,7 +41,7 @@ if Meteor.isClient
   Template.documentList.helpers
     platformFiles:()->
 
-      window[Session.get('collUsed')].find().fetch()
+      window[Session.get('collUsed')].find({tag:Meteor.user().profile}).fetch()
 
   Template.docCollection.events
     'click .lib-item':(e)->
@@ -132,6 +132,9 @@ if Meteor.isClient
 
 #
 
+  Template.uploadModal.helpers
+    platformProfiles:()->
+      platforms.findOne().profiles
 
   Template.uploadFileBtn.events
     'click .upload-file':(e)->
@@ -149,6 +152,7 @@ if Meteor.isClient
         plfile.platform = platforms.findOne()._id
         plfile.owner = Meteor.userId()
         plfile.description = $("#fileDesc").val()
+        plfile.tag = $('#doc-profile').val()
         x = window[Session.get('collUsed')].insert(plfile)
         x.on("uploaded",()->
           nowLeft = parseInt(Session.get("docLeft")) - 1

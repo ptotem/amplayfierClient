@@ -22,7 +22,14 @@
                     <textarea class="form-control" id="fileDesc"></textarea>
                     <br>
                     <input type="file" class="file-upload" id='new-user-files' style="display:block" multiple/>
+                    <br>
+                    <select class="form-control" id="doc-profile">
+                        {{#each platformProfiles}}
+                                <option value="{{name}}">{{name}}</option>
+                            {{/each}}
+                    </select>
                 </div>
+
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
