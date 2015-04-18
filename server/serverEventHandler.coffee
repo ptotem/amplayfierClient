@@ -28,7 +28,10 @@
   assessmentNode = platforms.findOne(args['pid']).nodes[i].assessmentNode
   if assessmentNode == true
    setAssessmentId = platforms.findOne(args['pid']).nodes[i].selAssessment
-   sendGeneralMail('rushabh@ptotem.com',"Congratulations !",'assessmentMail',{uname:"Rakesh",email:'rakesh@ptotem.com',nodename:nn,nextnodename:nnn,link:Meteor.absoluteUrl()+"assessment/"+setAssessmentId+"/"+args['uid']})
+   platformName = platforms.findOne(args['pid']).tenantName
+   console.log platformName = platforms.findOne(args['pid']).tenantName
+   console.log "Assessment Mail Sending"
+   sendGeneralMail(decodeEmail(Meteor.users.findOne(args['uid']).personal_profile.email,platformName),"Congratulations !",'assessmentMail',{uname:"Rakesh",email:'rakesh@ptotem.com',nodename:nn,nextnodename:nnn,link:Meteor.absoluteUrl()+"assessment/"+setAssessmentId+"/"+ Meteor.users.findOne(args['uid']).personal_profile.reportingManager})
 
 
 
@@ -42,4 +45,3 @@
 
 #    console.log args
 #    console.log "chapter is marked as complete on srrver"
-
