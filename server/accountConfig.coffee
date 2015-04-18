@@ -26,6 +26,7 @@ Accounts.onCreateUser (options, user) ->
   emailReceipient = options.email.split("@")[0].split("|")[0]+"@"+options.email.split("@")[1]
 
 #  if !Meteor.users.findOne({'personal_profile.email':options.email})?
+  console.log "sending email"
   sendGeneralMail(decodeEmail(options.email),"Welcome, Let's get started....",'newRegister',{uname:options.personal_profile.display_name,uemail:decodeEmail(options.email),pass:newpass})
 #    mailgunoptions =
 #      apiKey: "key-036bf41682cc241d89084bfcaba352a4"
