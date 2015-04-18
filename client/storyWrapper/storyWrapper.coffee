@@ -398,6 +398,9 @@ Template.storyWrapper.events
 
 
 Template.storyDashboard.helpers
+  notiPassKey:()->
+    {ukey:platforms.findOne()._id}
+
   passKey:()->
     {getNodeStatusPic:platforms.findOne()._id}
   faqs:()->
