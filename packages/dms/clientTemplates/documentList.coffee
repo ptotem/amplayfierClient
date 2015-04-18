@@ -46,7 +46,9 @@ if Meteor.isClient
   Template.docCollection.events
     'click .lib-item':(e)->
       window.open this.url() , "_blank"
-
+  Template.docCollection.events
+    'click .file-delete-btn':(e)->
+      window[Session.get('collUsed')].remove({_id:this._id})
   Template.docCollection.helpers
     platformFiles:()->
 
@@ -162,5 +164,3 @@ if Meteor.isClient
         )
 
 
-    'click .file-delete-btn':(e)->
-       window[Session.get('collUsed')].remove({_id:this._id})
