@@ -86,11 +86,12 @@ body.story-page {
 
 #story-zone-close {
     position: absolute;
-    right: -65px;
+    right: -60px;
     top: 25px;
     transform: rotate(-90deg);
     border-radius: 0;
     background: black;
+    pointer-events: auto;
 }
 
 #story-zone-close:hover {
@@ -383,11 +384,11 @@ a.zone-button:visited {
     text-decoration: none;
 }
 
-@media (max-width: 1050px) and (orientation: landscape) {
-    #story-wrapper {
-        margin-top: 10%;
-    }
-}
+/*@media (max-width: 1050px) and (orientation: landscape) {*/
+    /*#story-wrapper {*/
+        /*margin-top: 10%;*/
+    /*}*/
+/*}*/
 
 @media (orientation: portrait) {
     body, #story-wrapper{

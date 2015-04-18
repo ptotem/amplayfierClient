@@ -188,7 +188,7 @@ Template.adminpanel.events
       )
 
   'click .preview-icon-admin':(e)->
-    window.location = "/"
+    window.location = "/story"
 
   'click .add-individual-variant': (e) ->
     arr = []
@@ -258,19 +258,38 @@ Template.adminpanel.events
     $('.user-upload').trigger('click')
 
   'change .user-upload': (e)->
-    f = new FS.File(document.getElementById("new-user-excel").files[0])
-    f.platformId = -1
-    nef = excelFiles.insert(f)
-    pid = platforms.findOne()._id
-    console.log nef
-    setTimeout(()->
-      Meteor.call('bulkInsertUsers', nef._id, pid, (err, res)->
-        if res is true
-          createNotification('Users successfully created',1)
-        else
-          createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
+
+    if document.getElementById('new-user-excel').files.length is 0
+      createNotification("Please upload a excel",1)
+    else
+      userUpload = new FS.File(document.getElementById('new-user-excel').files[0])
+      userUpload.platform = platforms.findOne()._id
+      userUpload.stored = false
+      $("#overlay").show()
+      rf = excelFiles.insert(userUpload)
+      rfid = rf._id
+      Tracker.autorun(()->
+        console.log excelFiles.findOne(rfid).stored
+        if excelFiles.findOne(rfid).stored
+          Meteor.call('bulkInsertUsers',rfid,platforms.findOne()._id)
+          $("#overlay").hide()
+
       )
-    , 3000)
+    #
+    #
+    # f = new FS.File(document.getElementById("new-user-excel").files[0])
+    # f.platformId = -1
+    # nef = excelFiles.insert(f)
+    # pid = platforms.findOne()._id
+    # console.log nef
+    # setTimeout(()->
+    #   Meteor.call('bulkInsertUsers', nef._id, pid, (err, res)->
+    #     if res is true
+    #       createNotification('Users successfully created',1)
+    #     else
+    #       createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
+    #   )
+    # , 3000)
   'click .add-new-user': (e)->
     $(".right-form").hide()
     $('#myuserCreate').remove()

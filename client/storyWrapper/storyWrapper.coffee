@@ -247,6 +247,7 @@ Template.individualStoryZone.events
       "pointer-events": "auto",
       opacity: 1
     });
+    $('.story-zone-wrapper').hide()
 
 
 Template.individualStoryZone.helpers
@@ -373,7 +374,7 @@ Template.storyWrapper.events
               setVariantToShow(v[deckId])
 
 
-   
+
     if !variantToShow?
       setVariantToShow('Basic')
 
@@ -421,5 +422,3 @@ Template.storyDashboard.helpers
 Template.storyWrapper.helpers
   getPortalName:()->
     platforms.findOne().tenantName
-
-

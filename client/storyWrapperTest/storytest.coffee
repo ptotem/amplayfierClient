@@ -36,12 +36,25 @@ Template.storyWrapperTest.helpers
 
 
 Template.storyWrapperTest.events
+  'click .pepsi-home':(e)->
+    $('#story-wrapper').fadeOut(1000)
+    $(".wrapper-story").fadeIn(1500)
+
+
+
   'click .story-node':(e)->
     $('.story-node').css({
       "pointer-events": "none",
-      opacity: 0
+
+#      opacity: 0
+
     });
-    $('#story-zone').empty()
+    $('.story-zone-wrapper').show()
+    $('.story-zone-wrapper').css({
+        'z-index':1,
+        'background-color': 'rgba(0,0,0,'+0.5+')'
+    })
+#    $('#story-zone').empty()
     seq = $(e.currentTarget).attr('seq')
     node = platforms.findOne().nodes[seq]
     nodePhoto = storyConfig.imgsrc + "/" + node.photo
@@ -98,12 +111,15 @@ Template.storyWrapperTest.events
 
   'click .zone-deck':(e)->
 
+
     deckId = $(e.currentTarget).attr("id").split("-")[2]
+
 
     setDeckId(deckId)
     if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
         if p.name is Meteor.user().profile
+          console.log p.name
           for v in p.variants
             if v[deckId]?
               setVariantToShow(v[deckId])
@@ -128,5 +144,3 @@ Template.storyWrapperTest.events
 
   'click #dashboard-launcher':(e)->
     initDash()
-
-

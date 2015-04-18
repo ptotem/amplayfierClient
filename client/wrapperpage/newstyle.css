@@ -11,6 +11,8 @@
   width:155px;
   height:155px;
   transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   border:1px solid white;
   color:white;
   padding:2%;
@@ -27,11 +29,14 @@
 .box-txt
 {
   transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
   text-align:center;
-  font-size: 0.8em;
-  margin-right: 4%;
+  font-size: 0.7em;
+  margin-right: 13%;
   line-height: 1.7em;
-  margin-top: 2%;
+  margin-top: 0;
+  margin-left: 5%;
 }
 .logo-style
 {
@@ -42,6 +47,7 @@
 {
   color: white;
   margin-top: 16%;
+  padding-right: 5%;
 }
 
 .integrate-box
@@ -98,6 +104,40 @@
     }
     .box-txt {
       margin-top: 25%;
+    }
+
+}
+@media
+(max-device-width: 600px)
+and (orientation: portrait) {
+
+    .integrate-box
+    {
+        left: 5%;
+        position: absolute;
+        top: 34%;
+    }
+    .prepare-box
+    {
+        left: -7%;
+        position: absolute;
+        top: 68%;
+    }
+    .assimilate-box
+    {
+        left: 53%;
+        position: absolute;
+        top: 34%;
+    }
+    .familiarize-box
+    {
+        position: absolute;
+        left: 40%;
+        top: 68%;
+    }
+    .box-txt {
+        margin-top: 25%;
+        margin-left: 5%;
     }
 
 }

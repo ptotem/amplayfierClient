@@ -59,11 +59,9 @@ Template.assessmentQuestion.helpers
 Template.assessmentModal.events
 
   'click .assessment-certify':(e)->
-    Meteor.call('certifiedImg',Meteor.userId(),'assessment')
+    Meteor.call('certifiedImg',Meteor.userId(),'CONGRATS!!!')
     $('modal').remove()
 
   'click .assessment-certify-no':(e)->
     Meteor.call('updateFlunkCount',Meteor.userId())
     $('modal').remove()
-
-
