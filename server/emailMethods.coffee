@@ -16,3 +16,6 @@
     data: data                                # Optional. Render your email with a data object.
   })
 
+Meteor.methods
+  sendMyMail:()->
+    sendRegisterMail()
