@@ -4,8 +4,9 @@ Template.wrapperPage.events
 #    $('.story-node').hide()
     $("#story-wrapper").show()
 
+    tnc = $(e.currentTarget).attr('target-node-class')
     setTimeout(()->
-      $('.story-node').each((ind,ele)->
+      $(tnc).each((ind,ele)->
 
         $(ele).fadeOut(0).delay(ind*500).fadeIn(500)
       )
