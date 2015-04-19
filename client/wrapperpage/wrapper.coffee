@@ -3,6 +3,7 @@ Template.wrapperPage.events
     $('.wrapper-story').fadeOut(1000)
 #    $('.story-node').hide()
     $("#story-wrapper").show()
+    $('.story-node').hide()
 
     tnc = $(e.currentTarget).attr('target-node-class')
     setTimeout(()->
