@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a class="collapsed side-bar-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Stay on top of what's going on. Check out your notifications." href="#notificationsModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link notification-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Stay on top of what's going on. Check out your notifications." href="#notificationsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-envelope"></i>
                             <span class="oc-partial-menu-item">Notifications</span>
                         </a>
@@ -65,4 +65,27 @@
 
         </div>
     </aside>
+</template>
+
+<template name="notificationModal">
+    <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right" data-dismiss="modal">&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-envelope"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Notifications</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group" id="notifications-center">
+                        {{>plainNotificationList notiPassKey}}
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
 </template>

@@ -1,11 +1,12 @@
 <template name="mainWrapper">
     <link href="/assets/externalcss/theme.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" />
 
-    <div class="high emerald-default htmls htmls_panels story-page bg-black">
+    <div class="high emerald-default htmls htmls_panels story-page bg-black" >
 
     <div id="node-dialog-container"></div>
 
-    <div class="main-story-content">
+    <div class="main-story-content" id="main-wrapper-page">
         <div class="oc-xs-squeeze-push oc-sm-squeeze-push oc-md-squeeze-push oc-lg-squeeze-push
      modal-blur-content">
 
@@ -378,30 +379,7 @@
     <!-- /modal -->
 
     <!-- Notifications Modal -->
-    <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xlg-data-modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a class="btn btn-default pull-right" data-dismiss="modal">&times;</a>
-                    <div class="top-circle-icon"><i class="icm icm-envelope"></i>
-                    </div>
-                    <h4 class="modal-title" id="notifyModalLabel">Notifications</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="list-group" id="notifications-center">
-                        <a href="#" class="list-group-item active">Cras justo odio</a>
-                        <a href="#" class="list-group-item active">Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. Dapibus ac facilisis in. </a>
-                        <a href="#" class="list-group-item active">Morbi leo risus</a>
-                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item">Vestibulum at eros</a>
 
-                    </div>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-
-    </div>
     <!-- /modal -->
 
     <!-- Leaderboard Modal -->

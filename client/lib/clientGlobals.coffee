@@ -14,4 +14,8 @@
 @showModal = (templateName, templateArgs, docId)->
   $(".modal").remove()
   Blaze.renderWithData(Template[templateName], templateArgs, document.getElementById(docId))
-  $(".modal").modal()
+  setTimeout(()->
+    $(".modal").modal()
+  ,2000)
+
+#  $(".modal").modal()

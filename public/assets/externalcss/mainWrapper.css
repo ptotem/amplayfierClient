@@ -612,6 +612,7 @@ img.translucent {
     opacity: 0.8;
     margin-bottom: 2px;
     border: none;
+    padding:10px 15px
 }
 
 #notifications-center .list-group-item.active {
@@ -799,4 +800,9 @@ img.translucent {
 #documents-collection .lib-panel img {
     margin: 10%;
     width: 80%;
+}
+
+.modal-dialog
+{
+    z-index: 2000
 }
