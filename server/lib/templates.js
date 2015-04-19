@@ -1,8 +1,8 @@
 Templates = {};
 
 Templates.sampleMail = {
-    path: '/assets/sample-email/template.html',    // Relative to the 'private' dir.
-    scss: '/sample-email/style.scss',       // Mail specific SCSS.
+    path: '/var/www/assets/sample-email/template.html',    // Relative to the 'private' dir.
+    scss: '/var/www/sample-email/style.scss',       // Mail specific SCSS.
 
     helpers: {
         capitalizedName: function() {
@@ -22,8 +22,8 @@ Templates.sampleMail = {
     }
 };
 Templates.resetPassword = {
-    path: '/assets/sample-email/resetpassword.html',    // Relative to the 'private' dir.
-    scss: '/assets/sample-email/style.scss',       // Mail specific SCSS.
+    path: '/var/www/assets/sample-email/resetpassword.html',    // Relative to the 'private' dir.
+    scss: '/var/www/assets/sample-email/style.scss',       // Mail specific SCSS.
 
     helpers: {
         capitalizedName: function() {
@@ -44,7 +44,7 @@ Templates.resetPassword = {
 };
 
 Templates.newRegister = {
-    path: '/assets/sample-email/newuser.html',    // Relative to the 'private' dir.
+    path: '/var/www/assets/sample-email/newuser.html',    // Relative to the 'private' dir.
 
 
     helpers: {
