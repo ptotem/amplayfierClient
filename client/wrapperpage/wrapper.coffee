@@ -11,12 +11,12 @@ Template.wrapperPage.events
       $('.story-node').each((ind,ele)->
 
         $(ele).fadeOut(0).delay(ind*500).fadeIn(500)
-        
+
       )
     ,1000)
     setTimeout(()->
       $('.story-node').hide()
-      $(tnc).show()
+      $("."+tnc).show()
     ,finalTime)
 
 
