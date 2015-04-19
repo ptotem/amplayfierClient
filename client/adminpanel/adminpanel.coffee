@@ -258,15 +258,14 @@ Template.adminpanel.events
     $('.user-upload').trigger('click')
 
   'change .user-upload': (e)->
-
     if document.getElementById('new-user-excel').files.length is 0
       createNotification("Please upload a excel",1)
     else
-      userUpload = new FS.File(document.getElementById('new-user-excel').files[0])
-      userUpload.platform = platforms.findOne()._id
-      userUpload.stored = false
+      assessmentQuestions = new FS.File(document.getElementById('new-user-excel').files[0])
+      assessmentQuestions.platform = platforms.findOne()._id
+      assessmentQuestions.stored = false
       $("#overlay").show()
-      rf = excelFiles.insert(userUpload)
+      rf = excelFiles.insert(assessmentQuestions)
       rfid = rf._id
       Tracker.autorun(()->
         console.log excelFiles.findOne(rfid).stored
@@ -290,6 +289,7 @@ Template.adminpanel.events
     #       createNotification("You are not allowed to add any more user, please upgrade to add more user", 0)
     #   )
     # , 3000)
+
   'click .add-new-user': (e)->
     $(".right-form").hide()
     $('#myuserCreate').remove()
@@ -421,13 +421,14 @@ Template.userForm.events
     first_name = $("#user-first-name").val()
     last_name = $("#user-last-name").val()
     reportingTo = $(".reporting-mgr").val()
+    hrManagerTo = $(".hr-mgr").val()
     role = $('.user-role').val()
     currUserFname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.first_name
     currUserLname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.last_name
 
     pid = platforms.findOne()._id
 
-    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail,reportingManager:reportingTo,role:role}
+    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail,reportingManager:reportingTo,role:role,hrmanager:hrManagerTo}
 
     if $("#user-id").val() == ''
       Meteor.call("addIndividualUser",p,pid,(err,res)->
@@ -454,7 +455,8 @@ Template.userForm.events
       p['display_name'] = display_name
       p['reportingManager'] = reportingTo
       p['role'] = role
-
+      p['hrmanager'] = hrManagerTo
+      console.log hrManagerTo
       Meteor.call('updateUser',$("#user-id").val(),p)
       Meteor.call("sendUserAddMailGunMail",email,first_name,last_name,currUserFname,currUserLname)
       createNotification('Profile has been updated', 1)
@@ -475,6 +477,7 @@ Template.userForm.rendered = ()->
   u = Meteor.users.findOne(uid).personal_profile
   setTimeout(()->
     $('.reporting-mgr').val(u.reportingManager)
+    $('.hr-mgr').val(u.hrmanager)
     $(".user-role").val(u.role)
   ,500)
 
@@ -507,3 +510,6 @@ Template.adminLogout.events
     setTimeout (->
       window.location.href = window.location.href
     ), 1000
+
+
+# fe918e6

@@ -44,7 +44,7 @@ Meteor.methods
 
     team = '"'+str+'"'
     child = exec("mkdir /var/www/assets/certificationImg/")
-    child = exec("convert -font helvetica -pointsize 50 -fill white -draw 'text 300,300 " + team  + "' /var/www/assets/static/certificates.jpg  /var/www/assets/certificationImg/certify" + str + ".jpg" ,(error,stdout,stderr)->
+    child = exec("convert -font helvetica -pointsize 50 -fill white -draw 'text 300,300 " + team  + "' /var/www/assets/static/b1.jpg  /var/www/assets/certificationImg/certify" + str + ".jpg" ,(error,stdout,stderr)->
       if error?
         console.log error
         future.return("conversionError")
