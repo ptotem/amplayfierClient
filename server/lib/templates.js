@@ -1,8 +1,8 @@
 Templates = {};
 
 Templates.sampleMail = {
-    path: '/var/www/assets/sample-email/template.html',    // Relative to the 'private' dir.
-    scss: '/var/www/sample-email/style.scss',       // Mail specific SCSS.
+    path: 'sample-email/template.html',    // Relative to the 'private' dir.
+    scss: 'sample-email/style.scss',       // Mail specific SCSS.
 
     helpers: {
         capitalizedName: function() {
