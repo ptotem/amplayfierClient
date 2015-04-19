@@ -10,6 +10,9 @@ Template.storyWrapperTest.rendered = ->
     margin_bottom: 50,
     single_column_breakpoint: 700
   });
+  $('.story-node[seq="7"]').removeClass('inactive-node')
+  $('.story-node[seq="14"]').removeClass('inactive-node')
+  $('.story-node[seq="16"]').removeClass('inactive-node')
 
 Template.storyWrapperTest.created = ()->
   s = platforms.findOne().storyConfig
