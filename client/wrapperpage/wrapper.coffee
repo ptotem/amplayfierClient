@@ -13,7 +13,8 @@ Template.wrapperPage.events
           $(ele).fadeOut(0).delay(ind*500).fadeIn(500)
         else
           $(ele).fadeOut(0).delay(ind*500)
-          $(ele).remove()
+          $(ele).hide()
+#          $(ele).remove()
 
 
       )
