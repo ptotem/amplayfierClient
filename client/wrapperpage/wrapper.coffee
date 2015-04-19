@@ -3,13 +3,15 @@ Template.wrapperPage.events
     $('.wrapper-story').fadeOut(1000)
 #    $('.story-node').hide()
     $("#story-wrapper").show()
-    $('.story-node').hide()
+
 
     tnc = $(e.currentTarget).attr('target-node-class')
     setTimeout(()->
-      $(tnc).each((ind,ele)->
+      $('.story-node').each((ind,ele)->
 
         $(ele).fadeOut(0).delay(ind*500).fadeIn(500)
+        if !$(ele).hasClass(tnc)
+          $(ele).hide()
       )
     ,1000)
 
