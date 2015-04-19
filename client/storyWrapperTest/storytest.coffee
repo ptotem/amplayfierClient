@@ -40,8 +40,9 @@ Template.storyWrapperTest.helpers
 
 Template.storyWrapperTest.events
   'click .pepsi-home':(e)->
-    $('#story-wrapper').fadeOut(1000)
-    $(".wrapper-story").fadeIn(1500)
+    window.location.reload()
+#    $('#story-wrapper').fadeOut(1000)
+#    $(".wrapper-story").fadeIn(1500)
 
 
 
