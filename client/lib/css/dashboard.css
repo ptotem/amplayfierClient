@@ -1,0 +1,753 @@
+/*.component {
+    color:black;
+}*/
+
+#dashboard-launcher {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 3em;
+    width:30%;
+    z-index:10;
+    outline: none;
+}
+
+#dashboard-launcher img{
+    width:100%;
+}
+
+#dashbtn{
+    position: absolute;
+    top: 10px;
+    left: 33%;
+    font-size: 0.6em;
+    color: #333;
+}
+
+#dashbtn:hover {
+    text-shadow: 0 0 10px #111;
+}
+
+
+
+#story-dashboard .modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: rgba(42, 42, 42, 0.9);
+    overflow: hidden;
+}
+
+#story-dashboard .modal-header,
+#story-dashboard .modal-footer,
+#story-dashboard .modal-body {
+    border: none;
+    text-align: left;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#story-dashboard .modal-footer {
+    margin-top: 20px;
+}
+
+#story-dashboard .modal-footer {
+    color: white;
+    text-align: center;
+}
+
+#story-dashboard .modal-content {
+    height: 100%;
+    border-radius: 0;
+    padding: 1%;
+    padding-top: 0;
+    overflow: auto;
+    background: transparent;
+}
+
+.square,
+#story-dashboard .btn {
+    border-radius: 0px!important;
+}
+
+/* Score Block */
+
+#dashboard-score-block {
+    font-size: 3em;
+    background: #333;
+    border: 1px solid orange;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+/* User List */
+
+#chat-wrapper {
+    height: 420px;
+    background: #eee;
+    overflow-y: auto;
+    margin-left: 20px;
+    position: relative;
+}
+
+.chat-table {
+    background: #fff;
+}
+
+.chat-table td {
+    border-bottom: 1px solid #666;
+    height: 20px;
+}
+
+.chat-row {
+    height: 20px;
+    cursor: pointer;
+}
+
+.chat-user-photo {
+    width: 15%;
+}
+
+.chat-user-photo img {
+    width: 90%;
+}
+
+.chat-user-name {
+    width: 40%;
+}
+
+.chat-user-score {
+    font-size: 1.1em;
+    width:20%;
+    text-align: center;
+    background: #333;
+    color:white;
+    border: 1px solid orange;
+}
+
+.chat-user-rank {
+    font-size: 1.1em;
+    width:15%;
+    text-align: center;
+    background: #ffa850;
+    color:white;
+}
+
+
+.chat-user-activity {
+    width: 10%;
+    text-align: center;
+}
+
+
+.chat-score-label {
+    font-size: 1.1em;
+}
+
+.chat-user-activity img {}
+
+.dash-btn-bank {
+    margin-left: 20px;
+}
+
+.btn-dash {
+    width: 100%;
+    font-size: 1.5em !important;
+    margin-top: 10px;
+}
+
+.chatpop{
+    text-align: left;
+}
+
+.popimg {
+    width: 40%;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.popname {
+    font-size: 1.5em;
+    line-height: 1em;
+    padding:0;
+}
+
+.popstatus {
+    color: #666;
+    padding-bottom: 0.3em;
+}
+
+.popstatus.available {
+    color: green
+}
+
+.pop-score-label {
+}
+
+.pop-rank-label {
+}
+
+.poppara {
+}
+
+#notifications-center {
+    width:95%;
+    margin:0 auto;
+    height: 380px;
+    overflow: auto;
+    border-top: 2px solid orange;
+}
+
+#notifications-center .list-group-item:first-child {
+    border-top-right-radius: 0;
+}
+
+#notifications-center .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+}
+
+
+#notifications-center .list-group-item {
+    padding: 5px;
+    background: #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-left: 20px;
+}
+
+#notifications-center .list-group-item.active {
+    background: #eee;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+.notification-badge {
+    font-size: 0.8em;
+    margin-left: 5px;
+    border-radius:5px;
+}
+/* Profile Card */
+
+.dashboard-card {
+    padding-top: 20px;
+    background-color: #efefe9;
+;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.dashboard-card.hovercard {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 30px;
+    overflow: hidden;
+    text-align: center;
+    background-color: white;
+}
+
+
+
+.dashboard-card.hovercard .dashboard-cardheader {
+    /*background: url("http://lorempixel.com/850/280/nature/4/");*/
+    background-size: cover;
+    height: 157px;
+
+}
+
+.dashboard-card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.dashboard-card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.dashboard-card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+
+.dashboard-card.hovercard .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.dashboard-card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.dashboard-card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+
+.story-badges {
+    margin-top: 20px;
+}
+
+.story-badge {
+    display: inline-block;
+    width: 20%;
+    margin: 5px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.story-badge img {
+    width: 100%;
+}
+/* Center Panel CSS */
+
+.board {
+    width: 100%;
+    margin: 25px auto;
+    height: 585px;
+    /*box-shadow: 10px 10px #ccc,-10px 20px #ddd;*/
+}
+
+.board .nav-tabs {
+    position: relative;
+    /* border-bottom: 0; */
+    /* width: 80%; */
+
+    margin: 0 auto;
+    margin-bottom: 0;
+    box-sizing: border-box;
+}
+
+.board > div.board-inner {
+    background: transparent;
+    background-size: 30%;
+}
+
+p.narrow {
+    width: 60%;
+    margin: 10px auto;
+}
+
+.liner {
+    height: 2px;
+    background: #ddd;
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: 1;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    /* background-color: #ffffff; */
+
+    border: 0;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs > li.active span.round-tabs{
+    box-shadow: 0 0 20px 1px white;
+}
+
+span.round-tabs {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: white;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+}
+
+span.round-tabs.one {
+    color: rgb(34, 194, 34);
+    border: 2px solid rgb(34, 194, 34);
+}
+
+li.active span.round-tabs.one {
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: rgb(34, 194, 34);
+}
+
+span.round-tabs.two {
+    color: #febe29;
+    border: 2px solid #febe29;
+}
+
+li.active span.round-tabs.two {
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #febe29;
+}
+
+span.round-tabs.three {
+    color: #3e5e9a;
+    border: 2px solid #3e5e9a;
+}
+
+li.active span.round-tabs.three {
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #3e5e9a;
+}
+
+span.round-tabs.four {
+    color: #f1685e;
+    border: 2px solid #f1685e;
+}
+
+li.active span.round-tabs.four {
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #f1685e;
+}
+
+span.round-tabs.five {
+    color: #666;
+    border: 2px solid #999;
+}
+
+li.active span.round-tabs.five {
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #666;
+}
+
+.nav-tabs > li.active > a span.round-tabs {
+    background: #fafafa;
+}
+
+.nav-tabs > li {
+    width: 20%;
+}
+/*li.active:before {
+    content: " ";
+    position: absolute;
+    left: 45%;
+    opacity:0;
+    margin: 0 auto;
+    bottom: -2px;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    z-index: 1;
+    transition:0.2s ease-in-out;
+}*/
+
+li:after {
+    content: " ";
+    position: absolute;
+    left: 45%;
+    opacity: 0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    border-bottom-color: #ddd;
+    transition: 0.1s ease-in-out;
+}
+
+li.active:after {
+    content: " ";
+    position: absolute;
+    left: 45%;
+    opacity: 1;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: #ddd;
+}
+
+.nav-tabs > li a {
+    width: 70px;
+    height: 70px;
+    margin: 20px auto;
+    border-radius: 100%;
+    padding: 0;
+}
+
+.nav-tabs > li a:hover {
+    background: transparent;
+    box-shadow: 0 0 20px 1px white;
+}
+
+.tab-content {}
+
+.tab-pane {
+    position: relative;
+    padding-top: 10px;
+    background: #f5f5f5;
+    height: 565px;
+}
+
+.tab-content .head {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+.btn-outline-rounded {
+    padding: 10px 40px;
+    margin: 20px 0;
+    border: 2px solid transparent;
+    border-radius: 25px;
+}
+
+.btn.green {
+    background-color: #5cb85c;
+    /*border: 2px solid #5cb85c;*/
+
+    color: #ffffff;
+}
+
+@media( max-width: 585px) {
+    .board {
+        width: 90%;
+        height: auto !important;
+    }
+    span.round-tabs {
+        font-size: 16px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+    .tab-content .head {
+        font-size: 20px;
+    }
+    .nav-tabs > li a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+    li.active:after {
+        content: " ";
+        position: absolute;
+        left: 35%;
+    }
+    .btn-outline-rounded {
+        padding: 12px 20px;
+    }
+}
+/* Reward Center */
+
+.rewards-collection {
+    width: 95%;
+    margin: 0 auto;
+    height: 355px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.lib-panel {
+    margin-bottom: 20px;
+}
+
+.lib-panel img {
+    width: 100%;
+    background-color: transparent;
+}
+
+.lib-panel .row,
+.lib-panel .col-md-3,
+.lib-panel .col-md-9 {
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+.lib-panel .lib-row {
+    padding: 0 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    padding: 10px 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header .lib-header-seperator,.lib-panel .lib-row.lib-desc .lib-desc-seperator {
+    height: 2px;
+    width: 26px;
+    background-color: #d9d9d9;
+    margin: 7px 0 7px 0;
+}
+
+.lib-panel .lib-row.lib-desc {
+    position: relative;
+    height: 100%;
+    display: block;
+    font-size: 13px;
+}
+
+.lib-panel .lib-row.lib-desc a {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 20px;
+}
+
+.lib-panel .lib-row.lib-price {
+    position: absolute;
+    width: 100%;
+    display: block;
+    font-size: 20px;
+}
+
+.row-margin-bottom {
+    margin-bottom: 20px;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .10);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .10);
+}
+
+.no-padding {
+    padding: 0;
+}
+
+#documents-collection{
+    width:95%;
+    margin: 0 auto;
+    height: 355px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#documents-collection .lib-item{
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#documents-collection .col-md-6 .lib-panel{
+    width:85%;
+    margin:0 auto;
+}
+
+#documents-collection .lib-panel:hover{
+    box-shadow: 0 5px 20px 1px orange;
+}
+
+#documents-collection .lib-header{
+    font-size: 16px;
+    font-weight: bold;
+    padding-left:10px;
+}
+
+#documents-collection .lib-desc{
+    padding-left:10px;
+    padding-bottom: 10px;
+}
+
+#documents-collection .lib-panel img {
+    margin: 10px;
+}
+
+#faq-section{
+    width:95%;
+    margin: 0 auto;
+    height: 355px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* New CSS for the responsiveness */
+
+@media( orientation:portrait) {
+    #dashboard-launcher {
+        width: 50%;
+    }
+    #chat-wrapper {
+        height: 370px;
+    }
+    .chat-user-photo {
+        width: 7.5%;
+    }
+    .board {
+        margin-top: 0;
+        height: 530px;
+    }
+    .btn-dash {
+        font-size: 1.2em;
+    }
+    .tab-pane {
+        height: 420px;
+}
+    .rewards-collection,
+    #documents-collection,
+    #notifications-center,
+    #faq-section {
+        height: 300px;
+    }
+    .dashboard-card.hovercard .dashboard-cardheader
+    {
+        height:111px;
+    }
+    #dashbtn
+    {
+        position: absolute;
+        top: 10px;
+        left: 28%;
+        font-size: 1.2em;
+        color: #333;
+    }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1281px) {
+    #dashboard-launcher {
+        top: -15px;
+    }
+    #dashbtn {
+        /*font-size: 0.7em;*/
+        top: 15px;
+    }
+    .dashboard-card.hovercard {
+        padding-bottom: 10px;
+    }
+    .lib-price {
+        font-size: 10px;
+    }
+    .lib-price .btn {
+        margin-right: 0.5em;
+    }
+    .dashboard-card.hovercard .dashboard-cardheader
+    {
+        height:193px;
+    }
+    #chat-wrapper
+    {
+        height: 444px;
+    }
+
+}
