@@ -137,3 +137,9 @@ Meteor.publish('assesmentScore',(pname)->
 
   assesmentScore.find({})
 )
+Meteor.publish('badges',()->
+  this.ready()
+
+
+  systemBadges.find({})
+)

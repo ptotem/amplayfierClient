@@ -45,9 +45,7 @@ allNodeComplete.on('allchapterComplete',(t,args)->
 
 @fullScoreInNode = new Badge("fullScoreInDecks","Through Decks",'Badge Description','/assets/badgeimages/thorough.png',[score,currency])
 fullScoreInNode.on('chapterComplete',(t,args)->
-  console.log "-----------"
-  console.log args['status']
-  console.log "-----------"
+
   if args['status']
     oldcurrency = currency.getValue(args['uid'])
     newcurrency = oldcurrency + parseInt(_.where(platforms.findOne(args['pid']).badges,{name:'fullScoreInDecks'})[0].value)

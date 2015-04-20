@@ -29,8 +29,6 @@
   if assessmentNode == true
    setAssessmentId = platforms.findOne(args['pid']).nodes[i].selAssessment
    platformName = platforms.findOne(args['pid']).tenantName
-   console.log platformName = platforms.findOne(args['pid']).tenantName
-   console.log "Assessment Mail Sending"
    sendGeneralMail(decodeEmail(Meteor.users.findOne(args['uid']).personal_profile.email,platformName),"Congratulations !",'assessmentMail',{uname:"Rakesh",email:'rakesh@ptotem.com',nodename:nn,nextnodename:nnn,link:Meteor.absoluteUrl()+"assessment/"+setAssessmentId+"/"+ Meteor.users.findOne(args['uid']).personal_profile.reportingManager})
 
 
