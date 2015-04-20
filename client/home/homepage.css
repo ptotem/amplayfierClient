@@ -46,3 +46,7 @@ bottom: 0;
   {
       pointer-events:none ;
   }
+
+  .story-node{
+      border-radius: 0 !important;
+  }
