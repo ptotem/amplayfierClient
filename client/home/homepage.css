@@ -12,6 +12,9 @@
         position: absolute;
 bottom: 0;
     }
+    .component{
+        color:black
+    }
 
   /*.layer-wrapper {*/
       /*height: 480px;*/
