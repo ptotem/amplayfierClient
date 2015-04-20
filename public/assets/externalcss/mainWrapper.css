@@ -709,48 +709,48 @@ img.translucent {
     }
 }
 
-.lib-panel {
+.rewards-collection .lib-panel {
     margin-bottom: 20px;
     background: rgba(0, 0, 0, 0.6);
 }
 
-.lib-panel img {
+.rewards-collection .lib-panel img {
     width: 100%;
     background-color: transparent;
 }
 
-.lib-panel .row,
-.lib-panel .col-sm-3,
-.lib-panel .col-sm-9 {
+.rewards-collection .lib-panel .row,
+.rewards-collection .lib-panel .col-sm-3,
+.rewards-collection .lib-panel .col-sm-9 {
     padding: 0;
 }
 
-.lib-panel .lib-row {
+.rewards-collection .lib-panel .lib-row {
     padding: 0 20px 0 20px;
 }
 
-.lib-panel .lib-row.lib-header {
+.rewards-collection .lib-panel .lib-row.lib-header {
     font-size: 20px;
     padding: 10px 20px 0 20px;
     color: white;
 }
 
-.lib-panel .lib-row.lib-header .lib-header-seperator,
-.lib-panel .lib-row.lib-desc .lib-desc-seperator {
+.rewards-collection .lib-panel .lib-row.lib-header .lib-header-seperator,
+.rewards-collection .lib-panel .lib-row.lib-desc .lib-desc-seperator {
     height: 2px;
     width: 26px;
     background-color: transparent;
     margin: 7px 0 7px 0;
 }
 
-.lib-panel .lib-row.lib-desc {
+.rewards-collection .lib-panel .lib-row.lib-desc {
     height: 100%;
     display: block;
     font-size: 13px;
     color: #ccc;
 }
 
-.lib-panel .lib-row.lib-price {
+.rewards-collection .lib-panel .lib-row.lib-price {
     position: absolute;
     width: 100%;
     display: block;
