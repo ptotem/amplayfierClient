@@ -89,6 +89,9 @@ Template.userEditForm.events
       setCurrentSlideId(templateId)
       if $(this).find('video').get().length isnt 0
         $(this).find('video').get(0).play()
+      if $(this).find('audio').get().length isnt 0
+        $(this).find('audio').get(0).play()
+
 
 
       executeInteractions(panelId)
@@ -131,6 +134,9 @@ Template.userEditForm.events
     setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
     if $(this).find('video').get().length isnt 0
       $(this).find('video').get(0).pause()
+    if $(this).find('audio').get().length isnt 0
+      $(this).find('audio').get(0).pause()
+
 
 #        console.log $($(this).find(".center-panel")).attr('template-id')
   )
@@ -143,6 +149,9 @@ Template.userEditForm.events
     readHTML()
     for v in document.getElementsByTagName('video')
       v.pause()
+    for v in document.getElementsByTagName('audio')
+      v.pause()
+
     startAttempt($(".slide-container").length)
 
     $(".center-panel[has-data='false']").remove()
