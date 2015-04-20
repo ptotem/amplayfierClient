@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a class="collapsed side-bar-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="You will win something real. Exactly what? Well, you can choose." href="#rewardsModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link reward-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="You will win something real. Exactly what? Well, you can choose." href="#rewardsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-trophy-star"></i>
                             <span class="oc-partial-menu-item">Reward Center</span>
                         </a>
@@ -103,7 +103,69 @@
                 </div>
                 <div class="modal-body">
                     {{>docCollection}}
-                  
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+</template>
+
+<template name="rewardModal">
+    <div class="modal blur data-display-modal" id="rewardsModal" tabindex="-1" role="dialog" aria-labelledby="rewardsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-trophy-star"></i>
+                    </div>
+                    <h4 class="modal-title" id="rewardsModalLabel">Rewards</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="rewards-collection">
+                        {{#each rewards}}
+                            <div class="col-md-12 col-sm-12 no-padding lib-item" data-category="view">
+                                <div class="lib-panel">
+                                    <div class="row box-shadow" style="padding-left:15px">
+                                        <div class="col-md-3 col-sm-3 reward-img-container" style="background:  url('{{getAssetUrl rewardImage}}');background-size:100% 100%;">
+                                            <!--<img class="lib-img-show img-responsive" src="http://lorempixel.com/850/850/?random=123">-->
+                                            {{#if equals stock 0}}
+                                                <img class="lib-img-show img-responsive" src="/assets/images/overlay.png">
+                                            {{else}}
+                                                <div style="height: 156px;width:156px;"></div>
+                                            {{/if}}
+
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <div class="lib-row lib-header">
+                                                {{name}}
+                                                <div class="lib-header-seperator visible-lg"></div>
+                                            </div>
+                                            <div class="lib-row lib-desc">
+                                                {{description}}
+                                                <div class="lib-desc-seperator"></div>
+                                            </div>
+                                            <div class="lib-row lib-price">
+                                                <div class="label label-primary">{{value}} CR</div>
+                                                {{#if equals stock 0}}
+
+
+                                                {{else}}
+                                                    <div class="btn pull-right btn-warning redeem-reward">Redeem</div>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+
+
+
+
+                    </div>
+
                 </div>
             </div>
             <!-- /.modal-content -->
