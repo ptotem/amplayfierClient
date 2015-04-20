@@ -5,7 +5,7 @@
                 <ul class="nav">
                     <li>
                         <a class="btn-nav" style="padding:0;margin:0;">
-                            <img class="media-object" src="assets/images/user.jpg" style="width:50px;" />
+                            <img class="media-object" src="{{getAssetUrl currentUser.personal_profile.profilePicId}}" style="width:50px;" />
                         </a>
                     </li>
 
@@ -15,7 +15,7 @@
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
                     <li class="">
-                        <a class="collapsed side-bar-link" rel="popover-sidebar"  data-toggle="popover" data-container="body" data-placement="right" data-content="A mashup of components, mainly visual indicators." href="dashboard.html">
+                        <a class="collapsed side-bar-link user-profile-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="A mashup of components, mainly visual indicators." href="#userProfileModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-user"></i>
                             <span class="oc-partial-menu-item">Profile</span>
                         </a>
@@ -52,8 +52,10 @@
                     </li>
 
 
+
+
                     <li class="" style="position:absolute;bottom:0;">
-                        <a class="collapsed side-bar-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="A mashup of components that you can easily drop in your project." href="widgets.html">
+                        <a class="collapsed side-bar-link sign-out-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="A mashup of components that you can easily drop in your project." href="#">
                             <i class="oc-partial-icon icm icm-switch"></i>
                             <span class="oc-partial-menu-item">Sign Out</span>
                         </a>
@@ -274,6 +276,7 @@
 </template>
 
 
+
 <template name="nodeTemp">
     <div class="modal blur jump-to-modal" id="nodeModal">
         <div class="modal-dialog modal-lg">
@@ -333,6 +336,78 @@
             {{/each}}
 
         </div>
+    </template>
+
+<template name="userProfileModal">
+  <div class="modal blur data-display-modal user-edit-form" id="userProfileModal" tabindex="-1" role="dialog" aria-labelledby="userProfileModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xlg-data-modal">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <a class="btn btn-default pull-right remove-modal">&times;</a>
+                  <div class="top-circle-icon"><i class="icm icm-medal2"></i>
+                  </div>
+                  <h4 class="modal-title" id="userProfileModalLabel">Edit your profile</h4>
+              </div>
+              <div class="modal-body">
+                  {{#with currentUser}}
+                  <form>
+                      <div class="form-group">
+                          <label class="user-profile-label" for="exampleInputEmail1">First Name</label>
+                          <input type="text" class="form-control" id="user-first-name" value="{{personal_profile.first_name}}">
+                      </div>
+                      <div class="form-group">
+                          <label class="user-profile-label" for="exampleInputPassword1">Email</label>
+                          <input type="email" class="form-control" id="user-email" value="{{personal_profile.email}}" disabled>
+                      </div>
+                      <div class="form-group">
+                      <label class="user-profile-label" for="exampleInputEmail1">Last Name</label>
+                      <input type="text" class="form-control" id="user-last-name" value="{{personal_profile.last_name}}" >
+                  </div>
+                  <div class="form-group">
+                      <label class="user-profile-label" for="exampleInputPassword1">Display Name</label>
+                      <input type="text" class="form-control" id="user-name" value="{{personal_profile.display_name}}">
+                  </div>
+                  <div class="form-group">
+                      <label class="user-profile-label" for="exampleInputPassword1">Designation</label>
+                      <input type="text" class="form-control" id="user-designation" value="{{personal_profile.designation}}">
+                  </div>
+
+                  <div class="form-group">
+                      <label class="user-profile-label" for="exampleInputPassword1">Change Password</label>
+                      <div class="col-md-12 no-padding">
+                          <div class="col-md-5 no-padding"> <input type="password" class="form-control" id="user-password-old" placeholder="Enter old password" ></div>
+                          <div class="col-md-5 col-md-offset-2 no-padding"> <input type="password" class="form-control" id="user-password-new" placeholder="Enter new password"></div>
+
+                      </div>
+
+
+                  </div>
+
+
+                      <div class="form-group">
+                      <label class="user-profile-label" for="exampleInputPassword1">Pictures</label>
+                      <div class="col-md-12 no-padding">
+                          <div class="col-md-5 no-padding"> <input type="file" id="cover-pic">     <p class="user-profile-label">Cover Picture</p></div>
+                          <div class="col-md-5 col-md-offset-2 no-padding">  <input type="file" id="profile-pic"> <p class="user-profile-label">Profile Picture</p></div>
+
+                      </div>
+
+
+                  </div>
+
+
+
+                  </form>
+                      {{/with}}
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary update-user">Save changes</button>
+              </div>
+          </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
 
 
 
