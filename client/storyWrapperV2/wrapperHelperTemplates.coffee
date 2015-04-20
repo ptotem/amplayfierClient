@@ -5,11 +5,21 @@ Template.wrapperSideBar.rendered = ->
 Template.wrapperSideBar.events
   'click .notification-link':(e)->
     showModal('notificationModal',{},'main-wrapper-page')
+  'click .document-link':(e)->
+    showModal('documentModal',{},'main-wrapper-page')
+
 
 Template.notificationModal.helpers
   notiPassKey:()->
     {ukey:platforms.findOne()._id}
 Template.notificationModal.events
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+
+
+Template.documentModal.events
   'click .remove-modal':(e)->
 
     $('.modal').modal('hide')

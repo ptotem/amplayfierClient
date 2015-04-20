@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a class="collapsed side-bar-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable Files curated for your specific profile. So you can help us help you." href="#documentsModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link document-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable Files curated for your specific profile. So you can help us help you." href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-drawer3"></i>
                             <span class="oc-partial-menu-item">Documents</span>
                         </a>
@@ -82,6 +82,28 @@
                         {{>plainNotificationList notiPassKey}}
 
                     </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+</template>
+
+
+<template name="documentModal">
+    <div class="modal blur data-display-modal" id="documentsModal" tabindex="-1" role="dialog" aria-labelledby="documentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-drawer3"></i>
+                    </div>
+                    <h4 class="modal-title" id="documentsModalLabel">Documents</h4>
+                </div>
+                <div class="modal-body">
+                    {{>docCollection}}
+                  
                 </div>
             </div>
             <!-- /.modal-content -->
