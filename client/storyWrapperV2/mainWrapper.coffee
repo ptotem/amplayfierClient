@@ -82,3 +82,24 @@ Template.mainWrapper.events
     ,2000)
 
 #    Blaze.renderWithData(Template.individualNewStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
+
+  'click .zone-deck':(e)->
+
+    deckId = $(e.currentTarget).attr("id").split("-")[2]
+
+    setDeckId(deckId)
+    if platforms.findOne().profiles?
+      for p in platforms.findOne().profiles
+        if p.name is Meteor.user().profile
+          for v in p.variants
+            if v[deckId]?
+              setVariantToShow(v[deckId])
+    if !variantToShow?
+      setVariantToShow('Basic')
+    setCurrentDeckId(deckId)
+    initDeck()
+    #    $('#story-zone').append('')
+    showModal('homePage',{},'main-wrapper-page')
+#    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+
+
