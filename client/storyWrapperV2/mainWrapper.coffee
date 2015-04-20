@@ -8,12 +8,16 @@ Template.mainWrapper.rendered = ->
   ,1000)
 
 Template.mainWrapper.created = ()->
-#  s = platforms.findOne().storyConfig
-#  window.storyConfig = JSON.parse(s);
-  window.storyConfig = sc
-  platformData.nodes = sc.nodes
+  s = platforms.findOne().storyConfig
+  window.storyConfig = JSON.parse(s);
 
 Template.mainWrapper.helpers
+  getPrecTop : (top)->
+
+    return top - 1.5
+  getPrecLeft:(left1)->
+    left1 - 0.5
+
   getNamePlate : ()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.nameplate.image
   getStoryPresenter: ()->
@@ -32,17 +36,17 @@ Template.mainWrapper.helpers
 
     if seq isnt 0
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
-        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].incomplete
-#        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+#        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].incomplete
+        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
 
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].complete
-#      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
+#      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].complete
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
 
     else
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].active
-#      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
+#      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].active
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
   getNodeUrl:(pic)->
       "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
   getPlacement:(px)->
@@ -51,11 +55,29 @@ Template.mainWrapper.helpers
     else
       "left"
   getNodeStatus:(seq)->
+    if seq isnt 0
+      if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
+        return "<div class='popover-content-block incomplete-popover-content'>Incomplete</div>"
+    #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
 
       "<div class='popover-content-block complete-popover-content'>Complete</div>"
     else
-      "<div class='popover-content-block incomplete-popover-content'>Incomplete</div>"
+      "<div class='popover-content-block active-popover-content'>Active</div>"
+
+  getNodeStatusClass:(seq)->
+    if seq isnt 0
+      if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
+        return "my-incomplete-node"
+    #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+
+    if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
+
+      "my-complete-node"
+    else
+      "my-active-node"
+
 
 
 
@@ -74,15 +96,23 @@ Template.mainWrapper.events
 #      if !isPortrait()
 #        $('#story-nameplate').fadeOut()
 #    $('#story-zone').empty()
-    seq = $(e.currentTarget).attr('seq')
+    seq = parseInt($(e.currentTarget).attr('seq'))
     node = platforms.findOne().nodes[seq]
     nodePhoto = storyConfig.imgsrc + "/" + node.photo
     nodeTitle = node.title
     nodeDescription = node.description
+    if seq isnt 0
+      if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
+        s = "INCOMPLETE"
+    #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+    console.log seq
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
-      s = "COMPLETE"
+
+        s = "COMPLETE"
     else
       s = "INCOMPLETE"
+
+
 
 
     showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
@@ -110,5 +140,16 @@ Template.mainWrapper.events
     #    $('#story-zone').append('')
     showModal('homePage',{},'main-wrapper-page')
 #    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+
+  'click .exit-deck':(e)->
+    if $('.active').has('iframe').length is 0
+      setTime(getTime());
+      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
+      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
+      points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
+      setCurrentSlideScore(minTime, maxTime, points);
+    endAttempt()
+    $('.modal').modal('hide')
+
 
 

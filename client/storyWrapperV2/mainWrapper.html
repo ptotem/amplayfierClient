@@ -25,7 +25,7 @@
                             <div id="story-content" style="background-image:url('{{getBackImg}}')">
                                 <div id="story-nodes">
                                     {{#each nodes}}
-                                        <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{description}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.px}}" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{landscape.py}}%;left:{{landscape.py}}%;width:{{landscape.width}}%">
+                                        <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{description}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.px}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.py}}%;left:{{getPrecLeft landscape.px}}%;width:{{landscape.width}}%">
                                             <img src="{{getNodeStatusPic sequence}}" alt="">
                                         </a>
                                     {{/each}}

@@ -20,11 +20,29 @@ bottom: 0;
 
   .slick-prev:before, .slick-next:before { font-family: FontAwesome; font-size: 40px; line-height: 1; color: #fff; opacity: 0.75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   .slick-prev {
-      left:-32px !important;
+      left:-40px !important;
+
   }
+
+  .slick-next {
+      right:-40px !important;
+
+  }
+
+
   .slick-prev:before { content: "\f053"; }
   [dir="rtl"] .slick-prev:before { content: "\f054"; }
 
   [dir="rtl"] .slick-next { left: -10px; top: 70px; right: auto; }
   .slick-next:before { content: "\f054"; }
   [dir="rtl"] .slick-next:before { content: "\f053"; }
+
+  .slick-prev, .slick-next{
+      height: 40px;
+      width: 40px;
+  }
+
+  .my-incomplete-node
+  {
+      pointer-events:none ;
+  }

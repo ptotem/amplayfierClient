@@ -75,15 +75,15 @@ function setDesign(orientation) {
         bottom: storyConfig.notifications[orientation].bottom + "%"
     });
 
-    for (i in platformData.nodes) {
-        var thisNodeConfig = getNodeConfig(platformData.nodes[i].sequence);
-        $('#story-node-' + i).css({
-            top: thisNodeConfig[orientation].py + '%',
-            left: thisNodeConfig[orientation].px + '%',
-            width: thisNodeConfig[orientation].width + '%'
-        });
-
-    }
+    //for (i in platformData.nodes) {
+    //    var thisNodeConfig = getNodeConfig(platformData.nodes[i].sequence);
+    //    $('#story-node-' + i).css({
+    //        top: thisNodeConfig[orientation].py + '%',
+    //        left: thisNodeConfig[orientation].px + '%',
+    //        width: thisNodeConfig[orientation].width + '%'
+    //    });
+    //
+    //}
 
     /* Set the Adjustments for squarer screens  */
     if (isSquarer()) $('#story-wrapper').addClass('setSmaller');
@@ -202,7 +202,7 @@ function createView() {
         var thisNodeConfig = getNodeConfig(thisNodeData.sequence);
         var orientation = isPortrait() ? "portrait" : "landscape";
 
-        $('#story-nodes').append('<a href="#" tabindex="0" class="story-node" id="story-node-' + i + '" style="top:' + thisNodeConfig[orientation].py + '%;left:' + thisNodeConfig[orientation].px + '%;width:' + thisNodeConfig[orientation].width + '%;"></a>');
+        //$('#story-nodes').append('<a href="#" tabindex="0" class="story-node" id="story-node-' + i + '" style="top:' + thisNodeConfig[orientation].py + '%;left:' + thisNodeConfig[orientation].px + '%;width:' + thisNodeConfig[orientation].width + '%;"></a>');
 
     }
     bindNodes();
