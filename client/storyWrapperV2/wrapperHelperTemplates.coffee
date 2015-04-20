@@ -15,6 +15,8 @@ Template.wrapperSideBar.events
 
   'click .user-profile-link':(e)->
     showModal('userProfileModal',{},'main-wrapper-page')
+  'click .leader-board-link':(e)->
+    showModal('leaderBoardModal',{},'main-wrapper-page')
 
   'click .sign-out-link' :(e)->
     Meteor.logout() 
