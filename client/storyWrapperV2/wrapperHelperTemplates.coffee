@@ -25,9 +25,24 @@ Template.rewardModal.helpers
     systemRewards.find().fetch()
 Template.badgeModal.helpers
   sysBadges1:()->
-   systemBadges.find({}).fetch()[0..4]
+   userBadgeNames = _.pluck(Meteor.user().badges,'name')
+   finalBadges = []
+   for s in systemBadges.find({}).fetch()[0..4]
+     if userBadgeNames.indexOf(s.name) isnt -1
+       imgp = s.imgPath.replace("-bw","")
+       s['imgPath'] = imgp
+     finalBadges.push s
+   finalBadges
   sysBadges2:()->
-   systemBadges.find({}).fetch()[5..9]
+    userBadgeNames = _.pluck(Meteor.user().badges,'name')
+    finalBadges = []
+    for s in systemBadges.find({}).fetch()[5..9]
+      if userBadgeNames.indexOf(s.name) isnt -1
+        imgp = s.imgPath.replace("-bw","")
+        s['imgPath'] = imgp
+      finalBadges.push s
+    finalBadges
+
 
 
 Template.mainWrapper.events
