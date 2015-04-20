@@ -208,7 +208,7 @@ Template.adminpanel.events
       )
 
   'click .preview-icon-admin':(e)->
-    window.location = "/story"
+    window.location = "/"
 
   'click .add-individual-variant': (e) ->
     arr = []
@@ -418,7 +418,7 @@ Template.adminpanel.helpers
         else
           p['selected'] = false
         profiles.push p
-    console.log profiles
+
 
     profiles
 

@@ -137,7 +137,7 @@ Router.route '/wrapperpage',
 
 
 
-Router.route '/',
+Router.route '/storytestold',
   template: 'storyWrapper',
   name: 'storyWrapper',
   data:()->
@@ -171,7 +171,7 @@ Router.route '/story',
     else
       @render('loading')
 
-Router.route '/storytest',
+Router.route '/',
   template: 'mainWrapper',
   name: 'mainWrapper',
   data:()->
