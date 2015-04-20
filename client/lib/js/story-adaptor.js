@@ -355,7 +355,7 @@ function showNotification(name, params) {
         }
     }
     noteTitle = 'PepsiCo OnBoarding';
-    noteMsg = "Welcome to the sales onboarding portal";
+    noteMsg = "Welcome to the Pepsico Sales Onboarding Platform. Click on the cross to start the game.";
     $('#notifications-splash').html("<div class='pull-right note-closer'>&times;</div>" + "<h1>" + noteTitle + "</h1><p>" + noteMsg + "</p>").fadeIn(function () {
         if (!isSquarer()) $(this).delay(8000).fadeOut();
     });

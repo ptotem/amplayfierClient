@@ -344,12 +344,14 @@
           <div class="modal-content">
               <div class="modal-header">
                   <a class="btn btn-default pull-right remove-modal">&times;</a>
-                  <div class="top-circle-icon"><i class="icm icm-medal2"></i>
+                  <div class="top-circle-icon"><i class="icm icm-pencil"></i>
                   </div>
                   <h4 class="modal-title" id="userProfileModalLabel">Edit your profile</h4>
               </div>
               <div class="modal-body">
+
                   {{#with currentUser}}
+                      <div class="col-sm-8 col-sm-offset-2">
                   <form>
                       <div class="form-group">
                           <label class="user-profile-label" for="exampleInputEmail1">First Name</label>
@@ -398,8 +400,12 @@
 
 
                   </form>
+                  </div>
                       {{/with}}
+
               </div>
+
+
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary update-user">Save changes</button>
