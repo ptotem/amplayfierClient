@@ -108,7 +108,7 @@
         </a>
       <div id="story-nodes">
           {{#each nodes}}
-              <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{subtitle}}" data-placement="{{getPlacement px}}" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{py}}%;left:{{px}}%;width:{{width}}%">
+              <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{description}}" data-placement="{{getPlacement px}}" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{py}}%;left:{{px}}%;width:{{width}}%">
                   <img src="{{getNodeStatusPic sequence}}" alt="">
               </a>
               {{/each}}
