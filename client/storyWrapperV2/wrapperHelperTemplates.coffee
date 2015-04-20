@@ -10,6 +10,9 @@ Template.wrapperSideBar.events
   'click .reward-link':(e)->
     showModal('rewardModal',{},'main-wrapper-page')
 
+  'click .badge-link':(e)->
+    showModal('badgeModal',{},'main-wrapper-page')
+
 
 
 Template.notificationModal.helpers
@@ -20,6 +23,11 @@ Template.notificationModal.helpers
 Template.rewardModal.helpers
   rewards:()->
     systemRewards.find().fetch()
+Template.badgeModal.helpers
+  sysBadges1:()->
+   systemBadges.find({}).fetch()[0..4]
+  sysBadges2:()->
+   systemBadges.find({}).fetch()[5..9]
 
 
 Template.mainWrapper.events
@@ -28,5 +36,7 @@ Template.mainWrapper.events
     $('.modal').modal('hide')
     $('.modal').remove()
 
-
+Template.badgeModal.rendered = ->
+  $($('.badge-item')[0]).addClass('col-md-offset-1')
+  $($('.badge-item')[5]).addClass('col-md-offset-1')
 
