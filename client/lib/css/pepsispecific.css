@@ -10,3 +10,20 @@
     color:white;
 
 }
+
+.list-for-pepsi ul {
+    list-style-image: url('/assets/images/starbullet3.png');
+    line-height: 1.7em;
+
+}
+
+.no-padding-for-pepsi .actual-text{
+    padding:0 !important;
+
+
+}
+
+.no-padding-bullet-points ul{
+    margin-left:-17px
+
+}

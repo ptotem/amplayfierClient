@@ -1,0 +1,274 @@
+<template name="wrapperSideBar">
+    <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
+        <div class="nano-content">
+            <div class="oc-sidebar-header" style="width:50px;">
+                <ul class="nav">
+                    <li>
+                        <a class="btn-nav" style="padding:0;margin:0;">
+                            <img class="media-object" src="assets/images/user.jpg" style="width:50px;" />
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="oc-sidebar-content" id="collapseAvatarLeft">
+                <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
+                    <li class="">
+                        <a class="collapsed side-bar-link" rel="popover-sidebar"  data-toggle="popover" data-container="body" data-placement="right" data-content="A mashup of components, mainly visual indicators." href="dashboard.html">
+                            <i class="oc-partial-icon icm icm-user"></i>
+                            <span class="oc-partial-menu-item">Profile</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link badge-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Play for winning these badges. Why? Because they will help you earn real rewards." href="#badgesModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-medal2"></i>
+                            <span class="oc-partial-menu-item">Badges Corner</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link notification-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Stay on top of what's going on. Check out your notifications." href="#notificationsModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-envelope"></i>
+                            <span class="oc-partial-menu-item">Notifications</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Check out where you stand against the who's who of this game." href="#leaderboardModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-ladder"></i>
+                            <span class="oc-partial-menu-item">Leaderboard</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link reward-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="You will win something real. Exactly what? Well, you can choose." href="#rewardsModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-trophy-star"></i>
+                            <span class="oc-partial-menu-item">Reward Center</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link document-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable Files curated for your specific profile. So you can help us help you." href="#documentsModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-drawer3"></i>
+                            <span class="oc-partial-menu-item">Documents</span>
+                        </a>
+                    </li>
+
+
+                    <li class="" style="position:absolute;bottom:0;">
+                        <a class="collapsed side-bar-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="A mashup of components that you can easily drop in your project." href="widgets.html">
+                            <i class="oc-partial-icon icm icm-switch"></i>
+                            <span class="oc-partial-menu-item">Sign Out</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </aside>
+</template>
+
+<template name="notificationModal">
+    <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-envelope"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Notifications</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group" id="notifications-center">
+                        {{>plainNotificationList notiPassKey}}
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+</template>
+
+
+<template name="documentModal">
+    <div class="modal blur data-display-modal" id="documentsModal" tabindex="-1" role="dialog" aria-labelledby="documentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-drawer3"></i>
+                    </div>
+                    <h4 class="modal-title" id="documentsModalLabel">Documents</h4>
+                </div>
+                <div class="modal-body">
+                    {{>docCollection}}
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+</template>
+
+<template name="rewardModal">
+    <div class="modal blur data-display-modal" id="rewardsModal" tabindex="-1" role="dialog" aria-labelledby="rewardsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-trophy-star"></i>
+                    </div>
+                    <h4 class="modal-title" id="rewardsModalLabel">Rewards</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="rewards-collection">
+                        {{#each rewards}}
+                            <div class="col-md-12 col-sm-12 no-padding lib-item" data-category="view">
+                                <div class="lib-panel">
+                                    <div class="row box-shadow" style="padding-left:15px">
+                                        <div class="col-md-3 col-sm-3 reward-img-container" style="background:  url('{{getAssetUrl rewardImage}}');background-size:100% 100%;">
+                                            <!--<img class="lib-img-show img-responsive" src="http://lorempixel.com/850/850/?random=123">-->
+                                            {{#if equals stock 0}}
+                                                <img class="lib-img-show img-responsive" src="/assets/images/overlay.png">
+                                            {{else}}
+                                                <div style="height: 156px;width:156px;"></div>
+                                            {{/if}}
+
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <div class="lib-row lib-header">
+                                                {{name}}
+                                                <div class="lib-header-seperator visible-lg"></div>
+                                            </div>
+                                            <div class="lib-row lib-desc">
+                                                {{description}}
+                                                <div class="lib-desc-seperator"></div>
+                                            </div>
+                                            <div class="lib-row lib-price">
+                                                <div class="label label-primary">{{value}} CR</div>
+                                                {{#if equals stock 0}}
+
+
+                                                {{else}}
+                                                    <div class="btn pull-right btn-warning redeem-reward">Redeem</div>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+</template>
+
+<template name="badgeModal">
+    <div class="modal blur data-display-modal" id="badgesModal" tabindex="-1" role="dialog" aria-labelledby="badgesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal">&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-medal2"></i>
+                    </div>
+                    <h4 class="modal-title" id="badgesModalLabel">Badges Corner</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        {{#each sysBadges1}}
+
+                            <div class="col-md-2 col-xs-6 badge-item">
+                                <div class="captionable captionable-effect-flip vertical">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading text-center" style="background:green;">
+                                                    <div class="panel-title text-center">
+                                                        {{display_name}}
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+
+                                                    <div class="vpadded">
+                                                        <div class="text-center">
+                                                            <img src="{{imgPath}}" class="img-responsive">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-primary-lter padded text-center">
+                                            <h4>Start the game to win this badge</h4>
+                                            <hr>
+                                            <p class="credits-true">You will win 100 credits when you get this badge</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {{/each}}
+                        </div><div class="row">
+  {{#each sysBadges2}}
+
+                            <div class="col-md-2 col-xs-6 badge-item">
+                                <div class="captionable captionable-effect-flip vertical">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading text-center" style="background:green;">
+                                                    <div class="panel-title text-center">
+                                                        {{display_name}}
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+
+                                                    <div class="vpadded">
+                                                        <div class="text-center">
+                                                            <img src="{{imgPath}}" class="img-responsive">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-primary-lter padded text-center">
+                                            <h4>Start the game to win this badge</h4>
+                                            <hr>
+                                            <p class="credits-true">You will win 100 credits when you get this badge</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {{/each}}
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+
+</template>

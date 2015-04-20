@@ -65,13 +65,14 @@ createBadges = ()->
 
 
 Meteor.startup(()->
+  console.log "inside startup"
 #  SyncedCron.start();
 
   initMailers()
   # startUpRoutine()
   resetCapabilities()
   createBadges()
-
+  console.log "creating badges"
   addCapabilities("Can add user",'add_user')
   addCapabilities("Can edit user",'edit_user')
   addCapabilities("Can delete user",'delete_user')
@@ -88,7 +89,7 @@ Meteor.startup(()->
   addCapabilities("Can delete documents",'delete_documents')
   addCapabilities("Can view reports",'view_reports')
   addCapabilities("Can customize reports",'customize_reports')
-
+  console.log "end of startup"
 
 
 

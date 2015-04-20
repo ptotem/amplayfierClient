@@ -42,7 +42,8 @@ Template.homePage.helpers
       find = '/cfs';
       re = new RegExp(find, 'g');
 
-      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://lvh.me:3000/cfs")
+#      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://lvh.me:3000/cfs")
+      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://gamesayer.com/cfs")
 
 
 

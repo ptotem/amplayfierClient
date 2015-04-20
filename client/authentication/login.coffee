@@ -6,7 +6,8 @@ Template.loginPage.helpers
       if platforms.findOne().backgroundUrl?
         find = '/cfs'
         re = new RegExp(find, 'g')
-        backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://lvh.me:3000/cfs")
+#        backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://lvh.me:3000/cfs")
+        backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://gamesayer.com/cfs")
       else
         backgroundUrl = "/assets/images/bg.jpg"
     backgroundUrl
@@ -17,7 +18,7 @@ Template.loginPage.helpers
       if platforms.findOne().platformLogo?
         find = '/cfs'
         re = new RegExp(find, 'g')
-        platformLogo = platforms.findOne().platformLogo.replace(re,"http://lvh.me:3000/cfs")
+        platformLogo = platforms.findOne().platformLogo.replace(re,"http://gamesayer.com/cfs")
       else
         platformLogo = "/assets/images/amplayfier-new-logo.png"
     platformLogo
@@ -44,7 +45,8 @@ Template.loginPage.rendered = ()->
       if platforms.findOne().tenantIcon?
         find = '/cfs'
         re = new RegExp(find, 'g')
-        faviconlink = platforms.findOne().tenantIcon.replace(re,"http://lvh.me:3000/cfs")
+#        faviconlink = platforms.findOne().tenantIcon.replace(re,"http://lvh.me:3000/cfs")
+        faviconlink = platforms.findOne().tenantIcon.replace(re,"http://gamesayer.com/cfs")
       else
         faviconlink = '/assets/downloadables/defaultfavicon.ico'
       console.log "-------"  

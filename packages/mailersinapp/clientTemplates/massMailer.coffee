@@ -74,6 +74,8 @@ if Meteor.isClient
   Template.plainNotificationList.rendered = ->
 
       ukey = this.data.ukey
+      console.log ukey
+      console.log "plain noti"
       Meteor.subscribe('userNotifications',ukey,Meteor.userId())
 #      $('.list-group-item').splice(0,Meteor.user().unreadNoti).addClass('active')
   Template.plainNotificationList.helpers

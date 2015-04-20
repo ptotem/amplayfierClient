@@ -604,6 +604,11 @@
 
 					</div>
                     <div class="col-lg-12">
+                        <label for="user-email">HR Manager</label>
+                        <select class="hr-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
+
+                    </div>
+                    <div class="col-lg-12">
 						<label for="user-email">Role</label>
                         <select class="user-role">{{#each roles}}<option value="{{_id}}">{{rolename}}</option>{{/each}}</select>
 

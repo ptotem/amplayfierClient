@@ -139,7 +139,7 @@ function initAttempt() {
     clearInterval(gameTimer);
     gameTimer = setInterval(runTimer, 1000);
     if (typeof $p.startAttempt === "function") {
-        $p.startAttempt();
+        // $p.startAttempt();
     } else {
         attemptStatus = {
             complete: false,

@@ -1,58 +1,43 @@
 <template name="wrapperPage">
-  <div class="container-fluid background wrapper-story">
-    <div class="row">
-      <div class="col-md-2 pull-right" style="cursor:pointer">
-        <img src="../assets/wrapperimg/Dashboard.png">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-7 col-md-offset-1" style="margin-top: 7%">
-        <div class="row">
-          <div class="col-md-2 col-md-offset-4 box-style">
-            <div class="box-txt">
-              <span style="font-size: 1.3em;"><b>Accelerate</b></span>
-              <br> Take the skills you have learned to the next level and make it to the top
-              <br> <b>Click to begin</b></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-md-offset-1 box-style integrate-box">
-            <div class="box-txt">
-              <span style="font-size: 1.3em;"><b>Integrate</b></span>
-              <br> Blend into PepsiCo through deep understanding of what it is all about
-              <br><b>Get your basic skills here</b></div>
-          </div>
-          <div class="col-md-2 col-md-offset-4 logo-style">
-            <img src="../assets/wrapperimg/logo.png" style="top:60%;position:absolute;width:75%">
-          </div>
-          <div class="col-md-2 box-style assimilate-box">
-            <div class="box-txt">
-              <span style="font-size: 1.3em;"><b>Assimilate</b></span>
-              <br> Sharpen your skills and knowledge as you rise up in the organisation
-              <br> <b>Click here to get ahead</b></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 box-style prepare-box">
-            <div class="box-txt">
-              <span style="font-size: 1.3em;"><b>Prepare</b></span>
-              <br> Get an idea of what you are going to be getting into. Prepare for your on-boarding journey.
-              <br><b>Click to begin</b></div>
-          </div>
-          <div class="col-md-2 col-md-offset-4 box-style familiarize-box">
-            <div class="box-txt">
-              <span style="font-size: 1.3em;"><b>Familiarize</b> </span>
-              <br> Get a hang of the concepts that will drive your growth at PepsiCo
-              <br><b>Click to strengthen your basics</b></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 about-txt">
-        <h1 style="font-weight:bold;font-size:4em">About</h1>
-        <br> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-        desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </div>
-    </div>
+<div class="container-fluid background wrapper-story">
+  <div class="row">
+  <div class="col-sm-2 col-md-2 col-md-offset-9 col-sm-offset-9" style="cursor:pointer">
+      <a href="#" id="dashboard-launcher" data-toggle="modal" data-target="#story-dashboard" style="display: none;">
+          <img class="pepsi-home-dash" src="../assets/wrapperimg/Dashboard.png">
+      </a>
+      <img style="width:90%;margin-top:7%;" class="pepsi-home-dash" src="../assets/wrapperimg/Dashboard.png">
   </div>
+  </div>
+<div class="row">
+<div class="col-md-7 col-sm-7 col-md-offset-1 col-sm-offset-1" style="margin-top: 7%">
+<div class="row" >
+<div class="col-md-2 col-md-offset-4 col-sm-2 col-sm-offset-4 box-style possibilities-family" target-node-class="accelerate" ><div class="box-txt"><span style="font-size: 1.3em;"><b>Accelerate</b></span> <br> Take the skills you have learned to the next level and make it to the top <br> <b>Click to begin</b></div></div>
+</div>
+<div class="row" >
+  <div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 box-style integrate-box possibilities-family" target-node-class="integrate"><div class="box-txt"><span style="font-size: 1.3em;"><b>Integrate</b></span> <br> Blend into PepsiCo through deep understanding of what it is all about <br><b>Get your basic skills here</b></div></div>
+  <div class="col-md-2 col-sm-offset-4 col-md-2 col-sm-offset-4 logo-style"><img src="../assets/wrapperimg/logo.png" style="top:60%;position:absolute;width:75%"></div>
+  <div class="col-md-2 col-sm-2 box-style assimilate-box possibilities-family" target-node-class="assimilate"><div class="box-txt"><span style="font-size: 1.3em;"><b>Assimilate</b></span> <br> Sharpen your skills and knowledge as you rise up in the organisation <br> <b>Click here to get ahead</b></div></div>
+
+</div>
+<div class="row">
+  <div class="col-md-2 col-sm-2 box-style prepare-box possibilities-family" target-node-class="prepare"><div class="box-txt"><span style="font-size: 1.3em;"><b>Prepare</b></span> <br> Get an idea of what you are going to be getting into. Prepare for your on-boarding journey.<br><b>Click to begin</b></div></div>
+  <div class="col-md-2 col-sm-2 col-md-offset-4 col-sm-offset-4 box-style familiarize-box possibilities-family" target-node-class="familiarize"><div class="box-txt"><span style="font-size: 1.3em;"><b>Familiarize</b> </span><br> Get a hang of the concepts that will drive your growth at PepsiCo <br><b>Click to strengthen your basics</b></div></div>
+</div>
+
+</div>
+<div class="col-md-4 col-sm-3 about-txt possibilities-family"><h4 style="font-weight:bold;">Welcome to Pepsico India's Sales Onboarding Platform.</h4><br>
+  <p>The Onboarding training will last for 6 weeks and on each day of this period, you will spend some time on this portal learning about Pepsico - its values, processes, products, etc. You will also undergo assessments on this portal and will be awarded certificates as you go from one level to another until you finally receive the 'Licence to Sell' certificate at the end of the onboarding period.</p>
+  <p>Remember, having the 'Licence to Sell' certificate is mandatory before you take charge of your market. </p>
+  <p>Let's begin then, shall we?</p>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+
+    {{>storyDashboard}}
 </template>

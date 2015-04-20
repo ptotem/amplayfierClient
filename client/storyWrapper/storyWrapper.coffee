@@ -247,6 +247,7 @@ Template.individualStoryZone.events
       "pointer-events": "auto",
       opacity: 1
     });
+    $('.story-zone-wrapper').hide()
 
 
 Template.individualStoryZone.helpers
@@ -373,7 +374,7 @@ Template.storyWrapper.events
               setVariantToShow(v[deckId])
 
 
-   
+
     if !variantToShow?
       setVariantToShow('Basic')
 
@@ -397,6 +398,9 @@ Template.storyWrapper.events
 
 
 Template.storyDashboard.helpers
+  notiPassKey:()->
+    {ukey:platforms.findOne()._id}
+
   passKey:()->
     {getNodeStatusPic:platforms.findOne()._id}
   faqs:()->
@@ -421,5 +425,3 @@ Template.storyDashboard.helpers
 Template.storyWrapper.helpers
   getPortalName:()->
     platforms.findOne().tenantName
-
-

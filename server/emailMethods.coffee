@@ -2,9 +2,8 @@
   Mailer.send({
     to: 'Perseus Vazifdar <rushabh@ptotem.com>',           # 'To: ' address. Required.
     subject: 'Subject',                     # Required.
-    template: 'sampleMail',               # Required.
+    template: 'sampleMail',
     from:'info@ptotem.com'
-
     data: {}                                # Optional. Render your email with a data object.
   })
 
@@ -14,7 +13,9 @@
     subject: subject,                     # Required.
     template: templateName,               # Required.
     from:'info@ptotem.com'
-
     data: data                                # Optional. Render your email with a data object.
   })
 
+Meteor.methods
+  sendMyMail:()->
+    sendRegisterMail()

@@ -25,19 +25,19 @@ Accounts.onCreateUser (options, user) ->
   newpass = options.personal_profile['initialPass']
   emailReceipient = options.email.split("@")[0].split("|")[0]+"@"+options.email.split("@")[1]
 
-#  if !Meteor.users.findOne({'personal_profile.email':options.email})?
-  sendGeneralMail(decodeEmail(options.email),"Welcome, Let's get started....",'newRegister',{uname:options.personal_profile.display_name,uemail:decodeEmail(options.email),pass:newpass})
-#    mailgunoptions =
-#      apiKey: "key-036bf41682cc241d89084bfcaba352a4"
-#
-#      domain: "amplayfier.com"
-#    NigerianPrinceGun = new Mailgun(mailgunoptions)
-#    NigerianPrinceGun.send
-#      to: emailReceipient
-#      from: "info@amplayfier.com"
-#
-#      html: generateRegistrationMail(emailReceipient,options.personal_profile.display_name,options.email.split("@")[0].split("|")[1],newpass)
-#      text: "someText"
-#      subject: registerMail.subject
+  if !Meteor.users.findOne({'personal_profile.email':options.email})?
+#    sendGeneralMail(decodeEmail(options.email),"Welcome, Let's get started....",'newRegister',{uname:options.personal_profile.display_name,uemail:decodeEmail(options.email),pass:newpass})
+    mailgunoptions =
+      apiKey: "key-036bf41682cc241d89084bfcaba352a4"
+
+      domain: "amplayfier.com"
+    NigerianPrinceGun = new Mailgun(mailgunoptions)
+    NigerianPrinceGun.send
+      to: emailReceipient
+      from: "info@amplayfier.com"
+
+      html: generateRegistrationMail(emailReceipient,options.personal_profile.display_name,options.email.split("@")[0].split("|")[1],newpass)
+      text: "someText"
+      subject: registerMail.subject
 
   user

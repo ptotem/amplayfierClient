@@ -29,7 +29,7 @@ Template.assessmentQuestion.rendered = () ->
   if platforms.findOne()?
     pid = platforms.findOne()._id
     console.log assesmentScore.find({platformId: pid, assessmentId: assessmentId, uid: managerId, curid: Meteor.userId()}).fetch().length isnt 0
-    if assesmentScore.find({platformId: pid, assessmentId: assessmentId, uid: managerId, curid: Meteor.userId()}).fetch().length is 0?
+    if assesmentScore.find({platformId: pid, assessmentId: assessmentId, uid: managerId, curid: Meteor.userId()}).fetch().length is 0 ?
       $('#statement-submit').show()
     else
       $('#statement-submit').hide()
@@ -59,11 +59,9 @@ Template.assessmentQuestion.helpers
 Template.assessmentModal.events
 
   'click .assessment-certify':(e)->
-    Meteor.call('certifiedImg',Meteor.userId(),'assessment')
-    $('modal').remove()
+    Meteor.call('certifiedImg',Meteor.userId(),'CONGRATS!!!')
+    $('.modal').remove()
 
   'click .assessment-certify-no':(e)->
     Meteor.call('updateFlunkCount',Meteor.userId())
-    $('modal').remove()
-
-
+    $('.modal').remove()
