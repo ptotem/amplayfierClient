@@ -276,6 +276,68 @@
 </template>
 
 
+
+<template name="nodeTemp">
+    <div class="modal blur jump-to-modal" id="nodeModal">
+        <div class="modal-dialog modal-lg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="pin-banner">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div id="pin-banner-img">
+                                        <img src='{{nodePhoto}}'/>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div id="pin-banner-desc" class="bg-dark-lt">
+                                        <button type="button" class="close close-cross" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <div class="banner-content">
+                                            <h1>{{nodeTitle}}({{seq}})</h1>
+                                            <h4>{{nodeDescription}}</h4>
+                                            <br class="visible-md visible-lg">
+                                            <h2 class="banner-status pull-left no-margin-top no-margin-bottom">{{status}}</h2>
+                                            <a href="#" class="btn btn-danger close pull-right" data-dismiss="modal">Exit from here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="modal-pinboard">
+
+                    {{#each deckOfNode seq}}
+                        <div style="pointer-events: {{flag}}" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}"><div class="row"><div class="col-sm-12"><img src="http://lorempixel.com/400/200/" class="large-pincard"><h4>{{deckName}}</h4><p>{{deckDesc}}</p></div></div><div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content"> {{status}}</div></div></div></div>
+
+                    {{/each}}
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<template name="individualNewStoryZone">
+        <a id="story-zone-close" href="#" class="btn btn-lg">Close</a>
+        <img src="{{nodePhoto}}" class="story-zone-photo"/>
+        <div class="story-zone-name">{{nodeTitle}}</div>
+        <div class="story-zone-tale">{{nodeDescription}}</div>
+        <div id="button-bank">
+            {{#each deckOfNode seq}}
+                <a href="#" style="pointer-events: {{flag}}" class="zone-deck zone-button" data-toggle="popover" title="{{deckName}}" data-content="<div class='popover-content-block {{status}}-popover-content'>{{status}}</div>"  id="deck-name-{{deckId}}">{{deckName}}</a>
+            {{/each}}
+
+        </div>
+    </template>
+
 <template name="userProfileModal">
   <div class="modal blur data-display-modal user-edit-form" id="userProfileModal" tabindex="-1" role="dialog" aria-labelledby="userProfileModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xlg-data-modal">
@@ -335,11 +397,6 @@
 
 
 
-
-
-
-
-
                   </form>
                       {{/with}}
               </div>
@@ -357,3 +414,4 @@
 
 
 </template>
+

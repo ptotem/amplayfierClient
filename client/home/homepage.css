@@ -1,6 +1,8 @@
   .slide-container
     {
         display:none;
+      position: absolute;
+      left: 24%;
     }
     .center-panel{
         display:none

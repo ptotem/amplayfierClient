@@ -109,3 +109,26 @@ Template.mainWrapper.events
 Template.badgeModal.rendered = ->
   $($('.badge-item')[0]).addClass('col-md-offset-1')
   $($('.badge-item')[5]).addClass('col-md-offset-1')
+
+Template.nodeTemp.helpers
+  deckOfNode:(s)->
+    if s?
+      deckList = []
+
+      flag = 'auto'
+
+      if platforms.findOne().nodes[s].decks?
+        for d,i in platforms.findOne().nodes[s].decks
+          if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
+            status = 'complete'
+          else
+            status = 'incomplete'
+
+
+          deckList.push {flag:flag,deckId:d,deckName:deckHtml.findOne({deckId:d}).name,status:status}
+          if status is 'incomplete' and i is 0
+            flag = 'none'
+      deckList
+
+  deckDesc:()->
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"

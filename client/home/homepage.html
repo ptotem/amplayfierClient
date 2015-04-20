@@ -1,4 +1,37 @@
 <template name="homePage">
+    <div id="viewPPTModal" class="modal blur show-deck-modal" tabindex="-1" role="dialog" aria-labelledby="viewPPTModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-ppt" style="height: 100%;width: 100%">
+            <div class="modal-content" style="height: 100%;width: 100%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right" data-dismiss="modal">&times;</a>
+                </div>
+                <div class="modal-body" style="height: 100%;width:80%;margin:0 auto;">
+                    <div id="carousel-viewPPT" class="carousel slide" data-ride="carousel" data-interval="false">
+
+                        <!-- Wrapper for slides -->
+                        {{{getHtmlContent}}}
+
+                        <!-- Controls -->
+                        <a class="left carousel-control  prev-slide" href="#carousel-viewPPT" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control next-slide" href="#carousel-viewPPT" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <div style="position:absolute;left:40%;width:20%; text-align: center;margin-top:-30px;">
+            <a href="#" class="fullscreener btn btn-dark-lt btn-lg" style="border-top-left-radius:0;border-top-right-radius:0;">Toggle Fullscreen Mode</a>
+        </div>
+        <!-- /.modal-dalog -->
+    </div>
+</template>
+
+<template name="homePageOld">
     <div class="projector-container">
     <div class="projector projection">
   <div class="center-panel-container">
