@@ -8,8 +8,10 @@ Template.mainWrapper.rendered = ->
   ,1000)
 
 Template.mainWrapper.created = ()->
-  s = platforms.findOne().storyConfig
-  window.storyConfig = JSON.parse(s);
+#  s = platforms.findOne().storyConfig
+#  window.storyConfig = JSON.parse(s);
+  window.storyConfig = sc
+  platformData.nodes = sc.nodes
 
 Template.mainWrapper.helpers
   getNamePlate : ()->
@@ -21,19 +23,26 @@ Template.mainWrapper.helpers
   getBackImg: ()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
-    platforms.findOne().nodes
+#    platforms.findOne().nodes
+     sc.nodes
   storyHeading:()->
-    storyConfig.name
+#    storyConfig.name
+    sc.name
   getNodeStatusPic:(seq)->
+
     if seq isnt 0
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
-        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].incomplete
+#        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
 
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].complete
+#      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
+
     else
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].active
+#      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
   getNodeUrl:(pic)->
       "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
   getPlacement:(px)->
@@ -79,7 +88,7 @@ Template.mainWrapper.events
     showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
     setTimeout(()->
       $('#modal-pinboard').slick({rows:1})
-    ,2000)
+    ,200)
 
 #    Blaze.renderWithData(Template.individualNewStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
 

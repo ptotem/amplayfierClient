@@ -1,7 +1,7 @@
   .slide-container
     {
         display:none;
-      position: absolute;
+      position: relative;
       left: 24%;
     }
     .center-panel{
@@ -12,3 +12,19 @@
         position: absolute;
 bottom: 0;
     }
+
+  /*.layer-wrapper {*/
+      /*height: 480px;*/
+  /*}*/
+
+
+  .slick-prev:before, .slick-next:before { font-family: FontAwesome; font-size: 40px; line-height: 1; color: #fff; opacity: 0.75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .slick-prev {
+      left:-32px !important;
+  }
+  .slick-prev:before { content: "\f053"; }
+  [dir="rtl"] .slick-prev:before { content: "\f054"; }
+
+  [dir="rtl"] .slick-next { left: -10px; top: 70px; right: auto; }
+  .slick-next:before { content: "\f054"; }
+  [dir="rtl"] .slick-next:before { content: "\f053"; }

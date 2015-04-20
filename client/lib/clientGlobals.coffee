@@ -16,6 +16,6 @@
   Blaze.renderWithData(Template[templateName], templateArgs, document.getElementById(docId))
   setTimeout(()->
     $(".modal").modal()
-  ,2000)
+  ,100)
 
 #  $(".modal").modal()
