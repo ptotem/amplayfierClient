@@ -354,6 +354,8 @@ function showNotification(name, params) {
             noteMsg = noteMsg.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
         }
     }
+    noteTitle = 'PepsiCo OnBoarding';
+    noteMsg = "Welcome to the sales onboarding portal";
     $('#notifications-splash').html("<div class='pull-right note-closer'>&times;</div>" + "<h1>" + noteTitle + "</h1><p>" + noteMsg + "</p>").fadeIn(function () {
         if (!isSquarer()) $(this).delay(8000).fadeOut();
     });
