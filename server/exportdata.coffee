@@ -55,4 +55,134 @@ Meteor.methods(
 
 
 
+  exportDeckDataForAllUsers: () ->
+    # Make sure to "Check" the userId variable.
+#    check(userId,String)
+  # We'll handle our actual export here.
+    Fiber = Npm.require('fibers')
+    Future = Npm.require('fibers/future')
+    future = new Future()
+
+    users = Meteor.users.find().fetch()
+    finalDataJSON = []
+    userDeckCompleteData = reports.find({deckComplete:true}).fetch()
+    for unc in userDeckCompleteData
+      u = Meteor.users.findOne(unc.userId)
+      finalDataJSON.push({
+        first_name:u.personal_profile.first_name,
+        last_name:u.personal_profile.last_name,
+        profile:u.profile,
+        role:roles.findOne(u.personal_profile.role).rolename,
+        deck_name:deckHtml.findOne(unc.deckId).name,
+        completion_date:new Date(unc.createdAt).toString(),
+        score:100
+      })
+
+
+    Fiber(()->
+      csv =  fastCsv
+      csv.writeToString(finalDataJSON,
+        {headers: true},
+        (error,data) ->
+          if error
+            console.log error
+          else
+
+            zip.file('decks.csv', data)
+            future.return(zip.generate({type: "base64"}))
+      )
+
+
+    ).run()
+    return future.wait()
+
+
+
+  exportDeckDataForAllUsers: () ->
+    # Make sure to "Check" the userId variable.
+#    check(userId,String)
+  # We'll handle our actual export here.
+    Fiber = Npm.require('fibers')
+    Future = Npm.require('fibers/future')
+    future = new Future()
+
+    users = Meteor.users.find().fetch()
+    finalDataJSON = []
+    userDeckCompleteData = reports.find({deckComplete:true}).fetch()
+    for unc in userDeckCompleteData
+      u = Meteor.users.findOne(unc.userId)
+      finalDataJSON.push({
+        first_name:u.personal_profile.first_name,
+        last_name:u.personal_profile.last_name,
+        profile:u.profile,
+        role:roles.findOne(u.personal_profile.role).rolename,
+        deck_name:deckHtml.findOne(unc.deckId).name,
+        completion_date:new Date(unc.createdAt).toString(),
+        score:100
+      })
+
+
+    Fiber(()->
+      csv =  fastCsv
+      csv.writeToString(finalDataJSON,
+        {headers: true},
+        (error,data) ->
+          if error
+            console.log error
+          else
+
+            zip.file('decks.csv', data)
+            future.return(zip.generate({type: "base64"}))
+      )
+
+
+    ).run()
+    return future.wait()
+
+
+
+
+#   exportAllNodeDataForAllUsers: (pid) ->
+#     # Make sure to "Check" the userId variable.
+# #    check(userId,String)
+#   # We'll handle our actual export here.
+#     Fiber = Npm.require('fibers')
+#     Future = Npm.require('fibers/future')
+#     future = new Future()
+#
+#     users = Meteor.users.find().fetch()
+#     finalDataJSON = []
+#     allNodeData = platforms.findOne(pid).nodes
+#     for i in allNodeData
+#       u = Meteor.users.findOne(unc.userId)
+#       finalDataJSON.push({
+#         first_name:u.personal_profile.first_name,
+#         last_name:u.personal_profile.last_name,
+#         profile:u.profile,
+#         role:roles.findOne(u.personal_profile.role).rolename,
+#         deck_name:deckHtml.findOne(unc.deckId).name,
+#         completion_date:new Date(unc.createdAt).toString(),
+#         score:100
+#       })
+#
+#
+#     Fiber(()->
+#       csv =  fastCsv
+#       csv.writeToString(finalDataJSON,
+#         {headers: true},
+#         (error,data) ->
+#           if error
+#             console.log error
+#           else
+#
+#             zip.file('allnode.csv', data)
+#             future.return(zip.generate({type: "base64"}))
+#       )
+#
+#
+#     ).run()
+#     return future.wait()
+
+
+
 )

@@ -74,6 +74,28 @@
   left: 32%;
   top: 68%;
 }
+
+.user-profile-label{
+  color:white;
+  font-weight:bold;
+}
+
+.user-profile-footer{
+  padding: 15px !important;
+  text-align: right !important;
+  border-top: 1px solid #e5e5e5 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
 @media
   (max-device-width: 1270px)
   and (orientation: landscape) {

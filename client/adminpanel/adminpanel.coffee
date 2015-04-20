@@ -14,6 +14,26 @@ Template.adminpanel.events
         saveAs(blob, 'export.zip')
     )
 
+  'click .download-deck-report-btn':(e)->
+    Meteor.call('exportDeckDataForAllUsers',(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'deck.zip')
+    )
+
+  'click .download-allnode-report-btn':(e)->
+    Meteor.call('exportAllNodeDataForAllUsers',platforms.findOne()._id,(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'allnode.zip')
+    )
+
+
+
 
   'click .upload-assessment':(e)->
     $('.assessment-question-upload').trigger('click')
