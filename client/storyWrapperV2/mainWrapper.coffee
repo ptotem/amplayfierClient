@@ -1,15 +1,20 @@
 Template.mainWrapper.rendered = ->
-  $(window).resize ->
+  $(window).resize (evt) ->
+    setTitle(storyConfig.name)
+    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
+    window.platformData.nodes = platforms.findOne().nodes
+    initPage()
+    setTimeout(()->
+      $('.story-node').popover({trigger:'hover',html: true})
+    ,1000)
+
+
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
   window.platformData.nodes = platforms.findOne().nodes
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
-
-  
-
-
   ,1000)
 
 Template.mainWrapper.created = ()->
