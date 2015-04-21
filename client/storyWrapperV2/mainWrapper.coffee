@@ -126,9 +126,9 @@ Template.mainWrapper.events
 
 
     showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
-#    setTimeout(()->
-#      $('#modal-pinboard').slick({rows:1})
-#    ,2000)
+    setTimeout(()->
+      $('#modal-pinboard').slick({rows:1})
+    ,2000)
 
 #    Blaze.renderWithData(Template.individualNewStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
 
@@ -162,6 +162,8 @@ Template.mainWrapper.events
     $('.modal').modal('hide')
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
+  'click .fullscreener':(e)->
+    toggleFull("#viewPPTModal")
 
 
 

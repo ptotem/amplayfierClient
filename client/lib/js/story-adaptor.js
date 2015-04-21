@@ -572,8 +572,11 @@ function checkDeck(id) {
 /* =============================================================================================== */
 
 function cancelFullScreen(elm) {
-    $(elm).hide();
+    //$(elm).hide();
     var el = document;
+    $('.show-deck-modal').css({"height":"100%"});
+    $('.slide-container').css({"transform":"scale(1) translateX(0%)"});
+
 
     var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
     if (requestMethod) { // cancel full screen.
@@ -591,10 +594,14 @@ function cancelFullScreen(elm) {
 }
 
 function requestFullScreen(elm) {
-
     $('.modal-backdrop').hide();
-    $('.main-story-content').hide();
+    //$('.main-story-content').hide();
     $(elm).fadeIn();
+    $('.show-deck-modal').css({"height":"120%"});
+    $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
+
+
+    //$('.component').css({"transform":"scale(1.4) "});
 
     var el = document.body; // Make the body go full screen.
 
@@ -634,3 +641,4 @@ function toggleFull(elm) {
 }
 
 window.initPage = initPage;
+window.toggleFull = toggleFull
