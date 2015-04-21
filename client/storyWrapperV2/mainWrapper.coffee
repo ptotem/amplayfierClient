@@ -151,6 +151,8 @@ Template.mainWrapper.events
       setCurrentSlideScore(minTime, maxTime, points);
     endAttempt()
     $('.modal').modal('hide')
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
 
 
 
