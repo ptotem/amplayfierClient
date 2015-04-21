@@ -48,19 +48,19 @@ initDMS(1,{})
 
 
 
-@systemBadges = new Meteor.Collection('systemBadges')
+
 createBadges = ()->
   systemBadges.remove({})
-  systemBadges.insert({name:"firstTimeLandMedal",display_name:"Well Started",value:100})
-  systemBadges.insert({name:"chapterCompleteMedal",display_name:"Milestone",value:50})
-  systemBadges.insert({name:"allNodeComplete",display_name:"All Done",value:100})
-  systemBadges.insert({name:"fullScoreInDecks",display_name:"Through Decks",value:200})
-  systemBadges.insert({name:"fullScoreInAGame",display_name:"Flawless Victory",value:10})
-  systemBadges.insert({name:"fullScoreInAllGames",display_name:"Mr. Perfect",value:500})
-  systemBadges.insert({name:"fullScoreInEverything",display_name:"Master Mind",value:500})
-  systemBadges.insert({name:"revisionary",display_name:"Revisionary",value:500})
-  systemBadges.insert({name:"topHat",display_name:"Top Hat",value:1000})
-  systemBadges.insert({name:"god",display_name:"God of all things",value:1000})
+  systemBadges.insert({index:0,name:"firstTimeLandMedal",display_name:"Well Started",value:100,imgPath:'/assets/badgeimages/wellstarted-bw.png',display_title:'Start the game to win this badge',display_desc:'You will win 100 credits when you get this badge'})
+  systemBadges.insert({index:1,name:"chapterCompleteMedal",display_name:"Milestone",value:50,imgPath:'/assets/badgeimages/milestone-bw.png',display_title:'Complete a chapter to win this badge',display_desc:'You will win 50 credits when you get this badge'})
+  systemBadges.insert({index:2,name:"allNodeComplete",display_name:"All Done",value:100,imgPath:'/assets/badgeimages/alldone-bw.png',display_title:'Complete all chapters to win this badge',display_desc:'You will win 100 credits when you get this badge'})
+  systemBadges.insert({index:3,name:"fullScoreInDecks",display_name:"Thorough Decks",value:200,imgPath:'/assets/badgeimages/thorough-bw.png',display_title:'Complete all decks with a full score to win this badge',display_desc:'You will win 200 credits when you get this badge'})
+  systemBadges.insert({index:4,name:"fullScoreInAGame",display_name:"Flawless Victory",value:10,imgPath:'/assets/badgeimages/flawless-bw.png',display_title:'Complete a game with a full score to win this badge',display_desc:'You will win 10 credits when you get this badge'})
+  systemBadges.insert({index:5,name:"fullScoreInAllGames",display_name:"Mr. Perfect",value:500,imgPath:'/assets/badgeimages/mrperfect-bw.png',display_title:'Complete all games with a full score to win this badge',display_desc:'You will win 500 credits when you get this badge'})
+  systemBadges.insert({index:6,name:"fullScoreInEverything",display_name:"Master Mind",value:500,imgPath:'/assets/badgeimages/mastermind-bw.png',display_title:'Complete all decks and games with a full score to win this badge',display_desc:'You will win 500 credits when you get this badge'})
+  systemBadges.insert({index:7,name:"revisionary",display_name:"Revisionary",value:500,imgPath:'/assets/badgeimages/revisionary-bw.png',display_title:'Complete all decks and games twice to win this badge',display_desc:'You will win 500 credits when you get this badge'})
+  systemBadges.insert({index:8,name:"topHat",display_name:"Top Hat",value:1000,imgPath:'/assets/badgeimages/rocketman-bw.png',display_title:'Make it to the top 10 on the leaderboard to win this badge',display_desc:'You will win 1000 credits when you get this badge'})
+  systemBadges.insert({index:9,name:"god",display_name:"God of all things",value:1000,imgPath:'/assets/badgeimages/god-bw.png',display_title:'Win all badges to get this badge',display_desc:'You will win 1000 credits when you get this badge'})
 
 
 

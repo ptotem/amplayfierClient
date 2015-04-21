@@ -1,4 +1,39 @@
 <template name="homePage">
+    <div id="viewPPTModal" class="modal blur show-deck-modal" tabindex="-1" role="dialog" aria-labelledby="viewPPTModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-ppt" style="height: 75%;width: 100%">
+            <div class="modal-content" style="height: 100%;width: 99%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right exit-deck" >&times;</a>
+                </div>
+                <div class="modal-body" style="height: 100%;width:100%;margin:0 auto;">
+                    <div id="carousel-viewPPT" class="carousel slide" data-ride="carousel" data-interval="false" style="height:100%">
+
+                        <!-- Wrapper for slides -->
+                        <div class="content-cont">
+                        {{{getHtmlContent}}}
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control  prev-slide" href="#carousel-viewPPT" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control next-slide" href="#carousel-viewPPT" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <div style="position:absolute;left:40%;width:20%; text-align: center;margin-top:-30px;  z-index: 2000">
+            <a href="#" class="fullscreener btn btn-dark-lt btn-lg" style="border-top-left-radius:0;border-top-right-radius:0;">Toggle Fullscreen Mode</a>
+        </div>
+        <!-- /.modal-dalog -->
+    </div>
+</template>
+
+<template name="homePageOld">
     <div class="projector-container">
     <div class="projector projection">
   <div class="center-panel-container">

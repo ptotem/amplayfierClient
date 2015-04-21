@@ -12,7 +12,7 @@ Template.storyWrapperTest.rendered = ->
   });
   $('.story-node[seq="13"]').removeClass('inactive-node')
   $('.story-node[seq="20"]').removeClass('inactive-node')
-  $('.story-node[seq="22"]').removeClass('inactive-node')
+  $('.story-node[seq="26"]').removeClass('inactive-node')
 
 Template.storyWrapperTest.created = ()->
   s = platforms.findOne().storyConfig

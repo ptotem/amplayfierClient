@@ -16,6 +16,7 @@
   Blaze.renderWithData(Template[templateName], templateArgs, document.getElementById(docId))
   setTimeout(()->
     $(".modal").modal()
-  ,2000)
+    $('.modal-blur-content').css({"-webkit-filter":"blur(3px)"})
+  ,100)
 
 #  $(".modal").modal()

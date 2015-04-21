@@ -24,6 +24,7 @@
 @assesments = new Meteor.Collection('assesments')
 @userNodeCompletions = new Meteor.Collection('userNodeCompletions')
 @assesmentScore = new Meteor.Collection('assesmentScore')
+@systemBadges = new Meteor.Collection('systemBadges')
 
 
 
