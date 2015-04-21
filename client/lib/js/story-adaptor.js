@@ -55,7 +55,7 @@ function setDesign(orientation) {
     });
     $('#story-nameplate').css({
         left: "3" + "%",
-        bottom: "65" + "%",
+        bottom: "68" + "%",
         width: "17"+ "%"
     });
 
