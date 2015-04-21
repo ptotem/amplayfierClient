@@ -97,6 +97,7 @@ function setDesign(orientation) {
     //}
 
     /* Set the Adjustments for squarer screens  */
+    alert(isSquarer());
     if (isSquarer()) $('#story-wrapper').addClass('setSmaller');
 }
 
@@ -387,6 +388,7 @@ function isPortrait() {
 
 /* Check if the resolution is squarer */
 function isSquarer() {
+
     return ((window.innerWidth / window.innerHeight) < (16 / 9))
 }
 
