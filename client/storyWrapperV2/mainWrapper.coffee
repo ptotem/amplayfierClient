@@ -24,7 +24,7 @@ Template.mainWrapper.created = ()->
 Template.mainWrapper.helpers
   getPrecTop : (top)->
 
-    return top - 1.5
+    return top - 3.5
   getPrecLeft:(left1)->
     left1 - 0.5
 
