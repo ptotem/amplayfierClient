@@ -43,7 +43,8 @@ Template.homePage.helpers
       re = new RegExp(find, 'g');
 
 #      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://lvh.me:3000/cfs")
-      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://gamesayer.com/cfs")
+
+      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,Meteor.settings.public.mainLink+"/cfs")
 
 
 

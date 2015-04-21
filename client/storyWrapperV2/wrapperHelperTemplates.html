@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a class="collapsed side-bar-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Check out where you stand against the who's who of this game." href="#leaderboardModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link leader-board-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Check out where you stand against the who's who of this game." href="#leaderboardModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-ladder"></i>
                             <span class="oc-partial-menu-item">Leaderboard</span>
                         </a>
@@ -293,9 +293,9 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div id="pin-banner-desc" class="bg-dark-lt">
-                                        <button type="button" class="close close-cross" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <button type="button" class="close close-cross remove-modal"  aria-hidden="true">&times;</button>
                                         <div class="banner-content">
-                                            <h1>{{nodeTitle}}({{seq}})</h1>
+                                            <h1>{{nodeTitle}}</h1>
                                             <h4>{{nodeDescription}}</h4>
                                             <br class="visible-md visible-lg">
                                             <h2 class="banner-status pull-left no-margin-top no-margin-bottom">{{status}}</h2>
@@ -344,12 +344,14 @@
           <div class="modal-content">
               <div class="modal-header">
                   <a class="btn btn-default pull-right remove-modal">&times;</a>
-                  <div class="top-circle-icon"><i class="icm icm-medal2"></i>
+                  <div class="top-circle-icon"><i class="icm icm-pencil"></i>
                   </div>
                   <h4 class="modal-title" id="userProfileModalLabel">Edit your profile</h4>
               </div>
               <div class="modal-body">
+
                   {{#with currentUser}}
+                      <div class="col-sm-8 col-sm-offset-2">
                   <form>
                       <div class="form-group">
                           <label class="user-profile-label" for="exampleInputEmail1">First Name</label>
@@ -398,8 +400,12 @@
 
 
                   </form>
+                  </div>
                       {{/with}}
+
               </div>
+
+
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary update-user">Save changes</button>
@@ -415,3 +421,154 @@
 
 </template>
 
+
+<template name="leaderBoardModal">
+    <div class="modal blur data-display-modal" id="leaderboardModal" tabindex="-1" role="dialog" aria-labelledby="leaderboardModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal">&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-ladder"></i>
+                    </div>
+                    <h4 class="modal-title" id="leaderboardModalLabel">Leaderboard</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="leaderboard">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="leader-row">
+                                    <div class="box-table">
+                                        <div class="box-cell bg-primary-dk rank-cell">
+                                            <span class="leader-rank">1</span>
+                                        </div>
+                                        <div class="box-cell bg-dark-lt photo-cell">
+                                            <img src="/assets/images/avatars/user.jpg" class="leader-photo">
+                                        </div>
+                                        <div class="box-cell name-cell">
+                                            <span class="leader-name">Arijit Lahiri</span>
+                                        </div>
+                                        <div class="box-cell bg-primary points-cell">
+                                            <span class="leader-points">7300 pts</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="leader-row">
+                                    <div class="box-table">
+                                        <div class="box-cell bg-primary-dk rank-cell">
+                                            <span class="leader-rank">2</span>
+                                        </div>
+                                        <div class="box-cell bg-dark-lt photo-cell">
+                                            <img src="/assets/images/avatars/batman.png" class="leader-photo">
+                                        </div>
+                                        <div class="box-cell name-cell">
+                                            <span class="leader-name">Bruce Wayne</span>
+                                        </div>
+                                        <div class="box-cell bg-primary points-cell">
+                                            <span class="leader-points">5400 pts</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="leader-row">
+                                    <div class="box-table">
+                                        <div class="box-cell bg-primary-dk rank-cell">
+                                            <span class="leader-rank">3</span>
+                                        </div>
+                                        <div class="box-cell bg-dark-lt photo-cell">
+                                            <img src="/assets/images/avatars/girl-48.jpg" class="leader-photo">
+                                        </div>
+                                        <div class="box-cell name-cell">
+                                            <span class="leader-name">Joanna Harris</span>
+                                        </div>
+                                        <div class="box-cell bg-primary points-cell">
+                                            <span class="leader-points">4800 pts</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="leader-row">
+                                    <div class="box-table">
+                                        <div class="box-cell bg-primary-dk rank-cell">
+                                            <span class="leader-rank">4</span>
+                                        </div>
+                                        <div class="box-cell bg-dark-lt photo-cell">
+                                            <img src="/assets/images/avatars/girl-48.jpg" class="leader-photo">
+                                        </div>
+                                        <div class="box-cell name-cell">
+                                            <span class="leader-name">Harriet Stowe</span>
+                                        </div>
+                                        <div class="box-cell bg-primary points-cell">
+                                            <span class="leader-points">4600 pts</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="leader-row">
+                                    <div class="box-table">
+                                        <div class="box-cell bg-primary-dk rank-cell">
+                                            <span class="leader-rank">5</span>
+                                        </div>
+                                        <div class="box-cell bg-dark-lt photo-cell">
+                                            <img src="/assets/images/avatars/user.jpg" class="leader-photo">
+                                        </div>
+                                        <div class="box-cell name-cell">
+                                            <span class="leader-name">Jimmy Singh</span>
+                                        </div>
+                                        <div class="box-cell bg-primary points-cell">
+                                            <span class="leader-points">800 pts</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="leader-row">
+                                    <div class="box-table">
+                                        <div class="box-cell bg-warning-dk rank-cell">
+                                            <span class="leader-rank">137</span>
+                                        </div>
+                                        <div class="box-cell bg-warning-lter photo-cell">
+                                            <img src="/assets/images/avatars/user.jpg" class="leader-photo">
+                                        </div>
+                                        <div class="box-cell name-cell my-cell">
+                                            <span class="leader-name">Arijit Lahiri</span>
+                                        </div>
+                                        <div class="box-cell bg-warning-lt points-cell">
+                                            <span class="leader-points">7300 pts</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+
+
+
+
+</template>

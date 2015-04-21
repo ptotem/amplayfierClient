@@ -67,11 +67,11 @@
   gameData.findOne({igId:integratedGameId}).questions
 
 @triggerInitGame = ()->
+  setTimeout(()->
+    $('.slide-container.active').find('iframe')[0].contentWindow.$("body").trigger("loadGame")
+    console.log "triggerInitGame"
+  ,500)
 
-  $('.slide-container.active').find('iframe')[0].contentWindow.$("body").trigger("loadGame")
-# f = document.getElementsByTagName('iFrame')[0].contentWindow;
-# f.$("body").trigger("loadGame")
-# true
 
 @getImageInGame = (a,k)->
 

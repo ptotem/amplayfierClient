@@ -53,6 +53,12 @@ function setDesign(orientation) {
         bottom: storyConfig.nameplate[orientation].bottom + "%",
         width: storyConfig.nameplate[orientation].width + "%"
     });
+    $('#story-nameplate').css({
+        left: "3" + "%",
+        bottom: "65" + "%",
+        width: "17"+ "%"
+    });
+
 
     /* Set the Story Presenter */
     $('#story-presenter').css({
@@ -74,16 +80,21 @@ function setDesign(orientation) {
         left: storyConfig.notifications[orientation].left + "%",
         bottom: storyConfig.notifications[orientation].bottom + "%"
     });
+    $('#notifications-splash').css({
+        width: "43"+ "%",
+        left: "10"+ "%",
+        bottom: "18"+ "%"
+    });
 
-    for (i in platformData.nodes) {
-        var thisNodeConfig = getNodeConfig(platformData.nodes[i].sequence);
-        $('#story-node-' + i).css({
-            top: thisNodeConfig[orientation].py + '%',
-            left: thisNodeConfig[orientation].px + '%',
-            width: thisNodeConfig[orientation].width + '%'
-        });
-
-    }
+    //for (i in platformData.nodes) {
+    //    var thisNodeConfig = getNodeConfig(platformData.nodes[i].sequence);
+    //    $('#story-node-' + i).css({
+    //        top: thisNodeConfig[orientation].py + '%',
+    //        left: thisNodeConfig[orientation].px + '%',
+    //        width: thisNodeConfig[orientation].width + '%'
+    //    });
+    //
+    //}
 
     /* Set the Adjustments for squarer screens  */
     if (isSquarer()) $('#story-wrapper').addClass('setSmaller');
@@ -202,7 +213,7 @@ function createView() {
         var thisNodeConfig = getNodeConfig(thisNodeData.sequence);
         var orientation = isPortrait() ? "portrait" : "landscape";
 
-        $('#story-nodes').append('<a href="#" tabindex="0" class="story-node" id="story-node-' + i + '" style="top:' + thisNodeConfig[orientation].py + '%;left:' + thisNodeConfig[orientation].px + '%;width:' + thisNodeConfig[orientation].width + '%;"></a>');
+        //$('#story-nodes').append('<a href="#" tabindex="0" class="story-node" id="story-node-' + i + '" style="top:' + thisNodeConfig[orientation].py + '%;left:' + thisNodeConfig[orientation].px + '%;width:' + thisNodeConfig[orientation].width + '%;"></a>');
 
     }
     bindNodes();
@@ -354,6 +365,8 @@ function showNotification(name, params) {
             noteMsg = noteMsg.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
         }
     }
+    noteTitle = 'PepsiCo OnBoarding';
+    noteMsg = "Welcome to the Pepsico Sales Onboarding Platform. Click on the cross to start the game.";
     $('#notifications-splash').html("<div class='pull-right note-closer'>&times;</div>" + "<h1>" + noteTitle + "</h1><p>" + noteMsg + "</p>").fadeIn(function () {
         if (!isSquarer()) $(this).delay(8000).fadeOut();
     });
