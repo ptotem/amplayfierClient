@@ -128,10 +128,8 @@ Template.nodeTemp.helpers
             status = 'incomplete'
 
 
-          deckList.push {flag:flag,deckId:d,deckName:deckHtml.findOne({deckId:d}).name,status:status}
+          deckList.push {flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status}
           if status is 'incomplete' and i is 0
             flag = 'none'
       deckList
 
-  deckDesc:()->
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
