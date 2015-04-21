@@ -53,6 +53,12 @@ function setDesign(orientation) {
         bottom: storyConfig.nameplate[orientation].bottom + "%",
         width: storyConfig.nameplate[orientation].width + "%"
     });
+    $('#story-nameplate').css({
+        left: "3" + "%",
+        bottom: "65" + "%",
+        width: "17"+ "%"
+    });
+
 
     /* Set the Story Presenter */
     $('#story-presenter').css({
@@ -73,6 +79,11 @@ function setDesign(orientation) {
         width: storyConfig.notifications[orientation].width + "%",
         left: storyConfig.notifications[orientation].left + "%",
         bottom: storyConfig.notifications[orientation].bottom + "%"
+    });
+    $('#notifications-splash').css({
+        width: "43"+ "%",
+        left: "10"+ "%",
+        bottom: "18"+ "%"
     });
 
     //for (i in platformData.nodes) {
