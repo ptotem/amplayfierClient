@@ -604,6 +604,7 @@ function requestFullScreen(elm) {
     $(elm).fadeIn();
     $('.show-deck-modal').css({"height":"120%"});
     $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
+    $('.slide-container').find('iframe').css({"margin-top":"7%"});
 
 
     //$('.component').css({"transform":"scale(1.4) "});
