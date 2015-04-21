@@ -97,8 +97,11 @@ function setDesign(orientation) {
     //}
 
     /* Set the Adjustments for squarer screens  */
-    alert(isSquarer());
-    if (isSquarer()) $('#story-wrapper').addClass('setSmaller');
+
+    if(isSquarer())
+        $('#story-wrapper').addClass('setSmaller');
+    else
+        $('#story-wrapper').removeClass('setSmaller');
 }
 
 /* =============================================================================================== */
