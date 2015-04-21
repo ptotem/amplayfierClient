@@ -108,7 +108,7 @@ Template.mainWrapper.events
 #    $('#story-zone').empty()
     seq = parseInt($(e.currentTarget).attr('seq'))
     node = platforms.findOne().nodes[seq]
-    nodePhoto =  Meteor.settings.public.mainLink + storyConfig.imgsrc + "/" + node.photo
+    nodePhoto =  storyConfig.imgsrc + "/" + node.photo
     nodeTitle = node.title
     nodeDescription = node.description
     if seq isnt 0
