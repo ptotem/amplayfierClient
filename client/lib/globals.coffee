@@ -64,7 +64,7 @@
   @currentDisplayedDeckId = did
 
 @getQuestionsFromBank = (integratedGameId)->
-  gameData.findOne({igId:integratedGameId}).questions
+  gameData.findOne({platformId:platforms.findOne()._id,igId:integratedGameId}).questions
 
 @triggerInitGame = ()->
   setTimeout(()->

@@ -75,9 +75,10 @@ Meteor.publish("platformRewards",(pname)->
 )
 
 
-Meteor.publish('gameQuestionbank',()->
+Meteor.publish('gameQuestionbank',(pname)->
   this.ready()
-  gameData.find({})
+  pid = platforms.findOne({tenantName: pname})._id
+  gameData.find({platformId:pid})
 )
 
 Meteor.publish('customizationDecks',()->

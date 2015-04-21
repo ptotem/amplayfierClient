@@ -581,6 +581,7 @@ function cancelFullScreen(elm) {
     var el = document;
     $('.show-deck-modal').css({"height":"100%"});
     $('.slide-container').css({"transform":"scale(1) translateX(0%)"});
+    $('.slide-container').find('iframe').css({"margin-top":"0%"});
 
 
     var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
