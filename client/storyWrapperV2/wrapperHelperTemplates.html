@@ -310,7 +310,7 @@
                 <div id="modal-pinboard">
 
                     {{#each deckOfNode seq}}
-                        <div style="pointer-events: {{flag}}" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}"><div class="row"><div class="col-sm-12"><img src="http://lorempixel.com/400/200/" class="large-pincard"><h4>{{deckName}}</h4><p>{{deckDesc}}</p></div></div><div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content"> {{status}}</div></div></div></div>
+                        <div style="pointer-events: {{flag}};width:99%" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}"><div class="row"><div class="col-sm-12"><img src="http://lorempixel.com/400/200/" class="large-pincard"><h4>{{deckName}}</h4><p>{{deckDesc}}</p></div></div><div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content"> {{status}}</div></div></div></div>
 
                     {{/each}}
 
@@ -387,11 +387,11 @@
                   </div>
 
 
-                      <div class="form-group">
-                      <label class="user-profile-label" for="exampleInputPassword1">Pictures</label>
+                      <div class="form-group" style="margin-top:7%">
+                      <label class="user-profile-label" for="exampleInputPassword1">Profile Picture</label>
                       <div class="col-md-12 no-padding">
                           <!--<div class="col-md-5 no-padding"> <input type="file" id="cover-pic">     <p class="user-profile-label">Cover Picture</p></div>-->
-                          <div class="col-md-5 col-md-offset-2 no-padding">  <input type="file" id="profile-pic"> <p class="user-profile-label">Profile Picture</p></div>
+                          <div class="col-md-5 no-padding">  <input type="file" id="profile-pic"> </div>
 
                       </div>
 
@@ -407,7 +407,7 @@
               </div>
 
 
-              <div class="modal-footer" style="position: absolute; right: 18.5%; bottom: 0;">
+              <div class="modal-footer" style="position: absolute; right: 18.5%; bottom: 8.5%;">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary update-user">Save changes</button>
               </div>

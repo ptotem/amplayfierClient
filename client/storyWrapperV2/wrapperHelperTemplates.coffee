@@ -5,6 +5,10 @@ Template.wrapperSideBar.rendered = ->
 Template.wrapperSideBar.events
   'click .notification-link':(e)->
     showModal('notificationModal',{},'main-wrapper-page')
+    setTimeout(()->
+      markAllNotiRead(Meteor.userId())
+    ,2000)
+
   'click .document-link':(e)->
     showModal('documentModal',{},'main-wrapper-page')
   'click .reward-link':(e)->
