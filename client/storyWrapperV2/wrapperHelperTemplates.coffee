@@ -67,14 +67,15 @@ Template.userProfileModal.events
       ppid = pp._id
     else
       ppid = Meteor.user().personal_profile.profilePicId
-    if document.getElementById('cover-pic').files.length isnt 0
-      coverPic = new FS.File(document.getElementById('cover-pic').files[0])
-      coverPic.owner = Meteor.userId()
-      coverPic.stored = false
-      cp = assetFiles.insert(coverPic)
-      cpid = cp._id
-    else
-      cpid = Meteor.user().personal_profile.coverPicId
+#    if document.getElementById('cover-pic').files.length isnt 0
+#      coverPic = new FS.File(document.getElementById('cover-pic').files[0])
+#      coverPic.owner = Meteor.userId()
+#      coverPic.stored = false
+#      cp = assetFiles.insert(coverPic)
+#      cpid = cp._id
+#    else
+#      cpid = Meteor.user().personal_profile.coverPicId
+    cpid = -1
     if $('#user-password-old').val().length isnt 0
       Accounts.changePassword($('#user-password-old').val(),$('#user-password-new').val(),(err)->
         if err?
@@ -82,8 +83,8 @@ Template.userProfileModal.events
       )
     $('#overlay').show()
     Tracker.autorun(()->
-      console.log assetFiles.findOne(ppid).stored
-      if assetFiles.findOne(ppid).stored and assetFiles.findOne(cpid).stored
+
+      if assetFiles.findOne(ppid).stored
         pp = Meteor.user().personal_profile
         pp['coverPicId'] = cpid
         pp['profilePicId'] = ppid
