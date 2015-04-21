@@ -1,7 +1,7 @@
 Template.mainWrapper.rendered = ->
   $(window).resize (evt) ->
     setTitle(storyConfig.name)
-    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
+#    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
     window.platformData.nodes = platforms.findOne().nodes
     initPage()
     setTimeout(()->
@@ -108,7 +108,7 @@ Template.mainWrapper.events
 #    $('#story-zone').empty()
     seq = parseInt($(e.currentTarget).attr('seq'))
     node = platforms.findOne().nodes[seq]
-    nodePhoto = storyConfig.imgsrc + "/" + node.photo
+    nodePhoto =  Meteor.settings.public.mainLink + storyConfig.imgsrc + "/" + node.photo
     nodeTitle = node.title
     nodeDescription = node.description
     if seq isnt 0
