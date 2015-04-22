@@ -88,7 +88,7 @@
                                 </a></li>
 
                             <li class="">
-                                <a class="collapsed" href="userlist.html"> User List
+                                <a class="collapsed menu-link" target-templ="userlistLeftMenu"> User List
                                 </a></li>
 
                         </ul>
@@ -190,8 +190,8 @@
             </li>
         </ul>
         <a class="navbar-brand" href="#">
-            <img src="/assets/images/pepsicologosmall.png" />
-            <span class="text-gradient-success-dk">PepsiCo</span>
+            <img src="/assets/images/pepsicologosmall.png" style="float:left"/>
+            <span class="text-gradient-success-dk" style="float:left">PepsiCo</span>
         </a>
         <ul class="nav navbar-nav navbar-right pull-right">
             <li id="oc-right-toggle-container">
@@ -346,7 +346,7 @@
             <div class="col-md-10">
                 <input type="text" class="col-md-12" autocomplete="off" tabindex="" placeholder="Search" style="background-color: white;height: 32px;">
             </div>
-            <div class="col-md-2"><a href="#" class="btn btn-danger btn-md pull-right">Add New</a></div>
+            <div class="col-md-2"><a href="#" class="btn btn-danger btn-md pull-right add-variants-btn">Add New</a></div>
         </div>
     </div>
 
@@ -396,61 +396,14 @@
                         <table class="table table-hover">
 
                             <tbody>
-
-
-                            <tr class="row-mid ">
-
-
-                                <td colspan="2" class="col-md-8">
-                                    unspecified
-                                </td>
-
-
-
-                                <td>
-                                    <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
-
-
-                                    <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
-                                </td>
-                            </tr>
-
-
-                            <tr class="row-mid">
-
-
-                                <td colspan="2" class="col-md-8">
-                                    unspecified
-                                </td>
-
-
-
-                                <td>
-                                    <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
-
-
-                                    <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
-                                </td>
-                            </tr>
-
-                            <tr class="row-mid">
-
-
-                                <td colspan="2" class="col-md-8">
-                                    unspecified
-                                </td>
-
-
-
-                                <td>
-                                    <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
-
-
-                                    <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
-                                </td>
-                            </tr>
-
-
+                              {{#each getPlatformProfiles}}
+                              <tr class="tag-item row-mid">
+                                <td class="tag-label col-md-8" colspan="2">{{name}}</td>
+                                <td class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md list-btn delete-btn profile-delete-btn">Delete</a></td>
+                                <td class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md list-btn delete-btn add-variants-btn">Add Variants</a></td>
+                                  <!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
+                              </tr>
+                              {{/each}}
                             </tbody>
                         </table>
 
@@ -463,7 +416,125 @@
         </div>
 
     </div>
+  </template>
+<template name="userlistLeftMenu">
+  <div class="row">
 
+      <div class="col-sm-6">
+          <ul class="breadcrumb breadcrumb-top">
+              <li><i class="fa fa-home"></i> Home</li>
+              <li class="active">
+                  Panels
+              </li>
+          </ul>
+      </div>
+      <div class="col-sm-6 text-right-sm text-right-md text-right-lg">
+          <div class="col-md-10">
+              <input type="text" class="col-md-12" autocomplete="off" tabindex="" placeholder="Search" style="background-color: white;height: 32px;">
+          </div>
+          <div class="col-md-2"><a href="#" class="btn btn-danger btn-md pull-right">Add New</a></div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12">
+          <div class="panel panel-primary gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
+              <div class="panel-heading panel-handle panel-colorize">
+                  <div class="panel-actions pull-right panel-actions-reveal">
+                    <span class="panel-actions-reveal-hide animated fadeInRight">
+
+                      <span class="panel-action panel-classify">
+                        <select rel="classselector">
+                            <option>panel-none</option>
+                            <option>panel-default</option>
+                            <option>panel-light</option>
+                            <option>panel-dark</option>
+                            <option>panel-inverse</option>
+                            <option>panel-warning</option>
+                            <option>panel-danger</option>
+                            <option>panel-primary</option>
+                            <option>panel-info</option>
+                            <option>panel-success</option>
+                        </select>
+                      </span>
+                      <span class="panel-action panel-fullscreen">
+                        <i class="fa fa-expand"></i>
+                      </span>
+                      <span class="panel-action panel-collapse">
+                        <i class="fa fa-minus"></i>
+                      </span>
+                      <span class="panel-action panel-close">
+                        <i class="fa fa-times"></i>
+                      </span>
+                    </span>
+                      &nbsp;&nbsp;
+                      <i class="fa fa-bars panel-actions-reveal-icon"></i>
+                  </div>
+                  <div class="panel-title">
+                    <span class="panel-title-edtitable" data-type="text">
+                      Profiling
+                    </span>
+                  </div>
+              </div>
+              <div class="panel-body-collapse collapse in">
+                  <div class="panel-body ">
+
+                      <table class="table table-hover">
+
+                          <tbody>
+
+
+                          <tr class="row-mid ">
+
+
+                              <td colspan="2" class="col-md-8">
+                                  unspecified
+                              </td>
+
+
+
+                              <td>
+                                  <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
+
+
+                                  <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
+                              </td>
+                          </tr>
+
+
+                          <tr class="row-mid">
+
+
+                              <td colspan="2" class="col-md-8">
+                                  unspecified
+                              </td>
+
+
+
+                              <td>
+                                  <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
+
+
+                                  <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
+                              </td>
+                          </tr>
+
+                          <tr class="row-mid">
+
+
+                              <td colspan="2" class="col-md-8">
+                                  unspecified
+                              </td>
+
+
+
+                              <td>
+                                  <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
+
+
+                                  <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
+                              </td>
+                          </tr>
 </template>
 
 <template name="assessmentsLeftMenu">
