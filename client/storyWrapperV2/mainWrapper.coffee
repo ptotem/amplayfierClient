@@ -1,11 +1,20 @@
 Template.mainWrapper.rendered = ->
+  $(window).resize (evt) ->
+    setTitle(storyConfig.name)
+    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
+    window.platformData.nodes = platforms.findOne().nodes
+    initPage()
+    setTimeout(()->
+      $('.story-node').popover({trigger:'hover',html: true})
+    ,1000)
+
+
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
   window.platformData.nodes = platforms.findOne().nodes
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
-
   ,1000)
 
 Template.mainWrapper.created = ()->
@@ -118,9 +127,9 @@ Template.mainWrapper.events
 
 
     showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
-#    setTimeout(()->
-#      $('#modal-pinboard').slick({rows:1})
-#    ,2000)
+    setTimeout(()->
+      $('#modal-pinboard').slick({rows:1})
+    ,2000)
 
 #    Blaze.renderWithData(Template.individualNewStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
 
@@ -153,3 +162,7 @@ Template.mainWrapper.events
     endAttempt()
     $('.modal').modal('hide')
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+
+  'click .fullscreener':(e)->
+    toggleFull("#viewPPTModal")
