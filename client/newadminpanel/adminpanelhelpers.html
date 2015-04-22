@@ -161,7 +161,7 @@
                         <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">Enrollments</span></a>
                     </li>
 <li class="">
-                        <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
+                        <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
                     </li>
 
 
@@ -464,4 +464,85 @@
 
     </div>
 
+</template>
+
+<template name="assessmentsLeftMenu">
+    <div class="row">
+        <div class="col-sm-6">
+            <ul class="breadcrumb breadcrumb-top">
+                <li><i class="fa fa-home"></i> Home</li>
+                <li class="active"> Panels</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 text-right-sm text-right-md text-right-lg">
+            <div class="col-md-10">
+                <input type="text" class="col-md-12" autocomplete="off" tabindex="" placeholder="Search" style="background-color: white;height: 32px;">
+            </div>
+            <div class="col-md-2">
+                <a href="#" class="btn btn-danger btn-md pull-right">Add New</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary gradient-diag1" id="">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-actions pull-right panel-actions-reveal">
+                      <span class="panel-actions-reveal-hide animated fadeInRight">
+                        <span class="panel-action panel-classify">
+                          <select rel="classselector">
+                              <option>panel-none</option>
+                              <option>panel-default</option>
+                              <option>panel-light</option>
+                              <option>panel-dark</option>
+                              <option>panel-inverse</option>
+                              <option>panel-warning</option>
+                              <option>panel-danger</option>
+                              <option>panel-primary</option>
+                              <option>panel-info</option>
+                              <option>panel-success</option>
+                          </select>
+                        </span>
+                        <span class="panel-action panel-fullscreen">
+                          <i class="fa fa-expand"></i>
+                        </span>
+                        <span class="panel-action panel-collapse">
+                          <i class="fa fa-minus"></i>
+                        </span>
+                        <span class="panel-action panel-close">
+                          <i class="fa fa-times"></i>
+                        </span>
+                      </span>
+                        &nbsp;&nbsp;
+                        <i class="fa fa-bars panel-actions-reveal-icon"></i>
+                    </div>
+                    <div class="panel-title">
+                      <span class="panel-title-edtitable" data-type="text">
+                        Assessments
+                      </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body ">
+                        <table class="table table-hover">
+                            <tbody>
+                                {{#each assessments}}
+                                <tr class="row-mid">
+                                    <td colspan="2" class="col-md-4">{{assessmentName}}</td>
+                                    <td>
+                                        <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md add-question">Add question</a></div>
+                                        <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md upload-assessment" id="{{_id}}">Upload questions</a></div>
+                                        <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md delete-question-btn">Delete Assessment</a></div>
+                                        <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md view-question">View question</a></div>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </template>

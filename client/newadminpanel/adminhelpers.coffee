@@ -17,14 +17,19 @@ Template.profilesLeftMenu.helpers
 
     profiles
 
+Template.assessmentsLeftMenu.helpers
+  assessments:()->
+    assesments.find().fetch()
+
 Template.adminSideBar.events
   'click .menu-link':(e)->
     temName = $(e.currentTarget).attr('target-templ')
+    $("#left-menu-container").empty();
     Blaze.renderWithData(Template[temName],{},document.getElementById('left-menu-container'))
 
 Template.mainAdminPanel.helpers
-  assessments:()->
-    assesments.find().fetch()
+#  assessments:()->
+#    assesments.find().fetch()
   viewQuestion:()->
     assesments.findOne(Session.get("viewquesId")).scoreQuestions
   questions:()->
@@ -57,4 +62,3 @@ Template.mainAdminPanel.helpers
 
 
     profiles
-
