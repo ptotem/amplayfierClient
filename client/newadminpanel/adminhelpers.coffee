@@ -76,6 +76,12 @@ Template.profilesLeftMenu.events
   'click .add-variants-btn': (e) ->
     showModal('addvariantModal',{},'main-wrapper-page-new')
 
+  'click .add-new-profile': (e) ->
+    showModal('addprofileModal',{},'main-wrapper-page-new')
+
+  'keyup #tag-filter':(e)->
+    searchBar($(e.currentTarget).val(),".tag-item")
+
 
 Template.assessmentsLeftMenu.events
   'click .new-question-for-admin': (e) ->
