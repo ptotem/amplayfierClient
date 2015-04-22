@@ -151,27 +151,18 @@
 
             </ul>
           </li>
-
-          <li class="">
-            <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">Rewards</span></a>
-          </li>
-          <li class="">
-            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">Badges</span></a>
-          </li>
-          <li class="">
-            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">Enrollments</span></a>
-          </li>
-          <li class="">
-            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
-          </li>
-
-
-
-
-
-
-
-
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">Rewards</span></a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">Badges</span></a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">Enrollments</span></a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
+                    </li>
         </ul>
 
 
@@ -600,4 +591,252 @@
 
   </div>
 
+</template>
+
+<template name="enrollmentsLeftMenu">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3 class="text-gradient-success-dk">Enrollments</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-warning panel-colorize gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+                        <span class="panel-title-edtitable" data-type="text">
+                            Enrollments
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+                        You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-dark">
+                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+                    <div class="panel-heading">
+                        <div class="panel-title">Quick statistics</div>
+                    </div>
+                    <div class="box-table push-bottom">
+                        <div class="box-row mid-bordered">
+                            <div class="box-cell">
+                                <h5 class="base-header major">PLAYERS</h5>
+                                <h3 class="base-header">
+                                    248
+                                </h3>
+                            </div>
+                            <div class="box-cell">
+                                <h5 class="base-header major">GAME<br>PLAYED</h5>
+                                <h3 class="base-header">
+                                    936
+                                </h3>
+                            </div>
+                            <div class="box-cell">
+                                <h5 class="base-header major">DECK<br>Viewed</h5>
+                                <h3 class="base-header">
+                                    307
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <h5 class="pull-left base-header major">Days</h5>
+                        <h5 class="base-header major">
+                            <span class="pull-right panel-lt box-label">
+                                54
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+                    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="table-line">
+        <div class="row table-line-row">
+            <div class="col-md-1 pull-right">
+                <!--<a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a>-->
+                <a href="#" class="btn btn-warning btn-md pull-right node-date-assignment">Update</a>
+            </div>
+            <!--<div class="col-md-6 pull-right">
+                <div class="selectize-input items not-full"><input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" /></div>
+            </div>-->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+                        <span class="panel-title-edtitable" data-type="text">
+                            Enrollments
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <tbody>
+                                {{#each nodes}}
+                                <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
+                                    <td class="col-md-6">{{title}}</td>
+                                    <td class="col-md-6">
+                                        <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" />
+                                        {{#if assessmentNode}}
+                                            <select class="pull-right select-asessment" style="margin-right: 2%;">
+                                                {{#each assessments}}
+                                                <option value="{{_id}}">{{assessmentName}}</option>
+                                                {{/each}}
+                                            </select>
+                                            <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value="">
+                                        {{else}}
+                                            <select class="pull-right select-asessment"  disabled style="margin-right: 2%;">
+                                                {{#each assessments}}
+                                                <option value="-1">{{assessmentName}}</option>
+                                                {{/each}}
+                                            </select>
+                                            <input type="checkbox"  class="pull-right checkbox-assessment" style="width: 5%;" value="">
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="assessmentsLeftMenu">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3 class="text-gradient-success-dk">Assessments</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-warning panel-colorize gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+                        <span class="panel-title-edtitable" data-type="text">
+                            Assessments
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+                        You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-dark">
+                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+                    <div class="panel-heading">
+                        <div class="panel-title">Quick statistics</div>
+                    </div>
+                    <div class="box-table push-bottom">
+                        <div class="box-row mid-bordered">
+                            <div class="box-cell">
+                                <h5 class="base-header major">PLAYERS</h5>
+                                <h3 class="base-header">
+                                    248
+                                </h3>
+                            </div>
+                            <div class="box-cell">
+                                <h5 class="base-header major">GAME<br>PLAYED</h5>
+                                <h3 class="base-header">
+                                    936
+                                </h3>
+                            </div>
+                            <div class="box-cell">
+                                <h5 class="base-header major">DECK<br>Viewed</h5>
+                                <h3 class="base-header">
+                                    307
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <h5 class="pull-left base-header major">Days</h5>
+                        <h5 class="base-header major">
+                            <span class="pull-right panel-lt box-label">
+                                54
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+                    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="table-line">
+        <div class="row table-line-row">
+            <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a></div>
+            <div class="col-md-6 pull-right">
+                <div class="selectize-input items not-full"><input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" /></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+                        <span class="panel-title-edtitable" data-type="text">
+                            Assessments
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body">
+                        <input type="file" class="assessment-question-upload" id='new-question-for-assessment-excel' style="display:none" />
+                        <table class="table table-hover">
+                            <tbody>
+                            {{#each assessments}}
+                            <tr class="row-mid tag-assessment">
+                                <td class="col-md-6">{{assessmentName}}</td>
+                                <td class="col-md-6">
+                                    <a href="#" class="btn btn-success btn-md add-question">Add question</a>
+                                    <a href="#" class="btn btn-info btn-md view-question">View question</a>
+                                    <a href="#" class="btn btn-warning btn-md upload-assessment" id="{{_id}}">Upload questions</a>
+                                    <a href="#" class="btn btn-danger btn-md delete-question-btn">Delete Assessment</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>

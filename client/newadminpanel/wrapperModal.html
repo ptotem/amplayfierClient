@@ -80,6 +80,120 @@
 
 
 </template>
+
+<!-- assessment modals -->
+<template name="newAssessmentModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">New Assessment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="new-assessment">New Assessment</label>
+                            <input type="text" id="new-assessment" placeholder="Please put assessment" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary new-assessment-for-admin-save" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="newQuestionForAssessmentModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">New Question</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="new-reward-name">Statement</label>
+                                <input type="text" id="new-question-name" placeholder="Please put in a question statment" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-question-min">Question Min</label>
+                                <input type="text" id="new-question-min" placeholder="Please put min score the manager can give" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-question-max">Question Max</label>
+                                <input type="text" id="new-question-max" placeholder="Please put in maximum score a manager can give" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary new-question-for-admin-save" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="viewQuestionsForAssessmentModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">All Questions</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-line">
+                                <div class="row push-bottom">
+                                    <div class="col-sm-8 col-md-8 text-center-xs">
+                                        <h4>Statement</h4>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 text-center">
+                                        <h4>Question Min</h4>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 text-center">
+                                        <h4>Question Max</h4>
+                                    </div>
+                                </div>
+                                {{#each viewQuestion}}
+                                <div class="row table-line-row" style="background: transparent">
+                                    <div class="col-sm-8 col-md-8 push-bottom-xs text-center-xs">
+                                        {{statement}}
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 text-center push-bottom-xs">
+                                        <h3 class="text-info">{{min}}</h3>
+                                        <!--<div>{{min}}</div>-->
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 text-center push-bottom-xs">
+                                        <h3 class="text-info">{{max}}</h3>
+                                        <!--<div>{{max}}</div>-->
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<!-- assessment modals -->
+
 <template name="adduserModal">
   <div class="modal modal-dark fade">
   <div class="modal-dialog ">

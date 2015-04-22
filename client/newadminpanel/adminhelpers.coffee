@@ -18,6 +18,16 @@ Template.profilesLeftMenu.helpers
 
     profiles
 
+Template.assessmentsLeftMenu.helpers
+  assessments:()->
+    assesments.find().fetch()
+
+Template.enrollmentsLeftMenu.helpers
+  assessments:()->
+    assesments.find().fetch()
+  nodes:()->
+    platforms.findOne().nodes
+
 Template.userlistLeftMenu.helpers
   myusers: () ->
     Meteor.users.find().fetch()
@@ -43,14 +53,14 @@ Template.adminSideBar.events
     Blaze.renderWithData(Template[temName],{},document.getElementById('left-menu-container'))
 
 Template.mainAdminPanel.helpers
-  assessments:()->
-    assesments.find().fetch()
-  viewQuestion:()->
-    assesments.findOne(Session.get("viewquesId")).scoreQuestions
-  questions:()->
-    scoreQuestions.find().fetch()
-  nodes:()->
-    platforms.findOne().nodes
+#  assessments:()->
+#    assesments.find().fetch()
+#  viewQuestion:()->
+#    assesments.findOne(Session.get("viewquesId")).scoreQuestions
+#  questions:()->
+#    scoreQuestions.find().fetch()
+#  nodes:()->
+#    platforms.findOne().nodes
 
 
   badges:()->
@@ -77,9 +87,6 @@ Template.mainAdminPanel.helpers
 
 
     profiles
-
-
-
 
 Template.userlistLeftMenu.events
   'click .add-new-user': (e) ->
@@ -143,7 +150,6 @@ Template.profilesLeftMenu.events
       createNotification("Profile has been removed successfully", 1)
       e.preventDefault()
 
-
   'click .add-variants-btn': (e) ->
     showModal('addvariantModal',{},'main-wrapper-page-new')
 
@@ -152,3 +158,74 @@ Template.profilesLeftMenu.events
 
   'keyup #tag-filter':(e)->
     searchBar($(e.currentTarget).val(),".tag-item")
+
+
+Template.assessmentsLeftMenu.events
+  'click .new-question-for-admin': (e) ->
+    showModal('newAssessmentModal',{},'main-wrapper-page-new')
+
+  'keyup #tag-filter':(e)->
+    searchBar($(e.currentTarget).val(),".tag-assessment")
+
+  'click .add-question': (e) ->
+    showModal('newQuestionForAssessmentModal',{},'main-wrapper-page-new')
+    Session.set("newquesId",this._id)
+
+  'click .view-question': (e) ->
+    showModal('viewQuestionsForAssessmentModal',{},'main-wrapper-page-new')
+    Session.set("viewquesId",this._id)
+
+  'click .upload-assessment':(e)->
+    $('.assessment-question-upload').trigger('click')
+    Session.set("statementName",$(e.currentTarget).attr('id'))
+
+  'change .assessment-question-upload': (e)->
+    if document.getElementById('new-question-for-assessment-excel').files.length is 0
+      createNotification("Please upload a excel",1)
+    else
+      assessmentQuestions = new FS.File(document.getElementById('new-question-for-assessment-excel').files[0])
+      assessmentQuestions.platform = platforms.findOne()._id
+      assessmentQuestions.stored = false
+      $("#overlay").show()
+      rf = excelFiles.insert(assessmentQuestions)
+      rfid = rf._id
+      statementId=Session.get("statementName")
+      Tracker.autorun(()->
+        console.log excelFiles.findOne(rfid).stored
+        if excelFiles.findOne(rfid).stored
+          Meteor.call('bulkInsertAssessmentQuestions',rfid,platforms.findOne()._id,statementId)
+          $("#overlay").hide()
+
+      )
+
+  'click .delete-question-btn':(e)->
+    assesments.remove({_id:this._id})
+
+Template.enrollmentsLeftMenu.events
+  'click .node-date-assignment':(e)->
+    nodes = platforms.findOne().nodes
+    pid = platforms.findOne()._id
+    $(".enrollment-node").each((ind,ele)->
+      if $(ele).find('.node-day').val().length is 0
+        val = 1
+      else
+        val = $(ele).find('.node-day').val()
+      assessMent = $(ele).find('.checkbox-assessment').is(":checked")
+      selAssessment = $(ele).find('.select-asessment').val()
+      nodes[parseInt($(ele).attr('node-seq'))].startDay = val
+      nodes[parseInt($(ele).attr('node-seq'))].assessmentNode = assessMent
+      nodes[parseInt($(ele).attr('node-seq'))].selAssessment = selAssessment
+      console.log nodes[parseInt($(ele).attr('node-seq'))].assessmentNode
+
+
+#        nodes[parseInt($(ele).attr('node-seq'))].startDate = new Date($(ele).val()).getTime()
+#        if parseInt($(ele).next().val()) > 100
+#          pm = 100
+#        else
+#        pm = $(ele).val()
+
+#        console.log $(ele).next().is(':checked')
+#        nodes[$(ele).next().is(':checked')].nodeAssessment
+
+    )
+    platforms.update({_id:pid},{$set:{nodes:nodes}})
