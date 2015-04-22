@@ -85,6 +85,12 @@ Meteor.publish('customizationDecks',()->
   this.ready()
   customizationDecks.find({})
 )
+Meteor.publish('plaformUserFeedbacks',(pname)->
+  this.ready()
+  pid = platforms.findOne({tenantName: pname})._id
+  plaformUserFeedbacks.find({platformId:pid})
+)
+
 
 Meteor.publish('panelReport',()->
   this.ready()

@@ -36,6 +36,16 @@ Template.notificationModal.helpers
     {ukey:platforms.findOne()._id}
 
 
+
+Template.feedbackModal.events
+  'submit form':(e)->
+    u = Meteor.userId()
+    p = platforms.findOne()._id
+    s = $(e.currentTarget).find('#user-feedback').val()
+    plaformUserFeedbacks.insert({platformId:p,from:u,feedback:s})
+    $('.remove-modal').trigger('click')
+    e.preventDefault()
+
 Template.rewardModal.helpers
   rewards:()->
     systemRewards.find().fetch()

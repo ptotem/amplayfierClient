@@ -25,11 +25,18 @@
 @userNodeCompletions = new Meteor.Collection('userNodeCompletions')
 @assesmentScore = new Meteor.Collection('assesmentScore')
 @systemBadges = new Meteor.Collection('systemBadges')
-
-
-
+@plaformUserFeedbacks = new Meteor.Collection('platformUserFeedbacks')
 
 @platforms.allow
+  insert:(userId, role) ->
+    true
+  update:(userId, doc, fieldNames, modifier)->
+
+    true
+  remove:(userId, doc)->
+    true
+
+@plaformUserFeedbacks.allow
   insert:(userId, role) ->
     true
   update:(userId, doc, fieldNames, modifier)->
