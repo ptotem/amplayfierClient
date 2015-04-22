@@ -17,6 +17,7 @@
   setTimeout(()->
     $(".modal").modal()
     $('.modal-blur-content').css({"-webkit-filter":"blur(3px)"})
+    $('.modal-dialog').css({"z-index":"9999"})
   ,100)
 
 #  $(".modal").modal()
