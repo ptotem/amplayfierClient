@@ -610,17 +610,18 @@
                     </div>
                 </div>
                 <div class="panel-body-collapse collapse in">
-                    <div class="panel-body ">
+                    <div class="panel-body">
+                        <input type="file" class="assessment-question-upload" id='new-question-for-assessment-excel' style="display:none" />
                         <table class="table table-hover">
                             <tbody>
                                 {{#each assessments}}
                                 <tr class="row-mid">
-                                    <td colspan="2" class="col-md-4">{{assessmentName}}</td>
+                                    <td class="col-md-4">{{assessmentName}}</td>
                                     <td>
                                         <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md add-question">Add question</a></div>
+                                        <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md view-question">View question</a></div>
                                         <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md upload-assessment" id="{{_id}}">Upload questions</a></div>
                                         <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md delete-question-btn">Delete Assessment</a></div>
-                                        <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md view-question">View question</a></div>
                                     </td>
                                 </tr>
                                 {{/each}}

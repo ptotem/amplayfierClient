@@ -31,10 +31,10 @@ Template.adminSideBar.events
 Template.mainAdminPanel.helpers
 #  assessments:()->
 #    assesments.find().fetch()
-  viewQuestion:()->
-    assesments.findOne(Session.get("viewquesId")).scoreQuestions
-  questions:()->
-    scoreQuestions.find().fetch()
+#  viewQuestion:()->
+#    assesments.findOne(Session.get("viewquesId")).scoreQuestions
+#  questions:()->
+#    scoreQuestions.find().fetch()
   nodes:()->
     platforms.findOne().nodes
 
@@ -73,7 +73,6 @@ Template.profilesLeftMenu.events
       createNotification("Profile has been removed successfully", 1)
       e.preventDefault()
 
-
   'click .add-variants-btn': (e) ->
     showModal('addvariantModal',{},'main-wrapper-page-new')
 
@@ -81,3 +80,37 @@ Template.profilesLeftMenu.events
 Template.assessmentsLeftMenu.events
   'click .new-question-for-admin': (e) ->
     showModal('newAssessmentModal',{},'main-wrapper-page-new')
+
+  'click .add-question': (e) ->
+    showModal('newQuestionForAssessmentModal',{},'main-wrapper-page-new')
+    Session.set("newquesId",this._id)
+
+  'click .view-question': (e) ->
+    showModal('viewQuestionsForAssessmentModal',{},'main-wrapper-page-new')
+    Session.set("viewquesId",this._id)
+
+  'click .upload-assessment':(e)->
+    $('.assessment-question-upload').trigger('click')
+    Session.set("statementName",$(e.currentTarget).attr('id'))
+
+  'change .assessment-question-upload': (e)->
+    if document.getElementById('new-question-for-assessment-excel').files.length is 0
+      createNotification("Please upload a excel",1)
+    else
+      assessmentQuestions = new FS.File(document.getElementById('new-question-for-assessment-excel').files[0])
+      assessmentQuestions.platform = platforms.findOne()._id
+      assessmentQuestions.stored = false
+      $("#overlay").show()
+      rf = excelFiles.insert(assessmentQuestions)
+      rfid = rf._id
+      statementId=Session.get("statementName")
+      Tracker.autorun(()->
+        console.log excelFiles.findOne(rfid).stored
+        if excelFiles.findOne(rfid).stored
+          Meteor.call('bulkInsertAssessmentQuestions',rfid,platforms.findOne()._id,statementId)
+          $("#overlay").hide()
+
+      )
+
+  'click .delete-question-btn':(e)->
+    assesments.remove({_id:this._id})
