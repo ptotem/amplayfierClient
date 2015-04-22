@@ -46,6 +46,24 @@ Template.addprofileModal.events
     createNotification("Profile has been added successfully", 1)
     $(".internal-sidelinks.active").trigger('click')
 
+
+Template.adduserModal.events
+  'click .remove-modal':(e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+Template.adduserModal.helpers
+  myusers: () ->
+    Meteor.users.find().fetch()
+  myuser: (uid) ->
+    if uid isnt -1
+      Meteor.users.findOne(uid)
+    else
+      {}
+  roles:()->
+    roles.find().fetch()
+
 Template.newAssessmentModal.events
   'click .remove-modal': (e)->
     $('.modal').modal('hide')

@@ -193,3 +193,74 @@
     </div>
 </template>
 <!-- assessment modals -->
+
+<template name="adduserModal">
+  <div class="modal modal-dark fade">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Add User Modal</h4>
+      </div>
+      <div class="modal-body">
+        {{#with myuser userId}}
+          <!--<div class="field-box">-->
+            <div id="myuserCreate" class="row" style="list-style: none; height: 30em; overflow: auto; border: 1px solid orange; padding: 1em;">
+
+              <div class="col-lg-12">
+                <label for="user-name">Display Name</label>
+                <input type="text" class="form-control" id="user-name" value="{{personal_profile.display_name}}" placeholder="Enter name"/>
+              </div><br><br>
+              <div class="col-lg-12">
+                <label for="user-email">First Name</label>
+                <input type="text" class="form-control" id="user-first-name" value="{{personal_profile.first_name}}" placeholder="Enter first name"/>
+              </div><br><br>
+              <div class="col-lg-12">
+                <label for="user-email">Last Name</label>
+                <input type="text" class="form-control" id="user-last-name" value="{{personal_profile.last_name}}" placeholder="Enter last name"/>
+              </div><br><br>
+              <div class="col-lg-12">
+                <label for="user-email">Email ID</label>
+                <input type="email" class="form-control" id="user-email" value="{{decodeUserEmail personal_profile.email}}" placeholder="Enter name"/>
+                <input type="hidden" id="user-id" value="{{_id}}"/>
+              </div><br><br>
+                        <div class="col-lg-12">
+                <label for="user-email">Reporting Manager</label>
+                <select class="reporting-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
+
+              </div>
+                        <div class="col-lg-12">
+                            <label for="user-email">HR Manager</label>
+                            <select class="hr-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
+
+                        </div>
+                        <div class="col-lg-12">
+                <label for="user-email">Role</label>
+                            <select class="user-role">{{#each roles}}<option value="{{_id}}">{{rolename}}</option>{{/each}}</select>
+
+
+              </div>
+
+
+
+
+                        <br><br>
+              <div class="col-lg-12">
+                <a href="#" class="btn btn-lg btn-warning add-individual-user pull-right">Save </a>
+              </div>
+            </div>
+          <!--</div>-->
+
+                {{/with}}
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+            <a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+</template>

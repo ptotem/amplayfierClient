@@ -28,6 +28,24 @@ Template.enrollmentsLeftMenu.helpers
   nodes:()->
     platforms.findOne().nodes
 
+Template.userlistLeftMenu.helpers
+  myusers: () ->
+    Meteor.users.find().fetch()
+  profileForUsers :(uid)->
+    profiles = []
+    if platforms.findOne().profiles?
+      for p in platforms.findOne().profiles
+        console.log Meteor.users.findOne(uid).profile
+        if Meteor.users.findOne(uid).profile is p.name
+          p["selected"] = true
+        else
+          p['selected'] = false
+        profiles.push p
+
+
+    profiles
+
+
 Template.adminSideBar.events
   'click .menu-link':(e)->
     temName = $(e.currentTarget).attr('target-templ')
@@ -70,6 +88,59 @@ Template.mainAdminPanel.helpers
 
     profiles
 
+Template.userlistLeftMenu.events
+  'click .add-new-user': (e) ->
+    showModal('adduserModal',{},'main-wrapper-page-new')
+
+  'keyup #users-filter':(e)->
+    searchBar($(e.currentTarget).val(),".user-item")
+  'click .edit-user-btn': (e)->
+    $(".right-form").hide()
+    $('#myuserCreate').remove()
+    Blaze.renderWithData(Template['userForm'], {userId: this._id}, document.getElementById('new-user'))
+    $("#new-user").show()
+  'click .block-user-btn':(e)->
+    if window.confirm("Are you sure you want to block this user ?")
+      console.log "yes"
+    else
+      console.log "no"
+  'click .reset-user-btn':(e)->
+    if window.confirm("Are you sure you want to block this user ?")
+
+      Meteor.call('resetPasswordAdmin',this._id)
+      console.log "yes"
+    else
+      console.log "no"
+
+
+  'click .delete-user-btn':(e)->
+    if window.confirm("Are you sure you want to delete the user?")
+      Meteor.call('removeUser',this._id)
+      createNotification('Profile has been removed', 1)
+
+  'click .download-template-btn':(e)->
+    window.open "/assets/downloadables/userdata_template.xlsx","_blank"
+
+  'click .user-upload-btn': (e)->
+    $('.user-upload').trigger('click')
+
+  'change .user-upload': (e)->
+    if document.getElementById('new-user-excel').files.length is 0
+      createNotification("Please upload a excel",1)
+    else
+      assessmentQuestions = new FS.File(document.getElementById('new-user-excel').files[0])
+      assessmentQuestions.platform = platforms.findOne()._id
+      assessmentQuestions.stored = false
+      $("#overlay").show()
+      rf = excelFiles.insert(assessmentQuestions)
+      rfid = rf._id
+      Tracker.autorun(()->
+        console.log excelFiles.findOne(rfid).stored
+        if excelFiles.findOne(rfid).stored
+          Meteor.call('bulkInsertUsers',rfid,platforms.findOne()._id)
+          $("#overlay").hide()
+
+      )
 
 Template.profilesLeftMenu.events
   'click .profile-delete-btn': (e) ->
