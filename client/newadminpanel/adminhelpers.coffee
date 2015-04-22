@@ -22,6 +22,12 @@ Template.assessmentsLeftMenu.helpers
   assessments:()->
     assesments.find().fetch()
 
+Template.enrollmentsLeftMenu.helpers
+  assessments:()->
+    assesments.find().fetch()
+  nodes:()->
+    platforms.findOne().nodes
+
 Template.adminSideBar.events
   'click .menu-link':(e)->
     temName = $(e.currentTarget).attr('target-templ')
@@ -35,8 +41,8 @@ Template.mainAdminPanel.helpers
 #    assesments.findOne(Session.get("viewquesId")).scoreQuestions
 #  questions:()->
 #    scoreQuestions.find().fetch()
-  nodes:()->
-    platforms.findOne().nodes
+#  nodes:()->
+#    platforms.findOne().nodes
 
 
   badges:()->
@@ -123,3 +129,32 @@ Template.assessmentsLeftMenu.events
 
   'click .delete-question-btn':(e)->
     assesments.remove({_id:this._id})
+
+Template.enrollmentsLeftMenu.events
+  'click .node-date-assignment':(e)->
+    nodes = platforms.findOne().nodes
+    pid = platforms.findOne()._id
+    $(".enrollment-node").each((ind,ele)->
+      if $(ele).find('.node-day').val().length is 0
+        val = 1
+      else
+        val = $(ele).find('.node-day').val()
+      assessMent = $(ele).find('.checkbox-assessment').is(":checked")
+      selAssessment = $(ele).find('.select-asessment').val()
+      nodes[parseInt($(ele).attr('node-seq'))].startDay = val
+      nodes[parseInt($(ele).attr('node-seq'))].assessmentNode = assessMent
+      nodes[parseInt($(ele).attr('node-seq'))].selAssessment = selAssessment
+      console.log nodes[parseInt($(ele).attr('node-seq'))].assessmentNode
+
+
+#        nodes[parseInt($(ele).attr('node-seq'))].startDate = new Date($(ele).val()).getTime()
+#        if parseInt($(ele).next().val()) > 100
+#          pm = 100
+#        else
+#        pm = $(ele).val()
+
+#        console.log $(ele).next().is(':checked')
+#        nodes[$(ele).next().is(':checked')].nodeAssessment
+
+    )
+    platforms.update({_id:pid},{$set:{nodes:nodes}})
