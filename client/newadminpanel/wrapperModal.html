@@ -3,24 +3,80 @@
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header ">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">Modal demo</h4>
       </div>
       <div class="modal-body">
-          <p>Similique doloribus dicta occaecati tenetur dicta sint ut illo aut omnis alias ducimus. earum voluptatibus quam provident. dolorem vel aliquam dolorem aliquid repellendus occaecati facere autem doloremque animi. delectus dolor dolorem sit. hic laborum voluptatum id et est voluptatem. non omnis laborum velit eum et sit quis accusamus iusto sint est</p>
-  <button class="btn btn-dark"
-          data-toggle="modal" data-target="#uida68e679a9903cb72b4048ff9d62fe9c2">
-    Demo
-  </button>
+        <div id="add-varant-to-profile" class="full-box">
+          <input type="hidden" name="profileName" id="currentProfileName" value={{profile.name}}>
+          <input type="hidden" name="profileDesc" id="currentProfileDesc" value={{profile.description}}>
 
+          <ul id="tag-list" class="full-box">
+            {{#each userDeckHtml}}
+            <li>
+              <div class="userDecks">
+                <span class="tag-label">{{name}}</span>
+                <input class="deckname" type="hidden" name="deck_name" value="{{deckId}}">
+                <select data-placeholder="Tag your Variant" class="variant-chosen" tabindex="-1" style="width:150px;padding:0;">
+                              <option>None</option>
+                  {{#each deckVariants _id}}
+                  <option>{{userVariants}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+
+
+        </div>
       </div>
       <div class="modal-footer">
             <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+            <a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
 
       </div>
     </div>
   </div>
-</div>
+  </div>
+
+</template>
+<template name="addprofileModal">
+  <div class="modal modal-dark fade">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal demo</h4>
+      </div>
+      <div class="modal-body">
+        <div id="new-prf-form-profile" class="full-box">
+          <div class="row" id="user-list">
+
+            <div class="col-lg-12">
+              <label for="profile-user-name">Profile Name</label>
+              <input type="text" class="form-control" id='profile-name' name="name" placeholder="Enter profile name">
+            </div><br><br>
+            <div class="col-lg-12">
+              <label for="profile-user-description">Profile Description</label>
+              <!--<textarea cols="5" rows="5" class="form-control" id='profile-desc' name="description" placeholder="Enter profile description name">-->
+              <!--</textarea>-->
+              <textarea id="profile-desc" placeholder="Enter profile description" rows="3" class="form-control" name="description"></textarea>
+            </div><br>
+            <div class="col-lg-12">
+              <a href="#" style="margin-top: 1%;" class="btn btn-lg btn-warning add-individual-profile pull-right">Save </a>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+            <a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
 
 </template>

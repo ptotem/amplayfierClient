@@ -1,552 +1,535 @@
 <template name="adminSideBar">
-    <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
-        <div class="nano-content">
+  <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
+    <div class="nano-content">
 
 
-            <div class="oc-sidebar-header">
-                <ul class="nav nav-justified-all">
-                    <li>
-                        <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="open,partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
-                            <i class="icm icm-menu6 oc-partial-rotate"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-nav" data-toggle="modal" href="#jump-to-menu"> <i class="icm icm-arrow-right6"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-nav" href="#" rel="popover-click" data-toggle="popover" data-container="body" data-placement="bottom">
-                            <i class="icm icm-bubbles5 has-corner-badge animated tada">
+      <div class="oc-sidebar-header">
+        <ul class="nav nav-justified-all">
+          <li>
+            <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="open,partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
+              <i class="icm icm-menu6 oc-partial-rotate"></i>
+            </a>
+          </li>
+          <li>
+            <a class="btn-nav" data-toggle="modal" href="#jump-to-menu"> <i class="icm icm-arrow-right6"></i>
+            </a>
+          </li>
+          <li>
+            <a class="btn-nav" href="#" rel="popover-click" data-toggle="popover" data-container="body" data-placement="bottom">
+              <i class="icm icm-bubbles5 has-corner-badge animated tada">
           <span class="badge badge-corner badge-corner-top-right badge-info-dk">
             <i class="fa fa-exclamation"></i>
-                    </span>
-                            </i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pages/inbox.html"> <i class="icm icm-envelope3 has-corner-badge">
+              </span>
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="pages/inbox.html"> <i class="icm icm-envelope3 has-corner-badge">
                             <span class="badge badge-corner badge-corner-top-right badge-primary-dk">4</span>
                         </i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-            <div class="oc-sidebar-content" id="collapseAvatarLeft">
-                <ul class="nav nav-stacked oc-sidebar-nav visible-xs">
-                    <li>
-                        <form class="oc-header oc-search" role="search">
-                            <div class="form-group has-header">
-                                <span class="icm icm-search3 form-control-header"></span>
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                        </form>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#dropdownUserSidebar" class="collapsed" data-toggle="collapse" data-parent="#collapseAvatarLeft">
-                            <div class="media">
-                                <img class="img-circle media-object pull-left" src="../images/faker/avatars/48/Faces_Users-02.png" />
+      <div class="oc-sidebar-content" id="collapseAvatarLeft">
+        <ul class="nav nav-stacked oc-sidebar-nav visible-xs">
+          <li>
+            <form class="oc-header oc-search" role="search">
+              <div class="form-group has-header">
+                <span class="icm icm-search3 form-control-header"></span>
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+            </form>
+          </li>
+          <li class="dropdown">
+            <a href="#dropdownUserSidebar" class="collapsed" data-toggle="collapse" data-parent="#collapseAvatarLeft">
+              <div class="media">
+                <img class="img-circle media-object pull-left" src="../images/faker/avatars/48/Faces_Users-02.png" />
 
-                                <div class="media-body">
-                                    <h4 class="media-heading">Amy R. Hofstadter</h4>
-                                    Error porro omnis enim soluta magni eum
-                                </div>
-                            </div>
-                        </a>
-                        <ul class="collapse dropdown-menu" id="dropdownUserSidebar">
-                            <li>
-                                <a href="#"><i class="icm icm-user"></i> Profile</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icm icm-cog"></i> Settings</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icm icm-switch text-danger"></i>
-                                    <span class="text-danger">Sign out</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-
-                <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
-                    <li class=" dropdown">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!" href="#uida2d303f3f492c050e17f7f427ee7d672"> <i class="oc-partial-icon fa fa-users"></i>
-                    <span class="oc-partial-menu-item">
-                      Manage Users
-                      <b class="caret"></b>
-                    </span>
-                        </a>
-                        <ul class="collapse dropdown-menu " id="uida2d303f3f492c050e17f7f427ee7d672">
+                <div class="media-body">
+                  <h4 class="media-heading">Amy R. Hofstadter</h4>
+                  Error porro omnis enim soluta magni eum
+                </div>
+              </div>
+            </a>
+            <ul class="collapse dropdown-menu" id="dropdownUserSidebar">
+              <li>
+                <a href="#"><i class="icm icm-user"></i> Profile</a>
+              </li>
+              <li>
+                <a href="#"><i class="icm icm-cog"></i> Settings</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="icm icm-switch text-danger"></i>
+                  <span class="text-danger">Sign out</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
 
 
+        <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
+          <li class=" dropdown">
+            <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!" href="#uida2d303f3f492c050e17f7f427ee7d672">
+              <i class="oc-partial-icon fa fa-users"></i>
+              <span class="oc-partial-menu-item">
+                Manage Users
+                <b class="caret"></b>
+              </span>
+            </a>
+            <ul class="collapse dropdown-menu " id="uida2d303f3f492c050e17f7f427ee7d672">
 
-                            <li class="">
-                                <a class="collapsed menu-link" target-templ="profilesLeftMenu" href="#"> Profiling
+
+
+              <li class="">
+                <a class="collapsed menu-link" target-templ="profilesLeftMenu" href="#"> Profiling
                                 </a></li>
 
-                            <li class="">
-                                <a class="collapsed menu-link" target-templ="userlistLeftMenu"> User List
+              <li class="">
+                <a class="collapsed menu-link" target-templ="userlistLeftMenu"> User List
                                 </a></li>
 
-                        </ul>
-                    </li>
-                    <li class="">
+            </ul>
+          </li>
+          <li class="">
 
-                        <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">Manage Reports</span></a>
-                    </li>
+            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">Manage Reports</span></a>
+          </li>
 
-                    <li class=" dropdown">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
+          <li class=" dropdown">
+            <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
                       " href="#mailer"> <i class="oc-partial-icon fa fa-envelope-o"></i>
-                    <span class="oc-partial-menu-item">
-                      Mailers
-                      <b class="caret"></b>
-                    </span>
-                        </a>
-                        <ul class="collapse dropdown-menu " id="mailer">
+              <span class="oc-partial-menu-item">
+                Mailers
+                <b class="caret"></b>
+              </span>
+            </a>
+            <ul class="collapse dropdown-menu " id="mailer">
 
 
 
-                            <li class="">
-                                <a class="collapsed" href="../htmls/pages/mailers.html"> Portal Mailers
+              <li class="">
+                <a class="collapsed" href="../htmls/pages/mailers.html"> Portal Mailers
                                 </a></li>
 
-                            <li class="">
-                                <a class="collapsed" href="../htmls/pages/portal_mailers.html"> User Mailers
+              <li class="">
+                <a class="collapsed" href="../htmls/pages/portal_mailers.html"> User Mailers
                                 </a></li>
-                            <li class="">
-                                <a class="collapsed" href="../htmls/pages/systemnotification.html"> System Notifications
+              <li class="">
+                <a class="collapsed" href="../htmls/pages/systemnotification.html"> System Notifications
                                 </a></li>
 
-                        </ul>
-                    </li>
-                    <li class="">
-                        <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">Repository</span></a>
-                    </li>
+            </ul>
+          </li>
+          <li class="">
+            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">Repository</span></a>
+          </li>
 
-                    <li class=" dropdown">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
+          <li class=" dropdown">
+            <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
                       " href="#roles"> <i class="oc-partial-icon fa fa-sitemap"></i>
-                    <span class="oc-partial-menu-item">
-                      Roles
-                      <b class="caret"></b>
-                    </span>
-                        </a>
-                        <ul class="collapse dropdown-menu " id="roles">
+              <span class="oc-partial-menu-item">
+                Roles
+                <b class="caret"></b>
+              </span>
+            </a>
+            <ul class="collapse dropdown-menu " id="roles">
 
 
 
-                            <li class="">
-                                <a class="collapsed" href="roles.html"> All Roles
+              <li class="">
+                <a class="collapsed" href="roles.html"> All Roles
                                 </a></li>
 
-                            <li class="">
-                                <a class="collapsed" href="new_roles.html"> New Roles
+              <li class="">
+                <a class="collapsed" href="new_roles.html"> New Roles
                                 </a></li>
 
 
-                        </ul>
-                    </li>
+            </ul>
+          </li>
 
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">Rewards</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">Badges</span></a>
-                    </li>
-<li class="">
-                        <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">Enrollments</span></a>
-                    </li>
-<li class="">
-                        <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
-                    </li>
-
-
+          <li class="">
+            <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">Rewards</span></a>
+          </li>
+          <li class="">
+            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">Badges</span></a>
+          </li>
+          <li class="">
+            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">Enrollments</span></a>
+          </li>
+          <li class="">
+            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
+          </li>
 
 
 
 
 
 
-                </ul>
 
 
-            </div>
+        </ul>
 
-        </div>
-    </aside>
+
+      </div>
+
+    </div>
+  </aside>
 </template>
 
 <template name="adminHeaderBar">
-    <nav class="navbar navbar-default navbar-static-top navbar-inplace" role="navigation">
-        <ul class="nav navbar-nav navbar-left pull-left hidden-sm hidden-md hidden-lg">
-            <li>
-                <a id="oc-left-toggle-xs" href="#oc-wrapper" class="btn-nav pull-left " data-toggle="offcanvas" data-control="left" data-states="open,hidden" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
-                    <i class="icm icm-menu6"></i>
-                </a>
-            </li>
-        </ul>
-        <a class="navbar-brand" href="#">
-            <img src="/assets/images/pepsicologosmall.png" style="float:left"/>
-            <span class="text-gradient-success-dk" style="float:left">PepsiCo</span>
+  <nav class="navbar navbar-default navbar-static-top navbar-inplace" role="navigation">
+    <ul class="nav navbar-nav navbar-left pull-left hidden-sm hidden-md hidden-lg">
+      <li>
+        <a id="oc-left-toggle-xs" href="#oc-wrapper" class="btn-nav pull-left " data-toggle="offcanvas" data-control="left" data-states="open,hidden" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
+          <i class="icm icm-menu6"></i>
         </a>
-        <ul class="nav navbar-nav navbar-right pull-right">
-            <li id="oc-right-toggle-container">
-                <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
-                   data-persist="lg,md,sm">
-                    <i class="fa fa-lg fa-comments has-corner-badge">
+      </li>
+    </ul>
+    <a class="navbar-brand" href="#">
+      <img src="/assets/images/pepsicologosmall.png" style="float:left" />
+      <span class="text-gradient-success-dk" style="float:left">PepsiCo</span>
+    </a>
+    <ul class="nav navbar-nav navbar-right pull-right">
+      <li id="oc-right-toggle-container">
+        <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
+        data-persist="lg,md,sm">
+          <i class="fa fa-lg fa-comments has-corner-badge">
                         <span class="badge badge-corner badge-corner-top-right badge-info">3</span>
                     </i>
-                </a>
-            </li>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right pull-right hidden-xs">
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="navbar-img-link">
+          <img class="img-circle" src="{{getAssetUrl currentUser.personal_profile.profilePicId}}" />
+          <span class="hidden-xs hidden-sm hidden-md">{{getUserFullName}}</span>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu animated fadeIn fast">
+          <li>
+            <a href="#"> <i class="fa fa-user"></i> Profile
+            </a>
+          </li>
+          <li>
+            <a href="#"> <i class="fa fa-cog"></i> Settings
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <a href="#" class="logout-link"> <i class="fa fa-power-off text-danger"></i>
+                <span class="text-danger">Sign out</span>
+              </a>
+            </a>
+          </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right pull-right hidden-xs">
-            <li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="navbar-img-link">
-                    <img class="img-circle" src="{{getAssetUrl currentUser.personal_profile.profilePicId}}" />
-                    <span class="hidden-xs hidden-sm hidden-md">{{getUserFullName}}</span>
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu animated fadeIn fast">
-                    <li>
-                        <a href="#"> <i class="fa fa-user"></i> Profile
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"> <i class="fa fa-cog"></i> Settings
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <a href="#" class="logout-link"> <i class="fa fa-power-off text-danger"></i>
-                                <span class="text-danger">Sign out</span>
-                            </a>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+      </li>
+    </ul>
 
-    </nav>
+  </nav>
 </template>
 
 <template name="rewardsLeftMenu">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-actions pull-right panel-actions-reveal">
-            <span class="panel-actions-reveal-hide animated fadeInRight">
-
-  <span class="panel-action panel-classify">
-    <select rel="classselector">
-        <option>panel-none</option>
-        <option>panel-default</option>
-        <option>panel-light</option>
-        <option>panel-dark</option>
-        <option>panel-inverse</option>
-        <option>panel-warning</option>
-        <option>panel-danger</option>
-        <option>panel-primary</option>
-        <option>panel-info</option>
-        <option>panel-success</option>
-    </select>
-  </span>
-<span class="panel-action panel-fullscreen">
-  <i class="fa fa-expand"></i>
-</span>
-<span class="panel-action panel-collapse">
-  <i class="fa fa-minus"></i>
-</span>
-<span class="panel-action panel-close">
-  <i class="fa fa-times"></i>
-</span>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Rewards
             </span>
-                        &nbsp;&nbsp;
-                        <i class="fa fa-bars panel-actions-reveal-icon"></i>
-                    </div>
-                    <div class="panel-title">
-      <span class="panel-title-edtitable" data-type="text">
-        Rewards
-      </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body">
-                        <div class="row" rel="panels">
-                            {{#each rewards}}
+          </div>
+        </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body">
+            <div class="row" rel="panels">
+              {{#each rewards}}
 
 
-                            <div class="col-md-3 panels">
-                                <div class="captionable captionable-effect-flip horizontal">
-                                    <div class="captionable-flip">
-                                        <div class="captionable-front">
-                                            <div class="panel panel-success">
-                                                <div class="panel-heading">
-                                                    <div class="panel-title text-center">
-                                                        {{name}}
-                                                    </div>
-                                                </div>
-                                                <div class="panel-body no-padding-top">
-                                                    <div class="padded">
-                                                        <div class="vpadded">
-                                                            <img src="{{getAssetUrl rewardImage}}" class="img-responsive"/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row ">
-                                                        <div class="col-xs-4 text-center">
-                                                            <div><i class="icm icm-stack3 reward-stock-text"></i></div>
-                                                            <div>{{stock}}</div>
-                                                        </div>
-
-                                                        <div class="col-xs-4 col-xs-offset-4 text-center">
-                                                            <div><i class="icm icm-coins reward-value-text"></i></div>
-                                                            <div>{{value}}</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="captionable-caption captionable-back panel-body-info padded">
-                                            <h4>{{name}}</h4>
-                                            <p>{{description}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{/each}}
-
-
+              <div class="col-md-3 panels">
+                <div class="captionable captionable-effect-flip horizontal">
+                  <div class="captionable-flip">
+                    <div class="captionable-front">
+                      <div class="panel panel-success">
+                        <div class="panel-heading">
+                          <div class="panel-title text-center">
+                            {{name}}
+                          </div>
                         </div>
+                        <div class="panel-body no-padding-top">
+                          <div class="padded">
+                            <div class="vpadded">
+                              <img src="{{getAssetUrl rewardImage}}" class="img-responsive" />
+                            </div>
+                          </div>
+                          <div class="row ">
+                            <div class="col-xs-4 text-center">
+                              <div><i class="icm icm-stack3 reward-stock-text"></i></div>
+                              <div>{{stock}}</div>
+                            </div>
+
+                            <div class="col-xs-4 col-xs-offset-4 text-center">
+                              <div><i class="icm icm-coins reward-value-text"></i></div>
+                              <div>{{value}}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <div class="captionable-caption captionable-back panel-body-info padded">
+                      <h4>{{name}}</h4>
+                      <p>{{description}}</p>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              {{/each}}
 
 
             </div>
+          </div>
         </div>
 
+
+      </div>
     </div>
+
+  </div>
 </template>
 
 <template name="profilesLeftMenu">
-    <div class="row">
+  <div class="row">
 
-        <div class="col-sm-6">
-            <ul class="breadcrumb breadcrumb-top">
-                <li><i class="fa fa-home"></i> Home</li>
-                <li class="active">
-                    Panels
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-6 text-right-sm text-right-md text-right-lg">
-            <div class="col-md-10">
-                <input type="text" class="col-md-12" autocomplete="off" tabindex="" placeholder="Search" style="background-color: white;height: 32px;">
-            </div>
-            <div class="col-md-2"><a href="#" class="btn btn-danger btn-md pull-right add-variants-btn">Add New</a></div>
-        </div>
+    <div class="col-sm-6">
+    <h3 class="text-gradient-success-dk">Profiling</h3>
     </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-actions pull-right panel-actions-reveal">
-                      <span class="panel-actions-reveal-hide animated fadeInRight">
-
-                        <span class="panel-action panel-classify">
-                          <select rel="classselector">
-                              <option>panel-none</option>
-                              <option>panel-default</option>
-                              <option>panel-light</option>
-                              <option>panel-dark</option>
-                              <option>panel-inverse</option>
-                              <option>panel-warning</option>
-                              <option>panel-danger</option>
-                              <option>panel-primary</option>
-                              <option>panel-info</option>
-                              <option>panel-success</option>
-                          </select>
-                        </span>
-                        <span class="panel-action panel-fullscreen">
-                          <i class="fa fa-expand"></i>
-                        </span>
-                        <span class="panel-action panel-collapse">
-                          <i class="fa fa-minus"></i>
-                        </span>
-                        <span class="panel-action panel-close">
-                          <i class="fa fa-times"></i>
-                        </span>
-                      </span>
-                        &nbsp;&nbsp;
-                        <i class="fa fa-bars panel-actions-reveal-icon"></i>
-                    </div>
-                    <div class="panel-title">
-                      <span class="panel-title-edtitable" data-type="text">
-                        Profiling
-                      </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body ">
-
-                        <table class="table table-hover">
-
-                            <tbody>
-                              {{#each getPlatformProfiles}}
-                              <tr class="tag-item row-mid">
-                                <td class="tag-label col-md-8" colspan="2">{{name}}</td>
-                                <td class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md list-btn delete-btn profile-delete-btn">Delete</a></td>
-                                <td class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md list-btn delete-btn add-variants-btn">Add Variants</a></td>
-                                  <!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
-                              </tr>
-                              {{/each}}
-                            </tbody>
-                        </table>
-
-
-                    </div>
-                </div>
-
-
-            </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-warning panel-colorize gradient-diag1" id="rid0a5949b0e9f2e06afbd43ec07c3d3fc07">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Profiling
+            </span>
+          </div>
         </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body no-padding-top panel-colorize">
+            You can create and manage a number of profiles for each portal. A profile allows you to target your content to specific users based on their profiles. Create a profile by clicking on the Add New button
+
+          </div>
+        </div>
+      </div>
+
 
     </div>
-  </template>
+    <div class="col-md-4">
+      <div class="panel panel-dark">
+
+        <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+          <div class="panel-heading">
+
+            <div class="panel-title">Quick statistics</div>
+          </div>
+          <div class="box-table push-bottom">
+            <div class="box-row mid-bordered">
+              <div class="box-cell">
+                <h5 class="base-header major">PLAYERS</h5>
+                <h3 class="base-header">
+                  248
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">GAME<br>PLAYED</h5>
+                <h3 class="base-header">
+                  936
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">DECK<br>Viewed</h5>
+                <h3 class="base-header">
+                  307
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="progress flat-progress" rel="tooltip" title="60% complete">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <h5 class="pull-left base-header major">Days</h5>
+            <h5 class="base-header major">
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
+            </h5>
+          </div>
+
+        </div>
+
+        <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+  </div> -->
+</div>
+
+  </div>
+
+
+</div>
+<div class="table-line">
+<div class="row table-line-row">
+  <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-md pull-right add-new-profile">Add New</a></div>
+
+    <div class="col-md-6 pull-right">
+      <div class="selectize-input items not-full"><input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" /></div>
+
+    </div>
+
+</div>
+</div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Profiling
+            </span>
+          </div>
+        </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body ">
+
+            <table class="table table-hover">
+
+              <tbody>
+                {{#each getPlatformProfiles}}
+                <tr class="tag-item row-mid">
+                  <td class="tag-label col-md-8" colspan="2">{{name}}</td>
+                  <td class="col-md-3"><a href="#" class="btn btn-danger btn-md pull-right list-btn delete-btn profile-delete-btn">Delete</a></td>
+                  <td class="col-md-4"><a href="#" class="btn btn-danger btn-md list-btn delete-btn add-variants-btn">Add Variants</a></td>
+                  <!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</template>
 <template name="userlistLeftMenu">
   <div class="row">
 
-      <div class="col-sm-6">
-          <ul class="breadcrumb breadcrumb-top">
-              <li><i class="fa fa-home"></i> Home</li>
-              <li class="active">
-                  Panels
-              </li>
-          </ul>
+    <div class="col-sm-6">
+<h3>User List</h3>
+    </div>
+    <div class="col-sm-6 text-right-sm text-right-md text-right-lg">
+      <div class="col-md-10">
+        <input type="text" class="col-md-12" autocomplete="off" tabindex="" placeholder="Search" style="background-color: white;height: 32px;">
       </div>
-      <div class="col-sm-6 text-right-sm text-right-md text-right-lg">
-          <div class="col-md-10">
-              <input type="text" class="col-md-12" autocomplete="off" tabindex="" placeholder="Search" style="background-color: white;height: 32px;">
-          </div>
-          <div class="col-md-2"><a href="#" class="btn btn-danger btn-md pull-right">Add New</a></div>
-      </div>
+      <div class="col-md-2"><a href="#" class="btn btn-danger btn-md pull-right">Add New</a></div>
+    </div>
   </div>
 
   <div class="row">
-      <div class="col-md-12">
-          <div class="panel panel-primary gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
-              <div class="panel-heading panel-handle panel-colorize">
-                  <div class="panel-actions pull-right panel-actions-reveal">
-                    <span class="panel-actions-reveal-hide animated fadeInRight">
+    <div class="col-md-12">
+      <div class="panel panel-primary gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Profiling
+            </span>
+          </div>
+        </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body ">
 
-                      <span class="panel-action panel-classify">
-                        <select rel="classselector">
-                            <option>panel-none</option>
-                            <option>panel-default</option>
-                            <option>panel-light</option>
-                            <option>panel-dark</option>
-                            <option>panel-inverse</option>
-                            <option>panel-warning</option>
-                            <option>panel-danger</option>
-                            <option>panel-primary</option>
-                            <option>panel-info</option>
-                            <option>panel-success</option>
-                        </select>
-                      </span>
-                      <span class="panel-action panel-fullscreen">
-                        <i class="fa fa-expand"></i>
-                      </span>
-                      <span class="panel-action panel-collapse">
-                        <i class="fa fa-minus"></i>
-                      </span>
-                      <span class="panel-action panel-close">
-                        <i class="fa fa-times"></i>
-                      </span>
-                    </span>
-                      &nbsp;&nbsp;
-                      <i class="fa fa-bars panel-actions-reveal-icon"></i>
-                  </div>
-                  <div class="panel-title">
-                    <span class="panel-title-edtitable" data-type="text">
-                      Profiling
-                    </span>
-                  </div>
-              </div>
-              <div class="panel-body-collapse collapse in">
-                  <div class="panel-body ">
+            <table class="table table-hover">
 
-                      <table class="table table-hover">
-
-                          <tbody>
+              <tbody>
 
 
-                          <tr class="row-mid ">
+                <tr class="row-mid ">
 
 
-                              <td colspan="2" class="col-md-8">
-                                  unspecified
-                              </td>
+                  <td colspan="2" class="col-md-8">
+                    unspecified
+                  </td>
 
 
 
-                              <td>
-                                  <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
+                  <td>
+                    <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
 
 
-                                  <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
-                              </td>
-                          </tr>
+                    <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
+                  </td>
+                </tr>
 
 
-                          <tr class="row-mid">
+                <tr class="row-mid">
 
 
-                              <td colspan="2" class="col-md-8">
-                                  unspecified
-                              </td>
-
-
-
-                              <td>
-                                  <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
-
-
-                                  <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
-                              </td>
-                          </tr>
-
-                          <tr class="row-mid">
-
-
-                              <td colspan="2" class="col-md-8">
-                                  unspecified
-                              </td>
+                  <td colspan="2" class="col-md-8">
+                    unspecified
+                  </td>
 
 
 
-                              <td>
-                                  <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
+                  <td>
+                    <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
 
 
-                                  <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
-                              </td>
-                          </tr>
+                    <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
+                  </td>
+                </tr>
+
+                <tr class="row-mid">
 
 
-                          </tbody>
-                      </table>
+                  <td colspan="2" class="col-md-8">
+                    unspecified
+                  </td>
 
 
-                  </div>
-              </div>
+
+                  <td>
+                    <div class="col-md-3 pull-right"><a href="#" class="btn btn-danger btn-md">Delete</a></div>
+
+
+                    <div class="col-md-4 pull-right"><a href="#" class="btn btn-danger btn-md">Add Variants</a></div>
+                  </td>
+                </tr>
+
+
+              </tbody>
+            </table>
 
 
           </div>
+        </div>
+
+
       </div>
+    </div>
 
   </div>
 

@@ -60,10 +60,6 @@ Template.mainAdminPanel.helpers
 
     profiles
 
-Template.addvariantModal.events
-  'click .close-modal-new':(e)->
-    console.log 'modal check'
-    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
 
 
@@ -78,3 +74,9 @@ Template.profilesLeftMenu.events
 
   'click .add-variants-btn': (e) ->
     showModal('addvariantModal',{},'main-wrapper-page-new')
+
+  'click .add-new-profile': (e) ->
+    showModal('addprofileModal',{},'main-wrapper-page-new')
+
+  'keyup #tag-filter':(e)->
+    searchBar($(e.currentTarget).val(),".tag-item")  
