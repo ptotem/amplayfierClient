@@ -75,3 +75,8 @@ Template.profilesLeftMenu.events
 
   'click .add-variants-btn': (e) ->
     showModal('addvariantModal',{},'oc-wrapper')
+
+
+Template.addvariantModal.events
+  'click .close-modal-new': (e) ->
+    console.log "modal closed"
