@@ -64,6 +64,13 @@ Template.mainAdminPanel.helpers
 
     profiles
 
+Template.addvariantModal.events
+  'click .close-modal-new':(e)->
+    console.log 'modal check'
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+
+
 Template.profilesLeftMenu.events
   'click .profile-delete-btn': (e) ->
     if window.confirm("Are you sure you want to delete the profile?")
@@ -74,9 +81,4 @@ Template.profilesLeftMenu.events
 
 
   'click .add-variants-btn': (e) ->
-    showModal('addvariantModal',{},'oc-wrapper')
-
-
-Template.addvariantModal.events
-  'click .close-modal-new': (e) ->
-    console.log "modal closed"
+    showModal('addvariantModal',{},'main-wrapper-page-new')
