@@ -2,6 +2,7 @@ Template.adminHeaderBar.events
   'click .logout-link':(e)->
     Meteor.logout()
 
+
 Template.rewardsLeftMenu.helpers
   rewards:()->
     systemRewards.find().fetch()
@@ -20,6 +21,7 @@ Template.profilesLeftMenu.helpers
 Template.adminSideBar.events
   'click .menu-link':(e)->
     temName = $(e.currentTarget).attr('target-templ')
+    $("#left-menu-container").empty();
     Blaze.renderWithData(Template[temName],{},document.getElementById('left-menu-container'))
 
 Template.mainAdminPanel.helpers
@@ -58,3 +60,14 @@ Template.mainAdminPanel.helpers
 
     profiles
 
+Template.profilesLeftMenu.events
+  'click .profile-delete-btn': (e) ->
+    if window.confirm("Are you sure you want to delete the profile?")
+      platId = platforms.findOne()._id
+      platforms.update({_id: platId}, {$pull: {profiles: this}})
+      createNotification("Profile has been removed successfully", 1)
+      e.preventDefault()
+
+
+  'click .add-variants-btn': (e) ->
+    showModal('addvariantModal',{},'oc-wrapper')
