@@ -55,7 +55,7 @@ function setDesign(orientation) {
     });
     $('#story-nameplate').css({
         left: "3" + "%",
-        bottom: "65" + "%",
+        bottom: "68" + "%",
         width: "17"+ "%"
     });
 
@@ -97,7 +97,11 @@ function setDesign(orientation) {
     //}
 
     /* Set the Adjustments for squarer screens  */
-    if (isSquarer()) $('#story-wrapper').addClass('setSmaller');
+
+    if(isSquarer())
+        $('#story-wrapper').addClass('setSmaller');
+    else
+        $('#story-wrapper').removeClass('setSmaller');
 }
 
 /* =============================================================================================== */
@@ -387,6 +391,7 @@ function isPortrait() {
 
 /* Check if the resolution is squarer */
 function isSquarer() {
+
     return ((window.innerWidth / window.innerHeight) < (16 / 9))
 }
 
@@ -572,8 +577,12 @@ function checkDeck(id) {
 /* =============================================================================================== */
 
 function cancelFullScreen(elm) {
-    $(elm).hide();
+    //$(elm).hide();
     var el = document;
+    $('.show-deck-modal').css({"height":"100%"});
+    $('.slide-container').css({"transform":"scale(1) translateX(0%)"});
+    $('.slide-container').find('iframe').css({"margin-top":"0%"});
+
 
     var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
     if (requestMethod) { // cancel full screen.
@@ -591,10 +600,15 @@ function cancelFullScreen(elm) {
 }
 
 function requestFullScreen(elm) {
-
     $('.modal-backdrop').hide();
-    $('.main-story-content').hide();
+    //$('.main-story-content').hide();
     $(elm).fadeIn();
+    $('.show-deck-modal').css({"height":"120%"});
+    $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
+    $('.slide-container').find('iframe').css({"margin-top":"7%"});
+
+
+    //$('.component').css({"transform":"scale(1.4) "});
 
     var el = document.body; // Make the body go full screen.
 
@@ -634,3 +648,4 @@ function toggleFull(elm) {
 }
 
 window.initPage = initPage;
+window.toggleFull = toggleFull

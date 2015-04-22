@@ -71,8 +71,8 @@
 
 <template name="notificationModal">
     <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xlg-data-modal">
-            <div class="modal-content">
+        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+            <div class="modal-content" style="height: 100%">
                 <div class="modal-header">
                     <a class="btn btn-default pull-right remove-modal" >&times;</a>
                     <div class="top-circle-icon"><i class="icm icm-envelope"></i>
@@ -299,7 +299,7 @@
                                             <h4>{{nodeDescription}}</h4>
                                             <br class="visible-md visible-lg">
                                             <h2 class="banner-status pull-left no-margin-top no-margin-bottom">{{status}}</h2>
-                                            <a href="#" class="btn btn-danger close pull-right" data-dismiss="modal">Exit from here</a>
+                                            <a href="#" class="btn btn-danger close pull-right remove-modal">Exit from here</a>
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +310,7 @@
                 <div id="modal-pinboard">
 
                     {{#each deckOfNode seq}}
-                        <div style="pointer-events: {{flag}}" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}"><div class="row"><div class="col-sm-12"><img src="http://lorempixel.com/400/200/" class="large-pincard"><h4>{{deckName}}</h4><p>{{deckDesc}}</p></div></div><div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content"> {{status}}</div></div></div></div>
+                        <div style="pointer-events: {{flag}};width:99%" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}"><div class="row"><div class="col-sm-12"><img src="http://lorempixel.com/400/200/" class="large-pincard"><h4>{{deckName}}</h4><p>{{deckDesc}}</p></div></div><div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> {{status}}</div></div></div></div>
 
                     {{/each}}
 
@@ -341,7 +341,7 @@
 <template name="userProfileModal">
   <div class="modal blur data-display-modal user-edit-form" id="userProfileModal" tabindex="-1" role="dialog" aria-labelledby="userProfileModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xlg-data-modal">
-          <div class="modal-content">
+          <div class="modal-content" style="position: relative; padding-bottom: 4%;">
               <div class="modal-header">
                   <a class="btn btn-default pull-right remove-modal">&times;</a>
                   <div class="top-circle-icon"><i class="icm icm-pencil"></i>
@@ -369,10 +369,11 @@
                       <label class="user-profile-label" for="exampleInputPassword1">Display Name</label>
                       <input type="text" class="form-control" id="user-name" value="{{personal_profile.display_name}}">
                   </div>
-                  <div class="form-group">
+
+                  <!--<div class="form-group">
                       <label class="user-profile-label" for="exampleInputPassword1">Designation</label>
                       <input type="text" class="form-control" id="user-designation" value="{{personal_profile.designation}}">
-                  </div>
+                  </div>-->
 
                   <div class="form-group">
                       <label class="user-profile-label" for="exampleInputPassword1">Change Password</label>
@@ -386,11 +387,11 @@
                   </div>
 
 
-                      <div class="form-group">
-                      <label class="user-profile-label" for="exampleInputPassword1">Pictures</label>
+                      <div class="form-group" style="margin-top:7%">
+                      <label class="user-profile-label" for="exampleInputPassword1">Profile Picture</label>
                       <div class="col-md-12 no-padding">
-                          <div class="col-md-5 no-padding"> <input type="file" id="cover-pic">     <p class="user-profile-label">Cover Picture</p></div>
-                          <div class="col-md-5 col-md-offset-2 no-padding">  <input type="file" id="profile-pic"> <p class="user-profile-label">Profile Picture</p></div>
+                          <!--<div class="col-md-5 no-padding"> <input type="file" id="cover-pic">     <p class="user-profile-label">Cover Picture</p></div>-->
+                          <div class="col-md-5 no-padding">  <input type="file" id="profile-pic"> </div>
 
                       </div>
 
@@ -406,7 +407,7 @@
               </div>
 
 
-              <div class="modal-footer">
+              <div class="modal-footer" style="position: absolute; right: 18.5%; bottom: 8.5%;">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary update-user">Save changes</button>
               </div>

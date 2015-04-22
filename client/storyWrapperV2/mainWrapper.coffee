@@ -1,11 +1,20 @@
 Template.mainWrapper.rendered = ->
+  $(window).resize (evt) ->
+    setTitle(storyConfig.name)
+#    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
+    window.platformData.nodes = platforms.findOne().nodes
+    initPage()
+    setTimeout(()->
+      $('.story-node').popover({trigger:'hover',html: true})
+    ,1000)
+
+
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
   window.platformData.nodes = platforms.findOne().nodes
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
-
   ,1000)
 
 Template.mainWrapper.created = ()->
@@ -15,7 +24,7 @@ Template.mainWrapper.created = ()->
 Template.mainWrapper.helpers
   getPrecTop : (top)->
 
-    return top - 1.5
+    return top - 3.5
   getPrecLeft:(left1)->
     left1 - 0.5
 
@@ -99,7 +108,7 @@ Template.mainWrapper.events
 #    $('#story-zone').empty()
     seq = parseInt($(e.currentTarget).attr('seq'))
     node = platforms.findOne().nodes[seq]
-    nodePhoto = storyConfig.imgsrc + "/" + node.photo
+    nodePhoto =  storyConfig.imgsrc + "/" + node.photo
     nodeTitle = node.title
     nodeDescription = node.description
     if seq isnt 0
@@ -150,9 +159,12 @@ Template.mainWrapper.events
       points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
       setCurrentSlideScore(minTime, maxTime, points);
     endAttempt()
+    toggleFull("#viewPPTModal")
     $('.modal').modal('hide')
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
+  'click .fullscreener':(e)->
+    toggleFull("#viewPPTModal")
 
 
 
