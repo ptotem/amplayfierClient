@@ -582,7 +582,7 @@ function cancelFullScreen(elm) {
     $('.show-deck-modal').css({"height":"100%"});
     $('.slide-container').css({"transform":"scale(1) translateX(0%)"});
     $('.slide-container').find('iframe').css({"margin-top":"0%"});
-
+    $('.modal-xlg-ppt').css({"height":"82%"})
 
     var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
     if (requestMethod) { // cancel full screen.
@@ -598,6 +598,7 @@ function cancelFullScreen(elm) {
     $('.main-story-content').show();
     $('#viewPPTModal').focus();
 }
+window.cancelFullScreen = cancelFullScreen
 
 function requestFullScreen(elm) {
     $('.modal-backdrop').hide();
@@ -607,7 +608,7 @@ function requestFullScreen(elm) {
     $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
     $('.slide-container').find('iframe').css({"margin-top":"7%"});
 
-
+    $('.modal-xlg-ppt').css({"height":"74%"});
     //$('.component').css({"transform":"scale(1.4) "});
 
     var el = document.body; // Make the body go full screen.

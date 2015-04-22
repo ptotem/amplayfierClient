@@ -50,6 +50,18 @@
                             <span class="oc-partial-menu-item">Documents</span>
                         </a>
                     </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable Files curated for your specific profile. So you can help us help you." href="#documentsModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-drawer3"></i>
+                            <span class="oc-partial-menu-item">Feedback</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link contact-us-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable Files curated for your specific profile. So you can help us help you." href="#documentsModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-drawer3"></i>
+                            <span class="oc-partial-menu-item">Contact Us</span>
+                        </a>
+                    </li>
 
 
 
@@ -571,5 +583,50 @@
 
 
 
+
+</template>
+
+
+<template name="feedbackModal">
+    <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+            <div class="modal-content" style="height: 100%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-envelope"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Feedback</h4>
+                </div>
+                <div class="modal-body">
+                    Some text for contact is
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+
+</template>
+
+
+<template name="contactusModal">
+    <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+            <div class="modal-content" style="height: 100%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-envelope"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Contact us</h4>
+                </div>
+                <div class="modal-body">
+                    Some text for contact is
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
 
 </template>

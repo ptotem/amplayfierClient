@@ -159,7 +159,7 @@ Template.mainWrapper.events
       points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
       setCurrentSlideScore(minTime, maxTime, points);
     endAttempt()
-    toggleFull("#viewPPTModal")
+    cancelFullScreen("#viewPPTModal")
     $('.modal').modal('hide')
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
