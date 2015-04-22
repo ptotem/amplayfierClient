@@ -537,7 +537,10 @@
         </div>
         <div class="col-sm-6 text-right-sm text-right-md text-right-lg">
             <div class="col-md-10">
-                <input type="text" class="col-md-12" autocomplete="off" tabindex="" placeholder="Search" style="background-color: white;height: 32px;">
+                <!--<input type="text" class="col-md-12" autocomplete="off" tabindex="" placeholder="Search" style="background-color: white;height: 32px;">-->
+                <div class="selectize-input items not-full">
+                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
+                </div>
             </div>
             <div class="col-md-2">
                 <a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a>
@@ -589,7 +592,7 @@
                         <table class="table table-hover">
                             <tbody>
                                 {{#each assessments}}
-                                <tr class="row-mid">
+                                <tr class="row-mid tag-assessment">
                                     <td class="col-md-4">{{assessmentName}}</td>
                                     <td>
                                         <div class="col-md-3"><a href="#" class="pull-right btn btn-danger btn-md add-question">Add question</a></div>

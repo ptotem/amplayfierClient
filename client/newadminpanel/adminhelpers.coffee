@@ -87,6 +87,9 @@ Template.assessmentsLeftMenu.events
   'click .new-question-for-admin': (e) ->
     showModal('newAssessmentModal',{},'main-wrapper-page-new')
 
+  'keyup #tag-filter':(e)->
+    searchBar($(e.currentTarget).val(),".tag-assessment")
+
   'click .add-question': (e) ->
     showModal('newQuestionForAssessmentModal',{},'main-wrapper-page-new')
     Session.set("newquesId",this._id)
