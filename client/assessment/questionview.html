@@ -1,11 +1,20 @@
 <template name="assessmentQuestion">
   <div class="container back-container" id="assessment-container">
+      <div class="row">
+          <div class="col-sm-12">
+              <div class="col-sm-3" style="margin-top: 3%"><img src="/assets/images/pepsicologo.png" class="img-responsive"></div>
+              <!--<div class="col-sm-2 col-sm-offset-10" style="margin-top:5%"><a href="#" class="btn btn-danger btn-lg">Download Job Aid</a></div>-->
+              <div class="col-sm-2 col-sm-offset-7" style="margin-top: 1%"><img src="/assets/images/pepsiconameplate.png" class="img-responsive"></div>
+          </div>
+      </div>
     {{#each assessments}}
     <div class="row">
-      <div class="col-md-12 text-center formheading">{{assessmentName}}</div>
+      <div class="col-sm-12 text-center formheading">{{assessmentName}}</div>
     </div>
     <div class="row">
-      <div class="col-md-12 text-center formheading">FEEDBACK FORM</div>
+      <div class="col-sm-4 col-sm-offset-4 text-center formheading">ASSESSMENT FORM</div>
+      <div class="col-sm-1 col-sm-offset-1 text-center formheading" style="margin-left: 15%"><a href="/assets/images/managerjobaid.pdf" target="_blank" class="btn btn-danger btn-xs" style="font-size: 0.8em;padding: 0 8px 0 8px;">Download Job Aid</a></div>
+
     </div><br><br>
     <div class="questionlist">
     <div class="row">

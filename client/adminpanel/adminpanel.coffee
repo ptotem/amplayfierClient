@@ -343,6 +343,26 @@ Template.adminpanel.events
 
 
 Template.adminpanel.rendered = () ->
+  console.log 'csds'
+  setTimeout(()->
+    if !can('view_admin_panel')
+      console.log "Admin not allwod"
+    else
+      setTitle('amplayfier | Manage User Profiles & Reports');
+      $('.node-date').datepicker()
+      $(".node-date").each((ind,ele)->
+        if platforms.findOne().nodes[ind].endDate?
+          ed = platforms.findOne().nodes[ind].endDate
+        else
+          ed = new Date().getTime()
+        edate = new Date(ed)
+
+        $(ele).datepicker  'setDate', new Date(edate.getFullYear(),edate.getMonth() , edate.getDate())
+
+      )
+
+  ,200)
+
 #  $('select').chosen({
 #    "width":"30%"
 #
@@ -350,18 +370,7 @@ Template.adminpanel.rendered = () ->
 
 
 
-  setTitle('amplayfier | Manage User Profiles & Reports');
-  $('.node-date').datepicker()
-  $(".node-date").each((ind,ele)->
-    if platforms.findOne().nodes[ind].endDate?
-      ed = platforms.findOne().nodes[ind].endDate
-    else
-      ed = new Date().getTime()
-    edate = new Date(ed)
 
-    $(ele).datepicker  'setDate', new Date(edate.getFullYear(),edate.getMonth() , edate.getDate())
-
-  )
 #  $(".node-date").datetimepicker(
 #    defaultDate:new Date()
 #  )

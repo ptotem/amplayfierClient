@@ -100,6 +100,9 @@ Template.mainWrapper.events
     $('.chat-bar').css('padding-top',0)
     $('.oc-sidebar').css('width','280px')
 
+  'click #license-img':(e)->
+    showModal('licenseTempModal',{},'main-wrapper-page')
+
   'click .story-node':(e)->
 
     showModal('nodeTemp',{},'main-wrapper-page')
@@ -134,9 +137,9 @@ Template.mainWrapper.events
 
 
     showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
-#    setTimeout(()->
-#      $('#modal-pinboard').slick({rows:1})
-#    ,2000)
+    setTimeout(()->
+      $('#modal-pinboard').slick({rows:1})
+    ,2000)
 
 #    Blaze.renderWithData(Template.individualNewStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
 
