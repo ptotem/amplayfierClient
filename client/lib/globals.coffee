@@ -64,13 +64,17 @@
   @currentDisplayedDeckId = did
 
 @getQuestionsFromBank = (integratedGameId)->
-  gameData.findOne({igId:integratedGameId}).questions
+  gameData.findOne({platformId:platforms.findOne()._id,igId:integratedGameId}).questions
 
 @triggerInitGame = ()->
-  setTimeout(()->
+  # setTimeout(()->
     $('.slide-container.active').find('iframe')[0].contentWindow.$("body").trigger("loadGame")
     console.log "triggerInitGame"
-  ,500)
+  # ,500)
+
+# f = document.getElementsByTagName('iFrame')[0].contentWindow;
+# f.$("body").trigger("loadGame")
+# true
 
 
 @getImageInGame = (a,k)->

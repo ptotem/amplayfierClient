@@ -107,12 +107,32 @@ Router.route '/admin',
     [Meteor.subscribe('scoreQuestions',this.data().platformName),Meteor.subscribe('assesments',this.data().platformName),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('repositoryFiles',this.data().platformName),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('thisUser',Meteor.userId())]
   action: ->
     if @ready()
-      console.log "ddd"
+
       setPlatform(this.data().platformName)
       setTenant(this.data().platformName)
       @render()
     else
       @render('loading')
+
+Router.route '/admintest',
+  template: 'mainAdminPanel',
+  name:'admintest',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    console.log pname
+    {platformName:pname}
+  waitOn:()->
+    [Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('scoreQuestions',this.data().platformName),Meteor.subscribe('assesments',this.data().platformName),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('repositoryFiles',this.data().platformName),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('thisUser',Meteor.userId())]
+  action: ->
+    if @ready()
+
+      setPlatform(this.data().platformName)
+      setTenant(this.data().platformName)
+      @render()
+    else
+      @render('loading')
+
+
 
 Router.route '/assessment/:aid/:mid',
   template: 'assessmentQuestion',
@@ -178,7 +198,7 @@ Router.route '/',
     pname =  headers.get('host').split('.')[0]
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank'),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport')]
+    [Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank',this.data().platformName),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport')]
   action:()->
     if @ready()
       setPlatform(this.data().platformName)

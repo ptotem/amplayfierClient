@@ -55,7 +55,7 @@ function setDesign(orientation) {
     });
     $('#story-nameplate').css({
         left: "3" + "%",
-        bottom: "65" + "%",
+        bottom: "68" + "%",
         width: "17"+ "%"
     });
 
@@ -581,6 +581,7 @@ function cancelFullScreen(elm) {
     var el = document;
     $('.show-deck-modal').css({"height":"100%"});
     $('.slide-container').css({"transform":"scale(1) translateX(0%)"});
+    $('.slide-container').find('iframe').css({"margin-top":"0%"});
 
 
     var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
@@ -604,6 +605,7 @@ function requestFullScreen(elm) {
     $(elm).fadeIn();
     $('.show-deck-modal').css({"height":"120%"});
     $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
+    $('.slide-container').find('iframe').css({"margin-top":"7%"});
 
 
     //$('.component').css({"transform":"scale(1.4) "});

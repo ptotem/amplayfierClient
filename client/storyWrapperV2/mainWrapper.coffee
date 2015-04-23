@@ -1,7 +1,7 @@
 Template.mainWrapper.rendered = ->
   $(window).resize (evt) ->
     setTitle(storyConfig.name)
-    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
+#    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
     window.platformData.nodes = platforms.findOne().nodes
     initPage()
     setTimeout(()->
@@ -24,7 +24,7 @@ Template.mainWrapper.created = ()->
 Template.mainWrapper.helpers
   getPrecTop : (top)->
 
-    return top - 1.5
+    return top - 3.5
   getPrecLeft:(left1)->
     left1 - 0.5
 
@@ -109,7 +109,7 @@ Template.mainWrapper.events
 #    $('#story-zone').empty()
     seq = parseInt($(e.currentTarget).attr('seq'))
     node = platforms.findOne().nodes[seq]
-    nodePhoto = storyConfig.imgsrc + "/" + node.photo
+    nodePhoto =  storyConfig.imgsrc + "/" + node.photo
     nodeTitle = node.title
     nodeDescription = node.description
     if seq isnt 0
@@ -127,9 +127,9 @@ Template.mainWrapper.events
 
 
     showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
-    setTimeout(()->
-      $('#modal-pinboard').slick({rows:1})
-    ,2000)
+#    setTimeout(()->
+#      $('#modal-pinboard').slick({rows:1})
+#    ,2000)
 
 #    Blaze.renderWithData(Template.individualNewStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
 
@@ -160,6 +160,7 @@ Template.mainWrapper.events
       points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
       setCurrentSlideScore(minTime, maxTime, points);
     endAttempt()
+    toggleFull("#viewPPTModal")
     $('.modal').modal('hide')
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
