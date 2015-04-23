@@ -254,3 +254,11 @@ Template.badgesLeftMenu.events
     platforms.update({_id:pid},{$set:{badges:badgeList}})
 
     createNotification("Badges have been updated",1)
+
+Template.rewardsLeftMenu.events
+  'click .delete-reward':(e)->
+    systemRewards.remove({_id:this._id})
+
+  'click .new-reward-form-btn':(e)->
+    showModal('newRewardModal',{},'main-wrapper-page-new')
+

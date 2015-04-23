@@ -62,7 +62,7 @@ launch-screen@1.0.1
 livedata@1.0.12
 localstorage@1.0.2
 logging@1.0.6
-lookback:emails@0.3.5
+lookback:emails@0.3.4
 maazalik:malihu-jquery-custom-scrollbar@3.0.6
 meteor@1.1.4
 meteor-platform@1.2.1

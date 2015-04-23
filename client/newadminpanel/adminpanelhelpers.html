@@ -222,71 +222,147 @@
 </template>
 
 <template name="rewardsLeftMenu">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel panel-primary gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
-        <div class="panel-heading panel-handle panel-colorize">
-          <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Rewards
-            </span>
-          </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3 class="text-gradient-success-dk">Rewards</h3>
         </div>
-        <div class="panel-body-collapse collapse in">
-          <div class="panel-body">
-            <div class="row" rel="panels">
-              {{#each rewards}}
-
-
-              <div class="col-md-3 panels">
-                <div class="captionable captionable-effect-flip horizontal">
-                  <div class="captionable-flip">
-                    <div class="captionable-front">
-                      <div class="panel panel-success">
-                        <div class="panel-heading">
-                          <div class="panel-title text-center">
-                            {{name}}
-                          </div>
-                        </div>
-                        <div class="panel-body no-padding-top">
-                          <div class="padded">
-                            <div class="vpadded">
-                              <img src="{{getAssetUrl rewardImage}}" class="img-responsive" />
-                            </div>
-                          </div>
-                          <div class="row ">
-                            <div class="col-xs-4 text-center">
-                              <div><i class="icm icm-stack3 reward-stock-text"></i></div>
-                              <div>{{stock}}</div>
-                            </div>
-
-                            <div class="col-xs-4 col-xs-offset-4 text-center">
-                              <div><i class="icm icm-coins reward-value-text"></i></div>
-                              <div>{{value}}</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="captionable-caption captionable-back panel-body-info padded">
-                      <h4>{{name}}</h4>
-                      <p>{{description}}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {{/each}}
-
-
-            </div>
-          </div>
-        </div>
-
-
-      </div>
     </div>
 
-  </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-warning panel-colorize gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+                        <span class="panel-title-edtitable" data-type="text">
+                            Rewards
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+                        You can view all the rewards present in your portal. This list contains all the rewards which a user of your portal can buy for Amplayfier Credits.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-dark">
+                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+                    <div class="panel-heading">
+                        <div class="panel-title">Quick statistics</div>
+                    </div>
+                    <div class="box-table push-bottom">
+                        <div class="box-row mid-bordered">
+                            <div class="box-cell">
+                                <h5 class="base-header major">PLAYERS</h5>
+                                <h3 class="base-header">
+                                    248
+                                </h3>
+                            </div>
+                            <div class="box-cell">
+                                <h5 class="base-header major">GAME<br>PLAYED</h5>
+                                <h3 class="base-header">
+                                    936
+                                </h3>
+                            </div>
+                            <div class="box-cell">
+                                <h5 class="base-header major">DECK<br>Viewed</h5>
+                                <h3 class="base-header">
+                                    307
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <h5 class="pull-left base-header major">Days</h5>
+                        <h5 class="base-header major">
+                            <span class="pull-right panel-lt box-label">
+                                54
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+                    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="table-line">
+        <div class="row table-line-row">
+            <div class="col-md-1 pull-right">
+                <a href="#" class="btn btn-warning btn-md pull-right new-reward-form-btn">New Reward</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+                        <span class="panel-title-edtitable" data-type="text">
+                            Rewards
+                        </span>
+                    </div>
+                </div>
+
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="row" rel="panels">
+                            {{#each rewards}}
+                            <div class="col-md-3 panels">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <div class="panel-title text-center">
+                                            {{name}}
+                                        </div>
+                                        <a href="#" class="delete-reward pull-right" style="color: white;">
+                                            <i class="icm icm-remove3"></i>
+                                        </a>
+                                    </div>
+                                    <div class="panel-body no-padding-top captionable captionable-effect-reveal-top-left">
+                                        <div class="captionable-reveal padded-top">
+                                            <!--<h4 class="text-muted text-right">-->
+                                                <!--{{description}}-->
+                                            <!--</h4>-->
+                                            <br>
+                                            <!--<h4 class="text-center text-success no-margin-bottom">{{description}}</h4>-->
+                                            <p class="text-center" style="padding-top: 50%;">
+                                                <!--<small><a class="text-muted" href="#">{{description}}</a></small>-->
+                                                <small>{{description}}</small>
+                                            </p>
+
+                                            <div class="row">
+                                                <div class="col-xs-6 col-md-6 text-center">
+                                                    <div><i class="icm icm-stack3 reward-stock-text"></i></div>
+                                                    <div>{{stock}}</div>
+                                                </div>
+                                                <div class="col-xs-6 col-md-6 text-center">
+                                                    <div><i class="icm icm-coins reward-value-text"></i></div>
+                                                    <div>{{value}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="captionable-revealer">
+                                            <img src="{{getAssetUrl rewardImage}}" class="captionable-revealer-image img-responsive" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="profilesLeftMenu">

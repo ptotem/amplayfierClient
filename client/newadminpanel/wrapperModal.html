@@ -190,6 +190,51 @@
 </template>
 <!-- assessment modals -->
 
+<!-- rewards modal -->
+<template name="newRewardModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">New Reward</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="new-reward-name">Reward Name</label>
+                                <input type="text" id="new-reward-name" placeholder="Please put in a reward name" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-reward-desc">Reward Description</label>
+                                <input type="text" id="new-reward-desc" placeholder="Please put in a Description for reward" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-reward-file">Reward Image</label>
+                                <input style="border: 0;" type="file" id="new-reward-file" placeholder="Please upload a file for reward" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-reward-file">Reward Value</label>
+                                <input type="number" id="new-reward-value" placeholder="Please put in worth of the reward" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-reward-stock">Reward Stock</label>
+                                <input type="number" id="new-reward-stock" placeholder="Please put in stock of the reward" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary new-reward-save" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<!-- rewards modal -->
+
 <template name="adduserModal">
   <div class="modal modal-dark fade">
   <div class="modal-dialog ">
