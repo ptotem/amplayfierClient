@@ -126,42 +126,21 @@
           <li class="">
             <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">Repository</span></a>
           </li>
-
-          <li class=" dropdown">
-            <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
-                      " href="#roles"> <i class="oc-partial-icon fa fa-sitemap"></i>
-              <span class="oc-partial-menu-item">
-                Roles
-                <b class="caret"></b>
-              </span>
-            </a>
-            <ul class="collapse dropdown-menu " id="roles">
-
-
-
-              <li class="">
-                <a class="collapsed" href="roles.html"> All Roles
-                                </a></li>
-
-              <li class="">
-                <a class="collapsed" href="new_roles.html"> New Roles
-                                </a></li>
-
-
-            </ul>
-          </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">Rewards</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">Badges</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">Enrollments</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
-                    </li>
+            <li class="">
+                <a class="collapsed menu-link" target-templ="rolesLeftMenu" href="#"><i class="oc-partial-icon fa fa-sitemap"></i><span class="oc-partial-menu-item">Roles</span></a>
+            </li>
+            <li class="">
+                <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">Rewards</span></a>
+            </li>
+            <li class="">
+                <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">Badges</span></a>
+            </li>
+            <li class="">
+                <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">Enrollments</span></a>
+            </li>
+            <li class="">
+                <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
+            </li>
         </ul>
       </div>
     </div>
@@ -219,6 +198,108 @@
     </ul>
 
   </nav>
+</template>
+
+<template name="rolesLeftMenu">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3 class="text-gradient-success-dk">Roles</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-warning panel-colorize gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+                        <span class="panel-title-edtitable" data-type="text">
+                            Roles
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+                        You can manage and delete the roles you have created. Once you click on the Manage button, you can select what a particular role is capable of doing on the portal. All you need to do is check the capabilities.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-dark">
+                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+                    <div class="panel-heading">
+                        <div class="panel-title">Quick statistics</div>
+                    </div>
+                    <div class="box-table push-bottom">
+                        <div class="box-row mid-bordered">
+                            <div class="box-cell">
+                                <h5 class="base-header major">PLAYERS</h5>
+                                <h3 class="base-header">
+                                    248
+                                </h3>
+                            </div>
+                            <div class="box-cell">
+                                <h5 class="base-header major">GAME<br>PLAYED</h5>
+                                <h3 class="base-header">
+                                    936
+                                </h3>
+                            </div>
+                            <div class="box-cell">
+                                <h5 class="base-header major">DECK<br>Viewed</h5>
+                                <h3 class="base-header">
+                                    307
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <h5 class="pull-left base-header major">Days</h5>
+                        <h5 class="base-header major">
+                            <span class="pull-right panel-lt box-label">
+                                54
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+                    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="table-line">
+        <div class="row table-line-row">
+            <div class="col-md-3 pull-right text-right">
+                <a href="#" class="btn btn-success btn-md new-role-form-btn">New Role</a>
+                <a href="#" class="btn btn-warning btn-md assign-role-form-btn">Assign Role</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+                        <span class="panel-title-edtitable" data-type="text">
+                            Roles
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body">
+                        {{>roleListThemeView setUniqKey}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="rewardsLeftMenu">

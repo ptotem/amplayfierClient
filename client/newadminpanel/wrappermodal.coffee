@@ -134,3 +134,15 @@ Template.newRewardModal.events
 
       )
     $('.remove-modal').click()
+
+Template.newRoleModal.events
+  'click .remove-modal': (e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"})
+
+Template.assignRoleModal.events
+  'click .remove-modal': (e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"})

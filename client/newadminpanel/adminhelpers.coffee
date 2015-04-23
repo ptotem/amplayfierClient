@@ -7,6 +7,14 @@ Template.rewardsLeftMenu.helpers
   rewards:()->
     systemRewards.find().fetch()
 
+Template.rolesLeftMenu.helpers
+  setUniqKey:()->
+    {uniqKey:platforms.findOne()._id}
+  myusers: () ->
+    Meteor.users.find().fetch()
+  roles:()->
+    roles.find().fetch()
+
 Template.profilesLeftMenu.helpers
   getPlatformProfiles: (uid)->
     dep.depend()
@@ -73,25 +81,25 @@ Template.mainAdminPanel.helpers
 
   passKey:()->
     {ukey:platforms.findOne()._id}
-  setUniqKey:()->
-    {uniqKey:platforms.findOne()._id}
-  myusers: () ->
-    Meteor.users.find().fetch()
-  roles:()->
-    roles.find().fetch()
-  profileForUsers :(uid)->
-    profiles = []
-    if platforms.findOne().profiles?
-      for p in platforms.findOne().profiles
-        console.log Meteor.users.findOne(uid).profile
-        if Meteor.users.findOne(uid).profile is p.name
-          p["selected"] = true
-        else
-          p['selected'] = false
-        profiles.push p
-
-
-    profiles
+#  setUniqKey:()->
+#    {uniqKey:platforms.findOne()._id}
+#  myusers: () ->
+#    Meteor.users.find().fetch()
+#  roles:()->
+#    roles.find().fetch()
+#  profileForUsers :(uid)->
+#    profiles = []
+#    if platforms.findOne().profiles?
+#      for p in platforms.findOne().profiles
+#        console.log Meteor.users.findOne(uid).profile
+#        if Meteor.users.findOne(uid).profile is p.name
+#          p["selected"] = true
+#        else
+#          p['selected'] = false
+#        profiles.push p
+#
+#
+#    profiles
 
 Template.userlistLeftMenu.events
   'click .add-new-user': (e) ->
@@ -262,3 +270,9 @@ Template.rewardsLeftMenu.events
   'click .new-reward-form-btn':(e)->
     showModal('newRewardModal',{},'main-wrapper-page-new')
 
+Template.rolesLeftMenu.events
+  'click .new-role-form-btn':(e)->
+    showModal('newRoleModal',{},'main-wrapper-page-new')
+
+  'click .assign-role-form-btn':(e)->
+    showModal('assignRoleModal',{},'main-wrapper-page-new')
