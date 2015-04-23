@@ -54,9 +54,9 @@ function setDesign(orientation) {
         width: storyConfig.nameplate[orientation].width + "%"
     });
     $('#story-nameplate').css({
-        left: "3" + "%",
-        bottom: "68" + "%",
-        width: "17"+ "%"
+        left: "5" + "%",
+        bottom: "71" + "%",
+        width: "15"+ "%"
     });
 
 
@@ -66,6 +66,14 @@ function setDesign(orientation) {
         bottom: storyConfig.presenter[orientation].bottom + "%",
         width: storyConfig.presenter[orientation].width + "%"
     });
+
+    $('#story-presenter').css({
+        left: "0" + "%",
+        bottom: "-10" + "%",
+        width: "28" + "%"
+    });
+
+
 
     /* Set the Story Overlays */
     $('#story-overlays').empty();
@@ -81,10 +89,11 @@ function setDesign(orientation) {
         bottom: storyConfig.notifications[orientation].bottom + "%"
     });
     $('#notifications-splash').css({
-        width: "43"+ "%",
-        left: "10"+ "%",
-        bottom: "18"+ "%"
+        width: "34"+ "%",
+        left: "0"+ "%",
+        bottom: "13"+ "%"
     });
+
 
     //for (i in platformData.nodes) {
     //    var thisNodeConfig = getNodeConfig(platformData.nodes[i].sequence);
