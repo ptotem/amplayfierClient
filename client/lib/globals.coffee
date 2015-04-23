@@ -36,10 +36,6 @@
     document.title = t  ;
     $('head').append('<link rel="icon" sizes="16x16 32x32" href="/assets/images/pepsiicon-favicon.ico?v=2">')
 
-
-
-
-
 @setCurrentDeckId = (deckId)->
 	@currentDeckId = deckId
 
