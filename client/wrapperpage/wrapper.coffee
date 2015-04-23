@@ -1,6 +1,6 @@
 @setRightBlockHeight = () ->
   leftContainerHeight = $('#left-container').height()
-  $('#right-container').css 'height', leftContainerHeight - 19 + 'px'
+  $("#right-container").css('height',(leftContainerHeight-15.84375)+"px");
 
 
 Template.wrapperPage.events
@@ -50,10 +50,10 @@ Template.wrapperPage.events
 
 
 
-# Template.wrapperPage.rendered = ->
-  # $('.pepsi-homepage').fadeIn('slow')
-  # setTimeout(()->
-  #   setRightBlockHeight()
-  #   $(window).resize ->
-  #     setRightBlockHeight()
-  # ,600)
+Template.wrapperPage.rendered = ->
+  $('.pepsi-homepage').fadeIn('slow')
+  setTimeout(()->
+    setRightBlockHeight()
+    $(window).resize ->
+      setRightBlockHeight()
+  ,600)
