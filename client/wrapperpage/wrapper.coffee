@@ -1,8 +1,18 @@
+@setRightBlockHeight = () ->
+  leftContainerHeight = $('#left-container').height()
+  $('#right-container').css 'height', leftContainerHeight - 19 + 'px'
+
+
 Template.wrapperPage.events
   'click .box-style':(e)->
 #    $('.wrapper-story').fadeOut(1000)
 #    $('.story-node').hide()
     window.location = '/mystory'
+
+
+  'click #active-pepsi-div':(e)->
+    window.location = '/mystory'
+
 
 
 #    tnc = $(e.currentTarget).attr('target-node-class')
@@ -37,3 +47,13 @@ Template.wrapperPage.events
 #    initDash()
 
 
+
+
+
+# Template.wrapperPage.rendered = ->
+  # $('.pepsi-homepage').fadeIn('slow')
+  # setTimeout(()->
+  #   setRightBlockHeight()
+  #   $(window).resize ->
+  #     setRightBlockHeight()
+  # ,600)

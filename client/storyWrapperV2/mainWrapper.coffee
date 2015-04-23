@@ -42,14 +42,15 @@ Template.mainWrapper.helpers
 #    platforms.findOne().nodes
      sc.nodes
   storyHeading:()->
-#    storyConfig.name
-    sc.name
+    storyConfig.name
+#    sc.name
   getNodeStatusPic:(seq)->
 
     if seq isnt 0
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
 #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].incomplete
-        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+
+        return Meteor.settings.public.mainLink +  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
 
@@ -94,8 +95,14 @@ Template.mainWrapper.helpers
 
 
 Template.mainWrapper.events
+  'click #oc-right-toggle':(e)->
+    $(e.currentTarget).parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')
+    $('.chat-bar').css('padding-top',0)
+    $('.oc-sidebar').css('width','280px')
+
   'click #license-img':(e)->
     showModal('licenseTempModal',{},'main-wrapper-page')
+
   'click .story-node':(e)->
 
     showModal('nodeTemp',{},'main-wrapper-page')
@@ -168,8 +175,6 @@ Template.mainWrapper.events
     $('.modal').modal('hide')
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
+
   'click .fullscreener':(e)->
     toggleFull("#viewPPTModal")
-
-
-

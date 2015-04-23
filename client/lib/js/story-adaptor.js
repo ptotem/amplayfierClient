@@ -91,7 +91,7 @@ function setDesign(orientation) {
     $('#notifications-splash').css({
         width: "34"+ "%",
         left: "0"+ "%",
-        bottom: "13"+ "%"
+        bottom: "20"+ "%"
     });
 
 
@@ -381,7 +381,7 @@ function showNotification(completionPercentage,name, params) {
     noteTitle = name;
     noteMsg = params;
     progressBar = '<div class="progress" style="height:25px"><div class="progress-bar" role="progressbar" aria-valuenow="'+completionPercentage+'" aria-valuemin="0" aria-valuemax="100" style="width:'+completionPercentage+'%;background:#135899;padding:2px">  <span class="sr-only" style="position: relative; width: 25px;height: 25px;">'+completionPercentage+'% Complete</span> </div> </div>';
-    $('#notifications-splash').html("<h1>" + noteTitle + "</h1><p>" + noteMsg + "</p>"+"<br>"+progressBar).fadeIn(function () {
+    $('#notifications-splash').html("<p>" + noteMsg + "</p>"+progressBar).fadeIn(function () {
         //if (!isSquarer()) $(this).delay(8000).fadeOut();
     });
     $('#notifications-splash .note-closer').unbind('click').on('click', function () {

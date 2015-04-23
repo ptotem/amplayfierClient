@@ -135,8 +135,10 @@ div.story-page {
     bottom: 5%;
     left: 4%;
     width: 60%;
-    padding: 2%;
+
+    background: white;
     padding-top: 1%;
+    padding: 2%;
     color: #666;
     font-size: 1.3em;
     border: none;
@@ -798,6 +800,7 @@ img.translucent {
     z-index: 2000
 }
 
+
 #notifications-center, #leaderboard, #documents-collection {
     height: 80%;
     overflow-y: auto;
@@ -878,9 +881,15 @@ and (orientation: portrait) {
     top:70%;
     cursor: pointer;
 }
-
-.my-active-node
+#shield-img
 {
-    width:5% !important;
+    position: absolute;
+    left:21%;
+    top:70%;
+    cursor: pointer;
 }
 
+/*.my-active-node
+{
+    width:5% !important;
+}*/

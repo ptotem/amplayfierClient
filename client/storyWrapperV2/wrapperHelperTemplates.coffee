@@ -30,7 +30,7 @@ Template.wrapperSideBar.events
 
 
   'click .sign-out-link' :(e)->
-    Meteor.logout() 
+    Meteor.logout()
 
 
 
@@ -156,3 +156,27 @@ Template.nodeTemp.helpers
             flag = 'none'
       deckList
 
+
+Template.chatWrapper.events
+  'click .chat-contact':(e)->
+    parent = $(e.currentTarget).find('.media').attr('href')
+    $(e.currentTarget).parents(parent).toggleClass('oc-lg-hidden-right  oc-lg-open-right')
+
+  'click .chat-close':(e)->
+    parent = $(e.currentTarget).attr('href')
+    $(e.currentTarget).parents(parent).toggleClass('oc-lg-hidden-right  oc-lg-open-right')
+    e.stopPropagation()
+
+
+Template.chatWrapper.rendered = ->
+  $('[rel=switch]').each ->
+    $this = undefined
+    iswitch = undefined
+    $this = $(this)
+    iswitch = new Switch(this)
+    if !($this.attr('readonly') or $this.attr('disabled'))
+      return $(iswitch.el).on('click', (e) ->
+        e.preventDefault()
+        iswitch.toggle()
+      )
+    return

@@ -1,3 +1,30 @@
+<template name="licenseTempModal">
+    <div class="modal blur data-display-modal" id="licenseTempModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+            <div class="modal-content" style="height: 100%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-medal"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Your License </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <img class="img-responsive" src="/assets/images/staticCerti1.jpg">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+
+</template>
+
+
 <template name="virtualTourModal">
     <div class="modal blur jump-to-modal" id="jump-to-menu">
         <div class="modal-dialog modal-lg">
@@ -66,8 +93,8 @@
 </template>
 
 <template name="chatWrapper">
-    <aside class="oc-sidebar oc-sidebar-right oc-sidebar-fixed chat-bar" style="display: none;z-index:1000000">
-        <div class="oc-sidebar-header chat-sidebar-header" style="visibility: visible">
+    <aside class="oc-sidebar oc-sidebar-right oc-sidebar-fixed chat-bar">
+        <div class="oc-sidebar-header chat-sidebar-header">
             <ul class="nav nav-tabs-oc nav-justified-all">
                 <li class="active">
                     <a href="#chat-users" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Users">
@@ -98,7 +125,7 @@
 
                 <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
                     <div id="oc-wrapper-chat-1" class="oc-wrapper chat-oc-wrapper
-       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
 
                         <div class="oc-push">
                             <div class="oc-container chat-oc-container" style="z-index: 1100;">
@@ -112,9 +139,9 @@
 
                                 <div class="nano">
                                     <ul class="nav nav-stacked nano-content" id="uid489da56cf13b8ef5f1dff518e03af014">
-                                        <li class="chat-contact unread">
+                                        <li class="chat-contact unread chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-07.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-07.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Dulce Middleton
@@ -126,9 +153,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact unread">
+                                        <li class="chat-contact unread chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-08.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-08.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Joey Wallace
@@ -140,9 +167,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact unread">
+                                        <li class="chat-contact unread chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-05.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-05.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Daren Heath
@@ -154,9 +181,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-02.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-02.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Billy May
@@ -168,9 +195,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-09.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-09.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Noelle Wilkerson
@@ -182,9 +209,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-21.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-21.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Ty Olsen
@@ -196,9 +223,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-14.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-14.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Noel Eason
@@ -210,9 +237,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-03.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-03.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Reid Willis
@@ -224,9 +251,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-13.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-13.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Brooklynn Rich
@@ -238,9 +265,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-04.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-04.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Shawn Diaz
@@ -252,9 +279,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-06.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-06.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Giselle Sinclair
@@ -266,9 +293,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-12.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-12.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Ian West
@@ -280,9 +307,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-22.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-22.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Sydney Wagner
@@ -294,9 +321,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-one">
                                             <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-01.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-01.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Omar Choi
@@ -319,8 +346,8 @@
 
                                 <div class="chat-contact unread">
                                     <div class="media">
-                                        <a href="#oc-wrapper-chat-1" class="close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
-                                        <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-10.png" />
+                                        <a href="#oc-wrapper-chat-1" class="close chat-close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
+                                        <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-10.png" />
                                         <div class="media-body">
                                             <div class="media-heading">
                                                 Abigail Christensen
@@ -340,82 +367,82 @@
 
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-21.png" /> Rerum quibusdam ex eum
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-21.png" /> Rerum quibusdam ex eum
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-14.png" /> Nobis ex et voluptates
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-14.png" /> Nobis ex et voluptates
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-03.png" /> Dolores id ipsam occaecati non nihil aut temporibus necessitatibus eum delectus deleniti quo voluptatem
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-03.png" /> Dolores id ipsam occaecati non nihil aut temporibus necessitatibus eum delectus deleniti quo voluptatem
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-13.png" /> Sunt aut non pariatur eveniet consequatur neque consequatur fugit voluptatem
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-13.png" /> Sunt aut non pariatur eveniet consequatur neque consequatur fugit voluptatem
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-04.png" /> Iure consequatur aut nesciunt ut sed quam incidunt adipisci aut pariatur consequatur tenetur eligendi
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-04.png" /> Iure consequatur aut nesciunt ut sed quam incidunt adipisci aut pariatur consequatur tenetur eligendi
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-06.png" /> Saepe quod aliquid quibusdam dicta omnis
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-06.png" /> Saepe quod aliquid quibusdam dicta omnis
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-12.png" /> Aut sint vel autem nostrum et sunt aut consequatur quia necessitatibus atque aut sed sed
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-12.png" /> Aut sint vel autem nostrum et sunt aut consequatur quia necessitatibus atque aut sed sed
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-22.png" /> Labore in mollitia amet voluptatibus eum optio quidem qui distinctio alias neque
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-22.png" /> Labore in mollitia amet voluptatibus eum optio quidem qui distinctio alias neque
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-01.png" /> Totam ipsam quam ex doloremque
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-01.png" /> Totam ipsam quam ex doloremque
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-10.png" /> Corporis aut officia eligendi vel consequatur est velit atque veritatis eveniet recusandae eligendi vero
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-10.png" /> Corporis aut officia eligendi vel consequatur est velit atque veritatis eveniet recusandae eligendi vero
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-20.png" /> Modi quidem illum rerum sunt deleniti veniam autem culpa accusantium odit perspiciatis illum odit
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-20.png" /> Modi quidem illum rerum sunt deleniti veniam autem culpa accusantium odit perspiciatis illum odit
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-23.png" /> Ipsum rerum alias adipisci consequuntur dolores
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-23.png" /> Ipsum rerum alias adipisci consequuntur dolores
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-11.png" /> Voluptatem a earum dicta
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-11.png" /> Voluptatem a earum dicta
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-07.png" /> Maiores similique magni pariatur
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-07.png" /> Maiores similique magni pariatur
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-08.png" /> At ipsam excepturi facere ad et
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-08.png" /> At ipsam excepturi facere ad et
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-05.png" /> Itaque saepe dolorem et consequatur excepturi sunt voluptatibus
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-05.png" /> Itaque saepe dolorem et consequatur excepturi sunt voluptatibus
                                             </p>
                                         </div>
 
@@ -442,7 +469,7 @@
 
                 <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
                     <div id="oc-wrapper-chat-2" class="oc-wrapper chat-oc-wrapper
-       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
 
                         <div class="oc-push">
                             <div class="oc-container chat-oc-container" style="z-index: 1100;">
@@ -456,9 +483,9 @@
 
                                 <div class="nano">
                                     <ul class="nav nav-stacked nano-content" id="uid80b1f72c6febf7077e17ae5e5b109cf5">
-                                        <li class="chat-contact unread">
-                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-20.png" />
+                                        <li class="chat-contact unread chat-two">
+                                            <a href="#oc-wrapper-chat-2 " class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-20.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Lori Dougherty
@@ -470,9 +497,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact unread">
+                                        <li class="chat-contact unread chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-23.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-23.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Arturo Dougherty
@@ -484,9 +511,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact unread">
+                                        <li class="chat-contact unread chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-11.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-11.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Yehudi Abrams
@@ -498,9 +525,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-07.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-07.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Javon Kane
@@ -512,9 +539,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-08.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-08.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Hamish Jennings
@@ -526,9 +553,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-05.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-05.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Alexa Gross
@@ -540,9 +567,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-02.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-02.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Ewan Chang
@@ -554,9 +581,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-09.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-09.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Lorenzo Goldman
@@ -568,9 +595,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-21.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-21.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Geraldine Love
@@ -582,9 +609,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-14.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-14.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Melinda Weeks
@@ -596,9 +623,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-03.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-03.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Carmen Wagner
@@ -610,9 +637,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-13.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-13.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Alberto Chappell
@@ -624,9 +651,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-04.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-04.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Maggie Schultz
@@ -638,9 +665,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-two">
                                             <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-06.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-06.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Jamal Beasley
@@ -663,8 +690,8 @@
 
                                 <div class="chat-contact unread">
                                     <div class="media">
-                                        <a href="#oc-wrapper-chat-2" class="close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
-                                        <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-12.png" />
+                                        <a href="#oc-wrapper-chat-2" class="close chat-close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
+                                        <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-12.png" />
                                         <div class="media-body">
                                             <div class="media-heading">
                                                 Collin Tilley
@@ -684,82 +711,82 @@
 
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-09.png" /> Voluptatem voluptatum eveniet ducimus cum omnis rerum deleniti ex officia molestias officia beatae repudiandae dolores
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-09.png" /> Voluptatem voluptatum eveniet ducimus cum omnis rerum deleniti ex officia molestias officia beatae repudiandae dolores
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-21.png" /> Repellat eius est quibusdam enim aut aperiam nesciunt vitae
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-21.png" /> Repellat eius est quibusdam enim aut aperiam nesciunt vitae
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-14.png" /> Quibusdam id quas reprehenderit tenetur quos
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-14.png" /> Quibusdam id quas reprehenderit tenetur quos
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-03.png" /> Enim fuga quaerat nulla nisi quam ipsa quaerat est iste sequi voluptatum ut eos eaque
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-03.png" /> Enim fuga quaerat nulla nisi quam ipsa quaerat est iste sequi voluptatum ut eos eaque
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-13.png" /> Porro quia illo et dolor iusto voluptatibus nam
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-13.png" /> Porro quia illo et dolor iusto voluptatibus nam
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-04.png" /> Molestiae eligendi id est quasi delectus itaque
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-04.png" /> Molestiae eligendi id est quasi delectus itaque
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-06.png" /> Quia qui mollitia nihil aut rerum exercitationem atque voluptatem sit consequuntur repellendus aut necessitatibus
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-06.png" /> Quia qui mollitia nihil aut rerum exercitationem atque voluptatem sit consequuntur repellendus aut necessitatibus
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-12.png" /> Qui temporibus corporis laboriosam et
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-12.png" /> Qui temporibus corporis laboriosam et
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-22.png" /> Voluptatem nihil vel illo maxime possimus et natus incidunt harum non
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-22.png" /> Voluptatem nihil vel illo maxime possimus et natus incidunt harum non
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-01.png" /> Voluptas sit iure dolor culpa dolores non at debitis facilis qui eos id
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-01.png" /> Voluptas sit iure dolor culpa dolores non at debitis facilis qui eos id
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-10.png" /> Aperiam iste maiores commodi magnam est
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-10.png" /> Aperiam iste maiores commodi magnam est
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-20.png" /> Maiores numquam minima et porro provident maxime quos facere eligendi consequatur cumque ipsam corrupti
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-20.png" /> Maiores numquam minima et porro provident maxime quos facere eligendi consequatur cumque ipsam corrupti
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-23.png" /> Doloremque vel reiciendis quidem est voluptatem eligendi
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-23.png" /> Doloremque vel reiciendis quidem est voluptatem eligendi
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-11.png" /> Sit repellat ut esse a voluptatem deserunt illo vel soluta autem
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-11.png" /> Sit repellat ut esse a voluptatem deserunt illo vel soluta autem
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-07.png" /> Officiis explicabo tenetur commodi omnis
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-07.png" /> Officiis explicabo tenetur commodi omnis
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-08.png" /> Impedit alias aut non necessitatibus ut
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-08.png" /> Impedit alias aut non necessitatibus ut
                                             </p>
                                         </div>
 
@@ -786,7 +813,7 @@
 
                 <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
                     <div id="oc-wrapper-chat-3" class="oc-wrapper chat-oc-wrapper
-       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
 
                         <div class="oc-push">
                             <div class="oc-container chat-oc-container" style="z-index: 1100;">
@@ -800,9 +827,9 @@
 
                                 <div class="nano">
                                     <ul class="nav nav-stacked nano-content" id="uid6086fab46d4d3863b17ec6471aa26bc4">
-                                        <li class="chat-contact unread">
+                                        <li class="chat-contact unread chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-22.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-22.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Orlaith Morse
@@ -814,9 +841,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact unread">
+                                        <li class="chat-contact unread chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-01.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-01.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Quinn McNamara
@@ -828,9 +855,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact unread">
+                                        <li class="chat-contact unread chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-10.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-10.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Johnnie Gallagher
@@ -842,9 +869,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-20.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-20.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Dominick Neal
@@ -856,9 +883,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-23.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-23.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Arturo Abbott
@@ -870,9 +897,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact ">
+                                        <li class="chat-contact chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-11.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-11.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Lucinda Cassidy
@@ -884,9 +911,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-07.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-07.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Lynette Heath
@@ -898,9 +925,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-08.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-08.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Arturo Garrett
@@ -912,9 +939,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-05.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-05.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Cindy Merritt
@@ -926,9 +953,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-02.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-02.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Kelly May
@@ -940,9 +967,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-09.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-09.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Bonnie Weiner
@@ -954,9 +981,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-21.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-21.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Gordon Black
@@ -968,9 +995,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-14.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-14.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Antoinette Abrams
@@ -982,9 +1009,9 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="chat-contact offline">
+                                        <li class="chat-contact offline chat-three">
                                             <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
-                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-03.png" />
+                                                <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-03.png" />
                                                 <div class="media-body">
                                                     <div class="media-heading">
                                                         Moses Johnston
@@ -1007,8 +1034,8 @@
 
                                 <div class="chat-contact unread">
                                     <div class="media">
-                                        <a href="#oc-wrapper-chat-3" class="close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
-                                        <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-13.png" />
+                                        <a href="#oc-wrapper-chat-3" class="close chat-close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
+                                        <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-13.png" />
                                         <div class="media-body">
                                             <div class="media-heading">
                                                 Sheryl Byrne
@@ -1028,82 +1055,82 @@
 
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-02.png" /> Et non nihil omnis non consequuntur consequuntur voluptas
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-02.png" /> Et non nihil omnis non consequuntur consequuntur voluptas
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-09.png" /> Maiores illum qui maiores fuga
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-09.png" /> Maiores illum qui maiores fuga
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-21.png" /> Id aut laudantium corporis quae aut quia iusto eum autem
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-21.png" /> Id aut laudantium corporis quae aut quia iusto eum autem
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-14.png" /> Sit est sequi delectus eum impedit officia ipsum
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-14.png" /> Sit est sequi delectus eum impedit officia ipsum
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-03.png" /> Sunt sed nisi corrupti sunt neque rem libero
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-03.png" /> Sunt sed nisi corrupti sunt neque rem libero
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-13.png" /> Voluptatem voluptates nemo quia omnis ut odio consequatur dolorem corporis exercitationem cum vel expedita
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-13.png" /> Voluptatem voluptates nemo quia omnis ut odio consequatur dolorem corporis exercitationem cum vel expedita
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-04.png" /> Voluptas aut similique voluptate perferendis ad ut molestiae
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-04.png" /> Voluptas aut similique voluptate perferendis ad ut molestiae
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-06.png" /> Totam cumque deleniti est et nemo nihil officia libero fuga in consectetur ut velit
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-06.png" /> Totam cumque deleniti est et nemo nihil officia libero fuga in consectetur ut velit
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-12.png" /> Quia sed laudantium magni
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-12.png" /> Quia sed laudantium magni
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-22.png" /> Quasi ea dolorem numquam perspiciatis voluptas ullam vitae ea
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-22.png" /> Quasi ea dolorem numquam perspiciatis voluptas ullam vitae ea
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-01.png" /> Quisquam omnis culpa reiciendis officiis suscipit rerum magni enim error aliquam
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-01.png" /> Quisquam omnis culpa reiciendis officiis suscipit rerum magni enim error aliquam
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-10.png" /> Id vero alias ab ullam sit vitae labore quisquam et
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-10.png" /> Id vero alias ab ullam sit vitae labore quisquam et
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-20.png" /> Voluptate magnam reprehenderit corporis asperiores iste
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-20.png" /> Voluptate magnam reprehenderit corporis asperiores iste
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-23.png" /> Natus ipsa assumenda dolorum et officia debitis voluptatem nemo nesciunt aut sequi
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-23.png" /> Natus ipsa assumenda dolorum et officia debitis voluptatem nemo nesciunt aut sequi
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-left">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-11.png" /> Voluptatem aspernatur velit illo qui et qui nesciunt harum necessitatibus tempora aut optio iure doloremque
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="/assets/images/faker/avatars/24/Faces_Users-11.png" /> Voluptatem aspernatur velit illo qui et qui nesciunt harum necessitatibus tempora aut optio iure doloremque
                                             </p>
                                         </div>
                                         <div class="clearfix">
                                             <p class="chat-bubble chat-bubble-right">
-                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-07.png" /> Suscipit non harum quod voluptatem consequatur voluptates voluptate hic voluptates non facere
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="/assets/images/faker/avatars/24/Faces_Users-07.png" /> Suscipit non harum quod voluptatem consequatur voluptates voluptate hic voluptates non facere
                                             </p>
                                         </div>
 
@@ -1187,6 +1214,12 @@
 
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
+                  <li class="">
+                      <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour." href="#documentsModal" data-toggle='modal'>
+                          <i class="oc-partial-icon icm icm-binoculars2"></i>
+                          <span class="oc-partial-menu-item">Virtual Tour</span>
+                      </a>
+                  </li>
                     <li class="">
                         <a class="collapsed side-bar-link user-profile-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="A mashup of components, mainly visual indicators." href="#userProfileModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-user"></i>
@@ -1235,12 +1268,7 @@
                             <span class="oc-partial-menu-item">Contact Us</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour." href="#documentsModal" data-toggle='modal'>
-                            <i class="oc-partial-icon icm icm-binoculars2"></i>
-                            <span class="oc-partial-menu-item">Virtual Tour</span>
-                        </a>
-                    </li>
+
 
 
 
@@ -1827,33 +1855,6 @@
                         <div class="col-sm-6 col-sm-offset-3" style="background:white ;color:black ;padding:35px ;font-size: 1.5em; text-align: center">
                             Contact us at<br>whatsinstore@pepsi.com
                     </div>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-
-    </div>
-
-</template>
-
-
-<template name="licenseTempModal">
-    <div class="modal blur data-display-modal" id="licenseTempModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
-            <div class="modal-content" style="height: 100%">
-                <div class="modal-header">
-                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
-                    <div class="top-circle-icon"><i class="icm icm-medal"></i>
-                    </div>
-                    <h4 class="modal-title" id="notifyModalLabel">Your License </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-10 col-sm-offset-1">
-                            <img class="img-responsive" src="/assets/images/staticCerti1.jpg">
-                        </div>
-                    </div>
-
                 </div>
             </div>
             <!-- /.modal-content -->
