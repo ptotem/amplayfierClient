@@ -156,7 +156,8 @@ Template.mainWrapper.events
 #    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
 
   'click .exit-deck':(e)->
-    if $('.active').has('iframe').length is 0
+#    TODO change isnt to is ..done for demo
+    if $('.active').has('iframe').length isnt  0
       setTime(getTime());
       minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
       maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");

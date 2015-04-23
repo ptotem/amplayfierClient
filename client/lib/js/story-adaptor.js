@@ -54,9 +54,9 @@ function setDesign(orientation) {
         width: storyConfig.nameplate[orientation].width + "%"
     });
     $('#story-nameplate').css({
-        left: "5" + "%",
-        bottom: "71" + "%",
-        width: "15"+ "%"
+        left: "2" + "%",
+        bottom: "76" + "%",
+        width: "22"+ "%"
     });
 
 
@@ -593,7 +593,13 @@ function cancelFullScreen(elm) {
     $('.show-deck-modal').css({"height":"100%"});
     $('.slide-container').css({"transform":"scale(1) translateX(0%)"});
     $('.slide-container').find('iframe').css({"margin-top":"0%"});
-    $('.modal-xlg-ppt').css({"height":"82%"})
+    $('.modal-xlg-ppt').css({"height":"82%"});
+
+    //done for demo
+    $($('.slide-container').find('iframe')[0].contentWindow.document).find('embed').css({"transform":"scale(1.0)"});
+    $('.modal-xlg-ppt').css({"height":"72%"});
+
+
 
     var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
     if (requestMethod) { // cancel full screen.
@@ -616,10 +622,17 @@ function requestFullScreen(elm) {
     //$('.main-story-content').hide();
     $(elm).fadeIn();
     $('.show-deck-modal').css({"height":"120%"});
-    $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
+    $('.slide-container').css({"transform":"scale(1.1) translateX(7.3%)"});
     $('.slide-container').find('iframe').css({"margin-top":"7%"});
 
-    $('.modal-xlg-ppt').css({"height":"74%"});
+    //only done for demo on 24 april 2015
+    $('.slide-container').find('iframe').css({"margin-top":"0%"});
+    //$('.slide-container').find('iframe').find('embed').css({"transform":"scale(1.4)"});
+    $($('.slide-container').find('iframe')[0].contentWindow.document).find('embed').css({"transform":"scale(1.1)"});
+    //change 65 to 74..done for demo
+    $('.modal-xlg-ppt').css({"height":"65%"});
+    $('.slide-container').css({"transform":"scale(1.1) translateX(4%)"});
+    $('.full-container').css({'margin-top':'6.2%'});
     //$('.component').css({"transform":"scale(1.4) "});
 
     var el = document.body; // Make the body go full screen.
