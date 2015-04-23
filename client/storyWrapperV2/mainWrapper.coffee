@@ -94,6 +94,8 @@ Template.mainWrapper.helpers
 
 
 Template.mainWrapper.events
+  'click #license-img':(e)->
+    showModal('licenseTempModal',{},'main-wrapper-page')
   'click .story-node':(e)->
 
     showModal('nodeTemp',{},'main-wrapper-page')

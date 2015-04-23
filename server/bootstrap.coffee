@@ -89,6 +89,7 @@ Meteor.startup(()->
   addCapabilities("Can delete documents",'delete_documents')
   addCapabilities("Can view reports",'view_reports')
   addCapabilities("Can customize reports",'customize_reports')
+  addCapabilities("Can view Admin Panel",'view_admin_panel')
   console.log "end of startup"
 
 

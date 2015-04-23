@@ -346,7 +346,7 @@ Template.adminpanel.rendered = () ->
   console.log 'csds'
   setTimeout(()->
     if !can('view_admin_panel')
-      window.location = "/"
+      console.log "Admin not allwod"
     else
       setTitle('amplayfier | Manage User Profiles & Reports');
       $('.node-date').datepicker()
