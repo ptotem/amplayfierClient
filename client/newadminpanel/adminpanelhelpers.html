@@ -96,7 +96,7 @@
           </li>
           <li class="">
 
-            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">Manage Reports</span></a>
+            <a class="collapsed menu-link" target-templ="manageReport"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">Manage Reports</span></a>
           </li>
 
           <li class=" dropdown">
@@ -112,16 +112,15 @@
 
 
               <li class="">
-                <a class="collapsed" href="../htmls/pages/mailers.html"> Portal Mailers
+                <a class="collapsed menu-link" target-templ="portalMailer"> Portal Mailers
                                 </a></li>
 
               <li class="">
-                <a class="collapsed" href="../htmls/pages/portal_mailers.html"> User Mailers
+                <a class="collapsed menu-link" target-templ="userMailer"> User Mailers
                                 </a></li>
               <li class="">
-                <a class="collapsed" href="../htmls/pages/systemnotification.html"> System Notifications
+                <a class="collapsed menu-link" target-templ="systemNoticifation"> System Notifications
                                 </a></li>
-
             </ul>
           </li>
           <li class="">
@@ -164,10 +163,7 @@
                         <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
                     </li>
         </ul>
-
-
       </div>
-
     </div>
   </aside>
 </template>
@@ -385,6 +381,7 @@
 
       <div class="col-md-6 pull-right">
         <div class="selectize-input items not-full">
+          <span class="fa fa-search form-control-header"></span>
           <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
         </div>
 
@@ -411,8 +408,8 @@
                 {{#each getPlatformProfiles}}
                 <tr class="tag-item row-mid">
                   <td class="tag-label col-md-8" colspan="2">{{name}}</td>
-                  <td class="col-md-3"><a href="#" class="btn btn-danger btn-md pull-right list-btn delete-btn profile-delete-btn">Delete</a></td>
-                  <td class="col-md-4"><a href="#" class="btn btn-danger btn-md list-btn delete-btn add-variants-btn">Add Variants</a></td>
+                  <td class="col-md-3"><a href="#" class="btn btn-danger btn-md pull-right list-btn delete-btn profile-delete-btn">Delete</a>
+                    <a href="#" class="btn btn-danger btn-md list-btn delete-btn pull-right add-variants-btn">Add Variants</a></td>
                   <!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
                 </tr>
                 {{/each}}
@@ -522,10 +519,12 @@
     <div class="row table-line-row">
       <button href="#" class="btn btn-danger btn-md pull-right add-new-user" style="margin-left:0.2%">Add New</button>
       <button href="#" class="btn btn-danger btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
+      <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
       <button href="#" class="btn btn-danger btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
 
       <div class="col-md-6 pull-right">
         <div class="selectize-input items not-full">
+          <span class="fa fa-search form-control-header"></span>
           <input type="text" id="users-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
         </div>
 
@@ -554,32 +553,30 @@
               <tbody>
 
                 {{#each myusers}}
-                <tr  class="row-mid" id="{{_id}}">
-                  <td  class="user-item col-md-5">{{personal_profile.display_name}}</td>
+                <tr class="user-item  row-mid" id="{{_id}}">
+                  <td class="col-md-5">{{personal_profile.display_name}}</td>
 
-                  <td class="col-md-4">
+                  <td class="col-md-3">
                     <select rel="selectize" data-placeholder="Give your user a profile " user-id="{{_id}} " class="form-control user-profile-chosen pull-right " tabindex="-1 " style="width:150px;padding:0;margin-right:5px; ">
-                      {{#each profileForUsers _id}}
-                      {{#if selected}}
+                      {{#each profileForUsers _id}} {{#if selected}}
                       <option value="{{name}} " selected>{{name}}</option>
                       {{else}}
-                      <option value="{{name}} " >{{name}}</option>
-                      {{/if}}
-                      {{/each}}
+                      <option value="{{name}} ">{{name}}</option>
+                      {{/if}} {{/each}}
                     </select>
 
 
                   </td>
-                  <td class="col-md-4">
-                        <button href=" # " class="btn btn-danger pull-right btn-md delete-user-btn " style="margin-left: 0.5%;">Delete</button>
-                        <button style="margin-left: 0.5%; " href="# " class="btn btn-warning pull-right btn-md edit-user-btn ">Edit</button>
-                        <button style="margin-left: 0.5%; " href="# " class="btn btn-danger pull-right btn-md block-user-btn ">Block</button>
-                        <button style="margin-left: 0.5%; " href="# " class="btn btn-danger pull-right btn-md reset-user-btn ">Reset</button>
+                  <td class="col-md-5">
+                    <a href=" # " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md delete-user-btn ">Delete</a>
+                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md edit-user-btn ">Edit</a>
+                    <a href="# " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md block-user-btn ">Block</a>
+                    <a href="# " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md reset-user-btn ">Reset</a>
                   </td>
 
                 </tr>
-                  {{/each}}
-                </tbody>
+                {{/each}}
+              </tbody>
             </table>
 
 
@@ -749,249 +746,397 @@
 </template>
 
 <template name="enrollmentsLeftMenu">
-    <div class="row">
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Enrollments</h3>
-        </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 class="text-gradient-success-dk">Enrollments</h3>
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Enrollments
-                        </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
-                    </div>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-warning panel-colorize gradient-diag1">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Enrollments
+            </span>
+          </div>
         </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME<br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK<br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-                            <span class="pull-right panel-lt box-label">
-                                54
-                            </span>
-                        </h5>
-                    </div>
-                </div>
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+            You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-dark">
+        <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+          <div class="panel-heading">
+            <div class="panel-title">Quick statistics</div>
+          </div>
+          <div class="box-table push-bottom">
+            <div class="box-row mid-bordered">
+              <div class="box-cell">
+                <h5 class="base-header major">PLAYERS</h5>
+                <h3 class="base-header">
+                  248
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">GAME
+                  <br>PLAYED</h5>
+                <h3 class="base-header">
+                  936
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">DECK
+                  <br>Viewed</h5>
+                <h3 class="base-header">
+                  307
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="progress flat-progress" rel="tooltip" title="60% complete">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+          <div class="clearfix">
+            <h5 class="pull-left base-header major">Days</h5>
+            <h5 class="base-header major">
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
+            </h5>
+          </div>
+        </div>
+        <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
                     <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
                 </div> -->
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="table-line">
-        <div class="row table-line-row">
-            <div class="col-md-1 pull-right">
-                <!--<a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a>-->
-                <a href="#" class="btn btn-warning btn-md pull-right node-date-assignment">Update</a>
-            </div>
-            <!--<div class="col-md-6 pull-right">
+  <div class="table-line">
+    <div class="row table-line-row">
+      <div class="col-md-1 pull-right">
+        <!--<a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a>-->
+        <a href="#" class="btn btn-warning btn-md pull-right node-date-assignment">Update</a>
+      </div>
+      <!--<div class="col-md-6 pull-right">
                 <div class="selectize-input items not-full"><input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" /></div>
             </div>-->
-        </div>
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Enrollments
-                        </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <tbody>
-                                {{#each nodes}}
-                                <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
-                                    <td class="col-md-6">{{title}}</td>
-                                    <td class="col-md-6">
-                                        <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" />
-                                        {{#if assessmentNode}}
-                                            <select class="pull-right select-asessment" style="margin-right: 2%;">
-                                                {{#each assessments}}
-                                                <option value="{{_id}}">{{assessmentName}}</option>
-                                                {{/each}}
-                                            </select>
-                                            <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value="">
-                                        {{else}}
-                                            <select class="pull-right select-asessment"  disabled style="margin-right: 2%;">
-                                                {{#each assessments}}
-                                                <option value="-1">{{assessmentName}}</option>
-                                                {{/each}}
-                                            </select>
-                                            <input type="checkbox"  class="pull-right checkbox-assessment" style="width: 5%;" value="">
-                                        {{/if}}
-                                    </td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default gradient-diag1">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Enrollments
+            </span>
+          </div>
         </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover">
+              <tbody>
+                {{#each nodes}}
+                <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
+                  <td class="col-md-6">{{title}}</td>
+                  <td class="col-md-6">
+                    <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" /> {{#if assessmentNode}}
+                    <select class="pull-right select-asessment" style="margin-right: 2%;">
+                      {{#each assessments}}
+                      <option value="{{_id}}">{{assessmentName}}</option>
+                      {{/each}}
+                    </select>
+                    <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{else}}
+                    <select class="pull-right select-asessment" disabled style="margin-right: 2%;">
+                      {{#each assessments}}
+                      <option value="-1">{{assessmentName}}</option>
+                      {{/each}}
+                    </select>
+                    <input type="checkbox" class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{/if}}
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <template name="assessmentsLeftMenu">
-    <div class="row">
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Assessments</h3>
-        </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 class="text-gradient-success-dk">Assessments</h3>
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Assessments
-                        </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
-                    </div>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-warning panel-colorize gradient-diag1">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Assessments
+            </span>
+          </div>
         </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME<br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK<br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-                            <span class="pull-right panel-lt box-label">
-                                54
-                            </span>
-                        </h5>
-                    </div>
-                </div>
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+            You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-dark">
+        <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+          <div class="panel-heading">
+            <div class="panel-title">Quick statistics</div>
+          </div>
+          <div class="box-table push-bottom">
+            <div class="box-row mid-bordered">
+              <div class="box-cell">
+                <h5 class="base-header major">PLAYERS</h5>
+                <h3 class="base-header">
+                  248
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">GAME
+                  <br>PLAYED</h5>
+                <h3 class="base-header">
+                  936
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">DECK
+                  <br>Viewed</h5>
+                <h3 class="base-header">
+                  307
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="progress flat-progress" rel="tooltip" title="60% complete">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+          <div class="clearfix">
+            <h5 class="pull-left base-header major">Days</h5>
+            <h5 class="base-header major">
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
+            </h5>
+          </div>
+        </div>
+        <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
                     <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
                 </div> -->
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="table-line">
-        <div class="row table-line-row">
-            <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a></div>
-            <div class="col-md-6 pull-right">
-                <div class="selectize-input items not-full"><input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" /></div>
-            </div>
+  <div class="table-line">
+    <div class="row table-line-row">
+      <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a></div>
+      <div class="col-md-6 pull-right">
+        <div class="selectize-input items not-full">
+          <span class="fa fa-search form-control-header"></span>
+          <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
         </div>
+      </div>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default gradient-diag1">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Assessments
+            </span>
+          </div>
+        </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body">
+            <input type="file" class="assessment-question-upload" id='new-question-for-assessment-excel' style="display:none" />
+            <table class="table table-hover">
+              <tbody>
+                {{#each assessments}}
+                <tr class="row-mid tag-assessment">
+                  <td class="col-md-6">{{assessmentName}}</td>
+                  <td class="col-md-6">
+                    <a href="#" class="btn btn-success btn-md add-question">Add question</a>
+                    <a href="#" class="btn btn-info btn-md view-question">View question</a>
+                    <a href="#" class="btn btn-warning btn-md upload-assessment" id="{{_id}}">Upload questions</a>
+                    <a href="#" class="btn btn-danger btn-md delete-question-btn">Delete Assessment</a>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="manageReport">
 
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Assessments
-                        </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body">
-                        <input type="file" class="assessment-question-upload" id='new-question-for-assessment-excel' style="display:none" />
-                        <table class="table table-hover">
-                            <tbody>
-                            {{#each assessments}}
-                            <tr class="row-mid tag-assessment">
-                                <td class="col-md-6">{{assessmentName}}</td>
-                                <td class="col-md-6">
-                                    <a href="#" class="btn btn-success btn-md add-question">Add question</a>
-                                    <a href="#" class="btn btn-info btn-md view-question">View question</a>
-                                    <a href="#" class="btn btn-warning btn-md upload-assessment" id="{{_id}}">Upload questions</a>
-                                    <a href="#" class="btn btn-danger btn-md delete-question-btn">Delete Assessment</a>
-                                </td>
-                            </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+      <div class="col-sm-6">
+        <h3 class="text-gradient-success-dk">User List</h3>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="panel panel-warning panel-colorize gradient-diag1" id="rid0a5949b0e9f2e06afbd43ec07c3d3fc07">
+          <div class="panel-heading panel-handle panel-colorize">
+            <div class="panel-title">
+              <span class="panel-title-edtitable" data-type="text">
+                User List
+              </span>
+            </div>
+          </div>
+          <div class="panel-body-collapse collapse in">
+            <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+              You can now add users to your portal. You can add individual users or upload a large user set. If you want to upload your users, make sure you download the user template
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-dark">
+
+          <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+            <div class="panel-heading">
+
+              <div class="panel-title">Quick statistics</div>
+            </div>
+            <div class="box-table push-bottom">
+              <div class="box-row mid-bordered">
+                <div class="box-cell">
+                  <h5 class="base-header major">PLAYERS</h5>
+                  <h3 class="base-header">
+                    248
+                  </h3>
+                </div>
+                <div class="box-cell">
+                  <h5 class="base-header major">GAME
+                    <br>PLAYED</h5>
+                  <h3 class="base-header">
+                    936
+                  </h3>
+                </div>
+                <div class="box-cell">
+                  <h5 class="base-header major">DECK
+                    <br>Viewed</h5>
+                  <h3 class="base-header">
+                    307
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress flat-progress" rel="tooltip" title="60% complete">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                <span class="sr-only">60% Complete</span>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <h5 class="pull-left base-header major">Days</h5>
+              <h5 class="base-header major">
+                <span class="pull-right panel-lt box-label">
+                  54
+                </span>
+              </h5>
+            </div>
+
+          </div>
+
+          <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+      <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+    </div> -->
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
+          <div class="panel-heading panel-handle panel-colorize">
+            <div class="panel-title">
+              <span class="panel-title-edtitable" data-type="text">
+                Manage report
+              </span>
+            </div>
+          </div>
+          <div class="panel-body-collapse collapse in">
+            <div class="panel-body ">
+
+              <table class="table table-hover">
+
+                <tbody>
+
+                  <tr class="full-box">
+            				<td>Completed Node Report for all users</td><td> <a href="#" class="btn btn-warning pull-right list-btn delete-btn download-report-btn">Download</a></td>
+                  </tr>
+                  <tr class="full-box">
+                  	<td>Completed Deck Report for all users</td><td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-deck-report-btn">Download</a></td>
+                  </tr>
+                  <tr class="full-box">
+                    <td>All Node Report for all users</td><td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-allnode-report-btn">Download</a></td>
+                  </tr>
+                  <tr class="full-box">
+                    <td>All Deck Report for all users</td><td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-report-btn">Download</a></td>
+            			</tr>
+
+              </tbody>
+              </table>
+
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+</template>
+
+<template name="portalMailer">
+  <h1>this is Portal Mailers template</h1>
+</template>
+<template name="userMailer">
+  <h1>this is user Mailers template</h1>
+</template>
+<template name="systemNoticifation">
+  <h1>This is System Noticifation template</h1>
 </template>

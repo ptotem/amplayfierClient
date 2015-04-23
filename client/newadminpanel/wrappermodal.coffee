@@ -98,3 +98,9 @@ Template.viewQuestionsForAssessmentModal.events
 Template.viewQuestionsForAssessmentModal.helpers
   viewQuestion: ()->
     assesments.findOne(Session.get("viewquesId")).scoreQuestions
+
+Template.editUsers.events
+  'click .remove-modal': (e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"})
