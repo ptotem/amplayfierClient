@@ -47,9 +47,8 @@
 }
 
 
-@media (min-device-width: 800px) and (max-device-width: 1280px) {
+@media (min-width: 991px) {
    #right-container {
        height: 415px;
-
    }
 }

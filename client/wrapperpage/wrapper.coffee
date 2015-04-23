@@ -50,10 +50,10 @@ Template.wrapperPage.events
 
 
 
-Template.wrapperPage.rendered = ->
-  $('.pepsi-homepage').fadeIn('slow')
-  setTimeout(()->
-    setRightBlockHeight()
-    $(window).resize ->
-      setRightBlockHeight()
-  ,600)
+# Template.wrapperPage.rendered = ->
+  # $('.pepsi-homepage').fadeIn('slow')
+  # setTimeout(()->
+  #   setRightBlockHeight()
+  #   $(window).resize ->
+  #     setRightBlockHeight()
+  # ,600)

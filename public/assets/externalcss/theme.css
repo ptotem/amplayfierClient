@@ -23567,7 +23567,9 @@ tr.row-mid th, tr.row-mid td {
     font-size: 24px; }
 /* line 8, /home/clyfe/dev/emerald/source/stylesheets/bootstrap-overrides/_navbar.scss */
 .navbar-brand img {
-    margin-right: 10px; }
+    margin-right: 10px;
+    display:inline-block;
+}
 
 /* line 13, /home/clyfe/dev/emerald/source/stylesheets/bootstrap-overrides/_navbar.scss */
 .btn-nav {
@@ -29605,8 +29607,8 @@ button.dd-handle.pull-left + .dd-toggle {
     height: 100%; }
 
 /* line 91, /home/clyfe/dev/emerald/source/stylesheets/vendored/_jquery-ui.scss */
-.ui-resizable {
-    position: relative; }
+/*.ui-resizable {*/
+    /*position: relative; }*/
 
 /* line 94, /home/clyfe/dev/emerald/source/stylesheets/vendored/_jquery-ui.scss */
 .ui-resizable-handle {
@@ -43161,4 +43163,17 @@ content: '\e000'; }
 
 /* line 189, /home/clyfe/dev/emerald/source/stylesheets/_utilities.scss */
 .text-component-shadow {
+.text-component-shadow {aside
     text-shadow: rgba(0, 0, 0, 0.3) 0 10px 60px, rgba(0, 0, 0, 0.1) 0 0 20px; }
+
+
+.reward-value-text
+{
+    color:#fbb23e
+}
+
+.reward-stock-text
+{
+    color:#d32436
+}
+
