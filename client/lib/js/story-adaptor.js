@@ -30,7 +30,7 @@ function initPage() {
         initNodeStates();
         //drawNodes();
         $('body').fadeIn('fast');
-        showNotification("welcome");
+        //showNotification("welcome");
     }, 1000);
 
 
@@ -357,28 +357,30 @@ function completeDeck(id, node) {
     showNotification("complete", ["Arijit", id]);
 }
 
-function showNotification(name, params) {
-    var note = jQuery.grep(storyConfig.notifications.items, function (a) {
-        return (a.name == name);
-    })[0];
-    var noteTitle = note.title;
-    var noteMsg = note.msg;
-    if (params != undefined && params.length > 0) {
-        for (i in params) {
-            noteTitle = noteTitle.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
-            noteMsg = noteMsg.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
-        }
-    }
-    noteTitle = 'PepsiCo OnBoarding';
-    noteMsg = "Welcome to the Pepsico Sales Onboarding Platform. Click on the cross to start the game.";
-    $('#notifications-splash').html("<div class='pull-right note-closer'>&times;</div>" + "<h1>" + noteTitle + "</h1><p>" + noteMsg + "</p>").fadeIn(function () {
-        if (!isSquarer()) $(this).delay(8000).fadeOut();
+function showNotification(completionPercentage,name, params) {
+    //var note = jQuery.grep(storyConfig.notifications.items, function (a) {
+    //    return (a.name == name);
+    //})[0];
+    //var noteTitle = note.title;
+    //var noteMsg = note.msg;
+    //if (params != undefined && params.length > 0) {
+    //    for (i in params) {
+    //        noteTitle = noteTitle.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
+    //        noteMsg = noteMsg.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
+    //    }
+    //}
+    noteTitle = name;
+    noteMsg = params;
+    progressBar = '<div class="progress" style="height:25px"><div class="progress-bar" role="progressbar" aria-valuenow="'+completionPercentage+'" aria-valuemin="0" aria-valuemax="100" style="width:'+completionPercentage+'%;background:#135899;padding:2px">  <span class="sr-only" style="position: relative; width: 25px;height: 25px;">'+completionPercentage+'% Complete</span> </div> </div>';
+    $('#notifications-splash').html("<h1>" + noteTitle + "</h1><p>" + noteMsg + "</p>"+"<br>"+progressBar).fadeIn(function () {
+        //if (!isSquarer()) $(this).delay(8000).fadeOut();
     });
     $('#notifications-splash .note-closer').unbind('click').on('click', function () {
         $('#notifications-splash').hide();
     })
 
 }
+window.showNotification = showNotification;
 
 /* =============================================================================================== */
 /* Parser and Helper Routines */

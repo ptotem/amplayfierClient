@@ -15,7 +15,9 @@ Template.mainWrapper.rendered = ->
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
+    showNotification("40",'PepsiCo OnBoarding','Welcome to the Pepsico Sales Onboarding Platform. Click on the cross to start the game.')
   ,1000)
+
 
 Template.mainWrapper.created = ()->
   s = platforms.findOne().storyConfig

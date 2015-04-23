@@ -34,7 +34,7 @@
     console.log err
     console.log res
     if !err
-      deckHtml.remove({})
+#      deckHtml.remove({})
       p = platforms.findOne({tenantId: tid})
       deckHtml.remove({platformId: p._id})
       for c in res
@@ -232,8 +232,8 @@ Meteor.methods
     Future = Npm.require('fibers/future')
     future = new Future()
     Fiber(()->
-      deckHtml.remove({})
-      platforms.remove({})
+#      deckHtml.remove({})
+#      platforms.remove({})
 
       p = platforms.insert({tenantId: tid, tenantName: tname})
       # console.log p
