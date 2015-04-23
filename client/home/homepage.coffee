@@ -51,8 +51,8 @@ Template.homePage.helpers
 
 #>>>>>>> demodep
 Template.homePage.rendered = ->
-  $('iframe').css({"height":"610px"})
-  $('iframe').css({"width":"740px"})
+  $('iframe').css({"height":"626px"})
+  $('iframe').css({"width":"747px"})
 
 
 
