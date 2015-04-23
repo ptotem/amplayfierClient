@@ -20,6 +20,21 @@
                         {{>wrapperSideBar}}
 
                         <div id="main-oc-container" class="oc-container" style="background-color: {{getBackColor}}">
+                            <nav class="navbar navbar-default navbar-static-top navbar-inplace" role="navigation">
+
+
+                                <ul class="nav navbar-nav navbar-right pull-right">
+                                    <li id="oc-right-toggle-container">
+                                        <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav sidebar-toggle-right" rel="tooltip" title="" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden" data-persist="lg,md,sm" data-original-title="Toggle chat">
+                                            <i class="fa fa-lg fa-comments has-corner-badge">
+                                                <span class="badge badge-corner badge-corner-top-right badge-info">3</span>
+                                            </i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+                            </nav>
 
                             <div id="story-wrapper">
                                 <div id="story-content" style="background-image:url('{{getBackImg}}')">
@@ -39,7 +54,7 @@
                             <img id="story-nameplate" src="{{getNamePlate}}" alt="" />
                             <div id="notifications-splash"></div>
                         </div>
-                       
+                        {{>chatWrapper}}
                     </div>
 
                 </div>
