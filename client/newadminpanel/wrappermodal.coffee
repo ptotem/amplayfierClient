@@ -182,3 +182,45 @@ Template.editUsers.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"})
+
+Template.newRewardModal.events
+  'click .remove-modal': (e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"})
+
+  'click .new-reward-save':(e)->
+    if document.getElementById('new-reward-file').files.length is 0
+      createNotification("Please upload a reward image",1)
+    else
+      rewardFile = new FS.File(document.getElementById('new-reward-file').files[0])
+      rewardFile.platform = platforms.findOne()._id
+      rewardFile.stored = false
+      rewardName = $("#new-reward-name").val()
+      rewardDesc = $("#new-reward-desc").val()
+      rewardVal = $("#new-reward-value").val()
+      rewardStock = $("#new-reward-stock").val()
+
+      $("#overlay").show()
+      rf = assetFiles.insert(rewardFile)
+      rfid = rf._id
+      Tracker.autorun(()->
+        console.log assetFiles.findOne(rfid).stored
+        if assetFiles.findOne(rfid).stored
+          systemRewards.insert({stock:rewardStock,name:rewardName,description:rewardDesc,value:rewardVal,rewardImage:rfid,pid:platforms.findOne()._id})
+          $("#overlay").hide()
+
+      )
+    $('.remove-modal').click()
+
+Template.newRoleModal.events
+  'click .remove-modal': (e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"})
+
+Template.assignRoleModal.events
+  'click .remove-modal': (e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"})

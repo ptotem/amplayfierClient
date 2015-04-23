@@ -168,3 +168,61 @@ if Meteor.isClient
         )
 
 
+  Template.NewuploadFileBtn.events
+    'keyup #file-filter':(e)->
+      searchBar($(e.currentTarget).val(),".file-item")
+    'click .upload-file':(e)->
+      $('.modal').modal()
+
+  #      $('#new-user-files').trigger('click')
+
+
+
+    'click  .create-new-file':(e)->
+      $("#overlay").show()
+      Session.set("docLeft",document.getElementById('new-user-files').files.length)
+      for f in document.getElementById('new-user-files').files
+        plfile = new FS.File(f)
+        plfile.platform = platforms.findOne()._id
+        plfile.owner = Meteor.userId()
+        plfile.description = $("#fileDesc").val()
+        plfile.tag = $('#doc-profile').val()
+        x = window[Session.get('collUsed')].insert(plfile)
+        x.on("uploaded",()->
+          nowLeft = parseInt(Session.get("docLeft")) - 1
+          Session.set("docLeft",nowLeft)
+          $('.modal').modal('hide')
+
+        )
+
+
+        Tracker.autorun(()->
+          if Session.get("docLeft") is 0
+            $("#overlay").hide()
+        )
+
+  Template.NewdocumentList.rendered  = ->
+    Meteor.call("getDmsMode",(err,res)->
+      console.log res
+      if res is 1
+        Meteor.subscribe('gridFiles',Meteor.userId())
+        setCollToBeUsed('gridFiles')
+
+      if res is 2
+        Meteor.subscribe('systemFiles',Meteor.userId())
+        setCollToBeUsed('systemFiles')
+      if res is 3
+        Meteor.subscribe('s3Files',Meteor.userId())
+        setCollToBeUsed('s3Files')
+
+
+      console.log err
+    )
+  Template.NewdocumentList.helpers
+    platformFiles:()->
+
+      window[Session.get('collUsed')].find().fetch()
+
+  Template.NewdocumentList.events
+    'click .file-delete-btn':(e)->
+      window[Session.get('collUsed')].remove({_id:this._id})

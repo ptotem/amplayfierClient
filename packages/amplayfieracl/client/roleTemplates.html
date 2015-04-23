@@ -28,6 +28,44 @@
 
 </template>
 
+<template name="roleListThemeView">
+    <table class="table table-hover role-list">
+        <tbody>
+            {{#each listOfRoles}}
+                <tr class="row-mid">
+                    <td class="col-md-6">{{rolename}}</td>
+                    <td class="col-md-6">
+                        <a href="#" class="manage-role btn btn-warning pull-right list-btn" >Manage</a>
+                        <a href="#" class="delete-role btn btn-danger pull-right list-btn" >Delete</a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <br/>
+    <table class="table table-hover capability-list">
+        <tbody>
+            {{#each capabilityList}}
+                {{#if capabilityAdded code}}
+                    <tr class="row-mid">
+                        <td class="col-md-12">
+                            <input type="checkbox" name="capa" checked  value="{{code}}" style='width:10%' class="capability-name capaInRole">{{name}}
+                        </td>
+                    </tr>
+                {{else}}
+                    <tr class="row-mid">
+                        <td class="col-md-12">
+                            <input type="checkbox" name="capa"  value="{{code}}" style='width:10%' class="capability-name capaInRole">{{name}}
+                        </td>
+                    </tr>
+                {{/if}}
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="#" class="btn btn-primary fix-capability">Submit</a>
+    <a href="#" class="btn btn-danger show-roles">Back</a>
+</template>
+
 <template name="roleAssignment">
     {{#each listOfUsers}}
         <li>{{personal_profile.display_name}} ({{getRoleName personal_profile.role}})
@@ -45,7 +83,24 @@
 
 </template>
 
-
+<template name="roleAssignmentThemeView">
+    <table class="table role-list">
+        <tbody>
+            {{#each listOfUsers}}
+                <tr class="row-mid">
+                    <td class="col-md-7">{{personal_profile.display_name}} ({{getRoleName personal_profile.role}})</td>
+                    <td class="col-md-5">
+                        <select class="userRoleAssignment" style="float:right; color: #000000;">
+                            {{#each listOfRoles}}
+                                <option value="{{_id}}">{{rolename}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>
 
 <template name="newRoleForm">
     <form>
@@ -61,4 +116,25 @@
         <button type="submit" class="btn btn-default create-role">Submit</button>
     </form>
 
+</template>
+
+<template name="newRoleFormThemeView">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Role Name</label>
+            <input type="text" class="form-control" id="rolename" placeholder="Enter Role name">
+        </div>
+        <!--<div class="form-group">
+            <label for="roledesc">Role Description</label>
+            <textarea id="roledesc"></textarea>
+        </div>-->
+        <label class="string" for="roledesc">
+            Role Description
+        </label>
+        <div class="form-group string">
+            <textarea class="form-control" rel="autosize" id="roledesc"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success create-role pull-right">Submit</button>
+    </form>
 </template>
