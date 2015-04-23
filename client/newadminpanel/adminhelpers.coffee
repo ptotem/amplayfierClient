@@ -28,11 +28,6 @@ Template.enrollmentsLeftMenu.helpers
   nodes:()->
     platforms.findOne().nodes
 
-Template.badgesLeftMenu.helpers
-#  TODO: badgeImage, name, display_name, description
-  badges:()->
-    platforms.findOne().badges
-
 Template.userlistLeftMenu.helpers
   myusers: () ->
     Meteor.users.find().fetch()
@@ -57,6 +52,16 @@ Template.adminSideBar.events
     $("#left-menu-container").empty();
     Blaze.renderWithData(Template[temName],{},document.getElementById('left-menu-container'))
 
+Template.systemNoticifation.helpers
+  passKey:()->
+    {ukey:platforms.findOne()._id}
+
+
+Template.systemNoticifation.events
+  'click .new-noti':(e)->
+    showModal('newNoti',{ukey:platforms.findOne()._id},'main-wrapper-page-new')
+
+
 Template.mainAdminPanel.helpers
 #  assessments:()->
 #    assesments.find().fetch()
@@ -68,8 +73,8 @@ Template.mainAdminPanel.helpers
 #    platforms.findOne().nodes
 
 
-#  badges:()->
-#    platforms.findOne().badges
+  badges:()->
+    platforms.findOne().badges
 
   passKey:()->
     {ukey:platforms.findOne()._id}
@@ -95,15 +100,14 @@ Template.mainAdminPanel.helpers
 
 Template.userlistLeftMenu.events
   'click .add-new-user': (e) ->
-    showModal('adduserModal',{},'main-wrapper-page-new')
+    showModal('adduserModal',{userId: -1},'main-wrapper-page-new')
 
   'keyup #users-filter':(e)->
     searchBar($(e.currentTarget).val(),".user-item")
+
   'click .edit-user-btn': (e)->
-    $(".right-form").hide()
-    $('#myuserCreate').remove()
-    Blaze.renderWithData(Template['userForm'], {userId: this._id}, document.getElementById('new-user'))
-    $("#new-user").show()
+    showModal('adduserModal',{userId: this._id},'main-wrapper-page-new')
+
   'click .block-user-btn':(e)->
     if window.confirm("Are you sure you want to block this user ?")
       console.log "yes"
@@ -122,8 +126,6 @@ Template.userlistLeftMenu.events
     if window.confirm("Are you sure you want to delete the user?")
       Meteor.call('removeUser',this._id)
       createNotification('Profile has been removed', 1)
-  'click .edit-user-btn':(e)->
-    showModal('editUsers',{},'main-wrapper-page-new')
 
 
 
@@ -239,18 +241,30 @@ Template.enrollmentsLeftMenu.events
     )
     platforms.update({_id:pid},{$set:{nodes:nodes}})
 
-Template.badgesLeftMenu.events
-#  TODO: bug in badge update
-  'click .update-badge-values':(e)->
-    badgeList = []
-    $('.badge-item').each((ind,ele)->
-      badgeList.push {name:$(ele).attr('badge-name'),value:$(ele).find('input').val()}
+Template.manageReport.events
+  'click .download-report-btn':(e)->
+    Meteor.call('exportData',(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'export.zip')
     )
-    pid = platforms.findOne()._id
-    console.log "badgeList"
-    console.log badgeList
-    console.log "badgeList.length :- " + badgeList.length
-    console.log "pid :- " + pid
-    platforms.update({_id:pid},{$set:{badges:badgeList}})
 
-    createNotification("Badges have been updated",1)
+  'click .download-deck-report-btn':(e)->
+    Meteor.call('exportDeckDataForAllUsers',(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'deck.zip')
+    )
+
+  'click .download-allnode-report-btn':(e)->
+    Meteor.call('exportAllNodeDataForAllUsers',platforms.findOne()._id,(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'allnode.zip')
+    )

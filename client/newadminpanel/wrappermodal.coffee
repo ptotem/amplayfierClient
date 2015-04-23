@@ -53,6 +53,84 @@ Template.adduserModal.events
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
+  'click .add-individual-user': (e) ->
+    email = $("#user-email").val()
+    newemail = encodeEmail(email, platformName)
+
+    display_name = $("#user-name").val()
+    first_name = $("#user-first-name").val()
+    last_name = $("#user-last-name").val()
+    reportingTo = $(".reporting-mgr").val()
+    hrManagerTo = $(".hr-mgr").val()
+    role = $('.user-role').val()
+    currUserFname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.first_name
+    currUserLname=Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.last_name
+
+    pid = platforms.findOne()._id
+
+    p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail,reportingManager:reportingTo,role:role,hrmanager:hrManagerTo}
+
+    if $("#user-id").val() == ''
+      Meteor.call("addIndividualUser",p,pid,(err,res)->
+
+
+        if err?
+          createNotification(err.message,0)
+        else
+          if !res
+            createNotification('User Limit reached',0)
+
+          else
+            Meteor.call("sendUserAddMailGunMail",email,first_name,last_name,currUserFname,currUserLname)
+            createNotification("User successfully added",1)
+
+      )
+
+    else
+      p = Meteor.users.findOne($("#user-id").val()).personal_profile
+
+      p['platform'] = pid
+      p['first_name'] = first_name
+      p['last_name'] = last_name
+      p['display_name'] = display_name
+      p['reportingManager'] = reportingTo
+      p['role'] = role
+      p['hrmanager'] = hrManagerTo
+      console.log hrManagerTo
+      Meteor.call('updateUser',$("#user-id").val(),p)
+      Meteor.call("sendUserAddMailGunMail",email,first_name,last_name,currUserFname,currUserLname)
+      createNotification('Profile has been updated', 1)
+
+Template.newNoti.events
+  'click .remove-modal':(e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+
+Template.newNoti.helpers
+  userEmails:()->
+    emails = []
+
+    for u in Meteor.users.find().fetch()
+      emails.push {_id:u._id,e:decodeEmail(u.personal_profile.email)}
+    emails
+
+Template.newNoti.rendered = ->
+  Session.set("uniKeyForNoti",this.data.ukey)
+  setTimeout(()->
+    $('#usersemails2').chosen({width:'100%'})
+  ,500)
+
+Template.newNoti.events
+  'click .create-notification':(e)->
+    notiMsg = $("#notificationMessage").val()
+    notiTarget = $("#usersemails2").val()
+    for u in notiTarget
+      createUserNotification(u,Session.get("uniKeyForNoti"),notiMsg)
+
+
+
 Template.adduserModal.helpers
   myusers: () ->
     Meteor.users.find().fetch()

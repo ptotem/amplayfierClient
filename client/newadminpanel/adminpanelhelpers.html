@@ -124,7 +124,7 @@
             </ul>
           </li>
           <li class="">
-            <a class="collapsed" href="#"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">Repository</span></a>
+            <a class="collapsed menu-link" href="#" target-templ="repository"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">Repository</span></a>
           </li>
 
           <li class=" dropdown">
@@ -377,7 +377,7 @@
   </div>
   <div class="table-line">
     <div class="row table-line-row">
-      <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-md pull-right add-new-profile">Add New</a></div>
+      <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right add-new-profile">Add New</a></div>
 
       <div class="col-md-6 pull-right">
         <div class="selectize-input items not-full">
@@ -409,7 +409,7 @@
                 <tr class="tag-item row-mid">
                   <td class="tag-label col-md-8" colspan="2">{{name}}</td>
                   <td class="col-md-3"><a href="#" class="btn btn-danger btn-md pull-right list-btn delete-btn profile-delete-btn">Delete</a>
-                    <a href="#" class="btn btn-danger btn-md list-btn delete-btn pull-right add-variants-btn">Add Variants</a></td>
+                    <a href="#" class="btn btn-success btn-md list-btn delete-btn pull-right add-variants-btn">Add Variants</a></td>
                   <!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
                 </tr>
                 {{/each}}
@@ -517,8 +517,8 @@
   </div>
   <div class="table-line">
     <div class="row table-line-row">
-      <button href="#" class="btn btn-danger btn-md pull-right add-new-user" style="margin-left:0.2%">Add New</button>
-      <button href="#" class="btn btn-danger btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
+      <button href="#" class="btn btn-success btn-md pull-right add-new-user" style="margin-left:0.2%">Add New</button>
+      <button href="#" class="btn btn-success btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
       <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
       <button href="#" class="btn btn-danger btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
 
@@ -1002,7 +1002,7 @@
     <div class="row">
 
       <div class="col-sm-6">
-        <h3 class="text-gradient-success-dk">User List</h3>
+        <h3 class="text-gradient-success-dk">Manage Reports</h3>
       </div>
     </div>
     <div class="row">
@@ -1132,11 +1132,268 @@
 </template>
 
 <template name="portalMailer">
-  <h1>this is Portal Mailers template</h1>
+  {{>massMailerFormNew}}
 </template>
 <template name="userMailer">
-  <h1>this is user Mailers template</h1>
+  {{>individualMailerNew}}
 </template>
 <template name="systemNoticifation">
-  <h1>This is System Noticifation template</h1>
+  <div class="row">
+
+    <div class="col-sm-6">
+      <h3 class="text-gradient-success-dk">System Notification</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-warning panel-colorize gradient-diag1" id="mailers">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              System Notification
+            </span>
+          </div>
+        </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+            You can send your users notifications within Amplayfier. The user will be able to view these notifications in their dashboard. These notifications will be sent out to all the users of your portal.
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-dark">
+
+        <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+          <div class="panel-heading">
+
+            <div class="panel-title">Quick statistics</div>
+          </div>
+          <div class="box-table push-bottom">
+            <div class="box-row mid-bordered">
+              <div class="box-cell">
+                <h5 class="base-header major">PLAYERS</h5>
+                <h3 class="base-header">
+                  248
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">GAME
+                  <br>PLAYED</h5>
+                <h3 class="base-header">
+                  936
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">DECK
+                  <br>Viewed</h5>
+                <h3 class="base-header">
+                  307
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="progress flat-progress" rel="tooltip" title="60% complete">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <h5 class="pull-left base-header major">Days</h5>
+            <h5 class="base-header major">
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
+            </h5>
+          </div>
+
+        </div>
+
+        <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+  </div> -->
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="table-line">
+    <div class="row table-line-row">
+      <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right new-noti">New</a></div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default gradient-diag1" id="mailer">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              System Notification
+            </span>
+          </div>
+        </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body ">
+
+            <table class="table table-hover">
+
+              <tbody>
+
+            	     {{>systemNotificationsnew passKey}}
+
+            </tbody>
+            </table>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</template>
+<template name="repository">
+  <div class="row">
+
+    <div class="col-sm-6">
+      <h3 class="text-gradient-success-dk">Repository</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-warning panel-colorize gradient-diag1">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Repository
+            </span>
+          </div>
+        </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+            You can use the file repository to upload files for your users. The users of your portal can proceed to download these files from their dashboard. These files will be available to all users of your portal.
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-dark">
+
+        <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+          <div class="panel-heading">
+
+            <div class="panel-title">Quick statistics</div>
+          </div>
+          <div class="box-table push-bottom">
+            <div class="box-row mid-bordered">
+              <div class="box-cell">
+                <h5 class="base-header major">PLAYERS</h5>
+                <h3 class="base-header">
+                  248
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">GAME
+                  <br>PLAYED</h5>
+                <h3 class="base-header">
+                  936
+                </h3>
+              </div>
+              <div class="box-cell">
+                <h5 class="base-header major">DECK
+                  <br>Viewed</h5>
+                <h3 class="base-header">
+                  307
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="progress flat-progress" rel="tooltip" title="60% complete">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <h5 class="pull-left base-header major">Days</h5>
+            <h5 class="base-header major">
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
+            </h5>
+          </div>
+
+        </div>
+
+        <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+  </div> -->
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="table-line">
+    <div class="row table-line-row">
+      <div class="col-md-6 pull-right">{{> NewuploadFileBtn}}</div>
+
+      <!-- <div class="col-md-6 pull-right">
+        <div class="selectize-input items not-full">
+          <span class="fa fa-search form-control-header"></span>
+          <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
+        </div>
+
+      </div> -->
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
+        <div class="panel-heading panel-handle panel-colorize">
+          <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Repository
+            </span>
+          </div>
+        </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body ">
+
+            <table class="table table-hover">
+
+              <tbody>
+
+
+
+                        {{>NewdocumentList}}
+
+
+              </tbody>
+            </table>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
 </template>

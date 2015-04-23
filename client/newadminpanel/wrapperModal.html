@@ -201,7 +201,7 @@
       <div class="modal-body">
         {{#with myuser userId}}
           <!--<div class="field-box">-->
-            <div id="myuserCreate" class="row" style="list-style: none; height: 30em; overflow: auto; border: 1px solid orange; padding: 1em;">
+            <div id="myuserCreate" class="row">
 
               <div class="col-lg-12">
                 <label for="user-name">Display Name</label>
@@ -241,9 +241,7 @@
 
 
                         <br><br>
-              <div class="col-lg-12">
-                <a href="#" class="btn btn-lg btn-warning add-individual-user pull-right">Save </a>
-              </div>
+
             </div>
           <!--</div>-->
 
@@ -251,7 +249,7 @@
       </div>
       <div class="modal-footer">
             <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-            <a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
+            <a href="#" class="btn btn-warning add-individual-user pull-right">Save </a>
 
       </div>
     </div>
@@ -259,7 +257,9 @@
   </div>
 </template>
 
-<template name="editUsers">
+
+
+<template name="newNoti">
   <div class="modal modal-dark fade">
   <div class="modal-dialog ">
     <div class="modal-content">
@@ -268,11 +268,19 @@
         <h4 class="modal-title">Edit User</h4>
       </div>
       <div class="modal-body">
-        <h1>This is the edit user modal</h1>
+        <select id="usersemails2" multiple>
+            <option value="-1">Everyone</option>
+            {{#each userEmails}}
+                <option value="{{_id}}">{{e}}</option>
+            {{/each}}
+        </select>
+        <textarea class="form-control" id="notificationMessage" placeholder="Enter Notification Message" style="width:100%"></textarea>
+
+
       </div>
       <div class="modal-footer">
             <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-            <a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
+            <input type="submit" class='btn btn-success create-notification' value="Create Notification">
 
       </div>
     </div>
