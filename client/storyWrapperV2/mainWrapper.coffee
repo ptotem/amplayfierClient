@@ -15,7 +15,9 @@ Template.mainWrapper.rendered = ->
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
+    showNotification("40",'PepsiCo OnBoarding','Welcome to the Pepsico Sales Onboarding Platform. Click on the cross to start the game.')
   ,1000)
+
 
 Template.mainWrapper.created = ()->
   s = platforms.findOne().storyConfig
@@ -57,7 +59,7 @@ Template.mainWrapper.helpers
 
     else
 #      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].active
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active.replace('png','gif')
   getNodeUrl:(pic)->
       "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
   getPlacement:(px)->
@@ -93,6 +95,11 @@ Template.mainWrapper.helpers
 
 
 Template.mainWrapper.events
+  'click #oc-right-toggle':(e)->
+    $(e.currentTarget).parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')
+    $('.chat-bar').css('padding-top',0)
+    $('.oc-sidebar').css('width','280px')
+
   'click .story-node':(e)->
 
     showModal('nodeTemp',{},'main-wrapper-page')
@@ -160,7 +167,7 @@ Template.mainWrapper.events
       points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
       setCurrentSlideScore(minTime, maxTime, points);
     endAttempt()
-    toggleFull("#viewPPTModal")
+    cancelFullScreen("#viewPPTModal")
     $('.modal').modal('hide')
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 

@@ -24,9 +24,9 @@ body.story-page {
     pointer-events: none;
 }
 
-#story-presenter{
-    top:40% !important;
-}
+/*#story-presenter{*/
+    /*top:40% !important;*/
+/*}*/
 .story-node {
     position: absolute;
     cursor: pointer;

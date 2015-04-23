@@ -159,7 +159,8 @@ reports.find().observeChanges
               if flag
                 userNodeStatus.insert({userId:thisreport.userId,nodeSeq:i,status:'complete'})
 #                getNodeScore(id,i,thisreport.userId)
-                userNodeCompletions.insert({platformId:thisreport.platformId,userId:thisreport.userId,nodeSeq:i,status:'complete',createdAt:new Date().getTime()})
+                if !userNodeCompletions.findOne({userId:thisreport.userId,nodeSeq:i})?
+                  userNodeCompletions.insert({platformId:thisreport.platformId,userId:thisreport.userId,nodeSeq:i,status:'complete',createdAt:new Date().getTime()})
                 sts = getNodeScore(i,thisreport.userId,thisreport.platformId)
                 chapterCompleteEvent.trigger({status:sts,uid:thisreport.userId,node:i,pid:thisreport.platformId})
               else

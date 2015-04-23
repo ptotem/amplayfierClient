@@ -21,9 +21,16 @@ Template.wrapperSideBar.events
     showModal('userProfileModal',{},'main-wrapper-page')
   'click .leader-board-link':(e)->
     showModal('leaderBoardModal',{},'main-wrapper-page')
+  'click .feedback-link':(e)->
+    showModal('feedbackModal',{},'main-wrapper-page')
+  'click .contact-us-link':(e)->
+    showModal('contactusModal',{},'main-wrapper-page')
+  'click .vt-link':(e)->
+    showModal('virtualTourModal',{},'main-wrapper-page')
+
 
   'click .sign-out-link' :(e)->
-    Meteor.logout() 
+    Meteor.logout()
 
 
 
@@ -31,6 +38,16 @@ Template.notificationModal.helpers
   notiPassKey:()->
     {ukey:platforms.findOne()._id}
 
+
+
+Template.feedbackModal.events
+  'submit form':(e)->
+    u = Meteor.userId()
+    p = platforms.findOne()._id
+    s = $(e.currentTarget).find('#user-feedback').val()
+    plaformUserFeedbacks.insert({platformId:p,from:u,feedback:s})
+    $('.remove-modal').trigger('click')
+    e.preventDefault()
 
 Template.rewardModal.helpers
   rewards:()->
@@ -139,3 +156,28 @@ Template.nodeTemp.helpers
             flag = 'none'
       deckList
 
+
+Template.chatWrapper.events
+  'click .chat-contact':(e)->
+    parent = $(e.currentTarget).find('.media').attr('href')
+    $(e.currentTarget).parents(parent).toggleClass('oc-lg-hidden-right  oc-lg-open-right')
+
+  'click .chat-close':(e)->
+    parent = $(e.currentTarget).attr('href')
+    $(e.currentTarget).parents(parent).toggleClass('oc-lg-hidden-right  oc-lg-open-right')
+    # $('#oc-right-toggle').parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')
+    e.stopPropagation()
+
+
+Template.chatWrapper.rendered = ->
+  $('[rel=switch]').each ->
+    $this = undefined
+    iswitch = undefined
+    $this = $(this)
+    iswitch = new Switch(this)
+    if !($this.attr('readonly') or $this.attr('disabled'))
+      return $(iswitch.el).on('click', (e) ->
+        e.preventDefault()
+        iswitch.toggle()
+      )
+    return

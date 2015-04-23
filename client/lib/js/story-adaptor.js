@@ -30,7 +30,7 @@ function initPage() {
         initNodeStates();
         //drawNodes();
         $('body').fadeIn('fast');
-        showNotification("welcome");
+        //showNotification("welcome");
     }, 1000);
 
 
@@ -54,9 +54,9 @@ function setDesign(orientation) {
         width: storyConfig.nameplate[orientation].width + "%"
     });
     $('#story-nameplate').css({
-        left: "3" + "%",
-        bottom: "68" + "%",
-        width: "17"+ "%"
+        left: "5" + "%",
+        bottom: "71" + "%",
+        width: "15"+ "%"
     });
 
 
@@ -66,6 +66,14 @@ function setDesign(orientation) {
         bottom: storyConfig.presenter[orientation].bottom + "%",
         width: storyConfig.presenter[orientation].width + "%"
     });
+
+    $('#story-presenter').css({
+        left: "0" + "%",
+        bottom: "-10" + "%",
+        width: "28" + "%"
+    });
+
+
 
     /* Set the Story Overlays */
     $('#story-overlays').empty();
@@ -81,10 +89,11 @@ function setDesign(orientation) {
         bottom: storyConfig.notifications[orientation].bottom + "%"
     });
     $('#notifications-splash').css({
-        width: "43"+ "%",
-        left: "10"+ "%",
-        bottom: "18"+ "%"
+        width: "34"+ "%",
+        left: "0"+ "%",
+        bottom: "13"+ "%"
     });
+
 
     //for (i in platformData.nodes) {
     //    var thisNodeConfig = getNodeConfig(platformData.nodes[i].sequence);
@@ -357,28 +366,30 @@ function completeDeck(id, node) {
     showNotification("complete", ["Arijit", id]);
 }
 
-function showNotification(name, params) {
-    var note = jQuery.grep(storyConfig.notifications.items, function (a) {
-        return (a.name == name);
-    })[0];
-    var noteTitle = note.title;
-    var noteMsg = note.msg;
-    if (params != undefined && params.length > 0) {
-        for (i in params) {
-            noteTitle = noteTitle.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
-            noteMsg = noteMsg.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
-        }
-    }
-    noteTitle = 'PepsiCo OnBoarding';
-    noteMsg = "Welcome to the Pepsico Sales Onboarding Platform. Click on the cross to start the game.";
-    $('#notifications-splash').html("<div class='pull-right note-closer'>&times;</div>" + "<h1>" + noteTitle + "</h1><p>" + noteMsg + "</p>").fadeIn(function () {
-        if (!isSquarer()) $(this).delay(8000).fadeOut();
+function showNotification(completionPercentage,name, params) {
+    //var note = jQuery.grep(storyConfig.notifications.items, function (a) {
+    //    return (a.name == name);
+    //})[0];
+    //var noteTitle = note.title;
+    //var noteMsg = note.msg;
+    //if (params != undefined && params.length > 0) {
+    //    for (i in params) {
+    //        noteTitle = noteTitle.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
+    //        noteMsg = noteMsg.replace(('%' + (parseInt(i) + 1)).toString(), params[i]);
+    //    }
+    //}
+    noteTitle = name;
+    noteMsg = params;
+    progressBar = '<div class="progress" style="height:25px"><div class="progress-bar" role="progressbar" aria-valuenow="'+completionPercentage+'" aria-valuemin="0" aria-valuemax="100" style="width:'+completionPercentage+'%;background:#135899;padding:2px">  <span class="sr-only" style="position: relative; width: 25px;height: 25px;">'+completionPercentage+'% Complete</span> </div> </div>';
+    $('#notifications-splash').html("<h1>" + noteTitle + "</h1><p>" + noteMsg + "</p>"+"<br>"+progressBar).fadeIn(function () {
+        //if (!isSquarer()) $(this).delay(8000).fadeOut();
     });
     $('#notifications-splash .note-closer').unbind('click').on('click', function () {
         $('#notifications-splash').hide();
     })
 
 }
+window.showNotification = showNotification;
 
 /* =============================================================================================== */
 /* Parser and Helper Routines */
@@ -582,7 +593,7 @@ function cancelFullScreen(elm) {
     $('.show-deck-modal').css({"height":"100%"});
     $('.slide-container').css({"transform":"scale(1) translateX(0%)"});
     $('.slide-container').find('iframe').css({"margin-top":"0%"});
-
+    $('.modal-xlg-ppt').css({"height":"82%"})
 
     var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
     if (requestMethod) { // cancel full screen.
@@ -598,6 +609,7 @@ function cancelFullScreen(elm) {
     $('.main-story-content').show();
     $('#viewPPTModal').focus();
 }
+window.cancelFullScreen = cancelFullScreen
 
 function requestFullScreen(elm) {
     $('.modal-backdrop').hide();
@@ -607,7 +619,7 @@ function requestFullScreen(elm) {
     $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
     $('.slide-container').find('iframe').css({"margin-top":"7%"});
 
-
+    $('.modal-xlg-ppt').css({"height":"74%"});
     //$('.component').css({"transform":"scale(1.4) "});
 
     var el = document.body; // Make the body go full screen.

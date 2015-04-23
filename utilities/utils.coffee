@@ -47,6 +47,11 @@ UI.registerHelper "getUserEmailId",(uid) ->
 UI.registerHelper "getAppTitle",() ->
 
   "Ptotemy"
+UI.registerHelper "encode",(em) ->
+  decodeEmail(em)
+
+
+
 UI.registerHelper "notEquals", (a, b) ->
   a isnt b
 UI.registerHelper "equals", (a, b) ->
