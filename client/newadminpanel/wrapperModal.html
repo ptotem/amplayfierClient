@@ -11,7 +11,7 @@
           <input type="hidden" name="profileName" id="currentProfileName" value={{profile.name}}>
           <input type="hidden" name="profileDesc" id="currentProfileDesc" value={{profile.description}}>
 
-          <ul id="tag-list" class="full-box">
+          <ul id="new-tag-list" class="full-box">
             {{#each userDeckHtml}}
             <li>
               <div class="userDecks">
@@ -33,7 +33,7 @@
       </div>
       <div class="modal-footer">
             <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-            <a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
+            <a href="#" class="btn btn-primary add-individual-variant">Save </a>
 
       </div>
     </div>
@@ -51,7 +51,7 @@
       </div>
       <div class="modal-body">
         <div id="new-prf-form-profile" class="full-box">
-          <div class="row" id="user-list">
+          <div class="row">
 
             <div class="col-lg-12">
               <label for="profile-user-name">Profile Name</label>
@@ -63,16 +63,12 @@
               <!--</textarea>-->
               <textarea id="profile-desc" placeholder="Enter profile description" rows="3" class="form-control" name="description"></textarea>
             </div><br>
-            <div class="col-lg-12">
-              <a href="#" style="margin-top: 1%;" class="btn btn-lg btn-warning add-individual-profile pull-right">Save </a>
-              </div>
             </div>
           </div>
       </div>
       <div class="modal-footer">
             <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-            <a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
-
+            <a href="#" class="btn btn-warning add-individual-profile pull-right">Save </a>
       </div>
     </div>
   </div>
@@ -252,6 +248,27 @@
           <!--</div>-->
 
                 {{/with}}
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+            <a href="#" class="btn btn-lg btn-primary add-individual-variant">Save </a>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</template>
+
+<template name="editUsers">
+  <div class="modal modal-dark fade">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Edit User</h4>
+      </div>
+      <div class="modal-body">
+        <h1>This is the edit user modal</h1>
       </div>
       <div class="modal-footer">
             <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>

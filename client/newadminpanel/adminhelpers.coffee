@@ -117,6 +117,10 @@ Template.userlistLeftMenu.events
     if window.confirm("Are you sure you want to delete the user?")
       Meteor.call('removeUser',this._id)
       createNotification('Profile has been removed', 1)
+  'click .edit-user-btn':(e)->
+    showModal('editUsers',{},'main-wrapper-page-new')
+
+
 
   'click .download-template-btn':(e)->
     window.open "/assets/downloadables/userdata_template.xlsx","_blank"
