@@ -135,37 +135,27 @@ div.story-page {
     bottom: 5%;
     left: 4%;
     width: 60%;
-    background: white;
-    padding: 15px;
-    padding-top: 0;
+    padding: 2%;
+    padding-top: 1%;
     color: #666;
-    font-size: 1.5em;
-    box-shadow: 10px 10px 20px 2px black;
+    font-size: 1.3em;
     border: none;
     display: none;
-}
-
-#notifications-splash:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 99%;
-    top: 15%;
-    border: 25px solid;
-    border-color: #fff transparent transparent #fff;
+    background: rgba(51,51,51,0.9);
+    padding-bottom:1%;
 }
 
 #notifications-splash h1 {
     background: #252525;
-    width: 93%;
+    width: 100%;
     padding: 1%;
     padding-left: 2%;
     color: #f5f5f5;
+    font-size: 1.5em;
 }
 
 #notifications-splash p {
-    color: #666;
+    color: #ccc;
     width: 93%;
     margin-left: 2%;
 }
@@ -178,8 +168,8 @@ div.story-page {
 @media (orientation: portrait) {
     #notifications-splash h1 {
         width: 88%;
-        padding:2%;
-        padding-left:4%;
+        padding: 2%;
+        padding-left: 4%;
     }
     #notifications-splash p {
         width: 88%;
@@ -253,7 +243,7 @@ div.story-page {
 }
 
 #modal-pinboard .white-panel {
-    position: absolute;
+    position: relative;
     background: white;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
     padding: 10px;
@@ -802,7 +792,95 @@ img.translucent {
     width: 80%;
 }
 
-.modal-dialog
-{
+
+/*modal styles*/
+.modal-dialog {
     z-index: 2000
 }
+
+#notifications-center, #leaderboard, #documents-collection {
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#notificationsModal > .modal-dialog {
+    height: 100%;
+}
+
+#documentsModal > .modal-dialog {
+    height: 100%;
+}
+
+#notificationsModal > .modal-content {
+    height: 100%;
+}
+
+#documentsModal > .modal-content {
+    height: 100%;
+}
+
+#notificationsModal > .modal-body {
+    height: 100%;
+}
+
+#documentsModal > .modal-body {
+    height: 100%;
+}
+
+#main-page-tablet {
+    display: block;
+}
+
+@media
+(max-device-width: 800px)
+and (orientation: portrait) {
+
+    body{
+        background-image: url('/assets/images/portaitback.jpg');
+        background-size: 100% 100%;
+        height: 100%;
+        width: 100%;
+    }
+
+    #portrait-text-block{
+        padding: 5%;
+        margin: 8% 2% 2% 2%;
+    }
+
+    #portrait-view-text {
+        color: white;
+        font-size: 3em;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    #main-page-desktop {
+        display: none;
+    }
+
+    /*#main-page-tablet {*/
+        /*display: block;*/
+    /*}*/
+}
+@media
+(max-device-width: 1025px)
+ {
+.slide-wrapper{
+    transform: scale(0.75) translateX(-14%);
+}
+}
+
+#license-img
+{
+    position: absolute;
+    left:41%;
+    top:70%;
+    cursor: pointer;
+}
+
+.my-active-node
+{
+    width:5% !important;
+}
+
