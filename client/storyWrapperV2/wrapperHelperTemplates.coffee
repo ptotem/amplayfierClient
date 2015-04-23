@@ -165,7 +165,6 @@ Template.chatWrapper.events
   'click .chat-close':(e)->
     parent = $(e.currentTarget).attr('href')
     $(e.currentTarget).parents(parent).toggleClass('oc-lg-hidden-right  oc-lg-open-right')
-    # $('#oc-right-toggle').parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')
     e.stopPropagation()
 
 
