@@ -28,6 +28,11 @@ Template.enrollmentsLeftMenu.helpers
   nodes:()->
     platforms.findOne().nodes
 
+Template.badgesLeftMenu.helpers
+#  TODO: badgeImage, name, display_name, description
+  badges:()->
+    platforms.findOne().badges
+
 Template.userlistLeftMenu.helpers
   myusers: () ->
     Meteor.users.find().fetch()
@@ -63,8 +68,8 @@ Template.mainAdminPanel.helpers
 #    platforms.findOne().nodes
 
 
-  badges:()->
-    platforms.findOne().badges
+#  badges:()->
+#    platforms.findOne().badges
 
   passKey:()->
     {ukey:platforms.findOne()._id}
@@ -229,3 +234,19 @@ Template.enrollmentsLeftMenu.events
 
     )
     platforms.update({_id:pid},{$set:{nodes:nodes}})
+
+Template.badgesLeftMenu.events
+#  TODO: bug in badge update
+  'click .update-badge-values':(e)->
+    badgeList = []
+    $('.badge-item').each((ind,ele)->
+      badgeList.push {name:$(ele).attr('badge-name'),value:$(ele).find('input').val()}
+    )
+    pid = platforms.findOne()._id
+    console.log "badgeList"
+    console.log badgeList
+    console.log "badgeList.length :- " + badgeList.length
+    console.log "pid :- " + pid
+    platforms.update({_id:pid},{$set:{badges:badgeList}})
+
+    createNotification("Badges have been updated",1)
