@@ -25,6 +25,9 @@ Template.wrapperSideBar.events
     showModal('feedbackModal',{},'main-wrapper-page')
   'click .contact-us-link':(e)->
     showModal('contactusModal',{},'main-wrapper-page')
+  'click .vt-link':(e)->
+    showModal('virtualTourModal',{},'main-wrapper-page')
+
 
   'click .sign-out-link' :(e)->
     Meteor.logout() 

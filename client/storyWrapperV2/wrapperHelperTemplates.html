@@ -1,3 +1,1174 @@
+<template name="virtualTourModal">
+    <div class="modal blur jump-to-modal" id="jump-to-menu">
+        <div class="modal-dialog modal-lg">
+            <div class="clearfix">
+                <button type="button" class="close pull-right text-white-dk remove-modal"  aria-hidden="true">&times;</button>
+            </div>
+            <div class="container-fluid">
+                <div class="row text-center vpadded-row">
+                    <div class="col-sm-4">
+                        <a href="dashboard.html">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                                <i class="icm icm-user icm-4x"></i>
+                                <h5>Profile</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="widgets.html">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                                <i class="icm icm-medal2 icm-4x"></i>
+                                <h5>Badges</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="elements/cards/turbocards.html">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                                <i class="icm icm-ladder icm-4x"></i>
+                                <h5>LeaderBoard</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row text-center vpadded-row">
+                    <div class="col-sm-4">
+                        <a href="charts.html">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                                <i class="icm icm-trophy-star icm-4x"></i>
+                                <h5>Rewards</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="forms.html">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                                <i class="icm icm-envelope icm-4x"></i>
+                                <h5>Notifications</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="tables.html">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                                <i class="icm icm-drawer3 icm-4x"></i>
+                                <h5>Documents</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<template name="chatWrapper">
+    <aside class="oc-sidebar oc-sidebar-right oc-sidebar-fixed chat-bar" style="display: block">
+        <div class="oc-sidebar-header chat-sidebar-header">
+            <ul class="nav nav-tabs-oc nav-justified-all">
+                <li class="active">
+                    <a href="#chat-users" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Users">
+                        <i class="icm icm-users2"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#chat-recent" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Recent">
+                        <i class="icm icm-clock"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#chat-favorites" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Favorites">
+                        <i class="icm icm-star3"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#chat-settings" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Settings">
+                        <i class="icm icm-cog2"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="tab-content oc-sidebar-content">
+            <div class="tab-pane high active fade in" id="chat-users">
+
+                <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+                    <div id="oc-wrapper-chat-1" class="oc-wrapper chat-oc-wrapper
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+
+                        <div class="oc-push">
+                            <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+                                <form class="oc-header oc-search" role="search">
+                                    <div class="form-group has-header">
+                                        <span class="icm icm-filter3 form-control-header"></span>
+                                        <input type="text" class="form-control" placeholder="Filter contacts" data-toggle="listfilter" data-target="#uid489da56cf13b8ef5f1dff518e03af014">
+                                    </div>
+                                </form>
+
+                                <div class="nano">
+                                    <ul class="nav nav-stacked nano-content" id="uid489da56cf13b8ef5f1dff518e03af014">
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-07.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Dulce Middleton
+                                                        <small class="last-message-date">22, Dec</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Quod molestiae alias culpa
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-08.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Joey Wallace
+                                                        <small class="last-message-date">17, Jan</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Deserunt eius rerum volupta...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-05.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Daren Heath
+                                                        <small class="last-message-date">25, May</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Magni omnis magnam totam
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-02.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Billy May
+                                                        <small class="last-message-date">27, Aug</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Est qui ipsum at magni nece...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-09.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Noelle Wilkerson
+                                                        <small class="last-message-date">16, May</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Dolores sit nostrum porro q...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-21.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Ty Olsen
+                                                        <small class="last-message-date">20, Feb</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Ducimus autem sed fuga aute...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-14.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Noel Eason
+                                                        <small class="last-message-date">25, Jul</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Deserunt eveniet hic velit ...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-03.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Reid Willis
+                                                        <small class="last-message-date">04, May</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Et perspiciatis adipisci od...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-13.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Brooklynn Rich
+                                                        <small class="last-message-date">08, Feb</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Corporis quo alias sint eiu...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-04.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Shawn Diaz
+                                                        <small class="last-message-date">01, Jul</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Nobis vel ad delectus dolor...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-06.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Giselle Sinclair
+                                                        <small class="last-message-date">02, Mar</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Inventore quia repellat adi...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-12.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Ian West
+                                                        <small class="last-message-date">31, Mar</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Commodi earum est illum cup...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-22.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Sydney Wagner
+                                                        <small class="last-message-date">09, Feb</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Quia qui iure amet quae
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-01.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Omar Choi
+                                                        <small class="last-message-date">14, Oct</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Tenetur facere sequi tenetu...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <aside class="oc-sidebar oc-sidebar-right">
+                            <div class="chat-conversation" id="uide4d26fac6128041b830dfdbdd08aab26">
+
+                                <div class="chat-contact unread">
+                                    <div class="media">
+                                        <a href="#oc-wrapper-chat-1" class="close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
+                                        <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-10.png" />
+                                        <div class="media-body">
+                                            <div class="media-heading">
+                                                Abigail Christensen
+                                            </div>
+                                            <small class="last-message">
+                                                Be right back, on phone
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chat-messages nano">
+                                    <div class="nano-content">
+                                        <p class="text-center text-info small">
+                                            User went online <span class="text-muted">at Fri Mar 13, 1992</span>
+                                        </p>
+
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-21.png" /> Rerum quibusdam ex eum
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-14.png" /> Nobis ex et voluptates
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-03.png" /> Dolores id ipsam occaecati non nihil aut temporibus necessitatibus eum delectus deleniti quo voluptatem
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-13.png" /> Sunt aut non pariatur eveniet consequatur neque consequatur fugit voluptatem
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-04.png" /> Iure consequatur aut nesciunt ut sed quam incidunt adipisci aut pariatur consequatur tenetur eligendi
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-06.png" /> Saepe quod aliquid quibusdam dicta omnis
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-12.png" /> Aut sint vel autem nostrum et sunt aut consequatur quia necessitatibus atque aut sed sed
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-22.png" /> Labore in mollitia amet voluptatibus eum optio quidem qui distinctio alias neque
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-01.png" /> Totam ipsam quam ex doloremque
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-10.png" /> Corporis aut officia eligendi vel consequatur est velit atque veritatis eveniet recusandae eligendi vero
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-20.png" /> Modi quidem illum rerum sunt deleniti veniam autem culpa accusantium odit perspiciatis illum odit
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-23.png" /> Ipsum rerum alias adipisci consequuntur dolores
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-11.png" /> Voluptatem a earum dicta
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-07.png" /> Maiores similique magni pariatur
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-08.png" /> At ipsam excepturi facere ad et
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-05.png" /> Itaque saepe dolorem et consequatur excepturi sunt voluptatibus
+                                            </p>
+                                        </div>
+
+                                        <p class="text-center text-warning small">
+                                            User went offline <span class="text-muted">at Wed Dec 22, 2004</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <form role="form" class="chat-sender">
+                                    <textarea class="form-control" rows="2" placeholder="Type message..."></textarea>
+                                </form>
+
+                            </div>
+
+
+
+                        </aside>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade high" id="chat-recent">
+
+                <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+                    <div id="oc-wrapper-chat-2" class="oc-wrapper chat-oc-wrapper
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+
+                        <div class="oc-push">
+                            <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+                                <form class="oc-header oc-search" role="search">
+                                    <div class="form-group has-header">
+                                        <span class="icm icm-filter3 form-control-header"></span>
+                                        <input type="text" class="form-control" placeholder="Filter contacts" data-toggle="listfilter" data-target="#uid80b1f72c6febf7077e17ae5e5b109cf5">
+                                    </div>
+                                </form>
+
+                                <div class="nano">
+                                    <ul class="nav nav-stacked nano-content" id="uid80b1f72c6febf7077e17ae5e5b109cf5">
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-20.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Lori Dougherty
+                                                        <small class="last-message-date">16, Sep</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Minima nulla aperiam debiti...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-23.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Arturo Dougherty
+                                                        <small class="last-message-date">17, Aug</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Nobis neque architecto dese...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-11.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Yehudi Abrams
+                                                        <small class="last-message-date">08, May</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Ex dolores ipsam quia occae...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-07.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Javon Kane
+                                                        <small class="last-message-date">23, Jul</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Voluptatem ut est aut venia...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-08.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Hamish Jennings
+                                                        <small class="last-message-date">09, Aug</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Voluptas similique placeat ...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-05.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Alexa Gross
+                                                        <small class="last-message-date">02, Sep</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Occaecati dignissimos volup...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-02.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Ewan Chang
+                                                        <small class="last-message-date">22, Jun</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Sunt et quod possimus lauda...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-09.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Lorenzo Goldman
+                                                        <small class="last-message-date">08, Feb</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Rerum at corporis quisquam ...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-21.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Geraldine Love
+                                                        <small class="last-message-date">01, Dec</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Distinctio reprehenderit au...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-14.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Melinda Weeks
+                                                        <small class="last-message-date">28, Nov</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Et rerum rerum eos laudanti...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-03.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Carmen Wagner
+                                                        <small class="last-message-date">26, Jan</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Assumenda dolorum laudantiu...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-13.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Alberto Chappell
+                                                        <small class="last-message-date">16, Mar</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Et quisquam dolorum consect...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-04.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Maggie Schultz
+                                                        <small class="last-message-date">10, Dec</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Rerum dolores laborum conse...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-06.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Jamal Beasley
+                                                        <small class="last-message-date">08, Sep</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Porro et saepe dolorum volu...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <aside class="oc-sidebar oc-sidebar-right">
+                            <div class="chat-conversation" id="uidbbca23710fab9e6a4491cc096740e37a">
+
+                                <div class="chat-contact unread">
+                                    <div class="media">
+                                        <a href="#oc-wrapper-chat-2" class="close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
+                                        <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-12.png" />
+                                        <div class="media-body">
+                                            <div class="media-heading">
+                                                Collin Tilley
+                                            </div>
+                                            <small class="last-message">
+                                                Be right back, on phone
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chat-messages nano">
+                                    <div class="nano-content">
+                                        <p class="text-center text-info small">
+                                            User went online <span class="text-muted">at Thu Aug 28, 2003</span>
+                                        </p>
+
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-09.png" /> Voluptatem voluptatum eveniet ducimus cum omnis rerum deleniti ex officia molestias officia beatae repudiandae dolores
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-21.png" /> Repellat eius est quibusdam enim aut aperiam nesciunt vitae
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-14.png" /> Quibusdam id quas reprehenderit tenetur quos
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-03.png" /> Enim fuga quaerat nulla nisi quam ipsa quaerat est iste sequi voluptatum ut eos eaque
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-13.png" /> Porro quia illo et dolor iusto voluptatibus nam
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-04.png" /> Molestiae eligendi id est quasi delectus itaque
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-06.png" /> Quia qui mollitia nihil aut rerum exercitationem atque voluptatem sit consequuntur repellendus aut necessitatibus
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-12.png" /> Qui temporibus corporis laboriosam et
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-22.png" /> Voluptatem nihil vel illo maxime possimus et natus incidunt harum non
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-01.png" /> Voluptas sit iure dolor culpa dolores non at debitis facilis qui eos id
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-10.png" /> Aperiam iste maiores commodi magnam est
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-20.png" /> Maiores numquam minima et porro provident maxime quos facere eligendi consequatur cumque ipsam corrupti
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-23.png" /> Doloremque vel reiciendis quidem est voluptatem eligendi
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-11.png" /> Sit repellat ut esse a voluptatem deserunt illo vel soluta autem
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-07.png" /> Officiis explicabo tenetur commodi omnis
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-08.png" /> Impedit alias aut non necessitatibus ut
+                                            </p>
+                                        </div>
+
+                                        <p class="text-center text-warning small">
+                                            User went offline <span class="text-muted">at Mon Jun 23, 1997</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <form role="form" class="chat-sender">
+                                    <textarea class="form-control" rows="2" placeholder="Type message..."></textarea>
+                                </form>
+
+                            </div>
+
+
+
+                        </aside>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade high" id="chat-favorites">
+
+                <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+                    <div id="oc-wrapper-chat-3" class="oc-wrapper chat-oc-wrapper
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+
+                        <div class="oc-push">
+                            <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+                                <form class="oc-header oc-search" role="search">
+                                    <div class="form-group has-header">
+                                        <span class="icm icm-filter3 form-control-header"></span>
+                                        <input type="text" class="form-control" placeholder="Filter contacts" data-toggle="listfilter" data-target="#uid6086fab46d4d3863b17ec6471aa26bc4">
+                                    </div>
+                                </form>
+
+                                <div class="nano">
+                                    <ul class="nav nav-stacked nano-content" id="uid6086fab46d4d3863b17ec6471aa26bc4">
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-22.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Orlaith Morse
+                                                        <small class="last-message-date">03, Apr</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Vel iste et porro voluptate...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-01.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Quinn McNamara
+                                                        <small class="last-message-date">02, Dec</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Sed rerum sed eaque labore ...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact unread">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-10.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Johnnie Gallagher
+                                                        <small class="last-message-date">14, Mar</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Dolore voluptas ducimus sap...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-20.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Dominick Neal
+                                                        <small class="last-message-date">19, Jul</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Quia quaerat dolor rerum en...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-23.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Arturo Abbott
+                                                        <small class="last-message-date">28, May</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Cupiditate perspiciatis tot...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact ">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-11.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Lucinda Cassidy
+                                                        <small class="last-message-date">04, May</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Natus dolor omnis ad facere...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-07.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Lynette Heath
+                                                        <small class="last-message-date">15, Dec</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Quod ut beatae vel quis exp...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-08.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Arturo Garrett
+                                                        <small class="last-message-date">23, Apr</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Non laudantium deleniti eum...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-05.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Cindy Merritt
+                                                        <small class="last-message-date">12, Oct</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Velit quia perferendis perf...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-02.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Kelly May
+                                                        <small class="last-message-date">25, Apr</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Modi doloribus esse volupta...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-09.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Bonnie Weiner
+                                                        <small class="last-message-date">20, May</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Libero officia iure consequ...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-21.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Gordon Black
+                                                        <small class="last-message-date">08, Jul</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Quo doloribus totam atque a...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-14.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Antoinette Abrams
+                                                        <small class="last-message-date">04, Sep</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Sunt est id nisi nam non te...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="chat-contact offline">
+                                            <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                                                <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-03.png" />
+                                                <div class="media-body">
+                                                    <div class="media-heading">
+                                                        Moses Johnston
+                                                        <small class="last-message-date">29, Dec</small>
+                                                    </div>
+                                                    <small class="last-message">
+                                                        Sed consequatur suscipit qu...
+                                                    </small>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <aside class="oc-sidebar oc-sidebar-right">
+                            <div class="chat-conversation" id="uid2ca5d0490a00b3f6f7a1c0af5d55d07c">
+
+                                <div class="chat-contact unread">
+                                    <div class="media">
+                                        <a href="#oc-wrapper-chat-3" class="close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
+                                        <img class="media-object pull-left img-circle" src="../images/faker/avatars/48/Faces_Users-13.png" />
+                                        <div class="media-body">
+                                            <div class="media-heading">
+                                                Sheryl Byrne
+                                            </div>
+                                            <small class="last-message">
+                                                Be right back, on phone
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chat-messages nano">
+                                    <div class="nano-content">
+                                        <p class="text-center text-info small">
+                                            User went online <span class="text-muted">at Thu May 13, 1999</span>
+                                        </p>
+
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-02.png" /> Et non nihil omnis non consequuntur consequuntur voluptas
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-09.png" /> Maiores illum qui maiores fuga
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-21.png" /> Id aut laudantium corporis quae aut quia iusto eum autem
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-14.png" /> Sit est sequi delectus eum impedit officia ipsum
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-03.png" /> Sunt sed nisi corrupti sunt neque rem libero
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-13.png" /> Voluptatem voluptates nemo quia omnis ut odio consequatur dolorem corporis exercitationem cum vel expedita
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-04.png" /> Voluptas aut similique voluptate perferendis ad ut molestiae
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-06.png" /> Totam cumque deleniti est et nemo nihil officia libero fuga in consectetur ut velit
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-12.png" /> Quia sed laudantium magni
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-22.png" /> Quasi ea dolorem numquam perspiciatis voluptas ullam vitae ea
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-01.png" /> Quisquam omnis culpa reiciendis officiis suscipit rerum magni enim error aliquam
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-10.png" /> Id vero alias ab ullam sit vitae labore quisquam et
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-20.png" /> Voluptate magnam reprehenderit corporis asperiores iste
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-23.png" /> Natus ipsa assumenda dolorum et officia debitis voluptatem nemo nesciunt aut sequi
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-left">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../images/faker/avatars/24/Faces_Users-11.png" /> Voluptatem aspernatur velit illo qui et qui nesciunt harum necessitatibus tempora aut optio iure doloremque
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <p class="chat-bubble chat-bubble-right">
+                                                <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../images/faker/avatars/24/Faces_Users-07.png" /> Suscipit non harum quod voluptatem consequatur voluptates voluptate hic voluptates non facere
+                                            </p>
+                                        </div>
+
+                                        <p class="text-center text-warning small">
+                                            User went offline <span class="text-muted">at Thu Dec 01, 1994</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <form role="form" class="chat-sender">
+                                    <textarea class="form-control" rows="2" placeholder="Type message..."></textarea>
+                                </form>
+
+                            </div>
+
+
+
+                        </aside>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade high" id="chat-settings">
+                <form class="oc-header oc-form" role="search">
+                    <div class="form-group has-header">
+                        <span class="icm icm-bubble form-control-header"></span>
+                        <input type="text" class="form-control" placeholder="Status message">
+                    </div>
+                </form>
+                <div class="oc-inner switch-label">
+                    <p>Chat always on</p>
+                    <div class="switch switch-primary switch-medium pull-right">
+                        <input type="checkbox" checked rel="switch">
+                    </div>
+                </div>
+                <div class="oc-inner switch-label">
+                    <p>Notify incoming chat messages</p>
+                    <div class="switch switch-success switch-medium pull-right">
+                        <input type="checkbox" checked rel="switch">
+                    </div>
+                </div>
+                <div class="oc-inner switch-label">
+                    <p>Notify contacts online status</p>
+                    <div class="switch switch-info switch-medium pull-right">
+                        <input type="checkbox" checked rel="switch">
+                    </div>
+                </div>
+                <div class="oc-inner switch-label">
+                    <p>Do not message me when invisible</p>
+                    <div class="switch switch-warning switch-medium pull-right">
+                        <input type="checkbox" checked rel="switch">
+                    </div>
+                </div>
+                <div class="oc-inner switch-label">
+                    <p>Do not accept messages from banned users</p>
+                    <div class="switch switch-danger switch-medium pull-right">
+                        <input type="checkbox" checked rel="switch">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+</template>
+
 <template name="wrapperSideBar">
     <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano" style="background: #12131a;">
         <div class="nano-content">
@@ -10,7 +1181,9 @@
                     </li>
 
                 </ul>
+
             </div>
+
 
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
@@ -62,6 +1235,14 @@
                             <span class="oc-partial-menu-item">Contact Us</span>
                         </a>
                     </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour." href="#documentsModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-binoculars2"></i>
+                            <span class="oc-partial-menu-item">Virtual Tour</span>
+                        </a>
+                    </li>
+
+
 
 
 
