@@ -1,27 +1,32 @@
-<template name="licenseTempModal">
-    <div class="modal blur data-display-modal" id="licenseTempModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
-            <div class="modal-content" style="height: 100%">
-                <div class="modal-header">
-                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
-                    <div class="top-circle-icon"><i class="icm icm-medal"></i>
-                    </div>
-                    <h4 class="modal-title" id="notifyModalLabel">Your License </h4>
+<template name="fullVirtualTourModal">
+    <div class="modal blur jump-to-modal" id="jump-to-menu">
+        <div class="modal-dialog modal-lg">
+            <div class="clearfix">
+                <button type="button" class="close pull-right text-white-dk remove-modal"  aria-hidden="true">&times;</button>
+            </div>
+            <div class="container-fluid help-content-container">
+                    <div class="row text-center vpadded-row main-text">
+                <div class="help-text col-sm-7 col-sm-offset-2">
+                    Welcome. Let’s take a quick look at what you can do on this game based app. Click on the next button to continue the tour.
+
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-10 col-sm-offset-1">
-                            <img class="img-responsive" src="/assets/images/staticCerti1.jpg">
-                        </div>
+                </div>
+
+
+
+
+                <div class="row text-center vpadded-row">
+                    <div class="col-sm-2 col-sm-offset-8">
+                        <a href="#" next-screen="screen2" class="btn btn-danger btn-lg first-btn next-help-btn">Next</a>
                     </div>
 
                 </div>
+
+
             </div>
-            <!-- /.modal-content -->
         </div>
 
     </div>
-
 </template>
 
 
@@ -90,6 +95,33 @@
         </div>
 
     </div>
+</template>
+
+
+<template name="licenseTempModal">
+    <div class="modal blur data-display-modal" id="licenseTempModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+            <div class="modal-content" style="height: 100%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-medal"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Your License </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <img class="img-responsive" src="/assets/images/staticCerti1.jpg">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+
 </template>
 
 <template name="chatWrapper">
@@ -1531,7 +1563,13 @@
                 <div id="modal-pinboard">
 
                     {{#each deckOfNode seq}}
-                        <div style="pointer-events: {{flag}};width:99%" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}"><div class="row"><div class="col-sm-12"><img src="http://lorempixel.com/400/200/" class="large-pincard"><h4>{{deckName}}</h4><p>{{deckDesc}}</p></div></div><div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> {{status}}</div></div></div></div>
+                        <div style="pointer-events: {{flag}};width:99%" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}">
+                            <div class="row"><div class="col-sm-12"><img src="{{deckPic}}" class="large-pincard">
+                                <h4>{{deckName}}</h4>
+                                <p>{{deckDesc}}</p>
+                            </div>
+                            </div>
+                            <div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> {{status}}</div></div></div></div>
 
                     {{/each}}
 
