@@ -881,15 +881,38 @@ and (orientation: portrait) {
     top:70%;
     cursor: pointer;
 }
-#shield-img
-{
+#shield-img {
     position: absolute;
-    left:21%;
-    top:70%;
+    left: 5.5%;
+    top: 88%;
     cursor: pointer;
+    width: 6%;
+}
+/*.my-active-node*/
+/*{*/
+    /*width:2% !important;*/
+/*}*/
+
+.help-text
+{
+    font-size:1.0em;
+    text-align: justify;
 }
 
-/*.my-active-node
+.right-arrow-for-help-transformed
 {
-    width:5% !important;
-}*/
+    width: 60%;
+    margin-left: 0%;
+    margin-top: -21%;
+    transform: rotate(40deg);
+}
+
+.banner-content h1
+{
+    font-size:23px
+}
+
+#notifications-splash
+{
+    display: none !important;
+}
