@@ -637,7 +637,7 @@ function requestFullScreen(elm) {
     //$('.slide-container').find('iframe').css({"margin-top":"0%"});
     //$('.slide-container').find('iframe').find('embed').css({"transform":"scale(1.4)"});
     setTimeout(function(){
-            $('.slide-container').find('iframe').css({"transform":"scale(1.15) translateY(7%)"});
+            $('.slide-container').find('iframe').css({"-webkit-transform":"scale(1.15) translateY(7%)"});
     }
     ,3000);
 
