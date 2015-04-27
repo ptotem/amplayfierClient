@@ -92,8 +92,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary new-assessment-for-admin-save" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-success new-assessment-for-admin-save" data-dismiss="modal">Save</button>
                 </div>
             </div>
         </div>
@@ -127,8 +126,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary new-question-for-admin-save" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-success new-question-for-admin-save" data-dismiss="modal">Save</button>
                 </div>
             </div>
         </div>
@@ -177,10 +175,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-                    <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>-->
-                </div>
+                <!--<div class="modal-footer">-->
+                    <!--<button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
@@ -223,8 +220,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary new-reward-save" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-success new-reward-save" data-dismiss="modal">Save</button>
                 </div>
             </div>
         </div>
@@ -311,28 +307,34 @@
                 <label for="user-email">Email ID</label>
                 <input type="email" class="form-control" id="user-email" value="{{decodeUserEmail personal_profile.email}}" placeholder="Enter name"/>
                 <input type="hidden" id="user-id" value="{{_id}}"/>
-              </div><br><br>
-                        <div class="col-lg-12">
-                <label for="user-email">Reporting Manager</label>
-                <select class="reporting-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
-
               </div>
-                        <div class="col-lg-12">
-                            <label for="user-email">HR Manager</label>
-                            <select class="hr-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
-
-                        </div>
-                        <div class="col-lg-12">
-                <label for="user-email">Role</label>
-                            <select class="user-role">{{#each roles}}<option value="{{_id}}">{{rolename}}</option>{{/each}}</select>
-
-
-              </div>
-
-
-
-
-                        <br><br>
+              <br><br><br><br>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <label for="user-email">Reporting Manager</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select class="reporting-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
+                    </div>
+                </div>
+                <br><br><br><br>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <label for="user-email">HR Manager</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select class="hr-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
+                    </div>
+                </div>
+                <br><br>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <label for="user-email">Role</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select class="user-role">{{#each roles}}<option value="{{_id}}">{{rolename}}</option>{{/each}}</select>
+                    </div>
+                </div>
 
             </div>
           <!--</div>-->
@@ -355,7 +357,7 @@
     <div class="modal-content">
       <div class="modal-header ">
         <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Edit User</h4>
+        <h4 class="modal-title">System Notifications</h4>
       </div>
       <div class="modal-body">
         <select id="usersemails2" multiple>
@@ -369,9 +371,7 @@
 
       </div>
       <div class="modal-footer">
-            <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
             <input type="submit" class='btn btn-success create-notification' value="Create Notification">
-
       </div>
     </div>
   </div>

@@ -176,6 +176,7 @@ Template.adduserModal.events
       Meteor.call('updateUser', $("#user-id").val(), p)
       Meteor.call("sendUserAddMailGunMail", email, first_name, last_name, currUserFname, currUserLname)
       createNotification('Profile has been updated', 1)
+      $('.remove-modal').click()
 
 Template.newNoti.events
   'click .remove-modal': (e) ->
@@ -205,7 +206,7 @@ Template.newNoti.events
     notiTarget = $("#usersemails2").val()
     for u in notiTarget
       createUserNotification(u, Session.get("uniKeyForNoti"), notiMsg)
-
+    $('.remove-modal').click()
 
 
 Template.adduserModal.helpers
@@ -251,7 +252,8 @@ Template.newQuestionForAssessmentModal.events
     nqMin = $("#new-question-min").val()
     manualData = {statement: nqName, min: nqMin, max: nqMax}
     assesments.update({_id: Session.get("newquesId") } , {$push: {scoreQuestions: manualData} } )
-# assesments.update({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id,_id:assesments.findOne()._id})
+    # assesments.update({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id,_id:assesments.findOne()._id})
+    $('.remove-modal').click()
 
 Template.viewQuestionsForAssessmentModal.events
   'click .remove-modal': (e) ->
