@@ -1,22 +1,23 @@
 <template name="adminSideBar">
-    <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
-        <div class="nano-content">
+
+  <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
+    <div class="nano-content">
 
 
-            <div class="oc-sidebar-header">
-                <ul class="nav nav-justified-all">
-                    <li>
-                        <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="open,partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
-                            <i class="icm icm-menu6 oc-partial-rotate"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-nav" data-toggle="modal" href="#jump-to-menu"> <i class="icm icm-arrow-right6"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-nav" href="#" rel="popover-click" data-toggle="popover" data-container="body" data-placement="bottom">
-                            <i class="icm icm-bubbles5 has-corner-badge animated tada">
+      <div class="oc-sidebar-header">
+        <ul class="nav nav-justified-all">
+          <li>
+            <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="open,partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
+              <i class="icm icm-menu6 oc-partial-rotate"></i>
+            </a>
+          </li>
+          <li>
+            <a class="btn-nav topModal" data-toggle="modal"> <i class="icm icm-arrow-right6"></i>
+            </a>
+          </li>
+          <li>
+            <a class="btn-nav" href="#" rel="popover-click" data-toggle="popover" data-container="body" data-placement="bottom">
+              <i class="icm icm-bubbles5 has-corner-badge animated tada">
           <span class="badge badge-corner badge-corner-top-right badge-info-dk">
             <i class="fa fa-exclamation"></i>
               </span>
@@ -76,7 +77,7 @@
                         <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!" href="#uida2d303f3f492c050e17f7f427ee7d672">
                             <i class="oc-partial-icon fa fa-users"></i>
               <span class="oc-partial-menu-item">
-                Manage Users
+                &nbsp;&nbsp;Manage Users
                 <b class="caret"></b>
               </span>
                         </a>
@@ -96,14 +97,14 @@
                     </li>
                     <li class="">
 
-                        <a class="collapsed menu-link" target-templ="manageReport"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">Manage Reports</span></a>
-                    </li>
+            <a class="collapsed menu-link" target-templ="manageReport" href="#"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Manage Reports</span></a>
+          </li>
 
                     <li class=" dropdown">
                         <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
                       " href="#mailer"> <i class="oc-partial-icon fa fa-envelope-o"></i>
               <span class="oc-partial-menu-item">
-                Mailers
+                &nbsp;&nbsp;Mailers
                 <b class="caret"></b>
               </span>
                         </a>
@@ -111,8 +112,8 @@
 
 
 
-                            <li class="">
-                                <a class="collapsed menu-link" target-templ="portalMailer"> Portal Mailers
+              <li class="">&nbsp;
+                <a class="collapsed menu-link" target-templ="portalMailer" href="#"> Portal Mailers
                                 </a></li>
 
                             <li class="">
@@ -121,30 +122,30 @@
                             <li class="">
                                 <a class="collapsed menu-link" target-templ="systemNoticifation"> System Notifications
                                 </a></li>
-                        </ul>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" href="#" target-templ="repository"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">Repository</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="rolesLeftMenu" href="#"><i class="oc-partial-icon fa fa-sitemap"></i><span class="oc-partial-menu-item">Roles</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">Rewards</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">Badges</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">Enrollments</span></a>
-                    </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">Assessments</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </aside>
+            </ul>
+          </li>
+          <li class="">
+            <a class="collapsed menu-link" href="#" target-templ="repository"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Repository</span></a>
+          </li>
+          <li class="">
+            <a class="collapsed menu-link" target-templ="rolesLeftMenu" href="#"><i class="oc-partial-icon fa fa-sitemap"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Roles</span></a>
+          </li>
+          <li class="">
+            <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
+          </li>
+          <li class="">
+            <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
+          </li>
+          <li class="">
+            <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Enrollments</span></a>
+          </li>
+          <li class="">
+            <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Assessments</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
 </template>
 
 <template name="adminHeaderBar">
@@ -1000,38 +1001,39 @@
             <span class="panel-title-edtitable" data-type="text">
               Enrollments
             </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <tbody>
-                            {{#each nodes}}
-                            <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
-                                <td class="col-md-6">{{title}}</td>
-                                <td class="col-md-6">
-                                    <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" /> {{#if assessmentNode}}
-                                    <select class="pull-right select-asessment" style="margin-right: 2%;">
-                                        {{#each assessments}}
-                                        <option value="{{_id}}">{{assessmentName}}</option>
-                                        {{/each}}
-                                    </select>
-                                    <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{else}}
-                                    <select class="pull-right select-asessment" disabled style="margin-right: 2%;">
-                                        {{#each assessments}}
-                                        <option value="-1">{{assessmentName}}</option>
-                                        {{/each}}
-                                    </select>
-                                    <input type="checkbox" class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{/if}}
-                                </td>
-                            </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="panel-body-collapse collapse in">
+          <div class="panel-body">
+            <table class="table table-hover">
+              <tbody>
+                {{#each nodes}}
+                <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
+                  <td class="col-md-6">{{title}}</td>
+                  <td class="col-md-6">
+                    <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" /> {{#if assessmentNode}}
+                    <!-- <select rel="selectize" data-placeholder="Give your user a profile " user-id="{{_id}} " class="form-control user-profile-chosen pull-right " tabindex="-1 " style="width:150px;padding:0;margin-right:5px; "> -->
+                    <select rel="selectize" class="form-control pull-right select-asessment" style="width:70px;padding:0;margin-right:2%; ">
+                      {{#each assessments}}
+                      <option value="{{_id}}">{{assessmentName}}</option>
+                      {{/each}}
+                    </select>
+                    <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{else}}
+                    <select rel="selectize" class="form-control pull-right select-asessment" disabled style="width:70px;padding:0;margin-right:2%; ">
+                      {{#each assessments}}
+                      <option value="-1">{{assessmentName}}</option>
+                      {{/each}}
+                    </select>
+                    <input type="checkbox" class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{/if}}
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+       </div>
     </div>
 </template>
 
