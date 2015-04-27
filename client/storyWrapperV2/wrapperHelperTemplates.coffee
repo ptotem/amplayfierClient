@@ -1,3 +1,21 @@
+Template.fullVirtualTourModal.events
+  'click .next-help-btn':(e)->
+    $('.first-btn').addClass('second-btn').removeClass('first-btn')
+    $('.help-content-container').empty()
+    eattr = $(e.currentTarget).attr('next-screen')
+    console.log eattr
+    for t in virtualTour[eattr].textPoints
+      $('.help-content-container').append(t.textValue)
+
+    $('.help-content-container').append('<div class="row text-center vpadded-row ">
+               <div class="col-sm-2 col-sm-offset-8">
+                        <a href="#" next-screen='+virtualTour[eattr]['btnValue']['extraAttr']+' class="'+virtualTour[eattr]['btnValue']['classVal']+'">'+virtualTour[eattr]['btnValue']['name']+'</a>
+                    </div>
+
+              </div> ')
+
+
+
 Template.wrapperSideBar.rendered = ->
     $('.side-bar-link').popover({trigger:'hover',html: true,delay: { "show": 500, "hide": 100 }})
 
@@ -151,7 +169,7 @@ Template.nodeTemp.helpers
             status = 'incomplete'
 
 
-          deckList.push {flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status}
+          deckList.push {flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,deckPic:deckHtml.findOne({deckId:d}).pic}
           if status is 'incomplete' and i is 0
             flag = 'none'
       deckList

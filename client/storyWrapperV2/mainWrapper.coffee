@@ -15,7 +15,7 @@ Template.mainWrapper.rendered = ->
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
-    showNotification("40",'PepsiCo OnBoarding','Welcome to the Pepsico Sales Onboarding Platform. Click on the cross to start the game.')
+    showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
   ,1000)
 
 
@@ -59,7 +59,7 @@ Template.mainWrapper.helpers
 
     else
 #      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].active
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active.replace('png','gif')
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
   getNodeUrl:(pic)->
       "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
   getPlacement:(px)->
