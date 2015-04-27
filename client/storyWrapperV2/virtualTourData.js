@@ -6,12 +6,12 @@ var virtualTour = {
     },
     screen2:{
         textPoints:[
-            {textValue:'<div class="row text-center vpadded-row "> <div class="help-text col-sm-7 col-sm-offset-2">Welcome. Let’s take a quick look at what you can do on this game based app. Click on the next button to continue the tour. </div> </div> '},
-            {textValue:'<div class="row text-center vpadded-row "> <div class="help-text col-sm-7 col-sm-offset-2">The app has a number of games and decks. You need to go through each deck and then play the games to get a score. This score will help you earn rewards, badges and a certificate – the licence to sell. </div> </div> '}
+            {textValue:'<div class="row text-center vpadded-row "> <div class="help-text col-sm-7 col-sm-offset-2" style="font-size:20px">Welcome. Let’s take a quick look at what you can do on this game based app. Click on the next button to continue the tour. </div> </div> '},
+            {textValue:'<div class="row text-center vpadded-row "> <div class="help-text col-sm-7 col-sm-offset-2" style="font-size:20px">The main play area is on the right. You can access games and decks on the app by clicking on a chapter. The active chapter or checkpoint will always be highlighted.</div> </div> '}
         ],
         btnValue : {
             name : "Next",
-            classVal : "btn btn-danger btn-lg next-help-btn",
+            classVal : "btn btn-warning btn-md btn-block next-help-btn",
             extraAttr : "screen3"
 
         }
@@ -21,7 +21,7 @@ var virtualTour = {
             {textValue:'<div class="row text-center vpadded-row "> <div class="help-text col-sm-7 col-sm-offset-2">Welcome. Let’s take a quick look at what you can do on this game based app. Click on the next button to continue the tour. </div> </div> '},
             {textValue:'<div class="row text-center vpadded-row "> <div class="help-text col-sm-7 col-sm-offset-2">The app has a number of games and decks. You need to go through each deck and then play the games to get a score. This score will help you earn rewards, badges and a certificate – the licence to sell. </div> </div> '},
             {textValue:'<img src="/assets/images/right_arrow.png" class="img-responsive right-arrow-for-help" style="  width: 9%;margin-right: 20%;margin-bottom:-2%"> '},
-            {textValue:'<div class="row text-center vpadded-row "> <div class="help-text col-sm-12 col-sm-offset-4"><div class="col-sm-6">The main play area is on the right. You can access games and decks on the app by clicking on a chapter. The active chapter or checkpoint will always be highlighted.</div><div class="col-sm-2"><img src="/assets/images/right_arrow.png" class="img-responsive right-arrow-for-help-transformed"></div></div> </div> '}
+            {textValue:'<div class="row text-center vpadded-row "> <div class="help-text col-sm-12 col-sm-offset-4"><div class="col-sm-6">The app has a number of games and decks. You need to go through each deck and then play the games to get a score. This score will help you earn rewards, badges and a certificate – the licence to sell.</div><div class="col-sm-2"><img src="/assets/images/right_arrow.png" class="img-responsive right-arrow-for-help-transformed"></div></div> </div> '}
 
 
         ],

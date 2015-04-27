@@ -6,7 +6,7 @@
             </div>
             <div class="container-fluid help-content-container">
                     <div class="row text-center vpadded-row main-text">
-                <div class="help-text col-sm-7 col-sm-offset-2">
+                <div class="help-text col-sm-8 col-sm-offset-2" style="font-size:20px">
                     Welcome. Let’s take a quick look at what you can do on this game based app. Click on the next button to continue the tour.
 
                 </div>
@@ -16,8 +16,8 @@
 
 
                 <div class="row text-center vpadded-row">
-                    <div class="col-sm-2 col-sm-offset-8">
-                        <a href="#" next-screen="screen2" class="btn btn-danger btn-lg first-btn next-help-btn">Next</a>
+                    <div class="col-sm-1 col-sm-offset-9" style="padding:0">
+                        <a id="nxt-btn" href="#" next-screen="screen2" class="btn btn-warning btn-md btn-block first-btn next-help-btn">Next</a>
                     </div>
 
                 </div>
@@ -1247,7 +1247,7 @@
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
                   <li class="">
-                      <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour." href="#documentsModal" data-toggle='modal'>
+                      <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour." onclick="setUpVirtualTour()">
                           <i class="oc-partial-icon icm icm-binoculars2"></i>
                           <span class="oc-partial-menu-item">Virtual Tour</span>
                       </a>
