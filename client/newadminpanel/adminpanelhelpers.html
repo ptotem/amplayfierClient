@@ -278,8 +278,9 @@
   <div class="table-line">
     <div class="row table-line-row">
       <div class="col-md-3 pull-right text-right">
-        <a href="#" class="btn btn-success btn-md new-role-form-btn">New Role</a>
         <a href="#" class="btn btn-warning btn-md assign-role-form-btn">Assign Role</a>
+        <a href="#" class="btn btn-success btn-md new-role-form-btn">New Role</a>
+
       </div>
     </div>
   </div>
@@ -543,7 +544,7 @@
       <div class="col-md-6 pull-right">
         <div class="selectize-input items not-full">
           <span class="fa fa-search form-control-header"></span>
-          <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
+          <input type="text" id="tag-filter" class="filter-box" placeholder="Search for a profile" style="height:15px" />
         </div>
 
       </div>
@@ -679,14 +680,14 @@
   <div class="table-line">
     <div class="row table-line-row">
       <button href="#" class="btn btn-success btn-md pull-right add-new-user" style="margin-left:0.2%">Add New</button>
-      <button href="#" class="btn btn-success btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
+      <button href="#" class="btn btn-warning btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
       <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
-      <button href="#" class="btn btn-danger btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
+      <button href="#" class="btn btn-warning btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
 
       <div class="col-md-6 pull-right">
         <div class="selectize-input items not-full">
           <span class="fa fa-search form-control-header"></span>
-          <input type="text" id="users-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
+          <input type="text" id="users-filter" class="filter-box" placeholder="Search for a profile" style="height:15px" />
         </div>
 
       </div>
@@ -732,8 +733,8 @@
                   <td class="col-md-5">
                     <a href=" # " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md delete-user-btn ">Delete</a>
                     <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md edit-user-btn ">Edit</a>
-                    <a href="# " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md block-user-btn ">Block</a>
-                    <a href="# " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md reset-user-btn ">Reset</a>
+                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md block-user-btn ">Block</a>
+                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md reset-user-btn ">Reset</a>
                   </td>
 
                 </tr>
@@ -1017,7 +1018,7 @@
                   <td class="col-md-6">{{title}}</td>
                   <td class="col-md-6">
                     <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" /> {{#if assessmentNode}}
-                    <!-- <select rel="selectize" data-placeholder="Give your user a profile " user-id="{{_id}} " class="form-control user-profile-chosen pull-right " tabindex="-1 " style="width:150px;padding:0;margin-right:5px; "> -->
+
                     <select rel="selectize" class="form-control pull-right select-asessment" style="width:70px;padding:0;margin-right:2%; ">
                       {{#each assessments}}
                       <option value="{{_id}}">{{assessmentName}}</option>
@@ -1123,7 +1124,7 @@
       <div class="col-md-6 pull-right">
         <div class="selectize-input items not-full">
           <span class="fa fa-search form-control-header"></span>
-          <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
+          <input type="text" id="tag-filter" class="filter-box" placeholder="Search" style="height:15px" />
         </div>
       </div>
     </div>

@@ -27,6 +27,7 @@ Template.individualMailerNew.events
 
 
 Template.individualMailerNew.rendered = ->
+  $("select").selectize()
   $("#emailBodyIndi").summernote()
 
 Template.individualMailerNew.helpers
