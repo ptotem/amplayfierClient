@@ -459,3 +459,39 @@ a.zone-button:visited {
 {
     position: relative;
 }
+
+#blurmebro {
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: rgba(1,1,1,0.8);
+    /*-webkit-filter: blur(5px);*/
+    /*-moz-filter: blur(5px);*/
+    /*-o-filter: blur(5px);*/
+    /*-ms-filter: blur(5px);*/
+    /*filter: blur(5px);*/
+}
+
+.txt-holdr {
+    width: 30%;
+    position: absolute;
+    z-index: 91;
+    display: block;
+    /*margin: 0 auto;*/
+    font-size: 1.5em;
+    text-align: justify;
+}
+
+#nxt-btn {
+    margin: 2% 0;
+    display: block;
+    font-size: 0.8em;
+    float: right;
+    font-weight: bold;
+    text-transform: capitalize;
+}
