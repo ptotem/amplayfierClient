@@ -1,6 +1,9 @@
 if Meteor.isClient
   @can = (code)->
-    roles.findOne(Meteor.user().personal_profile.role).capabilities.indexOf(code) isnt -1
+    console.log Meteor.user().personal_profile.role
+    rid = Meteor.user().personal_profile.role
+    console.log roles.find().fetch()
+    roles.findOne(rid).capabilities.indexOf(code) isnt -1
 
   Template.roleList.helpers
     listOfRoles:()->
