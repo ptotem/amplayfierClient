@@ -59,6 +59,9 @@ Template.userlistLeftMenu.helpers
 
 
 Template.adminSideBar.events
+  'click .topModal':(e)->
+    showModal('topBarModal',{},'main-wrapper-page-new')
+
   'click .menu-link':(e)->
     temName = $(e.currentTarget).attr('target-templ')
     $("#left-menu-container").empty();
