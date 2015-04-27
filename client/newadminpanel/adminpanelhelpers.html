@@ -279,6 +279,12 @@
                 <a href="#" class="btn btn-success btn-md new-role-form-btn">New Role</a>
                 <a href="#" class="btn btn-warning btn-md assign-role-form-btn">Assign Role</a>
             </div>
+            <div class="col-md-6 pull-right">
+                <div class="selectize-input items not-full">
+                    <span class="fa fa-search form-control-header"></span>
+                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
+                </div>
+            </div>
         </div>
     </div>
 
@@ -377,8 +383,14 @@
 
     <div class="table-line">
         <div class="row table-line-row">
-            <div class="col-md-1 pull-right">
+            <div class="col-md-3 pull-right text-right">
                 <a href="#" class="btn btn-warning btn-md pull-right new-reward-form-btn">New Reward</a>
+            </div>
+            <div class="col-md-6 pull-right">
+                <div class="selectize-input items not-full">
+                    <span class="fa fa-search form-control-header"></span>
+                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
+                </div>
             </div>
         </div>
     </div>
@@ -398,7 +410,7 @@
                     <div class="panel-body">
                         <div class="row" rel="panels">
                             {{#each rewards}}
-                            <div class="col-md-3 panels">
+                            <div class="col-md-3 panels reward-block">
                                 <div class="panel panel-success">
                                     <div class="panel-heading">
                                         <div class="panel-title text-center">
@@ -823,8 +835,14 @@
 
     <div class="table-line">
         <div class="row table-line-row">
-            <div class="col-md-1 pull-right">
+            <div class="col-md-3 pull-right text-right">
                 <a href="#" class="btn btn-warning btn-md pull-right update-badge-values">Update</a>
+            </div>
+            <div class="col-md-6 pull-right">
+                <div class="selectize-input items not-full">
+                    <span class="fa fa-search form-control-header"></span>
+                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
+                </div>
             </div>
         </div>
     </div>
@@ -839,23 +857,6 @@
                         </span>
                     </div>
                 </div>
-
-                <!--<div class="panel-body-collapse collapse in">
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <tbody>
-                            {{#each badges}}
-                            <tr class="row-mid badge-item" badge-name="{{name}}">
-                                <td class="col-md-6">{{display_name}}</td>
-                                <td class="col-md-6">
-                                    <input type="text" class=" pull-right" style="width:10% ;" value="{{value}}" />
-                                </td>
-                            </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>-->
 
                 <div class="panel-body-collapse collapse in">
                     <div class="panel-body">
@@ -978,15 +979,17 @@
   </div>
 
   <div class="table-line">
-    <div class="row table-line-row">
-      <div class="col-md-1 pull-right">
-        <!--<a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a>-->
-        <a href="#" class="btn btn-warning btn-md pull-right node-date-assignment">Update</a>
-      </div>
-      <!--<div class="col-md-6 pull-right">
-                <div class="selectize-input items not-full"><input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" /></div>
-            </div>-->
-    </div>
+        <div class="row table-line-row">
+            <div class="col-md-3 pull-right text-right">
+                <a href="#" class="btn btn-warning btn-md pull-right node-date-assignment">Update</a>
+            </div>
+            <div class="col-md-6 pull-right">
+                <div class="selectize-input items not-full">
+                    <span class="fa fa-search form-control-header"></span>
+                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
+                </div>
+            </div>
+        </div>
   </div>
 
   <div class="row">
