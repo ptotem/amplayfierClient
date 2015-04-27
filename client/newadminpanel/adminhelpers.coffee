@@ -329,3 +329,10 @@ Template.rolesLeftMenu.events
 
   'keyup #tag-filter':(e)->
     searchBar($(e.currentTarget).val(),".role")
+
+#Template.mainAdminPanel.events
+#  'shown.bs.modal .modal': (e)->
+#    console.log "modal shown"
+#
+#  'hidden.bs.modal .modal': (e)->
+#    console.log "modal hidden"

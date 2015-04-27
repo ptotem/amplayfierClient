@@ -3,6 +3,7 @@ Template.addvariantModal.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
 
   'click .add-individual-variant': (e) ->
     arr = []
@@ -19,6 +20,7 @@ Template.addvariantModal.events
     platforms.update({_id: platId} , {$push: {profiles: profile} } )
     console.log platforms.findOne({_id: platId} ).profile
     createNotification("Variants are added to this profile", 1)
+    $('.remove-modal').click()
 
 Template.addvariantModal.helpers
   userDeckHtml: () ->
@@ -38,6 +40,7 @@ Template.topBarModal.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
 
   'click .manage-user': (e) ->
     $("#left-menu-container").empty();
@@ -108,6 +111,7 @@ Template.addprofileModal.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
 
   'click .add-individual-profile': (e) ->
     profile = {name: $("#profile-name").val(), description: $("#profile-desc").val() }
@@ -115,6 +119,7 @@ Template.addprofileModal.events
     platforms.update({_id: platId} , {$push: {profiles: profile} } )
     createNotification("Profile has been added successfully", 1)
     $(".internal-sidelinks.active").trigger('click')
+    $('.remove-modal').click()
 
 
 Template.adduserModal.events
@@ -122,6 +127,7 @@ Template.adduserModal.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"} )
+    $(".modal-backdrop").hide();
 
   'click .add-individual-user': (e) ->
     email = $("#user-email").val()
@@ -176,6 +182,7 @@ Template.newNoti.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"} )
+    $(".modal-backdrop").hide();
 
 
 Template.newNoti.helpers
@@ -217,17 +224,26 @@ Template.newAssessmentModal.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
 
   'click .new-assessment-for-admin-save': (e) ->
     newassessment = $("#new-assessment").val()
     assesments.insert({assessmentName: newassessment, platform: platforms.findOne()._id} )
     $('.remove-modal').click()
 
+#  'shown.bs.modal .modal': (e)->
+#    console.log "modal shown"
+#
+#  'hidden.bs.modal .modal': (e)->
+#    console.log "modal hidden"
+
+
 Template.newQuestionForAssessmentModal.events
   'click .remove-modal': (e) ->
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
 
   'click .new-question-for-admin-save': (e) ->
     nqName = $("#new-question-name").val()
@@ -242,6 +258,7 @@ Template.viewQuestionsForAssessmentModal.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
 
 Template.viewQuestionsForAssessmentModal.helpers
   viewQuestion: () ->
@@ -258,6 +275,7 @@ Template.newRewardModal.events
     $('.modal').modal('hide')
     $('.modal').remove()
     $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
 
   'click .new-reward-save': (e) ->
     if document.getElementById('new-reward-file').files.length is 0
@@ -283,14 +301,16 @@ Template.newRewardModal.events
       )
     $('.remove-modal').click()
 
-  Template.newRoleModal.events
-    'click .remove-modal': (e) ->
-      $('.modal').modal('hide')
-      $('.modal').remove()
-      $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+Template.newRoleModal.events
+  'click .remove-modal': (e) ->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
 
-  Template.assignRoleModal.events
-    'click .remove-modal': (e) ->
-      $('.modal').modal('hide')
-      $('.modal').remove()
-      $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+Template.assignRoleModal.events
+  'click .remove-modal': (e) ->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+    $(".modal-backdrop").hide();
