@@ -9,7 +9,18 @@
         </li>
     {{/each}}
 </template>
+<template name="NewdocumentList">
+    {{#each platformFiles}}
+        <tr class="file-item">
+          <td class="col-md-7"><span class="tag-label col-md-12">{{name}}</span></td>
+            <!-- <span class="tag-options">{{values}}</span> -->
+            <td class="col-md-5"><a href="#" class="btn btn-danger  pull-right list-btn  file-delete-btn">Delete</a>
+            <a href="{{getUrl _id}}" class="btn btn-warning  pull-right  " target="_blank">Download</a></td>
 
+            <!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
+        </tr>
+    {{/each}}
+</template>
 <template name="uploadModal">
     <div class="modal fade">
         <div class="modal-dialog" style="z-index: 100000;font-size: 14px">
@@ -46,6 +57,19 @@
     {{>uploadModal}}
 
 </template>
+<template name="NewuploadFileBtn">
+
+
+    <div class="col-md-10">
+    <div class="selectize-input items not-full">
+      <span class="fa fa-search form-control-header"></span>
+      <input type="text" id="file-filter" class="filter-box pull-right" placeholder="Search for a File" style="height:20px"/>
+    </div>
+    </div>
+    <div class="col-md-2"><a class="btn btn-warning pull-right upload-file" href="#">Upload</a></div>
+    {{>uploadModal}}
+
+</template>
 
 
 <template name="docCollection">
@@ -75,4 +99,3 @@
 
     </div>
 </template>
-

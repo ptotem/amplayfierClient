@@ -1,0 +1,384 @@
+<template name="addvariantModal">
+  <div class="modal modal-dark fade">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal demo</h4>
+      </div>
+      <div class="modal-body">
+        <div id="add-varant-to-profile" class="full-box">
+          <input type="hidden" name="profileName" id="currentProfileName" value={{profile.name}}>
+          <input type="hidden" name="profileDesc" id="currentProfileDesc" value={{profile.description}}>
+
+          <ul id="new-tag-list" class="full-box">
+            {{#each userDeckHtml}}
+            <li>
+              <div class="userDecks">
+                <span class="tag-label">{{name}}</span>
+                <input class="deckname" type="hidden" name="deck_name" value="{{deckId}}">
+                <select data-placeholder="Tag your Variant" class="variant-chosen" tabindex="-1" style="width:150px;padding:0;">
+                              <option>None</option>
+                  {{#each deckVariants _id}}
+                  <option>{{userVariants}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+            <a href="#" class="btn btn-primary add-individual-variant">Save </a>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+</template>
+<template name="addprofileModal">
+  <div class="modal modal-dark fade">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal demo</h4>
+      </div>
+      <div class="modal-body">
+        <div id="new-prf-form-profile" class="full-box">
+          <div class="row">
+
+            <div class="col-lg-12">
+              <label for="profile-user-name">Profile Name</label>
+              <input type="text" class="form-control" id='profile-name' name="name" placeholder="Enter profile name">
+            </div><br><br>
+            <div class="col-lg-12">
+              <label for="profile-user-description">Profile Description</label>
+              <!--<textarea cols="5" rows="5" class="form-control" id='profile-desc' name="description" placeholder="Enter profile description name">-->
+              <!--</textarea>-->
+              <textarea id="profile-desc" placeholder="Enter profile description" rows="3" class="form-control" name="description"></textarea>
+            </div><br>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+            <a href="#" class="btn btn-warning add-individual-profile pull-right">Save </a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+</template>
+
+<!-- assessment modals -->
+<template name="newAssessmentModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">New Assessment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="new-assessment">New Assessment</label>
+                            <input type="text" id="new-assessment" placeholder="Please put assessment" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary new-assessment-for-admin-save" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="newQuestionForAssessmentModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">New Question</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="new-reward-name">Statement</label>
+                                <input type="text" id="new-question-name" placeholder="Please put in a question statment" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-question-min">Question Min</label>
+                                <input type="text" id="new-question-min" placeholder="Please put min score the manager can give" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-question-max">Question Max</label>
+                                <input type="text" id="new-question-max" placeholder="Please put in maximum score a manager can give" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary new-question-for-admin-save" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="viewQuestionsForAssessmentModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">All Questions</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-line">
+                                <div class="row push-bottom">
+                                    <div class="col-sm-8 col-md-8 text-center-xs">
+                                        <h4>Statement</h4>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 text-center">
+                                        <h4>Question Min</h4>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 text-center">
+                                        <h4>Question Max</h4>
+                                    </div>
+                                </div>
+                                {{#each viewQuestion}}
+                                <div class="row table-line-row" style="background: transparent">
+                                    <div class="col-sm-8 col-md-8 push-bottom-xs text-center-xs">
+                                        {{statement}}
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 text-center push-bottom-xs">
+                                        <h3 class="text-info">{{min}}</h3>
+                                        <!--<div>{{min}}</div>-->
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 text-center push-bottom-xs">
+                                        <h3 class="text-info">{{max}}</h3>
+                                        <!--<div>{{max}}</div>-->
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<!-- assessment modals -->
+
+<!-- rewards modal -->
+<template name="newRewardModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">New Reward</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="new-reward-name">Reward Name</label>
+                                <input type="text" id="new-reward-name" placeholder="Please put in a reward name" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-reward-desc">Reward Description</label>
+                                <input type="text" id="new-reward-desc" placeholder="Please put in a Description for reward" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-reward-file">Reward Image</label>
+                                <input style="border: 0;" type="file" id="new-reward-file" placeholder="Please upload a file for reward" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-reward-file">Reward Value</label>
+                                <input type="number" id="new-reward-value" placeholder="Please put in worth of the reward" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-reward-stock">Reward Stock</label>
+                                <input type="number" id="new-reward-stock" placeholder="Please put in stock of the reward" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary new-reward-save" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<!-- rewards modal -->
+
+<!-- roles modals -->
+<template name="newRoleModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">New Role</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{>newRoleFormThemeView}}
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="modal-footer">-->
+                    <!--<button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>-->
+                    <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="assignRoleModal">
+    <div class="modal modal-dark fade">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Assign Role</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{>roleAssignmentThemeView}}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+                    <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<!-- roles modals -->
+
+<template name="adduserModal">
+  <div class="modal modal-dark fade">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Add User Modal</h4>
+      </div>
+      <div class="modal-body">
+        {{#with myuser userId}}
+          <!--<div class="field-box">-->
+            <div id="myuserCreate" class="row">
+
+              <div class="col-lg-12">
+                <label for="user-name">Display Name</label>
+                <input type="text" class="form-control" id="user-name" value="{{personal_profile.display_name}}" placeholder="Enter name"/>
+              </div><br><br>
+              <div class="col-lg-12">
+                <label for="user-email">First Name</label>
+                <input type="text" class="form-control" id="user-first-name" value="{{personal_profile.first_name}}" placeholder="Enter first name"/>
+              </div><br><br>
+              <div class="col-lg-12">
+                <label for="user-email">Last Name</label>
+                <input type="text" class="form-control" id="user-last-name" value="{{personal_profile.last_name}}" placeholder="Enter last name"/>
+              </div><br><br>
+              <div class="col-lg-12">
+                <label for="user-email">Email ID</label>
+                <input type="email" class="form-control" id="user-email" value="{{decodeUserEmail personal_profile.email}}" placeholder="Enter name"/>
+                <input type="hidden" id="user-id" value="{{_id}}"/>
+              </div><br><br>
+                        <div class="col-lg-12">
+                <label for="user-email">Reporting Manager</label>
+                <select class="reporting-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
+
+              </div>
+                        <div class="col-lg-12">
+                            <label for="user-email">HR Manager</label>
+                            <select class="hr-mgr">{{#each myusers}}<option value="{{_id}}">{{personal_profile.display_name}}</option>{{/each}}</select>
+
+                        </div>
+                        <div class="col-lg-12">
+                <label for="user-email">Role</label>
+                            <select class="user-role">{{#each roles}}<option value="{{_id}}">{{rolename}}</option>{{/each}}</select>
+
+
+              </div>
+
+
+
+
+                        <br><br>
+
+            </div>
+          <!--</div>-->
+
+                {{/with}}
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+            <a href="#" class="btn btn-warning add-individual-user pull-right">Save </a>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</template>
+
+
+
+<template name="newNoti">
+  <div class="modal modal-dark fade">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Edit User</h4>
+      </div>
+      <div class="modal-body">
+        <select id="usersemails2" multiple>
+            <option value="-1">Everyone</option>
+            {{#each userEmails}}
+                <option value="{{_id}}">{{e}}</option>
+            {{/each}}
+        </select>
+        <textarea class="form-control" id="notificationMessage" placeholder="Enter Notification Message" style="width:100%"></textarea>
+
+
+      </div>
+      <div class="modal-footer">
+            <button type="button" class="btn btn-default remove-modal" data-dismiss="modal">Close</button>
+            <input type="submit" class='btn btn-success create-notification' value="Create Notification">
+
+      </div>
+    </div>
+  </div>
+  </div>
+</template>

@@ -49,7 +49,6 @@ Template.wrapperPage.events
 
 
 
-
 Template.wrapperPage.rendered = ->
   $('.pepsi-homepage').fadeIn('slow')
   setTimeout(()->

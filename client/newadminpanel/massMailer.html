@@ -1,0 +1,131 @@
+<template name="massMailerFormNew">
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <h3 class="no-margin-top thin">Compose</h3>
+
+      <form class="form-horizontal">
+        <div class="row">
+          <div class="form-group string required">
+            <label for="compose-subject" class="control-label col-sm-1">Subject</label>
+            <div class="col-sm-11">
+              <input type="text" class="form-control" id="emailSubject" placeholder="Enter email  subject" style="width:100%">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group text required">
+            <label for="compose-message" class="control-label col-sm-1">Message</label>
+            <div class="col-sm-11">
+              <div id="emailBody"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-11">
+              <input type="submit" class='btn btn-success send-mass-mail' value="Send" style="margin-top:5%">
+
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</template>
+
+<template name="individualMailerNew">
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <h3 class="no-margin-top thin">Compose</h3>
+
+      <form class="form-horizontal">
+        <div class="row">
+          <div class="form-group string required">
+            <label for="compose-subject" class="control-label col-sm-1">To</label>
+            <div class="col-sm-11">
+              <select id="usersemails" multiple class="col-md-6">
+                {{#each userEmails}}
+                <option value="{{e}}">{{e}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group string required">
+            <label for="compose-subject" class="control-label col-sm-1">Subject</label>
+            <div class="col-sm-11">
+              <input type="text" class="form-control" id="emailSubjectIndi" placeholder="Enter email  subject" style="width:100%">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group text required">
+            <label for="compose-message" class="control-label col-sm-1">Message</label>
+            <div class="col-sm-11">
+              <div id="emailBodyIndi"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-11">
+              <input type="submit" class='btn btn-success send-mass-mail' value="Send" style="margin-top:5%">
+
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+
+</template>
+
+
+<template name="systemNotificationsnew">
+
+
+  {{#each notifications}}
+  <tr>
+    <td>{{message}}</td>
+    <td>
+      <a href="#" class="btn btn-danger pull-right delete-notification" style="margin-right:0.5%">Delete</a> {{#if active}}
+      <a href="#" class="btn  btn-warning pull-right deactivate-notification" style="margin-right:0.5%">Deactivate</a> {{else}}
+      <a href="#" class="btn  btn-success pull-right activate-notification" style="margin-right:0.5%">Activate</a> {{/if}}
+    </td>
+  </tr>
+  {{/each}}
+
+</template>
+
+<!-- <template name="newNotificationmail">
+    <select id="usersemails2" multiple>
+        <option value="-1">Everyone</option>
+        {{#each userEmails}}
+            <option value="{{_id}}">{{e}}</option>
+        {{/each}}
+    </select>
+    <textarea class="form-control" id="notificationMessage" placeholder="Enter Notification Message" style="width:100%"></textarea>
+
+    <input type="submit" class='btn btn-success create-notification' value="Create Notification" style="margin-top:4%;width:50%">
+</template> -->
+<!--
+<template name="plainNotificationList">
+
+
+        {{#each unreadnotifications}}
+            <a href="#" class="list-group-item active">{{message}}</a>
+        {{/each}}
+        {{#each readnotifications}}
+            <a href="#" class="list-group-item">{{message}}</a>
+        {{/each}}
+
+
+
+</template> -->
