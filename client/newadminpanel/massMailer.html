@@ -46,7 +46,7 @@
           <div class="form-group string required">
             <label for="compose-subject" class="control-label col-sm-1">To</label>
             <div class="col-sm-11">
-              <select id="usersemails" multiple class="col-md-6">
+              <select rel="selectize" id="usersemails" multiple class="col-md-6 form-control" style="width:100%;padding:0;margin-right:2%; ">
                 {{#each userEmails}}
                 <option value="{{e}}">{{e}}</option>
                 {{/each}}

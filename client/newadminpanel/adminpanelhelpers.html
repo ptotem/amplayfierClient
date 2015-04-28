@@ -1,23 +1,22 @@
 <template name="adminSideBar">
+    <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
+        <div class="nano-content">
 
-  <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
-    <div class="nano-content">
 
-
-      <div class="oc-sidebar-header">
-        <ul class="nav nav-justified-all">
-          <li>
-            <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="open,partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
-              <i class="icm icm-menu6 oc-partial-rotate"></i>
-            </a>
-          </li>
-          <li>
-            <a class="btn-nav topModal" data-toggle="modal"> <i class="icm icm-arrow-right6"></i>
-            </a>
-          </li>
-          <li>
-            <a class="btn-nav" href="#" rel="popover-click" data-toggle="popover" data-container="body" data-placement="bottom">
-              <i class="icm icm-bubbles5 has-corner-badge animated tada">
+            <div class="oc-sidebar-header">
+                <ul class="nav nav-justified-all">
+                    <li>
+                        <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="open,partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
+                            <i class="icm icm-menu6 oc-partial-rotate"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-nav topModal" data-toggle="modal"> <i class="icm icm-arrow-right6"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-nav" href="#" rel="popover-click" data-toggle="popover" data-container="body" data-placement="bottom">
+                            <i class="icm icm-bubbles5 has-corner-badge animated tada">
           <span class="badge badge-corner badge-corner-top-right badge-info-dk">
             <i class="fa fa-exclamation"></i>
               </span>
@@ -90,15 +89,15 @@
                                 </a></li>
 
                             <li class="">
-                                <a class="collapsed menu-link" target-templ="userlistLeftMenu"> User List
+                                <a class="collapsed menu-link" target-templ="userlistLeftMenu" href="#"> User List
                                 </a></li>
 
                         </ul>
                     </li>
                     <li class="">
 
-            <a class="collapsed menu-link" target-templ="manageReport" href="#"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Manage Reports</span></a>
-          </li>
+                        <a class="collapsed menu-link" target-templ="manageReport" href="#"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Manage Reports</span></a>
+                    </li>
 
                     <li class=" dropdown">
                         <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
@@ -112,40 +111,40 @@
 
 
 
-              <li class="">&nbsp;
-                <a class="collapsed menu-link" target-templ="portalMailer" href="#"> Portal Mailers
+                            <li class="">&nbsp;
+                                <a class="collapsed menu-link" target-templ="portalMailer" href="#"> Portal Mailers
                                 </a></li>
 
                             <li class="">
-                                <a class="collapsed menu-link" target-templ="userMailer"> User Mailers
+                                <a class="collapsed menu-link" target-templ="userMailer" href="#"> User Mailers
                                 </a></li>
                             <li class="">
-                                <a class="collapsed menu-link" target-templ="systemNoticifation"> System Notifications
+                                <a class="collapsed menu-link" target-templ="systemNoticifation" href="#"> System Notifications
                                 </a></li>
-            </ul>
-          </li>
-          <li class="">
-            <a class="collapsed menu-link" href="#" target-templ="repository"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Repository</span></a>
-          </li>
-          <li class="">
-            <a class="collapsed menu-link" target-templ="rolesLeftMenu" href="#"><i class="oc-partial-icon fa fa-sitemap"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Roles</span></a>
-          </li>
-          <li class="">
-            <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
-          </li>
-          <li class="">
-            <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
-          </li>
-          <li class="">
-            <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Enrollments</span></a>
-          </li>
-          <li class="">
-            <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Assessments</span></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </aside>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a class="collapsed menu-link" href="#" target-templ="repository"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Repository</span></a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="rolesLeftMenu" href="#"><i class="oc-partial-icon fa fa-sitemap"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Roles</span></a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Enrollments</span></a>
+                    </li>
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Assessments</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
 </template>
 
 <template name="adminHeaderBar">
@@ -213,9 +212,9 @@
             <div class="panel panel-warning panel-colorize gradient-diag1">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Roles
-                        </span>
+            <span class="panel-title-edtitable" data-type="text">
+              Roles
+            </span>
                     </div>
                 </div>
                 <div class="panel-body-collapse collapse in">
@@ -240,13 +239,15 @@
                                 </h3>
                             </div>
                             <div class="box-cell">
-                                <h5 class="base-header major">GAME<br>PLAYED</h5>
+                                <h5 class="base-header major">GAME
+                                    <br>PLAYED</h5>
                                 <h3 class="base-header">
                                     936
                                 </h3>
                             </div>
                             <div class="box-cell">
-                                <h5 class="base-header major">DECK<br>Viewed</h5>
+                                <h5 class="base-header major">DECK
+                                    <br>Viewed</h5>
                                 <h3 class="base-header">
                                     307
                                 </h3>
@@ -261,15 +262,15 @@
                     <div class="clearfix">
                         <h5 class="pull-left base-header major">Days</h5>
                         <h5 class="base-header major">
-                            <span class="pull-right panel-lt box-label">
-                                54
-                            </span>
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
                         </h5>
                     </div>
                 </div>
                 <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-                    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-                </div> -->
+                            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+                        </div> -->
             </div>
         </div>
     </div>
@@ -277,14 +278,9 @@
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-3 pull-right text-right">
-                <a href="#" class="btn btn-success btn-md new-role-form-btn">New Role</a>
                 <a href="#" class="btn btn-warning btn-md assign-role-form-btn">Assign Role</a>
-            </div>
-            <div class="col-md-6 pull-right">
-                <div class="selectize-input items not-full">
-                    <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
-                </div>
+                <a href="#" class="btn btn-success btn-md new-role-form-btn">New Role</a>
+
             </div>
         </div>
     </div>
@@ -294,9 +290,9 @@
             <div class="panel panel-default gradient-diag1">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Roles
-                        </span>
+            <span class="panel-title-edtitable" data-type="text">
+              Roles
+            </span>
                     </div>
                 </div>
                 <div class="panel-body-collapse collapse in">
@@ -321,9 +317,9 @@
             <div class="panel panel-warning panel-colorize gradient-diag1">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Rewards
-                        </span>
+            <span class="panel-title-edtitable" data-type="text">
+              Rewards
+            </span>
                     </div>
                 </div>
                 <div class="panel-body-collapse collapse in">
@@ -348,13 +344,15 @@
                                 </h3>
                             </div>
                             <div class="box-cell">
-                                <h5 class="base-header major">GAME<br>PLAYED</h5>
+                                <h5 class="base-header major">GAME
+                                    <br>PLAYED</h5>
                                 <h3 class="base-header">
                                     936
                                 </h3>
                             </div>
                             <div class="box-cell">
-                                <h5 class="base-header major">DECK<br>Viewed</h5>
+                                <h5 class="base-header major">DECK
+                                    <br>Viewed</h5>
                                 <h3 class="base-header">
                                     307
                                 </h3>
@@ -369,29 +367,23 @@
                     <div class="clearfix">
                         <h5 class="pull-left base-header major">Days</h5>
                         <h5 class="base-header major">
-                            <span class="pull-right panel-lt box-label">
-                                54
-                            </span>
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
                         </h5>
                     </div>
                 </div>
                 <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-                    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-                </div> -->
+                            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+                        </div> -->
             </div>
         </div>
     </div>
 
     <div class="table-line">
         <div class="row table-line-row">
-            <div class="col-md-3 pull-right text-right">
-                <a href="#" class="btn btn-warning btn-md pull-right new-reward-form-btn">New Reward</a>
-            </div>
-            <div class="col-md-6 pull-right">
-                <div class="selectize-input items not-full">
-                    <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
-                </div>
+            <div class="col-md-1 pull-right">
+                <a href="#" class="btn btn-success btn-md pull-right new-reward-form-btn">New Reward</a>
             </div>
         </div>
     </div>
@@ -401,9 +393,9 @@
             <div class="panel panel-default gradient-diag1">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Rewards
-                        </span>
+            <span class="panel-title-edtitable" data-type="text">
+              Rewards
+            </span>
                     </div>
                 </div>
 
@@ -411,7 +403,7 @@
                     <div class="panel-body">
                         <div class="row" rel="panels">
                             {{#each rewards}}
-                            <div class="col-md-3 panels reward-block">
+                            <div class="col-md-3 panels">
                                 <div class="panel panel-success">
                                     <div class="panel-heading">
                                         <div class="panel-title text-center">
@@ -552,7 +544,7 @@
             <div class="col-md-6 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
+                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search for a profile" style="height:15px" />
                 </div>
 
             </div>
@@ -688,14 +680,14 @@
     <div class="table-line">
         <div class="row table-line-row">
             <button href="#" class="btn btn-success btn-md pull-right add-new-user" style="margin-left:0.2%">Add New</button>
-            <button href="#" class="btn btn-success btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
+            <button href="#" class="btn btn-warning btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
             <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
-            <button href="#" class="btn btn-danger btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
+            <button href="#" class="btn btn-warning btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
 
             <div class="col-md-6 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="users-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
+                    <input type="text" id="users-filter" class="filter-box" placeholder="Search for a profile" style="height:15px" />
                 </div>
 
             </div>
@@ -727,6 +719,7 @@
                                 <td class="col-md-5">{{personal_profile.display_name}}</td>
 
                                 <td class="col-md-3">
+
                                     <select rel="selectize" data-placeholder="Give your user a profile " user-id="{{_id}} " class="form-control user-profile-chosen pull-right " tabindex="-1 " style="width:150px;padding:0;margin-right:5px; ">
                                         {{#each profileForUsers _id}} {{#if selected}}
                                         <option value="{{name}} " selected>{{name}}</option>
@@ -740,8 +733,8 @@
                                 <td class="col-md-5">
                                     <a href=" # " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md delete-user-btn ">Delete</a>
                                     <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md edit-user-btn ">Edit</a>
-                                    <a href="# " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md block-user-btn ">Block</a>
-                                    <a href="# " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md reset-user-btn ">Reset</a>
+                                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md block-user-btn ">Block</a>
+                                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md reset-user-btn ">Reset</a>
                                 </td>
 
                             </tr>
@@ -773,9 +766,9 @@
             <div class="panel panel-warning panel-colorize gradient-diag1">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Badges
-                        </span>
+            <span class="panel-title-edtitable" data-type="text">
+              Badges
+            </span>
                     </div>
                 </div>
                 <div class="panel-body-collapse collapse in">
@@ -800,13 +793,15 @@
                                 </h3>
                             </div>
                             <div class="box-cell">
-                                <h5 class="base-header major">GAME<br>PLAYED</h5>
+                                <h5 class="base-header major">GAME
+                                    <br>PLAYED</h5>
                                 <h3 class="base-header">
                                     936
                                 </h3>
                             </div>
                             <div class="box-cell">
-                                <h5 class="base-header major">DECK<br>Viewed</h5>
+                                <h5 class="base-header major">DECK
+                                    <br>Viewed</h5>
                                 <h3 class="base-header">
                                     307
                                 </h3>
@@ -821,29 +816,23 @@
                     <div class="clearfix">
                         <h5 class="pull-left base-header major">Days</h5>
                         <h5 class="base-header major">
-                            <span class="pull-right panel-lt box-label">
-                                54
-                            </span>
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
                         </h5>
                     </div>
                 </div>
                 <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-                    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-                </div> -->
+                            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+                        </div> -->
             </div>
         </div>
     </div>
 
     <div class="table-line">
         <div class="row table-line-row">
-            <div class="col-md-3 pull-right text-right">
+            <div class="col-md-1 pull-right">
                 <a href="#" class="btn btn-warning btn-md pull-right update-badge-values">Update</a>
-            </div>
-            <div class="col-md-6 pull-right">
-                <div class="selectize-input items not-full">
-                    <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
-                </div>
             </div>
         </div>
     </div>
@@ -853,11 +842,28 @@
             <div class="panel panel-default gradient-diag1">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
-                        <span class="panel-title-edtitable" data-type="text">
-                            Badges
-                        </span>
+            <span class="panel-title-edtitable" data-type="text">
+              Badges
+            </span>
                     </div>
                 </div>
+
+                <!--<div class="panel-body-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table table-hover">
+                                    <tbody>
+                                    {{#each badges}}
+                                    <tr class="row-mid badge-item" badge-name="{{name}}">
+                                        <td class="col-md-6">{{display_name}}</td>
+                                        <td class="col-md-6">
+                                            <input type="text" class=" pull-right" style="width:10% ;" value="{{value}}" />
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>-->
 
                 <div class="panel-body-collapse collapse in">
                     <div class="panel-body">
@@ -882,7 +888,9 @@
                                                     <div class="row ">
                                                         <div class="col-xs-12 col-md-12 text-center">
                                                             <!--<div><i class="icm icm-stack3 reward-stock-text"></i></div>-->
-                                                            <div><input type="text" style="width:24% ;" value="{{value}}" /></div>
+                                                            <div>
+                                                                <input type="text" style="width:24% ;" value="{{value}}" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -981,15 +989,13 @@
 
     <div class="table-line">
         <div class="row table-line-row">
-            <div class="col-md-3 pull-right text-right">
+            <div class="col-md-1 pull-right">
+                <!--<a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a>-->
                 <a href="#" class="btn btn-warning btn-md pull-right node-date-assignment">Update</a>
             </div>
-            <div class="col-md-6 pull-right">
-                <div class="selectize-input items not-full">
-                    <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
-                </div>
-            </div>
+            <!--<div class="col-md-6 pull-right">
+                      <div class="selectize-input items not-full"><input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" /></div>
+                  </div>-->
         </div>
     </div>
 
@@ -1001,39 +1007,39 @@
             <span class="panel-title-edtitable" data-type="text">
               Enrollments
             </span>
-          </div>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <tbody>
+                            {{#each nodes}}
+                            <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
+                                <td class="col-md-6">{{title}}</td>
+                                <td class="col-md-6">
+                                    <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" /> {{#if assessmentNode}}
+
+                                    <select rel="selectize" class="form-control pull-right select-asessment" style="width:70px;padding:0;margin-right:2%; ">
+                                        {{#each assessments}}
+                                        <option value="{{_id}}">{{assessmentName}}</option>
+                                        {{/each}}
+                                    </select>
+                                    <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{else}}
+                                    <select rel="selectize" class="form-control pull-right select-asessment" disabled style="width:70px;padding:0;margin-right:2%; ">
+                                        {{#each assessments}}
+                                        <option value="-1">{{assessmentName}}</option>
+                                        {{/each}}
+                                    </select>
+                                    <input type="checkbox" class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{/if}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="panel-body-collapse collapse in">
-          <div class="panel-body">
-            <table class="table table-hover">
-              <tbody>
-                {{#each nodes}}
-                <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
-                  <td class="col-md-6">{{title}}</td>
-                  <td class="col-md-6">
-                    <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" /> {{#if assessmentNode}}
-                    <!-- <select rel="selectize" data-placeholder="Give your user a profile " user-id="{{_id}} " class="form-control user-profile-chosen pull-right " tabindex="-1 " style="width:150px;padding:0;margin-right:5px; "> -->
-                    <select rel="selectize" class="form-control pull-right select-asessment" style="width:70px;padding:0;margin-right:2%; ">
-                      {{#each assessments}}
-                      <option value="{{_id}}">{{assessmentName}}</option>
-                      {{/each}}
-                    </select>
-                    <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{else}}
-                    <select rel="selectize" class="form-control pull-right select-asessment" disabled style="width:70px;padding:0;margin-right:2%; ">
-                      {{#each assessments}}
-                      <option value="-1">{{assessmentName}}</option>
-                      {{/each}}
-                    </select>
-                    <input type="checkbox" class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{/if}}
-                  </td>
-                </tr>
-                {{/each}}
-              </tbody>
-            </table>
-          </div>
-        </div>
-    </div>
-       </div>
     </div>
 </template>
 
@@ -1114,11 +1120,11 @@
 
     <div class="table-line">
         <div class="row table-line-row">
-            <div class="col-md-1 pull-right"><a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a></div>
+            <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right new-question-for-admin">New</a></div>
             <div class="col-md-6 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" />
+                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search" style="height:15px" />
                 </div>
             </div>
         </div>
@@ -1172,9 +1178,9 @@
             <div class="panel panel-warning panel-colorize gradient-diag1" id="rid0a5949b0e9f2e06afbd43ec07c3d3fc07">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
-              <span class="panel-title-edtitable" data-type="text">
-                User List
-              </span>
+            <span class="panel-title-edtitable" data-type="text">
+              User List
+            </span>
                     </div>
                 </div>
                 <div class="panel-body-collapse collapse in">
@@ -1229,17 +1235,17 @@
                     <div class="clearfix">
                         <h5 class="pull-left base-header major">Days</h5>
                         <h5 class="base-header major">
-                <span class="pull-right panel-lt box-label">
-                  54
-                </span>
+              <span class="pull-right panel-lt box-label">
+                54
+              </span>
                         </h5>
                     </div>
 
                 </div>
 
                 <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-          </div> -->
+              <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+            </div> -->
             </div>
 
         </div>
@@ -1253,9 +1259,9 @@
             <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
-              <span class="panel-title-edtitable" data-type="text">
-                Manage report
-              </span>
+            <span class="panel-title-edtitable" data-type="text">
+              Manage report
+            </span>
                     </div>
                 </div>
                 <div class="panel-body-collapse collapse in">
@@ -1266,16 +1272,20 @@
                             <tbody>
 
                             <tr class="full-box">
-                                <td>Completed Node Report for all users</td><td> <a href="#" class="btn btn-warning pull-right list-btn delete-btn download-report-btn">Download</a></td>
+                                <td>Completed Node Report for all users</td>
+                                <td> <a href="#" class="btn btn-warning pull-right list-btn delete-btn download-report-btn">Download</a></td>
                             </tr>
                             <tr class="full-box">
-                                <td>Completed Deck Report for all users</td><td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-deck-report-btn">Download</a></td>
+                                <td>Completed Deck Report for all users</td>
+                                <td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-deck-report-btn">Download</a></td>
                             </tr>
                             <tr class="full-box">
-                                <td>All Node Report for all users</td><td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-allnode-report-btn">Download</a></td>
+                                <td>All Node Report for all users</td>
+                                <td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-allnode-report-btn">Download</a></td>
                             </tr>
                             <tr class="full-box">
-                                <td>All Deck Report for all users</td><td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-report-btn">Download</a></td>
+                                <td>All Deck Report for all users</td>
+                                <td> <a href="#" class="btn btn-warning  pull-right list-btn delete-btn download-report-btn">Download</a></td>
                             </tr>
 
                             </tbody>
@@ -1296,9 +1306,11 @@
 <template name="portalMailer">
     {{>massMailerFormNew}}
 </template>
+
 <template name="userMailer">
     {{>individualMailerNew}}
 </template>
+
 <template name="systemNoticifation">
     <div class="row">
 
@@ -1425,6 +1437,7 @@
     </div>
 
 </template>
+
 <template name="repository">
     <div class="row">
 

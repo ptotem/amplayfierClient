@@ -10,3 +10,7 @@
     cursor: pointer;
 
 }
+.note-editor
+{
+  top:0px !important;
+}
