@@ -277,7 +277,7 @@
 
     <div class="table-line">
         <div class="row table-line-row">
-            <div class="col-md-3 pull-right text-right">
+            <div class="col-md-5 pull-right text-right">
                 <a href="#" class="btn btn-warning btn-md assign-role-form-btn">Assign Role</a>
                 <a href="#" class="btn btn-success btn-md new-role-form-btn">New Role</a>
 
@@ -544,7 +544,7 @@
             <div class="col-md-4 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search for a profile" style="height:15px;width:94%" />
+                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search for a profile" style="height:15px;width:90%" />
                 </div>
 
             </div>
@@ -687,7 +687,7 @@
             <div class="col-md-4 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="users-filter" class="filter-box" placeholder="Search for a profile" style="height:15px;width:94%;" />
+                    <input type="text" id="users-filter" class="filter-box" placeholder="Search for a profile" style="height:15px;width:90%;" />
                 </div>
 
             </div>
@@ -716,7 +716,7 @@
 
                             {{#each myusers}}
                             <tr class="user-item  row-mid" id="{{_id}}">
-                                <td class="col-md-5">{{personal_profile.display_name}}</td>
+                                <td class="col-md-3">{{personal_profile.display_name}}</td>
 
                                 <td class="col-md-3">
 
@@ -730,7 +730,7 @@
 
 
                                 </td>
-                                <td class="col-md-5">
+                                <td class="col-md-6">
                                     <a href=" # " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md delete-user-btn ">Delete</a>
                                     <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md edit-user-btn ">Edit</a>
                                     <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md block-user-btn ">Block</a>
@@ -1124,7 +1124,7 @@
             <div class="col-md-4 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search" style="height:15px;width:94%" />
+                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search" style="height:15px;width:90%" />
                 </div>
             </div>
         </div>
@@ -1147,12 +1147,16 @@
                             <tbody>
                             {{#each assessments}}
                             <tr class="row-mid tag-assessment">
-                                <td class="col-md-6">{{assessmentName}}</td>
-                                <td class="col-md-6">
-                                    <a href="#" class="btn btn-success btn-md add-question">Add question</a>
-                                    <a href="#" class="btn btn-warning btn-md view-question">View question</a>
-                                    <a href="#" class="btn btn-warning btn-md upload-assessment" id="{{_id}}">Upload questions</a>
-                                    <a href="#" class="btn btn-danger btn-md delete-question-btn">Delete Assessment</a>
+                                <td class="col-md-3">{{assessmentName}}</td>
+                                <td class="col-md-8">
+
+                                    <a href="#" class="btn btn-danger delete-question-btn pull-right" style="margin-left:0.5%">Delete Assessment</a>
+                                    <a href="#" class="btn btn-warning btn-md btn-sm upload-assessment pull-right" id="{{_id}}" style="margin-left:0.5%">Upload questions</a>
+                                    <a href="#" class="btn btn-warning btn-md btn-sm view-question pull-right" style="margin-left:0.5%">View question</a>
+                                    <a href="#" class="btn btn-success btn-md btn-sm add-question pull-right" style="margin-left:0.5%">Add question</a>
+
+
+
                                 </td>
                             </tr>
                             {{/each}}
