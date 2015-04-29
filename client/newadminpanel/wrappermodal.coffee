@@ -1,9 +1,15 @@
+@removeModal = ()->
+  $('.modal').modal('hide')
+  $('.modal').remove()
+  $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+  $(".modal-backdrop").hide();
+
+
+
+
 Template.addvariantModal.events
   'click .remove-modal': (e) ->
-    $('.modal').modal('hide')
-    $('.modal').remove()
-    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
-    $(".modal-backdrop").hide();
+    removeModal()
 
   'click .add-individual-variant': (e) ->
     arr = []
@@ -20,7 +26,11 @@ Template.addvariantModal.events
     platforms.update({_id: platId} , {$push: {profiles: profile} } )
     console.log platforms.findOne({_id: platId} ).profile
     createNotification("Variants are added to this profile", 1)
-    $('.remove-modal').click()
+    removeModal()
+
+
+Template.addvariantModal.rendered = () ->
+  $('select').selectize()
 
 Template.addvariantModal.helpers
   userDeckHtml: () ->
@@ -37,10 +47,6 @@ Template.addvariantModal.helpers
 Template.topBarModal.events
   'click .remove-modal': (e) ->
     console.log("clicked") ;
-    $('.modal').modal('hide')
-    $('.modal').remove()
-    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
-    $(".modal-backdrop").hide();
 
   'click .manage-user': (e) ->
     $("#left-menu-container").empty();
@@ -108,10 +114,7 @@ Template.topBarModal.events
 
 Template.addprofileModal.events
   'click .remove-modal': (e) ->
-    $('.modal').modal('hide')
-    $('.modal').remove()
-    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
-    $(".modal-backdrop").hide();
+    removeModal()
 
   'click .add-individual-profile': (e) ->
     profile = {name: $("#profile-name").val(), description: $("#profile-desc").val() }
@@ -119,15 +122,11 @@ Template.addprofileModal.events
     platforms.update({_id: platId} , {$push: {profiles: profile} } )
     createNotification("Profile has been added successfully", 1)
     $(".internal-sidelinks.active").trigger('click')
-    $('.remove-modal').click()
-
+    removeModal()
 
 Template.adduserModal.events
   'click .remove-modal': (e) ->
-    $('.modal').modal('hide')
-    $('.modal').remove()
-    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"} )
-    $(".modal-backdrop").hide();
+    removeModal()
 
   'click .add-individual-user': (e) ->
     email = $("#user-email").val()
@@ -176,7 +175,7 @@ Template.adduserModal.events
       Meteor.call('updateUser', $("#user-id").val(), p)
       Meteor.call("sendUserAddMailGunMail", email, first_name, last_name, currUserFname, currUserLname)
       createNotification('Profile has been updated', 1)
-      $('.remove-modal').click()
+    removeModal()
 
 Template.newNoti.events
   'click .remove-modal': (e) ->
@@ -195,6 +194,7 @@ Template.newNoti.helpers
     emails
 
 Template.newNoti.rendered = ->
+  # $('select').selectize()
   Session.set("uniKeyForNoti", this.data.ukey)
   setTimeout(() ->
     $('#usersemails2').chosen({width:'100%'} )
@@ -206,7 +206,7 @@ Template.newNoti.events
     notiTarget = $("#usersemails2").val()
     for u in notiTarget
       createUserNotification(u, Session.get("uniKeyForNoti"), notiMsg)
-    $('.remove-modal').click()
+    removeModal()
 
 
 Template.adduserModal.helpers
@@ -220,17 +220,17 @@ Template.adduserModal.helpers
   roles: () ->
     roles.find().fetch()
 
+Template.adduserModal.rendered = () ->
+  $('select').selectize()
+
 Template.newAssessmentModal.events
   'click .remove-modal': (e) ->
-    $('.modal').modal('hide')
-    $('.modal').remove()
-    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
-    $(".modal-backdrop").hide();
+    removeModal()
 
   'click .new-assessment-for-admin-save': (e) ->
     newassessment = $("#new-assessment").val()
     assesments.insert({assessmentName: newassessment, platform: platforms.findOne()._id} )
-    $('.remove-modal').click()
+    removeModal()
 
 #  'shown.bs.modal .modal': (e)->
 #    console.log "modal shown"
@@ -241,10 +241,7 @@ Template.newAssessmentModal.events
 
 Template.newQuestionForAssessmentModal.events
   'click .remove-modal': (e) ->
-    $('.modal').modal('hide')
-    $('.modal').remove()
-    $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
-    $(".modal-backdrop").hide();
+    removeModal()
 
   'click .new-question-for-admin-save': (e) ->
     nqName = $("#new-question-name").val()
@@ -253,7 +250,7 @@ Template.newQuestionForAssessmentModal.events
     manualData = {statement: nqName, min: nqMin, max: nqMax}
     assesments.update({_id: Session.get("newquesId") } , {$push: {scoreQuestions: manualData} } )
     # assesments.update({statement:nqName,min:nqMin,max:nqMax,platform:platforms.findOne()._id,_id:assesments.findOne()._id})
-    $('.remove-modal').click()
+    removeModal()
 
 Template.viewQuestionsForAssessmentModal.events
   'click .remove-modal': (e) ->

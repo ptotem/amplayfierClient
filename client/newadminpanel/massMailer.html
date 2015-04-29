@@ -24,8 +24,10 @@
         <div class="row">
           <div class="form-group">
             <div class="col-sm-offset-1 col-sm-11">
-              <input type="submit" class='btn btn-success send-mass-mail' value="Send" style="margin-top:5%">
-
+              <!-- <input type="submit" class='btn btn-success send-mass-mail' value="Send"> -->
+              <button type="button" class="btn btn-success send-mass-mail">
+                  <i class="fa fa-paper-plane"></i> Send
+                </button>
             </div>
           </div>
         </div>
@@ -33,6 +35,11 @@
       </form>
     </div>
   </div>
+  <!-- Needed by BSE.Mq.screen() helper in utils.js -->
+  <div id="mq"></div>
+
+  <!-- Needed by EmVars helper in _emerald.js -->
+  <div id="emvars"></div>
 </template>
 
 <template name="individualMailerNew">
@@ -73,7 +80,10 @@
         <div class="row">
           <div class="form-group">
             <div class="col-sm-offset-1 col-sm-11">
-              <input type="submit" class='btn btn-success send-mass-mail' value="Send" style="margin-top:5%">
+              <button type="button" class="btn btn-success send-mass-mail">
+                  <i class="fa fa-paper-plane"></i> Send
+              </button>
+              <!-- <input type="submit" class='btn btn-success send-mass-mail' value="Send"> -->
 
             </div>
           </div>
@@ -82,7 +92,11 @@
       </form>
     </div>
   </div>
+  <!-- Needed by BSE.Mq.screen() helper in utils.js -->
+  <div id="mq"></div>
 
+  <!-- Needed by EmVars helper in _emerald.js -->
+  <div id="emvars"></div>
 
 
 </template>

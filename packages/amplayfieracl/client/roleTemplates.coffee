@@ -5,11 +5,32 @@ if Meteor.isClient
     console.log roles.find().fetch()
     roles.findOne(rid).capabilities.indexOf(code) isnt -1
 
+  Template.manageRoleModal.events
+    'click .remove-modal': (e) ->
+      $('.modal').modal('hide')
+      $('.modal').remove()
+      $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+      $(".modal-backdrop").hide();
+    'click .fix-capability':(e)->
+      boxVals = _.map $('.capaInRole:checked'), (el) ->
+        $(el).val()
+      roles.update({_id:Session.get('currentRole')},{$set:{capabilities:boxVals}})
+      $('.show-roles').trigger('click')
+
+  Template.manageRoleModal.helpers
+    capabilityList:()->
+      capabilities.find().fetch()
+    capabilityAdded:(code)->
+      if Session.get('currentRole')?
+        roles.findOne(Session.get('currentRole')).capabilities.indexOf(code) isnt -1
+
   Template.roleList.helpers
     listOfRoles:()->
       roles.find().fetch()
+
     capabilityList:()->
-      capabilities.find().fetch()
+        capabilities.find().fetch()
+
     capabilityAdded:(code)->
       if Session.get('currentRole')?
         roles.findOne(Session.get('currentRole')).capabilities.indexOf(code) isnt -1
@@ -42,19 +63,16 @@ if Meteor.isClient
 
   Template.roleListThemeView.events
     'click .manage-role':(e)->
-      $('.role-list').hide()
-      $('.capability-list').show()
+      showModal('manageRoleModal',{},'main-wrapper-page-new')
+      # $('.role-list').hide()
+      # $('.capability-list').show()
       Session.set('currentRole',this._id)
     'click .delete-role':(e)->
       roles.remove({_id:this._id})
     'click .show-roles':(e)->
       $('.role-list').show()
       $('.capability-list').hide()
-    'click .fix-capability':(e)->
-      boxVals = _.map $('.capaInRole:checked'), (el) ->
-        $(el).val()
-      roles.update({_id:Session.get('currentRole')},{$set:{capabilities:boxVals}})
-      $('.show-roles').trigger('click')
+
 
   Template.roleList.rendered = ->
     Session.set('acluniqkey',this.data.uniqKey)
@@ -62,11 +80,12 @@ if Meteor.isClient
     Meteor.subscribe('capabilities')
     $('.capability-list').hide()
 
-  Template.roleListThemeView.rendered = ->
+  Template.roleAssignmentThemeView.rendered = ->
+    $('select').selectize();
     Session.set('acluniqkey',this.data.uniqKey)
     Meteor.subscribe('roles',this.data.uniqKey)
     Meteor.subscribe('capabilities')
-    $('.capability-list').hide()
+    # $('.capability-list').hide()
 
   Template.newRoleForm.events
     'submit form':(e)->

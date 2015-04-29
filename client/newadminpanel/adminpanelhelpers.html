@@ -541,10 +541,10 @@
         <div class="row table-line-row">
             <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right add-new-profile">Add New</a></div>
 
-            <div class="col-md-6 pull-right">
+            <div class="col-md-4 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search for a profile" style="height:15px" />
+                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search for a profile" style="height:15px;width:94%" />
                 </div>
 
             </div>
@@ -684,10 +684,10 @@
             <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
             <button href="#" class="btn btn-warning btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
 
-            <div class="col-md-6 pull-right">
+            <div class="col-md-4 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="users-filter" class="filter-box" placeholder="Search for a profile" style="height:15px" />
+                    <input type="text" id="users-filter" class="filter-box" placeholder="Search for a profile" style="height:15px;width:94%;" />
                 </div>
 
             </div>
@@ -1017,7 +1017,7 @@
                             <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
                                 <td class="col-md-6">{{title}}</td>
                                 <td class="col-md-6">
-                                    <input node-seq="{{sequence}}" type="number" max="100" min="1" class=" node-passing-marks pull-right node-day" style="width:10% ;" value="{{startDay}}" /> {{#if assessmentNode}}
+                                    <input node-seq="{{sequence}}" type="number" max="100" min="1" class="form-control node-passing-marks pull-right node-day" style="width:10% ;margin-left:1%;" value="{{startDay}}" /> {{#if assessmentNode}}
 
                                     <select rel="selectize" class="form-control pull-right select-asessment" style="width:70px;padding:0;margin-right:2%; ">
                                         {{#each assessments}}
@@ -1121,10 +1121,10 @@
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right new-question-for-admin">New</a></div>
-            <div class="col-md-6 pull-right">
+            <div class="col-md-4 pull-right">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search" style="height:15px" />
+                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search" style="height:15px;width:94%" />
                 </div>
             </div>
         </div>
@@ -1150,7 +1150,7 @@
                                 <td class="col-md-6">{{assessmentName}}</td>
                                 <td class="col-md-6">
                                     <a href="#" class="btn btn-success btn-md add-question">Add question</a>
-                                    <a href="#" class="btn btn-info btn-md view-question">View question</a>
+                                    <a href="#" class="btn btn-warning btn-md view-question">View question</a>
                                     <a href="#" class="btn btn-warning btn-md upload-assessment" id="{{_id}}">Upload questions</a>
                                     <a href="#" class="btn btn-danger btn-md delete-question-btn">Delete Assessment</a>
                                 </td>
