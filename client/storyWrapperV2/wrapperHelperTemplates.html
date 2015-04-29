@@ -37,56 +37,51 @@
                 <button type="button" class="close pull-right text-white-dk remove-modal"  aria-hidden="true">&times;</button>
             </div>
             <div class="container-fluid">
+				<div class="row text-center vpadded-row">
+					<div class="col-sm-12">
+						<h2>Welcome to the Virtual Tour! </h2>
+						<p>Select one the following section to begin the tour</p>
+					</div>
+				</div>
+
                 <div class="row text-center vpadded-row">
                     <div class="col-sm-4">
-                        <a href="#">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id="vt-profile">
                                 <i class="icm icm-user icm-4x"></i>
                                 <h5>Profile</h5>
                             </div>
-                        </a>
                     </div>
                     <div class="col-sm-4">
-                        <a href="#">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-badges'>
                                 <i class="icm icm-medal2 icm-4x"></i>
                                 <h5>Badges</h5>
                             </div>
-                        </a>
                     </div>
                     <div class="col-sm-4">
-                        <a href="#">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-leaderboard'>
                                 <i class="icm icm-ladder icm-4x"></i>
                                 <h5>LeaderBoard</h5>
                             </div>
-                        </a>
                     </div>
                 </div>
                 <div class="row text-center vpadded-row">
                     <div class="col-sm-4">
-                        <a href="#">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-reward'>
                                 <i class="icm icm-trophy-star icm-4x"></i>
                                 <h5>Rewards</h5>
                             </div>
-                        </a>
                     </div>
                     <div class="col-sm-4">
-                        <a href="#">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
-                                <i class="icm icm-envelope icm-4x"></i>
-                                <h5>Notifications</h5>
-                            </div>
-                        </a>
+						<div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-notification'>
+							<i class="icm icm-envelope icm-4x"></i>
+							<h5>Notifications</h5>
+						</div>
                     </div>
                     <div class="col-sm-4">
-                        <a href="#">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-document'>
                                 <i class="icm icm-drawer3 icm-4x"></i>
                                 <h5>Documents</h5>
                             </div>
-                        </a>
                     </div>
                 </div>
 
@@ -1247,7 +1242,7 @@
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
                   <li class="">
-                      <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour." onclick="setUpVirtualTour()">
+                      <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour.">
                           <i class="oc-partial-icon icm icm-binoculars2"></i>
                           <span class="oc-partial-menu-item">Virtual Tour</span>
                       </a>

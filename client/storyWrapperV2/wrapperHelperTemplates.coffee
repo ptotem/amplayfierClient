@@ -43,8 +43,8 @@ Template.wrapperSideBar.events
     showModal('feedbackModal',{},'main-wrapper-page')
   'click .contact-us-link':(e)->
     showModal('contactusModal',{},'main-wrapper-page')
-#  'click .vt-link':(e)->
-#    showModal('fullVirtualTourModal',{},'main-wrapper-page')
+  'click .vt-link':(e)->
+    showModal('virtualTourModal',{},'main-wrapper-page')
 
 
   'click .sign-out-link' :(e)->
@@ -198,3 +198,29 @@ Template.chatWrapper.rendered = ->
         iswitch.toggle()
       )
     return
+
+Template.virtualTourModal.events
+	'click #vt-badges':(e)->
+		$(".badge-link").trigger("click")
+		$('#badgesModal .modal-body').virtualTour(window.badgesVTO)
+		
+	'click #vt-notification':(e)->
+		$(".notification-link").trigger("click")
+		$('#notificationsModal .modal-body').virtualTour(window.notificationsVTO)
+		
+	'click #vt-reward':(e)->
+		$(".reward-link").trigger("click")
+		$('#rewardsModal .modal-body').virtualTour(window.rewardsVTO)
+		
+	'click #vt-document':(e)->
+		$(".document-link").trigger("click")
+		setTimeout(->
+			$('#documentsModal .modal-body').virtualTour(window.documentsVTO)
+		, 100)
+
+	'click #vt-leaderboard':(e)->
+		$(".leader-board-link").trigger("click")
+		setTimeout(->
+			$('#leaderboardModal .modal-body').virtualTour(window.leaderboardVTO)
+		, 100)
+		
