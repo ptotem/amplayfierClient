@@ -482,10 +482,18 @@ a.zone-button:visited {
     position: absolute;
     z-index: 91;
     display: block;
-    /*margin: 0 auto;*/
     font-size: 1.5em;
     text-align: justify;
 }
+
+.arr {
+    position: absolute;
+    width: 20%;
+}
+
+.flipX { transform: rotateX(180deg); }
+.flipY { transform: rotateY(180deg); }
+
 
 #nxt-btn {
     margin: 2% 0;
