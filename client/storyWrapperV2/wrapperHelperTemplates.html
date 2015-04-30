@@ -46,19 +46,19 @@
 
                 <div class="row text-center vpadded-row">
                     <div class="col-sm-4">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id="vt-profile">
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id="vt-profile" style='cursor:pointer'>
                                 <i class="icm icm-user icm-4x"></i>
                                 <h5>Profile</h5>
                             </div>
                     </div>
                     <div class="col-sm-4">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-badges'>
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-badges' style='cursor:pointer'>
                                 <i class="icm icm-medal2 icm-4x"></i>
                                 <h5>Badges</h5>
                             </div>
                     </div>
                     <div class="col-sm-4">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-leaderboard'>
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-leaderboard' style='cursor:pointer'>
                                 <i class="icm icm-ladder icm-4x"></i>
                                 <h5>LeaderBoard</h5>
                             </div>
@@ -66,19 +66,19 @@
                 </div>
                 <div class="row text-center vpadded-row">
                     <div class="col-sm-4">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-reward'>
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-reward' style='cursor:pointer'>
                                 <i class="icm icm-trophy-star icm-4x"></i>
                                 <h5>Rewards</h5>
                             </div>
                     </div>
                     <div class="col-sm-4">
-						<div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-notification'>
+						<div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-notification' style='cursor:pointer'>
 							<i class="icm icm-envelope icm-4x"></i>
 							<h5>Notifications</h5>
 						</div>
                     </div>
                     <div class="col-sm-4">
-                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-document'>
+                            <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-document' style='cursor:pointer'>
                                 <i class="icm icm-drawer3 icm-4x"></i>
                                 <h5>Documents</h5>
                             </div>
@@ -1425,7 +1425,7 @@
 </template>
 
 <template name="badgeModal">
-    <div class="modal blur data-display-modal" id="badgesModal" tabindex="-1" role="dialog" aria-labelledby="badgesModalLabel" aria-hidden="true">
+    <div class="modal blur data-display-modal" onload="function(){$('.modal-backdrop').css({opacity: 0.8}); }" id="badgesModal" tabindex="-1" role="dialog" aria-labelledby="badgesModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xlg-data-modal">
             <div class="modal-content">
                 <div class="modal-header">

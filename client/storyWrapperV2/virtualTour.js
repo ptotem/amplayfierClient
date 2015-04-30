@@ -29,7 +29,8 @@ window.badgesVTO = [
 					top: 30
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: false
 	},
 	{
 		sequence: 2,
@@ -51,7 +52,8 @@ window.badgesVTO = [
 					top: 60
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: false
 	}
 ];
 
@@ -77,7 +79,8 @@ window.notificationsVTO = [
 					top: 45
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: true
 	}
 ];
 
@@ -103,7 +106,8 @@ window.rewardsVTO = [
 					top: 70
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: true
 	},
 	{
 		sequence: 2,
@@ -131,7 +135,8 @@ window.rewardsVTO = [
 					top: 75
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: true
 	},
 	{
 		sequence: 3,
@@ -154,7 +159,8 @@ window.rewardsVTO = [
 					top: 60
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: true
 	}
 ];
 
@@ -180,7 +186,8 @@ window.documentsVTO = [
 					top: 37
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: true
 	}
 ];
 
@@ -212,7 +219,8 @@ window.leaderboardVTO = [
 					top: 60
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: true
 	},
 	{
 		sequence: 2,
@@ -235,7 +243,8 @@ window.leaderboardVTO = [
 					top: 70
 				}
 			},
-		button: "Got it!"
+		button: "Got it!",
+		disablePointerEvents: true
 	}
 ];
 
@@ -245,14 +254,12 @@ window.leaderboardVTO = [
 		$('.txt-hldr').remove();
 		var data = virtualTourData;
 		
-		console.log(data);
-		console.log(this);
-		
 		var addClass = function(i) {
 			if(data[i].content.highlightElems.length>0)
 				for(var j in data[i].content.highlightElems) {
 					$(data[i].content.highlightElems[j]).removeClass('transp no-click').addClass('opaque');
-					console.log(data[i].content.highlightElems[j]);
+					if(data[i].disablePointerEvents)
+						$(data[i].content.highlightElems[j]).addClass('no-click');
 				}
 		};
 		
@@ -299,6 +306,27 @@ window.leaderboardVTO = [
 			addArrow(i);
 			addButton(i);
 			addClass(i);
+		}
+		
+		
+		var indx=0;
+		
+		$('.txt-holdr').each(function(indx) {
+			var this_ = this;
+			console.log(indx);
+			setTimeout(function(){
+				animFunct(this_);
+				indx++;
+			}, indx*2000);
+		});
+		
+		var animFunct = function(this_) {
+			$(this_).removeClass('opaque').css({
+				opacity: 0,
+				display: "block"
+			}).animate({
+				opacity:1
+			}, 500);
 		}
 		
 		return this;
