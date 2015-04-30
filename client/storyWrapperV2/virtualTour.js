@@ -313,7 +313,6 @@ window.leaderboardVTO = [
 		
 		$('.txt-holdr').each(function(indx) {
 			var this_ = this;
-			console.log(indx);
 			setTimeout(function(){
 				animFunct(this_);
 				indx++;
