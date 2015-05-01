@@ -20,15 +20,15 @@ Template.mainWrapper.rendered = ->
 
 
 Template.mainWrapper.created = ()->
-  s = platforms.findOne().storyConfig
-  window.storyConfig = JSON.parse(s);
+  s = platforms.findOne().wrapperJson
+  window.storyConfig = s
 
 Template.mainWrapper.helpers
   getPrecTop : (top)->
 
-    return top - 3.5
+    return top 
   getPrecLeft:(left1)->
-    left1 - 0.5
+    left1 
 
   getNamePlate : ()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.nameplate.image
@@ -39,8 +39,8 @@ Template.mainWrapper.helpers
   getBackImg: ()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
-#    platforms.findOne().nodes
-     sc.nodes
+   platforms.findOne().nodes
+     # sc.nodes
   storyHeading:()->
     storyConfig.name
 #    sc.name

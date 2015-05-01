@@ -135,7 +135,7 @@
     console.log res
     pname = platforms.findOne({tenantId: tid}).tenantName
     if !err
-      platforms.update({tenantId: tid}, {$set: {tenantName: pname, nodes: res.nodes, storyConfig: res.sconfig}})
+      platforms.update({tenantId: tid}, {$set: {tenantName: pname, nodes: res.nodes, storyConfig: res.sconfig,wrapperJson:res.wrapperJson}})
   )
 
 @getAllAssetsForTenant = (tid, secretKey, res)->
