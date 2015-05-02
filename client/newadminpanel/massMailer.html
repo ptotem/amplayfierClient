@@ -24,8 +24,10 @@
         <div class="row">
           <div class="form-group">
             <div class="col-sm-offset-1 col-sm-11">
-              <input type="submit" class='btn btn-success send-mass-mail' value="Send" style="margin-top:5%">
-
+              <!-- <input type="submit" class='btn btn-success send-mass-mail' value="Send"> -->
+              <button type="button" class="btn btn-success send-mass-mail">
+                  <i class="fa fa-paper-plane"></i> Send
+                </button>
             </div>
           </div>
         </div>
@@ -33,6 +35,11 @@
       </form>
     </div>
   </div>
+  <!-- Needed by BSE.Mq.screen() helper in utils.js -->
+  <div id="mq"></div>
+
+  <!-- Needed by EmVars helper in _emerald.js -->
+  <div id="emvars"></div>
 </template>
 
 <template name="individualMailerNew">
@@ -46,7 +53,7 @@
           <div class="form-group string required">
             <label for="compose-subject" class="control-label col-sm-1">To</label>
             <div class="col-sm-11">
-              <select id="usersemails" multiple class="col-md-6">
+              <select rel="selectize" id="usersemails" multiple class="col-md-6 form-control" style="width:100%;padding:0;margin-right:2%; ">
                 {{#each userEmails}}
                 <option value="{{e}}">{{e}}</option>
                 {{/each}}
@@ -73,7 +80,10 @@
         <div class="row">
           <div class="form-group">
             <div class="col-sm-offset-1 col-sm-11">
-              <input type="submit" class='btn btn-success send-mass-mail' value="Send" style="margin-top:5%">
+              <button type="button" class="btn btn-success send-mass-mail">
+                  <i class="fa fa-paper-plane"></i> Send
+              </button>
+              <!-- <input type="submit" class='btn btn-success send-mass-mail' value="Send"> -->
 
             </div>
           </div>
@@ -82,7 +92,11 @@
       </form>
     </div>
   </div>
+  <!-- Needed by BSE.Mq.screen() helper in utils.js -->
+  <div id="mq"></div>
 
+  <!-- Needed by EmVars helper in _emerald.js -->
+  <div id="emvars"></div>
 
 
 </template>

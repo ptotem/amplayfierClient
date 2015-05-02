@@ -26,9 +26,19 @@ Template.profilesLeftMenu.helpers
 
     profiles
 
+Template.badgesLeftMenu.helpers
+  badges:()->
+    platforms.findOne().badges
+
 Template.assessmentsLeftMenu.helpers
   assessments:()->
     assesments.find().fetch()
+
+Template.userlistLeftMenu.rendered = () ->
+  $('select').selectize()
+  
+Template.enrollmentsLeftMenu.rendered = () ->
+  $('select').selectize()
 
 Template.enrollmentsLeftMenu.helpers
   assessments:()->
@@ -55,6 +65,9 @@ Template.userlistLeftMenu.helpers
 
 
 Template.adminSideBar.events
+  'click .topModal':(e)->
+    showModal('topBarModal',{},'main-wrapper-page-new')
+
   'click .menu-link':(e)->
     temName = $(e.currentTarget).attr('target-templ')
     $("#left-menu-container").empty();
@@ -81,8 +94,8 @@ Template.mainAdminPanel.helpers
 #    platforms.findOne().nodes
 
 
-  badges:()->
-    platforms.findOne().badges
+#  badges:()->
+#    platforms.findOne().badges
 
   passKey:()->
     {ukey:platforms.findOne()._id}
@@ -249,6 +262,9 @@ Template.enrollmentsLeftMenu.events
     )
     platforms.update({_id:pid},{$set:{nodes:nodes}})
 
+  'keyup #tag-filter':(e)->
+    searchBar($(e.currentTarget).val(),".enrollment-node")
+
 Template.manageReport.events
   'click .download-report-btn':(e)->
     Meteor.call('exportData',(err,res)->
@@ -286,9 +302,37 @@ Template.rewardsLeftMenu.events
   'click .new-reward-form-btn':(e)->
     showModal('newRewardModal',{},'main-wrapper-page-new')
 
+  'keyup #tag-filter':(e)->
+    searchBar($(e.currentTarget).val(),".reward-block")
+
+Template.badgesLeftMenu.events
+  'click .update-badge-values':(e)->
+    badgeList = []
+    $('.badge-item').each((ind,ele)->
+      badgeList.push {name:$(ele).attr('badge-name'),value:$(ele).find('input').val()}
+    )
+    pid = platforms.findOne()._id
+    console.log badgeList
+    platforms.update({_id:pid},{$set:{badges:badgeList}})
+
+    createNotification("Badges have been updated",1)
+
+  'keyup #tag-filter':(e)->
+    searchBar($(e.currentTarget).val(),".badge-item")
+
 Template.rolesLeftMenu.events
   'click .new-role-form-btn':(e)->
     showModal('newRoleModal',{},'main-wrapper-page-new')
 
   'click .assign-role-form-btn':(e)->
     showModal('assignRoleModal',{},'main-wrapper-page-new')
+
+  'keyup #tag-filter':(e)->
+    searchBar($(e.currentTarget).val(),".role")
+
+#Template.mainAdminPanel.events
+#  'shown.bs.modal .modal': (e)->
+#    console.log "modal shown"
+#
+#  'hidden.bs.modal .modal': (e)->
+#    console.log "modal hidden"

@@ -18,15 +18,40 @@ Template.massMailerFormNew.events
   'click .send-mass-mail':(e)->
       Meteor.call('sendMassMail',platforms.findOne()._id,$('#emailSubject').val(),$('#emailBody').code())
       e.preventDefault()
+  'click .note-style':(e)->
+    $('.note-style').addClass 'open'
+  'click .note-fontname':(e)->
+    $('.note-fontname').addClass 'open'
+  'click .note-color':(e)->
+    $('.note-color').addClass 'open'
+  'click .note-height':(e)->
+    $('.note-height').addClass 'open'
+  'click .note-para':(e)->
+    $('.note-para').addClass 'open'
+  'click .note-table':(e)->
+    $('.note-table').addClass 'open'    
 
 Template.individualMailerNew.events
   'click .send-individual-mail':(e)->
       emailIds = $('#usersemails').val()
       Meteor.call('sendMultipleMail',platforms.findOne()._id,emailIds,$('#emailSubjectIndi').val(),$('#emailBodyIndi').code())
       e.preventDefault()
+  'click .note-style':(e)->
+    $('.note-style').addClass 'open'
+  'click .note-fontname':(e)->
+    $('.note-fontname').addClass 'open'
+  'click .note-color':(e)->
+    $('.note-color').addClass 'open'
+  'click .note-height':(e)->
+    $('.note-height').addClass 'open'
+  'click .note-para':(e)->
+    $('.note-para').addClass 'open'
+  'click .note-table':(e)->
+    $('.note-table').addClass 'open'
 
 
 Template.individualMailerNew.rendered = ->
+  $("select").selectize()
   $("#emailBodyIndi").summernote()
 
 Template.individualMailerNew.helpers
