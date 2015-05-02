@@ -62,7 +62,6 @@ UI.registerHelper "getAssetUrl",(fileid) ->
 
 
 UI.registerHelper "getGameImageUrl",(fileid) ->
-  console.log "fileId " + fileid
   if assetFiles.findOne(fileid) is `undefined`
     "/admin/img/defaultback-game.gif"
   else

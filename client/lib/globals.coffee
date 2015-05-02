@@ -70,6 +70,7 @@
 
   # setTimeout(()->
     $('.slide-container.active').find('iframe')[0].contentWindow.$("body").trigger("loadGame")
+    # $($('.slide-container.active').find('iframe')[0].contentWindow.document).find('body').trigger("loadGame")
     console.log "triggerInitGame"
   # ,500)
 
