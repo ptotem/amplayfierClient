@@ -1,18 +1,18 @@
 Template.fullVirtualTourModal.events
-  'click .next-help-btn':(e)->
-    $('.first-btn').addClass('second-btn').removeClass('first-btn')
-    $('.help-content-container').empty()
-    eattr = $(e.currentTarget).attr('next-screen')
-    console.log eattr
-    for t in virtualTour[eattr].textPoints
-      $('.help-content-container').append(t.textValue)
-
-    $('.help-content-container').append('<div class="row text-center vpadded-row ">
-               <div class="col-sm-2 col-sm-offset-8">
-                        <a href="#" next-screen='+virtualTour[eattr]['btnValue']['extraAttr']+' class="'+virtualTour[eattr]['btnValue']['classVal']+'">'+virtualTour[eattr]['btnValue']['name']+'</a>
-                    </div>
-
-              </div> ')
+#  'click .next-help-btn':(e)->
+#    $('.first-btn').addClass('second-btn').removeClass('first-btn')
+#    $('.help-content-container').empty()
+#    eattr = $(e.currentTarget).attr('next-screen')
+#    console.log eattr
+#    for t in virtualTour[eattr].textPoints
+#      $('.help-content-container').append(t.textValue)
+#
+#    $('.help-content-container').append('<div class="row text-center vpadded-row ">
+#               <div class="col-sm-1 col-sm-offset-8" style="padding: 0">
+#                        <a href="#" id="nxt-btn" class="'+virtualTour[eattr]['btnValue']['classVal']+'">'+virtualTour[eattr]['btnValue']['name']+'</a>
+#                    </div>
+#
+#              </div> ')
 
 
 
@@ -198,3 +198,29 @@ Template.chatWrapper.rendered = ->
         iswitch.toggle()
       )
     return
+
+Template.virtualTourModal.events
+	'click #vt-badges':(e)->
+		$(".badge-link").trigger("click")
+		$('#badgesModal .modal-body').virtualTour(window.badgesVTO)
+		
+	'click #vt-notification':(e)->
+		$(".notification-link").trigger("click")
+		$('#notificationsModal .modal-body').virtualTour(window.notificationsVTO)
+		
+	'click #vt-reward':(e)->
+		$(".reward-link").trigger("click")
+		$('#rewardsModal .modal-body').virtualTour(window.rewardsVTO)
+		
+	'click #vt-document':(e)->
+		$(".document-link").trigger("click")
+		setTimeout(->
+			$('#documentsModal .modal-body').virtualTour(window.documentsVTO)
+		, 100)
+
+	'click #vt-leaderboard':(e)->
+		$(".leader-board-link").trigger("click")
+		setTimeout(->
+			$('#leaderboardModal .modal-body').virtualTour(window.leaderboardVTO)
+		, 100)
+		
