@@ -519,7 +519,7 @@ a.zone-button:visited {
 }
 
 .opaque { opacity: 1 !important; }
-.transp { opacity: 0.05 !important; }
+.transp { opacity: 0.1 !important; }
 
 .bxshdw {
 	box-shadow: 0 0 2em 1em #fff !important;

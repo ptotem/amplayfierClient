@@ -314,6 +314,7 @@ window.chatVTO = [
 (function($) {
 	
 	$.fn.virtualTour = function(virtualTourData) {
+		$('.modal-backdrop').remove();
 		$('.txt-hldr').remove();
 		var data = virtualTourData;
 		
@@ -356,10 +357,11 @@ window.chatVTO = [
 				$(data[i].content.highlightElems[j]).removeClass('opaque no-click');
 			$(data[i].content.fadeElem).removeClass('transp no-click');
 			$('.txt-holdr').remove();
-			$('.remove-modal').trigger('click');
+			$('.remove-modal').click();
 			$(data[i].runJS!=="")
 				eval(data[i].runJS);
-			$('.vt-link').trigger('click');
+			$('.vt-link')[0].click();
+			$('.modal-backdrop').remove();
 		};
 		
 		
