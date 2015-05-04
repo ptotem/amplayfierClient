@@ -202,43 +202,41 @@ Template.chatWrapper.rendered = ->
 
 
 Template.virtualTourModal.events
+  'click #vt-badges': (e) ->
+    console.log "badges"
+    $(".badge-link")[0].click()
+    $('#badgesModal .modal-body').virtualTour(window.badgesVTO)
+
+  'click #vt-notification': (e) ->
+    console.log "notification"
+    $(".notification-link")[0].click()
+    $('#notificationsModal .modal-body').virtualTour(window.notificationsVTO)
+
+  'click #vt-reward': (e) ->
+    console.log "reward"
+    $(".reward-link")[0].click()
+    $('#rewardsModal .modal-body').virtualTour(window.rewardsVTO)
+
+  'click #vt-document': (e) ->
+    console.log "document"
+    $(".document-link")[0].click()
+    setTimeout(->
+      $('#documentsModal .modal-body').virtualTour(window.documentsVTO)
+    , 100)
+
   'click #vt-leaderboard': (e) ->
     console.log "leader"
+    $(".leader-board-link")[0].click()
+    setTimeout(->
+      $('#leaderboardModal .modal-body').virtualTour(window.leaderboardVTO)
+    , 100)
+
   'click #vt-chat' : (e) ->
     console.log "cheat"
+    $('#jump-to-menu .close').click()
+    $("#oc-right-toggle").click()
+    setTimeout(->
+      $('#main-wrapper-page').virtualTour(window.chatVTO)
+    , 100)
 
     # ...
-
-# Template.virtualTourModal.events
-# 	# 'click #vt-badges':(e)->
-# 	# 	$(".badge-link")[0].click()
-# 	# 	$('#badgesModal .modal-body').virtualTour(window.badgesVTO)
-
-# 	# 'click #vt-notification':(e)->
-# 	# 	$(".notification-link")[0].click()
-# 	# 	$('#notificationsModal .modal-body').virtualTour(window.notificationsVTO)
-
-# 	# 'click #vt-reward':(e)->
-# 	# 	$(".reward-link")[0].click()
-# 	# 	$('#rewardsModal .modal-body').virtualTour(window.rewardsVTO)
-
-# 	# 'click #vt-document':(e)->
-# 	# 	$(".document-link")[0].click()
-# 	# 	setTimeout(->
-# 	# 		$('#documentsModal .modal-body').virtualTour(window.documentsVTO)
-# 	# 	, 100)
-
-#   'click #vt-leaderboard': (e) ->
-#     console.log 'in click'
-#     # $(".leader-board-link")[0].click()
-#     # setTimeout(->
-#     #   $('#leaderboardModal .modal-body').virtualTour(window.leaderboardVTO)
-#     # , 100)
-
-# 	'click #vt-chat': (e) ->
-
-#     $('#jump-to-menu .close').click()
-#     $("#oc-right-toggle").click()
-#     setTimeout(->
-#       $('#main-wrapper-page').virtualTour(window.chatVTO)
-#     , 100)
