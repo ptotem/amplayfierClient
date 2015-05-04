@@ -505,6 +505,7 @@ a.zone-button:visited {
 .rot-90_{ transform: rotate(-90deg); }
 .rot-20{ transform: rotate(20deg); }
 .rot-105_{ transform: rotate(-105deg); }
+.rot-140 {transform: rotate(140deg); }
 
 
 #nxt-btn {
