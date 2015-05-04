@@ -44,7 +44,7 @@ Template.wrapperSideBar.events
   'click .contact-us-link':(e)->
     showModal('contactusModal',{},'main-wrapper-page')
   'click .vt-link':(e)->
-    showModal('fullVirtualTourModal',{},'main-wrapper-page')
+    showModal('virtualTourModal',{},'main-wrapper-page')
 
 
   'click .sign-out-link' :(e)->
@@ -209,6 +209,7 @@ Template.virtualTourModal.events
 		$('#notificationsModal .modal-body').virtualTour(window.notificationsVTO)
 		
 	'click #vt-reward':(e)->
+    console.log "Clicked"
 		$(".reward-link").trigger("click")
 		$('#rewardsModal .modal-body').virtualTour(window.rewardsVTO)
 		
