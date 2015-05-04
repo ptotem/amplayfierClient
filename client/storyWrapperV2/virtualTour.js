@@ -30,7 +30,8 @@ window.badgesVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: false
+		disablePointerEvents: false,
+		runJS: ""
 	},
 	{
 		sequence: 2,
@@ -53,7 +54,8 @@ window.badgesVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: false
+		disablePointerEvents: false,
+		runJS: ""
 	}
 ];
 
@@ -80,7 +82,8 @@ window.notificationsVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: true
+		disablePointerEvents: true,
+		runJS: ""
 	}
 ];
 
@@ -107,7 +110,8 @@ window.rewardsVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: true
+		disablePointerEvents: true,
+		runJS: ""
 	},
 	{
 		sequence: 2,
@@ -136,7 +140,8 @@ window.rewardsVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: true
+		disablePointerEvents: true,
+		runJS: ""
 	},
 	{
 		sequence: 3,
@@ -160,7 +165,8 @@ window.rewardsVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: true
+		disablePointerEvents: true,
+		runJS: ""
 	}
 ];
 
@@ -187,7 +193,8 @@ window.documentsVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: true
+		disablePointerEvents: true,
+		runJS: ""
 	}
 ];
 
@@ -220,7 +227,8 @@ window.leaderboardVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: true
+		disablePointerEvents: true,
+		runJS: ""
 	},
 	{
 		sequence: 2,
@@ -244,7 +252,62 @@ window.leaderboardVTO = [
 				}
 			},
 		button: "Got it!",
-		disablePointerEvents: true
+		disablePointerEvents: true,
+		runJS: ""
+	}
+];
+
+window.chatVTO = [
+	{
+		sequence: 1,
+		content: 
+			{ 
+				text: "Click on the chat icon to access the chat sidebar.",
+				highlightElems: [
+					"#oc-right-toggle",
+					".chat-contact:nth-child(4)"
+				],
+				fadeElem: "#story-wrapper, #story-presenter, #story-nameplate, #notifications-splash, #license-img, #shield-img, .chat-contact",
+				arrows: [
+					{
+						img: "<img src='" + arrowL + "' class='arr rot-90' />",
+						left: 76,
+						top: -330
+					}
+				],
+				pos: {
+					left: 48,
+					top: 20
+				}
+			},
+		button: "Got it!",
+		disablePointerEvents: true,
+	},
+	{
+		sequence: 2,
+		content: 
+			{ 
+				text: "Users of the portal who are online will appear here. Click on them to chat.",
+				highlightElems: [
+					"#oc-right-toggle",
+					".chat-contact:nth-child(4)"
+				],
+				fadeElem: "#story-wrapper, #story-presenter, #story-nameplate, #notifications-splash, #license-img, #shield-img, .chat-contact",
+				arrows: [
+					{
+						img: "<img src='" + arrowL + "' class='arr rot-140' />",
+						left: 105,
+						top: -19
+					}
+				],
+				pos: {
+					left: 40,
+					top: 42
+				}
+			},
+		button: "Got it!",
+		disablePointerEvents: true,
+		runJS: "$('#oc-right-toggle').trigger('click')"
 	}
 ];
 
@@ -290,10 +353,12 @@ window.leaderboardVTO = [
 		
 		var resetEverything = function(i) {
 			for(var j in data[i].content.highlightElems)
-				$(data[i].content.highlightElems[j]).removeClass('opaque');
+				$(data[i].content.highlightElems[j]).removeClass('opaque no-click');
 			$(data[i].content.fadeElem).removeClass('transp no-click');
 			$('.txt-holdr').remove();
 			$('.remove-modal').trigger('click');
+			$(data[i].runJS!=="")
+				eval(data[i].runJS);
 			$('.vt-link').trigger('click');
 		};
 		

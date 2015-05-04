@@ -223,4 +223,11 @@ Template.virtualTourModal.events
 		setTimeout(->
 			$('#leaderboardModal .modal-body').virtualTour(window.leaderboardVTO)
 		, 100)
+
+	'click #vt-chat':(e)->
+		$('#jump-to-menu .close').trigger('click')
+		$("#oc-right-toggle").trigger("click")
+		setTimeout(->
+			$('#main-wrapper-page').virtualTour(window.chatVTO)
+		, 100)
 		
