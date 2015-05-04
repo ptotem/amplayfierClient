@@ -20,6 +20,10 @@ Template.wrapperSideBar.rendered = ->
     $('.side-bar-link').popover({trigger:'hover',html: true,delay: { "show": 500, "hide": 100 }})
 
 
+Template.wrapperSideBar.helpers
+  platformStatus:()->
+    platforms.findOne().platformStatus
+
 Template.wrapperSideBar.events
   'click .notification-link':(e)->
     showModal('notificationModal',{},'main-wrapper-page')
@@ -43,6 +47,8 @@ Template.wrapperSideBar.events
     showModal('feedbackModal',{},'main-wrapper-page')
   'click .contact-us-link':(e)->
     showModal('contactusModal',{},'main-wrapper-page')
+  'click .login-link':(e)->
+    showModal('modalLogin',{},'main-wrapper-page')
   'click .vt-link':(e)->
     showModal('fullVirtualTourModal',{},'main-wrapper-page')
 
@@ -203,15 +209,15 @@ Template.virtualTourModal.events
 	'click #vt-badges':(e)->
 		$(".badge-link").trigger("click")
 		$('#badgesModal .modal-body').virtualTour(window.badgesVTO)
-		
+
 	'click #vt-notification':(e)->
 		$(".notification-link").trigger("click")
 		$('#notificationsModal .modal-body').virtualTour(window.notificationsVTO)
-		
+
 	'click #vt-reward':(e)->
 		$(".reward-link").trigger("click")
 		$('#rewardsModal .modal-body').virtualTour(window.rewardsVTO)
-		
+
 	'click #vt-document':(e)->
 		$(".document-link").trigger("click")
 		setTimeout(->
@@ -223,4 +229,12 @@ Template.virtualTourModal.events
 		setTimeout(->
 			$('#leaderboardModal .modal-body').virtualTour(window.leaderboardVTO)
 		, 100)
-		
+
+Template.modalLogin.events
+   'submit #storyLoginForm':(e)->
+     pn = platformName
+     userEmail = $(e.currentTarget).find("#email").val().toString()
+     newEmail = encodeEmail(userEmail,pn)
+     userPassword = $(e.currentTarget).find("#password").val()
+     authenticatePassword(newEmail,userPassword,"/mystory")
+     false
