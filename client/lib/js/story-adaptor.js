@@ -53,11 +53,6 @@ function setDesign(orientation) {
         bottom: storyConfig.nameplate[orientation].bottom + "%",
         width: storyConfig.nameplate[orientation].width + "%"
     });
-    $('#story-nameplate').css({
-        left: "2" + "%",
-        bottom: "76" + "%",
-        width: "22"+ "%"
-    });
 
 
     /* Set the Story Presenter */
@@ -67,11 +62,7 @@ function setDesign(orientation) {
         width: storyConfig.presenter[orientation].width + "%"
     });
 
-    $('#story-presenter').css({
-        left: "0" + "%",
-        bottom: "-10" + "%",
-        width: "28" + "%"
-    });
+  
 
 
 
@@ -88,11 +79,7 @@ function setDesign(orientation) {
         left: storyConfig.notifications[orientation].left + "%",
         bottom: storyConfig.notifications[orientation].bottom + "%"
     });
-    $('#notifications-splash').css({
-        width: "34"+ "%",
-        left: "0"+ "%",
-        bottom: "20"+ "%"
-    });
+
 
 
     //for (i in platformData.nodes) {
@@ -630,21 +617,21 @@ function requestFullScreen(elm) {
     //$('.main-story-content').hide();
     $(elm).fadeIn();
     $('.show-deck-modal').css({"height":"120%"});
-    //$('.slide-container').css({"transform":"scale(1.1) translateX(7.3%)"});
-    //$('.slide-container').find('iframe').css({"margin-top":"7%"});
+    $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
+    $('.slide-container').find('iframe').css({"margin-top":"7%"});
 
     //only done for demo on 24 april 2015
     //$('.slide-container').find('iframe').css({"margin-top":"0%"});
     //$('.slide-container').find('iframe').find('embed').css({"transform":"scale(1.4)"});
-    setTimeout(function(){
-            $('.slide-container').find('iframe').css({"-webkit-transform":"scale(1.15) translateY(7%)"});
-    }
-    ,3000);
+    // setTimeout(function(){
+    //         $('.slide-container').find('iframe').css({"-webkit-transform":"scale(1.15) translateY(7%)"});
+    // }
+    // ,3000);
 
     //change 65 to 74..done for demo
-    $('.modal-xlg-ppt').css({"height":"65%"});
+    $('.modal-xlg-ppt').css({"height":"74%"});
     //$('.slide-container').css({"transform":"scale(1.1) translateX(4%)"});
-    $('.full-container').css({'margin-top':'6.2%'});
+    // $('.full-container').css({'margin-top':'6.2%'});
     //$('.component').css({"transform":"scale(1.4) "});
 
     var el = document.body; // Make the body go full screen.
