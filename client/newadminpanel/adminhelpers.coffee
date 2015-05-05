@@ -36,7 +36,7 @@ Template.assessmentsLeftMenu.helpers
 
 Template.userlistLeftMenu.rendered = () ->
   $('select').selectize()
-  
+
 Template.enrollmentsLeftMenu.rendered = () ->
   $('select').selectize()
 
@@ -336,3 +336,19 @@ Template.rolesLeftMenu.events
 #
 #  'hidden.bs.modal .modal': (e)->
 #    console.log "modal hidden"
+
+
+Template.platformStatus.rendered = () ->
+  status = platforms.findOne().platformStatus
+  if status == "open"
+    $('input:radio[name="platformstatus"][value="open"]').prop('checked', true)
+  else
+    $('input:radio[name="platformstatus"][value="close"]').prop('checked', true)
+
+
+Template.platformStatus.events
+  'click .platform-status':(e)->
+    status = $('input[name=platformstatus]:checked').val()
+    pid = platforms.findOne()._id
+    platforms.update({_id:pid},{$set:{platformStatus:status}})
+    createNotification("your platform is now " + status,1)

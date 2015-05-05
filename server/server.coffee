@@ -156,12 +156,12 @@ Meteor.methods
     Meteor.users.update({_id: uid}, {$set: {profile: prf}})
     true
 
-  createAdminOnClient: (email, tid, platformName)->
+  createAdminOnClient: (email, tid, platformName,platformPwd)->
     console.log "Request for user creation received"
 
     pid = platforms.findOne({tenantId: tid})._id
     personal_profile = {platform: pid, email: encodeEmail(email,platformName),  first_name:platformName, last_name: 'Admin', display_name: 'Administrator'}
-    newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
+    newpass = platformPwd
     personal_profile['initialPass'] = newpass
     capabilitiesKeys = _.pluck(capabilities.find().fetch(),'code')
     r = addRoles("superadmin","This is the super admin role",capabilitiesKeys,pid)
@@ -401,6 +401,7 @@ Meteor.methods
         return false
     else
       return false
+
 
   addIndividualUser: (p, pid)->
     ul = platforms.findOne(pid).userLimit || -1

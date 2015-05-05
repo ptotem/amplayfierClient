@@ -141,6 +141,9 @@
                     <li class="">
                         <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Assessments</span></a>
                     </li>
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="platformStatus" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Status</span></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -1575,4 +1578,21 @@
         </div>
 
     </div>
+</template>
+
+
+<template name="platformStatus">
+  <div class="row">
+    <div class="col-md-4">
+      <label class="checkbox-inline">
+        <input type="radio" name="platformstatus" value="open" rel="icheck" class="checkable-dark status-platform"> Open
+      </label> <br>
+      <label class="checkbox-inline">
+        <input type="radio" name="platformstatus" value="close" rel="icheck" class="checkable-primary status-platform"> Close
+      </label>
+    </div>
+    <div class="col-md-1 pull-right">
+                <a href="#" class="btn btn-warning btn-md pull-right platform-status">Update</a>
+    </div>
+  </div>
 </template>
