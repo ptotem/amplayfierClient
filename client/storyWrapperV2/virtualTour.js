@@ -314,7 +314,7 @@ window.chatVTO = [
 (function($) {
 	
 	$.fn.virtualTour = function(virtualTourData) {
-		$('.modal-backdrop').remove();
+		// $('.modal-backdrop').remove();
 		$('.txt-hldr').remove();
 		var data = virtualTourData;
 		
