@@ -125,7 +125,7 @@ Template.userEditForm.events
 
 @transitionSlide = ()->
 
-  $('.slide-container.active:visible').hide('slow',(e)->
+  $('.slide-container.active:visible').fadeOut('slow',(e)->
     setTime(getTime())
     minTime = $($(this).find(".center-panel")).find(".slide-wrapper").attr("min-time")
     maxTime = $($(this).find(".center-panel")).find(".slide-wrapper").attr("max-time")

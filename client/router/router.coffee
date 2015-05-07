@@ -96,7 +96,7 @@ Router.route '/showdeck/:did',
     if @ready()
       @render()
 
-Router.route '/admin',
+Router.route '/admintest',
   template: 'adminpanel',
   name:'admin',
   data:()->
@@ -114,7 +114,7 @@ Router.route '/admin',
     else
       @render('loading')
 
-Router.route '/admintest',
+Router.route '/admin',
   template: 'mainAdminPanel',
   name:'admintest',
   data:()->

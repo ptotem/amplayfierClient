@@ -275,6 +275,12 @@ UI.registerHelper "styleForAdmin",() ->
     "block"  
   else  
     "none"
+UI.registerHelper "getContentTitle",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['title']
+UI.registerHelper "getContentDesc",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['desc']
 
 
   #    small helper that reads the application name from the configuration file

@@ -33,42 +33,7 @@
             </div>
 
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
-                <ul class="nav nav-stacked oc-sidebar-nav visible-xs">
-                    <li>
-                        <form class="oc-header oc-search" role="search">
-                            <div class="form-group has-header">
-                                <span class="icm icm-search3 form-control-header"></span>
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                        </form>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#dropdownUserSidebar" class="collapsed" data-toggle="collapse" data-parent="#collapseAvatarLeft">
-                            <div class="media">
-                                <img class="img-circle media-object pull-left" src="../images/faker/avatars/48/Faces_Users-02.png" />
-
-                                <div class="media-body">
-                                    <h4 class="media-heading">Amy R. Hofstadter</h4>
-                                    Error porro omnis enim soluta magni eum
-                                </div>
-                            </div>
-                        </a>
-                        <ul class="collapse dropdown-menu" id="dropdownUserSidebar">
-                            <li>
-                                <a href="#"><i class="icm icm-user"></i> Profile</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icm icm-cog"></i> Settings</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icm icm-switch text-danger"></i>
-                                    <span class="text-danger">Sign out</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+               
 
 
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
@@ -84,65 +49,65 @@
 
 
 
-                            <li class="">
+                            <!-- <li class="">
                                 <a class="collapsed menu-link" target-templ="profilesLeftMenu" href="#"> Profiling
                                 </a></li>
-
+ -->
                             <li class="">
-                                <a class="collapsed menu-link" target-templ="userlistLeftMenu" href="#"> User List
+                                <a class="collapsed menu-link" target-templ="userlistLeftMenu" target-content='users' href="#"> User List
                                 </a></li>
 
                         </ul>
                     </li>
                     <li class="">
 
-                        <a class="collapsed menu-link" target-templ="manageReport" href="#"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Manage Reports</span></a>
+                        <a class="collapsed menu-link" target-templ="manageReport" target-content='reports' href="#"><i class="oc-partial-icon fa fa-bar-chart-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Manage Reports</span></a>
                     </li>
 
-                    <li class=" dropdown">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
-                      " href="#mailer"> <i class="oc-partial-icon fa fa-envelope-o"></i>
-              <span class="oc-partial-menu-item">
-                &nbsp;&nbsp;Mailers
-                <b class="caret"></b>
-              </span>
-                        </a>
-                        <ul class="collapse dropdown-menu " id="mailer">
+                     <!--    <li class=" dropdown">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
+                          " href="#mailer"> <i class="oc-partial-icon fa fa-envelope-o"></i>
+                  <span class="oc-partial-menu-item">
+                    &nbsp;&nbsp;Mailers
+                    <b class="caret"></b>
+                  </span>
+                            </a>
+                            <ul class="collapse dropdown-menu " id="mailer">
 
 
 
-                            <li class="">&nbsp;
-                                <a class="collapsed menu-link" target-templ="portalMailer" href="#"> Portal Mailers
-                                </a></li>
+                                <li class="">&nbsp;
+                                    <a class="collapsed menu-link" target-templ="portalMailer" href="#"> Portal Mailers
+                                    </a></li>
 
-                            <li class="">
-                                <a class="collapsed menu-link" target-templ="userMailer" href="#"> User Mailers
-                                </a></li>
-                            <li class="">
-                                <a class="collapsed menu-link" target-templ="systemNoticifation" href="#"> System Notifications
-                                </a></li>
-                        </ul>
-                    </li>
+                                <li class="">
+                                    <a class="collapsed menu-link" target-templ="userMailer" href="#"> User Mailers
+                                    </a></li>
+                                <li class="">
+                                    <a class="collapsed menu-link" target-templ="systemNoticifation" href="#"> System Notifications
+                                    </a></li>
+                            </ul>
+                        </li> -->
                     <li class="">
-                        <a class="collapsed menu-link" href="#" target-templ="repository"><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Repository</span></a>
+                        <a class="collapsed menu-link" href="#" target-templ="repository" target-content='repository'><i class="oc-partial-icon fa fa-hdd-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Repository</span></a>
                     </li>
-                    <li class="">
+                   <!--  <li class="">
                         <a class="collapsed menu-link" target-templ="rolesLeftMenu" href="#"><i class="oc-partial-icon fa fa-sitemap"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Roles</span></a>
+                    </li> -->
+                    <li class="">
+                        <a class="collapsed menu-link" target-templ="rewardsLeftMenu" target-content='rewards' href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
                     </li>
                     <li class="">
-                        <a class="collapsed menu-link" target-templ="rewardsLeftMenu" href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
+                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#" target-content='badges'><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
                     </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#"><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
-                    </li>
-                    <li class="">
+                   <!--  <li class="">
                         <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Enrollments</span></a>
                     </li>
                     <li class="">
                         <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Assessments</span></a>
-                    </li>
+                    </li> -->
                     <li class="">
-                        <a class="collapsed menu-link" target-templ="platformStatus" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Status</span></a>
+                        <a class="collapsed menu-link" target-templ="platformStatus" href="#" target-content='settings'><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Settings</span></a>
                     </li>
                 </ul>
             </div>
@@ -161,7 +126,7 @@
         </ul>
         <a class="navbar-brand" href="#">
             <img src="/assets/images/pepsicologosmall.png" style="float:left" />
-            <span class="text-gradient-success-dk" style="float:left">PepsiCo</span>
+            <span class="text-gradient-success-dk" style="float:left">Amplayfier</span>
         </a>
         <ul class="nav navbar-nav navbar-right pull-right">
             <li id="oc-right-toggle-container">
@@ -203,186 +168,9 @@
     </nav>
 </template>
 
-<template name="rolesLeftMenu">
-    <div class="row">
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Roles</h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Roles
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can manage and delete the roles you have created. Once you click on the Manage button, you can select what a particular role is capable of doing on the portal. All you need to do is check the capabilities.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-                </div>
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-                            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-                        </div> -->
-            </div>
-        </div>
-    </div>
-
-    <div class="table-line">
-        <div class="row table-line-row">
-            <div class="col-md-5 pull-right text-right">
-                <a href="#" class="btn btn-warning btn-md assign-role-form-btn">Assign Role</a>
-                <a href="#" class="btn btn-success btn-md new-role-form-btn">New Role</a>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Roles
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body">
-                        {{>roleListThemeView setUniqKey}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
 
 <template name="rewardsLeftMenu">
-    <div class="row">
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Rewards</h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Rewards
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can view all the rewards present in your portal. This list contains all the rewards which a user of your portal can buy for Amplayfier Credits.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-                </div>
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-                            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-                        </div> -->
-            </div>
-        </div>
-    </div>
-
+   {{>standardHeader}}
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-1 pull-right">
@@ -454,232 +242,11 @@
     </div>
 </template>
 
-<template name="profilesLeftMenu">
-    <div class="row">
 
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Profiling</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1" id="rid0a5949b0e9f2e06afbd43ec07c3d3fc07">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Profiling
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can create and manage a number of profiles for each portal. A profile allows you to target your content to specific users based on their profiles. Create a profile by clicking on the Add New button
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-
-                </div>
-
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-          </div> -->
-            </div>
-
-        </div>
-
-
-    </div>
-    <div class="table-line">
-        <div class="row table-line-row">
-            <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right add-new-profile">Add New</a></div>
-
-            <div class="col-md-4 pull-right">
-                <div class="selectize-input items not-full">
-                    <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search for a profile" style="height:15px;width:90%" />
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Profiling
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body ">
-
-                        <table class="table table-hover">
-
-                            <tbody>
-                            {{#each getPlatformProfiles}}
-                            <tr class="tag-item row-mid">
-                                <td class="tag-label col-md-8" colspan="2">{{name}}</td>
-                                <td class="col-md-3"><a href="#" class="btn btn-danger btn-md pull-right list-btn delete-btn profile-delete-btn">Delete</a>
-                                    <a href="#" class="btn btn-success btn-md list-btn delete-btn pull-right add-variants-btn">Add Variants</a></td>
-                                <!--<a href="#" class="btn btn-warning btn-xs pull-right list-btn edit-btn">Edit</a>-->
-                            </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-
-
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-    </div>
-
-</template>
 
 <template name="userlistLeftMenu">
 
-    <div class="row">
-
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">User List</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1" id="rid0a5949b0e9f2e06afbd43ec07c3d3fc07">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              User List
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can now add users to your portal. You can add individual users or upload a large user set. If you want to upload your users, make sure you download the user template
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-
-                </div>
-
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-          </div> -->
-            </div>
-
-        </div>
-
-
-    </div>
+   {{>standardHeader}}
     <div class="table-line">
         <div class="row table-line-row">
             <button href="#" class="btn btn-success btn-md pull-right add-new-user" style="margin-left:0.2%">Add New</button>
@@ -758,80 +325,9 @@
 </template>
 
 <template name="badgesLeftMenu">
-    <div class="row">
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Badges</h3>
-        </div>
-    </div>
+    
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Badges
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-                </div>
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-                            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-                        </div> -->
-            </div>
-        </div>
-    </div>
-
+   {{>standardHeader}}
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-1 pull-right">
@@ -915,350 +411,11 @@
     </div>
 </template>
 
-<template name="enrollmentsLeftMenu">
-    <div class="row">
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Enrollments</h3>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Enrollments
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-                </div>
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-                            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-                        </div> -->
-            </div>
-        </div>
-    </div>
-
-    <div class="table-line">
-        <div class="row table-line-row">
-            <div class="col-md-1 pull-right">
-                <!--<a href="#" class="btn btn-danger btn-md pull-right new-question-for-admin">New</a>-->
-                <a href="#" class="btn btn-warning btn-md pull-right node-date-assignment">Update</a>
-            </div>
-            <!--<div class="col-md-6 pull-right">
-                      <div class="selectize-input items not-full"><input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search" style="height:15px" /></div>
-                  </div>-->
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Enrollments
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <tbody>
-                            {{#each nodes}}
-                            <tr class="row-mid badge-item enrollment-node" node-seq="{{sequence}}">
-                                <td class="col-md-6">{{title}}</td>
-                                <td class="col-md-6">
-                                    <input node-seq="{{sequence}}" type="number" max="100" min="1" class="form-control node-passing-marks pull-right node-day" style="width:10% ;margin-left:1%;" value="{{startDay}}" /> {{#if assessmentNode}}
-
-                                    <select rel="selectize" class="form-control pull-right select-asessment" style="width:70px;padding:0;margin-right:2%; ">
-                                        {{#each assessments}}
-                                        <option value="{{_id}}">{{assessmentName}}</option>
-                                        {{/each}}
-                                    </select>
-                                    <input type="checkbox" checked class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{else}}
-                                    <select rel="selectize" class="form-control pull-right select-asessment" disabled style="width:70px;padding:0;margin-right:2%; ">
-                                        {{#each assessments}}
-                                        <option value="-1">{{assessmentName}}</option>
-                                        {{/each}}
-                                    </select>
-                                    <input type="checkbox" class="pull-right checkbox-assessment" style="width: 5%;" value=""> {{/if}}
-                                </td>
-                            </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
-<template name="assessmentsLeftMenu">
-    <div class="row">
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Assessments</h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Assessments
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can view the list of badges in the system here. If you want to change when a particular badge is given, then you can change the value of the currency and click on the Update button. This will change when a badge is given to the users of your portal.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-                </div>
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-                            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-                        </div> -->
-            </div>
-        </div>
-    </div>
-
-    <div class="table-line">
-        <div class="row table-line-row">
-            <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right new-question-for-admin">New</a></div>
-            <div class="col-md-4 pull-right">
-                <div class="selectize-input items not-full">
-                    <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="tag-filter" class="filter-box" placeholder="Search" style="height:15px;width:90%" />
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Assessments
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body">
-                        <input type="file" class="assessment-question-upload" id='new-question-for-assessment-excel' style="display:none" />
-                        <table class="table table-hover">
-                            <tbody>
-                            {{#each assessments}}
-                            <tr class="row-mid tag-assessment">
-                                <td class="col-md-3">{{assessmentName}}</td>
-                                <td class="col-md-8">
-
-                                    <a href="#" class="btn btn-danger delete-question-btn pull-right" style="margin-left:0.5%">Delete Assessment</a>
-                                    <a href="#" class="btn btn-warning btn-md btn-sm upload-assessment pull-right" id="{{_id}}" style="margin-left:0.5%">Upload questions</a>
-                                    <a href="#" class="btn btn-warning btn-md btn-sm view-question pull-right" style="margin-left:0.5%">View question</a>
-                                    <a href="#" class="btn btn-success btn-md btn-sm add-question pull-right" style="margin-left:0.5%">Add question</a>
-
-
-
-                                </td>
-                            </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
 
 <template name="manageReport">
-
-    <div class="row">
-
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Manage Reports</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1" id="rid0a5949b0e9f2e06afbd43ec07c3d3fc07">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              User List
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can now add users to your portal. You can add individual users or upload a large user set. If you want to upload your users, make sure you download the user template
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-
-                </div>
-
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-              <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-            </div> -->
-            </div>
-
-        </div>
-
-
-    </div>
+{{>standardHeader}}
+    
 
 
     <div class="row">
@@ -1319,91 +476,7 @@
 </template>
 
 <template name="systemNoticifation">
-    <div class="row">
-
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">System Notification</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1" id="mailers">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              System Notification
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can send your users notifications within Amplayfier. The user will be able to view these notifications in their dashboard. These notifications will be sent out to all the users of your portal.
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-dark">
-
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
-                    <div class="panel-heading">
-
-                        <div class="panel-title">Quick statistics</div>
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAME
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
-
-                </div>
-
-                <!-- <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
-            <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
-          </div> -->
-            </div>
-
-        </div>
-
-
-    </div>
+    {{>standardHeader}}
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right new-noti">New</a></div>
@@ -1446,15 +519,23 @@
 </template>
 
 <template name="repository">
-    <div class="row">
+   {{>standardHeader}}
+    <div class="table-line">
+        <div class="row table-line-row">
+            <div class="col-md-6 pull-right">{{> NewuploadFileBtn}}</div>
 
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">Repository</h3>
+            <!-- <div class="col-md-6 pull-right">
+              <div class="selectize-input items not-full">
+                <span class="fa fa-search form-control-header"></span>
+                <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
+              </div>
+            </div> -->
+
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
+        <div class="col-md-12">
+            <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
                 <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
             <span class="panel-title-edtitable" data-type="text">
@@ -1463,8 +544,129 @@
                     </div>
                 </div>
                 <div class="panel-body-collapse collapse in">
+                    <div class="panel-body ">
+
+                        <table class="table table-hover">
+
+                            <tbody>
+
+
+
+                            {{>NewdocumentList}}
+
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</template>
+
+
+<template name="platformStatus">
+    {{>standardHeader}}
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              Settings
+            </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body ">
+
+                        <table class="table table-hover">
+
+                            <tbody>
+
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+                                
+  <div class="row">
+    <div class="col-md-4">
+      <label class="checkbox-inline">
+        <input type="radio" name="platformstatus" value="open" rel="icheck" class="checkable-dark status-platform"> Open
+      </label> <br>
+      <label class="checkbox-inline">
+        <input type="radio" name="platformstatus" value="close" rel="icheck" class="checkable-primary status-platform"> Close
+      </label>
+    </div>
+    <div class="col-md-1 pull-right">
+                <a href="#" class="btn btn-warning btn-md pull-right platform-status">Update</a>
+    </div>
+  </div>
+
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+</template>
+
+
+<template name="standardHeader">
+    <div class="row">
+
+        <div class="col-sm-6">
+            <h3 class="text-gradient-success-dk">{{getContentTitle}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-warning panel-colorize gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              {{getContentTitle}}
+            </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
                     <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        You can use the file repository to upload files for your users. The users of your portal can proceed to download these files from their dashboard. These files will be available to all users of your portal.
+                        {{getContentDesc}}
+                        
                     </div>
                 </div>
             </div>
@@ -1530,69 +732,4 @@
 
 
     </div>
-    <div class="table-line">
-        <div class="row table-line-row">
-            <div class="col-md-6 pull-right">{{> NewuploadFileBtn}}</div>
-
-            <!-- <div class="col-md-6 pull-right">
-              <div class="selectize-input items not-full">
-                <span class="fa fa-search form-control-header"></span>
-                <input type="text" id="tag-filter" class="filter-box pull-right" placeholder="Search for a profile" style="height:15px" />
-              </div>
-
-            </div> -->
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Repository
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body ">
-
-                        <table class="table table-hover">
-
-                            <tbody>
-
-
-
-                            {{>NewdocumentList}}
-
-
-                            </tbody>
-                        </table>
-
-
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-    </div>
-</template>
-
-
-<template name="platformStatus">
-  <div class="row">
-    <div class="col-md-4">
-      <label class="checkbox-inline">
-        <input type="radio" name="platformstatus" value="open" rel="icheck" class="checkable-dark status-platform"> Open
-      </label> <br>
-      <label class="checkbox-inline">
-        <input type="radio" name="platformstatus" value="close" rel="icheck" class="checkable-primary status-platform"> Close
-      </label>
-    </div>
-    <div class="col-md-1 pull-right">
-                <a href="#" class="btn btn-warning btn-md pull-right platform-status">Update</a>
-    </div>
-  </div>
 </template>

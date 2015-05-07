@@ -70,6 +70,7 @@ Template.adminSideBar.events
 
   'click .menu-link':(e)->
     temName = $(e.currentTarget).attr('target-templ')
+    Session.set("contentVar",$(e.currentTarget).attr('target-content'))
     $("#left-menu-container").empty();
     Blaze.renderWithData(Template[temName],{},document.getElementById('left-menu-container'))
 

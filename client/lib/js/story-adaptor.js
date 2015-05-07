@@ -579,14 +579,15 @@ function cancelFullScreen(elm) {
     var el = document;
     $('.show-deck-modal').css({"height":"100%"});
     $('.slide-container').css({"transform":"scale(1) translateX(0%)"});
-    $('.slide-container').find('iframe').css({"margin-top":"0%"});
+    $(".content-cont").css({height:"37em"});
+
     $('.modal-xlg-ppt').css({"height":"82%"});
 
     //done for demo
     //$($('.slide-container').find('iframe')[0].contentWindow.document).find('embed').css({"transform":"scale(1.0)"});
     setTimeout(function(){
             $('.slide-container').find('iframe').css({"transform":"scale(1.0) translateY(0%)"});
-            $('.slide-container').find('iframe').css({"margin-top":""});
+            // $('.slide-container').find('iframe').css({"margin-top":""});
         }
 
         ,3000);
@@ -617,8 +618,9 @@ function requestFullScreen(elm) {
     //$('.main-story-content').hide();
     $(elm).fadeIn();
     $('.show-deck-modal').css({"height":"120%"});
-    $('.slide-container').css({"transform":"scale(1.4) translateX(7.3%)"});
-    $('.slide-container').find('iframe').css({"margin-top":"7%"});
+    $('.slide-container').css({"transform":"scale(1.4) translateY(14.3%)"});
+    $('.content-cont').css({height: "52em"});
+    // $('.slide-container').find('iframe').css({"margin-top":"7%"});
 
     //only done for demo on 24 april 2015
     //$('.slide-container').find('iframe').css({"margin-top":"0%"});
