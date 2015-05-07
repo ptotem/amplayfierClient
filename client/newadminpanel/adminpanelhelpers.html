@@ -592,41 +592,65 @@
                             <tbody>
 
 
-<form>
+<form id="platform-settings">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    <label for="exampleInputEmail1">Platform Title</label>
+    <input type="text" class="form-control" id="platform-title" placeholder="Enter platform title">
   </div>
+
+
+   <div class="form-group">
+    <label for="exampleInputEmail1">Google Analytics Snippet</label>
+    <textarea class="form-control" id="platform-ga" ></textarea>
+  </div>
+<!--   <div class="row">
+<div class="col-sm-4"><div class="form-group">
+    <label for="exampleInputFile">Background Image</label>
+    <input type="file" id="platform-bkg">
+    <p class="help-block">Upload Platform background image.</p>
+  </div></div>
+<div class="col-sm-4"><div class="form-group">
+    <label for="exampleInputFile">Logo</label>
+    <input type="file" id="platform-logo">
+    <p class="help-block">Upload Platform logo image.</p>
+  </div></div>
+<div class="col-sm-4"><div class="form-group">
+    <label for="exampleInputFile">FavIcon</label>
+    <input type="file" id="platform-icon">
+    <p class="help-block">Upload Platform favicon.</p>
+  </div></div>
+  </div> -->
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
-                                
-  <div class="row">
+<label class="radio-inline">
+  <input type="radio" name="platformstatus" id="inlineRadio1" value="open" class="status-platform "> Open
+</label>
+<label class="radio-inline">
+  <input type="radio" name="platformstatus" id="inlineRadio2" value="close" class="status-platform "> Close
+</label>
+</div>
+
+  
+
+
+
+<!-- <div class="row">
     <div class="col-md-4">
       <label class="checkbox-inline">
-        <input type="radio" name="platformstatus" value="open" rel="icheck" class="checkable-dark status-platform"> Open
+        <input type="radio" name="platformstatus" value="open" rel="icheck" class="checkable-dark status-platform form-control"> Open
       </label> <br>
       <label class="checkbox-inline">
-        <input type="radio" name="platformstatus" value="close" rel="icheck" class="checkable-primary status-platform"> Close
+        <input type="radio" name="platformstatus" value="close" rel="icheck" class="checkable-primary status-platform form-control"> Close
       </label>
     </div>
     <div class="col-md-1 pull-right">
                 <a href="#" class="btn btn-warning btn-md pull-right platform-status">Update</a>
     </div>
-  </div>
+  </div> -->
+  
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+                                
+  
 
 
                             </tbody>

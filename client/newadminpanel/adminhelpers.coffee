@@ -348,8 +348,37 @@ Template.platformStatus.rendered = () ->
 
 
 Template.platformStatus.events
-  'click .platform-status':(e)->
+  'submit #platform-settings':(e)->
+    pname = $(e.currentTarget).find("#platform-title").val()
+    pga = $(e.currentTarget).find("#platform-ga").val()
     status = $('input[name=platformstatus]:checked').val()
     pid = platforms.findOne()._id
-    platforms.update({_id:pid},{$set:{platformStatus:status}})
+    # if $(e.currentTarget).find('#platform-bkg').files[0]?
+    #   bkg = new FS.File($(e.currentTarget).find('#platform-icon').files[0])
+    #   bkg.platform = tenantId
+    #   bkg.stored = false
+    # else
+    #   burl = platforms.findOne().backgroundUrl  
+    # if $(e.currentTarget).find('#platform-logo').files[0]?
+    #   bkg = new FS.File($(e.currentTarget).find('#platform-icon').files[0])
+    #   bkg.platform = tenantId
+    #   bkg.stored = false
+    # else
+    #   burl = platforms.findOne().platformLogo  
+    # if $(e.currentTarget).find('#platform-icon').files[0]?
+    #   bkg = new FS.File($(e.currentTarget).find('#platform-icon').files[0])
+    #   bkg.platform = tenantId
+    #   bkg.stored = false
+    # else
+    #   burl = platforms.findOne().tenantIcon  
+
+
+    platforms.update({_id:pid},{$set:{platformStatus:status,platformTitle:pname,platformGa:pga}})
     createNotification("your platform is now " + status,1)
+
+
+
+
+
+  'click .platform-status':(e)->
+    
