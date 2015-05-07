@@ -341,8 +341,8 @@ Template.rolesLeftMenu.events
 
 Template.platformStatus.rendered = () ->
   status = platforms.findOne().platformStatus
-  if status == "open"
-    $('input:checkbox[name="platformstatus"][value="open"]').prop('checked', true)
+  if status == "close"
+    $('input:checkbox[name="platformstatus"][value="close"]').prop('checked', true)
 
 
 Template.platformStatus.events
@@ -351,7 +351,7 @@ Template.platformStatus.events
     pga = $(e.currentTarget).find("#platform-ga").val()
     status = $('input[name=platformstatus]:checked').val()
     if status == undefined
-      status = "close"
+      status = "open"
     pid = platforms.findOne()._id
     # if $(e.currentTarget).find('#platform-bkg').files[0]?
     #   bkg = new FS.File($(e.currentTarget).find('#platform-icon').files[0])
