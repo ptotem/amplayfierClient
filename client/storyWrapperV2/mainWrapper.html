@@ -29,6 +29,16 @@
                           </a>
                             <div id="story-wrapper">
                                 <div id="story-content" style="background-image:url('{{getBackImg}}')">
+                                    <div class="hud-container" style="width: 100%;height: 100%">
+                                        <div id="hud-img" style="position: absolute;top:8%;left: 35%;width: 30%">
+                                            <img src="/assets/images/Transperent_HUD.png" style="width: 100%;position: relative;z-index: 1">
+                                        </div>
+                                        <div id="user-profile" style="width: 9%;position: absolute;top: 9.5%;left: 45.5%;z-index: 0;">
+                                            <img src="/assets/images/user.jpg" style="width: 100%;border-radius: 50%">
+                                        </div>
+                                        <span id="points-container" style="position: absolute;width: 4%;height: 3%;top: 17%;left: 38.5%;z-index: 1;text-align: center;font-size: 1.4em;">{{currentUser.points}}</span>
+                                        <span id="credits-container" style="  position: absolute;width: 4%;height: 3%;top: 17%;right: 39%;z-index: 1;text-align: center;font-size: 1.4em;">{{currentUser.currency}}</span>
+                                    </div>
                                     <div id="story-nodes">
                                         {{#each nodes}}
                                             <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{description}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.px}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.py}}%;left:{{getPrecLeft landscape.px}}%;width:{{landscape.width}}%">
