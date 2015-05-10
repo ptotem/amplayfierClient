@@ -62,6 +62,12 @@
 
 @setDeckId = (did)->
   @currentDisplayedDeckId = did
+@getQuestionsForGame = ()->
+  platforms.findOne().questions
+@setUserScoreFromPlatformGame = (scr)->
+  Meteor.call('setUserScoreFromGame',Meteor.userId(),scr)
+@setUserCurrencyFromPlatformGame = (scr)->
+  Meteor.call('setUserCurrencyFromGame',Meteor.userId(),scr)
 
 @getQuestionsFromBank = (integratedGameId)->
   gameData.findOne({platformId:platforms.findOne()._id,igId:integratedGameId}).questions
@@ -153,3 +159,6 @@
 
 @setQuestionAttempt = (a) ->
   true
+
+@getUserCurrencyForGame = () ->
+  Meteor.user().currency

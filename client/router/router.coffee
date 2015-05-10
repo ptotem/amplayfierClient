@@ -191,7 +191,7 @@ Router.route '/story',
     else
       @render('loading')
 
-Router.route '/',
+Router.route '/oldpepsi',
   template: 'wrapperPage',
   name: 'wrapperPage',
   data:()->
@@ -208,7 +208,7 @@ Router.route '/',
     else
       @render('loading')
 
-Router.route '/mystory',
+Router.route '/',
   template: 'mainWrapper',
   name: 'mainWrapper',
   data:()->
