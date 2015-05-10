@@ -49,17 +49,19 @@ Template.mainWrapper.helpers
     if seq isnt 0
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
 #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].incomplete
-
-        return Meteor.settings.public.mainLink +  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+        n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
+        return Meteor.settings.public.mainLink +  storyConfig.imgsrc + "/" + n.incomplete
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
 
 #      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].complete
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].complete
+      n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + n.complete
 
     else
 #      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].active
-      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].active
+      n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
+      Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + n.active
   getNodeUrl:(pic)->
       "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
   getPlacement:(px)->

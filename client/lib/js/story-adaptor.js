@@ -50,7 +50,7 @@ function setDesign(orientation) {
     /* Set the Story Nameplate */
     $('#story-nameplate').css({
         left: storyConfig.nameplate[orientation].left + "%",
-        bottom: storyConfig.nameplate[orientation].bottom + "%",
+        top: storyConfig.nameplate[orientation].top + "%",
         width: storyConfig.nameplate[orientation].width + "%"
     });
 
@@ -58,7 +58,7 @@ function setDesign(orientation) {
     /* Set the Story Presenter */
     $('#story-presenter').css({
         left: storyConfig.presenter[orientation].left + "%",
-        bottom: storyConfig.presenter[orientation].bottom + "%",
+        top: storyConfig.presenter[orientation].top + "%",
         width: storyConfig.presenter[orientation].width + "%"
     });
 
@@ -74,11 +74,11 @@ function setDesign(orientation) {
     }
 
     /* Set the Story Notifications */
-    $('#notifications-splash').css({
-        width: storyConfig.notifications[orientation].width + "%",
-        left: storyConfig.notifications[orientation].left + "%",
-        bottom: storyConfig.notifications[orientation].bottom + "%"
-    });
+    // $('#notifications-splash').css({
+    //     width: storyConfig.notifications[orientation].width + "%",
+    //     left: storyConfig.notifications[orientation].left + "%",
+    //     bottom: storyConfig.notifications[orientation].bottom + "%"
+    // });
 
 
 

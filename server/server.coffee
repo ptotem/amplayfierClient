@@ -135,7 +135,7 @@
     console.log res
     pname = platforms.findOne({tenantId: tid}).tenantName
     if !err
-      platforms.update({tenantId: tid}, {$set: {tenantName: pname, nodes: res.nodes, storyConfig: res.sconfig,wrapperJson:res.wrapperJson}})
+      platforms.update({tenantId: tid}, {$set: {questions:res.questions,tenantName: pname, nodes: res.nodes, storyConfig: res.sconfig,wrapperJson:res.wrapperJson}})
   )
 
 @getAllAssetsForTenant = (tid, secretKey, res)->
@@ -492,3 +492,8 @@ Meteor.methods
 
   updateFlunkCount:(uid)->
     Meteor.users.update({_id:uid},{$inc:{flunkCount:1}})
+  setUserScoreFromGame:(uid,scr)->
+    Meteor.users.update({_id:uid},{$inc:{points:scr}})
+  setUserCurrencyFromGame:(uid,scr)->
+    Meteor.users.update({_id:uid},{$inc:{currency:scr}})
+
