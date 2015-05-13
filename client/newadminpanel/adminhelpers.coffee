@@ -63,13 +63,22 @@ Template.userlistLeftMenu.helpers
 
     profiles
 
+Template.adminSideBar.rendered = ->
+  setTimeout(()->
+    # $('.menu-link').first().trigger('click')
+    Session.set("contentVar",'users')
+
+  ,300)
+  
 
 Template.adminSideBar.events
   'click .topModal':(e)->
     showModal('topBarModal',{},'main-wrapper-page-new')
 
   'click .menu-link':(e)->
+
     temName = $(e.currentTarget).attr('target-templ')
+    console.log temName
     Session.set("contentVar",$(e.currentTarget).attr('target-content'))
     $("#left-menu-container").empty();
     Blaze.renderWithData(Template[temName],{},document.getElementById('left-menu-container'))

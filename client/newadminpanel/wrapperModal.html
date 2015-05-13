@@ -300,42 +300,42 @@
 <template name="adduserModal">
   <div class="modal modal-dark fade">
     <div class="modal-dialog ">
-      <div class="modal-content">
+      <div class="modal-content" style="overflow:hidden">
         <div class="modal-header ">
           <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">New User</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="  overflow: auto;height: 60%;">
           {{#with myuser userId}}
           <!--<div class="field-box">-->
           <div id="myuserCreate" class="row">
             <div class="row">
               <div class="col-lg-12">
-                <label for="user-name">Display Name</label>
-                <input type="text" class="form-control" id="user-name" value="{{personal_profile.display_name}}" placeholder="Enter name" />
+                <!-- <label for="user-name">Display Name</label> -->
+                <input type="text" class="form-control form-for-user" id="user-name" value="{{personal_profile.display_name}}" placeholder="Enter display name" />
               </div>
             </div>
             <div class="row">
               <div class="col-lg-12">
-                <label for="user-email">First Name</label>
+                <!-- <label for="user-email">First Name</label> -->
                 <input type="text" class="form-control" id="user-first-name" value="{{personal_profile.first_name}}" placeholder="Enter first name" />
               </div>
             </div>
             <div class="row">
               <div class="col-lg-12">
-                <label for="user-email">Last Name</label>
+                <!-- <label for="user-email">Last Name</label> -->
                 <input type="text" class="form-control" id="user-last-name" value="{{personal_profile.last_name}}" placeholder="Enter last name" />
               </div>
             </div>
             <div class="row">
               <div class="col-lg-12">
-                <label for="user-email">Email ID</label>
-                <input type="email" class="form-control" id="user-email" value="{{decodeUserEmail personal_profile.email}}" placeholder="Enter name" />
+                <!-- <label for="user-email">Email ID</label> -->
+                <input type="email" class="form-control" id="user-email" value="{{decodeUserEmail personal_profile.email}}" placeholder="Enter email address" />
                 <input type="hidden" id="user-id" value="{{_id}}" />
               </div>
             </div>
-            <br>
-            <div class="row">
+            <!-- <br> -->
+            <!-- <div class="row">
             <div class="form-group">
               <div class="col-md-3">
                 <label for="user-email">Reporting Manager</label>
@@ -369,7 +369,7 @@
                   <option value="{{_id}}">{{rolename}}</option>{{/each}}</select>
               </div>
             </div>
-          </div>
+          </div> -->
 
           </div>
           <!--</div>-->

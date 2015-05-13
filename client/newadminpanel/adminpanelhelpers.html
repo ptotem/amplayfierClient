@@ -37,27 +37,16 @@
 
 
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
-                    <li class=" dropdown">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!" href="#uida2d303f3f492c050e17f7f427ee7d672">
+                       
+                    <li class=" ">
+                        <a class="collapsed menu-link" target-templ="userlistLeftMenu" target-content='users'  href="#">
                             <i class="oc-partial-icon fa fa-users"></i>
               <span class="oc-partial-menu-item">
                 &nbsp;&nbsp;Manage Users
-                <b class="caret"></b>
+               
               </span>
                         </a>
-                        <ul class="collapse dropdown-menu " id="uida2d303f3f492c050e17f7f427ee7d672">
-
-
-
-                            <!-- <li class="">
-                                <a class="collapsed menu-link" target-templ="profilesLeftMenu" href="#"> Profiling
-                                </a></li>
- -->
-                            <li class="">
-                                <a class="collapsed menu-link" target-templ="userlistLeftMenu" target-content='users' href="#"> User List
-                                </a></li>
-
-                        </ul>
+                    
                     </li>
                     <li class="">
 
@@ -180,6 +169,7 @@
 
 
 <template name="rewardsLeftMenu">
+    
    {{>standardHeader}}
     <div class="table-line">
         <div class="row table-line-row">
@@ -256,18 +246,22 @@
 
 <template name="userlistLeftMenu">
 
+
+
    {{>standardHeader}}
+
+<div class="container-fluid">
     <div class="table-line">
         <div class="row table-line-row">
-            <button href="#" class="btn btn-success btn-md pull-right add-new-user" style="margin-left:0.2%">Add New</button>
-            <button href="#" class="btn btn-warning btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
+            <button href="#" class="btn btn-primary btn-md pull-right add-new-user" style="margin-left:0.2%">Add New</button>
+            <button href="#" class="btn btn-primary-lter btn-md pull-right user-upload-btn" style="margin-left:0.2%">Upload New</button>
             <input type="file" class="user-upload" id='new-user-excel' style="display:none" />
-            <button href="#" class="btn btn-warning btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
+            <button href="#" class="btn btn-primary-lter btn-md pull-right download-template-btn" style="margin-left:0.2%">Download Template</button>
 
-            <div class="col-md-4 pull-right">
+            <div class="col-md-4 pull-left">
                 <div class="selectize-input items not-full">
                     <span class="fa fa-search form-control-header"></span>
-                    <input type="text" id="users-filter" class="filter-box" placeholder="Search for a profile" style="height:15px;width:90%;" />
+                    <input type="text" id="users-filter" class="filter-box" placeholder="Search for a User" style="height:15px;width:90%;" />
                 </div>
 
             </div>
@@ -279,15 +273,15 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
-                <div class="panel-heading panel-handle panel-colorize">
+            <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854" style="background:transparent">
+                <!-- <div class="panel-heading panel-handle panel-colorize">
                     <div class="panel-title">
             <span class="panel-title-edtitable" data-type="text">
               User List
             </span>
                     </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
+                </div> -->
+                <div class="panel-body-collapse collapse in" >
                     <div class="panel-body ">
 
                         <table class="table table-hover">
@@ -297,7 +291,8 @@
                             {{#each myusers}}
                             <tr class="user-item  row-mid" id="{{_id}}">
                                 <td class="col-md-3">{{personal_profile.display_name}}</td>
-
+                                <!-- code for profile not required rightnow -->
+<!-- 
                                 <td class="col-md-3">
 
                                     <select rel="selectize" data-placeholder="Give your user a profile " user-id="{{_id}} " class="form-control user-profile-chosen pull-right " tabindex="-1 " style="width:150px;padding:0;margin-right:5px; ">
@@ -309,12 +304,12 @@
                                     </select>
 
 
-                                </td>
+                                </td> -->
                                 <td class="col-md-6">
-                                    <a href=" # " style="margin-right:0.5%" class="btn btn-danger pull-right btn-md delete-user-btn ">Delete</a>
-                                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md edit-user-btn ">Edit</a>
-                                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md block-user-btn ">Block</a>
-                                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md reset-user-btn ">Reset</a>
+                                    <a href=" # " style="margin-right:0.5%" class="btn btn-danger-lter pull-right btn-md delete-user-btn ">Delete</a>
+                                    <a href="# " style="margin-right:0.5%" class="btn btn-dark-lter pull-right btn-md edit-user-btn ">Edit</a>
+                                    <a href="# " style="margin-right:0.5%" class="btn btn-dark-lter pull-right btn-md report-user-btn ">Reports</a>
+                                    <a href="# " style="margin-right:0.5%" class="btn btn-dark-lter pull-right btn-md reset-user-btn ">Password Reset</a>
                                 </td>
 
                             </tr>
@@ -331,6 +326,8 @@
         </div>
 
     </div>
+    </div>
+
 
 </template>
 
@@ -338,6 +335,7 @@
     
 
    {{>standardHeader}}
+   <div class="container-fluid">
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-1 pull-right">
@@ -419,14 +417,16 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 
 
 
 <template name="manageReport">
+    
 {{>standardHeader}}
     
-
+<div class="container-fluid">
 
     <div class="row">
         <div class="col-md-12">
@@ -474,6 +474,7 @@
         </div>
 
     </div>
+    </div>
 
 </template>
 
@@ -486,7 +487,9 @@
 </template>
 
 <template name="systemNoticifation">
+    
     {{>standardHeader}}
+    <div class="container-fluid">
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-1 pull-right"><a href="#" class="btn btn-success btn-md pull-right new-noti">New</a></div>
@@ -525,11 +528,14 @@
         </div>
 
     </div>
+    </div>
 
 </template>
 
 <template name="repository">
+    
    {{>standardHeader}}
+   <div class="container-fluid">
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-6 pull-right">{{> NewuploadFileBtn}}</div>
@@ -577,12 +583,14 @@
         </div>
 
     </div>
+    </div>
 </template>
 
 
 <template name="platformStatus">
+    
     {{>standardHeader}}
-
+<div class="container-fluid">
 
     <div class="row">
         <div class="col-md-12">
@@ -676,64 +684,42 @@
         </div>
 
     </div>
+    </div>
 
 
 </template>
 
 
 <template name="standardHeader">
+    <div class="container-fluid">
     <div class="row">
 
-        <div class="col-sm-6">
-            <h3 class="text-gradient-success-dk">{{getContentTitle}}</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-warning panel-colorize gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              {{getContentTitle}}
-            </span>
-                    </div>
-                </div>
-                <div class="panel-body-collapse collapse in">
-                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
-                        {{getContentDesc}}
-                        
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
         <div class="col-md-4">
-            <div class="panel panel-dark">
+            <div class="panel {{getContentBoxColor}}">
 
-                <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+                <div class="panel-body in panel-body-collapse panel-colorize no-padding-top">
                     <div class="panel-heading">
 
-                        <div class="panel-title">Quick statistics</div>
+                        <h1>Quick statistics</h1>
                     </div>
                     <div class="box-table push-bottom">
                         <div class="box-row mid-bordered">
                             <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS</h5>
+                                <h5 class="base-header major">PLAYERS<br>TOTAL</h5>
                                 <h3 class="base-header">
                                     248
                                 </h3>
                             </div>
                             <div class="box-cell">
-                                <h5 class="base-header major">GAME
+                                <h5 class="base-header major">GAMES
                                     <br>PLAYED</h5>
                                 <h3 class="base-header">
                                     936
                                 </h3>
                             </div>
                             <div class="box-cell">
-                                <h5 class="base-header major">DECK
-                                    <br>Viewed</h5>
+                                <h5 class="base-header major">DECKS
+                                    <br>VIEWED</h5>
                                 <h3 class="base-header">
                                     307
                                 </h3>
@@ -764,7 +750,59 @@
             </div>
 
         </div>
+        <div class="col-md-8">
+            <div class="jumbotron" style="padding:30px;">
+                                              <h1>{{getContentTitle}}</h1>
+                                              <p>{{getContentDesc}}</p>
+                                          </div>
+
+                                          
+         <!--    <div class="panel panel-warning-lter panel-colorize gradient-diag1">
+                <div class="panel-heading panel-handle panel-colorize">
+                    <div class="panel-title">
+            <span class="panel-title-edtitable" data-type="text">
+              {{getContentTitle}}
+            </span>
+                    </div>
+                </div>
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body no-padding-top panel-colorize" style="height:150px;">
+                        {{getContentDesc}}
+                        
+                    </div>
+                </div>
+            </div> -->
+
+
+        </div>
 
 
     </div>
+    </div>
+
 </template>
+<template  name="navHeader">
+        <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h3 class="em-page-header v-mid-row thin" style="padding-left:0">
+                    <i class="icm icm-grid text-gradient-info-dk"></i>
+                    <span class="text-gradient-black-dk">{{getContentTitle}}</span>
+                  </h3>
+                </div>
+                <div class="col-sm-4 text-right-sm text-right-md text-right-lg">
+                  {{>navMenu}}
+                </div>
+              </div>
+            </div>
+</template>
+<template name="navMenu">
+     <ul class="breadcrumb breadcrumb-top">
+                                              <li><i class="fa fa-home"></i> <a href="/">Home</a>
+                                              </li>
+                                              <li><i class="fa {{getContentIcon}} "></i> <a href="#">{{getContentTitle}}</a>
+                                              </li>
+                                              
+
+                                          </ul>
+    </template>

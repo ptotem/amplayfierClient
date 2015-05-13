@@ -281,6 +281,15 @@ UI.registerHelper "getContentTitle",() ->
 UI.registerHelper "getContentDesc",() ->
   v = Session.get('contentVar')
   adminPanelContent[v]['desc']
+UI.registerHelper "getContentIcon",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['icon']
+UI.registerHelper "getContentBoxColor",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['boxColor']
+
+
+
 
 UI.registerHelper "getPlatformName",() ->
   platforms.findOne().tenantName
