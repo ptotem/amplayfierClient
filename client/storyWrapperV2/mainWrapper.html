@@ -21,6 +21,27 @@
                         {{>wrapperSideBar}}
 
                         <div id="main-oc-container" class="oc-container" style="background-color: {{getBackColor}}">
+                            <ul class="nav  navbar-nav navbar-right pull-right " style="  position: fixed;
+  z-index: 3000;
+  right: 0;">
+             <li id="oc-right-toggle-container">
+                <a id="oc-right-preview" href="/admin" class="btn-nav bg-black  sidebar-toggle-right " style="color:#ccc;border-right:1px solid #666;"  >
+                    <i class="fa fa-lg fa-gears has-corner-badge">
+                      
+                    </i>
+                </a>
+            </li>
+            <li id="oc-right-toggle-container">
+                <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
+                   data-persist="lg,md,sm" style="color:#ccc;border-radius:0">
+                    <i class="fa fa-lg fa-comments has-corner-badge">
+                        <span class="badge badge-corner badge-corner-top-right badge-info">3</span>
+                    </i>
+                </a>
+            </li>
+           
+
+        </ul>
 
                           <a style="background: black;border-radius: 50%;position: absolute;right: 1%;top: 1%;cursor: pointer;z-index: 1;" id="oc-right-toggle" href="#oc-wrapper" class="btn-nav sidebar-toggle-right" rel="tooltip" title="" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden" data-persist="lg,md,sm" data-original-title="Toggle chat">
 
