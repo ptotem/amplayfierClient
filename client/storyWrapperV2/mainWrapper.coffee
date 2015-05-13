@@ -36,6 +36,9 @@ Template.mainWrapper.helpers
     platforms.findOne().wrapperJson.infobox
   game:()->
     platforms.findOne().wrapperJson.gamecontainer
+  hasGame:()->
+    platforms.findOne().wrapperJson.hasgame is "true"
+
   getHudImage:()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.infobox.image
 

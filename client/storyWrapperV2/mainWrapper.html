@@ -31,6 +31,7 @@
                             <div id="story-wrapper">
 
                               <!-- HTML for games -->
+                              {{#if hasGame}}
                               {{#with game}}
                                 <div class="game-container" style="  position: absolute;
   left: {{gamebox.landscape.left}}%;
@@ -41,6 +42,7 @@
                                     <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%" style='border:none;'></iframe>
                                 </div>
 {{/with}}
+{{/if}}
 
 
                                 <div id="story-content" style="background-image:url('{{getBackImg}}')">
@@ -53,8 +55,8 @@
                                         <div id="user-profile" style="width: {{picturebox.landscape.width}}%;position: absolute;top: {{picturebox.landscape.top}}%;left: {{picturebox.landscape.left}}%;z-index: 0;">
                                             <img src="/assets/images/user.jpg" style="width: 100%;border-radius: 50%">
                                         </div>
-                                        <span id="points-container" style="position: absolute;width: {{pointbox.landscape.width}}%;top: {{pointbox.landscape.top}}%;left: {{pointbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;">1000</span>
-                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.landscape.width}}%;height: 3%;top: {{creditbox.landscape.top}}%;left: {{creditbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;">3459</span>
+                                        <span id="points-container" style="position: absolute;width: {{pointbox.landscape.width}}%;top: {{pointbox.landscape.top}}%;left: {{pointbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>1000</span>
+                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.landscape.width}}%;height: 3%;top: {{creditbox.landscape.top}}%;left: {{creditbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>3459</span>
                                         {{/with}}
                                     </div>
                                     <div id="story-nodes">
