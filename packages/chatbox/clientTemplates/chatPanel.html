@@ -1,105 +1,356 @@
 <template name="chatBoxPoints">
-                <table class="chat-table ">
-                {{#each userList}}
-                    <tr class="chat-row sidebar-name" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='chatpop'><img src='http://lorempixel.com/128/128/people/{{getRandIndex}}' class='popimg pull-left'> <div class='popname'>{{personal_profile.display_name}}</div><div class='popstatus away'>Away</div>Score: <span class='pop-score-label'>8000</span><br> Rank: <span class='pop-rank-label'>200</span></div><div class='chatpop-badges'><div class='story-badges text-center'><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge '><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div></div></div>">
-                        <td class="chat-user-photo"><img src="http://lorempixel.com/128/128/people/{{getRandIndex}}">
-                        </td>
-                        <td class="chat-user-name">{{personal_profile.display_name}}</td>
-                        <td class="chat-user-rank">200</td>
-                        <td class="chat-user-score">8000</td>
-                        <td class="chat-user-activity">
+  <table class="chat-table ">
+    {{#each userList}}
+    <tr class="chat-row sidebar-name" data-container="body" data-toggle="popover" data-placement="left" data-content="<div class='chatpop'><img src='http://lorempixel.com/128/128/people/{{getRandIndex}}' class='popimg pull-left'> <div class='popname'>{{personal_profile.display_name}}</div><div class='popstatus away'>Away</div>Score: <span class='pop-score-label'>8000</span><br> Rank: <span class='pop-rank-label'>200</span></div><div class='chatpop-badges'><div class='story-badges text-center'><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge received'><img src='/assets/dashboardimages/shoot.png'></div><div class='story-badge '><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div><div class='story-badge'><img src='/assets/dashboardimages/shoot-bw.png'></div></div></div>">
+      <td class="chat-user-photo">
+        <img src="http://lorempixel.com/128/128/people/{{getRandIndex}}">
+      </td>
+      <td class="chat-user-name">{{personal_profile.display_name}}</td>
+      <td class="chat-user-rank">200</td>
+      <td class="chat-user-score">8000</td>
+      <td class="chat-user-activity">
 
-                            <img src="{{statusImage}}" alt="">
-                        </td>
-                    </tr>
+        <img src="{{statusImage}}" alt="">
+      </td>
+    </tr>
 
 
-                {{/each}}
-                </table>
+    {{/each}}
+  </table>
 
 
 </template>
 
 <template name="chatBox">
-    <div class="ui-widget ui-corner-top ui-chatbox" outline="0" style="right: 0px;">
-        <div class="ui-widget-header ui-corner-top ui-chatbox-titlebar ui-dialog-header" style="width: 308px;">
-            <span>Runnable User</span>
-            <a href="#" class="ui-corner-all ui-chatbox-icon" role="button">
-                <span class="ui-icon ui-icon-closethick">close</span>
-            </a>
-            <a  id="ui-icon-minusthick" href="#" class="ui-corner-all ui-chatbox-icon" role="button">
-                <span class="ui-icon ui-icon-minusthick">minimize</span>
-            </a>
-        </div>
-        <div class="ui-widget-content ui-chatbox-content">
-            <div id="chat_div" class="ui-widget-content ui-chatbox-log" style="width: 308px;">
-                {{#each userList}}
-                <div class="sidebar-name">
-                    <!-- Pass username and display name to register popup -->
-                    <a href="#" style="text-decoration: none;">
-                        <!--<img width="30" height="30" src="/packages/rushabhhathi_chatbox/libFiles/profilePic.jpg">-->
-                        <img width="30" height="30" src="http://lorempixel/128/128/people/">
-
-                        <span>{{personal_profile.display_name}}</span>
-                        <span class="label " style="float: right;margin-top: 8px;"><i class="fa fa-circle-o {{labelClass}}"></i></span>
-                    </a>
-                </div>
-
-                {{/each}}
-            </div>
-        </div>
+  <div class="ui-widget ui-corner-top ui-chatbox" outline="0" style="right: 0px;">
+    <div class="ui-widget-header ui-corner-top ui-chatbox-titlebar ui-dialog-header" style="width: 308px;">
+      <span>Runnable User</span>
+      <a href="#" class="ui-corner-all ui-chatbox-icon" role="button">
+        <span class="ui-icon ui-icon-closethick">close</span>
+      </a>
+      <a id="ui-icon-minusthick" href="#" class="ui-corner-all ui-chatbox-icon" role="button">
+        <span class="ui-icon ui-icon-minusthick">minimize</span>
+      </a>
     </div>
+    <div class="ui-widget-content ui-chatbox-content">
+      <div id="chat_div" class="ui-widget-content ui-chatbox-log" style="width: 308px;">
+        {{#each userList}}
+        <div class="sidebar-name">
+          <!-- Pass username and display name to register popup -->
+          <a href="#" style="text-decoration: none;">
+            <!--<img width="30" height="30" src="/packages/rushabhhathi_chatbox/libFiles/profilePic.jpg">-->
+            <img width="30" height="30" src="http://lorempixel/128/128/people/">
+
+            <span>{{personal_profile.display_name}}</span>
+            <span class="label " style="float: right;margin-top: 8px;"><i class="fa fa-circle-o {{labelClass}}"></i></span>
+          </a>
+        </div>
+
+        {{/each}}
+      </div>
+    </div>
+  </div>
 </template>
 <template name="chatBoxOld">
-    <div class="popup-box chat-popup" id="theChatBox{{userId}}" style="display: block;z-index:1000000">
-        <div class="popup-head"><div class="popup-head-left">
-            {{userName}} says
-        </div>
-            <div class="popup-head-right">
-                <a style="cursor: pointer;" href="javascript:close_popup('qscutter');">✕</a>
-            </div>
-            <div style="clear: both">
+  <div class="popup-box chat-popup" id="theChatBox{{userId}}" style="display: block;z-index:1000000">
+    <div class="popup-head">
+      <div class="popup-head-left">
+        {{userName}} says
+      </div>
+      <div class="popup-head-right">
+        <a style="cursor: pointer;" href="javascript:close_popup('qscutter');">✕</a>
+      </div>
+      <div style="clear: both">
 
-            </div>
-        </div>
-        <div class="popup-messages" id="popup-messages-{{userId}}">
-            <ol class="discussion">
-                {{#each myMessages userId}}
-                <li class="{{myClass}}">
-                    <div class="avatar">
-                        <img src="/packages/rushabhhathi_chatbox/libFiles/profilePic.jpg" />
-                        <!--<img src="http://lorempixel/128/128/people/" />-->
-
-
-                    </div>
-                    <div class="messages">
-                        <p>{{message}}</p>
-                        <time datetime="2009-11-13T20:00">{{countTime time}}</time>
-                    </div>
-                </li>
-                {{/each}}
-                <!--<li class="self">-->
-                <!--<div class="avatar">-->
-                <!--<img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/3/profile/profile-80_20.jpg" />-->
-                <!--</div>-->
-                <!--<div class="messages">-->
-                <!--<p>That makes sense.</p>-->
-                <!--<p>It's a pretty small airport.</p>-->
-                <!--<time datetime="2009-11-13T20:14">37 mins</time>-->
-                <!--</div>-->
-                <!--</li>-->
-            </ol>
-        </div>
-        <div class="sendMessage" style="z-index:999999">
-            <div class="row">
-                <div class="col-lg-9">
-                    <textarea name="" id="" cols="35" rows="1" style="width: 235px;height:30px;"></textarea>
-                </div>
-                <div class="col-lg-2">
-                    <input class="hiddenUser" type="hidden" value="{{userId}}"/>
-                    <button class="btn btn-xs btn-warning send-message">Send</button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="popup-messages" id="popup-messages-{{userId}}">
+      <ol class="discussion">
+        {{#each myMessages userId}}
+        <li class="{{myClass}}">
+          <div class="avatar">
+            <img src="/packages/rushabhhathi_chatbox/libFiles/profilePic.jpg" />
+            <!--<img src="http://lorempixel/128/128/people/" />-->
+
+
+          </div>
+          <div class="messages">
+            <p>{{message}}</p>
+            <time datetime="2009-11-13T20:00">{{countTime time}}</time>
+          </div>
+        </li>
+        {{/each}}
+        <!--<li class="self">-->
+        <!--<div class="avatar">-->
+        <!--<img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/3/profile/profile-80_20.jpg" />-->
+        <!--</div>-->
+        <!--<div class="messages">-->
+        <!--<p>That makes sense.</p>-->
+        <!--<p>It's a pretty small airport.</p>-->
+        <!--<time datetime="2009-11-13T20:14">37 mins</time>-->
+        <!--</div>-->
+        <!--</li>-->
+      </ol>
+    </div>
+    <div class="sendMessage" style="z-index:999999">
+      <div class="row">
+        <div class="col-lg-9">
+          <textarea name="" id="" cols="35" rows="1" style="width: 235px;height:30px;"></textarea>
+        </div>
+        <div class="col-lg-2">
+          <input class="hiddenUser" type="hidden" value="{{userId}}" />
+          <button class="btn btn-xs btn-warning send-message">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+
+<template name="chatWrapper">
+  <aside class="oc-sidebar oc-sidebar-right oc-sidebar-fixed chat-bar">
+    <div class="oc-sidebar-header chat-sidebar-header">
+      <ul class="nav nav-tabs-oc nav-justified-all">
+        <li class="active">
+          <a href="#chat-users" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Users">
+            <i class="icm icm-users2"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#chat-recent" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Recent">
+            <i class="icm icm-clock"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#chat-favorites" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Favorites">
+            <i class="icm icm-star3"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#chat-settings" class="btn-nav" data-toggle="tab" rel="tooltip" data-placement="bottom" title="Settings">
+            <i class="icm icm-cog2"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="tab-content oc-sidebar-content">
+      <div class="tab-pane high active fade in" id="chat-users">
+        <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+          <div id="oc-wrapper-chat-1" class="oc-wrapper chat-oc-wrapper
+          oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
+
+            <div class="oc-push">
+              <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+                <form class="oc-header oc-search" role="search">
+                  <div class="form-group has-header">
+                    <span class="icm icm-filter3 form-control-header"></span>
+                    <input type="text" class="form-control" placeholder="Filter contacts" data-toggle="listfilter" data-target="#uid489da56cf13b8ef5f1dff518e03af014">
+                  </div>
+                </form>
+
+                <div class="nano">
+                  <ul class="nav nav-stacked nano-content" id="uid489da56cf13b8ef5f1dff518e03af014">
+                    {{#each userList}}
+                    <li class="chat-contact unread {{onlineStatus}} chat-one">
+                      <a href="#oc-wrapper-chat-1" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                        <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-07.png" />
+                        <div class="media-body">
+                          <div class="media-heading">
+                            {{personal_profile.display_name}}
+                            <small class="last-message-date">{{#with lastMessage _id}}{{countTime time}} {{/with}}</small>
+                          </div>
+                          <small class="last-message">
+
+                            {{#with lastMessage _id}}{{message}} {{/with}}
+                          </small>
+                        </div>
+                      </a>
+                    </li>
+                    {{/each}}
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade high" id="chat-recent">
+        <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+          <div id="oc-wrapper-chat-2" class="oc-wrapper chat-oc-wrapper
+          oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
+
+            <div class="oc-push">
+              <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+                <form class="oc-header oc-search" role="search">
+                  <div class="form-group has-header">
+                    <span class="icm icm-filter3 form-control-header"></span>
+                    <input type="text" class="form-control" placeholder="Filter contacts" data-toggle="listfilter" data-target="#uid489da56cf13b8ef5f1dff518e03af014">
+                  </div>
+                </form>
+
+                <div class="nano">
+                  <ul class="nav nav-stacked nano-content" id="uid489da56cf13b8ef5f1dff518e03af014">
+                    {{#each recentUserList}}
+                    <li class="chat-contact unread {{onlineStatus}} chat-one">
+                      <a href="#oc-wrapper-chat-2" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                        <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-07.png" />
+                        <div class="media-body">
+                          <div class="media-heading">
+                            {{personal_profile.display_name}}
+                            <small class="last-message-date">{{#with lastMessage _id}}{{countTime time}} {{/with}}</small>
+                          </div>
+                          <small class="last-message">
+
+                            {{#with lastMessage _id}}{{message}} {{/with}}
+                          </small>
+                        </div>
+                      </a>
+                    </li>
+                    {{/each}}
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade high" id="chat-favorites">
+        <div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+          <div id="oc-wrapper-chat-3" class="oc-wrapper chat-oc-wrapper
+          oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
+
+            <div class="oc-push">
+              <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+                <form class="oc-header oc-search" role="search">
+                  <div class="form-group has-header">
+                    <span class="icm icm-filter3 form-control-header"></span>
+                    <input type="text" class="form-control" placeholder="Filter contacts" data-toggle="listfilter" data-target="#uid489da56cf13b8ef5f1dff518e03af014">
+                  </div>
+                </form>
+
+                <div class="nano">
+                  <ul class="nav nav-stacked nano-content" id="uid489da56cf13b8ef5f1dff518e03af014">
+                    {{#each favUserList}}
+                    <li class="chat-contact unread {{onlineStatus}} chat-one">
+                      <a href="#oc-wrapper-chat-3" class="media" data-toggle="offcanvas" data-control="right" data-states="open,hidden">
+                        <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-07.png" />
+                        <div class="media-body">
+                          <div class="media-heading">
+                            {{personal_profile.display_name}}
+                            <small class="last-message-date">{{#with lastMessage _id}}{{countTime time}} {{/with}}</small>
+                          </div>
+                          <small class="last-message">
+
+                            {{#with lastMessage _id}}{{message}} {{/with}}
+                          </small>
+                        </div>
+                      </a>
+                    </li>
+                    {{/each}}
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade high" id="chat-settings">
+        <form class="oc-header oc-form" role="search">
+          <div class="form-group has-header">
+            <span class="icm icm-bubble form-control-header"></span>
+            <input type="text" class="form-control" placeholder="Status message">
+          </div>
+        </form>
+        <div class="oc-inner switch-label">
+          <p>Chat always on</p>
+          <div class="switch switch-primary switch-medium pull-right">
+            <input type="checkbox" checked rel="switch">
+          </div>
+        </div>
+        <div class="oc-inner switch-label">
+          <p>Notify incoming chat messages</p>
+          <div class="switch switch-success switch-medium pull-right">
+            <input type="checkbox" checked rel="switch">
+          </div>
+        </div>
+        <div class="oc-inner switch-label">
+          <p>Notify contacts online status</p>
+          <div class="switch switch-info switch-medium pull-right">
+            <input type="checkbox" checked rel="switch">
+          </div>
+        </div>
+        <div class="oc-inner switch-label">
+          <p>Do not message me when invisible</p>
+          <div class="switch switch-warning switch-medium pull-right">
+            <input type="checkbox" checked rel="switch">
+          </div>
+        </div>
+        <div class="oc-inner switch-label">
+          <p>Do not accept messages from banned users</p>
+          <div class="switch switch-danger switch-medium pull-right">
+            <input type="checkbox" checked rel="switch">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+</template>
+
+
+
+<template name="chatMessages">
+  <aside class="oc-sidebar oc-sidebar-right" id="new-chat-box-wrapper-{{userId}}" style="left:0;">
+    <div class="chat-conversation" id="{{userId}}">
+
+      <div class="chat-contact unread">
+        <div class="media">
+          <a href="#{{parentElem}}" class="close chat-close" aria-hidden="true" data-toggle="offcanvas" data-control="right" data-states="open,hidden">&times;</a>
+          <img class="media-object pull-left img-circle" src="/assets/images/faker/avatars/48/Faces_Users-10.png" />
+          <div class="media-body">
+            <div class="media-heading">
+              {{userName}}
+            </div>
+            <small class="last-message">
+              Be right back, on phone
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-messages nano">
+        <div class="nano-content">
+          {{#each myMessages userId}}
+          <div class="clearfix">
+            <p class="chat-bubble {{myClass}}">
+              <img class="img-circle chat-bubble-avatar {{myAvatarClass}}" src="/assets/images/faker/avatars/24/Faces_Users-21.png" /> {{message}}
+            </p>
+          </div>
+          {{/each}}
+          <p class="text-center {{onlineStatusColor user}} small">
+            {{onlineStatusMessage user}}
+            <span class="text-muted">at {{user.status.lastLogin.date}}</span>
+          </p>
+        </div>
+      </div>
+
+      <form role="form" class="chat-sender">
+        <textarea class="form-control" rows="2" placeholder="Type message..."></textarea>
+      </form>
+
+    </div>
+  </aside>
 </template>
