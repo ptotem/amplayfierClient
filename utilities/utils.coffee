@@ -282,6 +282,10 @@ UI.registerHelper "getContentDesc",() ->
   v = Session.get('contentVar')
   adminPanelContent[v]['desc']
 
+UI.registerHelper "getPlatformName",() ->
+  platforms.findOne().tenantName
+
+
 
   #    small helper that reads the application name from the configuration file
 

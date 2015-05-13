@@ -311,6 +311,7 @@ Meteor.methods
       )
 
   bulkInsertUsers: Meteor.bindEnvironment((fileid, pid) ->
+    console.log "user Uplaod"
     platformName = platforms.findOne(pid).tenantName
     file = excelFiles.findOne(fileid)
     Fiber = Npm.require('fibers');
@@ -327,12 +328,13 @@ Meteor.methods
         else
           Fiber(()->
             for r,i in result
+              console.log r
               if platforms.findOne(pid).userLimit is -1 or Meteor.users.find({platform: pid}).count() < parseInt(ul)
                 newEmail = encodeEmail(r['email'], platformName)
                 personal_profile = {platform: pid, email: newEmail, first_name: r['first_name'], last_name: r['last_name'], display_name: r['username']}
                 newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
                 personal_profile['initialPass'] = newpass
-                if roles.findOne({unikey:pid,rolename:r['role']})? and Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)}) and Meteor.users.findOne({'personal_profile.email':encodeEmail(r['hr_manager'], platformName)})?
+                if 1 is 1
                   personal_profile['role'] = roles.findOne({unikey:pid,rolename:r['role']})._id
                   personal_profile['reportingManager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)})._id
                   personal_profile['hrmanager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['hr_manager'], platformName)})._id

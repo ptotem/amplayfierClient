@@ -6,8 +6,8 @@
             <div class="oc-sidebar-header">
                 <ul class="nav nav-justified-all">
                     <li>
-                        <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="open,partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
-                            <i class="icm icm-menu6 oc-partial-rotate"></i>
+                        <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
+                            <i class="icm icm-menu6 oc-partial"></i>
                         </a>
                     </li>
                     <li>
@@ -119,28 +119,37 @@
     <nav class="navbar navbar-default navbar-static-top navbar-inplace" role="navigation">
         <ul class="nav navbar-nav navbar-left pull-left hidden-sm hidden-md hidden-lg">
             <li>
+
                 <a id="oc-left-toggle-xs" href="#oc-wrapper" class="btn-nav pull-left " data-toggle="offcanvas" data-control="left" data-states="open,hidden" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
                     <i class="icm icm-menu6"></i>
                 </a>
             </li>
         </ul>
         <a class="navbar-brand" href="#">
-            <img src="/assets/images/pepsicologosmall.png" style="float:left" />
-            <span class="text-gradient-success-dk" style="float:left">Amplayfier</span>
-        </a>
-        <ul class="nav navbar-nav navbar-right pull-right">
+            <img style="display:inline-block;" src="/assets/images/amplayfier-logo-2.png" /> am<span class="text-warning-dk">play</span>fier | {{getPlatformName}}.amplayfier.com</a>
+        
+        <ul class="nav  navbar-nav navbar-right pull-right ">
+             <li id="oc-right-toggle-container">
+                <a id="oc-right-preview" href="/" class="btn-nav bg-black-lter  sidebar-toggle-right " style="color:#ccc;border-right:1px solid #ccc"  >
+                    <i class="fa fa-lg fa-home has-corner-badge">
+                      
+                    </i>
+                </a>
+            </li>
             <li id="oc-right-toggle-container">
-                <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
-                   data-persist="lg,md,sm">
+                <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black-lter   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
+                   data-persist="lg,md,sm" style="color:#ccc">
                     <i class="fa fa-lg fa-comments has-corner-badge">
                         <span class="badge badge-corner badge-corner-top-right badge-info">3</span>
                     </i>
                 </a>
             </li>
+           
+
         </ul>
         <ul class="nav navbar-nav navbar-right pull-right hidden-xs">
             <li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="navbar-img-link">
+                <a href="#" data-toggle="dropdown" class="navbar-img-link" style="padding-top:15px;font-size:1.3em">
                     <img class="img-circle" src="{{getAssetUrl currentUser.personal_profile.profilePicId}}" />
                     <span class="hidden-xs hidden-sm hidden-md">{{getUserFullName}}</span>
                     <b class="caret"></b>
@@ -163,6 +172,7 @@
                     </li>
                 </ul>
             </li>
+
         </ul>
 
     </nav>
