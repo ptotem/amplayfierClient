@@ -392,3 +392,11 @@ Template.platformStatus.events
 
 #  'click .platform-status':(e)->
     
+Template.standardHeader.events
+  'click .onoffswitch-checkbox': (e) ->
+    if $('.onoffswitch-checkbox').is(":checked")
+      console.log Session.get('contentVar')
+    
+
+
+

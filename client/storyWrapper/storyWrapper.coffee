@@ -154,7 +154,7 @@ Template.userEditForm.events
 
     startAttempt($(".slide-container").length)
 
-    $(".center-panel[has-data='false']").remove()
+    # $(".center-panel[has-data='false']").remove()
     $(".slide-container:empty").remove()
     executeSlideLoad($('.slide-container').first())
     $('.next-slide').on 'click', (e) ->
@@ -356,13 +356,22 @@ Template.storyWrapper.events
     # window.location = "/admin"
 
   'click #story-block-close':(e)->
-    if $('.active').has('iframe').length is 0
+    if $('.active').has('iframe').length is 0 
       setTime(getTime());
       minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
       maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
       points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
       setCurrentSlideScore(minTime, maxTime, points);
-    endAttempt()
+    if $('.slide-container.active').length is 1
+      setTime(getTime());
+      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
+      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
+      points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
+      setCurrentSlideScore(minTime, maxTime, points);
+    setTimeout(()->
+      endAttempt()
+    ,2000)
+    
 
     $('.projection').remove();
     $('.story-zone-playbar').remove();

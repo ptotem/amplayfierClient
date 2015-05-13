@@ -13,13 +13,13 @@
 #Dev server credentials
 
 
-@myip = "http://192.168.89.118:4000"
-@remoteIp = "http://192.168.89.112:4000"
+# @myip = "http://192.168.89.118:4000"
+# @remoteIp = "http://192.168.89.112:4000"
 
 
-# for local
-@myip = "http://127.0.0.1:4000"
-@remoteIp = "http://127.0.0.1:3000"
+# # for local
+# @myip = "http://127.0.0.1:4000"
+# @remoteIp = "http://127.0.0.1:3000"
 
 
 # for final
@@ -38,11 +38,12 @@
       p = platforms.findOne({tenantId: tid})
       deckHtml.remove({platformId: p._id})
       for c in res
-        deckHtml.insert({
+        d = deckHtml.insert({
           name: c.dName, platformId: p._id, tenantId: tid, deckId: c.deckId, htmlContent: c.deckContent, variants: ["Basic",
                                                                                                                     "Intermediate",
                                                                                                                     "Advanced"]
         })
+        # platforms.update({p._id},{$push:{x}})
   )
 
 @getTenantJs = (tid, secretKey, res)->
@@ -171,6 +172,7 @@ Meteor.methods
       email: encodeEmail(email,
         platformName), password: newpass, role: "admin", platform: pid, personal_profile: personal_profile
     })
+    Meteor.call("fetchDataFromCreator", tid)
 
   fetchDataFromCreator: (tid)->
     x = DDP.connect(remoteIp)
@@ -238,6 +240,7 @@ Meteor.methods
       p = platforms.insert({tenantId: tid, tenantName: tname})
       # console.log p
       d = deckHtml.insert({name: dname, platformId: p, tenantId: tid, deckId: did, htmlContent: htmlString})
+      # platforms.update({tenantId:tid},{})
       future.return(true)
     ).run()
     return future.wait()

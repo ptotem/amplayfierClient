@@ -699,8 +699,20 @@
 
                 <div class="panel-body in panel-body-collapse panel-colorize no-padding-top">
                     <div class="panel-heading">
-
-                        <h1>Quick statistics</h1>
+                        {{#if equals isSwitchable 'true'}}
+                            <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner">
+            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+        </span>
+    </label>
+</div>
+{{else}}
+<h1>Quick statistics</h1>
+{{/if}}
+                        
                     </div>
                     <div class="box-table push-bottom">
                         <div class="box-row mid-bordered">

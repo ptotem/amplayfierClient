@@ -13,6 +13,7 @@
 
 @showModal = (templateName, templateArgs, docId)->
   $(".modal").remove()
+  $('.modal-backdrop').remove()
   Blaze.renderWithData(Template[templateName], templateArgs, document.getElementById(docId))
   setTimeout(()->
     $(".modal").modal()

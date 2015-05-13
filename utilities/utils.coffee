@@ -287,6 +287,10 @@ UI.registerHelper "getContentIcon",() ->
 UI.registerHelper "getContentBoxColor",() ->
   v = Session.get('contentVar')
   adminPanelContent[v]['boxColor']
+UI.registerHelper "isSwitchable",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['switchable']
+
 
 
 

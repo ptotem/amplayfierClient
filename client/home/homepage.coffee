@@ -33,23 +33,19 @@ Template.deckList.rendered  = ->
 Template.homePage.helpers
 	getHtmlContent: () ->
 		if deckHtml.findOne()?
-#<<<<<<< HEAD
-#			find = '/cfs';
-#			re = new RegExp(find, 'g');
-#			# deckHtml.findOne('AdmkhjDGiqM9Kw3Y4').htmlContent
-#			deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://lvh.me:3000/cfs")
-#=======
-      find = '/cfs';
-      re = new RegExp(find, 'g');
-
-#      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,"http://lvh.me:3000/cfs")
-
-      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,Meteor.settings.public.mainLink+"/cfs")
+	      find = '/cfs';
+	      re = new RegExp(find, 'g');
+	      x = deckHtml.findOne({deckId:currentDeckId}).htmlContent
+	      console.log x.replace(re,Meteor.settings.public.mainLink+"/cfs")
+	      console.log currentDeckId
+		  # console.log(x);
+	      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,Meteor.settings.public.mainLink+"/cfs");
+	      return deckHtml.findOne({deckId:currentDeckId}).htmlContent
 
 
 
 
-#>>>>>>> demodep
+
 Template.homePage.rendered = ->
 	$('.component').css({"position":"relative"})
 	$('.component').css({"margin":"0 auto"})

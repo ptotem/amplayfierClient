@@ -59,7 +59,7 @@
                                     </div>
                                     <div id="story-nodes">
                                         {{#each nodes}}
-                                            <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{description}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.px}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.py}}%;left:{{getPrecLeft landscape.px}}%;width:{{landscape.width}}%">
+                                            <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{description}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.top}}%;left:{{getPrecLeft landscape.left}}%;width:{{landscape.width}}%">
                                                 <img src="{{getNodeStatusPic sequence}}" alt="">
                                             </a>
                                         {{/each}}

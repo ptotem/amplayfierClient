@@ -167,9 +167,9 @@ Template.nodeTemp.helpers
       deckList = []
 
       flag = 'auto'
-
-      if platforms.findOne().nodes[s].decks?
-        for d,i in platforms.findOne().nodes[s].decks
+      n = _.where(platforms.findOne().nodes,{sequence:s})[0]
+      if n.decks?
+        for d,i in n.decks
           if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
             status = 'complete'
           else

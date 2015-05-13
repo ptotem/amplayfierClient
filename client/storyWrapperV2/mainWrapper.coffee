@@ -61,11 +61,18 @@ Template.mainWrapper.helpers
 #    sc.name
   getNodeStatusPic:(seq)->
 
-    if seq isnt 0
+    if seq isnt 1
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
 #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + sc.nodes[seq].incomplete
         n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
-        return Meteor.settings.public.mainLink +  storyConfig.imgsrc + "/" + n.incomplete
+        if parseInt(platforms.findOne().nodes.length) is 1
+          return Meteor.settings.public.mainLink +  storyConfig.imgsrc + "/" + n.active
+        else          
+
+            return Meteor.settings.public.mainLink +  storyConfig.imgsrc + "/" + n.incomplete
+    #  
+
+        
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
 
@@ -78,7 +85,9 @@ Template.mainWrapper.helpers
       n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
       Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + n.active
   getNodeUrl:(pic)->
-      "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + pic + "' />"
+      
+      # n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
+      "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + this['node-photo'] + "' />"
   getPlacement:(px)->
     if px < 50
       "right"
@@ -87,7 +96,11 @@ Template.mainWrapper.helpers
   getNodeStatus:(seq)->
     if seq isnt 0
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
-        return "<div class='popover-content-block incomplete-popover-content'>Incomplete</div>"
+        if parseInt(platforms.findOne().nodes.length) is 1
+          return  "<div class='popover-content-block active-popover-content'>Active</div>"
+        else          
+
+          return "<div class='popover-content-block incomplete-popover-content'>Incomplete</div>"
     #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
@@ -97,9 +110,15 @@ Template.mainWrapper.helpers
       "<div class='popover-content-block active-popover-content'>Active</div>"
 
   getNodeStatusClass:(seq)->
-    if seq isnt 0
+    if seq isnt 1
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
-        return "my-incomplete-node"
+         if parseInt(platforms.findOne().nodes.length) is 1
+          return   "my-active-node"
+        else          
+
+            return "my-incomplete-node"
+    #  
+        
     #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
@@ -135,8 +154,9 @@ Template.mainWrapper.events
 #        $('#story-nameplate').fadeOut()
 #    $('#story-zone').empty()
     seq = parseInt($(e.currentTarget).attr('seq'))
-    node = platforms.findOne().nodes[seq]
-    nodePhoto =  storyConfig.imgsrc + "/" + node.photo
+    # node = platforms.findOne().nodes[seq]
+    node = _.where(platforms.findOne().nodes,{sequence:seq})[0]
+    nodePhoto =  storyConfig.imgsrc + "/" + node['node-photo']
     nodeTitle = node.title
     nodeDescription = node.description
     if seq isnt 0
@@ -168,9 +188,10 @@ Template.mainWrapper.events
     if platforms.findOne().profiles?
       for p in platforms.findOne().profiles
         if p.name is Meteor.user().profile
-          for v in p.variants
-            if v[deckId]?
-              setVariantToShow(v[deckId])
+          if p.variants?
+            for v in p.variants
+              if v[deckId]?
+                setVariantToShow(v[deckId])
     if !variantToShow?
       setVariantToShow('Basic')
     setCurrentDeckId(deckId)
@@ -187,9 +208,24 @@ Template.mainWrapper.events
       maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
       points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
       setCurrentSlideScore(minTime, maxTime, points);
-    endAttempt()
+    if $('.slide-container.active').length is 1
+      setTime(getTime());
+      minTime = $('.center-panel:visible').find(".slide-wrapper").attr("min-time");
+      maxTime = $('.center-panel:visible').find(".slide-wrapper").attr("max-time");
+      points = $('.center-panel:visible').find(".slide-wrapper").attr("points");
+      setCurrentSlideScore(minTime, maxTime, points);
+    setTimeout(()->
+      endAttempt()
+    ,2000)
+    
+    # endAttempt()
     cancelFullScreen("#viewPPTModal")
+
+    $('.projection').remove();
+    $('.story-zone-playbar').remove();
     $('.modal').modal('hide')
+    
+
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
 
