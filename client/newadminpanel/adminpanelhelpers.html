@@ -211,7 +211,7 @@
                                             <!--</h4>-->
                                             <br>
                                             <!--<h4 class="text-center text-success no-margin-bottom">{{description}}</h4>-->
-                                            <p class="text-center" style="padding-top: 50%;">
+                                            <p class="text-1" style="padding-top: 50%;">
                                                 <!--<small><a class="text-muted" href="#">{{description}}</a></small>-->
                                                 <small>{{description}}</small>
                                             </p>
@@ -306,10 +306,10 @@
 
                                 </td> -->
                                 <td class="col-md-6">
-                                    <a href=" # " style="margin-right:0.5%" class="btn btn-danger-lter pull-right btn-md delete-user-btn ">Delete</a>
-                                    <a href="# " style="margin-right:0.5%" class="btn btn-dark-lter pull-right btn-md edit-user-btn ">Edit</a>
-                                    <a href="# " style="margin-right:0.5%" class="btn btn-dark-lter pull-right btn-md report-user-btn ">Reports</a>
-                                    <a href="# " style="margin-right:0.5%" class="btn btn-dark-lter pull-right btn-md reset-user-btn ">Password Reset</a>
+                                    <a href=" # " style="margin-right:0.5%" class="btn btn-dark-lt pull-right btn-md delete-user-btn ">Delete</a>
+                                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md edit-user-btn ">Edit</a>
+                                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md report-user-btn ">Reports</a>
+                                    <a href="# " style="margin-right:0.5%" class="btn btn-warning pull-right btn-md reset-user-btn ">Password Reset</a>
                                 </td>
 
                             </tr>
@@ -389,7 +389,7 @@
                                                 <div class="panel-body no-padding-top">
                                                     <div class="padded">
                                                         <div class="vpadded">
-                                                            <!--<img src="{{getAssetUrl rewardImage}}" class="img-responsive" />-->
+                                                            <img src="{{imgPath}}" class="img-responsive" />
                                                         </div>
                                                     </div>
                                                     <div class="row ">
@@ -405,7 +405,7 @@
                                         </div>
                                         <div class="captionable-caption captionable-back panel-body-info padded">
                                             <h4>{{display_name}}</h4>
-                                            <!--<p>{{description}}</p>-->
+                                            <p>{{display_desc}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -538,7 +538,7 @@
    <div class="container-fluid">
     <div class="table-line">
         <div class="row table-line-row">
-            <div class="col-md-6 pull-right">{{> NewuploadFileBtn}}</div>
+            <div class="col-md-12 pull-left">{{> NewuploadFileBtn}}</div>
 
             <!-- <div class="col-md-6 pull-right">
               <div class="selectize-input items not-full">
