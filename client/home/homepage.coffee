@@ -35,12 +35,12 @@ Template.homePage.helpers
 		if deckHtml.findOne()?
 	      find = '/cfs';
 	      re = new RegExp(find, 'g');
-	      x = deckHtml.findOne({deckId:currentDeckId}).htmlContent
-	      console.log x.replace(re,Meteor.settings.public.mainLink+"/cfs")
-	      console.log currentDeckId
+	      # x = deckHtml.findOne({deckId:currentDeckId}).htmlContent
+	      # console.log x.replace(re,Meteor.settings.public.mainLink+"/cfs")
+	      # console.log currentDeckId
 		  # console.log(x);
 	      deckHtml.findOne({deckId:currentDeckId}).htmlContent.replace(re,Meteor.settings.public.mainLink+"/cfs");
-	      return deckHtml.findOne({deckId:currentDeckId}).htmlContent
+	      # return deckHtml.findOne({deckId:currentDeckId}).htmlContent
 
 
 
