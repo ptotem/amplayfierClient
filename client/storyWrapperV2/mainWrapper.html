@@ -3,6 +3,7 @@
     <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" />
 
     <div id="main-page-desktop" class="hidden-sm high emerald-default htmls htmls_panels story-page bg-black" >
+      <img id="story-nameplate-cover" src="{{getNamePlate}}" alt="" style="width:100%;height:100%;position:absolute;top:0;left:0;z-index: 100000;" />
         <!--<div id="blurmebro"></div>-->
         <div id="node-dialog-container"></div>
 
@@ -30,29 +31,32 @@
                             <div id="story-wrapper">
 
                               <!-- HTML for games -->
-                              <!--   <div class="game-container" style="  position: absolute;
-  left: 0;
-  top: 0;
-  height: 1000px;
-  width: 650px;
+                              {{#with game}}
+                                <div class="game-container" style="  position: absolute;
+  left: {{gamebox.landscape.left}}%;
+  top: {{gamebox.landscape.top}}%;
+  height: {{gamebox.landscape.height}}%;
+  width: {{gamebox.landscape.width}}%;
   z-index: 20000;">
-                                    <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%"></iframe>
+                                    <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%" style='border:none;'></iframe>
                                 </div>
- -->
+{{/with}}
 
 
                                 <div id="story-content" style="background-image:url('{{getBackImg}}')">
                                   <!-- HTML for HUD -->
-                                  <!--   <div class="hud-container" style="width: 100%;height: 100%">
-                                        <div id="hud-img" style="position: absolute;top:8%;left: 35%;width: 30%">
-                                            <img src="/assets/images/Transperent_HUD.png" style="width: 100%;position: relative;z-index: 1">
+                                    <div class="hud-container" style="width: 100%;height: 100%">
+                                      {{#with hud}}
+                                        <div id="hud-img" style="position: absolute;top:{{landscape.top}}%;left: {{landscape.left}}%;width: {{landscape.width}}%">
+                                            <img src='{{getHudImage}}' style="width: 100%;position: relative;z-index: 1">
                                         </div>
-                                        <div id="user-profile" style="width: 9%;position: absolute;top: 9.5%;left: 45.5%;z-index: 0;">
+                                        <div id="user-profile" style="width: {{picturebox.landscape.width}}%;position: absolute;top: {{picturebox.landscape.top}}%;left: {{picturebox.landscape.left}}%;z-index: 0;">
                                             <img src="/assets/images/user.jpg" style="width: 100%;border-radius: 50%">
                                         </div>
-                                        <span id="points-container" style="position: absolute;width: 4%;height: 3%;top: 17%;left: 38.5%;z-index: 1;text-align: center;font-size: 1.4em;">{{currentUser.points}}</span>
-                                        <span id="credits-container" style="  position: absolute;width: 4%;height: 3%;top: 17%;right: 39%;z-index: 1;text-align: center;font-size: 1.4em;">{{currentUser.currency}}</span>
-                                    </div> -->
+                                        <span id="points-container" style="position: absolute;width: {{pointbox.landscape.width}}%;top: {{pointbox.landscape.top}}%;left: {{pointbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;">1000</span>
+                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.landscape.width}}%;height: 3%;top: {{creditbox.landscape.top}}%;left: {{creditbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;">3459</span>
+                                        {{/with}}
+                                    </div>
                                     <div id="story-nodes">
                                         {{#each nodes}}
                                             <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl photo}}{{description}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.px}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.py}}%;left:{{getPrecLeft landscape.px}}%;width:{{landscape.width}}%">
@@ -66,7 +70,7 @@
                             </div>
 
                             <img id="story-presenter" src="{{getStoryPresenter}}" alt="" />
-                            <img id="story-nameplate" src="{{getNamePlate}}" alt="" />
+                            <!-- <img id="story-nameplate" src="{{getNamePlate}}" alt="" /> -->
                             <!-- <img id="story-nameplate" src="{{generateStoryImagePath wrapperJson.imgsrc wrapperJson.nameplate.image}}" alt="" style="width:{{wrapperJson.nameplate.landscape.width}}%;left:{{wrapperJson.nameplate.landscape.left}}%;top:{{wrapperJson.nameplate.landscape.top}}%;" />
                             <div id="notifications-splash"></div> -->
                             

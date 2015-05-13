@@ -1,4 +1,5 @@
 Template.mainWrapper.rendered = ->
+
   $(window).resize (evt) ->
     setTitle(storyConfig.name)
 #    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
@@ -6,8 +7,9 @@ Template.mainWrapper.rendered = ->
     initPage()
     setTimeout(()->
       $('.story-node').popover({trigger:'hover',html: true})
+     
     ,1000)
-
+   
 
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
@@ -16,6 +18,12 @@ Template.mainWrapper.rendered = ->
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
     showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
+    $('#story-nameplate-cover').animate {
+      opacity: 0.25
+      left: '+=50'
+      height: 'toggle'
+    }, 5000
+
   ,1000)
 
 
@@ -24,6 +32,13 @@ Template.mainWrapper.created = ()->
   window.storyConfig = s
 
 Template.mainWrapper.helpers
+  hud:()->
+    platforms.findOne().wrapperJson.infobox
+  game:()->
+    platforms.findOne().wrapperJson.gamecontainer
+  getHudImage:()->
+    Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.infobox.image
+
   getPrecTop : (top)->
 
     return top 
