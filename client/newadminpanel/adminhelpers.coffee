@@ -9,7 +9,11 @@ Template.rewardsLeftMenu.helpers
   getRewardStatus:()->
     platforms.findOne()['rewards']
 
-
+Template.repository.rendered = ->
+  if platforms.findOne()['repository']
+    $(".onoffswitch-checkbox").prop("checked", true);
+  else
+    $(".onoffswitch-checkbox").prop("checked", false);
 Template.repository.helpers
 
   getRepoStatus:()->
@@ -41,7 +45,11 @@ Template.badgesLeftMenu.helpers
   getBadgeStatus:()->
     platforms.findOne()['badges']
 
-
+Template.badgesLeftMenu.rendered = ->
+  if platforms.findOne()['badges']
+    $(".onoffswitch-checkbox").prop("checked", true);
+  else
+    $(".onoffswitch-checkbox").prop("checked", false);
 
 Template.assessmentsLeftMenu.helpers
   assessments:()->
@@ -317,7 +325,12 @@ Template.manageReport.events
     )
 
     createNotification("Badges have been updated",1)
-
+Template.rewardsLeftMenu.rendered = ->
+  if platforms.findOne()['rewards']
+    $(".onoffswitch-checkbox").prop("checked", true);
+  else
+    $(".onoffswitch-checkbox").prop("checked", false);
+  # $('').attr("checked")
 Template.rewardsLeftMenu.events
   'click .delete-reward':(e)->
     systemRewards.remove({_id:this._id})
