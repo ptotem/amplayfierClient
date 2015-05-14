@@ -171,6 +171,7 @@
 <template name="rewardsLeftMenu">
     
    {{>standardHeader}}
+   {{#if getRewardStatus}}
     <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-1 pull-right">
@@ -178,7 +179,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default gradient-diag1">
@@ -240,6 +241,7 @@
             </div>
         </div>
     </div>
+{{/if}}
 </template>
 
 
@@ -335,6 +337,7 @@
     
 
    {{>standardHeader}}
+   {{#if getBadgeStatus}}
    <div class="container-fluid">
     <div class="table-line">
         <div class="row table-line-row">
@@ -418,6 +421,7 @@
         </div>
     </div>
     </div>
+    {{/if}}
 </template>
 
 
@@ -535,6 +539,7 @@
 <template name="repository">
     
    {{>standardHeader}}
+   {{#if getRepoStatus}}
    <div class="container-fluid">
     <div class="table-line">
         <div class="row table-line-row">
@@ -549,6 +554,7 @@
 
         </div>
     </div>
+    
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854">
@@ -583,7 +589,9 @@
         </div>
 
     </div>
+    
     </div>
+    {{/if}}
 </template>
 
 
@@ -666,7 +674,7 @@
     </div>
   </div> -->
   
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-primary-lg">Submit</button>
 </form>
                                 
   

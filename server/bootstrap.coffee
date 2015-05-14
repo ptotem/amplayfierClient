@@ -65,7 +65,7 @@ createBadges = ()->
 
 
 Meteor.startup(()->
-  console.log "inside startup"
+  
 #  SyncedCron.start();
 
   initMailers()
@@ -90,7 +90,9 @@ Meteor.startup(()->
   addCapabilities("Can view reports",'view_reports')
   addCapabilities("Can customize reports",'customize_reports')
   addCapabilities("Can view Admin Panel",'view_admin_panel')
-  console.log "end of startup"
+  addCapabilities("Can Disable Features",'disable_features')
+
+  
 
 
 

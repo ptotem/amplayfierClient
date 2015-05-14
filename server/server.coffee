@@ -501,4 +501,10 @@ Meteor.methods
     Meteor.users.update({_id:uid},{$inc:{points:scr}})
   setUserCurrencyFromGame:(uid,scr)->
     Meteor.users.update({_id:uid},{$inc:{currency:scr}})
+  disbaleFeature:(pid,uid,feature,fs)->
+    if roles.findOne(Meteor.users.findOne(uid).personal_profile.role).capabilities.indexOf('disable_features') isnt -1
+      console.log "ruhaj"
+      x = {}
+      x[feature] = fs
+      platforms.update({_id:pid},{$set:x})
 

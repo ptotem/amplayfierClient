@@ -6,6 +6,15 @@ Template.adminHeaderBar.events
 Template.rewardsLeftMenu.helpers
   rewards:()->
     systemRewards.find().fetch()
+  getRewardStatus:()->
+    platforms.findOne()['rewards']
+
+
+Template.repository.helpers
+
+  getRepoStatus:()->
+      platforms.findOne()['repository']
+      
 
 Template.rolesLeftMenu.helpers
   setUniqKey:()->
@@ -29,6 +38,10 @@ Template.profilesLeftMenu.helpers
 Template.badgesLeftMenu.helpers
   badges:()->
     platforms.findOne().badges
+  getBadgeStatus:()->
+    platforms.findOne()['badges']
+
+
 
 Template.assessmentsLeftMenu.helpers
   assessments:()->
@@ -395,7 +408,11 @@ Template.platformStatus.events
 Template.standardHeader.events
   'click .onoffswitch-checkbox': (e) ->
     if $('.onoffswitch-checkbox').is(":checked")
-      console.log Session.get('contentVar')
+      Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),true)
+    else
+      console.log "ass"
+      Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),false)
+
     
 
 
