@@ -58,3 +58,68 @@ background-color:white !important;
 margin-bottom:5px;
 
 }
+
+.custom-body-modal{
+  background: #666 !important;
+}
+.custom-body-modal .modal-header-style{
+  background: #666 !important;
+  text-align:left
+}
+
+
+.custom-cross-modal{
+  background: #555 !important;
+}
+
+.modal.editor-modal .modal-header {
+    border-bottom: none;
+    position: relative;
+    /*background: #177bbb;*/
+    color: black;
+}
+
+.modal.editor-modal .modal-header .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    font-size: 48px;
+    background: #666;
+    color: white;
+    z-index: 9999;
+}
+.modal.editor-modal .modal-title
+{
+    font-size:2em;
+    color:#f99300;
+    text-align: left;
+}
+.modal.editor-modal .modal-header .btn:hover {
+    background: #b45b5b;
+}
+
+.modal.editor-modal .modal-header h4 {
+    font-size: 1.8em;
+}
+
+.modal.editor-modal input {
+    display: inline;
+}
+
+.modal .modal-footer {
+    border-top: none;
+    padding: 0;
+}
+
+.modal .modal-footer .btn-group > .btn:first-child {
+    border-bottom-left-radius: 0;
+     border-top-left-radius: 0;
+}
+
+.modal .modal-footer .btn-group > .btn:last-child {
+    border-top-right-radius: 0;
+}
