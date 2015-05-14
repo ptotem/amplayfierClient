@@ -138,7 +138,8 @@ if Meteor.isClient
 
   Template.uploadFileBtn.events
     'click .upload-file':(e)->
-      $('.modal').modal()
+      $('#dms-modal').modal('show')
+      $('.modal-backdrop').remove()
 
 #      $('#new-user-files').trigger('click')
 
