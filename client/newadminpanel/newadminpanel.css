@@ -108,7 +108,19 @@ margin-bottom:5px;
 
 .modal.editor-modal input {
     display: inline;
+    background-color: #fff;
 }
+
+.modal.editor-modal textarea {
+    display: inline;
+    background-color: #fff;
+}
+
+.modal-body.custom-body-modal{
+    padding-top:5%;
+}
+
+
 
 .modal .modal-footer {
     border-top: none;

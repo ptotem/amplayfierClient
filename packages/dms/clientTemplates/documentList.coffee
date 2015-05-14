@@ -132,14 +132,27 @@ if Meteor.isClient
 
 #
 
+  Template.uploadModal.events
+     'click .remove-modal':(e)->
+         $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+     # ...
   Template.uploadModal.helpers
     platformProfiles:()->
       platforms.findOne().profiles
-
+  Template.NewuploadFileBtn.events
+    'click .upload-file':(e)->
+      showModal('uploadModal',{},'main-wrapper-page-new')
+      # 
   Template.uploadFileBtn.events
     'click .upload-file':(e)->
+      # showModal('uploadModal',{},'main-wrapper-page-new')
       $('#dms-modal').modal('show')
       $('.modal-backdrop').remove()
+
+#      $('#new-user-files').trigger('click')
+
+
+      # $('.modal-backdrop').remove()
 
 #      $('#new-user-files').trigger('click')
 
