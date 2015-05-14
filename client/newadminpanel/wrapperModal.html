@@ -193,14 +193,15 @@
 
 <!-- rewards modal -->
 <template name="newRewardModal">
-  <div class="modal modal-dark fade">
+  <div class="modal fade in editor-modal">
     <div class="modal-dialog ">
       <div class="modal-content">
-        <div class="modal-header ">
-          <button type="button" class="close remove-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">New Reward</h4>
+        <div class="modal-header custom-body-modal">
+          <a  class="btn btn-default remove-modal custom-cross-modal" data-dismiss="modal" aria-hidden="true">&times;</a>
+          
+          <h4 class="modal-title modal-header-style">New Reward</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body custom-body-modal">
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
@@ -241,8 +242,14 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success new-reward-save" data-dismiss="modal">Save</button>
+        <div class="modal-footer custom-body-modal">
+             <div class="btn-group pull-left">
+            <button class="btn btn-lg btn-danger  remove-modal" data-dismiss="modal">Cancel</button>
+          </div>
+          <div class="btn-group pull-right">
+            <button class="btn btn-lg btn-primary new-reward-save">Save changes</button>
+          </div>
+          
         </div>
       </div>
     </div>
