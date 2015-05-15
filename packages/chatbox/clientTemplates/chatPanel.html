@@ -13,8 +13,6 @@
         <img src="{{statusImage}}" alt="">
       </td>
     </tr>
-
-
     {{/each}}
   </table>
 
@@ -332,7 +330,7 @@
       </div>
 
       <div class="chat-messages nano">
-        <div class="nano-content">
+        <div class="nano-content" id="nano-content-{{userId}}">
           {{#each myMessages userId}}
           <div class="clearfix">
             <p class="chat-bubble {{myClass}}">
