@@ -27,7 +27,7 @@ Template.userEditForm.events
       )
     $('#overlay').show()
     Tracker.autorun(()->
-      console.log assetFiles.findOne(ppid).stored
+      
       if assetFiles.findOne(ppid).stored and assetFiles.findOne(cpid).stored
         pp = Meteor.user().personal_profile
         pp['coverPicId'] = cpid
@@ -67,6 +67,29 @@ Template.userEditForm.events
 
 
   )
+
+@changeSlideInCarousel = ()->
+      if $('.slide-container.active').is(":first-child")
+       $('.prev').hide()
+      if $('.slide-container.active').is(":last-child")
+        $(".next").hide()
+      currentItem = $($('.owl-item.active').find('img'))
+      console.log $('.owl-item.active')
+      startTime()
+      setCurrentGameId("false")
+      setCurrentSlideType(false)
+      panelId = currentItem.attr('panel-id')   
+      variantName = currentItem.attr('variant-name')
+      templateId = currentItem.attr('template-id')
+      console.log panelId
+      setCurrentPanelId(panelId)
+      setCurrentSlideId(templateId)
+      if currentItem.find('video').get().length isnt 0
+        currentItem.find('video').get(0).play()
+      if currentItem.find('audio').get().length isnt 0
+        currentItem.find('audio').get(0).play()
+
+
 
 @executeSlideLoad = (item)->
     item.show()
@@ -140,6 +163,18 @@ Template.userEditForm.events
 
 #        console.log $($(this).find(".center-panel")).attr('template-id')
   )
+@changeCarouselSlide = ()->
+    setTime(getTime())
+    minTime = 3
+    maxTime = 21
+    points = 5
+    Session.set("currentSlideScore",points)
+    setCurrentSlideScore(minTime, maxTime, Session.get("currentSlideScore"))
+    if $(this).find('video').get().length isnt 0
+      $(this).find('video').get(0).pause()
+    if $(this).find('audio').get().length isnt 0
+      $(this).find('audio').get(0).pause()
+
 
 
 @initDeck = ()->
@@ -153,22 +188,33 @@ Template.userEditForm.events
       v.pause()
 
     startAttempt($(".slide-container").length)
+    changeSlideInCarousel()
+    
 
     # $(".center-panel[has-data='false']").remove()
-    $(".slide-container:empty").remove()
-    executeSlideLoad($('.slide-container').first())
-    $('.next-slide').on 'click', (e) ->
-      nextItem = $('.active').next()
-      transitionSlide()
-      $('.active').removeClass 'active'
-      executeSlideLoad(nextItem)
+    # $(".slide-container:empty").remove()
+    # executeSlideLoad($('.slide-container').first())
+    $('.next').on 'click', (e) ->
+      $(".owl-carousel .owl-next").trigger('click');
+      changeCarouselSlide()
+      changeSlideInCarousel()
+      
+      # changeCarouselSlide()
+      # nextItem = $('.active').next()
+      # transitionSlide()
+      # $('.active').removeClass 'active'
+      # executeSlideLoad(nextItem)
 
-    $('.prev-slide').on 'click', (e) ->
-
-      prevItem = $('.active').prev()
-      transitionSlide()
-      $('.active').removeClass 'active'
-      executeSlideLoad(prevItem)
+    $('.prev').on 'click', (e) ->
+      $(".owl-carousel .owl-prev").trigger('click');
+      changeCarouselSlide()
+      changeSlideInCarousel()
+      
+      # changeCarouselSlide()
+      # prevItem = $('.active').prev()
+      # transitionSlide()
+      # $('.active').removeClass 'active'
+      # executeSlideLoad(prevItem)
 
 
   ,100)
@@ -390,23 +436,16 @@ Template.storyWrapper.events
           for v in p.variants
             if v[deckId]?
               setVariantToShow(v[deckId])
-
-
-
     if !variantToShow?
       setVariantToShow('Basic')
-
-
-
-            # variantToShow = v[deckId]
-
-#    markModuleAsComplete(deckId,Meteor.userId(),tenantId,"true")
-
-
     setCurrentDeckId(deckId)
-    initDeck()
-#    $('#story-zone').append('')
-    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+    setTimeout(()->
+      initDeck()
+    ,1000)
+    
+    # Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+    console.log "ppt"
+    Blaze.renderWithData(Template.previewPPT,{deckId:deckId},document.getElementById("story-zone"))
 
 
   'click #dashboard-launcher':(e)->

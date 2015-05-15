@@ -61,3 +61,40 @@ Template.deckList.helpers
 # Template.deckList.events
 # 	'click .goToDeck': (e) ->
 # 		window.location '/deckI'
+Template.previewPPT.rendered = ->
+# $('.item').first().addClass('active')
+	setTimeout(()->
+		
+		x = { 
+			center: true,
+			
+			nav:true,
+			items: 1
+		}
+		$('.owl-carousel').owlCarousel x
+
+
+
+	,1000)
+ 
+  
+
+Template.previewPPT.events
+	'click .close-ppt-modal': () ->
+		changeCarouselSlide()	  
+
+		setTimeout(()->
+			endAttempt()
+		,2000)
+
+
+		$('.projection').remove();
+		$('.story-zone-playbar').remove();
+
+
+Template.previewPPT.helpers
+	deckImages: (did) ->
+		
+		deckHtml.findOne({deckId:did}).dimages
+	getImgFromCreator:(link)->
+		Meteor.settings.public.mainLink + link

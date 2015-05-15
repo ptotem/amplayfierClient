@@ -201,7 +201,10 @@ Template.mainWrapper.events
     setCurrentDeckId(deckId)
     initDeck()
     #    $('#story-zone').append('')
-    showModal('homePage',{},'main-wrapper-page')
+    # Blaze.renderWithData(Template.previewPPT,{deckId:deckId},document.getElementById("story-zone"))
+    # showModal('homePage',{},'main-wrapper-page')
+    showModal('previewPPT',{deckId:deckId},'main-wrapper-page')
+
 #    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
 
   'click .exit-deck':(e)->

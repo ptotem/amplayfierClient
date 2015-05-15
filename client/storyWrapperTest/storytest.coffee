@@ -143,7 +143,9 @@ Template.storyWrapperTest.events
     setCurrentDeckId(deckId)
     initDeck()
     #    $('#story-zone').append('')
-    Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
+    console.log "asdfd"
+    Blaze.renderWithData(Template.previewPPT,{deckId:deckId},document.getElementById("story-zone"))
+    # Blaze.renderWithData(Template.homePage,{deckId:deckId},document.getElementById("story-zone"))
 
 
   'click #dashboard-launcher':(e)->

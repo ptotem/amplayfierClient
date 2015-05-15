@@ -3,7 +3,7 @@
 
 @startAttempt = (expectedLength)->
   console.log "start attempt caled"
-
+  console.log expectedLength
 #  This function sets the individual score for the game
   blob = {}
 #  blob.userId = Meteor.userId()
@@ -70,6 +70,8 @@
   reports.update(queryString,{$set:{completed: true, updatedAt:new Date().getTime()}})
 
 @setTime = (timeTaken)->
+  console.log "time being set"
+  console.log timeTaken
   queryString = {_id: attempt}
   reports.update(queryString,{$set:{completed:true,time:timeTaken, updatedAt:new Date().getTime()}})
 
@@ -80,6 +82,7 @@
   diff
 
 @startTime = ()->
+  console.log "time staet"
   Session.set("startTime",new Date().getTime())
 
 @setPanelReport = (panelId, points)->
