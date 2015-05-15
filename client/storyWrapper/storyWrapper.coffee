@@ -194,21 +194,28 @@ Template.userEditForm.events
     # $(".center-panel[has-data='false']").remove()
     # $(".slide-container:empty").remove()
     # executeSlideLoad($('.slide-container').first())
-    $('.next').on 'click', (e) ->
-      $(".owl-carousel .owl-next").trigger('click');
+    owl = $('.owl-carousel')
+    owl.on('translated.owl.carousel',(e)->
       changeCarouselSlide()
       changeSlideInCarousel()
       
-      # changeCarouselSlide()
-      # nextItem = $('.active').next()
-      # transitionSlide()
-      # $('.active').removeClass 'active'
-      # executeSlideLoad(nextItem)
+    )
+    # $('.owl-next').on 'click', (e) ->
+    #   # $(".owl-carousel .owl-next").trigger('click');
+    #   console.log "sass"
+    #   changeCarouselSlide()
+    #   changeSlideInCarousel()
+      
+    #   # changeCarouselSlide()
+    #   # nextItem = $('.active').next()
+    #   # transitionSlide()
+    #   # $('.active').removeClass 'active'
+    #   # executeSlideLoad(nextItem)
 
-    $('.prev').on 'click', (e) ->
-      $(".owl-carousel .owl-prev").trigger('click');
-      changeCarouselSlide()
-      changeSlideInCarousel()
+    # $('.owl-prev').on 'click', (e) ->
+    #   # $(".owl-carousel .owl-prev").trigger('click');
+    #   changeCarouselSlide()
+    #   changeSlideInCarousel()
       
       # changeCarouselSlide()
       # prevItem = $('.active').prev()

@@ -67,9 +67,12 @@ Template.previewPPT.rendered = ->
 		
 		x = { 
 			center: true,
-			
+			nav:true,
+			navText:['<i class=" fa fa-angle-left">','<i class=" fa fa-angle-right">']
 			dots:false,
-			items: 1
+			items: 1,
+			onTranslated:()->
+				console.log "transa"
 		}
 		$('.owl-carousel').owlCarousel x
 
