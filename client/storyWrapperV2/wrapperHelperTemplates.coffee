@@ -168,12 +168,12 @@ Template.nodeTemp.rendered = () ->
   pinCols = if n > 2 then 3 else n
 
   console.log pinCols
-  # $('#pinBoot').pinterest_grid
-  #   no_columns: 3 
-  #   padding_x: 10
-  #   padding_y: 10
-  #   margin_bottom: 50
-  #   single_column_breakpoint: 700
+  $('#pinBoot').pinterest_grid
+    no_columns: pinCols
+    padding_x: 10
+    padding_y: 10
+    margin_bottom: 50
+    single_column_breakpoint: 700
   
 
 Template.nodeTemp.helpers
