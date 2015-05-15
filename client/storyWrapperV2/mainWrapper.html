@@ -2,7 +2,7 @@
     <link href="/assets/externalcss/theme.css" rel="stylesheet" type="text/css" />
     <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" />
 
-    <div id="main-page-desktop" class="hidden-sm high emerald-default htmls htmls_panels story-page bg-black" >
+    <div id="main-page-desktop" class=" high emerald-default htmls htmls_panels story-page bg-black" >
       <img id="story-nameplate-cover" src="{{getNamePlate}}" alt="" style="width:100%;height:100%;position:absolute;top:0;left:0;z-index: 100000;" />
         <!--<div id="blurmebro"></div>-->
         <div id="node-dialog-container"></div>
@@ -53,6 +53,18 @@
 
                               <!-- HTML for games -->
                               {{#if hasGame}}
+                              {{#if isPortrait}}
+                                        {{#with game}}
+                                <div class="game-container" style="  position: absolute;
+  left: {{gamebox.portrait.left}}%;
+  top: {{gamebox.portrait.top}}%;
+  height: {{gamebox.portrait.height}}%;
+  width: {{gamebox.portrait.width}}%;
+  z-index: 20000;">
+                                    <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%" style='border:none;'></iframe>
+                                </div>
+{{/with}}
+                              {{else}}
                               {{#with game}}
                                 <div class="game-container" style="  position: absolute;
   left: {{gamebox.landscape.left}}%;
@@ -64,11 +76,25 @@
                                 </div>
 {{/with}}
 {{/if}}
+{{/if}}
 
 
                                 <div id="story-content" style="background-image:url('{{getBackImg}}')">
                                   <!-- HTML for HUD -->
                                     <div class="hud-container" style="width: 100%;height: 100%">
+                                      {{#if isPortrait}}
+                                       {{#with hud}}
+                                        <div id="hud-img" style="position: absolute;top:{{portrait.top}}%;left: {{portrait.left}}%;width: {{portrait.width}}%">
+                                            <img src='{{getHudImage}}' style="width: 100%;position: relative;z-index: 1">
+                                        </div>
+                                        <div id="user-profile" style="width: {{picturebox.portrait.width}}%;position: absolute;top: {{picturebox.portrait.top}}%;left: {{picturebox.portrait.left}}%;z-index: 50;">
+                                            <img src="/assets/images/user.jpg" style="width: 100%;border-radius: 50%">
+                                        </div>
+                                        <span id="points-container" style="position: absolute;width: {{pointbox.portrait.width}}%;top: {{pointbox.portrait.top}}%;left: {{pointbox.portrait.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>1000</span>
+                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.portrait.width}}%;height: 3%;top: {{creditbox.portrait.top}}%;left: {{creditbox.portrait.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>3459</span>
+                                        {{/with}}
+
+                                      {{else}}
                                       {{#with hud}}
                                         <div id="hud-img" style="position: absolute;top:{{landscape.top}}%;left: {{landscape.left}}%;width: {{landscape.width}}%">
                                             <img src='{{getHudImage}}' style="width: 100%;position: relative;z-index: 1">
@@ -79,13 +105,24 @@
                                         <span id="points-container" style="position: absolute;width: {{pointbox.landscape.width}}%;top: {{pointbox.landscape.top}}%;left: {{pointbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>1000</span>
                                         <span id="credits-container" style="  position: absolute;width: {{creditbox.landscape.width}}%;height: 3%;top: {{creditbox.landscape.top}}%;left: {{creditbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>3459</span>
                                         {{/with}}
+                                        {{/if}}
                                     </div>
                                     <div id="story-nodes">
+                                        {{#if isPortrait}}
                                         {{#each nodes}}
+
+                                            <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{description}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop portrait.top}}%;left:{{getPrecLeft portrait.left}}%;width:{{portrait.width}}%">
+                                                <img src="{{getNodeStatusPic sequence}}" alt="">
+                                            </a>
+                                        {{/each}}
+                                        {{else}}
+                                        {{#each nodes}}
+
                                             <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{description}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.top}}%;left:{{getPrecLeft landscape.left}}%;width:{{landscape.width}}%">
                                                 <img src="{{getNodeStatusPic sequence}}" alt="">
                                             </a>
                                         {{/each}}
+                                        {{/if}}
 
                                     </div>
                                 </div>
@@ -127,10 +164,6 @@
 
     <!-- Leaderboard Modal -->
 
-    <div id="main-page-tablet" class="hidden-lg hidden-md visible-sm">
-        <div id="portrait-text-block">
-            <p id="portrait-view-text">Amplayfier is not currently available in portrait view, <br> please turn your device to change it to landscape mode.</p>
-        </div>
-    </div>
+
 
 </template>

@@ -17,12 +17,8 @@ Template.mainWrapper.rendered = ->
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
-    showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
-    $('#story-nameplate-cover').animate {
-      opacity: 0.25
-      left: '+=50'
-      height: 'toggle'
-    }, 5000
+    # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
+    $('#story-nameplate-cover').fadeOut(3000);
 
   ,1000)
 
@@ -32,6 +28,8 @@ Template.mainWrapper.created = ()->
   window.storyConfig = s
 
 Template.mainWrapper.helpers
+  isPortrait:()->
+     window.innerHeight > window.innerWidth
   hud:()->
     platforms.findOne().wrapperJson.infobox
   game:()->

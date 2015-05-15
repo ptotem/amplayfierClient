@@ -48,6 +48,7 @@ function setDesign(orientation) {
     //});
 
     /* Set the Story Nameplate */
+    console.log(orientation);
     $('#story-nameplate').css({
         left: storyConfig.nameplate[orientation].left + "%",
         top: storyConfig.nameplate[orientation].top + "%",
