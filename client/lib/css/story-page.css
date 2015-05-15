@@ -54,14 +54,19 @@ body.story-page {
 
 #story-wrapper.portrait-mode {
     width: 100%;
+
+
     position: relative;
     overflow: hidden;
+    display: inline-block;
 }
 
+
 #story-wrapper.portrait-mode:after {
-    padding-top: 100%;
+    /*padding-bottom: 100%;*/
     display: block;
     content: '';
+
 }
 
 #story-content {
@@ -73,13 +78,23 @@ body.story-page {
     background-position: 0 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 @media (orientation: portrait) {
     #story-content {
-        background-position: 44.375% 0;
+        
         background-size: auto 100%;
+        /*padding-bottom:75%;*/
+        width: 100%;
+        display: inline-block;
+        position: relative;
     }
+    #story-content:after {
+    padding-bottom: 143%;
+    display: block;
+    content: '';
+}
 }
 
 #story-presenter,

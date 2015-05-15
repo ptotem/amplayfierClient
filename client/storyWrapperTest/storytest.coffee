@@ -3,13 +3,13 @@ Template.storyWrapperTest.rendered = ->
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
 #  $("#story-wrapper").fadeIn(2000)
 
-  $('#pinBoot').pinterest_grid({
-    no_columns: 4,
-    padding_x: 10,
-    padding_y: 10,
-    margin_bottom: 50,
-    single_column_breakpoint: 700
-  });
+  # $('#pinBoot').pinterest_grid({
+  #   no_columns: 4,
+  #   padding_x: 10,
+  #   padding_y: 10,
+  #   margin_bottom: 50,
+  #   single_column_breakpoint: 700
+  # });
   $('.story-node[seq="13"]').removeClass('inactive-node')
   $('.story-node[seq="20"]').removeClass('inactive-node')
   $('.story-node[seq="26"]').removeClass('inactive-node')

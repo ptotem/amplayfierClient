@@ -162,16 +162,18 @@ Template.badgeModal.rendered = ->
   $($('.badge-item')[5]).addClass('col-md-offset-1')
 
 Template.nodeTemp.rendered = () ->
-  
-  console.log this.data.seq
+  console.log "asssasad"
+  console.log this
   n = _.where(platforms.findOne().nodes,{sequence:this.data.seq})[0].decks.length
-  pinCols = (n > 2) ? 3 : n;
-  $('#pinBoot').pinterest_grid
-    no_columns: pinCols 
-    padding_x: 10
-    padding_y: 10
-    margin_bottom: 50
-    single_column_breakpoint: 700
+  pinCols = if n > 2 then 3 else n
+
+  console.log pinCols
+  # $('#pinBoot').pinterest_grid
+  #   no_columns: 3 
+  #   padding_x: 10
+  #   padding_y: 10
+  #   margin_bottom: 50
+  #   single_column_breakpoint: 700
   
 
 Template.nodeTemp.helpers

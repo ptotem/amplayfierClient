@@ -145,7 +145,7 @@ Template.mainWrapper.events
 
   'click .story-node':(e)->
 
-    showModal('nodeTemp',{},'main-wrapper-page')
+    # showModal('nodeTemp',{},'main-wrapper-page')
 #    $('[data-toggle="popover"]').popover('hide');
 #    $('.story-node').css({
 #      "pointer-events": "none",
@@ -178,9 +178,9 @@ Template.mainWrapper.events
 
 
     showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
-    setTimeout(()->
-      $('#modal-pinboard').slick({rows:1})
-    ,2000)
+    # setTimeout(()->
+    #   $('#modal-pinboard').slick({rows:1})
+    # ,2000)
 
 #    Blaze.renderWithData(Template.individualNewStoryZone,{seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},document.getElementById('story-zone'))
 

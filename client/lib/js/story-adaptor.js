@@ -95,10 +95,10 @@ function setDesign(orientation) {
 
     /* Set the Adjustments for squarer screens  */
 
-    if(isSquarer())
-        $('#story-wrapper').addClass('setSmaller');
-    else
-        $('#story-wrapper').removeClass('setSmaller');
+    // if(isSquarer())
+    //     $('#story-wrapper').addClass('setSmaller');
+    // else
+    //     $('#story-wrapper').removeClass('setSmaller');
 }
 
 /* =============================================================================================== */
