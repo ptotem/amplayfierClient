@@ -162,7 +162,7 @@ Template.badgeModal.rendered = ->
   $($('.badge-item')[5]).addClass('col-md-offset-1')
 
 Template.nodeTemp.rendered = () ->
-  console.log "asssasad"
+  
   console.log this
   n = _.where(platforms.findOne().nodes,{sequence:this.data.seq})[0].decks.length
   pinCols = if n > 2 then 3 else n
