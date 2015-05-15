@@ -187,6 +187,8 @@ if Meteor.isClient
     'click .chat-contact': (e) ->
       parentElementId = $(e.currentTarget).parents('.chat-oc-wrapper').attr('id')
       $('#new-chat-box-wrapper-' + this._id).empty().remove()
+      Meteor.call('markReadMessage', this._id, Meteor.userId())
+      Meteor.call('updateUserChatTrue', Meteor.userId())
       Blaze.renderWithData(Template.chatMessages, {userName: this.personal_profile.display_name, userId: this._id, user: this, parentElem: parentElementId} , document.getElementById(parentElementId))
       parent = $(e.currentTarget).find('.media').attr('href')
       $(e.currentTarget).parents(parent).toggleClass('oc-lg-hidden-right  oc-lg-open-right')
@@ -195,6 +197,7 @@ if Meteor.isClient
       parent = $(e.currentTarget).attr('href')
       $(e.currentTarget).parents(parent).toggleClass('oc-lg-hidden-right  oc-lg-open-right')
       id = $(e.currentTarget).parents('.chat-conversation').attr("id")
+      Meteor.call('updateUserChatFalse', Meteor.userId())
       $('#new-chat-box-wrapper-' + id).empty().remove()
       e.stopPropagation()
 
@@ -307,6 +310,12 @@ if Meteor.isClient
   Template.chatMessages.rendered = ->
       Meteor.subscribe('messages')
       Meteor.subscribe('chatSettings', Meteor.userId())
+      setTimeout(() ->
+          from = $('.chat-conversation').attr('id')
+          console.log "read"
+          Meteor.call('markReadMessage', from, Meteor.userId())
+          $('#nano-content-' + from).animate { scrollTop: $('#nano-content-' + from).get(0).scrollHeight }, 'slow', ->
+      , 5000)
 
   Template.chatMessages.events
     'click .send-message': (e) ->
@@ -316,7 +325,7 @@ if Meteor.isClient
       Meteor.call("sendMessage", from, to, msg)
       $(e.currentTarget).parents('.sendMessage').find('textarea').val('')
       setTimeout(() ->
-        $('#popup-messages-' + to).animate { scrollTop: $('#popup-messages-' + to).get(0).scrollHeight }, 'slow', ->
+        $('#nano-content-' + to).animate { scrollTop: $('#nano-content-' + to).get(0).scrollHeight }, 'slow', ->
       , 500)
 
 
@@ -327,6 +336,11 @@ if Meteor.isClient
         msg = $(e.currentTarget).val()
         Meteor.call("sendMessage", from, to, msg)
         $(e.currentTarget).val('')
+        setTimeout(() ->
+          $('#nano-content-' + to).animate { scrollTop: $('#nano-content-' + to).get(0).scrollHeight }, 'slow', ->
+        , 500)
+        e.preventDefault()
+
         # $('#popup-messages-' + to).animate { scrollTop: $('#popup-messages-' + to).get(0).scrollHeight }, 'slow', ->
 
 
