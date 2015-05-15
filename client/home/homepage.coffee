@@ -68,7 +68,7 @@ Template.previewPPT.rendered = ->
 		x = { 
 			center: true,
 			
-			nav:true,
+			dots:false,
 			items: 1
 		}
 		$('.owl-carousel').owlCarousel x

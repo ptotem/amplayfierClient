@@ -73,19 +73,162 @@
 
 
 <template name="previewPPT">
+    <link href="/assets/externalcss/theme.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="http://lvh.me:3000/assets/externalCSS/owlCustom/customizing_owl_carousel.css" />
-<div id="viewPPTModal" class="modal fade in editor-modal" tabindex="-1" role="dialog"
+<style>
+.show-deck-modal {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.modal-xlg-ppt {
+    width: 98%;
+}
+
+.modal.show-deck-modal .owl-stage-outer {
+    /*width: 80%;*/
+    margin: 0 auto;
+    background: transparent;
+}
+
+.modal.isntFullScreen .owl-stage-outer img {
+    max-height: 80vh;
+}
+.isFullScreen .owl-stage-outer img {
+      max-width: 100%;
+  height: auto;
+  max-height: 92vh;
+}
+.isFullScreen .customNavigation {
+    height: 86vh;
+}
+.isntFullScreen .customNavigation {
+    height: 80vh;
+}
+
+
+.modal-xlg-video {
+    width: 78%;
+}
+
+.modal.show-deck-modal .modal-header,
+.modal.data-display-modal .modal-header {
+    border-bottom: none;
+    position: relative;
+    background: #333;
+    color: white;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+.modal.data-display-modal .modal-header {
+    background: #177bbb;
+}
+
+.modal.show-deck-modal .modal-header .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    font-size: 48px;
+    background: #666;
+    color: white;
+    z-index: 9999;
+}
+
+.modal.show-deck-modal .modal-header .btn:hover,
+.modal.data-display-modal .modal-header .btn:hover {
+    background: #b45b5b;
+}
+
+.modal.show-deck-modal .modal-header h4,
+.modal.data-display-modal .modal-header h4 {
+    font-size: 1.8em;
+    padding: 0.5em;
+}
+
+.modal.show-deck-modal .modal-body {
+    background: #333;
+    color: white;
+}
+
+.modal .modal-footer {
+    border-top: none;
+    padding: 0;
+}
+
+.modal .modal-footer .btn-group > .btn:first-child {
+    border-bottom-left-radius: 0;
+}
+
+.modal .modal-footer .btn-group > .btn:last-child {
+    border-top-right-radius: 0;
+}
+
+.vid {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.vid iframe,
+.vid object,
+.vid embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*for fullscreen*/
+
+#carousel-viewPPT-fullscreen.carousel .carousel-control {
+    visibility: hidden;
+}
+
+#carousel-viewPPT-fullscreen.carousel:hover .carousel-control {
+    visibility: visible;
+}
+
+#carousel-viewPPT-fullscreen {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+#carousel-viewPPT-fullscreen .carousel-inner {
+    width: 100%;
+    height: auto;
+}
+
+#carousel-viewPPT-fullscreen .carousel-inner > .item > img,
+#carousel-viewPPT-fullscreen .carousel-inner > .item > a > img {
+    max-width: 100%;
+    height: auto;
+    max-height: 92vh;
+}
+
+</style>
+<div id="viewPPTModal" class="modal show-deck-modal isntFullScreen fade in editor-modal" tabindex="-1" role="dialog"
 aria-labelledby="viewPPTModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-xlg-ppt">
 <div class="modal-content">
 <div class="modal-header custom-body-modal">
 <a class="btn btn-default custom-cross-modal close-ppt-modal" data-dismiss="modal">&times;</a>
-<h4 class="modal-title modal-header-style" id="viewPPTModalLabel">View Deck</h4>
+<!-- <h4 class="modal-title modal-header-style" id="viewPPTModalLabel">View Deck</h4> -->
 </div>
 <div class="modal-body">
-<div class="row">
+<div class="row" id="someidi">
 <!--<div class="col-md-1">-->
-<div class="customNavigation col-md-1"  style="height:405px">
+<div class="customNavigation col-md-1" >
 <a class="btn nav-control prev"><i class=" fa fa-angle-left"></i></a>
 <!--<a class="btn next fa fa-angle-right"></a>-->
 </div>
@@ -94,14 +237,16 @@ aria-labelledby="viewPPTModalLabel" aria-hidden="true">
 <div id="carousel-viewPPT" class="owl-carousel owl-theme">
 {{#each deckImages deckId}}
 <div>
-<img slide-id="{{slideId}}" template-id="{{templateId}}" panel-id="{{panelId}}" variant-name="{{variantName}}" class="img-responsive slide-container" src="{{getImgFromCreator imgLink}}" alt="...">
+<img slide-id="{{slideId}}" template-id="{{templateId}}" panel-id="{{panelId}}" variant-name="{{variantName}}" class="img-responsive slide-container" src="http://placehold.it/1024x768/555/000&text=One" alt="...">
 </div>
 {{/each}}
 </div>
 </div>
+
+<!-- {{getImgFromCreator imgLink}} -->
 <!--<div class="col-md-1">-->
 
-<div class="customNavigation  col-md-1" style="height:405px">
+<div class="customNavigation  col-md-1">
 
 <a class="btn nav-control next"><i class="fa fa-angle-right"></i></a>
 </div>
@@ -112,7 +257,13 @@ aria-labelledby="viewPPTModalLabel" aria-hidden="true">
 </div>
 
 </div>
+<div style="position:absolute;left:40%;width:20%; text-align: center;margin-top:-30px;">
+            <a href="#" class="fullscreener btn btn-dark-lt btn-lg" style="border-top-left-radius:0;border-top-right-radius:0;" data-no-turbolink="true">Toggle Fullscreen Mode</a>
+        </div>
 
 </div>
+
+
+
 
 </template>
