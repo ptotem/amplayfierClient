@@ -166,14 +166,19 @@ Template.nodeTemp.rendered = () ->
   console.log this
   n = _.where(platforms.findOne().nodes,{sequence:this.data.seq})[0].decks.length
   pinCols = if n > 2 then 3 else n
+  if window.innerHeight > window.innerWidth
+    n = 2
 
-  console.log pinCols
-  $('#pinBoot').pinterest_grid
-    no_columns: pinCols
-    padding_x: 10
-    padding_y: 10
-    margin_bottom: 50
-    single_column_breakpoint: 700
+  
+  setTimeout(()->
+    $('#pinBoot').pinterest_grid
+      no_columns: pinCols
+      padding_x: 10
+      padding_y: 10
+      margin_bottom: 50
+      single_column_breakpoint: 700
+  
+  ,500)
   
 
 Template.nodeTemp.helpers
