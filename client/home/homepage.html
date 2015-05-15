@@ -237,7 +237,7 @@ aria-labelledby="viewPPTModalLabel" aria-hidden="true">
 <div id="carousel-viewPPT" class="owl-carousel owl-theme">
 {{#each deckImages deckId}}
 <div>
-<img slide-id="{{slideId}}" template-id="{{templateId}}" panel-id="{{panelId}}" variant-name="{{variantName}}" class="img-responsive slide-container" src="http://placehold.it/1024x768/555/000&text=One" alt="...">
+<img slide-id="{{slideId}}" template-id="{{templateId}}" panel-id="{{panelId}}" variant-name="{{variantName}}" class="img-responsive slide-container" src="{{getImgFromCreator imgLink}}" alt="...">
 </div>
 {{/each}}
 </div>
