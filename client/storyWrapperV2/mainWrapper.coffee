@@ -55,7 +55,9 @@ Template.mainWrapper.helpers
   getBackImg: ()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
-   platforms.findOne().nodes
+     _.reject(platforms.findOne().nodes,(e)->
+       e.decks.length is 0
+     )
      # sc.nodes
   storyHeading:()->
     storyConfig.name

@@ -39,7 +39,7 @@
       deckHtml.remove({platformId: p._id})
       for c in res
         d = deckHtml.insert({
-          dimages:c.dimages,name: c.dName, platformId: p._id, tenantId: tid, deckId: c.deckId, htmlContent: c.deckContent, variants: ["Basic",
+          desc:c.desc,dimages:c.dimages,name: c.dName, platformId: p._id, tenantId: tid, deckId: c.deckId, htmlContent: c.deckContent, variants: ["Basic",
                                                                                                                     "Intermediate",
                                                                                                                     "Advanced"]
         })
