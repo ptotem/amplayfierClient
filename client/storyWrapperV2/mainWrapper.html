@@ -2,7 +2,7 @@
     <link href="/assets/externalcss/theme.css" rel="stylesheet" type="text/css" />
     <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" />
 
-    <div id="main-page-desktop" class=" high emerald-default htmls htmls_panels story-page bg-black" >
+    <div id="main-page-desktop" class="hidden-sm high emerald-default htmls htmls_panels story-page bg-black" >
       <img id="story-nameplate-cover" src="{{getNamePlate}}" alt="" style="width:100%;height:100%;position:absolute;top:0;left:0;z-index: 100000;" />
         <!--<div id="blurmebro"></div>-->
         <div id="node-dialog-container"></div>
@@ -35,7 +35,7 @@
                 <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
                    data-persist="lg,md,sm" style="color:#ccc;border-radius:0">
                     <i class="fa fa-lg fa-comments has-corner-badge">
-                        <span class="badge badge-corner badge-corner-top-right badge-info">3</span>
+                        <span class="badge badge-corner badge-corner-top-right badge-info">{{unreadMessages}}</span>
                     </i>
                 </a>
             </li>

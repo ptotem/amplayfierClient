@@ -1,5 +1,5 @@
 Template.mainWrapper.rendered = ->
-
+  Meteor.call('updateUserChatFalse', Meteor.userId())
   $(window).resize (evt) ->
     setTitle(storyConfig.name)
 #    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
@@ -128,6 +128,9 @@ Template.mainWrapper.helpers
     else
       "my-active-node"
 
+  unreadMessages: () ->
+    messageCount = messages.find({to: Meteor.userId(), unread: true} ).fetch().length
+    messageCount
 
 
 

@@ -1,6 +1,20 @@
 Template.adminHeaderBar.events
-  'click .logout-link':(e)->
+  'click .logout-link': (e) ->
     Meteor.logout()
+
+  'click .dropdown': (e) ->
+    if $(e.currentTarget).hasClass('open')
+      $(e.currentTarget).removeClass('open')
+    else
+      $(e.currentTarget).addClass('open')
+
+Template.adminHeaderBar.helpers
+  unreadMessages: () ->
+    messageCount = messages.find({to: Meteor.userId(), unread: true} ).fetch().length
+    messageCount
+
+Template.adminHeaderBar.rendered = () ->
+  Meteor.call('updateUserChatFalse', Meteor.userId())
 
 
 Template.rewardsLeftMenu.helpers
