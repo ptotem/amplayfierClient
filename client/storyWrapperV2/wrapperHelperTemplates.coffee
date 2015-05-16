@@ -21,6 +21,8 @@ Template.wrapperSideBar.rendered = ->
 
 
 Template.wrapperSideBar.helpers
+  isEnabled:(k)->
+    platforms.findOne()[k]
   platformStatus:()->
     platforms.findOne().platformStatus
 

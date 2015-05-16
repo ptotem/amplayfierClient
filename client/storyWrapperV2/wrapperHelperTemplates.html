@@ -150,12 +150,14 @@
                             <span class="oc-partial-menu-item">Profile</span>
                         </a>
                     </li>
+                    {{#if isEnabled 'badges'}}
                     <li class="">
                         <a class="collapsed side-bar-link badge-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Play for winning these badges. Why? Because they will help you earn real rewards." href="#badgesModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-medal2"></i>
                             <span class="oc-partial-menu-item">Badges Corner</span>
                         </a>
                     </li>
+                    {{/if}}
                     <li class="">
                         <a class="collapsed side-bar-link notification-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Stay on top of what's going on. Check out your notifications." href="#notificationsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-envelope"></i>
@@ -168,18 +170,22 @@
                             <span class="oc-partial-menu-item">Leaderboard</span>
                         </a>
                     </li>
+                    {{#if isEnabled 'rewards'}}
                     <li class="">
                         <a class="collapsed side-bar-link reward-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="You can win something real. Exactly what? Well, you can choose." href="#rewardsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-trophy-star"></i>
                             <span class="oc-partial-menu-item">Reward Center</span>
                         </a>
                     </li>
+                    {{/if}}
+                    {{#if isEnabled 'repository'}}
                     <li class="">
                         <a class="collapsed side-bar-link document-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable files that will help you get ahead in this game." href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-drawer3"></i>
                             <span class="oc-partial-menu-item">Documents</span>
                         </a>
                     </li>
+                    {{/if}}
                     <li class="">
                         <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Give us your feedback and help us make your experience better." href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-bullhorn"></i>
