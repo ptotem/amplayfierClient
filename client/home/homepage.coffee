@@ -75,6 +75,8 @@ Template.previewPPT.rendered = ->
 				console.log "transa"
 		}
 		$('.owl-carousel').owlCarousel x
+		if $('.owl-item').length is 1
+			$('.owl-controls').hide()
 
 
 

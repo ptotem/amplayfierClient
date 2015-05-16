@@ -73,21 +73,28 @@ Template.userEditForm.events
        $('.prev').hide()
       if $('.slide-container.active').is(":last-child")
         $(".next").hide()
-      currentItem = $($('.owl-item.active').find('img'))
-      console.log $('.owl-item.active')
+      currentItem = $($('.owl-item.active').children()[0])
+      # currentItem = $($('.owl-item.active').find('img'))
+      
       startTime()
       setCurrentGameId("false")
       setCurrentSlideType(false)
       panelId = currentItem.attr('panel-id')   
       variantName = currentItem.attr('variant-name')
       templateId = currentItem.attr('template-id')
-      console.log panelId
       setCurrentPanelId(panelId)
       setCurrentSlideId(templateId)
       if currentItem.find('video').get().length isnt 0
         currentItem.find('video').get(0).play()
       if currentItem.find('audio').get().length isnt 0
         currentItem.find('audio').get(0).play()
+      if currentItem.attr("content-type") is "game"
+        integratedGameId = currentItem.attr('integrated-game-id')
+        setCurrentIntegratedGameId(integratedGameId)
+        setGameMaxPoints(currentItem.attr('maxPoints'))
+        setCurrentSlideId(1)
+        triggerInitGame()
+
 
 
 
@@ -187,8 +194,11 @@ Template.userEditForm.events
     for v in document.getElementsByTagName('audio')
       v.pause()
 
-    startAttempt($(".slide-container").length)
-    changeSlideInCarousel()
+    setTimeout(()->
+      startAttempt($(".slide-container").length)
+      changeSlideInCarousel()
+    
+    ,2000)
     
 
     # $(".center-panel[has-data='false']").remove()
