@@ -1,5 +1,11 @@
 Template.mainWrapper.rendered = ->
   Meteor.call('updateUserChatFalse', Meteor.userId())
+  $('body').on 'hidden.bs.modal', (e) ->
+    # console.log "modal is hidden"
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+  # do something...
+    return
+
   $(window).resize (evt) ->
     setTitle(storyConfig.name)
 #    window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
