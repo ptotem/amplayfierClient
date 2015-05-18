@@ -19,7 +19,7 @@ body.story-page {
 
 #oc-right-toggle {
     border-radius: 0;
-    border-bottom-left-radius: 10px;
+    /*border-bottom-left-radius: 10px;*/
 }
 
 #story-wrapper.landscape-mode {

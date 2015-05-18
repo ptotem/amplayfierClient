@@ -127,11 +127,12 @@ margin-bottom:5px;
     padding: 0;
 }
 
-.modal .modal-footer .btn-group > .btn:first-child {
-    border-bottom-left-radius: 0;
+.modal .modal-footer .btn-group > .btn-danger {
+    border-bottom-right-radius: 0;
      border-top-left-radius: 0;
+     border-top-right-radius:6px !important;
 }
 
-.modal .modal-footer .btn-group > .btn:last-child {
+.modal .modal-footer .btn-group > .btn-primary {
     border-top-right-radius: 0;
 }
