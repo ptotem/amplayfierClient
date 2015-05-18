@@ -1,5 +1,9 @@
 <template name="mainWrapper">
+   <head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
     <link href="/assets/externalcss/theme.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
     /*popover styling*/
@@ -132,8 +136,8 @@
                                         <div id="user-profile" style="width: {{picturebox.portrait.width}}%;position: absolute;top: {{picturebox.portrait.top}}%;left: {{picturebox.portrait.left}}%;z-index: 50;">
                                             <img src="/assets/images/user.jpg" style="width: 100%;border-radius: 50%">
                                         </div>
-                                        <span id="points-container" style="position: absolute;width: {{pointbox.portrait.width}}%;top: {{pointbox.portrait.top}}%;left: {{pointbox.portrait.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>1000</span>
-                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.portrait.width}}%;height: 3%;top: {{creditbox.portrait.top}}%;left: {{creditbox.portrait.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>3459</span>
+                                        <span id="points-container" style="position: absolute;width: {{pointbox.portrait.width}}%;top: {{pointbox.portrait.top}}%;left: {{pointbox.portrait.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>{{currentUser.points}}</span>
+                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.portrait.width}}%;height: 3%;top: {{creditbox.portrait.top}}%;left: {{creditbox.portrait.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>{{currentUser.currency}}</span>
                                         {{/with}}
 
                                       {{else}}
@@ -144,8 +148,8 @@
                                         <div id="user-profile" style="width: {{picturebox.landscape.width}}%;position: absolute;top: {{picturebox.landscape.top}}%;left: {{picturebox.landscape.left}}%;z-index: 50;">
                                             <img src="/assets/images/user.jpg" style="width: 100%;border-radius: 50%">
                                         </div>
-                                        <span id="points-container" style="position: absolute;width: {{pointbox.landscape.width}}%;top: {{pointbox.landscape.top}}%;left: {{pointbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>1000</span>
-                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.landscape.width}}%;height: 3%;top: {{creditbox.landscape.top}}%;left: {{creditbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>3459</span>
+                                        <span id="points-container" style="position: absolute;width: {{pointbox.landscape.width}}%;top: {{pointbox.landscape.top}}%;left: {{pointbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>{{currentUser.points}}</span>
+                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.landscape.width}}%;height: 3%;top: {{creditbox.landscape.top}}%;left: {{creditbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>{{currentUser.currency}}</span>
                                         {{/with}}
                                         {{/if}}
                                     </div>
