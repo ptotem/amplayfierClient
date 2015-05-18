@@ -67,7 +67,10 @@ margin-bottom:5px;
   text-align:left
 }
 
-
+.editor-modal{
+  width: 80%;
+  margin: 0 auto;
+}
 .custom-cross-modal{
   background: #555 !important;
 }
