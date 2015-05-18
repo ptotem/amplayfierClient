@@ -136,3 +136,8 @@ margin-bottom:5px;
 .modal .modal-footer .btn-group > .btn-primary {
     border-top-right-radius: 0;
 }
+
+#new-reward-modal .modal-body
+{
+  color:#ccc;
+}

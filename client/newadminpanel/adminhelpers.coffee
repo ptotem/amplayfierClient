@@ -107,8 +107,8 @@ Template.adminSideBar.rendered = ->
   
 
 Template.adminSideBar.events
-  'click .topModal':(e)->
-    showModal('topBarModal',{},'main-wrapper-page-new')
+  # 'click .topModal':(e)->
+  #   showModal('topBarModal',{},'main-wrapper-page-new')
 
   'click .menu-link':(e)->
 

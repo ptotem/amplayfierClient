@@ -37,7 +37,9 @@
 
 
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
-                       
+                         <li class="">
+                        <a class="collapsed menu-link" target-templ="platformStatus" href="#" target-content='settings'><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Settings</span></a>
+                    </li>
                     <li class=" ">
                         <a class="collapsed menu-link" target-templ="userlistLeftMenu" target-content='users'  href="#">
                             <i class="oc-partial-icon fa fa-users"></i>
@@ -83,21 +85,20 @@
                    <!--  <li class="">
                         <a class="collapsed menu-link" target-templ="rolesLeftMenu" href="#"><i class="oc-partial-icon fa fa-sitemap"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Roles</span></a>
                     </li> -->
+                         <li class="">
+                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#" target-content='badges'><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
+                    </li>
                     <li class="">
                         <a class="collapsed menu-link" target-templ="rewardsLeftMenu" target-content='rewards' href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
                     </li>
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#" target-content='badges'><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
-                    </li>
+               
                    <!--  <li class="">
                         <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Enrollments</span></a>
                     </li>
                     <li class="">
                         <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Assessments</span></a>
                     </li> -->
-                    <li class="">
-                        <a class="collapsed menu-link" target-templ="platformStatus" href="#" target-content='settings'><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Settings</span></a>
-                    </li>
+                  
                 </ul>
             </div>
         </div>
@@ -137,11 +138,11 @@
 
         </ul>
         <ul class="nav navbar-nav navbar-right pull-right hidden-xs">
-            <li class="dropdown">
+            <li class="">
                 <a href="#" data-toggle="dropdown" class="navbar-img-link" style="padding-top:15px;font-size:1.3em">
                     <img class="img-circle" src="{{getAssetUrl currentUser.personal_profile.profilePicId}}" />
                     <span class="hidden-xs hidden-sm hidden-md">{{getUserFullName}}</span>
-                    <b class="caret"></b>
+                    <!-- <b class="caret"></b> -->
                 </a>
                 <ul class="dropdown-menu animated fadeIn fast">
                     <li>
