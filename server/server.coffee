@@ -215,7 +215,8 @@ Meteor.methods
       # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
       # platforms.remove({tenantId:tid})
 #      platforms.update({_id:"AqFLFgDvD5hMBQ8Zh"},{$set:{}})
-      platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch()})
+      p = platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch()})
+      r = addRoles("player","This is the player role",[],p)
       return true
     else
       platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
@@ -338,9 +339,14 @@ Meteor.methods
                 newpass = new Meteor.Collection.ObjectID()._str.substr(1,7)
                 personal_profile['initialPass'] = newpass
                 if 1 is 1
-                  personal_profile['role'] = roles.findOne({unikey:pid,rolename:r['role']})._id
-                  personal_profile['reportingManager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)})._id
-                  personal_profile['hrmanager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['hr_manager'], platformName)})._id
+                  if roles.findOne({unikey:pid,rolename:'player'})?
+                    personal_profile['role'] = roles.findOne({unikey:pid,rolename:'player'})._id
+                  else
+                    r = addRoles("player","This is the player role",[],pid)
+                    personal_profile['role'] = r
+
+                  # personal_profile['reportingManager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['manager'], platformName)})._id
+                  # personal_profile['hrmanager'] = Meteor.users.findOne({'personal_profile.email':encodeEmail(r['hr_manager'], platformName)})._id
                   console.log "User is dine"
                   Accounts.createUser({email: newEmail, password : newpass, platform: pid, personal_profile: personal_profile})
 
