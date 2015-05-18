@@ -133,8 +133,33 @@ if Meteor.isClient
 #
 
   Template.uploadModal.events
-     'click .remove-modal':(e)->
-         $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+      'click .remove-modal':(e)->
+           $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+      'click  .create-new-file':(e)->
+        console.log "creatred"
+        $("#overlay").show()
+        Session.set("docLeft",document.getElementById('new-user-files').files.length)
+        for f in document.getElementById('new-user-files').files
+          plfile = new FS.File(f)
+          plfile.platform = platforms.findOne()._id
+          plfile.owner = Meteor.userId()
+          plfile.description = $("#fileDesc").val()
+          plfile.tag = $('#doc-profile').val()
+          x = window[Session.get('collUsed')].insert(plfile)
+          x.on("uploaded",()->
+            nowLeft = parseInt(Session.get("docLeft")) - 1
+            Session.set("docLeft",nowLeft)
+            $('.modal').modal('hide')
+
+          )
+
+
+        Tracker.autorun(()->
+          if Session.get("docLeft") is 0
+            $("#overlay").hide()
+            $('.modal-blur-content').css({"-webkit-filter": "blur(0px)"} )
+        )
+
      # ...
   Template.uploadModal.helpers
     platformProfiles:()->
@@ -142,6 +167,7 @@ if Meteor.isClient
   Template.NewuploadFileBtn.events
     'click .upload-file':(e)->
       showModal('uploadModal',{},'main-wrapper-page-new')
+
       # 
   Template.uploadFileBtn.events
     'click .upload-file':(e)->
@@ -158,28 +184,6 @@ if Meteor.isClient
 
 
 
-    'click  .create-new-file':(e)->
-      $("#overlay").show()
-      Session.set("docLeft",document.getElementById('new-user-files').files.length)
-      for f in document.getElementById('new-user-files').files
-        plfile = new FS.File(f)
-        plfile.platform = platforms.findOne()._id
-        plfile.owner = Meteor.userId()
-        plfile.description = $("#fileDesc").val()
-        plfile.tag = $('#doc-profile').val()
-        x = window[Session.get('collUsed')].insert(plfile)
-        x.on("uploaded",()->
-          nowLeft = parseInt(Session.get("docLeft")) - 1
-          Session.set("docLeft",nowLeft)
-          $('.modal').modal('hide')
-
-        )
-
-
-        Tracker.autorun(()->
-          if Session.get("docLeft") is 0
-            $("#overlay").hide()
-        )
 
 
   Template.NewuploadFileBtn.events
@@ -234,8 +238,8 @@ if Meteor.isClient
     )
   Template.NewdocumentList.helpers
     platformFiles:()->
-
-      window[Session.get('collUsed')].find().fetch()
+      if Session.get('collUsed')?
+        window[Session.get('collUsed')].find().fetch()
 
   Template.NewdocumentList.events
     'click .file-delete-btn':(e)->

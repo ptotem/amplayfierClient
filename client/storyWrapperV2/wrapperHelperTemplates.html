@@ -71,12 +71,14 @@
 							<h5>Notifications</h5>
 						</div>
                     </div>
+                    {{#if hasDocs}}
                     <div class="col-sm-4">
                         <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-document' style='cursor:pointer'>
                             <i class="icm icm-drawer3 icm-4x"></i>
                             <h5>Documents</h5>
                         </div>
                     </div>
+                    {{/if}}
 					<div class="col-sm-4">
                         <div class="jump-to-element padded text-gradient-white text-component-shadow" id="vt-chat" style='cursor:pointer'>
                             <i class="icm icm-bubbles2 icm-4x"></i>
@@ -179,12 +181,14 @@
                     </li>
                     {{/if}}
                     {{#if isEnabled 'repository'}}
+                    {{#if hasDocs}}
                     <li class="">
                         <a class="collapsed side-bar-link document-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable files that will help you get ahead in this game." href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-drawer3"></i>
                             <span class="oc-partial-menu-item">Documents</span>
                         </a>
                     </li>
+                    {{/if}}
                     {{/if}}
                     <li class="">
                         <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Give us your feedback and help us make your experience better." href="#documentsModal" data-toggle='modal'>
