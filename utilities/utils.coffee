@@ -298,6 +298,9 @@ UI.registerHelper "isSwitchable",() ->
 UI.registerHelper "getPlatformName",() ->
   platforms.findOne().tenantName
 
+UI.registerHelper "hasRewards",() ->
+  systemRewards.find().fetch().length > 1
+
 
 
   #    small helper that reads the application name from the configuration file

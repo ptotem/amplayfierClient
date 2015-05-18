@@ -173,12 +173,14 @@
                         </a>
                     </li>
                     {{#if isEnabled 'rewards'}}
+                    {{#if hasRewards}}
                     <li class="">
                         <a class="collapsed side-bar-link reward-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="You can win something real. Exactly what? Well, you can choose." href="#rewardsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-trophy-star"></i>
                             <span class="oc-partial-menu-item">Reward Center</span>
                         </a>
                     </li>
+                    {{/if}}
                     {{/if}}
                     {{#if isEnabled 'repository'}}
                     {{#if hasDocs}}
