@@ -170,20 +170,23 @@ Template.nodeTemp.rendered = () ->
   pinCols = if n > 2 then 3 else n
   if window.innerHeight > window.innerWidth
     n = 2
-
-  
-  setTimeout(()->
-    $('#pinBoot').pinterest_grid
-      no_columns: pinCols
-      padding_x: 10
-      padding_y: 10
-      margin_bottom: 50
-      single_column_breakpoint: 700
-  
-  ,500)
+  else
+    setTimeout(()->
+      $('#pinBoot').pinterest_grid
+        no_columns: pinCols
+        padding_x: 10
+        padding_y: 10
+        margin_bottom: 50
+        single_column_breakpoint: 700   
+    ,500)
   
 
 Template.nodeTemp.helpers
+
+  pintrestApplied:()->
+    console.log window.innerHeight < window.innerWidth
+    window.innerHeight < window.innerWidth
+
   deckOfNode:(s)->
     if s?
       deckList = []

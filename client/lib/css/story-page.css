@@ -296,6 +296,8 @@ body.story-page {
     margin-left: -10px;
 }
 
+
+
 #pin-banner-desc:after {
     padding-top: 56.25%;
     /* 16:9 ratio */
@@ -337,6 +339,16 @@ body.story-page {
     #pin-banner-desc .banner-content a {
         font-size: 0.9em;
     }
+    #pin-banner-desc {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-left: 0px;
+}
+#pin-banner-desc .banner-content{
+    font-size: 0.7em;
+}
 }
 /*-------------------------------------------------------*/
 /* Deck Showing Styles */

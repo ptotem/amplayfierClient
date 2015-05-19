@@ -103,7 +103,7 @@
         });
 
         this.tallest($container);
-        $(window).resize();
+        // $(window).resize();
     };
 
     Plugin.prototype.tallest = function (_container) {
@@ -123,6 +123,7 @@
     };
 
     Plugin.prototype.make_layout_change = function (_self) {
+        console.log("pintrest_grid running...")
         if ($(window).width() < _self.options.single_column_breakpoint) {
             _self.calculate(true);
         } else {
