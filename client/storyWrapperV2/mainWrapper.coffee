@@ -20,6 +20,7 @@ Template.mainWrapper.rendered = ->
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
   window.platformData.nodes = platforms.findOne().nodes
+  console.log "ass"
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
@@ -53,7 +54,7 @@ Template.mainWrapper.helpers
     left1 
 
   getNamePlate : ()->
-    Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.nameplate.image
+    Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.nameplate.image.replace(".png",'.jpg')
   getStoryPresenter: ()->
     Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + storyConfig.presenter.image
   getBackColor: ()->

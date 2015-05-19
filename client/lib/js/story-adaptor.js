@@ -57,14 +57,47 @@ function setDesign(orientation) {
 
 
     /* Set the Story Presenter */
+    // console.log $('#story-content').height()
+    // console.log window.innerHeight
+    // console.log ((window.innerHeight - $('#story-content').height())/window.innerHeight)*100
+    var incrPer = ((window.innerHeight - $('#story-content').height())/window.innerHeight)*100 ;
+    var finalPresenterTop = storyConfig.presenter[orientation].top ;
+    
+
+    if(incrPer>10)
+    {
+    hudTop = platforms.findOne().wrapperJson.infobox.portrait.top
+    profileTop = platforms.findOne().wrapperJson.infobox.picturebox.portrait.top
+    pointTop = platforms.findOne().wrapperJson.infobox.pointbox.portrait.top
+    creditTop = platforms.findOne().wrapperJson.infobox.creditbox.portrait.top
+    
+    newHudTop = hudTop + incrPer
+    newprofileTop = profileTop + incrPer
+    newpointTop = pointTop + incrPer
+    newcreditTop = creditTop + incrPer
+
+    $('#hud-img').css({
+        top:newHudTop+"%"
+    })
+    $('#user-profile').css({
+        top:newprofileTop+"%"
+    })
+    $('#points-container').css({
+        top:newpointTop+"%"
+    })
+    $('#credits-container').css({
+        top:newcreditTop+"%"
+    })
+    finalPresenterTop = incrPer + storyConfig.presenter[orientation].top 
+    
+    
+    }
     $('#story-presenter').css({
         left: storyConfig.presenter[orientation].left + "%",
-        top: storyConfig.presenter[orientation].top + "%",
+        top: finalPresenterTop + "%",
         width: storyConfig.presenter[orientation].width + "%"
     });
-
-  
-
+    
 
 
     /* Set the Story Overlays */

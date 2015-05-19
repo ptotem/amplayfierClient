@@ -206,10 +206,17 @@ Template.userEditForm.events
     # executeSlideLoad($('.slide-container').first())
     owl = $('.owl-carousel')
     owl.on('translated.owl.carousel',(e)->
+      console.log "translated"
       changeCarouselSlide()
       changeSlideInCarousel()
       
-    )
+    ) 
+    # owl.on('dragged.owl.carousel',(e)->
+    #   console.log "dragged"
+    #   changeCarouselSlide()
+    #   changeSlideInCarousel()
+      
+    # )
     # $('.owl-next').on 'click', (e) ->
     #   # $(".owl-carousel .owl-next").trigger('click');
     #   console.log "sass"
