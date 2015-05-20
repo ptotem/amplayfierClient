@@ -483,28 +483,53 @@
                     {{#each deckOfNode seq}}
 
                         {{#if pintrestApplied}}
-                        <article class="white-panel">
-                            <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
-                                <div class="col-sm-12">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-12">
-                                            <img src="http://lorempixel.com/320/150/" class="img-responsive">
-                                        </div>
-                                        <div class="col-sm-6 col-xs-12">
-                                            <h4>{{deckName}}</h4>
-                                            <p>{{deckDesc}} </p>
+                            {{#if deckCountGreaterThan 2 seq}}
+                            <article class="white-panel">
+                                <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-xs-12">
+                                                <img src="http://lorempixel.com/320/150/" class="img-responsive">
+                                            </div>
+                                            <div class="col-sm-12 col-xs-12">
+                                                <h4>{{deckName}}</h4>
+                                                <p>{{deckDesc}} </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-xs-12">
-                                    <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
-                                        {{status}}
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
+                                            {{status}}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </article> 
+                            </article> 
+                            {{else}}
+                            <article class="white-panel">
+                                <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <img src="http://lorempixel.com/320/150/" class="img-responsive">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-12">
+                                                <h4>{{deckName}}</h4>
+                                                <p>{{deckDesc}} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
+                                            {{status}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </article> 
+                            {{/if}}
 
                         {{else}}
 
