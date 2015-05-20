@@ -85,7 +85,8 @@
 # f.$("body").trigger("loadGame")
 # true
 
-
+@getThemePath = () ->
+  Meteor.settings.public.mainLink + platforms.findOne().wrapperJson.imgsrc
 @getImageInGame = (a,k)->
 
   # 403
