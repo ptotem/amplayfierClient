@@ -167,12 +167,12 @@ Meteor.methods
     capabilitiesKeys = _.pluck(capabilities.find().fetch(),'code')
     r = addRoles("superadmin","This is the super admin role",capabilitiesKeys,pid)
     personal_profile['role'] = r
+    Meteor.call("fetchDataFromCreator", tid)
 
     Accounts.createUser({
       email: encodeEmail(email,
         platformName), password: newpass, role: "admin", platform: pid, personal_profile: personal_profile
     })
-    Meteor.call("fetchDataFromCreator", tid)
 
   fetchDataFromCreator: (tid)->
     x = DDP.connect(remoteIp)
@@ -215,7 +215,7 @@ Meteor.methods
       # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
       # platforms.remove({tenantId:tid})
 #      platforms.update({_id:"AqFLFgDvD5hMBQ8Zh"},{$set:{}})
-      p = platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch()})
+      p = platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch()})
       r = addRoles("player","This is the player role",[],p)
       return true
     else
@@ -513,4 +513,3 @@ Meteor.methods
       x = {}
       x[feature] = fs
       platforms.update({_id:pid},{$set:x})
-
