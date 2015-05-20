@@ -201,11 +201,15 @@ Template.nodeTemp.helpers
             status = 'incomplete'
 
 
-          deckList.push {flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,deckPic:deckHtml.findOne({deckId:d}).pic}
+          deckList.push {seq:s,flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,deckPic:deckHtml.findOne({deckId:d}).pic}
           if status is 'incomplete' and i is 0
             flag = 'none'
+
       deckList
 
+  deckCountGreaterThan:(count, s)->
+    n = _.where(platforms.findOne().nodes,{sequence:s})[0]
+    n.decks.length > count
 
 Template.chatWrapper.events
   'click .chat-contact':(e)->

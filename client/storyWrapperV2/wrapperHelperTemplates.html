@@ -448,115 +448,141 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-  
-    <div class="modal blur jump-to-modal" id="nodeModal" style="width:75%;margin:0 auto;">
-        <div class="modal-dialog modal-lg">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12 col-xs-12">
-                        <div id="pin-banner">
-                            <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                    <div id="pin-banner-img">
-                                        <img src='{{nodePhoto}}'/>
+    <div style="overflow: hidden; width: 75%; height: 100%; margin: 0 auto">
+        <div class="modal blur jump-to-modal" id="nodeModal" style="width:100%;padding-right: 20px">
+            <div class="modal-dialog modal-lg">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div id="pin-banner">
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div id="pin-banner-img">
+                                            <img src='{{nodePhoto}}'/>
 
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                    <div id="pin-banner-desc" class="bg-dark-lt">
-                                        <button type="button" class="close close-cross remove-modal"  aria-hidden="true">&times;</button>
-                                        <div class="banner-content">
-                                            <h1>{{nodeTitle}}</h1>
-                                            <h4>{{nodeDescription}}</h4>
-                                            <br class="visible-md visible-lg">
-                                            <h2 class="banner-status pull-left no-margin-top no-margin-bottom">{{status}}</h2>
-                                            <a href="#" class="btn btn-danger close pull-right remove-modal">Exit from here</a>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div id="pin-banner-desc" class="bg-dark-lt">
+                                            <button type="button" class="close close-cross remove-modal"  aria-hidden="true">&times;</button>
+                                            <div class="banner-content">
+                                                <h1>{{nodeTitle}}</h1>
+                                                <h4>{{nodeDescription}}</h4>
+                                                <br class="visible-md visible-lg">
+                                                <h2 class="banner-status pull-left no-margin-top no-margin-bottom">{{status}}</h2>
+                                                <a href="#" class="btn btn-danger close pull-right remove-modal">Exit from here</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="modal-pinboard">
-                    <section id="pinBoot" class="turbo-grid" style="margin-top:0">
-                    {{#each deckOfNode seq}}
+                    <div id="modal-pinboard">
+                        <section id="pinBoot" class="turbo-grid" style="margin-top:0">
+                        {{#each deckOfNode seq}}
 
-                        {{#if pintrestApplied}}
-                        <article class="white-panel">
-                            <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
-                                <div class="col-sm-12">
+                            {{#if pintrestApplied}}
+                                {{#if deckCountGreaterThan 2 seq}}
+                                <article class="white-panel">
+                                    <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-xs-12">
+                                                    <img src="http://lorempixel.com/320/150/" class="img-responsive">
+                                                </div>
+                                                <div class="col-sm-12 col-xs-12">
+                                                    <h4>{{deckName}}</h4>
+                                                    <p>{{deckDesc}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
-                                        <div class="col-sm-6 col-xs-12">
-                                            <img src="http://lorempixel.com/320/150/" class="img-responsive">
-                                        </div>
-                                        <div class="col-sm-6 col-xs-12">
-                                            <h4>{{deckName}}</h4>
-                                            <p>{{deckDesc}} </p>
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
+                                                {{status}}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-xs-12">
-                                    <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
-                                        {{status}}
+                                </article> 
+                                {{else}}
+                                <article class="white-panel">
+                                    <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <img src="http://lorempixel.com/320/150/" class="img-responsive">
+                                                </div>
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <h4>{{deckName}}</h4>
+                                                    <p>{{deckDesc}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </article> 
-
-                        {{else}}
-
-                        <article class="white-panel" style="margin-top: 3%; position: relative;">
-                            <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
-                                <div class="col-sm-12">
                                     <div class="row">
-                                        <div class="col-sm-6 col-xs-12">
-                                            <img src="http://lorempixel.com/320/150/" class="img-responsive">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
+                                                {{status}}
+                                            </div>
                                         </div>
-                                        <div class="col-sm-6 col-xs-12">
-                                            <h4>{{deckName}}</h4>
-                                            <p>{{deckDesc}} </p>
+                                    </div>
+                                </article> 
+                                {{/if}}
+
+                            {{else}}
+
+                            <article class="white-panel" style="margin-top: 3%; position: relative;">
+                                <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <img src="http://lorempixel.com/320/150/" class="img-responsive">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-12">
+                                                <h4>{{deckName}}</h4>
+                                                <p>{{deckDesc}} </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-xs-12">
-                                    <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
-                                        {{status}}
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
+                                            {{status}}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
+                            </article>
 
-                        {{/if}}  
-        
-
-
-
-
-                       <!--  <div style="pointer-events: {{auto}};width:99%" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}">
-                            <div class="row"><div class="col-sm-12"><img src="{{deckPic}}" class="large-pincard">
-                                <h4>{{deckName}}</h4>
-                                <p>{{deckDesc}}</p>
-                            </div>
-                            </div>
-                            <div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> {{status}}</div></div></div></div> -->
-
-                    {{/each}}
-                </section>
+                            {{/if}}  
+            
 
 
 
 
+                           <!--  <div style="pointer-events: {{auto}};width:99%" class="white-panel listing-deck zone-deck" id="listing-deck-{{deckId}}">
+                                <div class="row"><div class="col-sm-12"><img src="{{deckPic}}" class="large-pincard">
+                                    <h4>{{deckName}}</h4>
+                                    <p>{{deckDesc}}</p>
+                                </div>
+                                </div>
+                                <div class="row"><div class="col-sm-12"><div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> {{status}}</div></div></div></div> -->
 
+                        {{/each}}
+                    </section>
+
+
+
+
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
+    </div>  
 </template>
 
 <template name="individualNewStoryZone">
