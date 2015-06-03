@@ -71,11 +71,14 @@
   z-index: 3000;
   right: 0;">
              <li id="oc-right-toggle-container">
+               {{#if equals isAdmin 'admin'}}
                 <a id="oc-right-preview" href="/admin" class="btn-nav bg-black  sidebar-toggle-right " style="color:#ccc;border-right:1px solid #666;"  >
                     <i class="fa fa-lg fa-gears has-corner-badge">
-                      
+
                     </i>
                 </a>
+                {{/if}}
+
             </li>
             <li id="oc-right-toggle-container">
                 <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
@@ -85,10 +88,10 @@
                     </i>
                 </a>
             </li>
-           
+
 
         </ul>
-<!-- 
+<!--
                           <a style="background: black;border-radius: 50%;position: absolute;right: 1%;top: 1%;cursor: pointer;z-index: 1;" id="oc-right-toggle" href="#oc-wrapper" class="btn-nav sidebar-toggle-right" rel="tooltip" title="" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden" data-persist="lg,md,sm" data-original-title="Toggle chat">
 
                               <i class="fa fa-lg fa-comments has-corner-badge">
@@ -176,12 +179,12 @@
                                 <div id="story-overlays"></div>
 
                             </div>
-                            
-                            
+
+
                             <!-- <img id="story-nameplate" src="{{getNamePlate}}" alt="" /> -->
                             <!-- <img id="story-nameplate" src="{{generateStoryImagePath wrapperJson.imgsrc wrapperJson.nameplate.image}}" alt="" style="width:{{wrapperJson.nameplate.landscape.width}}%;left:{{wrapperJson.nameplate.landscape.left}}%;top:{{wrapperJson.nameplate.landscape.top}}%;" />
                             <div id="notifications-splash"></div> -->
-                            
+
                         </div>
 
 

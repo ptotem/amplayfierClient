@@ -1,9 +1,15 @@
+@isAdmin = (uid)->
+  Meteor.call("isRoleAdmin",uid,(err,res)->
+    if res is false
+      window.location = "/notAuthorisedToView"
+  )
+
+
 @availablePlatform = (platName)->
   Meteor.call("isPlatformAvailable",platName,(err,res)->
     if res is false
       window.location = "/notAuthorised"
   )
-
 
 
 
@@ -125,7 +131,7 @@ Router.route '/admin',
     [Meteor.subscribe('badges'),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('scoreQuestions',this.data().platformName),Meteor.subscribe('assesments',this.data().platformName),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('repositoryFiles',this.data().platformName),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('excelFiles'),Meteor.subscribe('thisUser',Meteor.userId()),Meteor.subscribe('messages')]
   action: ->
     if @ready()
-
+      isAdmin(Meteor.userId())
       setPlatform(this.data().platformName)
       setTenant(this.data().platformName)
       @render()
@@ -258,3 +264,7 @@ Router.route '/deckreport',
 Router.route '/notAuthorised',
   template: 'notAuthorised',
   name: 'notAuthorised',
+
+Router.route '/notAuthorisedToView',
+  template: 'notAuthorisedToView',
+  name: 'notAuthorisedToView',

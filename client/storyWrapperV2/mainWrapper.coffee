@@ -13,9 +13,9 @@ Template.mainWrapper.rendered = ->
     initPage()
     setTimeout(()->
       $('.story-node').popover({trigger:'hover',html: true})
-     
+
     ,1000)
-   
+
 
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
@@ -49,9 +49,9 @@ Template.mainWrapper.helpers
 
   getPrecTop : (top)->
 
-    return top 
+    return top
   getPrecLeft:(left1)->
-    left1 
+    left1
 
   getNamePlate : ()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.nameplate.image.replace(".png",'.jpg')
@@ -77,12 +77,12 @@ Template.mainWrapper.helpers
         n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
         if parseInt(platforms.findOne().nodes.length) is 1
           return Meteor.settings.public.mainLink +  storyConfig.imgsrc + "/" + n.active
-        else          
+        else
 
             return Meteor.settings.public.mainLink +  storyConfig.imgsrc + "/" + n.incomplete
-    #  
+    #
 
-        
+
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
 
@@ -95,7 +95,7 @@ Template.mainWrapper.helpers
       n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
       Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + n.active
   getNodeUrl:(pic)->
-      
+
       # n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
       "<img class='popover-photo' src='"+Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + this['node-photo'] + "' />"
   getPlacement:(px)->
@@ -108,7 +108,7 @@ Template.mainWrapper.helpers
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
         if parseInt(platforms.findOne().nodes.length) is 1
           return  "<div class='popover-content-block active-popover-content'>Active</div>"
-        else          
+        else
 
           return "<div class='popover-content-block incomplete-popover-content'>Incomplete</div>"
     #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
@@ -124,11 +124,11 @@ Template.mainWrapper.helpers
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
          if parseInt(platforms.findOne().nodes.length) is 1
           return   "my-active-node"
-        else          
+        else
 
             return "my-incomplete-node"
-    #  
-        
+    #
+
     #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
 
     if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
@@ -141,6 +141,8 @@ Template.mainWrapper.helpers
     messageCount = messages.find({to: Meteor.userId(), unread: true} ).fetch().length
     messageCount
 
+  isAdmin:() ->
+    Meteor.users.findOne({_id:Meteor.userId()}).role  
 
 
 Template.mainWrapper.events
@@ -233,14 +235,14 @@ Template.mainWrapper.events
     setTimeout(()->
       endAttempt()
     ,2000)
-    
+
     # endAttempt()
     cancelFullScreen("#viewPPTModal")
 
     $('.projection').remove();
     $('.story-zone-playbar').remove();
     $('.modal').modal('hide')
-    
+
 
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
