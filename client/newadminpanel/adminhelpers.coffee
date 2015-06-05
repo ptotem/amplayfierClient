@@ -101,7 +101,7 @@ Template.userlistLeftMenu.helpers
 Template.adminSideBar.rendered = ->
   setTimeout(()->
     # $('.menu-link').first().trigger('click')
-    Session.set("contentVar",'users')
+    Session.set("contentVar",'info')
 
   ,300)
   
@@ -380,6 +380,15 @@ Template.rolesLeftMenu.events
   'keyup #tag-filter':(e)->
     searchBar($(e.currentTarget).val(),".role")
 
+Template.mainAdminPanel.events
+
+  'click .menu-link':(e)->
+
+    temName = $(e.currentTarget).attr('target-templ')
+    console.log temName
+    Session.set("contentVar",$(e.currentTarget).attr('target-content'))
+    $("#left-menu-container").empty();
+    Blaze.renderWithData(Template[temName],{},document.getElementById('left-menu-container'))
 #Template.mainAdminPanel.events
 #  'shown.bs.modal .modal': (e)->
 #    console.log "modal shown"

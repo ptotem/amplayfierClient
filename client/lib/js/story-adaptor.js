@@ -60,7 +60,7 @@ function setDesign(orientation) {
     // console.log $('#story-content').height()
     // console.log window.innerHeight
     // console.log ((window.innerHeight - $('#story-content').height())/window.innerHeight)*100
-    var incrPer = ((window.innerHeight - $('#story-content').height())/window.innerHeight)*100 ;
+    var incrPer = parseInt((window.innerHeight - $('#story-content').height())/window.innerHeight)*100 ;
     var finalPresenterTop = storyConfig.presenter[orientation].top ;
     
 

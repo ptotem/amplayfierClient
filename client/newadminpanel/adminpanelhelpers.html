@@ -3,43 +3,29 @@
         <div class="nano-content">
 
 
-            <div class="oc-sidebar-header">
-                <ul class="nav nav-justified-all">
-                    <li>
-                        <a id="oc-left-toggle" href="#oc-wrapper" class="btn-nav" style="width: 50px;" data-toggle="offcanvas" data-control="left" data-states="partial" data-persist="lg,md,sm" data-parent="body" data-sibling="right">
-                            <i class="icm icm-menu6 oc-partial"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-nav topModal" data-toggle="modal"> <i class="icm icm-arrow-right6"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-nav" href="#" rel="popover-click" data-toggle="popover" data-container="body" data-placement="bottom">
-                            <i class="icm icm-bubbles5 has-corner-badge animated tada">
-          <span class="badge badge-corner badge-corner-top-right badge-info-dk">
-            <i class="fa fa-exclamation"></i>
-              </span>
-                            </i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pages/inbox.html"> <i class="icm icm-envelope3 has-corner-badge">
-                            <span class="badge badge-corner badge-corner-top-right badge-primary-dk">4</span>
-                        </i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+       
 
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
-               
+                   
 
 
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
-                         <li class="">
-                        <a class="collapsed menu-link" target-templ="platformStatus" href="#" target-content='settings'><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Settings</span></a>
+                      <li>
+                        <a class="collapsed menu-link" target-templ="platformInfo" href="#" target-content='info'>
+                            <i class="icm icm-menu6 oc-partial"></i>
+                            <span class="oc-partial-menu-item">
+                &nbsp;&nbsp;Introduction
+               
+              </span>
+                        </a>
                     </li>
+
+
+
+                     <li class="">
+                        <a class="collapsed menu-link"  target-templ="platformStatus" href="#" target-content='settings'><i class="oc-partial-icon fa fa-gears"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Settings</span></a>
+                    </li>
+
                     <li class=" ">
                         <a class="collapsed menu-link" target-templ="userlistLeftMenu" target-content='users'  href="#">
                             <i class="oc-partial-icon fa fa-users"></i>
@@ -91,6 +77,8 @@
                     <li class="">
                         <a class="collapsed menu-link" target-templ="rewardsLeftMenu" target-content='rewards' href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
                     </li>
+                    
+
                
                    <!--  <li class="">
                         <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Enrollments</span></a>
@@ -123,7 +111,7 @@
                 <a id="oc-right-preview" href="/" class="btn-nav bg-black-lter  sidebar-toggle-right " style="color:#ccc;border-right:1px solid #ccc"  >
                     <i class="fa fa-lg fa-home has-corner-badge">
                       
-                    </i>
+                    </i> Go to the Campaign
                 </a>
             </li>
             <li id="oc-right-toggle-container">
@@ -141,7 +129,7 @@
             <li class="">
                 <a href="#" data-toggle="dropdown" class="navbar-img-link" style="padding-top:15px;font-size:1.3em">
                     <img class="img-circle" src="{{getAssetUrl currentUser.personal_profile.profilePicId}}" />
-                    <span class="hidden-xs hidden-sm hidden-md">{{getUserFullName}}</span>
+                    <!-- <span class="hidden-xs hidden-sm hidden-md">{{getUserFullName}}</span> -->
                     <!-- <b class="caret"></b> -->
                 </a>
                 <ul class="dropdown-menu animated fadeIn fast">
@@ -594,6 +582,234 @@
     </div>
     {{/if}}
 </template>
+
+<template name="platformInfo">
+    
+    {{>standardHeader}}
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854" style="background:transparent">
+               
+                <div class="panel-body-collapse collapse in">
+                    <div class="panel-body ">
+
+
+                          <div class="col-md-2 panels badge-item" >
+                                <div class="captionable captionable-effect-flip horizontal">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+                                            <div class="panel panel-success">
+                                                <div class="panel-heading text-center">
+                                                    <div class="panel-title ">
+                                                        Manage Users
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+                                                    <div class="padded">
+                                                        <div class="vpadded text-center">
+                                                            <i class="fa {{getSpecificContentIcon 'users'}}" style="font-size:9em"></i>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-info padded">
+                                            <!-- <h4>Manage Users</h4> -->
+                                            <p>{{getSpecificContentDesc 'users'}}</p>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                            <a href="#" class="btn btn-warning btn-lg menu-link" target-templ="userlistLeftMenu" target-content='users' style="width:100%">GO</a>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                          <div class="col-md-2 panels badge-item" >
+                                <div class="captionable captionable-effect-flip horizontal">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+                                            <div class="panel panel-success">
+                                                <div class="panel-heading text-center">
+                                                    <div class="panel-title ">
+                                                        Manage Reports
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+                                                    <div class="padded">
+                                                        <div class="vpadded text-center">
+                                                            <i class="fa {{getSpecificContentIcon 'reports'}}" style="font-size:9em"></i>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-info padded">
+                                            <!-- <h4>Manage Users</h4> -->
+                                            <p>{{getSpecificContentDesc 'reports'}}</p>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                            <a href="#" class="btn btn-warning btn-lg menu-link" target-templ="manageReport" target-content='reports'  style="width:100%">GO</a>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="col-md-2 panels badge-item" >
+                                <div class="captionable captionable-effect-flip horizontal">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+                                            <div class="panel panel-success">
+                                                <div class="panel-heading text-center">
+                                                    <div class="panel-title ">
+                                                        Manage Repository
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+                                                    <div class="padded">
+                                                        <div class="vpadded text-center">
+                                                            <i class="fa {{getSpecificContentIcon 'repository'}}" style="font-size:9em"></i>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-info padded">
+                                            <!-- <h4>Manage Users</h4> -->
+                                            <p>{{getSpecificContentDesc 'repository'}}</p>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                            <a href="#" class="btn btn-warning btn-lg menu-link" target-templ="repository" target-content='repository' style="width:100%">GO</a>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <div class="col-md-2 panels badge-item" >
+                                <div class="captionable captionable-effect-flip horizontal">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+                                            <div class="panel panel-success">
+                                                <div class="panel-heading text-center">
+                                                    <div class="panel-title ">
+                                                        Manage Badges
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+                                                    <div class="padded">
+                                                        <div class="vpadded text-center">
+                                                            <i class="fa {{getSpecificContentIcon 'badges'}}" style="font-size:9em"></i>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-info padded">
+                                            <!-- <h4>Manage Users</h4> -->
+                                            <p>{{getSpecificContentDesc 'badges'}}</p>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                            <a href="#" class="btn btn-warning btn-lg menu-link" target-templ="badgesLeftMenu" target-content='badges' style="width:100%">GO</a>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <div class="col-md-2 panels badge-item" >
+                                <div class="captionable captionable-effect-flip horizontal">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+                                            <div class="panel panel-success">
+                                                <div class="panel-heading text-center">
+                                                    <div class="panel-title ">
+                                                        Manage Rewards
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+                                                    <div class="padded">
+                                                        <div class="vpadded text-center">
+                                                            <i class="fa {{getSpecificContentIcon 'rewards'}}" style="font-size:9em"></i>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-info padded">
+                                            <!-- <h4>Manage Users</h4> -->
+                                            <p>{{getSpecificContentDesc 'rewards'}}</p>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                            <a href="#" class="btn btn-warning btn-lg menu-link" target-templ="rewardsLeftMenu" target-content='rewards' style="width:100%">GO</a>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <div class="col-md-2 panels badge-item" >
+                                <div class="captionable captionable-effect-flip horizontal">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+                                            <div class="panel panel-success">
+                                                <div class="panel-heading text-center">
+                                                    <div class="panel-title ">
+                                                        Manage Settings
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+                                                    <div class="padded">
+                                                        <div class="vpadded text-center">
+                                                            <i class="fa {{getSpecificContentIcon 'settings'}}" style="font-size:9em"></i>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-info padded">
+                                            <!-- <h4>Manage Users</h4> -->
+                                            <p>{{getSpecificContentDesc 'settings'}}</p>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                            <a class="btn btn-warning btn-lg menu-link" target-templ="platformStatus" href="#" target-content='settings' style="width:100%">GO</a>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+</template>
+
+
 
 
 <template name="platformStatus">
