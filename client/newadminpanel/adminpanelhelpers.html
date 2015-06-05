@@ -328,24 +328,18 @@
    {{>standardHeader}}
    {{#if getBadgeStatus}}
    <div class="container-fluid">
-    <div class="table-line">
+  <!--   <div class="table-line">
         <div class="row table-line-row">
             <div class="col-md-1 pull-right">
                 <a href="#" class="btn btn-warning btn-md pull-right update-badge-values">Update</a>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1">
-                <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Badges
-            </span>
-                    </div>
-                </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default gradient-diag1" style="background:transparent">
+                
 
                 <!--<div class="panel-body-collapse collapse in">
                             <div class="panel-body">
@@ -367,13 +361,15 @@
                 <div class="panel-body-collapse collapse in">
                     <div class="panel-body">
                         <div class="row" rel="panels">
-                            {{#each badges}}
-                            <div class="col-md-3 panels badge-item" badge-name="{{name}}">
+                            
+                            {{#each topbadges}}
+
+                            <div class="col-sm-2 panels badge-item" badge-name="{{name}}">
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-                                            <div class="panel panel-success">
-                                                <div class="panel-heading">
+                                            <div class="panel panel-dark">
+                                                <div class="panel-heading" style="background:#666">
                                                     <div class="panel-title text-center">
                                                         {{display_name}}
                                                     </div>
@@ -384,26 +380,25 @@
                                                             <img src="{{imgPath}}" class="img-responsive" />
                                                         </div>
                                                     </div>
-                                                    <div class="row ">
-                                                        <div class="col-xs-12 col-md-12 text-center">
-                                                            <!--<div><i class="icm icm-stack3 reward-stock-text"></i></div>-->
-                                                            <div>
-                                                                <input type="text" style="width:24% ;" value="{{value}}" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="captionable-caption captionable-back panel-body-info padded">
+                                        <div class="captionable-caption captionable-back panel-body-dark-lter padded">
                                             <h4>{{display_name}}</h4>
-                                            <p>{{display_desc}}</p>
+                                            <p>{{display_title}}</p>
+                                            <br>
+                                            <br>
+                                            <a href="#" class="btn btn-warning btn-lg" style="width:100%">Activate</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             {{/each}}
+                        
                         </div>
+
+                       
                     </div>
                 </div>
             </div>
@@ -600,7 +595,7 @@
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-                                            <div class="panel panel-success">
+                                            <div class="panel {{getSpecificContentBoxColor 'users'}}">
                                                 <div class="panel-heading text-center">
                                                     <div class="panel-title ">
                                                         Manage Users
@@ -636,7 +631,7 @@
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-                                            <div class="panel panel-success">
+                                            <div class="panel {{getSpecificContentBoxColor 'reports'}}">
                                                 <div class="panel-heading text-center">
                                                     <div class="panel-title ">
                                                         Manage Reports
@@ -669,7 +664,7 @@
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-                                            <div class="panel panel-success">
+                                            <div class="panel {{getSpecificContentBoxColor 'repository'}}">
                                                 <div class="panel-heading text-center">
                                                     <div class="panel-title ">
                                                         Manage Repository
@@ -701,7 +696,7 @@
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-                                            <div class="panel panel-success">
+                                            <div class="panel {{getSpecificContentBoxColor 'badges'}}">
                                                 <div class="panel-heading text-center">
                                                     <div class="panel-title ">
                                                         Manage Badges
@@ -733,7 +728,7 @@
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-                                            <div class="panel panel-success">
+                                            <div class="panel {{getSpecificContentBoxColor 'rewards'}}">
                                                 <div class="panel-heading text-center">
                                                     <div class="panel-title ">
                                                         Manage Rewards
@@ -765,7 +760,7 @@
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-                                            <div class="panel panel-success">
+                                            <div class="panel {{getSpecificContentBoxColor 'settings'}}">
                                                 <div class="panel-heading text-center">
                                                     <div class="panel-title ">
                                                         Manage Settings
@@ -924,8 +919,13 @@
 
                 <div class="panel-body in panel-body-collapse panel-colorize no-padding-top">
                     <div class="panel-heading">
-                        {{#if equals isSwitchable 'true'}}
-                            <div class="onoffswitch">
+                        <h1>{{getContentKeyTitle}}</h1>
+                  
+                        
+                    </div>
+                    <div>{{getContentKeyText}}</div>
+                          {{#if equals isSwitchable 'true'}}
+                            <div class="onoffswitch pull-right" style="margin-top: 6%;">
                                 
     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
     <label class="onoffswitch-label" for="myonoffswitch">
@@ -935,50 +935,10 @@
         </span>
     </label>
 </div>
-{{else}}
-<h1>Quick statistics</h1>
+
 {{/if}}
-                        
-                    </div>
-                    <div class="box-table push-bottom">
-                        <div class="box-row mid-bordered">
-                            <div class="box-cell">
-                                <h5 class="base-header major">PLAYERS<br>TOTAL</h5>
-                                <h3 class="base-header">
-                                    248
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">GAMES
-                                    <br>PLAYED</h5>
-                                <h3 class="base-header">
-                                    936
-                                </h3>
-                            </div>
-                            <div class="box-cell">
-                                <h5 class="base-header major">DECKS
-                                    <br>VIEWED</h5>
-                                <h3 class="base-header">
-                                    307
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="progress flat-progress" rel="tooltip" title="60% complete">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
 
-                    <div class="clearfix">
-                        <h5 class="pull-left base-header major">Days</h5>
-                        <h5 class="base-header major">
-              <span class="pull-right panel-lt box-label">
-                54
-              </span>
-                        </h5>
-                    </div>
 
                 </div>
 

@@ -54,8 +54,11 @@ Template.profilesLeftMenu.helpers
     profiles
 
 Template.badgesLeftMenu.helpers
-  badges:()->
+  bottombadges:()->
     platforms.findOne().badges
+  topbadges:()->
+    platforms.findOne().badges
+
   getBadgeStatus:()->
     platforms.findOne()['badges']
 
@@ -64,6 +67,9 @@ Template.badgesLeftMenu.rendered = ->
     $(".onoffswitch-checkbox").prop("checked", true);
   else
     $(".onoffswitch-checkbox").prop("checked", false);
+  # $($('.badge-item')[0]).addClass("col-md-offset-1")
+  # $($('.badge-item')[5]).addClass("col-md-offset-1")
+
 
 Template.assessmentsLeftMenu.helpers
   assessments:()->

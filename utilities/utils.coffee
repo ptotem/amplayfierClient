@@ -289,6 +289,18 @@ UI.registerHelper "getContentIcon",() ->
   v = Session.get('contentVar')
   adminPanelContent[v]['icon']
 
+UI.registerHelper "getContentKeyText",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['keyText']
+
+UI.registerHelper "getContentKeyTitle",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['keyTitle']
+
+
+
+
+
 UI.registerHelper "getSpecificContentIcon",(v) ->
   
   adminPanelContent[v]['icon']
@@ -297,6 +309,11 @@ UI.registerHelper "getSpecificContentIcon",(v) ->
 UI.registerHelper "getContentBoxColor",() ->
   v = Session.get('contentVar')
   adminPanelContent[v]['boxColor']
+UI.registerHelper "getSpecificContentBoxColor",(v) ->
+  
+  adminPanelContent[v]['boxColor']
+
+
 UI.registerHelper "isSwitchable",() ->
   v = Session.get('contentVar')
   adminPanelContent[v]['switchable']
