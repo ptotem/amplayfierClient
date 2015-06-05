@@ -161,32 +161,40 @@
     
    {{>standardHeader}}
    {{#if getRewardStatus}}
-    <div class="table-line">
-        <div class="row table-line-row">
-            <div class="col-md-1 pull-right">
-                <a href="#" class="btn btn-success btn-md pull-right new-reward-form-btn">New Reward</a>
-            </div>
-        </div>
-    </div>
+
     
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default gradient-diag1">
+            <div class="panel panel-default gradient-diag1" style="background:transparent">
                 <div class="panel-heading panel-handle panel-colorize">
-                    <div class="panel-title">
-            <span class="panel-title-edtitable" data-type="text">
-              Rewards
-            </span>
-                    </div>
+                  
                 </div>
 
                 <div class="panel-body-collapse collapse in">
                     <div class="panel-body">
                         <div class="row" rel="panels">
+                            <div class="col-md-3 panels new-reward-form-btn" style="cursor:pointer">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading" >
+                                        <div class="panel-title text-center">
+                                            New Reward
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="panel-body no-padding-top captionable captionable-effect-reveal-top-left">
+                                        <div class="captionable-reveal padded-top text-center">
+                                            <br>
+                                           
+                                            <i class="fa fa-plus" style="font-size:16em"></i>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                             {{#each rewards}}
                             <div class="col-md-3 panels">
-                                <div class="panel panel-success">
-                                    <div class="panel-heading">
+                                <div class="panel panel-dark">
+                                    <div class="panel-heading" style="background:#666">
                                         <div class="panel-title text-center">
                                             {{name}}
                                         </div>
