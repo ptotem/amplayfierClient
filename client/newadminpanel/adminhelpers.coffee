@@ -1,4 +1,6 @@
 Template.adminHeaderBar.events
+  'click .enterprise-chat':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
   'click .logout-link': (e) ->
     Meteor.logout()
 
@@ -134,7 +136,16 @@ Template.systemNoticifation.events
   'click .new-noti':(e)->
     showModal('newNoti',{ukey:platforms.findOne()._id},'main-wrapper-page-new')
 
+Template.mainAdminPanel.rendered = () ->
+  setTitle('Admin Panel')
+  $('body').on 'hidden.bs.modal', (e) ->
+    # console.log "modal is hidden"
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+  # do something...
+    return
 
+  
+  # ...
 Template.mainAdminPanel.helpers
 #  assessments:()->
 #    assesments.find().fetch()

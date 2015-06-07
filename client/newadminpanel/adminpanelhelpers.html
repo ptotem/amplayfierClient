@@ -115,7 +115,7 @@
                 </a>
             </li>
             <li id="oc-right-toggle-container">
-                <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black-lter   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
+                <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black-lter enterprise-chat   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
                    data-persist="lg,md,sm" style="color:#ccc">
                     <i class="fa fa-lg fa-comments has-corner-badge">
                         <span class="badge badge-corner badge-corner-top-right badge-info">{{unreadMessages}}</span>
@@ -983,3 +983,44 @@
 
                                           </ul>
     </template>
+
+
+
+
+
+
+
+<template name="enterpriseOnly">
+<link rel="stylesheet" href="/assets/externalCSS/editNew/editor.css" />
+
+  <div class="modal editor-modal" id="policyModal" tabindex="-1" role="dialog" aria-labelledby="policyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header custom-body-modal">
+          <a class="btn btn-default custom-cross-modal" data-dismiss="modal">&times;</a>
+          <h4 class="modal-title" id="policyModalLabel">Enterprise Only</h4>
+        </div>
+        <div class="modal-body custom-body-modal" style="overflow:auto;color:#ccc;">
+
+            <div class="well">
+              <div id='disclaimer' class="custom-anchor" style="color:#999">
+                  <p>We are sorry. This feature is only available in the enterprise version of this product.</p>
+              </div>
+            </div>
+
+
+           
+
+        </div>
+        <div class="modal-footer custom-body-modal">
+          <div class="btn-group pull-left">
+            <button class="btn btn-lg btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</template>
