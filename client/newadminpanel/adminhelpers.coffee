@@ -330,6 +330,8 @@ Template.enrollmentsLeftMenu.events
 
 Template.manageReport.events
   'click .download-report-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+    return
     Meteor.call('exportData',(err,res)->
       if err
         console.log err
@@ -339,6 +341,8 @@ Template.manageReport.events
     )
 
   'click .download-deck-report-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+    return
     Meteor.call('exportDeckDataForAllUsers',(err,res)->
       if err
         console.log err
@@ -348,6 +352,8 @@ Template.manageReport.events
     )
 
   'click .download-allnode-report-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+    return
     Meteor.call('exportAllNodeDataForAllUsers',platforms.findOne()._id,(err,res)->
       if err
         console.log err
