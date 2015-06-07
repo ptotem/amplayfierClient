@@ -77,8 +77,8 @@ Template.assessmentsLeftMenu.helpers
   assessments:()->
     assesments.find().fetch()
 
-Template.userlistLeftMenu.rendered = () ->
-  $('select').selectize()
+# Template.userlistLeftMenu.rendered = () ->
+#   $('select').selectize()
 
 Template.enrollmentsLeftMenu.rendered = () ->
   $('select').selectize()
