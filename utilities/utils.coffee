@@ -300,6 +300,13 @@ UI.registerHelper "getContentKeyTitle",() ->
 
 
 
+UI.registerHelper "getToggleWorking",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['toggleWorking']
+
+
+
+
 
 UI.registerHelper "getSpecificContentIcon",(v) ->
   

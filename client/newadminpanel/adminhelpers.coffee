@@ -461,14 +461,18 @@ Template.platformStatus.events
 
 Template.standardHeader.events
   'click .onoffswitch-checkbox': (e) ->
-    if $('.onoffswitch-checkbox').is(":checked")
-      if Session.get('contentVar') == "settings"
-        pid = platforms.findOne({tenantName:platformName})._id
-        platforms.update({_id:pid},{$set:{platformStatus:'close'}})
-      Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),true)
+    if $(e.currentTarget).hasClass("All")
+      if $('.onoffswitch-checkbox').is(":checked")
+        if Session.get('contentVar') == "settings"
+          pid = platforms.findOne({tenantName:platformName})._id
+          platforms.update({_id:pid},{$set:{platformStatus:'close'}})
+        Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),true)
+      else
+        console.log "ass"
+        if Session.get('contentVar') == "settings"
+          pid = platforms.findOne({tenantName:platformName})._id
+          platforms.update({_id:pid},{$set:{platformStatus:'open'}})
+        Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),false)
     else
-      console.log "ass"
-      if Session.get('contentVar') == "settings"
-        pid = platforms.findOne({tenantName:platformName})._id
-        platforms.update({_id:pid},{$set:{platformStatus:'open'}})
-      Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),false)
+      showModal('enterpriseOnly',{},'main-wrapper-page-new')
+      e.preventDefault()

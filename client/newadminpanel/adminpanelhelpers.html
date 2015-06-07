@@ -931,7 +931,9 @@
                           {{#if equals isSwitchable 'true'}}
                             <div class="onoffswitch pull-right" style="margin-top: 6%;">
 
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+
+
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox {{getToggleWorking}}" id="myonoffswitch" checked>
     <label class="onoffswitch-label" for="myonoffswitch">
         <span class="onoffswitch-inner">
             <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
