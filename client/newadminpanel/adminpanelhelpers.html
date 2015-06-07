@@ -3,10 +3,10 @@
         <div class="nano-content">
 
 
-       
+
 
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
-                   
+
 
 
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
@@ -15,7 +15,7 @@
                             <i class="icm icm-menu6 oc-partial"></i>
                             <span class="oc-partial-menu-item">
                 &nbsp;&nbsp;Introduction
-               
+
               </span>
                         </a>
                     </li>
@@ -31,10 +31,10 @@
                             <i class="oc-partial-icon fa fa-users"></i>
               <span class="oc-partial-menu-item">
                 &nbsp;&nbsp;Manage Users
-               
+
               </span>
                         </a>
-                    
+
                     </li>
                     <li class="">
 
@@ -77,16 +77,16 @@
                     <li class="">
                         <a class="collapsed menu-link" target-templ="rewardsLeftMenu" target-content='rewards' href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
                     </li>
-                    
 
-               
+
+
                    <!--  <li class="">
                         <a class="collapsed menu-link" target-templ="enrollmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-fax"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Enrollments</span></a>
                     </li>
                     <li class="">
                         <a class="collapsed menu-link" target-templ="assessmentsLeftMenu" href="#"><i class="oc-partial-icon fa fa-check-square-o"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Assessments</span></a>
                     </li> -->
-                  
+
                 </ul>
             </div>
         </div>
@@ -105,12 +105,12 @@
         </ul>
         <a class="navbar-brand" href="#">
             <img style="display:inline-block;" src="/assets/images/amplayfier-logo-2.png" /> am<span class="text-warning-dk">play</span>fier | {{getPlatformName}}.amplayfier.com</a>
-        
+
         <ul class="nav  navbar-nav navbar-right pull-right ">
              <li id="oc-right-toggle-container">
                 <a id="oc-right-preview" href="/" class="btn-nav bg-black-lter  sidebar-toggle-right " style="color:#ccc;border-right:1px solid #ccc"  >
                     <i class="fa fa-lg fa-home has-corner-badge">
-                      
+
                     </i> Go to the Campaign
                 </a>
             </li>
@@ -122,7 +122,7 @@
                     </i>
                 </a>
             </li>
-           
+
 
         </ul>
         <ul class="nav navbar-nav navbar-right pull-right hidden-xs">
@@ -158,16 +158,16 @@
 
 
 <template name="rewardsLeftMenu">
-    
+
    {{>standardHeader}}
    {{#if getRewardStatus}}
 
-    
+
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default gradient-diag1" style="background:transparent">
                 <div class="panel-heading panel-handle panel-colorize">
-                  
+
                 </div>
 
                 <div class="panel-body-collapse collapse in">
@@ -179,14 +179,14 @@
                                         <div class="panel-title text-center">
                                             New Reward
                                         </div>
-                                        
+
                                     </div>
                                     <div class="panel-body no-padding-top captionable captionable-effect-reveal-top-left">
                                         <div class="captionable-reveal padded-top text-center">
                                             <br>
-                                           
+
                                             <i class="fa fa-plus" style="font-size:16em"></i>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +291,7 @@
                             <tr class="user-item  row-mid" id="{{_id}}">
                                 <td class="col-md-3">{{personal_profile.display_name}}</td>
                                 <!-- code for profile not required rightnow -->
-<!-- 
+<!--
                                 <td class="col-md-3">
 
                                     <select rel="selectize" data-placeholder="Give your user a profile " user-id="{{_id}} " class="form-control user-profile-chosen pull-right " tabindex="-1 " style="width:150px;padding:0;margin-right:5px; ">
@@ -331,7 +331,7 @@
 </template>
 
 <template name="badgesLeftMenu">
-    
+
 
    {{>standardHeader}}
    {{#if getBadgeStatus}}
@@ -347,7 +347,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default gradient-diag1" style="background:transparent">
-                
+
 
                 <!--<div class="panel-body-collapse collapse in">
                             <div class="panel-body">
@@ -369,7 +369,7 @@
                 <div class="panel-body-collapse collapse in">
                     <div class="panel-body">
                         <div class="row" rel="panels">
-                            
+
                             {{#each topbadges}}
 
                             <div class="col-sm-2 panels badge-item" badge-name="{{name}}">
@@ -388,7 +388,7 @@
                                                             <img src="{{imgPath}}" class="img-responsive" />
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -403,10 +403,10 @@
                                 </div>
                             </div>
                             {{/each}}
-                        
+
                         </div>
 
-                       
+
                     </div>
                 </div>
             </div>
@@ -419,15 +419,15 @@
 
 
 <template name="manageReport">
-    
+
 {{>standardHeader}}
-    
+
 <div class="container-fluid">
 
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854" style="background:transparent">
-              
+
                 <div class="panel-body-collapse collapse in">
                     <div class="panel-body ">
 
@@ -477,7 +477,7 @@
 </template>
 
 <template name="systemNoticifation">
-    
+
     {{>standardHeader}}
     <div class="container-fluid">
     <div class="table-line">
@@ -523,7 +523,7 @@
 </template>
 
 <template name="repository">
-    
+
    {{>standardHeader}}
    {{#if getRepoStatus}}
    <div class="container-fluid">
@@ -540,11 +540,11 @@
 
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854" style="background:transparent">
-               
+
                 <div class="panel-body-collapse collapse in">
                     <div class="panel-body ">
 
@@ -569,20 +569,20 @@
         </div>
 
     </div>
-    
+
     </div>
     {{/if}}
 </template>
 
 <template name="platformInfo">
-    
+
     {{>standardHeader}}
 <div class="container-fluid">
 
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea854" style="background:transparent">
-               
+
                 <div class="panel-body-collapse collapse in">
                     <div class="panel-body ">
 
@@ -603,7 +603,7 @@
                                                             <i class="fa {{getSpecificContentIcon 'users'}}" style="font-size:9em"></i>
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -639,7 +639,7 @@
                                                             <i class="fa {{getSpecificContentIcon 'reports'}}" style="font-size:9em"></i>
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -655,7 +655,7 @@
 
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                             <div class="col-md-2 panels badge-item" >
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
@@ -672,7 +672,7 @@
                                                             <i class="fa {{getSpecificContentIcon 'repository'}}" style="font-size:9em"></i>
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -704,7 +704,7 @@
                                                             <i class="fa {{getSpecificContentIcon 'badges'}}" style="font-size:9em"></i>
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -736,7 +736,7 @@
                                                             <i class="fa {{getSpecificContentIcon 'rewards'}}" style="font-size:9em"></i>
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -768,7 +768,7 @@
                                                             <i class="fa {{getSpecificContentIcon 'settings'}}" style="font-size:9em"></i>
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -804,7 +804,7 @@
 
 
 <template name="platformStatus">
-    
+
     {{>standardHeader}}
 <div class="container-fluid">
 
@@ -854,17 +854,17 @@
     <p class="help-block">Upload Platform favicon.</p>
   </div></div>
   </div> -->
-  <div class="form-group">
-<label class="checkbox-inline">
+  <!-- <div class="form-group"> -->
+<!-- <label class="checkbox-inline"> -->
   <!--<input type="radio" name="platformstatus" id="inlineRadio1" value="open" class="status-platform "> Open-->
-   <input type="checkbox" name="platformstatus" value="close" class="status-platform ">Restrict user
-</label>
+   <!-- <input type="checkbox" name="platformstatus" value="close" class="status-platform ">Restrict user -->
+<!-- </label> -->
 <!--<label class="radio-inline">-->
   <!--<input type="radio" name="platformstatus" id="inlineRadio2" value="close" class="status-platform "> Close-->
 <!--</label>-->
-</div>
+<!-- </div> -->
 
-  
+
 
 
 
@@ -881,11 +881,11 @@
                 <a href="#" class="btn btn-warning btn-md pull-right platform-status">Update</a>
     </div>
   </div> -->
-  
-  <button type="submit" class="btn btn-primary-lg">Submit</button>
+
+  <!-- <button type="submit" class="btn btn-primary-lg">Submit</button> -->
 </form>
-                                
-  
+
+
 
 
                             </tbody>
@@ -910,7 +910,7 @@
     <div class="container-fluid">
     <div class="row">
 
-       
+
         <div class="col-md-8">
             <div class="jumbotron" style="padding:30px;">
                                               <h1>{{getContentTitle}}</h1>
@@ -924,13 +924,13 @@
                 <div class="panel-body in panel-body-collapse panel-colorize no-padding-top">
                     <div class="panel-heading">
                         <h1>{{getContentKeyTitle}}</h1>
-                  
-                        
+
+
                     </div>
                     <div>{{getContentKeyText}}</div>
                           {{#if equals isSwitchable 'true'}}
                             <div class="onoffswitch pull-right" style="margin-top: 6%;">
-                                
+
     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
     <label class="onoffswitch-label" for="myonoffswitch">
         <span class="onoffswitch-inner">
@@ -979,7 +979,7 @@
                                               </li>
                                               <li><i class="fa {{getContentIcon}} "></i> <a href="#">{{getContentTitle}}</a>
                                               </li>
-                                              
+
 
                                           </ul>
     </template>

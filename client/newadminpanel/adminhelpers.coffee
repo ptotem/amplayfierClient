@@ -32,7 +32,7 @@ Template.repository.helpers
 
   getRepoStatus:()->
       platforms.findOne()['repository']
-      
+
 
 Template.rolesLeftMenu.helpers
   setUniqKey:()->
@@ -89,7 +89,8 @@ Template.enrollmentsLeftMenu.helpers
 
 Template.userlistLeftMenu.helpers
   myusers: () ->
-    Meteor.users.find().fetch()
+    Meteor.users.find({'personal_profile.display_name' : {$nin : ['Guest User']}}).fetch()
+    # Meteor.users.find().fetch()
   profileForUsers :(uid)->
     profiles = []
     if platforms.findOne().profiles?
@@ -110,7 +111,7 @@ Template.adminSideBar.rendered = ->
     Session.set("contentVar",'info')
 
   ,300)
-  
+
 
 Template.adminSideBar.events
   # 'click .topModal':(e)->
@@ -422,19 +423,19 @@ Template.platformStatus.events
     #   bkg.platform = tenantId
     #   bkg.stored = false
     # else
-    #   burl = platforms.findOne().backgroundUrl  
+    #   burl = platforms.findOne().backgroundUrl
     # if $(e.currentTarget).find('#platform-logo').files[0]?
     #   bkg = new FS.File($(e.currentTarget).find('#platform-icon').files[0])
     #   bkg.platform = tenantId
     #   bkg.stored = false
     # else
-    #   burl = platforms.findOne().platformLogo  
+    #   burl = platforms.findOne().platformLogo
     # if $(e.currentTarget).find('#platform-icon').files[0]?
     #   bkg = new FS.File($(e.currentTarget).find('#platform-icon').files[0])
     #   bkg.platform = tenantId
     #   bkg.stored = false
     # else
-    #   burl = platforms.findOne().tenantIcon  
+    #   burl = platforms.findOne().tenantIcon
 
 
     platforms.update({_id:pid},{$set:{platformStatus:status,platformTitle:pname,platformGa:pga}})
@@ -446,16 +447,17 @@ Template.platformStatus.events
 
 
 #  'click .platform-status':(e)->
-    
+
 Template.standardHeader.events
   'click .onoffswitch-checkbox': (e) ->
     if $('.onoffswitch-checkbox').is(":checked")
+      if Session.get('contentVar') == "settings"
+        pid = platforms.findOne({tenantName:platformName})._id
+        platforms.update({_id:pid},{$set:{platformStatus:'close'}})
       Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),true)
     else
       console.log "ass"
+      if Session.get('contentVar') == "settings"
+        pid = platforms.findOne({tenantName:platformName})._id
+        platforms.update({_id:pid},{$set:{platformStatus:'open'}})
       Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),false)
-
-    
-
-
-
