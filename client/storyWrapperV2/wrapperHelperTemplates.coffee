@@ -23,6 +23,7 @@ Template.wrapperSideBar.rendered = ->
 
 Template.wrapperSideBar.helpers
   isEnabled:(k)->
+    console.log platforms.findOne()[k]
     platforms.findOne()[k]
   platformStatus:()->
     platforms.findOne().platformStatus
