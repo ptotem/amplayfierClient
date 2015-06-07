@@ -67,9 +67,9 @@
 		boxColor:"panel-primary",
 		icon:"fa-check-square-o",
 		title:"Introduction",
-		keyText:"",
+		keyText:"intro",
 		toggleWorking:"All",
-		keyTitle:"Quick Statistics",
+		keyTitle:"Welcome",
 		desc:"Set up and manage your Campaign from here. You can make this campaign private and add your own private set of users or leave it open to all."
 	}
 	

@@ -927,7 +927,11 @@
 
 
                     </div>
+                    {{#if equals getContentKeyText 'intro'}}
+                    <img src="{{getImage}}" class="img-responsive" />
+                    {{else}}
                     <div>{{getContentKeyText}}</div>
+                    {{/if}}
                           {{#if equals isSwitchable 'true'}}
                             <div class="onoffswitch pull-right" style="margin-top: 6%;">
 

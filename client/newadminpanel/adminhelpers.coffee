@@ -467,6 +467,11 @@ Template.platformStatus.events
 
 
 #  'click .platform-status':(e)->
+Template.standardHeader.helpers
+
+  getImage:()->
+    Meteor.settings.public.mainLink + platforms.findOne().wrapperJson.imgsrc + "/" + platforms.findOne().wrapperJson.screenshot.backgroundkey
+    # ...
 
 Template.standardHeader.events
   'click .onoffswitch-checkbox': (e) ->
