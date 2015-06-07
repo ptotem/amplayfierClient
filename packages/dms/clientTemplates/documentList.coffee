@@ -41,7 +41,10 @@ if Meteor.isClient
   Template.documentList.helpers
     platformFiles:()->
 
-      window[Session.get('collUsed')].find().fetch()
+      if window[Session.get('collUsed')]?
+        window[Session.get('collUsed')].find().fetch()
+      else
+        gridFiles.find().fetch()
 
   Template.docCollection.events
     'click .lib-item':(e)->
@@ -51,9 +54,11 @@ if Meteor.isClient
       window[Session.get('collUsed')].remove({_id:this._id})
   Template.docCollection.helpers
     platformFiles:()->
-
-      window[Session.get('collUsed')].find({tag:Meteor.user().profile}).fetch()
+         window[Session.get('collUsed')].find({}).fetch()
+     
+     
     getFileIcon:(fid)->
+      console.log  window[Session.get('collUsed')]
       switch window[Session.get('collUsed')].findOne(fid).original.type
         when 'image/png' then return "/assets/dashboardimages/png-icon.png"
         when 'image/jpeg' then return "/assets/dashboardimages/jpeg-icon.png"
