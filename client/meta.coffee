@@ -37,7 +37,7 @@
 		icon:"fa-trophy",
 		title:"Rewards",
 		toggleWorking:"All",
-		keyText:"Activate the reward center on your campaign. Remember you need to activate badges on your campaign to activate rewards. rewards will improve your player's user experience.",
+		keyText:"Activate the reward center on your campaign. Remember you need to activate badges on your campaign to activate rewards. Make sure you pick the Credit Cost of the reward such that it does not become too easy to get it.",
 		keyTitle:"Activate Rewards",
 		desc:"Add rewards that can be redeemed for credits. Make sure you price the rewards correctly so that it does not become too easy to get them."
 	},

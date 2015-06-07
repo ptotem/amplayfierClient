@@ -62,10 +62,10 @@ Template.badgesLeftMenu.helpers
     platforms.findOne().badges
 
   getBadgeStatus:()->
-    platforms.findOne()['badges']
+    platforms.findOne()['badgesStatus']
 
 Template.badgesLeftMenu.rendered = ->
-  if platforms.findOne()['badges']
+  if platforms.findOne()['badgesStatus']
     $(".onoffswitch-checkbox").prop("checked", true);
   else
     $(".onoffswitch-checkbox").prop("checked", false);
@@ -374,6 +374,9 @@ Template.rewardsLeftMenu.events
     searchBar($(e.currentTarget).val(),".reward-block")
 
 Template.badgesLeftMenu.events
+  'click .enterprise-activate-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+
   'click .update-badge-values':(e)->
     badgeList = []
     $('.badge-item').each((ind,ele)->
