@@ -524,7 +524,7 @@ body.story-page {
 }
 
 .modal.data-display-modal .modal-header {
-    width: 50%;
+    /*width: 50%;*/
     margin: 0 auto;
     margin-top: 50px;
     background: #333;
@@ -584,10 +584,10 @@ img.translucent {
 /* Notifications Styles */
 /*-------------------------------------------------------*/
 
-#notifications-center {
+/*#notifications-center {
     width: 60%;
     margin-left: 20%;
-}
+}*/
 
 @media (orientation: portrait) {
     #notifications-center {
@@ -618,10 +618,10 @@ img.translucent {
 /* Leaderboard Styles */
 /*-------------------------------------------------------*/
 
-#leaderboard {
+/*#leaderboard {
     width: 60%;
     margin-left: 20%;
-}
+}*/
 
 @media (orientation: portrait) {
     #leaderboard {

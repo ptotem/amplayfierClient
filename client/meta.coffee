@@ -21,7 +21,7 @@
 		keyTitle:"Activate Social Sign in",
 		desc:"You can add and manage users here. Add individual users or bulk add them using an excel sheet. Make sure you download the user upload template first."
 	},
-	badges:{
+	badgesStatus:{
 		switchable:"true",
 		boxColor:"panel-danger",
 		icon:"fa-certificate",
