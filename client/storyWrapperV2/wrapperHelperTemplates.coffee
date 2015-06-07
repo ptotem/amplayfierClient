@@ -284,5 +284,5 @@ Template.modalLogin.events
      userEmail = $(e.currentTarget).find("#email").val().toString()
      newEmail = encodeEmail(userEmail,pn)
      userPassword = $(e.currentTarget).find("#password").val()
-     authenticatePassword(newEmail,userPassword,"/mystory")
+     authenticatePassword(newEmail,userPassword,"/")
      false
