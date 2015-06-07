@@ -152,7 +152,7 @@
                             <span class="oc-partial-menu-item">My Profile</span>
                         </a>
                     </li>
-                    {{#if isEnabled 'badges'}}
+                    {{#if isEnabled 'badgesStatus'}}
                     <li class="">
                         <a class="collapsed side-bar-link badge-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Play for winning these badges. Why? Because they will help you earn real rewards." href="#badgesModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-medal2"></i>
@@ -354,6 +354,7 @@
                     <h4 class="modal-title" id="badgesModalLabel">Badges Corner</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="panel-body">
                     <div class="row">
                         {{#each sysBadges1}}
  <div class="col-sm-3 panels badge-item" badge-name="{{name}}">
@@ -367,7 +368,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="panel-body no-padding-top">
-                                                    <div class="padded">
+                                                    <div class="paddsed">
                                                         <div class="vpadded">
                                                             <img src="{{imgPath}}" class="img-responsive" />
                                                         </div>
@@ -388,50 +389,79 @@
                             </div>
 
                         {{/each}}
-                        </div><div class="row">
-  {{#each sysBadges2}}
-
-                            <div class="col-md-2 col-xs-6 badge-item">
-                                <div class="captionable captionable-effect-flip vertical">
+                        </div>   <div class="row">
+                        {{#each sysBadges2}}
+ <div class="col-sm-3 panels badge-item" badge-name="{{name}}">
+                                <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading text-center" style="background:green;">
+                                            <div class="panel panel-dark">
+                                                <div class="panel-heading" style="background:#666">
                                                     <div class="panel-title text-center">
                                                         {{display_name}}
                                                     </div>
                                                 </div>
                                                 <div class="panel-body no-padding-top">
-
-                                                    <div class="vpadded">
-                                                        <div class="text-center">
-                                                            <img src="{{imgPath}}" class="img-responsive">
+                                                    <div class="paddsed">
+                                                        <div class="vpadded">
+                                                            <img src="{{imgPath}}" class="img-responsive" />
                                                         </div>
                                                     </div>
 
                                                 </div>
                                             </div>
-
                                         </div>
-                                        <div class="captionable-caption captionable-back panel-body-primary-lter padded text-center">
-                                            <h4>{{display_title}}</h4>
-                                            <hr>
-                                            <p class="credits-true">{{display_desc}}</p>
+                                        <div class="captionable-caption captionable-back panel-body-dark-lter padded">
+                                            <h4>{{display_name}}</h4>
+                                            <p>{{display_title}}</p>
+                                            <br>
+                                            <br>
+                                            <a href="#" class="btn btn-warning btn-lg enterprise-activate-btn" style="width:100%">Active</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                         {{/each}}
+                        </div>   <div class="row">
+                        {{#each sysBadges3}}
+ <div class="col-sm-3 panels badge-item" badge-name="{{name}}">
+                                <div class="captionable captionable-effect-flip horizontal">
+                                    <div class="captionable-flip">
+                                        <div class="captionable-front">
+                                            <div class="panel panel-dark">
+                                                <div class="panel-heading" style="background:#666">
+                                                    <div class="panel-title text-center">
+                                                        {{display_name}}
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body no-padding-top">
+                                                    <div class="paddsed">
+                                                        <div class="vpadded">
+                                                            <img src="{{imgPath}}" class="img-responsive" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="captionable-caption captionable-back panel-body-dark-lter padded">
+                                            <h4>{{display_name}}</h4>
+                                            <p>{{display_title}}</p>
+                                            <br>
+                                            <br>
+                                            <a href="#" class="btn btn-warning btn-lg enterprise-activate-btn" style="width:100%">Active</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {{/each}}
+                        </div>
 
 
-
-
-
-
-                    </div>
                 </div>
+            </div>
             </div>
             <!-- /.modal-content -->
         </div>
@@ -692,7 +722,7 @@
                     <a class="btn btn-default pull-right remove-modal" >&times;</a>
                     <div class="top-circle-icon"><i class="icm icm-ladder"></i>
                     </div>
-                    <h4 class="modal-title" id="notifyModalLabel">Feedback</h4>
+                    <h4 class="modal-title" id="notifyModalLabel">LeaderBoard</h4>
                 </div>
               <div class="modal-body">
                   <div class="row">
@@ -701,7 +731,7 @@
                         <div class="well">
                         There are no leaders at the moment. This is your chance you get ahead!
                     </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-sm-12">
                                 <div class="leader-row">
                                     <div class="box-table">
@@ -721,7 +751,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         </div>
 
                           </div>
