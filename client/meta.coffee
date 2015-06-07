@@ -66,7 +66,7 @@
 		switchable:"false",
 		boxColor:"panel-primary",
 		icon:"fa-check-square-o",
-		title:"Introduction",
+		title:"Welcome",
 		keyText:"intro",
 		toggleWorking:"All",
 		keyTitle:"Welcome",

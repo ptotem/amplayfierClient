@@ -913,7 +913,8 @@
 
         <div class="col-md-8">
             <div class="jumbotron" style="padding:30px;">
-                                              <h1>{{getContentTitle}}</h1>
+                                         <h1>{{getContentTitle}}</h1>
+                      
                                               <p>{{getContentDesc}}</p>
                                           </div>
 
@@ -923,7 +924,11 @@
 
                 <div class="panel-body in panel-body-collapse panel-colorize no-padding-top">
                     <div class="panel-heading">
+                          {{#if equals getContentKeyText 'intro'}}
+                          <h1 style="display:none">{{getContentKeyTitle}}</h1>
+                        {{else}}
                         <h1>{{getContentKeyTitle}}</h1>
+                        {{/if}}
 
 
                     </div>
@@ -1000,7 +1005,7 @@
 <link rel="stylesheet" href="/assets/externalCSS/editNew/editor.css" />
 
   <div class="modal editor-modal" id="policyModal" tabindex="-1" role="dialog" aria-labelledby="policyModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header custom-body-modal">
           <a class="btn btn-default custom-cross-modal" data-dismiss="modal">&times;</a>
