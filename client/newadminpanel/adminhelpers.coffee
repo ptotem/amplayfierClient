@@ -25,6 +25,12 @@ Template.rewardsLeftMenu.helpers
   getRewardStatus:()->
     platforms.findOne()['rewards']
 
+Template.userlistLeftMenu.rendered = ->
+  if platforms.findOne()['platformStatus'] is 'close'
+    $(".onoffswitch-checkbox").prop("checked", true);
+  else
+    $(".onoffswitch-checkbox").prop("checked", false);
+
 Template.repository.rendered = ->
   if platforms.findOne()['repository']
     $(".onoffswitch-checkbox").prop("checked", true);
