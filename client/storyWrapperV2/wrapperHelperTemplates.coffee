@@ -280,7 +280,7 @@ Template.virtualTourModal.events
     console.log "leader"
     $(".leader-board-link")[0].click()
     setTimeout(->
-      $('#leaderboardModal .modal-body').virtualTour(window.leaderboardVTO)
+      $('.modal-body').virtualTour(window.leaderboardVTO)
     , 100)
 
   'click #vt-chat' : (e) ->
