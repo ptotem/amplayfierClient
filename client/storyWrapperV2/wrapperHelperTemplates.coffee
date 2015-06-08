@@ -85,7 +85,7 @@ Template.badgeModal.helpers
   sysBadges1:()->
    userBadgeNames = _.pluck(Meteor.user().badges,'name')
    finalBadges = []
-   for s in systemBadges.find({}).fetch()[0..3]
+   for s in systemBadges.find({}).fetch()[0..4]
      if userBadgeNames.indexOf(s.name) isnt -1
        imgp = s.imgPath.replace("-bw","")
        s['imgPath'] = imgp
@@ -94,21 +94,13 @@ Template.badgeModal.helpers
   sysBadges2:()->
     userBadgeNames = _.pluck(Meteor.user().badges,'name')
     finalBadges = []
-    for s in systemBadges.find({}).fetch()[4..7]
+    for s in systemBadges.find({}).fetch()[5..9]
       if userBadgeNames.indexOf(s.name) isnt -1
         imgp = s.imgPath.replace("-bw","")
         s['imgPath'] = imgp
       finalBadges.push s
     finalBadges
-  sysBadges3:()->
-      userBadgeNames = _.pluck(Meteor.user().badges,'name')
-      finalBadges = []
-      for s in systemBadges.find({}).fetch()[8..9]
-        if userBadgeNames.indexOf(s.name) isnt -1
-          imgp = s.imgPath.replace("-bw","")
-          s['imgPath'] = imgp
-        finalBadges.push s
-      finalBadges
+ 
 
 
 
@@ -170,10 +162,13 @@ Template.mainWrapper.events
 
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
-# Template.badgeModal.rendered = ->
-#   $($('.badge-item')[0]).addClass('col-md-offset-1')
-#   $($('.badge-item')[5]).addClass('col-md-offset-1')
-
+Template.badgeModal.rendered = ->
+  $($('.badge-item')[0]).addClass('col-sm-offset-1')
+  $($('.badge-item')[5]).addClass('col-sm-offset-1')
+  $('.badge-item').each((ind,ele)->
+    if ind isnt 0 and ind isnt 5
+      $(ele).css("margin-left","0px")
+  )
 Template.nodeTemp.rendered = () ->
   
   console.log this
