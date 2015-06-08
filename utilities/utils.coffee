@@ -333,7 +333,7 @@ UI.registerHelper "getPlatformName",() ->
   platforms.findOne().tenantName
 
 UI.registerHelper "hasRewards",() ->
-  systemRewards.find().fetch().length > 1
+  systemRewards.find().fetch().length > 0
 
 
 
