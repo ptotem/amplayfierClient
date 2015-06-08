@@ -524,7 +524,7 @@ body.story-page {
 }
 
 .modal.data-display-modal .modal-header {
-    /*width: 50%;*/
+    width: 75%;
     margin: 0 auto;
     margin-top: 50px;
     background: #333;
@@ -688,7 +688,7 @@ img.translucent {
 /*-------------------------------------------------------*/
 
 .rewards-collection {
-    width: 60%;
+    /*width: 60%;*/
     margin: 0 auto;
 }
 
