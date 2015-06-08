@@ -45,33 +45,37 @@
 				</div>
 
                 <div class="row text-center vpadded-row">
+                  {{#if isEnabled 'rewards'}}
                     <div class="col-sm-4">
                         <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-reward' style='cursor:pointer'>
                             <i class="icm icm-trophy-star icm-4x"></i>
                             <h5>Rewards</h5>
                         </div>
                     </div>
+                  {{/if}}
+                  {{#if isEnabled 'badgesStatus'}}
                     <div class="col-sm-4">
                         <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-badges' style='cursor:pointer'>
                             <i class="icm icm-medal2 icm-4x"></i>
                             <h5>Badges</h5>
                         </div>
                     </div>
+                  {{/if}}
                     <div class="col-sm-4">
                         <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-leaderboard' style='cursor:pointer'>
                             <i class="icm icm-ladder icm-4x" id="test"></i>
                             <h5>LeaderBoard</h5>
                         </div>
                     </div>
-                </div>
-                <div class="row text-center vpadded-row">
+                <!-- </div> -->
+                <!-- <div class="row text-center vpadded-row"> -->
                     <div class="col-sm-4">
-						<div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-notification' style='cursor:pointer'>
-							<i class="icm icm-envelope icm-4x"></i>
-							<h5>Notifications</h5>
-						</div>
+						          <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-notification' style='cursor:pointer'>
+							          <i class="icm icm-envelope icm-4x"></i>
+							          <h5>Notifications</h5>
+						          </div>
                     </div>
-                    {{#if hasDocs}}
+                    {{#if isEnabled 'repository'}}
                     <div class="col-sm-4">
                         <div class="jump-to-element padded text-gradient-white text-component-shadow" id='vt-document' style='cursor:pointer'>
                             <i class="icm icm-drawer3 icm-4x"></i>
@@ -140,12 +144,12 @@
 
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
-             <!--      <li class="">
+                  <li class="">
                       <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour.">
                           <i class="oc-partial-icon icm icm-binoculars2"></i>
                           <span class="oc-partial-menu-item">Virtual Tour</span>
                       </a>
-                  </li> -->
+                  </li>
                     <li class="">
                         <a class="collapsed side-bar-link user-profile-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="View and Edit your profile" href="#userProfileModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-user"></i>
@@ -183,14 +187,14 @@
                     {{/if}}
                     {{/if}}
                     {{#if isEnabled 'repository'}}
-                    
+
                     <li class="">
                         <a class="collapsed side-bar-link document-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable files that will help you get ahead in this game." href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-drawer3"></i>
                             <span class="oc-partial-menu-item">Documents</span>
                         </a>
                     </li>
-                    
+
                     {{/if}}
                     <li class="">
                         <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Give us your feedback and help us make your experience better." href="#documentsModal" data-toggle='modal'>
@@ -427,7 +431,7 @@
 
 
                         {{/each}}
-                        </div>   
+                        </div>
 
 
                 </div>
@@ -499,12 +503,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 col-xs-12">
-                                            <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
+                                            <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;">
                                                 {{status}}
                                             </div>
                                         </div>
                                     </div>
-                                </article> 
+                                </article>
                                 {{else}}
                                 <article class="white-panel">
                                     <div style="pointer-events: {{auto}};" class="row listing-deck zone-deck" id="listing-deck-{{deckId}}">
@@ -522,12 +526,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 col-xs-12">
-                                            <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
+                                            <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;">
                                                 {{status}}
                                             </div>
                                         </div>
                                     </div>
-                                </article> 
+                                </article>
                                 {{/if}}
 
                             {{else}}
@@ -548,15 +552,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12 col-xs-12">
-                                        <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;"> 
+                                        <div class="text-center popover-content-block  {{status}}-popover-content" style="text-transform: capitalize;">
                                             {{status}}
                                         </div>
                                     </div>
                                 </div>
                             </article>
 
-                            {{/if}}  
-            
+                            {{/if}}
+
 
 
 
@@ -581,7 +585,7 @@
             </div>
 
         </div>
-    </div>  
+    </div>
 </template>
 
 <template name="individualNewStoryZone">
@@ -683,7 +687,7 @@
 
 
 <template name="leaderBoardModal">
-   
+
 
     <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">

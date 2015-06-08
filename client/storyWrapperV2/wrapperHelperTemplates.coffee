@@ -100,7 +100,7 @@ Template.badgeModal.helpers
         s['imgPath'] = imgp
       finalBadges.push s
     finalBadges
- 
+
 
 
 
@@ -170,7 +170,7 @@ Template.badgeModal.rendered = ->
       $(ele).css("margin-left","0px")
   )
 Template.nodeTemp.rendered = () ->
-  
+
   console.log this
   n = _.where(platforms.findOne().nodes,{sequence:this.data.seq})[0].decks.length
   pinCols = if n > 2 then 3 else n
@@ -183,9 +183,9 @@ Template.nodeTemp.rendered = () ->
         padding_x: 10
         padding_y: 10
         margin_bottom: 50
-        single_column_breakpoint: 700   
+        single_column_breakpoint: 700
     ,500)
-  
+
 
 Template.nodeTemp.helpers
 
@@ -241,23 +241,33 @@ Template.chatWrapper.rendered = ->
       )
     return
 
+Template.virtualTourModal.helpers
+  isEnabled:(k)->
+    console.log platforms.findOne()[k]
+    platforms.findOne()[k]
 
 Template.virtualTourModal.events
 
   'click #vt-badges': (e) ->
     console.log "badges"
     $(".badge-link")[0].click()
-    $('#badgesModal .modal-body').virtualTour(window.badgesVTO)
+    setTimeout(->
+      $('#badgesModal .modal-body').virtualTour(window.badgesVTO)
+    , 100)
 
   'click #vt-notification': (e) ->
     console.log "notification"
     $(".notification-link")[0].click()
-    $('#notificationsModal .modal-body').virtualTour(window.notificationsVTO)
+    setTimeout(->
+      $('#notificationsModal .modal-body').virtualTour(window.notificationsVTO)
+    , 100)
 
   'click #vt-reward': (e) ->
     console.log "reward"
     $(".reward-link")[0].click()
-    $('#rewardsModal .modal-body').virtualTour(window.rewardsVTO)
+    setTimeout(->
+      $('#rewardsModal .modal-body').virtualTour(window.rewardsVTO)
+    , 100)
 
   'click #vt-document': (e) ->
     console.log "document"

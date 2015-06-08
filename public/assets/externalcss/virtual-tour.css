@@ -1,0 +1,59 @@
+#virtual-tour-backdrop {
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: rgba(1,1,1,0.8);
+}
+
+.txt-holdr {
+    width: 30%;
+    position: fixed;
+    z-index: 10001;
+    display: block;
+    font-size: 1.2em;
+    text-align: justify;
+    color: #fff;
+    text-shadow: 0px 3px #000;
+    display: none;
+}
+
+.arr {
+    position: absolute;
+    width: 20%;
+}
+
+.flipX { transform: scaleX(-1); }
+.flipY { transform: scaleY(-1); }
+.no-click { pointer-events: none; }
+
+.rot-230 { transform: rotate(230deg); }
+.rot-45 { transform: rotate(45deg); }
+.rot-45_{ transform: rotate(-45deg); }
+.rot-90{ transform: rotate(90deg); }
+.rot-90_{ transform: rotate(-90deg); }
+.rot-20{ transform: rotate(20deg); }
+.rot-105_{ transform: rotate(-105deg); }
+.rot-140 {transform: rotate(140deg); }
+
+
+#nxt-btn {
+  margin: 2% 0;
+  display: block;
+  font-size: 0.8em;
+  float: right;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-shadow: none;
+}
+
+.opaque { opacity: 1 !important; }
+.transp { opacity: 0.05 !important; }
+
+.bxshdw { box-shadow: 0 0 2em 1em #fff !important; }
+
+#badgesModal .modal-backdrop { opacity: 0.8 !important; }
