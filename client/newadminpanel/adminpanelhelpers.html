@@ -72,7 +72,7 @@
                         <a class="collapsed menu-link" target-templ="rolesLeftMenu" href="#"><i class="oc-partial-icon fa fa-sitemap"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Roles</span></a>
                     </li> -->
                          <li class="">
-                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#" target-content='badges'><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
+                        <a class="collapsed menu-link" target-templ="badgesLeftMenu" href="#" target-content='badgesStatus'><i class="oc-partial-icon fa fa-certificate"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Badges</span></a>
                     </li>
                     <li class="">
                         <a class="collapsed menu-link" target-templ="rewardsLeftMenu" target-content='rewards' href="#"><i class="oc-partial-icon fa fa-trophy"></i><span class="oc-partial-menu-item">&nbsp;&nbsp;Rewards</span></a>
@@ -115,7 +115,7 @@
                 </a>
             </li>
             <li id="oc-right-toggle-container">
-                <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black-lter   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
+                <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black-lter enterprise-chat   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
                    data-persist="lg,md,sm" style="color:#ccc">
                     <i class="fa fa-lg fa-comments has-corner-badge">
                         <span class="badge badge-corner badge-corner-top-right badge-info">{{unreadMessages}}</span>
@@ -397,7 +397,7 @@
                                             <p>{{display_title}}</p>
                                             <br>
                                             <br>
-                                            <a href="#" class="btn btn-warning btn-lg" style="width:100%">Activate</a>
+                                            <a href="#" class="btn btn-warning btn-lg enterprise-activate-btn" style="width:100%">Active</a>
                                         </div>
                                     </div>
                                 </div>
@@ -692,7 +692,7 @@
                                 <div class="captionable captionable-effect-flip horizontal">
                                     <div class="captionable-flip">
                                         <div class="captionable-front">
-                                            <div class="panel {{getSpecificContentBoxColor 'badges'}}">
+                                            <div class="panel {{getSpecificContentBoxColor 'badgesStatus'}}">
                                                 <div class="panel-heading text-center">
                                                     <div class="panel-title ">
                                                         Manage Badges
@@ -701,7 +701,7 @@
                                                 <div class="panel-body no-padding-top">
                                                     <div class="padded">
                                                         <div class="vpadded text-center">
-                                                            <i class="fa {{getSpecificContentIcon 'badges'}}" style="font-size:9em"></i>
+                                                            <i class="fa {{getSpecificContentIcon 'badgesStatus'}}" style="font-size:9em"></i>
                                                         </div>
                                                     </div>
 
@@ -710,10 +710,10 @@
                                         </div>
                                         <div class="captionable-caption captionable-back panel-body-info padded">
                                             <!-- <h4>Manage Users</h4> -->
-                                            <p>{{getSpecificContentDesc 'badges'}}</p>
+                                            <p>{{getSpecificContentDesc 'badgesStatus'}}</p>
                                             <div class="row">
                                                 <div class="col-sm-12">
-                                            <a href="#" class="btn btn-warning btn-lg menu-link" target-templ="badgesLeftMenu" target-content='badges' style="width:100%">GO</a>
+                                            <a href="#" class="btn btn-warning btn-lg menu-link" target-templ="badgesLeftMenu" target-content='badgesStatus' style="width:100%">GO</a>
                                         </div>
                                         </div>
                                         </div>
@@ -828,14 +828,14 @@
 
 <form id="platform-settings">
   <div class="form-group">
-    <label for="exampleInputEmail1">Platform Title</label>
-    <input type="text" class="form-control" id="platform-title" placeholder="Enter platform title">
+    <label for="exampleInputEmail1">Campaign Title</label>
+    <input type="text" class="form-control" id="platform-title" placeholder="Enter Campaign Title">
   </div>
 
 
    <div class="form-group">
     <label for="exampleInputEmail1">Google Analytics Snippet</label>
-    <textarea class="form-control" id="platform-ga" ></textarea>
+    <textarea class="form-control" id="platform-ga" placeholder="Put in your Google Analytics code snippet here..."></textarea>
   </div>
 <!--   <div class="row">
 <div class="col-sm-4"><div class="form-group">
@@ -913,7 +913,8 @@
 
         <div class="col-md-8">
             <div class="jumbotron" style="padding:30px;">
-                                              <h1>{{getContentTitle}}</h1>
+                                         <h1>{{getContentTitle}}</h1>
+                      
                                               <p>{{getContentDesc}}</p>
                                           </div>
 
@@ -923,15 +924,25 @@
 
                 <div class="panel-body in panel-body-collapse panel-colorize no-padding-top">
                     <div class="panel-heading">
+                          {{#if equals getContentKeyText 'intro'}}
+                          <h1 style="display:none">{{getContentKeyTitle}}</h1>
+                        {{else}}
                         <h1>{{getContentKeyTitle}}</h1>
+                        {{/if}}
 
 
                     </div>
+                    {{#if equals getContentKeyText 'intro'}}
+                    <img src="{{getImage}}" class="img-responsive" />
+                    {{else}}
                     <div>{{getContentKeyText}}</div>
+                    {{/if}}
                           {{#if equals isSwitchable 'true'}}
                             <div class="onoffswitch pull-right" style="margin-top: 6%;">
 
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+
+
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox {{getToggleWorking}}" id="myonoffswitch" checked>
     <label class="onoffswitch-label" for="myonoffswitch">
         <span class="onoffswitch-inner">
             <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
@@ -983,3 +994,44 @@
 
                                           </ul>
     </template>
+
+
+
+
+
+
+
+<template name="enterpriseOnly">
+<link rel="stylesheet" href="/assets/externalCSS/editNew/editor.css" />
+
+  <div class="modal editor-modal" id="policyModal" tabindex="-1" role="dialog" aria-labelledby="policyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header custom-body-modal">
+          <a class="btn btn-default custom-cross-modal" data-dismiss="modal">&times;</a>
+          <h4 class="modal-title" id="policyModalLabel">Enterprise Only</h4>
+        </div>
+        <div class="modal-body custom-body-modal" style="overflow:auto;color:#ccc;">
+
+            <div class="well">
+              <div id='disclaimer' class="custom-anchor" style="color:#999">
+                  <p>We are sorry. This feature is available only for Enterprise Plan Users.</p>
+              </div>
+            </div>
+
+
+           
+
+        </div>
+        <div class="modal-footer custom-body-modal">
+          <div class="btn-group pull-left">
+            <button class="btn btn-lg btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</template>

@@ -300,6 +300,13 @@ UI.registerHelper "getContentKeyTitle",() ->
 
 
 
+UI.registerHelper "getToggleWorking",() ->
+  v = Session.get('contentVar')
+  adminPanelContent[v]['toggleWorking']
+
+
+
+
 
 UI.registerHelper "getSpecificContentIcon",(v) ->
   
@@ -326,7 +333,7 @@ UI.registerHelper "getPlatformName",() ->
   platforms.findOne().tenantName
 
 UI.registerHelper "hasRewards",() ->
-  systemRewards.find().fetch().length > 1
+  systemRewards.find().fetch().length > 0
 
 
 

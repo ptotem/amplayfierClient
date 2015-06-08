@@ -97454,7 +97454,10 @@ _.mixin({
   clearMenus = function(e) {
     var $this, menuPartial, toggle;
     $this = $(e.target);
-    menuPartial = ".oc-" + (Mq.screen()) + "-partial-left";
+    
+    menuPartial = ".oc-" + (Mq.screen().replace(/["']/g, "")) + "-partial-left";
+    // menuPartial = ".oc-lg" + "-partial-left";
+
     if (!$this.closest(menuPartial).length) {
       return;
     }

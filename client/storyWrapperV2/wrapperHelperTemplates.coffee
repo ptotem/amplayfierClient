@@ -23,6 +23,7 @@ Template.wrapperSideBar.rendered = ->
 
 Template.wrapperSideBar.helpers
   isEnabled:(k)->
+    console.log platforms.findOne()[k]
     platforms.findOne()[k]
   platformStatus:()->
     platforms.findOne().platformStatus
@@ -99,6 +100,7 @@ Template.badgeModal.helpers
         s['imgPath'] = imgp
       finalBadges.push s
     finalBadges
+ 
 
 
 
@@ -161,9 +163,12 @@ Template.mainWrapper.events
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
 Template.badgeModal.rendered = ->
-  $($('.badge-item')[0]).addClass('col-md-offset-1')
-  $($('.badge-item')[5]).addClass('col-md-offset-1')
-
+  $($('.badge-item')[0]).addClass('col-sm-offset-1')
+  $($('.badge-item')[5]).addClass('col-sm-offset-1')
+  $('.badge-item').each((ind,ele)->
+    if ind isnt 0 and ind isnt 5
+      $(ele).css("margin-left","0px")
+  )
 Template.nodeTemp.rendered = () ->
   
   console.log this
@@ -284,5 +289,5 @@ Template.modalLogin.events
      userEmail = $(e.currentTarget).find("#email").val().toString()
      newEmail = encodeEmail(userEmail,pn)
      userPassword = $(e.currentTarget).find("#password").val()
-     authenticatePassword(newEmail,userPassword,"/mystory")
+     authenticatePassword(newEmail,userPassword,"/")
      false

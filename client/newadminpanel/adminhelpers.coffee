@@ -1,4 +1,6 @@
 Template.adminHeaderBar.events
+  'click .enterprise-chat':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
   'click .logout-link': (e) ->
     Meteor.logout()
 
@@ -22,6 +24,12 @@ Template.rewardsLeftMenu.helpers
     systemRewards.find().fetch()
   getRewardStatus:()->
     platforms.findOne()['rewards']
+
+Template.userlistLeftMenu.rendered = ->
+  if platforms.findOne()['platformStatus'] is 'close'
+    $(".onoffswitch-checkbox").prop("checked", true);
+  else
+    $(".onoffswitch-checkbox").prop("checked", false);
 
 Template.repository.rendered = ->
   if platforms.findOne()['repository']
@@ -60,10 +68,10 @@ Template.badgesLeftMenu.helpers
     platforms.findOne().badges
 
   getBadgeStatus:()->
-    platforms.findOne()['badges']
+    platforms.findOne()['badgesStatus']
 
 Template.badgesLeftMenu.rendered = ->
-  if platforms.findOne()['badges']
+  if platforms.findOne()['badgesStatus']
     $(".onoffswitch-checkbox").prop("checked", true);
   else
     $(".onoffswitch-checkbox").prop("checked", false);
@@ -75,8 +83,8 @@ Template.assessmentsLeftMenu.helpers
   assessments:()->
     assesments.find().fetch()
 
-Template.userlistLeftMenu.rendered = () ->
-  $('select').selectize()
+# Template.userlistLeftMenu.rendered = () ->
+#   $('select').selectize()
 
 Template.enrollmentsLeftMenu.rendered = () ->
   $('select').selectize()
@@ -134,7 +142,16 @@ Template.systemNoticifation.events
   'click .new-noti':(e)->
     showModal('newNoti',{ukey:platforms.findOne()._id},'main-wrapper-page-new')
 
+Template.mainAdminPanel.rendered = () ->
+  setTitle('Admin Panel')
+  $('body').on 'hidden.bs.modal', (e) ->
+    # console.log "modal is hidden"
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+  # do something...
+    return
 
+  
+  # ...
 Template.mainAdminPanel.helpers
 #  assessments:()->
 #    assesments.find().fetch()
@@ -319,6 +336,8 @@ Template.enrollmentsLeftMenu.events
 
 Template.manageReport.events
   'click .download-report-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+    return
     Meteor.call('exportData',(err,res)->
       if err
         console.log err
@@ -328,6 +347,8 @@ Template.manageReport.events
     )
 
   'click .download-deck-report-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+    return
     Meteor.call('exportDeckDataForAllUsers',(err,res)->
       if err
         console.log err
@@ -337,6 +358,8 @@ Template.manageReport.events
     )
 
   'click .download-allnode-report-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+    return
     Meteor.call('exportAllNodeDataForAllUsers',platforms.findOne()._id,(err,res)->
       if err
         console.log err
@@ -363,6 +386,9 @@ Template.rewardsLeftMenu.events
     searchBar($(e.currentTarget).val(),".reward-block")
 
 Template.badgesLeftMenu.events
+  'click .enterprise-activate-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+
   'click .update-badge-values':(e)->
     badgeList = []
     $('.badge-item').each((ind,ele)->
@@ -447,17 +473,26 @@ Template.platformStatus.events
 
 
 #  'click .platform-status':(e)->
+Template.standardHeader.helpers
+
+  getImage:()->
+    Meteor.settings.public.mainLink + platforms.findOne().wrapperJson.imgsrc + "/" + platforms.findOne().wrapperJson.screenshot.backgroundkey
+    # ...
 
 Template.standardHeader.events
   'click .onoffswitch-checkbox': (e) ->
-    if $('.onoffswitch-checkbox').is(":checked")
-      if Session.get('contentVar') == "settings"
-        pid = platforms.findOne({tenantName:platformName})._id
-        platforms.update({_id:pid},{$set:{platformStatus:'close'}})
-      Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),true)
+    if $(e.currentTarget).hasClass("All")
+      if $('.onoffswitch-checkbox').is(":checked")
+        if Session.get('contentVar') == "settings"
+          pid = platforms.findOne({tenantName:platformName})._id
+          platforms.update({_id:pid},{$set:{platformStatus:'close'}})
+        Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),true)
+      else
+        console.log "ass"
+        if Session.get('contentVar') == "settings"
+          pid = platforms.findOne({tenantName:platformName})._id
+          platforms.update({_id:pid},{$set:{platformStatus:'open'}})
+        Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),false)
     else
-      console.log "ass"
-      if Session.get('contentVar') == "settings"
-        pid = platforms.findOne({tenantName:platformName})._id
-        platforms.update({_id:pid},{$set:{platformStatus:'open'}})
-      Meteor.call('disbaleFeature',platforms.findOne()._id,Meteor.userId(),Session.get('contentVar'),false)
+      showModal('enterpriseOnly',{},'main-wrapper-page-new')
+      e.preventDefault()
