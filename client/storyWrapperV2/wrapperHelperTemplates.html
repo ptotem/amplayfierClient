@@ -250,9 +250,11 @@
                     <h4 class="modal-title" id="notifyModalLabel">Notifications</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="col-md-8 col-md-offset-2 col-sm-12">
                     <div class="list-group" id="notifications-center">
                         {{>plainNotificationList notiPassKey}}
 
+                    </div>
                     </div>
                 </div>
             </div>
@@ -274,7 +276,9 @@
                     <h4 class="modal-title" id="documentsModalLabel">Documents</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="col-md-8 col-md-offset-2 col-sm-12">
                     {{>docCollection}}
+                </div>
 
                 </div>
             </div>
@@ -288,16 +292,19 @@
     <div class="modal blur data-display-modal" id="rewardsModal" tabindex="-1" role="dialog" aria-labelledby="rewardsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xlg-data-modal">
             <div class="modal-content">
-                <div class="modal-header">
-                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                  <div class="modal-header" style="width:50%">
+                    <a class="btn btn-default pull-right remove-modal">&times;</a>
                     <div class="top-circle-icon"><i class="icm icm-trophy-star"></i>
                     </div>
                     <h4 class="modal-title" id="rewardsModalLabel">Rewards</h4>
                 </div>
+
+
+
                 <div class="modal-body">
                     <div class="rewards-collection">
                         {{#each rewards}}
-                            <div class="col-md-12 col-sm-12 no-padding lib-item" data-category="view">
+                            <div class="col-md-8 col-md-offset-2 no-padding lib-item" data-category="view">
                                 <div class="lib-panel">
                                     <div class="row box-shadow" style="padding-left:15px">
                                         <div class="col-md-3 col-sm-3 reward-img-container" style="background:  url('{{getAssetUrl rewardImage}}');background-size:100% 100%;">
@@ -451,7 +458,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-    <div style="overflow: hidden; width: 75%; height: 100%; margin: 0 auto">
+    <!-- <div class="modal-wrap" style="overflow: hidden; width: 75%; height: 100%; margin: 0 auto"> -->
         <div class="modal blur jump-to-modal" id="nodeModal" style="width:100%;padding-right: 20px">
             <div class="modal-dialog modal-lg">
                 <div class="container-fluid">
@@ -585,7 +592,7 @@
             </div>
 
         </div>
-    </div>
+
 </template>
 
 <template name="individualNewStoryZone">
@@ -614,7 +621,7 @@
               <div class="modal-body">
 
                   {{#with currentUser}}
-                      <div class="col-sm-8 col-sm-offset-2">
+                      <div class="col-md-8 col-md-offset-2 col-sm-12">
                   <form>
                       <div class="form-group">
                           <label class="user-profile-label" for="exampleInputEmail1">First Name</label>
@@ -670,7 +677,7 @@
               </div>
 
 
-              <div class="modal-footer" style="position: absolute; right: 18.5%; bottom: 8.5%;">
+              <div class="modal-footer" style="position: absolute;   right: 18%;bottom: 4.5%;">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary update-user">Save changes</button>
               </div>
@@ -700,7 +707,7 @@
                 </div>
               <div class="modal-body">
                   <div class="row">
-                      <div class="col-sm-12">
+                      <div class="col-md-8 col-md-offset-2 col-sm-12">
                            <div id="leaderboard">
                         <div class="well">
                         There are no leaders at the moment. This is your chance you get ahead!
@@ -755,7 +762,7 @@
                 </div>
               <div class="modal-body">
                   <div class="row">
-                      <div class="col-sm-12">
+                      <div class="col-md-8 col-md-offset-2 col-sm-12">
 
                       <form>
 
@@ -799,7 +806,7 @@
 
 
                         </div>
-                        <div class="col-sm-12" style="background:white ;color:black ;padding:35px ;font-size: 1.5em; text-align: center">
+                        <div class="col-md-8 col-md-offset-2 col-sm-12" style="background:white ;color:black ;padding:35px ;font-size: 1.5em; text-align: center">
                             Contact us at<br>info@amplayfier.com
                     </div>
                 </div>
@@ -823,7 +830,7 @@
                     <h4 class="modal-title" id="modalLoginLabel">Login</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="col-sm-12 ">
+                    <div class="col-md-8 col-md-offset-2 col-sm-12">
                   <form class="login-form" id="storyLoginForm">
                     <div class="form-group has-feedback">
                       <label class="control-label">Email</label>

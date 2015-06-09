@@ -159,6 +159,7 @@ Template.mainWrapper.events
 
     $('.modal').modal('hide')
     $('.modal').remove()
+    $('.modal-wrap').remove()
 
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 

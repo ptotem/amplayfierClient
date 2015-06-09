@@ -62,6 +62,8 @@ Template.profilesLeftMenu.helpers
     profiles
 
 Template.badgesLeftMenu.helpers
+  processBadgeImage:(ipath)->
+    ipath.replace("-bw","")
   bottombadges:()->
     platforms.findOne().badges
   topbadges:()->
