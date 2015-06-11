@@ -64,8 +64,8 @@ Template.deckList.helpers
 Template.previewPPT.rendered = ->
 # $('.item').first().addClass('active')
 	setTimeout(()->
-		
-		x = { 
+
+		x = {
 			center: true,
 			nav:true,
 			navText:['<i class=" fa fa-angle-left">','<i class=" fa fa-angle-right">']
@@ -81,12 +81,12 @@ Template.previewPPT.rendered = ->
 
 
 	,1000)
- 
-  
+
+
 
 Template.previewPPT.events
 	'click .close-ppt-modal': () ->
-		changeCarouselSlide()	  
+		changeCarouselSlide()
 
 		setTimeout(()->
 			endAttempt()
@@ -95,11 +95,12 @@ Template.previewPPT.events
 
 		$('.projection').remove();
 		$('.story-zone-playbar').remove();
+		cancelFullScreen("#viewPPTModal")
 
 
 Template.previewPPT.helpers
 	deckImages: (did) ->
-		
+
 		deckHtml.findOne({deckId:did}).dimages
 	getImgFromCreator:(link)->
 		Meteor.settings.public.mainLink + link
