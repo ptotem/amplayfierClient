@@ -174,13 +174,13 @@ Meteor.methods
         platformName), password: newpass, role: "admin", platform: pid, personal_profile: personal_profile
     })
 
-  fetchDataFromCreator: (tid)->
+  fetchDataFromCreatorOld: (tid)->
     x = DDP.connect(remoteIp)
     secretKey = platforms.findOne({tenantId: tid}).secretKey
 
     x.call('checkCreatorConnection', tid, secretKey, (err, res)->
       console.log err
-      console.log res
+      console.log "Res : " + res
       if res isnt -1
         getTenantHtml(tid, secretKey, res)
         getTenantJs(tid, secretKey, res)
@@ -190,6 +190,30 @@ Meteor.methods
         getCustomizationData(tid, secretKey, res)
         getRequestForTenant(tid, secretKey, res)
         # getAllAssetsForTenant(tid,secretKey)
+        platforms.update({tenantId: tid}, {$set: {platformSync: true, issyncing: false}})
+    )
+
+  fetchDataFromCreator: (tid)->
+    x = DDP.connect(remoteIp)
+    masterPlatform = platforms.findOne({tenantId: tid})
+    secretKey = masterPlatform.secretKey
+    subPlatforms = masterPlatform.subPlatforms
+
+    x.call('checkCreatorConnection', tid, secretKey, (err, res)->
+      console.log err
+      console.log res
+      if res isnt -1
+        for subPlatform in subPlatforms
+          spid = subPlatform.subTenantId
+          getTenantHtml(spid, secretKey, res)
+          getTenantJs(spid, secretKey, res)
+          getTenantMetaData(spid, secretKey, res)
+          # getIntegratedGames(tid,secretKey)
+          getIntegratedGameQuestions(spid, secretKey, res)
+          getCustomizationData(spid, secretKey, res)
+          getRequestForTenant(spid, secretKey, res)
+          # getAllAssetsForTenant(tid,secretKey)
+          platforms.update({tenantId: spid}, {$set: {platformSync: true, issyncing: false}})
         platforms.update({tenantId: tid}, {$set: {platformSync: true, issyncing: false}})
     )
 
@@ -216,6 +240,21 @@ Meteor.methods
       # platforms.remove({tenantId:tid})
 #      platforms.update({_id:"AqFLFgDvD5hMBQ8Zh"},{$set:{}})
       p = platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
+      r = addRoles("player","This is the player role",[],p)
+      return true
+    else
+      platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
+      return false
+ 
+  buildPlatformsForClient: (tid, subPlatforms, tname, secretKey)->
+    if !platforms.findOne({tenantId: tid})?
+      # TODO:Archive Platforms before wiping current platform
+      # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
+      # platforms.remove({tenantId:tid})
+#      platforms.update({_id:"AqFLFgDvD5hMBQ8Zh"},{$set:{}})
+      p = platforms.insert({tenantId: tid, subPlatforms: subPlatforms, isMaster: true,tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
+      for subPlatform in subPlatforms
+        platforms.insert({masterPlatformId:p, tenantId: subPlatform.subTenantId, isMaster: false, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
       r = addRoles("player","This is the player role",[],p)
       return true
     else
