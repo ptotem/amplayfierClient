@@ -1,0 +1,163 @@
+<template name="platformWrapper">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <link href="/assets/externalcss/theme.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/externalcss/virtual-tour.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    /*popover styling*/
+    
+      .popover {
+          box-shadow: 0 0 10px 5px black;
+          text-align: center;
+          color: black;
+      }
+      
+      .popover-title {
+          background: black;
+          color: white;
+          font-weight: bold;
+      }
+      
+      .popover-photo {
+          width: 100%;
+          margin-bottom: 5px;
+      }
+      
+      .popover-content-block {
+          padding: 4px 2px;
+          margin-top: 4px;
+          margin-bottom: 8px;
+      }
+      
+      .complete-popover-content {
+          background: #4d7b4d;
+          color: white;
+      }
+      
+      .active-popover-content {
+          background: goldenrod;
+          color: black;
+      }
+      
+      .incomplete-popover-content {
+          background: #ba5858;
+          color: white;
+      }
+      
+      .modal-xlg-data-modal .modal-header {
+          width: 60%;
+      }
+    </style>
+    <!-- <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" /> -->
+    <div id="main-page-desktop" class=" high emerald-default htmls htmls_panels story-page bg-black">
+        <img id="story-nameplate-cover" src="{{getNamePlate}}" alt="" style="width:50%;height:auto;position:absolute;top:20%;left:25%;z-index: 100000;" />
+        <!--<div id="blurmebro"></div>-->
+        <div id="node-dialog-container"></div>
+        <div class="main-story-content" id="main-wrapper-page">
+            <div class="oc-xs-squeeze-push oc-sm-squeeze-push oc-md-squeeze-push oc-lg-squeeze-push modal-blur-content" style="  height: 100vh;">
+                <div id="oc-wrapper" class="oc-wrapper oc-lg-partial-left oc-md-partial-left oc-sm-partial-left oc-xs-partial-left oc-lg-left-squeeze oc-md-left-squeeze oc-sm-left-squeeze oc-xs-left-squeeze oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
+                    <div class="oc-push oc-scroll">
+                        {{>wrapperSideBar}}
+                        <div id="main-oc-container" class="oc-container" style="background-color: {{getBackColor}}">
+                            <ul class="nav  navbar-nav navbar-right pull-right " style="  position: fixed;z-index:3000;right: 0;">
+                                <li id="oc-right-toggle-container">
+                                    {{#if equals isAdmin 'admin'}}
+                                    <a id="oc-right-preview" title="Click here to go to the Admin Panel" href="/admin" class="btn-nav bg-black  sidebar-toggle-right " style="color:#ccc;border-right:1px solid #666;">
+                                        <i class="fa fa-lg fa-gears has-corner-badge">
+                                        </i> Admin Panel
+                                    </a>
+                                    {{/if}}
+                                </li>
+                                <!-- SUNNYS CHAT -->
+                                <!--   <li id="oc-right-toggle-container">
+                                            <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav bg-black   sidebar-toggle-right" rel="tooltip" title="Toggle chat" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden"
+                                               data-persist="lg,md,sm" style="color:#ccc;border-radius:0">
+                                                <i class="fa fa-lg fa-comments has-corner-badge">
+                                                    <span class="badge badge-corner badge-corner-top-right badge-info">{{unreadMessages}}</span>
+                                                </i>
+                                            </a>
+                                        </li> -->
+                            </ul>
+                            <!--
+                                      <a style="background: black;border-radius: 50%;position: absolute;right: 1%;top: 1%;cursor: pointer;z-index: 1;" id="oc-right-toggle" href="#oc-wrapper" class="btn-nav sidebar-toggle-right" rel="tooltip" title="" data-placement="bottom" data-container="#oc-right-toggle-container" data-toggle="offcanvas" data-control="right" data-states="open,hidden" data-persist="lg,md,sm" data-original-title="Toggle chat">
+
+                                          <i class="fa fa-lg fa-comments has-corner-badge">
+                                              <span class="badge badge-corner badge-corner-top-right badge-info" style="background:red">3</span>
+                                          </i>
+                                      </a> -->
+                            <div id="story-wrapper">
+                                <!-- HTML for games -->
+                                {{#if hasGame}} {{#if isPortrait}} {{#with game}}
+                                <div class="game-container" style="  position: absolute; left: {{gamebox.portrait.left}}%;top: {{gamebox.portrait.top}}%;height: {{gamebox.portrait.height}}%;width: {{gamebox.portrait.width}}%;z-index: 20000;">
+                                    <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%" style='border:none;'></iframe>
+                                </div>
+                                {{/with}} {{else}} {{#with game}}
+                                <div class="game-container" style="  position: absolute;left: {{gamebox.landscape.left}}%;top: {{gamebox.landscape.top}}%;height: {{gamebox.landscape.height}}%;width: {{gamebox.landscape.width}}%;z-index: 20000;">
+                                    <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%" style='border:none;'></iframe>
+                                </div>
+                                {{/with}} {{/if}} {{/if}}
+                                <div id="story-content" style="background-image:url('{{getBackImg}}')">
+                                    <img id="story-presenter" src="{{getStoryPresenter}}" alt="" />
+                                    <!-- HTML for HUD -->
+                                    <div class="hud-container" style="width: 100%;height: 100%;display:none">
+                                        {{#if isPortrait}} {{#with hud}}
+                                        <div id="hud-img" style="position: absolute;top:{{portrait.top}}%;left: {{portrait.left}}%;width: {{portrait.width}}%">
+                                            <img src='{{getHudImage}}' style="width: 100%;position: relative;z-index: 1">
+                                        </div>
+                                        <div id="user-profile" style="width: {{picturebox.portrait.width}}%;position: absolute;top: {{picturebox.portrait.top}}%;left: {{picturebox.portrait.left}}%;z-index: 50;">
+                                            <img src="/assets/images/user.jpg" style="width: 100%;border-radius: 50%">
+                                        </div>
+                                        <span id="points-container" style="position: absolute;width: {{pointbox.portrait.width}}%;top: {{pointbox.portrait.top}}%;left: {{pointbox.portrait.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>{{currentUser.points}}</span>
+                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.portrait.width}}%;height: 3%;top: {{creditbox.portrait.top}}%;left: {{creditbox.portrait.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>{{currentUser.currency}}</span> {{/with}} {{else}} {{#with hud}}
+                                        <div id="hud-img" style="position: absolute;top:{{landscape.top}}%;left: {{landscape.left}}%;width: {{landscape.width}}%">
+                                            <img src='{{getHudImage}}' style="width: 100%;position: relative;z-index: 1">
+                                        </div>
+                                        <div id="user-profile" style="width: {{picturebox.landscape.width}}%;position: absolute;top: {{picturebox.landscape.top}}%;left: {{picturebox.landscape.left}}%;z-index: 50;">
+                                            <img src="/assets/images/user.jpg" style="width: 100%;border-radius: 50%">
+                                        </div>
+                                        <span id="points-container" style="position: absolute;width: {{pointbox.landscape.width}}%;top: {{pointbox.landscape.top}}%;left: {{pointbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">POINTS<br>{{currentUser.points}}</span>
+                                        <span id="credits-container" style="  position: absolute;width: {{creditbox.landscape.width}}%;height: 3%;top: {{creditbox.landscape.top}}%;left: {{creditbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS<br>{{currentUser.currency}}</span> {{/with}} {{/if}}
+                                    </div>
+                                    <div id="story-nodes">
+                                        {{#if isPortrait}} {{#each nodes}}
+                                        <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop portrait.top}}%;left:{{getPrecLeft portrait.left}}%;width:{{portrait.width}}%">
+                                            <img src="{{getNodeStatusPic sequence}}" alt="">
+                                        </a>
+                                        {{/each}} {{else}} {{#each nodes}}
+                                        <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.top}}%;left:{{getPrecLeft landscape.left}}%;width:{{landscape.width}}%">
+                                            <img src="{{getNodeStatusPic sequence}}" alt="">
+                                        </a>
+                                        {{/each}} {{/if}}
+                                    </div>
+                                    <div id="story-subplatform">
+                                      {{#each subPlatforms}}
+                                        <a href="/games/{{subTenantId}}">{{subTenantName}}</a>
+                                      {{/each}}
+                                    </div>
+                                </div>
+                                <div id="story-overlays"></div>
+                            </div>
+                            <!-- <img id="story-nameplate" src="{{getNamePlate}}" alt="" /> -->
+                            <!-- <img id="story-nameplate" src="{{generateStoryImagePath wrapperJson.imgsrc wrapperJson.nameplate.image}}" alt="" style="width:{{wrapperJson.nameplate.landscape.width}}%;left:{{wrapperJson.nameplate.landscape.left}}%;top:{{wrapperJson.nameplate.landscape.top}}%;" />
+                            <div id="notifications-splash"></div> -->
+                        </div>
+                    </div>
+                    {{>chatWrapper}}
+                </div>
+                <!-- Needed by BSE.Mq.screen() helper in utils.js -->
+                <div id="mq"></div>
+                <!-- Needed by EmVars helper in _emerald.js -->
+                <div id="emvars"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Badges Modal -->
+    <!-- /modal -->
+    <!-- Notifications Modal -->
+    <!-- /modal -->
+    <!-- Leaderboard Modal -->
+</template>
