@@ -180,6 +180,10 @@
       j++
     i++
 
+@setMasterPlatform = (tname, tid)->
+  @tenantId = platforms.findOne({tenantName: tname}).tenantId
+
+
 _.mixin
   sum: (arr) ->
     _.reduce arr, ((s, x) ->

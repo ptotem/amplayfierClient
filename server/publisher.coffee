@@ -13,6 +13,27 @@ Meteor.publish('platformData', (pname)->
     []
 )
 
+Meteor.publish('platformWrapperData', (pname)->
+  if platforms.findOne({tenantName: pname})?
+    this.ready()
+    pid = platforms.findOne({tenantName: pname, isMaster: true})._id
+    tid = platforms.findOne({tenantName: pname, isMaster: true}).tenantId
+    console.log pid
+    [platforms.find({tenantName: pname, isMaster: true}), deckHtml.find({platformId: pid}),userCompletions.find({tenantId:tid})]
+  else
+    []
+)
+
+Meteor.publish('subPlatformWrapperData', (pname, spid)->
+  if platforms.findOne({tenantName: pname})?
+    this.ready()
+    pid = platforms.findOne({tenantName: pname, tenantId: spid, isMaster: false})._id
+    tid = platforms.findOne({tenantName: pname, isMaster: true}).tenantId
+    console.log "PID : " + pid
+    [platforms.find({tenantName: pname, isMaster: false, tenantId: spid}), deckHtml.find({platformId: pid}),userCompletions.find({tenantId:tid})]
+  else
+    []
+)
 
 Meteor.publish('thisDeck', (did)->
   this.ready()
