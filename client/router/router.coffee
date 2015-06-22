@@ -214,14 +214,32 @@ Router.route '/oldpepsi',
     else
       @render('loading')
 
-Router.route '/',
+Router.route '/games/:sid',
   template: 'mainWrapper',
   name: 'mainWrapper',
   data:()->
     pname =  headers.get('host').split('.')[0]
+    {platformName:pname, subPlatformId: this.params.sid}
+  waitOn:()->
+    [Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('subPlatformWrapperData',this.data().platformName,this.data().subPlatformId),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank',this.data().platformName),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
+  action:()->
+    if @ready()
+      setPlatform(this.data().platformName)
+      # setMasterPlatform(this.data().platformName, this.data().subPlatformId)
+      # setTenant(this.data().platformName)
+
+      @render()
+    else
+      @render('loading')
+
+Router.route '/',
+  template: 'platformWrapper',
+  name: 'platformWrapper',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
     {platformName:pname}
   waitOn:()->
-    [Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('platformData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank',this.data().platformName),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
+    [Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('platformWrapperData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank',this.data().platformName),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
   action:()->
     if @ready()
       setPlatform(this.data().platformName)

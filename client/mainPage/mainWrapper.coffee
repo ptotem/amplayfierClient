@@ -1,3 +1,63 @@
+@initDeck = ()->
+
+
+  setTimeout(()->
+    readHTML()
+    for v in document.getElementsByTagName('video')
+      v.pause()
+    for v in document.getElementsByTagName('audio')
+      v.pause()
+
+    setTimeout(()->
+      startAttempt($(".slide-container").length)
+      changeSlideInCarousel()
+    
+    ,2000)
+    
+
+    # $(".center-panel[has-data='false']").remove()
+    # $(".slide-container:empty").remove()
+    # executeSlideLoad($('.slide-container').first())
+    owl = $('.owl-carousel')
+    owl.on('translated.owl.carousel',(e)->
+      console.log "translated"
+      changeCarouselSlide()
+      changeSlideInCarousel()
+      
+    ) 
+    # owl.on('dragged.owl.carousel',(e)->
+    #   console.log "dragged"
+    #   changeCarouselSlide()
+    #   changeSlideInCarousel()
+      
+    # )
+    # $('.owl-next').on 'click', (e) ->
+    #   # $(".owl-carousel .owl-next").trigger('click');
+    #   console.log "sass"
+    #   changeCarouselSlide()
+    #   changeSlideInCarousel()
+      
+    #   # changeCarouselSlide()
+    #   # nextItem = $('.active').next()
+    #   # transitionSlide()
+    #   # $('.active').removeClass 'active'
+    #   # executeSlideLoad(nextItem)
+
+    # $('.owl-prev').on 'click', (e) ->
+    #   # $(".owl-carousel .owl-prev").trigger('click');
+    #   changeCarouselSlide()
+    #   changeSlideInCarousel()
+      
+      # changeCarouselSlide()
+      # prevItem = $('.active').prev()
+      # transitionSlide()
+      # $('.active').removeClass 'active'
+      # executeSlideLoad(prevItem)
+
+
+  ,100)
+
+
 Template.mainWrapper.rendered = ->
   Meteor.call('updateUserChatFalse', Meteor.userId())
   $('body').on 'hidden.bs.modal', (e) ->
@@ -19,6 +79,7 @@ Template.mainWrapper.rendered = ->
 
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
+  console.log platforms.findOne()
   window.platformData.nodes = platforms.findOne().nodes
   
   initPage()
@@ -31,7 +92,7 @@ Template.mainWrapper.rendered = ->
 
 
 Template.mainWrapper.created = ()->
-  s = platforms.findOne().wrapperJson
+  s = platforms.findOne({}).wrapperJson
   window.storyConfig = s
 
 Template.mainWrapper.helpers

@@ -28,7 +28,7 @@
 
 
 
-@getTenantHtml = (tid, secretKey, res)->
+@getTenantHtml = (tid, secretKey, res, isMaster)->
   x = DDP.connect(remoteIp)
   x.call('requestHTMLForTenant', tid, secretKey, res, (err, res)->
     console.log err
@@ -46,9 +46,9 @@
         # platforms.update({p._id},{$push:{x}})
   )
 
-@getTenantJs = (tid, secretKey, res)->
+@getTenantJs = (tid, secretKey, res, isMaster)->
   x = DDP.connect(remoteIp)
-  x.call('requestJSForTenant', tid, secretKey, res, (err, res)->
+  x.call('requestJSForTenant', tid, secretKey, res, isMaster,  (err, res)->
     console.log err
     console.log res
     if !err
@@ -59,9 +59,9 @@
         deckJs.insert({deckId: c.deckId, panelId: c.panelId, jsContent: c.JSContent, platformId: p._id})
   )
 
-@getTenantMetaData = (tid, secretKey, res)->
+@getTenantMetaData = (tid, secretKey, res, isMaster)->
   x = DDP.connect(remoteIp)
-  x.call('requestTenantMetaData', tid, secretKey, res, (err, res)->
+  x.call('requestTenantMetaData', tid, secretKey, res, isMaster, (err, res)->
     console.log err
     console.log res
     if !err
@@ -105,9 +105,9 @@
       )
   )
 
-@getIntegratedGameQuestions = (tid, secretKey, res)->
+@getIntegratedGameQuestions = (tid, secretKey, res, isMaster)->
   x = DDP.connect(remoteIp)
-  x.call('syncIntegratedGameQuestions', tid, secretKey, res, (err, res)->
+  x.call('syncIntegratedGameQuestions', tid, secretKey, res, isMaster, (err, res)->
     console.log err
     console.log res
     if !err
@@ -117,9 +117,9 @@
         gameData.insert({deckId: c.deckId, igId: c.igId, questions: c.questions, platformId: p._id})
   )
 
-@getCustomizationData = (tid, secretKey, res)->
+@getCustomizationData = (tid, secretKey, res, isMaster)->
   x = DDP.connect(remoteIp)
-  x.call('syncCustomizationData', tid, secretKey, res, (err, res)->
+  x.call('syncCustomizationData', tid, secretKey, res, isMaster, (err, res)->
     console.log err
     console.log res
     if !err
@@ -129,9 +129,9 @@
         customizationDecks.insert({intGameId: c.integratedGame, custKey: c.custKey, custVal: c.custVal, dataType: c.dataType, platformId: p._id})
   )
 
-@getRequestForTenant = (tid, secretKey, res)->
+@getRequestForTenant = (tid, secretKey, res, isMaster)->
   x = DDP.connect(remoteIp)
-  x.call('requestStoryWrapperForTenant', tid, secretKey, res, (err, res)->
+  x.call('requestStoryWrapperForTenant', tid, secretKey, res, isMaster, (err, res)->
     console.log err
     console.log res
     pname = platforms.findOne({tenantId: tid}).tenantName
@@ -174,13 +174,13 @@ Meteor.methods
         platformName), password: newpass, role: "admin", platform: pid, personal_profile: personal_profile
     })
 
-  fetchDataFromCreator: (tid)->
+  fetchDataFromCreatorOld: (tid)->
     x = DDP.connect(remoteIp)
     secretKey = platforms.findOne({tenantId: tid}).secretKey
 
     x.call('checkCreatorConnection', tid, secretKey, (err, res)->
       console.log err
-      console.log res
+      console.log "Res : " + res
       if res isnt -1
         getTenantHtml(tid, secretKey, res)
         getTenantJs(tid, secretKey, res)
@@ -190,6 +190,33 @@ Meteor.methods
         getCustomizationData(tid, secretKey, res)
         getRequestForTenant(tid, secretKey, res)
         # getAllAssetsForTenant(tid,secretKey)
+        platforms.update({tenantId: tid}, {$set: {platformSync: true, issyncing: false}})
+    )
+
+  fetchDataFromCreator: (tid)->
+    x = DDP.connect(remoteIp)
+    masterPlatform = platforms.findOne({tenantId: tid})
+    secretKey = masterPlatform.secretKey
+    subPlatforms = masterPlatform.subPlatforms
+    #Code to include master platform
+    subPlatforms.push({subTenantId: tid, isMaster: true})
+
+    x.call('checkCreatorConnection', tid, secretKey, (err, res)->
+      console.log err
+      console.log res
+      if res isnt -1
+        for subPlatform in subPlatforms
+          spid = subPlatform.subTenantId
+          im = subPlatform.isMaster
+          getTenantHtml(spid, secretKey, res, im)
+          getTenantJs(spid, secretKey, res, im)
+          getTenantMetaData(spid, secretKey, res, im)
+          # getIntegratedGames(tid,secretKey)
+          getIntegratedGameQuestions(spid, secretKey, res, im)
+          getCustomizationData(spid, secretKey, res, im)
+          getRequestForTenant(spid, secretKey, res, im)
+          # getAllAssetsForTenant(tid,secretKey)
+          platforms.update({tenantId: spid}, {$set: {platformSync: true, issyncing: false}})
         platforms.update({tenantId: tid}, {$set: {platformSync: true, issyncing: false}})
     )
 
@@ -216,6 +243,21 @@ Meteor.methods
       # platforms.remove({tenantId:tid})
 #      platforms.update({_id:"AqFLFgDvD5hMBQ8Zh"},{$set:{}})
       p = platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
+      r = addRoles("player","This is the player role",[],p)
+      return true
+    else
+      platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
+      return false
+ 
+  buildPlatformsForClient: (tid, subPlatforms, tname, secretKey)->
+    if !platforms.findOne({tenantId: tid})?
+      # TODO:Archive Platforms before wiping current platform
+      # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
+      # platforms.remove({tenantId:tid})
+#      platforms.update({_id:"AqFLFgDvD5hMBQ8Zh"},{$set:{}})
+      p = platforms.insert({tenantId: tid, subPlatforms: subPlatforms, isMaster: true,tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
+      for subPlatform in subPlatforms
+        platforms.insert({masterPlatformId:p, subTenantName:subPlatform.subTenantName, tenantId: subPlatform.subTenantId, isMaster: false, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
       r = addRoles("player","This is the player role",[],p)
       return true
     else
