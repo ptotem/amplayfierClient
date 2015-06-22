@@ -23,15 +23,23 @@ Template.adminpanel.events
         saveAs(blob, 'deck.zip')
     )
 
-  'click .download-allnode-report-btn':(e)->
-    Meteor.call('exportAllNodeDataForAllUsers',platforms.findOne()._id,(err,res)->
+  'click .download-alldeck-report-btn':(e)->
+    Meteor.call('exportAllDeckDataForAllUsers',platforms.findOne()._id,(err,res)->
       if err
         console.log err
       else
         blob = base64ToBlob(res)
-        saveAs(blob, 'allnode.zip')
+        saveAs(blob, 'alldeck.zip')
     )
 
+  'click .download-alldeck-report-btn':(e)->
+    Meteor.call('exportAllDeckDataForAllUsers',platforms.findOne()._id,(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'alldeck.zip')
+    )
 
 
 

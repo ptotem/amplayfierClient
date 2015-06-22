@@ -152,7 +152,7 @@ Template.mainAdminPanel.rendered = () ->
   # do something...
     return
 
-  
+
   # ...
 Template.mainAdminPanel.helpers
 #  assessments:()->
@@ -345,7 +345,7 @@ Template.manageReport.events
         console.log err
       else
         blob = base64ToBlob(res)
-        saveAs(blob, 'export.zip')
+        saveAs(blob, 'node.zip')
     )
 
   'click .download-deck-report-btn':(e)->
@@ -370,7 +370,21 @@ Template.manageReport.events
         saveAs(blob, 'allnode.zip')
     )
 
-    createNotification("Badges have been updated",1)
+
+
+  'click .download-alldeck-report-btn':(e)->
+    showModal('enterpriseOnly',{},'main-wrapper-page-new')
+    return
+    Meteor.call('exportAllDeckDataForAllUsers',platforms.findOne()._id,(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'alldeck.zip')
+    )
+
+
+
 Template.rewardsLeftMenu.rendered = ->
   if platforms.findOne()['rewards']
     $(".onoffswitch-checkbox").prop("checked", true);

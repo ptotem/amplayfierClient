@@ -222,6 +222,21 @@ Meteor.methods
       platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
       return false
 
+
+  buildPlatformsForClient: (tid, subPlatforms, tname, secretKey)->
+    if !platforms.findOne({tenantId: tid})?
+      # TODO:Archive Platforms before wiping current platform
+      # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
+      # platforms.remove({tenantId:tid})
+#      platforms.update({_id:"AqFLFgDvD5hMBQ8Zh"},{$set:{}})
+      p = platforms.insert({tenantId: tid, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
+      r = addRoles("player","This is the player role",[],p)
+      return true
+    else
+      platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
+      return false
+
+
   isReadyForCommunication: (secretKey)->
     if secretKey is "mysecretcode"
       return true
@@ -509,7 +524,7 @@ Meteor.methods
     Meteor.users.update({_id:uid},{$inc:{currency:scr}})
   disbaleFeature:(pid,uid,feature,fs)->
     if roles.findOne(Meteor.users.findOne(uid).personal_profile.role).capabilities.indexOf('disable_features') isnt -1
-      
+
       x = {}
       x[feature] = fs
       platforms.update({_id:pid},{$set:x})
