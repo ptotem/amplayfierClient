@@ -117,6 +117,24 @@
         gameData.insert({deckId: c.deckId, igId: c.igId, questions: c.questions, platformId: p._id})
   )
 
+@getSubGameQuestions = (tid, secretKey, res, isMaster)->
+  x = DDP.connect(remoteIp)
+  x.call('syncSubGameQuestions', tid, secretKey, res, isMaster, (err, res)->
+    console.log err
+    # console.log res
+    if !err
+      p = platforms.findOne({tenantId: tid})
+      # gameData.remove({platformId: p._id})
+      for c in res
+        console.log "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+        console.log "++++++++++++++++Game Question     ++++++++++++++++++++++++"
+        console.log "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+        g = gameData.insert({deckId: c.deckId, tenantId:tid, gameName: c.gameName, level: c.level, igId: c.igId, questions: c.questions, platformId: p._id})
+        console.log g
+        console.log "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+  )
+
+
 @getCustomizationData = (tid, secretKey, res, isMaster)->
   x = DDP.connect(remoteIp)
   x.call('syncCustomizationData', tid, secretKey, res, isMaster, (err, res)->
@@ -212,7 +230,8 @@ Meteor.methods
           getTenantJs(spid, secretKey, res, im)
           getTenantMetaData(spid, secretKey, res, im)
           # getIntegratedGames(tid,secretKey)
-          getIntegratedGameQuestions(spid, secretKey, res, im)
+          # getIntegratedGameQuestions(spid, secretKey, res, im)
+          getSubGameQuestions(spid, secretKey, res, im)
           getCustomizationData(spid, secretKey, res, im)
           getRequestForTenant(spid, secretKey, res, im)
           # getAllAssetsForTenant(tid,secretKey)

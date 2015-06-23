@@ -163,3 +163,7 @@
 
 @getUserCurrencyForGame = () ->
   Meteor.user().currency
+
+@getGameQuestionByLevel = (gameName, level) ->
+  p = platforms.find({tenantId: tenantId})
+  gameData.findOne({gameName: gameName, level: level, tenantId: tenantId}).questions
