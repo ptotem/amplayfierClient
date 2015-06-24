@@ -9,48 +9,78 @@
     <link href="/assets/externalcss/virtual-tour.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
     /*popover styling*/
-    
+
       .popover {
           box-shadow: 0 0 10px 5px black;
           text-align: center;
           color: black;
       }
-      
+
       .popover-title {
           background: black;
           color: white;
           font-weight: bold;
       }
-      
+
       .popover-photo {
           width: 100%;
           margin-bottom: 5px;
       }
-      
+
       .popover-content-block {
           padding: 4px 2px;
           margin-top: 4px;
           margin-bottom: 8px;
       }
-      
+
       .complete-popover-content {
           background: #4d7b4d;
           color: white;
       }
-      
+
       .active-popover-content {
           background: goldenrod;
           color: black;
       }
-      
+
       .incomplete-popover-content {
           background: #ba5858;
           color: white;
       }
-      
+
       .modal-xlg-data-modal .modal-header {
           width: 60%;
       }
+
+
+      .story-wrapper-overlay
+       {
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           background-color: rgba(0, 0, 0, 0.65);
+           z-index: 9999;
+           color: white;
+           display: inline-block;
+       }
+
+       #scory-board{
+         margin-top:5%;
+       }
+
+       #scory-board .active-platform{
+          text-align:center;
+          color:black;
+       }
+
+       #scory-board .disabled-platform{
+          background:#ccc;
+          pointer-events:none;
+          text-align:center;
+          color:black;
+       }
     </style>
     <!-- <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" /> -->
     <div id="main-page-desktop" class=" high emerald-default htmls htmls_panels story-page bg-black">
@@ -89,6 +119,48 @@
                                               <span class="badge badge-corner badge-corner-top-right badge-info" style="background:red">3</span>
                                           </i>
                                       </a> -->
+
+
+          <div class="story-wrapper-overlay">
+
+
+        <div id="scory-board">
+
+
+            <div class="container">
+
+                  <div class="row">
+
+                    {{#each subPlatforms}}
+                      {{#if active}}
+
+                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                            <a class="thumbnail active-platform" href="/games/{{subTenantId}}">
+                                {{subTenantName}}
+                                <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/mdbg1/node-active.gif" alt="{{subTenantName}}">
+                            </a>
+                        </div>
+                        {{else}}
+                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                            <a class="thumbnail disabled-platform" href="#">
+                              Not Active
+                              <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/mdbg1/node-incomplete.png" alt="No Platforms">
+                            </a>
+                        </div>
+                        {{/if}}
+                      {{/each}}
+                  </div>
+            </div>
+          </div>
+
+          </div>
+
+
+
+
+
+
+
                             <div id="story-wrapper">
                                 <!-- HTML for games -->
                                 {{#if hasGame}} {{#if isPortrait}} {{#with game}}
@@ -133,11 +205,11 @@
                                         </a>
                                         {{/each}} {{/if}}
                                     </div>
-                                    <div id="story-subplatform">
+                                    <!-- <div id="story-subplatform">
                                       {{#each subPlatforms}}
                                         <a href="/games/{{subTenantId}}">{{subTenantName}}</a>
                                       {{/each}}
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div id="story-overlays"></div>
                             </div>

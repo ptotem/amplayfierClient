@@ -17,7 +17,7 @@ Template.platformWrapper.rendered = ->
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
   # window.platformData.nodes = platforms.findOne().nodes
-  
+
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
@@ -126,10 +126,27 @@ Template.platformWrapper.helpers
     messageCount
 
   isAdmin:() ->
-    Meteor.users.findOne({_id:Meteor.userId()}).role 
+    Meteor.users.findOne({_id:Meteor.userId()}).role
 
-  subPlatforms:() ->
-    subPlatforms = platforms.findOne().subPlatforms 
+  subPlatformsOld:() ->
+    subPlatforms = platforms.findOne().subPlatforms
+
+
+
+  ###
+  @summary Get the tenant's nodes with display number
+  ###
+  subPlatforms:()->
+    allSubPlatforms = []
+    subPlats = platforms.findOne().subPlatforms
+    for i in [0..11]
+      if i < subPlats.length
+        n = subPlats[i]
+        n['active']=true
+        allSubPlatforms.push n
+      else
+        allSubPlatforms.push {active:false}
+    allSubPlatforms
 
 
 Template.platformWrapper.events
