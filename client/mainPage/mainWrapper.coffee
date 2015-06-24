@@ -93,7 +93,11 @@ Template.mainWrapper.rendered = ->
 
 Template.mainWrapper.created = ()->
   s = platforms.findOne({}).wrapperJson
-  window.storyConfig = s
+  console.log "=================== Wrapper Json ======================"
+  console.log 
+  console.log platforms.findOne({tenantName: platformName, isMaster: false}).wrapperJson
+  console.log "===================++++++++++++++======================"
+  window.storyConfig = platforms.findOne({}).wrapperJson
 
 Template.mainWrapper.helpers
   isPortrait:()->
