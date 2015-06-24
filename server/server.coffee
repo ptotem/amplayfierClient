@@ -267,7 +267,7 @@ Meteor.methods
     else
       platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
       return false
- 
+
   buildPlatformsForClient: (tid, subPlatforms, tname, secretKey)->
     if !platforms.findOne({tenantId: tid})?
       # TODO:Archive Platforms before wiping current platform
@@ -284,7 +284,7 @@ Meteor.methods
       return false
 
 
-  buildPlatformsForClient: (tid, subPlatforms, tname, secretKey)->
+  buildPlatformsForClientOld: (tid, subPlatforms, tname, secretKey)->
     if !platforms.findOne({tenantId: tid})?
       # TODO:Archive Platforms before wiping current platform
       # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
