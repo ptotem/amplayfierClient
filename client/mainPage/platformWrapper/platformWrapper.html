@@ -67,7 +67,7 @@
        }
 
        #scory-board{
-         margin-top:5%;
+         margin-top:2%;
        }
 
        #scory-board .active-platform{
@@ -130,6 +130,8 @@
             <div class="container">
 
                   <div class="row">
+                    <div class="col-lg-offset-2 col-lg-8">
+
 
                     {{#each subPlatforms}}
                       {{#if active}}
@@ -137,19 +139,20 @@
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                             <a class="thumbnail active-platform" href="/games/{{subTenantId}}">
                                 {{subTenantName}}
-                                <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/mdbg1/node-active.gif" alt="{{subTenantName}}">
+                                <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-active.gif" alt="{{subTenantName}}">
                             </a>
                         </div>
                         {{else}}
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                             <a class="thumbnail disabled-platform" href="#">
                               Not Active
-                              <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/mdbg1/node-incomplete.png" alt="No Platforms">
+                              <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-incomplete.png" alt="No Platforms">
                             </a>
                         </div>
                         {{/if}}
                       {{/each}}
                   </div>
+                </div>
             </div>
           </div>
 
