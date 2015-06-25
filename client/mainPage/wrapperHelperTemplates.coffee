@@ -28,6 +28,9 @@ Template.wrapperSideBar.helpers
   platformStatus:()->
     platforms.findOne().platformStatus
 
+  menuEnabled:()->
+    Session.get('subPlatformMenuBar')
+
 Template.wrapperSideBar.events
   'click .notification-link':(e)->
     showModal('notificationModal',{},'main-wrapper-page')
@@ -61,7 +64,8 @@ Template.wrapperSideBar.events
   'click .sign-out-link' :(e)->
     Meteor.logout()
 
-
+  'click .master-home':(e)->
+    window.location = "/"  
 
 Template.notificationModal.helpers
   notiPassKey:()->

@@ -225,6 +225,8 @@ Router.route '/games/:sid',
   action:()->
     if @ready()
       setPlatform(this.data().platformName)
+      sideWrapperEnable('subPlatform')
+      setSubTenantId(this.data().subPlatformId)
       # setMasterPlatform(this.data().platformName, this.data().subPlatformId)
       # setTenant(this.data().platformName)
 
@@ -244,6 +246,8 @@ Router.route '/',
     if @ready()
       setPlatform(this.data().platformName)
       setTenant(this.data().platformName)
+      sideWrapperEnable('mainPlatform')
+
 
       @render()
     else

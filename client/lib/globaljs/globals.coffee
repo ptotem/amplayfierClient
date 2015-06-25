@@ -22,6 +22,16 @@
 @setPlatform = (pname)->
 	@platformName = pname
 
+@sideWrapperEnable = (platform)->
+  if platform is 'mainPlatform'
+    Session.set('subPlatformMenuBar',true)
+  else
+    Session.set('subPlatformMenuBar',false)
+
+
+@setSubTenantId = (subTenantId)->
+  @subTenantId = subTenantId
+
 @setCurrentGameId = (id)->
 	@currentGameId = id
 

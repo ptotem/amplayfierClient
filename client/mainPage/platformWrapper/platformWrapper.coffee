@@ -252,3 +252,6 @@ Template.platformWrapper.events
 
   'click .fullscreener':(e)->
     toggleFull("#viewPPTModal")
+
+  'click .active-platform':(e)->
+    window.location="/games/"+$(e.currentTarget).attr('data-thumbnail')

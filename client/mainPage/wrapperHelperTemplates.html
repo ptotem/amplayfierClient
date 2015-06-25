@@ -131,19 +131,27 @@
         <div class="nano-content">
             <div class="oc-sidebar-header" style="width:50px;">
                 <ul class="nav">
+                  {{#if equals menuEnabled true}}
                     <li>
                         <a href="http://amplayfier.com" target="_blank" class="btn-nav" style="padding:0;margin:0;">
                             <img rel="popover-sidebar" data-container="body" data-placement="right" data-content="Created using amplayfier." class="media-object side-bar-image" src="/assets/images/amplayfier-logo-2.png" style="width:30px; margin:10px" />
                         </a>
                     </li>
-
+                  {{else}}
+                    <li>
+                        <a href="#" class="btn-nav master-home" style="padding:0;margin:0;">
+                            <img rel="popover-sidebar" data-container="body" data-placement="right" data-content="Created using amplayfier." class="media-object side-bar-image" src="/assets/images/amplayfier-logo-2.png" style="width:30px; margin:10px" />
+                        </a>
+                    </li>
+                  {{/if}}
                 </ul>
 
             </div>
 
-
+            {{#if equals menuEnabled true}}
             <div class="oc-sidebar-content" id="collapseAvatarLeft">
                 <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
+
                   <li class="">
                       <a class="collapsed side-bar-link vt-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Click here to take a virtual tour.">
                           <i class="oc-partial-icon icm icm-binoculars2"></i>
@@ -234,6 +242,7 @@
                 </ul>
 
             </div>
+            {{/if}}
 
         </div>
     </aside>

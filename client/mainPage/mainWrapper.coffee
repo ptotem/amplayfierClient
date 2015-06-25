@@ -11,9 +11,9 @@
     setTimeout(()->
       startAttempt($(".slide-container").length)
       changeSlideInCarousel()
-    
+
     ,2000)
-    
+
 
     # $(".center-panel[has-data='false']").remove()
     # $(".slide-container:empty").remove()
@@ -23,20 +23,20 @@
       console.log "translated"
       changeCarouselSlide()
       changeSlideInCarousel()
-      
-    ) 
+
+    )
     # owl.on('dragged.owl.carousel',(e)->
     #   console.log "dragged"
     #   changeCarouselSlide()
     #   changeSlideInCarousel()
-      
+
     # )
     # $('.owl-next').on 'click', (e) ->
     #   # $(".owl-carousel .owl-next").trigger('click');
     #   console.log "sass"
     #   changeCarouselSlide()
     #   changeSlideInCarousel()
-      
+
     #   # changeCarouselSlide()
     #   # nextItem = $('.active').next()
     #   # transitionSlide()
@@ -47,7 +47,7 @@
     #   # $(".owl-carousel .owl-prev").trigger('click');
     #   changeCarouselSlide()
     #   changeSlideInCarousel()
-      
+
       # changeCarouselSlide()
       # prevItem = $('.active').prev()
       # transitionSlide()
@@ -59,6 +59,7 @@
 
 
 Template.mainWrapper.rendered = ->
+
   Meteor.call('updateUserChatFalse', Meteor.userId())
   $('body').on 'hidden.bs.modal', (e) ->
     # console.log "modal is hidden"
@@ -79,24 +80,18 @@ Template.mainWrapper.rendered = ->
 
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
-  console.log platforms.findOne()
   window.platformData.nodes = platforms.findOne().nodes
-  
+
   initPage()
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
     # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
     $('#story-nameplate-cover').fadeOut(3000);
-
   ,1000)
 
 
 Template.mainWrapper.created = ()->
   s = platforms.findOne({}).wrapperJson
-  console.log "=================== Wrapper Json ======================"
-  console.log 
-  console.log platforms.findOne({tenantName: platformName, isMaster: false}).wrapperJson
-  console.log "===================++++++++++++++======================"
   window.storyConfig = platforms.findOne({}).wrapperJson
 
 Template.mainWrapper.helpers
@@ -207,7 +202,7 @@ Template.mainWrapper.helpers
     messageCount
 
   isAdmin:() ->
-    Meteor.users.findOne({_id:Meteor.userId()}).role  
+    Meteor.users.findOne({_id:Meteor.userId()}).role
 
 
 Template.mainWrapper.events
