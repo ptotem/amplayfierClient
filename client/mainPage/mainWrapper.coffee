@@ -60,6 +60,31 @@
 
 Template.mainWrapper.rendered = ->
 
+  $('#introBtn').on 'click', ->
+  $('.menuBtn').removeClass 'activeBtn'
+  $('.content-panel').hide()
+  $('#intro-panel').fadeIn()
+  $('#introBtn').addClass 'activeBtn'
+  return
+$('#leaderboardBtn').on 'click', ->
+  $('.menuBtn').removeClass 'activeBtn'
+  $('.content-panel').hide()
+  $('#leaderboard-panel').fadeIn()
+  $('#leaderboardBtn').addClass 'activeBtn'
+  return
+$('#payoffBtn').on 'click', ->
+  $('.menuBtn').removeClass 'activeBtn'
+  $('.content-panel').hide()
+  $('#payoff-panel').fadeIn()
+  $('#payoffBtn').addClass 'activeBtn'
+  return
+$('#profileBtn').on 'click', ->
+  $('.menuBtn').removeClass 'activeBtn'
+  $('.content-panel').hide()
+  $('#profile-panel').fadeIn()
+  $('#profileBtn').addClass 'activeBtn'
+  return
+
   Meteor.call('updateUserChatFalse', Meteor.userId())
   $('body').on 'hidden.bs.modal', (e) ->
     # console.log "modal is hidden"

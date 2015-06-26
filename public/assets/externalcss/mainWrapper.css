@@ -74,6 +74,27 @@ div.story-page {
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+/*right panel css*/
+#matter-panel {
+    position: relative;
+    z-index: 4;
+    height: 60%;
+    width: 80%;
+    margin-left: 10%;
+}
+#menu-panel {
+    position: relative;
+    z-index: 5;
+    height: 60%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: -50px;
+    text-align: center;
+}
+
+
+
+/*right panel css ends*/
 
 @media (orientation: portrait) {
     #story-content {
