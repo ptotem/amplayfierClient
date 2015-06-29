@@ -124,6 +124,28 @@ body.story-page {
   padding-top: 10%;
   color: white;
 }
+.accord-box
+{
+  height:340px;
+  overflow:auto;
+  margin-top: 12%;
+  margin-left: 8%;
+  color: black;
+}
+.accord-box  .panel .panel-collapse .panel-body ul li a
+{
+
+  color:black;
+}
+.accord-box  .panel .panel-collapse .panel-body ul li
+{
+  list-style-type:none;
+}
+.panel-heading .panel-title a
+{
+  color:black;
+}
+
 /*.content-panel {
   display: none;
   position: absolute;
