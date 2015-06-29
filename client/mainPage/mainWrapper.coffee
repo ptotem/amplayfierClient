@@ -1,4 +1,5 @@
 Template.mainWrapper.rendered = ->
+  # $('.collapse').collapse()
 
   Meteor.call('updateUserChatFalse', Meteor.userId())
   $('body').on 'hidden.bs.modal', (e) ->
@@ -35,6 +36,26 @@ Template.mainWrapper.created = ()->
   window.storyConfig = platforms.findOne({}).wrapperJson
 
 Template.mainWrapper.helpers
+  deckOfNode:(s)->
+    if s?
+      deckList = []
+
+      flag = 'auto'
+      n = _.where(platforms.findOne().nodes,{sequence:s})[0]
+      if n.decks?
+        for d,i in n.decks
+          if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
+            status = 'complete'
+          else
+            status = 'incomplete'
+
+
+          deckList.push {seq:s,flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,deckPic:deckHtml.findOne({deckId:d}).pic}
+          if status is 'incomplete' and i is 0
+            flag = 'none'
+
+      deckList
+
   isPortrait:()->
      window.innerHeight > window.innerWidth
   hud:()->
@@ -146,6 +167,26 @@ Template.mainWrapper.helpers
 
 
 Template.mainWrapper.events
+
+  'click #introBtn':(e) ->
+    console.log 'clicked'
+    $('.menuBtn').removeClass('activeBtn');
+    $('.content-panel').hide();
+    $('#intro-panel').fadeIn();
+    $('#introBtn').addClass('activeBtn');
+  'click #leaderboardBtn':(e) ->
+    console.log 'clicked leaderboard'
+    $('.menuBtn').removeClass('activeBtn');
+    $('.content-panel').hide();
+    $('#leaderboard-panel').fadeIn();
+    $('#leaderboardBtn').addClass('activeBtn');
+  'click #payoffBtn':(e) ->
+    console.log 'clicked payoff'
+    $('.menuBtn').removeClass('activeBtn');
+    $('.content-panel').hide();
+    $('#payoff-panel').fadeIn();
+    $('#payoffBtn').addClass('activeBtn');
+
   'click #oc-right-toggle':(e)->
     $(e.currentTarget).parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')
     $('.chat-bar').css('padding-top',0)

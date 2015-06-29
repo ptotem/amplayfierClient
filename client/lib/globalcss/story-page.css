@@ -33,10 +33,126 @@ body.story-page {
 #story-wrapper.landscape-mode:after {
     padding-top: 56.25%;
     /* 16:9 ratio */
-    
+
     display: block;
     content: '';
 }
+/*right panel css*/
+#payoff-table {
+  position: relative;
+  margin-left: 15%;
+  padding-top: 10%;
+  color: white;
+}
+#matter-panel {
+  position: absolute;
+  z-index: 4;
+  height: 456px;
+  width: 35%;
+  top: 20%;
+  left: 40%;
+  }
+#menu-panel {
+  position: absolute;
+  z-index: 5;
+  width: 40%;
+  text-align: center;
+  left: 38%;
+  top: 75%;
+}
+.base-panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#intro-panel {
+    display: block;
+}
+
+.panelBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#intro-text, #profile-text {
+    position: relative;
+    margin-left: 12%;
+    margin-right: 12%;
+    padding-top: 12%;
+    color: white;
+    font-size: 1em;
+    text-align: center;
+}
+#intro-text img {
+  width: 72%;
+}
+#intro-content {
+  color: gold;
+  font-size: 0.8em;
+}
+
+.activeBtn {
+  box-shadow: orange 1px 1px 10px;
+  border: 5px solid white;
+}
+.menuBtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 5px solid black;
+  background: black;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.menuBtn img {
+  width: 100%;
+}
+#payoff-panel
+{
+  display:none;
+}
+#leaderboard-panel
+{
+  display:none;
+}
+#leaderboard-table {
+  position: relative;
+  margin-left: 15%;
+  padding-top: 10%;
+  color: white;
+}
+.accord-box
+{
+  height:340px;
+  overflow-y:scroll;
+  margin-top: 12%;
+  margin-left: 8%;
+  color: black;
+}
+.accord-box  .panel .panel-collapse .panel-body ul li a
+{
+
+  color:black;
+}
+.accord-box  .panel .panel-collapse .panel-body ul li
+{
+  list-style-type:none;
+}
+.panel-heading .panel-title a
+{
+  color:white !important;
+}
+
+/*.content-panel {
+  display: none;
+  position: absolute;
+  width: 99%;
+  height: 100%;
+}*/
+/*right panel css ends*/
 
 @media (orientation: landscape) {
     .setSmaller {
@@ -82,8 +198,18 @@ body.story-page {
 }
 
 @media (orientation: portrait) {
+    .menuBtn {
+      width: 64px;
+      margin-bottom: 5%;
+      height: 64px;
+      border-radius: 50%;
+      border: 5px solid black;
+      background: black;
+      /* display: inline-block; */
+      cursor: pointer;
+    }
     #story-content {
-        
+
         background-size: auto 100%;
         /*padding-bottom:75%;*/
         width: 100%;
@@ -274,7 +400,7 @@ body.story-page {
 #pin-banner-img:after {
     padding-top: 56.25%;
     /* 16:9 ratio */
-    
+
     display: block;
     content: '';
 }
@@ -301,7 +427,7 @@ body.story-page {
 #pin-banner-desc:after {
     padding-top: 56.25%;
     /* 16:9 ratio */
-    
+
     display: block;
     content: '';
 }
