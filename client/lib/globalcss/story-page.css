@@ -49,16 +49,16 @@ body.story-page {
   z-index: 4;
   height: 456px;
   width: 35%;
-  top: 20%;
-  left: 40%;
+  top: 13%;
+  left: 45%;
   }
 #menu-panel {
   position: absolute;
   z-index: 5;
   width: 40%;
   text-align: center;
-  left: 38%;
-  top: 75%;
+  left: 43.5%;
+  top: 68%;
 }
 .base-panel {
     position: absolute;
@@ -105,6 +105,7 @@ body.story-page {
   background: black;
   display: inline-block;
   cursor: pointer;
+  margin-right:2%;
 }
 
 .menuBtn img {
