@@ -35,6 +35,26 @@ Template.mainWrapper.created = ()->
   window.storyConfig = platforms.findOne({}).wrapperJson
 
 Template.mainWrapper.helpers
+  deckOfNode:(s)->
+    if s?
+      deckList = []
+
+      flag = 'auto'
+      n = _.where(platforms.findOne().nodes,{sequence:s})[0]
+      if n.decks?
+        for d,i in n.decks
+          if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
+            status = 'complete'
+          else
+            status = 'incomplete'
+
+
+          deckList.push {seq:s,flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,deckPic:deckHtml.findOne({deckId:d}).pic}
+          if status is 'incomplete' and i is 0
+            flag = 'none'
+
+      deckList
+
   isPortrait:()->
      window.innerHeight > window.innerWidth
   hud:()->
