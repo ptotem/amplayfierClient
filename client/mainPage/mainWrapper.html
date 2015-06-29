@@ -97,11 +97,11 @@
                 <!-- HTML for games -->
                 {{#if hasGame}} {{#if isPortrait}} {{#with game}}
                 <div class="game-container" style="  position: absolute; left: {{gamebox.portrait.left}}%;top: {{gamebox.portrait.top}}%;height: {{gamebox.portrait.height}}%;width: {{gamebox.portrait.width}}%;z-index: 20000;">
-                  <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%" style='border:none;'></iframe>
+                  <iframe src="{{getGamePath}}" height="100%" width="100%" style='border:none;'></iframe>
                 </div>
                 {{/with}} {{else}} {{#with game}}
                 <div class="game-container" style="  position: absolute;left: {{gamebox.landscape.left}}%;top: {{gamebox.landscape.top}}%;height: {{gamebox.landscape.height}}%;width: {{gamebox.landscape.width}}%;z-index: 20000;">
-                  <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%" style='border:none;'></iframe>
+                  <iframe src="{{getGamePath}}" height="100%" width="100%" style='border:none;'></iframe>
                 </div>
                 {{/with}} {{/if}} {{/if}}
                 <div id="story-content" style="background-image:url('{{getBackImg}}')">

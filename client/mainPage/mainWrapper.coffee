@@ -165,6 +165,11 @@ Template.mainWrapper.helpers
   isAdmin:() ->
     Meteor.users.findOne({_id:Meteor.userId()}).role
 
+  getGamePath:()->
+    p = platforms.findOne({}).wrapperJson.imgsrc
+    p = p + "/index.html"
+    console.log "Game path : " + p
+    p
 
 Template.mainWrapper.events
 
