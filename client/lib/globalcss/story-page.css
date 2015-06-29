@@ -127,7 +127,7 @@ body.story-page {
 .accord-box
 {
   height:340px;
-  overflow:auto;
+  overflow-y:scroll;
   margin-top: 12%;
   margin-left: 8%;
   color: black;
@@ -198,6 +198,16 @@ body.story-page {
 }
 
 @media (orientation: portrait) {
+    .menuBtn {
+      width: 64px;
+      margin-bottom: 5%;
+      height: 64px;
+      border-radius: 50%;
+      border: 5px solid black;
+      background: black;
+      /* display: inline-block; */
+      cursor: pointer;
+    }
     #story-content {
 
         background-size: auto 100%;
