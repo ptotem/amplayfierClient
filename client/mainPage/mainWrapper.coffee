@@ -1,5 +1,5 @@
 Template.mainWrapper.rendered = ->
-  $('.collapse').collapse()
+  # $('.collapse').collapse()
 
   Meteor.call('updateUserChatFalse', Meteor.userId())
   $('body').on 'hidden.bs.modal', (e) ->

@@ -51,6 +51,10 @@
     .modal-xlg-data-modal .modal-header {
       width: 60%;
     }
+    .heading-style
+    {
+      padding:0px !important;
+    }
   </style>
   <!-- <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" /> -->
   <div id="main-page-desktop" class=" high emerald-default htmls htmls_panels story-page bg-black">
@@ -177,11 +181,11 @@
                       <div class="col-md-10 col-lg-10 accord-box">
 
 
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel-group ui-accordion" id="accordion" role="tablist" aria-multiselectable="true">
                           {{#each nodes}}
                           <div class="panel panel-default">
-                            <div class="panel-heading {{getNodeStatusClass sequence}}" role="tab" id="heading{{sequence}}" seq="{{sequence}}">
-                              <h4 class="panel-title">
+                            <div class="panel-heading heading-style" role="tab" id="heading{{sequence}}" seq="{{sequence}}">
+                              <h4 class="panel-title ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
                               {{title}}:-{{getNodeStatusClass sequence}}
                             </a>
