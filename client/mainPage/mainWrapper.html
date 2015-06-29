@@ -193,9 +193,9 @@
                             </div>
                             <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">
                               <div class="panel-body">
-                                <ul>
+                                <ul class="list-group">
                                   {{#each deckOfNode sequence}}
-                                  <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}">{{deckName}}:-{{status}}</a></li>
+                                  <li class="list-group-item"><a href="#" class="zone-deck" id="listing-deck-{{deckId}}">{{deckName}}:-{{status}}</a></li>
                                   {{/each}}
                                 </ul>
                               </div>
