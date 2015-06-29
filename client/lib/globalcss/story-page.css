@@ -38,22 +38,27 @@ body.story-page {
     content: '';
 }
 /*right panel css*/
-#matter-panel {
+#payoff-table {
   position: relative;
+  margin-left: 15%;
+  padding-top: 10%;
+  color: white;
+}
+#matter-panel {
+  position: absolute;
   z-index: 4;
   height: 456px;
   width: 35%;
-  float: right;
-  margin-top: 20%;
-  margin-right: 4%;
+  top: 20%;
+  left: 40%;
   }
 #menu-panel {
   position: absolute;
   z-index: 5;
   width: 40%;
   text-align: center;
-  bottom: 0px;
-  right: 1%;
+  left: 38%;
+  top: 75%;
 }
 .base-panel {
     position: absolute;
@@ -104,6 +109,20 @@ body.story-page {
 
 .menuBtn img {
   width: 100%;
+}
+#payoff-panel
+{
+  display:none;
+}
+#leaderboard-panel
+{
+  display:none;
+}
+#leaderboard-table {
+  position: relative;
+  margin-left: 15%;
+  padding-top: 10%;
+  color: white;
 }
 /*.content-panel {
   display: none;
