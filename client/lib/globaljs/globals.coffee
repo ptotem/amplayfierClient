@@ -310,8 +310,11 @@
     if $(this).find('audio').get().length isnt 0
       $(this).find('audio').get(0).pause()
 
-
-
+@getThemeImagePath = ()->
+  p = platforms.findOne({}).wrapperJson.themekey
+  console.log p
+  a = "assets/img/"+ p 
+  a = a + "/"
 @initDeck = ()->
 
 
