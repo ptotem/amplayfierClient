@@ -65,10 +65,10 @@ createBadges = ()->
 
 
 Meteor.startup(()->
-  
+
 #  SyncedCron.start();
 
-  initMailers()
+  # initMailers()
   # startUpRoutine()
   resetCapabilities()
   createBadges()
@@ -92,7 +92,7 @@ Meteor.startup(()->
   addCapabilities("Can view Admin Panel",'view_admin_panel')
   addCapabilities("Can Disable Features",'disable_features')
 
-  
+
 
 
 
