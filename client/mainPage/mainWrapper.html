@@ -177,33 +177,33 @@
                       <div class="col-md-10 col-lg-10 accord-box">
 
 
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                      {{#each nodes}}
-                      <div class="panel panel-default">
-                        <div class="panel-heading {{getNodeStatusClass sequence}}" role="tab" id="heading{{sequence}}"  seq="{{sequence}}" >
-                          <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion{{sequence}}" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                          {{#each nodes}}
+                          <div class="panel panel-default">
+                            <div class="panel-heading {{getNodeStatusClass sequence}}" role="tab" id="heading{{sequence}}" seq="{{sequence}}">
+                              <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
                               {{title}}:-{{getNodeStatusClass sequence}}
                             </a>
-                          </h4>
-                        </div>
-                        <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">
-                          <div class="panel-body">
-                              <ul>
-                                {{#each deckOfNode sequence}}
-                              <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}">{{deckName}}:-{{status}}</a></li>
-                              {{/each}}
-                            </ul>
+                              </h4>
+                            </div>
+                            <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">
+                              <div class="panel-body">
+                                <ul>
+                                  {{#each deckOfNode sequence}}
+                                  <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}">{{deckName}}:-{{status}}</a></li>
+                                  {{/each}}
+                                </ul>
+                              </div>
+                            </div>
                           </div>
+                          {{/each}}
                         </div>
+
+
+
+
                       </div>
-                      {{/each}}
-                    </div>
-
-
-
-
-                    </div>
                     </div>
                   </div>
                 </div>
