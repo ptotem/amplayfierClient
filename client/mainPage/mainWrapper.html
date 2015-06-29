@@ -126,7 +126,9 @@
                     <span id="credits-container" style="  position: absolute;width: {{creditbox.landscape.width}}%;height: 3%;top: {{creditbox.landscape.top}}%;left: {{creditbox.landscape.left}}%;z-index: 1;text-align: center;font-size: 1.4em;  line-height: 1.8;">CREDITS
                       <br>{{currentUser.currency}}</span> {{/with}} {{/if}}
                   </div>
-                  <div id="story-nodes">
+
+                  <!--TODO:Story Nodes Commented for new flow  -->
+                  <!-- <div id="story-nodes">
                     {{#if isPortrait}} {{#each nodes}}
                     <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}"
                     seq="{{sequence}}" style="top:{{getPrecTop portrait.top}}%;left:{{getPrecLeft portrait.left}}%;width:{{portrait.width}}%">
@@ -138,7 +140,9 @@
                       <img src="{{getNodeStatusPic sequence}}" alt="">
                     </a>
                     {{/each}} {{/if}}
-                  </div>
+                  </div> -->
+                  <!--TODO:Story Nodes Commented for new flow  -->
+
                 </div>
                 <div id="story-overlays"></div>
 
@@ -162,82 +166,7 @@
 
                     <div id="payoff-table">
                       <h2 style="color: gold">Payoff Table</h2>
-                      <table style="color: gold">
-                        <tr>
-                          <td>
-                            <img src="" class="icon1" />
-                            <img src="" class="icon1" />
-                            <img src="" class="icon1" />
-                            <span>60</span>
-                          </td>
-                          <td>
-                            <img src="" class="icon1" />
-                            <img src="" class="icon1" />
-                            <span>30</span>
-                          </td>
-                          <td>
-                            <img src="" class="icon1" />
-                            <span>15</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="" class="icon2" />
-                            <img src="" class="icon2" />
-                            <img src="" class="icon2" />
-                            <span>50</span>
-                          </td>
-                          <td>
-                            <img src="" class="icon2" />
-                            <img src="" class="icon2" />
-                            <span>25</span>
-                          </td>
-                          <td>
-                            <img src="" class="icon2" />
-                            <span>10</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="" class="icon3" />
-                            <img src="" class="icon3" />
-                            <img src="" class="icon3" />
-                            <span>40</span>
-                          </td>
-                          <td>
-                            <img src="" class="icon3" />
-                            <img src="" class="icon3" />
-                            <span>20</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="" class="icon4" />
-                            <img src="" class="icon4" />
-                            <img src="" class="icon4" />
-                            <span>30</span>
-                          </td>
-                          <td>
-                            <img src="" class="icon4" />
-                            <img src="" class="icon4" />
-                            <span>15</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="" class="icon5" />
-                            <img src="" class="icon5" />
-                            <img src="" class="icon5" />
-                            <span>20</span>
-                          </td>
-                          <td>
-                            <img src="" class="icon5" />
-                            <img src="" class="icon5" />
-                            <span>10</span>
-                          </td>
-                        </tr>
 
-                      </table>
                       <p style="width:90%;color: gold">
                         <img src="" class="questioner" /> Answer questions to win free spins.</p>
                     </div>
@@ -246,65 +175,34 @@
                     <img src="/assets/images/panelBack.png" class="panelBack" />
                     <div class="row">
                       <div class="col-md-10 col-lg-10 accord-box">
+
+
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                      {{#each nodes}}
                       <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingOne">
+                        <div class="panel-heading {{getNodeStatusClass sequence}}" role="tab" id="heading{{sequence}}"  seq="{{sequence}}" >
                           <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                              Collapsible Group Item #1
+                            <a role="button" data-toggle="collapse" data-parent="#accordion{{sequence}}" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
+                              {{title}}:-{{getNodeStatusClass sequence}}
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">
                           <div class="panel-body">
                               <ul>
-                              <li><a href="">Deck 1</a></li>
-                              <li><a href="">Deck 2</a></li>
-                              <li><a href="">Deck 3</a></li>
-                              <li><a href="">Deck 4</a></li>
+                                {{#each deckOfNode sequence}}
+                              <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}">{{deckName}}:-{{status}}</a></li>
+                              {{/each}}
                             </ul>
                           </div>
                         </div>
                       </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTwo">
-                          <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              Collapsible Group Item #2
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                          <div class="panel-body">
-                            <ul>
-                            <li><a href="">Deck 1</a></li>
-                            <li><a href="">Deck 2</a></li>
-                            <li><a href="">Deck 3</a></li>
-                            <li><a href="">Deck 4</a></li>
-                          </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                          <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                              Collapsible Group Item #3
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                          <div class="panel-body">
-                            <ul>
-                            <li><a href="">Deck 1</a></li>
-                            <li><a href="">Deck 2</a></li>
-                            <li><a href="">Deck 3</a></li>
-                            <li><a href="">Deck 4</a></li>
-                          </ul>
-                          </div>
-                        </div>
-                      </div>
+                      {{/each}}
                     </div>
+
+
+
+
                     </div>
                     </div>
                   </div>

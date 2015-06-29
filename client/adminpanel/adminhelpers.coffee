@@ -362,7 +362,7 @@ Template.manageReport.events
   'click .download-allnode-report-btn':(e)->
     showModal('enterpriseOnly',{},'main-wrapper-page-new')
     return
-    Meteor.call('exportAllNodeDataForAllUsers',platforms.findOne()._id,(err,res)->
+    Meteor.call('exportAllNodeDataForAllUsers',platforms.findOne({isMaster:true})._id,(err,res)->
       if err
         console.log err
       else
@@ -373,9 +373,9 @@ Template.manageReport.events
 
 
   'click .download-alldeck-report-btn':(e)->
-    showModal('enterpriseOnly',{},'main-wrapper-page-new')
-    return
-    Meteor.call('exportAllDeckDataForAllUsers',platforms.findOne()._id,(err,res)->
+    # showModal('enterpriseOnly',{},'main-wrapper-page-new')
+    # return
+    Meteor.call('exportAllDeckDataForAllUsers',platforms.findOne({isMaster:true})._id,(err,res)->
       if err
         console.log err
       else

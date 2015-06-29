@@ -191,3 +191,4 @@ _.mixin
     ), 0
   avg: (arr) ->
     _.sum(arr) / arr.length
+

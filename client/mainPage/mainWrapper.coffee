@@ -1,63 +1,3 @@
-@initDeck = ()->
-
-
-  setTimeout(()->
-    readHTML()
-    for v in document.getElementsByTagName('video')
-      v.pause()
-    for v in document.getElementsByTagName('audio')
-      v.pause()
-
-    setTimeout(()->
-      startAttempt($(".slide-container").length)
-      changeSlideInCarousel()
-
-    ,2000)
-
-
-    # $(".center-panel[has-data='false']").remove()
-    # $(".slide-container:empty").remove()
-    # executeSlideLoad($('.slide-container').first())
-    owl = $('.owl-carousel')
-    owl.on('translated.owl.carousel',(e)->
-      console.log "translated"
-      changeCarouselSlide()
-      changeSlideInCarousel()
-
-    )
-    # owl.on('dragged.owl.carousel',(e)->
-    #   console.log "dragged"
-    #   changeCarouselSlide()
-    #   changeSlideInCarousel()
-
-    # )
-    # $('.owl-next').on 'click', (e) ->
-    #   # $(".owl-carousel .owl-next").trigger('click');
-    #   console.log "sass"
-    #   changeCarouselSlide()
-    #   changeSlideInCarousel()
-
-    #   # changeCarouselSlide()
-    #   # nextItem = $('.active').next()
-    #   # transitionSlide()
-    #   # $('.active').removeClass 'active'
-    #   # executeSlideLoad(nextItem)
-
-    # $('.owl-prev').on 'click', (e) ->
-    #   # $(".owl-carousel .owl-prev").trigger('click');
-    #   changeCarouselSlide()
-    #   changeSlideInCarousel()
-
-      # changeCarouselSlide()
-      # prevItem = $('.active').prev()
-      # transitionSlide()
-      # $('.active').removeClass 'active'
-      # executeSlideLoad(prevItem)
-
-
-  ,100)
-
-
 Template.mainWrapper.rendered = ->
 
   Meteor.call('updateUserChatFalse', Meteor.userId())
@@ -95,6 +35,26 @@ Template.mainWrapper.created = ()->
   window.storyConfig = platforms.findOne({}).wrapperJson
 
 Template.mainWrapper.helpers
+  deckOfNode:(s)->
+    if s?
+      deckList = []
+
+      flag = 'auto'
+      n = _.where(platforms.findOne().nodes,{sequence:s})[0]
+      if n.decks?
+        for d,i in n.decks
+          if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
+            status = 'complete'
+          else
+            status = 'incomplete'
+
+
+          deckList.push {seq:s,flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,deckPic:deckHtml.findOne({deckId:d}).pic}
+          if status is 'incomplete' and i is 0
+            flag = 'none'
+
+      deckList
+
   isPortrait:()->
      window.innerHeight > window.innerWidth
   hud:()->
