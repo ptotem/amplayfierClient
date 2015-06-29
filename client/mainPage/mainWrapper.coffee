@@ -206,6 +206,7 @@ Template.mainWrapper.helpers
 
 
 Template.mainWrapper.events
+
   'click #introBtn':(e) ->
     console.log 'clicked'
     $('.menuBtn').removeClass('activeBtn');
