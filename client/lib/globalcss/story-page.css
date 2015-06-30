@@ -43,6 +43,11 @@ body.story-page {
   margin-left: 15%;
   padding-top: 10%;
   color: white;
+
+}
+#payoff-table p
+{
+  font-size:0.9em;
 }
 #matter-panel {
   position: absolute;
@@ -90,7 +95,7 @@ body.story-page {
 }
 #intro-content {
   color: white;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 .activeBtn {
@@ -159,7 +164,14 @@ body.story-page {
 {
   float:right;
 }
-
+.accordian-list
+{
+  padding-left:0px;
+}
+.accordian-list li
+{
+  font-size:14px;
+}
 /*.content-panel {
   display: none;
   position: absolute;
