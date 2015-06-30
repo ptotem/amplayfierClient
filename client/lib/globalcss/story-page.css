@@ -82,8 +82,8 @@ body.story-page {
     margin-right: 12%;
     padding-top: 12%;
     color: white;
-    font-size: 1em;
-    text-align: center;
+    font-size: 1.2em;
+    text-align: left;
 }
 #intro-text img {
   width: 72%;
@@ -145,10 +145,19 @@ body.story-page {
 .accord-box .panel-heading .panel-title
 {
   background-color:#fe9d34;
+  font-size:20px;
 }
 .panel-heading .panel-title a
 {
   color:white !important;
+}
+.deckname-accordian
+{
+  float:left;
+}
+.status-accordian
+{
+  float:right;
 }
 
 /*.content-panel {
