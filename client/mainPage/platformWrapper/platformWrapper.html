@@ -89,7 +89,7 @@
           transition:all 600ms ease; }
           .flippy[flipped] {
               /**/-moz-transform:scale(-1,1);-webkit-transform:scale(-1,1);
-              transform:scale(-1,1); 
+              transform:scale(-1,1);
         }
     </style>
     <!-- <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" /> -->
@@ -143,7 +143,7 @@
             <div class="container">
 
                   <div class="row">
-                    <div class="col-lg-offset-2 col-lg-8">
+                    <div class="col-lg-offset-2 col-lg-8 main-box">
 
 
                     {{#each subPlatforms}}
@@ -154,17 +154,17 @@
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                             <!-- <a class="thumbnail active-platform" href="#" data-thumbnail="{{subTenantId}}">
                                 {{subTenantName}}
-                               
+
                             </a> -->
                             <div class="myFlipper flippy active-platform" data-thumbnail="{{subTenantId}}">
                               <div class="innerFlipper">
                                 <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-active.gif" alt="{{subTenantName}}">
-                                <p style="position:absolute;left:40%;top:40%;color:white;">
+                                <a href="/games/{{subTenantId}}" style="position:absolute;left:40%;top:40%;color:white;">
                                     {{subTenantName}}
-                                </p>
+                                </a>
                               </div>
-                               
-                               
+
+
                             </div>
 
                         </div>

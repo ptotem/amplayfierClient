@@ -16,6 +16,12 @@ Template.platformWrapper.rendered = ->
 
 
 
+
+
+
+
+
+
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
   # window.platformData.nodes = platforms.findOne().nodes
@@ -28,6 +34,13 @@ Template.platformWrapper.rendered = ->
 
   ,1000)
 
+  flipdiv()
+  setInterval(()->
+    $(".flippy").trigger("click")
+
+
+
+  ,1000)
 
 
 Template.platformWrapper.created = ()->
@@ -159,6 +172,10 @@ Template.platformWrapper.helpers
 
 
 Template.platformWrapper.events
+  # window.location.reload true
+  # console.log("refresh");
+
+
   'click #oc-right-toggle':(e)->
     $(e.currentTarget).parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')
     $('.chat-bar').css('padding-top',0)
@@ -265,10 +282,8 @@ Template.platformWrapper.events
   'click .flippy':(e) ->
     if ($(e.currentTarget).attr('flipped'))
       $(e.currentTarget).removeAttr('flipped')
-    else 
+    else
       $(e.currentTarget).attr('flipped','flipped');
 
   # 'click .active-platform':(e)->
   #   window.location="/games/"+$(e.currentTarget).attr('data-thumbnail')
-
-

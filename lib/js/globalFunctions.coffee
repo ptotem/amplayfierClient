@@ -192,3 +192,9 @@ _.mixin
   avg: (arr) ->
     _.sum(arr) / arr.length
 
+@flipdiv = ()->
+  parent = $('.main-box')
+  divs = parent.children()
+  while divs.length
+    parent.append divs.splice(Math.floor(Math.random() * divs.length), 1)[0]
+  return
