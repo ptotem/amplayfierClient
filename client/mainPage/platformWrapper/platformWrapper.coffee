@@ -36,7 +36,8 @@ Template.platformWrapper.rendered = ->
 
   flipdiv()
   setInterval(()->
-    $(".flippy").trigger("click")
+    # console.log("check");
+    $('.flip-container').toggleClass 'flip'
 
 
 

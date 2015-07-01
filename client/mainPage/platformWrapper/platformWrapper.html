@@ -91,6 +91,55 @@
               /**/-moz-transform:scale(-1,1);-webkit-transform:scale(-1,1);
               transform:scale(-1,1);
         }
+        /* entire container, keeps perspective */
+      .flip-container {
+      	perspective: 1000;
+      }
+      	/* flip the pane when hovered */
+      	.flip-container:hover .flipper, .flip-container.hover .flipper {
+      		transform: rotateY(180deg);
+      	}
+
+      .flip-container, .front, .back {
+      	/*width: 320px;
+      	height: 480px;*/
+
+      }
+
+      /* flip speed goes here */
+      .flipper {
+      	transition: 0.6s;
+      	transform-style: preserve-3d;
+
+      	position: relative;
+      }
+
+      /* hide back of pane during swap */
+      .front, .back {
+      	backface-visibility: hidden;
+
+      	/*position: absolute;*/
+      	top: 0;
+      	left: 0;
+      }
+
+      /* front pane, placed above back */
+      .front {
+      	z-index: 2;
+      	/* for firefox 31 */
+      	transform: rotateY(0deg);
+
+      }
+
+      /* back, initially hidden pane */
+      .back {
+      	transform: rotateY(180deg);
+
+      }
+      .flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
+      	transform: rotateY(180deg);
+      }
+
     </style>
     <!-- <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" /> -->
     <div id="main-page-desktop" class=" high emerald-default htmls htmls_panels story-page bg-black">
@@ -152,33 +201,36 @@
 
 
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                            <!-- <a class="thumbnail active-platform" href="#" data-thumbnail="{{subTenantId}}">
-                                {{subTenantName}}
 
-                            </a> -->
-                            <div class="myFlipper flippy active-platform" data-thumbnail="{{subTenantId}}">
-                              <div class="innerFlipper">
-                                <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-active.gif" alt="{{subTenantName}}">
-                                <a href="/games/{{subTenantId}}" style="position:absolute;left:40%;top:40%;color:white;">
-                                    {{subTenantName}}
-                                </a>
-                              </div>
-
-
+                            <div class="flip-container" >
+                            	<div class="flipper">
+                            		<div class="front">
+                                  <a href="/games/{{subTenantId}}" style="position:absolute;margin-left:40%;margin-top:40%;color:white;">
+                                      {{subTenantName}}
+                                  </a>
+                            		</div>
+                            		<div class="back">
+                                  <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-active.gif" alt="{{subTenantName}}">
+                            		</div>
+                            	</div>
                             </div>
 
                         </div>
                         {{else}}
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                            <!-- <a class="thumbnail disabled-platform" href="#">
-                              Not Active
-                              <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-incomplete.png" alt="No Platforms">
-                            </a> -->
-                             <div class="innerFlipper">
-                                <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-active.gif" alt="{{subTenantName}}">
-                                <p style="position:absolute;left:40%;top:40%;color:white;">
-                                    {{subTenantName}}
-                                </p>
+
+                              <div class="flip-container1" >
+                              	<div class="flipper">
+                              		<div class="front">
+                                    <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-incomplete.png" alt="No Platforms">
+                              		</div>
+                              		<div class="back">
+
+                                    <a href="/games/{{subTenantId}}" style="position:absolute;margin-left:40%;margin-top:40%;color:white;">
+                                        No game
+                                    </a>
+                                  </div>
+                              	</div>
                               </div>
                         </div>
                         {{/if}}
