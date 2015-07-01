@@ -184,16 +184,20 @@
                           <div class="panel panel-default">
                             <div class="panel-heading heading-style" role="tab" id="heading{{sequence}}" seq="{{sequence}}">
                               <h4 class="panel-title ui-accordion-header ui-helper-reset  ui-accordion-icons ui-corner-all">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
+                                <!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
                               {{title}}:-{{getNodeStatusClass sequence}}
+                            </a> -->
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
+                              {{title}}
                             </a>
                               </h4>
                             </div>
                             <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">
                               <div class="panel-body">
-                                <ul>
+                                <ul class="accordian-list">
                                   {{#each deckOfNode sequence}}
-                                  <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}">{{deckName}}:-{{status}}</a></li>
+                                  <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}"><span class="deckname-accordian">{{deckName}}</span><span class="status-accordian">{{status}}</span></a></li>
+                                  <hr width="100%">
                                   {{/each}}
                                 </ul>
                               </div>

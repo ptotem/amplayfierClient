@@ -1,4 +1,13 @@
 Template.mainWrapper.rendered = ->
+
+  accorval=$( ".status-accordian" ).html();
+
+  if accorval == 'incomplete'
+    $('.status-accordian').addClass 'label label-danger'
+  else
+    $('.status-accordian').addClass 'label label-success'
+
+
   # $('.collapse').collapse()
 
   Meteor.call('updateUserChatFalse', Meteor.userId())
@@ -48,6 +57,7 @@ Template.mainWrapper.helpers
             status = 'complete'
           else
             status = 'incomplete'
+
 
 
           deckList.push {seq:s,flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,deckPic:deckHtml.findOne({deckId:d}).pic}
@@ -148,8 +158,7 @@ Template.mainWrapper.helpers
          if parseInt(platforms.findOne().nodes.length) is 1
           return   "my-active-node"
         else
-
-            return "my-incomplete-node"
+          return "my-incomplete-node"
     #
 
     #        return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
