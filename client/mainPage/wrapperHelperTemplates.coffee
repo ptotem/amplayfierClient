@@ -17,8 +17,8 @@
 
 
 Template.wrapperSideBar.rendered = ->
-    $('.side-bar-link').popover({trigger:'hover',html: true,delay: { "show": 500, "hide": 100 }})
-    $('.side-bar-image').popover({trigger:'hover',html: true,delay: { "show": 500, "hide": 100 }})
+    $('.side-bar-link').popover({trigger:'hover',html: true,delay: { "show": 500, "hide": 5 }})
+    $('.side-bar-image').popover({trigger:'hover',html: true,delay: { "show": 500, "hide": 5 }})
 
 
 Template.wrapperSideBar.helpers
@@ -65,7 +65,7 @@ Template.wrapperSideBar.events
     Meteor.logout()
 
   'click .master-home':(e)->
-    window.location = "/"  
+    window.location = "/"
 
 Template.notificationModal.helpers
   notiPassKey:()->

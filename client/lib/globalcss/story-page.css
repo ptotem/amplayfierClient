@@ -49,16 +49,16 @@ body.story-page {
   z-index: 4;
   height: 456px;
   width: 35%;
-  top: 20%;
-  left: 40%;
+  top: 13%;
+  left: 45%;
   }
 #menu-panel {
   position: absolute;
   z-index: 5;
   width: 40%;
   text-align: center;
-  left: 38%;
-  top: 75%;
+  left: 43.5%;
+  top: 68%;
 }
 .base-panel {
     position: absolute;
@@ -89,7 +89,7 @@ body.story-page {
   width: 72%;
 }
 #intro-content {
-  color: gold;
+  color: white;
   font-size: 0.8em;
 }
 
@@ -98,13 +98,14 @@ body.story-page {
   border: 5px solid white;
 }
 .menuBtn {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   border: 5px solid black;
   background: black;
   display: inline-block;
   cursor: pointer;
+  margin-right:2%;
 }
 
 .menuBtn img {
@@ -127,7 +128,7 @@ body.story-page {
 .accord-box
 {
   height:340px;
-  overflow-y:scroll;
+  /*overflow-y:scroll;*/
   margin-top: 12%;
   margin-left: 8%;
   color: black;
@@ -140,6 +141,10 @@ body.story-page {
 .accord-box  .panel .panel-collapse .panel-body ul li
 {
   list-style-type:none;
+}
+.accord-box .panel-heading .panel-title
+{
+  background-color:#fe9d34;
 }
 .panel-heading .panel-title a
 {

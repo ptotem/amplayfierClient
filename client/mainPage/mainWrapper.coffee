@@ -141,6 +141,8 @@ Template.mainWrapper.helpers
       "<div class='popover-content-block active-popover-content'>Active</div>"
 
   getNodeStatusClass:(seq)->
+    console.log "seqseqseq"
+    console.log seq
     if seq isnt 1
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
          if parseInt(platforms.findOne().nodes.length) is 1
@@ -165,6 +167,11 @@ Template.mainWrapper.helpers
   isAdmin:() ->
     Meteor.users.findOne({_id:Meteor.userId()}).role
 
+  getGamePath:()->
+    p = platforms.findOne({}).wrapperJson.imgsrc
+    p = p + "/index.html"
+    console.log "Game path : " + p
+    p
 
 Template.mainWrapper.events
 
