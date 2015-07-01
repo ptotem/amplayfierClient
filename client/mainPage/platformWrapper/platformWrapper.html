@@ -81,6 +81,16 @@
           text-align:center;
           color:black;
        }
+
+       .flippy {
+          /**/-moz-transform:scale(1,1);-webkit-transform:scale(1,1);
+          transform:scale(1,1);
+          /**/-webkit-transition:all 600ms ease;-webkit-transition:all 600ms ease;
+          transition:all 600ms ease; }
+          .flippy[flipped] {
+              /**/-moz-transform:scale(-1,1);-webkit-transform:scale(-1,1);
+              transform:scale(-1,1); 
+        }
     </style>
     <!-- <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" /> -->
     <div id="main-page-desktop" class=" high emerald-default htmls htmls_panels story-page bg-black">
@@ -142,17 +152,34 @@
 
 
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                            <a class="thumbnail active-platform" href="#" data-thumbnail="{{subTenantId}}">
+                            <!-- <a class="thumbnail active-platform" href="#" data-thumbnail="{{subTenantId}}">
                                 {{subTenantName}}
-                                <img class="img-responsive" src="/assets/storyWrapper/pfwrap001/node-active.gif" alt="{{subTenantName}}">
-                            </a>
+                               
+                            </a> -->
+                            <div class="myFlipper flippy active-platform" data-thumbnail="{{subTenantId}}">
+                              <div class="innerFlipper">
+                                <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-active.gif" alt="{{subTenantName}}">
+                                <p style="position:absolute;left:40%;top:40%;color:white;">
+                                    {{subTenantName}}
+                                </p>
+                              </div>
+                               
+                               
+                            </div>
+
                         </div>
                         {{else}}
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                            <a class="thumbnail disabled-platform" href="#">
+                            <!-- <a class="thumbnail disabled-platform" href="#">
                               Not Active
-                              <img class="img-responsive" src="/assets/storyWrapper/pfwrap001/node-incomplete.png" alt="No Platforms">
-                            </a>
+                              <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-incomplete.png" alt="No Platforms">
+                            </a> -->
+                             <div class="innerFlipper">
+                                <img class="img-responsive" src="http://lvh.me:3000/assets/storyWrapper/pfwrap001/node-active.gif" alt="{{subTenantName}}">
+                                <p style="position:absolute;left:40%;top:40%;color:white;">
+                                    {{subTenantName}}
+                                </p>
+                              </div>
                         </div>
                         {{/if}}
                       {{/each}}
