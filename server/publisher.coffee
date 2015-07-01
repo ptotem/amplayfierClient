@@ -177,5 +177,5 @@ Meteor.publish('subGameQuestions',(pname)->
   this.ready()
 
   pid = platforms.findOne({tenantName: pname}).tenantId
-  gameData.find({})
+  gameData.find({tenantId:pid})
 )

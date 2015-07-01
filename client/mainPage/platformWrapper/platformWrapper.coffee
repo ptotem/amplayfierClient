@@ -14,6 +14,8 @@ Template.platformWrapper.rendered = ->
     ,1000)
 
 
+
+
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
   # window.platformData.nodes = platforms.findOne().nodes
@@ -25,6 +27,7 @@ Template.platformWrapper.rendered = ->
     $('#story-nameplate-cover').fadeOut(3000);
 
   ,1000)
+
 
 
 Template.platformWrapper.created = ()->
@@ -54,7 +57,13 @@ Template.platformWrapper.helpers
   getBackColor: ()->
     storyConfig.background.color || "#000000"
   getBackImg: ()->
-    Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
+    if platforms.findOne().backgroundUrl?
+      find = '/cfs'
+      re = new RegExp(find, 'g')
+      # backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://lvh.me:3000/cfs")
+      backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://gamesayer.com//cfs")
+    else
+      Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
      _.reject(platforms.findOne().nodes,(e)->
        e.decks.length is 0
