@@ -289,5 +289,5 @@ Template.platformWrapper.events
     else
       $(e.currentTarget).attr('flipped','flipped');
 
-  # 'click .active-platform':(e)->
-  #   window.location="/games/"+$(e.currentTarget).attr('data-thumbnail')
+  'click .active-platform':(e)->
+    window.location="/games/"+$(e.currentTarget).attr('data-thumbnail')
