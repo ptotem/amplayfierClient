@@ -37,11 +37,14 @@ Template.platformWrapper.rendered = ->
   flipdiv()
   setInterval(()->
     # console.log("check");
-    $('.flip-container').toggleClass 'flip'
+    i = Math.floor((Math.random() * 10) + 1);
+    $($('.flip-container')[i]).toggleClass 'flip'
+
 
 
 
   ,1000)
+
 
 
 Template.platformWrapper.created = ()->
