@@ -22,7 +22,8 @@
   blob.deckComplete = false
   blob.slideCount = expectedLength
   blob.userId = Meteor.userId()
-  blob.deckId = currentDeckId
+  # blob.deckId = currentDeckId
+  blob.deckId = "currentDeckId"
   blob.platformId = platforms.findOne()._id
   Session.set("currentSlideScore",0)
   @attempt = reports.insert(blob)
@@ -39,7 +40,7 @@
 
 
 @setScore =(score)->
-  
+
   points = gameMaxPoints*score/100
   reports.update({_id:attempt},{$push:{slideData:{slideId:-1,panelId:currentIntegratedGameId,slideScore:points,slideTime:-1,slideMaxTime:-1,slideMinTime:-1,slidePoints:gameMaxPoints,percentageScore:score}}})
 #  reports.update({_id:attempt},{$set:{score:score, updatedAt:new Date().getTime()}})
