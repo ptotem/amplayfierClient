@@ -71,6 +71,50 @@ Template.notificationModal.helpers
   notiPassKey:()->
     {ukey:platforms.findOne()._id}
 
+Template.notificationModal.events
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+Template.contactusModal.events
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+Template.leaderBoardModal.events
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+Template.badgeModal.events
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+Template.rewardModal.events
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
 
 Template.feedbackModal.events
@@ -82,9 +126,18 @@ Template.feedbackModal.events
     $('.remove-modal').trigger('click')
     e.preventDefault()
 
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
 Template.rewardModal.helpers
   rewards:()->
     systemRewards.find().fetch()
+
 Template.badgeModal.helpers
   sysBadges1:()->
    userBadgeNames = _.pluck(Meteor.user().badges,'name')
@@ -109,6 +162,14 @@ Template.badgeModal.helpers
 
 
 Template.userProfileModal.events
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
   'click .update-user':(e)->
     display_name = $("#user-name").val()
     first_name = $("#user-first-name").val()
@@ -295,6 +356,14 @@ Template.virtualTourModal.events
     setTimeout(->
       $('#main-wrapper-page').virtualTour(window.chatVTO)
     , 100)
+
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
     # ...
 
