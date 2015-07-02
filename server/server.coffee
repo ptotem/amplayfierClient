@@ -281,6 +281,9 @@ Meteor.methods
       return true
     else
       platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
+      for subPlatform in subPlatforms
+        if !platforms.findOne({tenantId: subPlatform.subTenantId})?
+          platforms.insert({masterPlatformId:p, subTenantName:subPlatform.subTenantName, tenantId: subPlatform.subTenantId, isMaster: false, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
       return false
 
 
