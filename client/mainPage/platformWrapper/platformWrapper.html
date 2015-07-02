@@ -60,7 +60,7 @@
            left: 0;
            right: 0;
            bottom: 0;
-           background-color: rgba(0, 0, 0, 0.65);
+           /*background-color: rgba(0, 0, 0, 0.65);*/
            z-index: 9999;
            color: white;
            display: inline-block;
@@ -155,7 +155,7 @@
                     <div class="oc-push oc-scroll">
                         {{>wrapperSideBar}}
                         <div id="main-oc-container" class="oc-container" style="background-color: {{getBackColor}}">
-                            <ul class="nav  navbar-nav navbar-right pull-right " style="  position: fixed;z-index:3000;right: 0;">
+                            <ul class="nav  navbar-nav navbar-right pull-right " style="  position: fixed;z-index:10000;right: 0;">
                                 <li id="oc-right-toggle-container">
                                     {{#if equals isAdmin 'admin'}}
                                     <a id="oc-right-preview" title="Click here to go to the Admin Panel" href="/admin" class="btn-nav bg-black  sidebar-toggle-right " style="color:#ccc;border-right:1px solid #666;">
