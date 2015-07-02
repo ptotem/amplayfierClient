@@ -16,12 +16,6 @@ Template.platformWrapper.rendered = ->
 
 
 
-
-
-
-
-
-
   setTitle(storyConfig.name)
   window.storyConfig.imgsrc = Meteor.settings.public.mainLink + window.storyConfig.imgsrc
   # window.platformData.nodes = platforms.findOne().nodes
@@ -31,17 +25,6 @@ Template.platformWrapper.rendered = ->
     $('.story-node').popover({trigger:'hover',html: true})
     # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
     $('#story-nameplate-cover').fadeOut(3000);
-
-  ,1000)
-
-  flipdiv()
-  setInterval(()->
-    # console.log("check");
-    i = Math.floor((Math.random() * 10) + 1);
-    $($('.flip-container')[i]).toggleClass 'flip'
-
-
-
 
   ,1000)
 
@@ -179,10 +162,6 @@ Template.platformWrapper.helpers
 
 
 Template.platformWrapper.events
-  # window.location.reload true
-  # console.log("refresh");
-
-
   'click #oc-right-toggle':(e)->
     $(e.currentTarget).parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')
     $('.chat-bar').css('padding-top',0)
@@ -285,12 +264,6 @@ Template.platformWrapper.events
 
   'click .fullscreener':(e)->
     toggleFull("#viewPPTModal")
-
-  # 'click .flippy':(e) ->
-  #   if ($(e.currentTarget).attr('flipped'))
-  #     $(e.currentTarget).removeAttr('flipped')
-  #   else
-  #     $(e.currentTarget).attr('flipped','flipped');
 
   'click .active-platform':(e)->
     window.location="/games/"+$(e.currentTarget).attr('data-thumbnail')
