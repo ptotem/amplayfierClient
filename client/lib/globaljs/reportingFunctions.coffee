@@ -22,8 +22,11 @@
   blob.deckComplete = false
   blob.slideCount = expectedLength
   blob.userId = Meteor.userId()
-  # blob.deckId = currentDeckId
-  blob.deckId = "currentDeckId"
+  if currentDeckId?
+    blob.deckId = currentDeckId
+  else
+    blob.deckId = "-1"
+  # blob.deckId = "currentDeckId"
   blob.platformId = platforms.findOne()._id
   Session.set("currentSlideScore",0)
   @attempt = reports.insert(blob)

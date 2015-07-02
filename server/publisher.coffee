@@ -128,6 +128,14 @@ Meteor.publish('userCompletions',(pname,uid)->
   this.ready()
 
   pid = platforms.findOne({tenantName: pname})._id
+  console.log "My platform Id : " + pid
+  [userCompletions.find({platformId:pid,userId:uid}),userNodeCompletions.find({userId:uid})]
+)
+
+Meteor.publish('userCompletionsOnGame',(tid,uid)->
+  this.ready()
+
+  pid = platforms.findOne({tenantId: tid})._id
   [userCompletions.find({platformId:pid,userId:uid}),userNodeCompletions.find({userId:uid})]
 )
 
