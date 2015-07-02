@@ -10,6 +10,7 @@ Template.platformWrapper.rendered = ->
     initPage()
     setTimeout(()->
       $('.story-node').popover({trigger:'hover',html: true})
+      $('#story-presenter').hide()
 
     ,1000)
 
@@ -160,7 +161,14 @@ Template.platformWrapper.helpers
   getChapterImg:(url)->
     Meteor.settings.public.mainLink + url
 
+  ###
+  @summary Split for subTenants name
+  ###
+  splitSubTenantName: (name) ->
+    newName = name.split('-')[1]
+    newName
 
+    
 Template.platformWrapper.events
   'click #oc-right-toggle':(e)->
     $(e.currentTarget).parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')

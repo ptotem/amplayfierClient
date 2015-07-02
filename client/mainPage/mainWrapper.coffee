@@ -39,6 +39,12 @@ Template.mainWrapper.rendered = ->
     $('#story-nameplate-cover').fadeOut(3000);
   ,1000)
 
+  flipdiv()
+  
+  setInterval(()->
+    i = Math.floor((Math.random() * 10) + 1);
+    $($('.flip-container')[i]).toggleClass 'flip'
+  ,1000)
 
 Template.mainWrapper.created = ()->
   s = platforms.findOne({}).wrapperJson
