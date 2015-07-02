@@ -1,42 +1,3 @@
-@getRandomInt = (min, max)->
-  Math.floor(Math.random() * (max - min + 1)) + min
-
-@getRandomSequence = (limit)->
-  arr = []
-  while arr.length < limit
-    randomnumber = getRandomInt(0, limit - 1)
-    found = false
-    i = 0
-    while i < arr.length
-      if arr[i] == randomnumber
-        found = true
-        break
-      i++
-    if !found
-      arr[arr.length] = randomnumber
-  arr
-
-@orderColumnsRandomly = ()->
-  console.log "ggggggggggggggg"
-  # Get the children of the container
-  columns = $('#xcontainer').children()
-  # Empty the container.
-  $('#xcontainer').html ''
-  # Get a random sequence to show the columns
-  sequence = getRandomSequence(columns.length)
-  # Loop through the column array with the given sequence and fill the container.
-  i = 0
-  while i < sequence.length
-    $('#xcontainer').append $(columns[sequence[i]])
-    i++
-  return
-
-
-
-
-
-
-
 Template.platformWrapper.rendered = ->
   Meteor.call('updateUserChatFalse', Meteor.userId())
   $('body').on 'hidden.bs.modal', (e) ->
@@ -304,13 +265,6 @@ Template.platformWrapper.events
   'click .fullscreener':(e)->
     toggleFull("#viewPPTModal")
 
-  'click .thumb':(e) ->
-    orderColumnsRandomly()
-  # 'click .flippy':(e) ->
-  #   if ($(e.currentTarget).attr('flipped'))
-  #     $(e.currentTarget).removeAttr('flipped')
-  #   else
-  #     $(e.currentTarget).attr('flipped','flipped');
-  #
-  # 'click .active-platform':(e)->
-  #   window.location="/games/"+$(e.currentTarget).attr('data-thumbnail')
+
+  'click .active-platform':(e)->
+    window.location="/games/"+$(e.currentTarget).attr('data-thumbnail')
