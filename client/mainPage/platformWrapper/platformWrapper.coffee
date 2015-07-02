@@ -78,7 +78,7 @@ Template.platformWrapper.helpers
       find = '/cfs'
       re = new RegExp(find, 'g')
       # backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://lvh.me:3000/cfs")
-      backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://gamesayer.com//cfs")
+      backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://gamesayer.com/cfs")
     else
       Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
@@ -173,6 +173,9 @@ Template.platformWrapper.helpers
       else
         allSubPlatforms.push {active:false}
     allSubPlatforms
+
+  getChapterImg:(url)->
+    Meteor.settings.public.mainLink + url
 
 
 Template.platformWrapper.events
