@@ -28,6 +28,12 @@ Template.platformWrapper.rendered = ->
 
   ,1000)
 
+  flipdiv()
+  setInterval(()->
+    i = Math.floor((Math.random() * 10) + 1);
+    $($('.flip-container')[i]).toggleClass 'flip'
+  ,1000)
+
 
 
 Template.platformWrapper.created = ()->
