@@ -73,7 +73,7 @@ Template.platformWrapper.helpers
     if platforms.findOne().backgroundUrl? and platforms.findOne().backgroundUrl.length > 0
       find = '/cfs'
       re = new RegExp(find, 'g')
-      backgroundUrl = Meteor.settings.public.mainLink + "/" + platforms.findOne().backgroundUrl
+      backgroundUrl = Meteor.settings.public.mainLink +  platforms.findOne().backgroundUrl
       # backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://gamesayer.com/cfs")
     else
       Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
@@ -158,7 +158,7 @@ Template.platformWrapper.helpers
 
   getLogoImage:()->
     if platforms.findOne().platformLogo?
-      Meteor.settings.public.mainLink + "/" + platforms.findOne().platformLogo
+      Meteor.settings.public.mainLink + platforms.findOne().platformLogo
 
   socialLinks:()->
     if platforms.findOne().platformLinks?
