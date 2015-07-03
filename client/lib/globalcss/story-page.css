@@ -755,6 +755,20 @@ img.translucent {
     #matter-panel
     {
       display: none;
+      position: absolute;
+      z-index: 4;
+      height: 100%;
+      width: 85%;
+      top: 13%;
+      left: 0;
+      z-index: 99999;
+    }
+
+    #intro-text{
+      padding-top:30%;
+    }
+    .panel-group{
+      margin-top:5%;
     }
     #notifications-center {
         width: 90%;
@@ -765,6 +779,9 @@ img.translucent {
       width: 40px;
       height: 40px;
 
+    }
+    #closeBtn {
+      display:block;
     }
 }
 

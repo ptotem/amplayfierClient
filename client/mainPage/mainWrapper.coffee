@@ -199,21 +199,34 @@ Template.mainWrapper.helpers
       platforms.findOne({}).gameIntro
 
 Template.mainWrapper.events
+  'click #closeBtn':(e)->
+    $('#matter-panel').css('display','none')
+    $('#closeBtn').css('display','none')
 
   'click #introBtn':(e) ->
-    console.log 'clicked'
+
+    if $('#story-wrapper').hasClass('portrait-mode')
+      $('#matter-panel').css('display','block')
+      $('#closeBtn').css('display','block')
     $('.menuBtn').removeClass('activeBtn');
     $('.content-panel').hide();
     $('#intro-panel').fadeIn();
     $('#introBtn').addClass('activeBtn');
+
   'click #leaderboardBtn':(e) ->
-    console.log 'clicked leaderboard'
+    if $('#story-wrapper').hasClass('portrait-mode')
+      $('#matter-panel').css('display','block')
+      $('#closeBtn').css('display','block')
+
     $('.menuBtn').removeClass('activeBtn');
     $('.content-panel').hide();
     $('#leaderboard-panel').fadeIn();
     $('#leaderboardBtn').addClass('activeBtn');
+
   'click #payoffBtn':(e) ->
-    console.log 'clicked payoff'
+    if $('#story-wrapper').hasClass('portrait-mode')
+      $('#matter-panel').css('display','block')
+      $('#closeBtn').css('display','block')
     $('.menuBtn').removeClass('activeBtn');
     $('.content-panel').hide();
     $('#payoff-panel').fadeIn();
