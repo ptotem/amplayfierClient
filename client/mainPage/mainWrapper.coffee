@@ -196,6 +196,15 @@ Template.mainWrapper.helpers
     console.log "Game path : " + p
     p
 
+  gameGuide:()->
+    if platforms.findOne({}).gameGuide?
+      platforms.findOne({}).gameGuide
+
+
+  gameIntro:()->
+    if platforms.findOne({}).gameIntro?
+      platforms.findOne({}).gameIntro
+
 Template.mainWrapper.events
 
   'click #introBtn':(e) ->

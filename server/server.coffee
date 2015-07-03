@@ -67,7 +67,7 @@
     if !err
       # Meteor.call('syncTenantAssets',res,tid)
       platforms.update({tenantId: tid},
-        {$set: {backgroundUrl: res.backImage, platformLogo: res.logoImage, tenantIcon: res.favIc}})
+        {$set: {backgroundUrl: res.backImage, platformLogo: res.logoImage, tenantIcon: res.favIc, platformLinks: res.socialLinks}})
   )
 
 @getIntegratedGames = (tid, secretKey, res)->
@@ -154,7 +154,7 @@
     console.log res
     pname = platforms.findOne({tenantId: tid}).tenantName
     if !err
-      platforms.update({tenantId: tid}, {$set: {questions:res.questions,tenantName: pname, nodes: res.nodes, storyConfig: res.sconfig,wrapperJson:res.wrapperJson}})
+      platforms.update({tenantId: tid}, {$set: {questions:res.questions,tenantName: pname, nodes: res.nodes, storyConfig: res.sconfig,wrapperJson:res.wrapperJson,gameGuide:res.gameGuide, gameIntro:res.gameIntro}})
   )
 
 @getAllAssetsForTenant = (tid, secretKey, res)->
