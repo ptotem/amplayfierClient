@@ -66,7 +66,7 @@
         <div id="oc-wrapper" class="oc-wrapper oc-lg-partial-left oc-md-partial-left oc-sm-partial-left oc-xs-partial-left oc-lg-left-squeeze oc-md-left-squeeze oc-sm-left-squeeze oc-xs-left-squeeze oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
           <div class="oc-push oc-scroll">
             {{>wrapperSideBar}}
-            <div id="main-oc-container" class="oc-container" style="background-color: {{getBackColor}}">
+            <div id="main-oc-container" class="oc-container" style="background-image:url('{{getBackImg}}');background-repeat: no-repeat;background-size: 100% 100%;">
               <ul class="nav  navbar-nav navbar-right pull-right " style="  position: fixed;z-index:3000;right: 0;">
                 <li id="oc-right-toggle-container">
                   {{#if equals isAdmin 'admin'}}
@@ -95,16 +95,23 @@
                                       </a> -->
               <div id="story-wrapper">
                 <!-- HTML for games -->
-                {{#if hasGame}} {{#if isPortrait}} {{#with game}}
+                {{#if hasGame}}
+                {{#if isPortrait}}
+                 {{#with game}}
                 <div class="game-container" style="  position: absolute; left: {{gamebox.portrait.left}}%;top: {{gamebox.portrait.top}}%;height: {{gamebox.portrait.height}}%;width: {{gamebox.portrait.width}}%;z-index: 20000;">
                   <iframe src="{{getGamePath}}" height="100%" width="100%" style='border:none;'></iframe>
                 </div>
-                {{/with}} {{else}} {{#with game}}
+                {{/with}}
+                {{else}}
+                {{#with game}}
                 <div class="game-container" style="  position: absolute;left: {{gamebox.landscape.left}}%;top: {{gamebox.landscape.top}}%;height: {{gamebox.landscape.height}}%;width: {{gamebox.landscape.width}}%;z-index: 20000;">
                   <iframe src="{{getGamePath}}" height="100%" width="100%" style='border:none;'></iframe>
                 </div>
-                {{/with}} {{/if}} {{/if}}
-                <div id="story-content" style="background-image:url('{{getBackImg}}')">
+                {{/with}}
+                 {{/if}}
+                  {{/if}}
+                <!-- <div id="story-content" style="background-image:url('{{getBackImg}}')"> -->
+                <div id="story-content">
                   <img id="story-presenter" src="{{getStoryPresenter}}" alt="" />
                   <!-- HTML for HUD -->
                   <div class="hud-container" style="width: 100%;height: 100%;display:none">
@@ -182,7 +189,7 @@
                           {{#each nodes}}
                           <div class="panel panel-default">
                             <div class="panel-heading heading-style" role="tab" id="heading{{sequence}}" seq="{{sequence}}">
-                             
+
                                 <!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
                               {{title}}:-{{getNodeStatusClass sequence}}
                             </a> -->
@@ -199,7 +206,7 @@
                                     </a>
                                   </h4>
                                 {{/if}}
-                              
+
                             </div>
                             <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">
                               <div class="panel-body">

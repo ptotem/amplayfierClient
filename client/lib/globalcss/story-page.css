@@ -742,10 +742,29 @@ img.translucent {
 }*/
 
 @media (orientation: portrait) {
+
+  #menu-panel {
+     position: absolute;
+     z-index: 5;
+     width: 10%;
+     text-align: center;
+     right: 5%;
+     top: 22%;
+     left:84%;
+    }
+    #matter-panel
+    {
+      display: none;
+    }
     #notifications-center {
         width: 90%;
         margin-left: 5%;
         margin-top: 10%;
+    }
+    .menuBtn {
+      width: 40px;
+      height: 40px;
+
     }
 }
 
