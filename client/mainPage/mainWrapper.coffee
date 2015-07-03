@@ -93,7 +93,7 @@ Template.mainWrapper.helpers
   getBackImg: ()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
-    _.map(_.reject(platforms.findOne().nodes,(e)->
+    a = _.map(_.reject(platforms.findOne().nodes,(e)->
         e.decks.length is 0
       ), (val, index)->
         if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:val.sequence-2})? or val.sequence is 1
@@ -103,6 +103,8 @@ Template.mainWrapper.helpers
           val.activated = false
           val
     )
+    console.log a
+    a
      # sc.nodes
   storyHeading:()->
     storyConfig.name
