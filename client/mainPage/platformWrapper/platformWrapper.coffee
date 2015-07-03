@@ -55,7 +55,7 @@ Template.platformWrapper.helpers
   getHudImage:()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.infobox.image
   getInactiveImages:()->
-    i = Math.floor((Math.random() * 5) + 1).toString()
+    i = Math.floor((Math.random() * 12) + 1).toString()
     i = i + ".png"
     i = "/inactiveImages/"+i
     storyConfig.imgsrc + i

@@ -786,6 +786,9 @@ img.translucent {
     .platform-logo{
       height: 50px;
     }
+    .story-wrapper-overlay{
+      overflow-y: auto;
+    }
 }
 
 #notifications-center .list-group-item {
