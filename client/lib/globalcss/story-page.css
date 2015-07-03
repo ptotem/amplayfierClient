@@ -783,6 +783,9 @@ img.translucent {
     #closeBtn {
       display:block;
     }
+    .platform-logo{
+      height: 50px;
+    }
 }
 
 #notifications-center .list-group-item {

@@ -167,7 +167,7 @@
                 <div id="oc-wrapper" class="oc-wrapper oc-lg-partial-left oc-md-partial-left oc-sm-partial-left oc-xs-partial-left oc-lg-left-squeeze oc-md-left-squeeze oc-sm-left-squeeze oc-xs-left-squeeze oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
                     <div class="oc-push oc-scroll">
                         {{>wrapperSideBar}}
-                        <div id="main-oc-container" class="oc-container" style="background-color: {{getBackColor}}">
+                        <div id="main-oc-container" class="oc-container" style="background-image:url('{{getBackImg}}');background-size:100% 100%;background-repeat:no-repeat;">
                             <ul class="nav  navbar-nav navbar-right pull-right " style="  position: fixed;z-index:10000;right: 0;">
                                 <li id="oc-right-toggle-container">
                                     {{#if equals isAdmin 'admin'}}
@@ -204,19 +204,35 @@
 
             <div class="container">
               <div class="row">
-              <div class="col-lg-offset-2 col-lg-3"><div class="google-icon"><img class="img-responsive" src="{{getLogoImage}}" width="100%"></div></div>
-              <div class="col-md-4 pull-right" style="margin-top:1%">
-                {{#each socialLinks}}
-                  <a href="{{link}}" target="_blank" class="social-link"><img class="img-responsive" src="{{imgpath}}" width="100%"></a>
-                {{/each}}
-
-                <!-- <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/facebook.png" width="100%"></div>
-                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/twitter.png" width="100%"></div>
-                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/youtube.png" width="100%"></div>
-                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/bin.png" width="100%"></div>
-                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/pin.png" width="100%"></div> -->
+                {{#if isPortrait}}
+                <div class="social-div">
+                  <div class="row" style="margin-left:25%">
+                    <div class="col-md-offset-4 col-md-2 " ><div class="google-icon"><img class="img-responsive platform-logo" src="{{getLogoImage}}" height="100%"></div></div>
+                  </div>
+                  <div class="row"  style="margin-top:1%;margin-left:20%">
+                    <div class="col-md-7 col-md-offset-2">
+                      {{#each socialLinks}}
+                        <a href="{{link}}" target="_blank" class="social-link"><img class="img-responsive" src="{{imgpath}}" width="100%"></a>
+                      {{/each}}
+                    </div>
+                  </div>
 
               </div>
+
+                {{else}}
+
+                  <div class="col-lg-offset-2 col-lg-3 col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3"><div class="google-icon"><img class="img-responsive platform-logo" src="{{getLogoImage}}" height="100%"></div></div>
+                  <div class="col-md-7 col-sm-7 col-lg-4 pull-right" style="margin-top:1%">
+                    {{#each socialLinks}}
+                      <a href="{{link}}" target="_blank" class="social-link"><img class="img-responsive" src="{{imgpath}}" width="100%"></a>
+                    {{/each}}
+                  </div>
+
+
+                {{/if}}
+
+
+
 
               </div>
 
@@ -293,7 +309,7 @@
                                     <iframe src="/assets/testgames/quizspin/index.html" height="100%" width="100%" style='border:none;'></iframe>
                                 </div>
                                 {{/with}} {{/if}} {{/if}}
-                                <div id="story-content" style="background-image:url('{{getBackImg}}')">
+                                <div id="story-content">
                                     <img id="story-presenter" src="{{getStoryPresenter}}" alt="" />
                                     <!-- HTML for HUD -->
                                     <div class="hud-container" style="width: 100%;height: 100%;display:none">

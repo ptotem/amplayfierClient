@@ -10,7 +10,7 @@ Template.platformWrapper.rendered = ->
     initPage()
     setTimeout(()->
       $('.story-node').popover({trigger:'hover',html: true})
-      $('#story-presenter').hide()
+
 
     ,1000)
 
@@ -26,7 +26,7 @@ Template.platformWrapper.rendered = ->
     $('.story-node').popover({trigger:'hover',html: true})
     # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
     $('#story-nameplate-cover').fadeOut(3000);
-
+    $('#story-presenter').remove()
   ,1000)
 
 
