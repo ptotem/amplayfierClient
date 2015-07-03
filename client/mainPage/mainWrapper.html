@@ -187,9 +187,15 @@
                                 <!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
                               {{title}}:-{{getNodeStatusClass sequence}}
                             </a> -->
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
-                              {{title}}
-                            </a>
+                                {{#if activated}}
+                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
+                                    {{title}}
+                                  </a>
+                                {{else}}
+                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}" style="pointer-events:none;">
+                                    {{title}}
+                                  </a>
+                                {{/if}}
                               </h4>
                             </div>
                             <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">

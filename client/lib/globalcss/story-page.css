@@ -133,7 +133,7 @@ body.story-page {
 .accord-box
 {
   height:340px;
-  /*overflow-y:scroll;*/
+  overflow-y:auto;
   margin-top: 12%;
   margin-left: 8%;
   color: black;
