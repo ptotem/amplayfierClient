@@ -67,7 +67,7 @@
        }
 
        #scory-board{
-         margin-top:2%;
+         margin-top:1%;
        }
 
        #scory-board .active-platform{
@@ -147,10 +147,13 @@
         height:32px;
         margin:0.3%;
       }
-      .google-icon
+      /*.google-icon img
       {
-        /*height:32px;*/
-        width:141px;
+        height:75px;
+      }*/
+
+      .oc-scroll{
+        overflow:hidden;
       }
 
     </style>
@@ -222,9 +225,9 @@
                 {{else}}
 
                   <div class="col-lg-offset-2 col-lg-3 col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3"><div class="google-icon"><img class="img-responsive platform-logo" src="{{getLogoImage}}" height="100%"></div></div>
-                  <div class="col-md-7 col-sm-7 col-lg-4 pull-right" style="margin-top:8%">
+                  <div class="col-md-7 col-sm-7 col-lg-4 pull-right" style="margin-top:3%">
                     {{#each socialLinks}}
-                      <a href="{{link}}" target="_blank" class="social-link"><img class="img-responsive" src="{{imgpath}}" width="100%"></a>
+                      <a href="{{link}}" target="_blank" class="social-link"><img class="img-responsive" src="{{imgpath}}" style="height:75px;width:100%"></a>
                     {{/each}}
                   </div>
 
