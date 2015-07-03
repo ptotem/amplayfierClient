@@ -174,9 +174,15 @@
 @getUserCurrencyForGame = () ->
   Meteor.user().currency
 
-@getGameQuestionByLevel = (gameName, level) ->
+@getGameQuestionByLevel = (gameName, level, q) ->
   # p = platforms.find({tenantId: tenantId})
-  gameData.findOne({gameName: gameName, level: level}).questions
+  if gameData.findOne({gameName: gameName, level: level})?
+    if gameData.findOne({gameName: gameName, level: level}).questions?
+      gameData.findOne({gameName: gameName, level: level}).questions
+    else
+      q
+  else
+    q
 
 # This is not the best approch. Evals can be dangerous
 # TODO: Revisit this
