@@ -71,7 +71,7 @@
        }
 
        #scory-board .active-platform{
-          text-align:center;
+          /*text-align:center;*/
           color:black;
        }
 
@@ -135,9 +135,22 @@
       .back {
       	transform: rotateY(180deg);
 
+
       }
       .flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
       	transform: rotateY(180deg);
+      }
+      .social-link
+      {
+        float:left;
+        width:32px;
+        height:32px;
+        margin:0.3%;
+      }
+      .google-icon
+      {
+        /*height:32px;*/
+        width:141px;
       }
 
     </style>
@@ -190,9 +203,22 @@
 
 
             <div class="container">
+              <div class="row">
+              <div class="col-lg-offset-2 col-lg-3"><div class="google-icon"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/google1.png" width="100%"></div></div>
+              <div class="col-md-4 pull-right" style="margin-top:1%">
+
+                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/facebook.png" width="100%"></div>
+                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/twitter.png" width="100%"></div>
+                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/youtube.png" width="100%"></div>
+                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/bin.png" width="100%"></div>
+                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/pin.png" width="100%"></div>
+
+              </div>
+
+              </div>
 
                   <div class="row">
-                    <div class="col-lg-offset-2 col-lg-8 main-box">
+                    <div class="col-lg-offset-2 col-lg-8">
 
 
                     {{#each subPlatforms}}
@@ -206,6 +232,8 @@
                             <div class="flip-container active-platform" data-thumbnail="{{subTenantId}}" style="cursor:pointer;">
                             	<div class="flipper">
                             		<div class="front">
+
+                                  <img src="/assets/storyWrapper/pfwrap001-new0107/node-incomplete.png" width="100%" style="position:absolute;">
                                   <a href="/games/{{subTenantId}}" style="position:absolute;left:40%;margin-top:40%;color:white;">
                                       {{splitSubTenantName subTenantName}}
                                   </a>
@@ -218,22 +246,24 @@
 
                         </div>
                         {{else}}
-                        <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="padding-right:0px;margin-top:10px">
+                        <!-- <div class="main-box"> -->
+                        <div class="col-lg-3 col-md-4 col-xs-6 thumb inactive-thumb" style="padding-right:0px;margin-top:10px">
 
-                              <div class="flip-container1" >
+                              <div class="flip-container inactive-platform" >
                               	<div class="flipper">
                               		<div class="front">
-                                    <img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/node-incomplete.png" alt="No Platforms">
+                                    <img class="img-responsive" src="{{getInactiveImages}}" alt="No Platforms">
                               		</div>
-                              		<div class="back">
-
-                                    <a href="/games/{{subTenantId}}" style="position:absolute;left:40%;margin-top:40%;color:white;">
+                              		<div class="back" style="position:absolute;">
+                                    <img class="img-responsive" src="{{getInactiveImages}}" alt="No Platforms">
+                                    <!-- <a href="/games/{{subTenantId}}" style="position:absolute;left:40%;margin-top:40%;color:white;">
                                         No game
-                                    </a>
+                                    </a> -->
                                   </div>
                               	</div>
                               </div>
                         </div>
+                        <!-- </div> -->
                         {{/if}}
                       {{/each}}
                   </div>

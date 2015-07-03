@@ -29,11 +29,12 @@ Template.platformWrapper.rendered = ->
 
   ,1000)
 
-  flipdiv()
+
   setInterval(()->
     i = Math.floor((Math.random() * 10) + 1);
     $($('.flip-container')[i]).toggleClass 'flip'
-  ,1000)
+    flipdiv()
+  ,3000)
 
 
 
@@ -53,6 +54,11 @@ Template.platformWrapper.helpers
     platforms.findOne().wrapperJson.hasgame is true
   getHudImage:()->
     Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.infobox.image
+  getInactiveImages:()->
+    i = Math.floor((Math.random() * 5) + 1).toString()
+    i = i + ".png"
+    i = "/inactiveImages/"+i
+    storyConfig.imgsrc + i
   getPrecTop : (top)->
     return top
   getPrecLeft:(left1)->
@@ -174,7 +180,7 @@ Template.platformWrapper.helpers
     newName = name.split('-')[1]
     newName
 
-    
+
 Template.platformWrapper.events
   'click #oc-right-toggle':(e)->
     $(e.currentTarget).parents('#oc-wrapper').toggleClass('oc-lg-hidden-right oc-lg-open-right')
