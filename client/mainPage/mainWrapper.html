@@ -183,20 +183,24 @@
                           {{#each nodes}}
                           <div class="panel panel-default">
                             <div class="panel-heading heading-style" role="tab" id="heading{{sequence}}" seq="{{sequence}}">
-                              <h4 class="panel-title ui-accordion-header ui-helper-reset  ui-accordion-icons ui-corner-all">
+                             
                                 <!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
                               {{title}}:-{{getNodeStatusClass sequence}}
                             </a> -->
                                 {{#if activated}}
-                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
-                                    {{title}}
-                                  </a>
+                                  <h4 class="panel-title ui-accordion-header ui-helper-reset  ui-accordion-icons ui-corner-all" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}">
+                                    <a role="button">
+                                      {{title}}
+                                    </a>
+                                  </h4>
                                 {{else}}
-                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}" style="pointer-events:none;">
-                                    {{title}}
-                                  </a>
+                                  <h4 class="panel-title ui-accordion-header ui-helper-reset  ui-accordion-icons ui-corner-all" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sequence}}" aria-expanded="true" aria-controls="collapse{{sequence}}" style="pointer-events:none;">
+                                    <a role="button">
+                                      {{title}}
+                                    </a>
+                                  </h4>
                                 {{/if}}
-                              </h4>
+                              
                             </div>
                             <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">
                               <div class="panel-body">
