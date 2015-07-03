@@ -70,11 +70,11 @@ Template.platformWrapper.helpers
   getBackColor: ()->
     storyConfig.background.color || "#000000"
   getBackImg: ()->
-    if platforms.findOne().backgroundUrl?
+    if platforms.findOne().backgroundUrl? and platforms.findOne().backgroundUrl.length > 0
       find = '/cfs'
       re = new RegExp(find, 'g')
-      # backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://lvh.me:3000/cfs")
-      backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://gamesayer.com/cfs")
+      backgroundUrl = Meteor.settings.public.mainLink + "/" + platforms.findOne().backgroundUrl
+      # backgroundUrl = platforms.findOne().backgroundUrl.replace(re,"http://gamesayer.com/cfs")
     else
       Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
@@ -153,7 +153,16 @@ Template.platformWrapper.helpers
   subPlatformsOld:() ->
     subPlatforms = platforms.findOne().subPlatforms
 
+  getActiveImage:()->
+    Meteor.settings.public.mainLink+storyConfig.imgsrc + "/node-active.png"
 
+  getLogoImage:()->
+    if platforms.findOne().platformLogo?
+      Meteor.settings.public.mainLink + "/" + platforms.findOne().platformLogo
+
+  socialLinks:()->
+    if platforms.findOne().platformLinks?
+      platforms.findOne().platformLinks
 
   ###
   @summary Get the tenant's nodes with display number

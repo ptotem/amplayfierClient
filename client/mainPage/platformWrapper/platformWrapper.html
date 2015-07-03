@@ -204,14 +204,17 @@
 
             <div class="container">
               <div class="row">
-              <div class="col-lg-offset-2 col-lg-3"><div class="google-icon"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/google1.png" width="100%"></div></div>
+              <div class="col-lg-offset-2 col-lg-3"><div class="google-icon"><img class="img-responsive" src="{{getLogoImage}}" width="100%"></div></div>
               <div class="col-md-4 pull-right" style="margin-top:1%">
+                {{#each socialLinks}}
+                  <a href="{{link}}" target="_blank" class="social-link"><img class="img-responsive" src="{{imgpath}}" width="100%"></a>
+                {{/each}}
 
-                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/facebook.png" width="100%"></div>
+                <!-- <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/facebook.png" width="100%"></div>
                 <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/twitter.png" width="100%"></div>
                 <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/youtube.png" width="100%"></div>
                 <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/bin.png" width="100%"></div>
-                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/pin.png" width="100%"></div>
+                <div class="social-link"><img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/pin.png" width="100%"></div> -->
 
               </div>
 
@@ -233,13 +236,13 @@
                             	<div class="flipper">
                             		<div class="front">
 
-                                  <img src="/assets/storyWrapper/pfwrap001-new0107/node-incomplete.png" width="100%" style="position:absolute;">
+                                  <img src="{{getActiveImage}}" width="100%" style="position:absolute;">
                                   <a href="/games/{{subTenantId}}" style="position:absolute;left:40%;margin-top:40%;color:white;">
                                       {{splitSubTenantName subTenantName}}
                                   </a>
                             		</div>
                             		<div class="back">
-                                  <img class="img-responsive" src="/assets/storyWrapper/pfwrap001-new0107/node-active.gif" alt="{{subTenantName}}">
+                                  <img class="img-responsive" src="{{getActiveImage}}" alt="{{subTenantName}}">
                             		</div>
                             	</div>
                             </div>
