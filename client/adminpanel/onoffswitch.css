@@ -50,3 +50,7 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
+
+.menu-active {
+   color:#C2C2C3 !important;
+}

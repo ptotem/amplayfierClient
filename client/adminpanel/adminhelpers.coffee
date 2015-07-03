@@ -27,9 +27,9 @@ Template.rewardsLeftMenu.helpers
 
 Template.userlistLeftMenu.rendered = ->
   if platforms.findOne()['platformStatus'] is 'close'
-    $(".onoffswitch-checkbox").prop("checked", true);
-  else
     $(".onoffswitch-checkbox").prop("checked", false);
+  else
+    $(".onoffswitch-checkbox").prop("checked", true);
 
 Template.repository.rendered = ->
   if platforms.findOne()['repository']
@@ -128,7 +128,8 @@ Template.adminSideBar.events
   #   showModal('topBarModal',{},'main-wrapper-page-new')
 
   'click .menu-link':(e)->
-
+    $('.menu-active').removeClass('menu-active')
+    $(e.currentTarget).addClass('menu-active')
     temName = $(e.currentTarget).attr('target-templ')
     console.log temName
     Session.set("contentVar",$(e.currentTarget).attr('target-content'))

@@ -1,13 +1,5 @@
 Template.mainWrapper.rendered = ->
 
-  accorval=$( ".status-accordian" ).html();
-
-  if accorval == 'incomplete'
-    $('.status-accordian').addClass 'label label-danger'
-  else
-    $('.status-accordian').addClass 'label label-success'
-
-
   # $('.collapse').collapse()
 
   flipdiv()
@@ -62,12 +54,13 @@ Template.mainWrapper.helpers
         for d,i in n.decks
           if userCompletions.findOne({userId:Meteor.userId(),deckId:d})?
             status = 'complete'
+            statusClass = 'success'
           else
             status = 'incomplete'
+            statusClass = 'danger'
 
 
-
-          deckList.push {seq:s,flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,deckPic:deckHtml.findOne({deckId:d}).pic}
+          deckList.push {seq:s,flag:flag,deckId:d,deckDesc:deckHtml.findOne({deckId:d}).desc,deckName:deckHtml.findOne({deckId:d}).name,status:status,statusClass:statusClass,deckPic:deckHtml.findOne({deckId:d}).pic}
           if status is 'incomplete' and i is 0
             flag = 'none'
 

@@ -205,7 +205,7 @@
                               <div class="panel-body">
                                 <ul class="accordian-list">
                                   {{#each deckOfNode sequence}}
-                                  <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}"><span class="deckname-accordian">{{deckName}}</span><span class="status-accordian">{{status}}</span></a></li>
+                                  <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}"><span class="deckname-accordian">{{deckName}}</span><span class="status-accordian label label-{{statusClass}}">{{status}}</span></a></li>
                                   <hr width="100%">
                                   {{/each}}
                                 </ul>
@@ -224,13 +224,13 @@
                 </div>
                 <div id="menu-panel">
                   <div id="standard-menu">
-                    <div id="introBtn" class="menuBtn activeBtn" title="Welcome Panel">
+                    <div id="introBtn" class="menuBtn activeBtn" title="Introduction">
                       <img src="/assets/images/info.png" />
                     </div>
-                    <div id="payoffBtn" class="menuBtn" title="Payoff Panel">
+                    <div id="payoffBtn" class="menuBtn" title="Guide">
                       <img src="/assets/images/payoff.png" />
                     </div>
-                    <div id="leaderboardBtn" class="menuBtn" title="Leaderboard Panel">
+                    <div id="leaderboardBtn" class="menuBtn" title="Level">
                       <img src="/assets/images/leaderboard.png" />
                     </div>
                     <!-- <div id="profileBtn" class="menuBtn" title="Knowledge Module">

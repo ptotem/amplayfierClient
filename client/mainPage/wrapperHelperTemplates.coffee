@@ -31,6 +31,14 @@ Template.wrapperSideBar.helpers
   menuEnabled:()->
     Session.get('subPlatformMenuBar')
 
+  isGuestUser:()->
+    if Meteor.users.findOne({_id:Meteor.userId()})?
+      if Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.email.indexOf("@temp.com") isnt -1
+        true
+      else
+        false
+
+
 Template.wrapperSideBar.events
   'click .notification-link':(e)->
     showModal('notificationModal',{},'main-wrapper-page')
