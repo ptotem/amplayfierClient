@@ -18,4 +18,4 @@
 
 Meteor.methods
   sendMyMail:()->
-    # sendRegisterMail()
+    sendRegisterMail()

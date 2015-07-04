@@ -789,6 +789,9 @@ img.translucent {
     .story-wrapper-overlay{
       overflow-y: auto;
     }
+    .oc-scroll{
+      overflow: auto;
+    }
 }
 
 #notifications-center .list-group-item {
