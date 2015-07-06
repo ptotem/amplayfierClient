@@ -10027,7 +10027,7 @@ Copyright (c) 2013 Daniel Eden
 .daterangepicker th.month {
     width: auto; }
 
-/*! X-editable - v1.5.1 
+/*! X-editable - v1.5.1
 * In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery
 * http://github.com/vitalets/x-editable
 * Copyright (c) 2013 Vitaliy Potapov; Licensed MIT */
@@ -10045,8 +10045,8 @@ Copyright (c) 2013 Daniel Eden
     line-height: 20px;
     /* overwriting bootstrap line-height. See #133 */ }
 
-/* 
-  BS3 width:1005 for inputs breaks editable form in popup 
+/*
+  BS3 width:1005 for inputs breaks editable form in popup
   See: https://github.com/vitalets/x-editable/issues/393
 */
 /* line 20, /home/clyfe/dev/emerald/vendor/assets/bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css */
@@ -12500,7 +12500,7 @@ table.fc-border-separate {
 /* line 76, /home/clyfe/dev/emerald/source/stylesheets/bootstrap-extra/_off_canvas.scss */
 .oc-push {
     position: relative;
-    height: 100%;
+    height: auto;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s; }
@@ -43176,4 +43176,3 @@ content: '\e000'; }
 {
     color:#d32436
 }
-
