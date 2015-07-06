@@ -155,6 +155,12 @@
       .oc-scroll{
         overflow:hidden;
       }
+      /*#story-wrapper.portrait-mode {
+        width: 100%;
+        position: relative;
+        display: inline-block;
+        background-size: auto 100%;
+      }*/
 
     </style>
     <!-- <link href="/assets/externalcss/mainWrapper.css" rel="stylesheet" type="text/css" /> -->
@@ -170,7 +176,7 @@
                 <div id="oc-wrapper" class="oc-wrapper oc-lg-partial-left oc-md-partial-left oc-sm-partial-left oc-xs-partial-left oc-lg-left-squeeze oc-md-left-squeeze oc-sm-left-squeeze oc-xs-left-squeeze oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
                     <div class="oc-push oc-scroll">
                         {{>wrapperSideBar}}
-                        <div id="main-oc-container" class="oc-container" style="background-image:url('{{getBackImg}}');background-size:100% 100%;background-repeat:no-repeat;">
+                        <div id="main-oc-container" class="oc-container">
                             <ul class="nav  navbar-nav navbar-right pull-right " style="  position: fixed;z-index:10000;right: 0;">
                                 <li id="oc-right-toggle-container">
                                     {{#if equals isAdmin 'admin'}}
@@ -304,7 +310,7 @@
 
 
 
-                            <div id="story-wrapper">
+                            <div id="story-wrapper" style="background-image:url('{{getBackImg}}');">
                                 <!-- HTML for games -->
                                 {{#if hasGame}} {{#if isPortrait}} {{#with game}}
                                 <div class="game-container" style="  position: absolute; left: {{gamebox.portrait.left}}%;top: {{gamebox.portrait.top}}%;height: {{gamebox.portrait.height}}%;width: {{gamebox.portrait.width}}%;z-index: 20000;">

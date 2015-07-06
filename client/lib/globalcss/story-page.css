@@ -195,12 +195,10 @@ body.story-page {
 }
 
 #story-wrapper.portrait-mode {
-    width: 100%;
-
-
-    position: relative;
-    /*overflow: hidden;*/
-    display: inline-block;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  background-size: auto 100%;
 }
 
 
