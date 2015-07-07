@@ -186,7 +186,8 @@ Template.platformWrapper.helpers
   @summary Split for subTenants name
   ###
   splitSubTenantName: (name) ->
-    newName = name.split('-')[1]
+    lenghtName=parseInt(name.length);
+    newName = name.substring(name.indexOf('-') + 1 , lenghtName);
     newName
 
 
