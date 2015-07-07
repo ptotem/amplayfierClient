@@ -1,7 +1,7 @@
 #Meteor.publish('temps',()->
 #	[platforms.find({}),deckHtml.find({})]
 #)
-#
+
 Meteor.publish('platformData', (pname)->
   if platforms.findOne({tenantName: pname})?
     this.ready()
