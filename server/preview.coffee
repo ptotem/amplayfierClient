@@ -257,7 +257,7 @@ Meteor.methods
       # archivePlatforms.insert({platformData:platforms.findOne({tenantId:tid})})
       # platforms.remove({tenantId:tid})
 #      platforms.update({_id:"AqFLFgDvD5hMBQ8Zh"},{$set:{}})
-      p = platforms.insert({tenantId: tid, subPlatforms: subPlatforms, isMaster: true,tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
+      p = platforms.insert({tenantId: tid, subPlatforms: subPlatforms, isMaster: true,preview:true,tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
       for subPlatform in subPlatforms
         platforms.insert({masterPlatformId:p, subTenantName:subPlatform.subTenantName, tenantId: subPlatform.subTenantId, isMaster: false, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})
       r = addRoles("player","This is the player role",[],p)

@@ -71,8 +71,10 @@
     <div class="main-story-content" id="main-wrapper-page">
       <div class="oc-xs-squeeze-push oc-sm-squeeze-push oc-md-squeeze-push oc-lg-squeeze-push modal-blur-content" style="  height: 100vh;">
         <div id="oc-wrapper" class="oc-wrapper oc-lg-partial-left oc-md-partial-left oc-sm-partial-left oc-xs-partial-left oc-lg-left-squeeze oc-md-left-squeeze oc-sm-left-squeeze oc-xs-left-squeeze oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push oc-lg-hidden-right">
-          <div class="oc-push oc-scroll">
-            {{>wrapperSideBar}}
+          <div class="oc-{{scrollClass}} oc-scroll">
+            {{#if equals isPreview false}}
+              {{>wrapperSideBar}}
+            {{/if}}
             <div id="main-oc-container" class="oc-container" style="background-image:url('{{getBackImg}}');background-repeat: no-repeat;background-size: auto 100%;">
               <ul class="nav  navbar-nav navbar-right pull-right " style="  position: fixed;z-index:3000;right: 0;">
                 <li id="oc-right-toggle-container">
