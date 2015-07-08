@@ -181,9 +181,8 @@ Meteor.publish('badges',()->
 )
 
 
-Meteor.publish('subGameQuestions',(pname)->
+Meteor.publish('subGameQuestions',(tid)->
   this.ready()
+  gameData.find({tenantId:tid})
 
-  pid = platforms.findOne({tenantName: pname}).tenantId
-  gameData.find({tenantId:pid})
 )

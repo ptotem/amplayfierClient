@@ -184,8 +184,8 @@ Meteor.methods(
     score = ""
     deckName = []
     userNodeCompletionData = userNodeCompletions.find().fetch()
-    platformsId = [] 
-    endResult = [] 
+    platformsId = []
+    endResult = []
     pf = platforms.findOne({_id:pid})
     platformsId.push(pf._id)
     for sp in pf.subPlatforms
@@ -216,9 +216,24 @@ Meteor.methods(
 
           }
         )
-    console.log k
-    console.log k.length
-    return
+
+    Fiber(()->
+      csv =  fastCsv
+      csv.writeToString(finalDataJSON,
+        {headers: true},
+        (error,data) ->
+          if error
+            console.log error
+          else
+
+            zip.file('alldecks.csv', data)
+            future.return(zip.generate({type: "base64"}))
+      )
+
+
+    ).run()
+    return future.wait()
+
 
   exportAllNodeDataForAllUsers: (pid) ->
     # Make sure to "Check" the userId variable.
