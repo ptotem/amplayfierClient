@@ -16,7 +16,8 @@
   "public":{
     "nodeenrollments":1,
     "orghierarchy":1,
-    "mainLink":"http://lvh.me:3000"
+    "mainLink":"http://lvh.me:3000",
+    "preview":true
   }
 
 

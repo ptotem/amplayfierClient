@@ -44,6 +44,13 @@ Template.platformWrapper.created = ()->
   window.storyConfig = s
 
 Template.platformWrapper.helpers
+  isPreview:()->
+    if Meteor.settings.public.preview?
+      return true
+    else
+      return false
+
+    #  window.innerHeight > window.innerWidth
   isPortrait:()->
      window.innerHeight > window.innerWidth
   hud:()->
