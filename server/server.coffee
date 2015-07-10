@@ -280,7 +280,7 @@ Meteor.methods
       r = addRoles("player","This is the player role",[],p)
       return true
     else
-      platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false}})
+      platforms.update({tenantId:tid},{$set:{secretKey:secretKey,platformSync: false, subPlatforms: subPlatforms}})
       for subPlatform in subPlatforms
         if !platforms.findOne({tenantId: subPlatform.subTenantId})?
           platforms.insert({masterPlatformId:p, subTenantName:subPlatform.subTenantName, tenantId: subPlatform.subTenantId, isMaster: false, tenantName: tname, secretKey: secretKey, platformSync: false, issyncing: false,platformStatus:'open',profiles:[{name: "unspecified", description: "This is the description for unspecified"}],badges:systemBadges.find().fetch(),badgesStatus:false,repository:false,rewards:false})

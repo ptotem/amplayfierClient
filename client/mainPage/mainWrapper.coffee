@@ -98,11 +98,13 @@ Template.mainWrapper.helpers
       ), (val, index)->
         if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:val.sequence-2})? or val.sequence is 1
           val.activated = true
+          Session.set("currentLevel", val.sequence.toString())
           val
         else
           val.activated = false
           val
     )
+    console.log "Levels"
     console.log a
     a
      # sc.nodes

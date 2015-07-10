@@ -176,12 +176,21 @@
 
 @getGameQuestionByLevel = (gameName, level, q) ->
   # p = platforms.find({tenantId: tenantId})
+  level = Session.get("currentLevel")
+  console.log "Intiated Q"
   if gameData.findOne({gameName: gameName, level: level})?
+    console.log "Quiz type in this level found .."
     if gameData.findOne({gameName: gameName, level: level}).questions?
-      gameData.findOne({gameName: gameName, level: level}).questions
+      q1 = gameData.findOne({gameName: gameName, level: level}).questions
+      console.log "Question found ..."
+      console.log q1
+      q1
+
     else
+      console.log "no question in here"
       q
   else
+    console.log "No quiz found..."
     q
 
 # This is not the best approch. Evals can be dangerous

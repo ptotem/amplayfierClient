@@ -203,8 +203,6 @@ _.mixin
   count = objects.length
   var1 = Math.floor((Math.random() * count-1) + 1)
   var2 = Math.floor((Math.random() * count-1) + 1)
-  console.log "var1: "+ var1
-  console.log "var2: "+ var2
   tmp = $($('.inactive-thumb')[var1]).html()
   $($('.inactive-thumb')[var1]).html($($('.inactive-thumb')[var2]).html())
   $($('.inactive-thumb')[var2]).html(tmp)

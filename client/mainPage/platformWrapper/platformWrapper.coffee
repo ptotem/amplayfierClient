@@ -1,5 +1,7 @@
 Template.platformWrapper.rendered = ->
   Meteor.call('updateUserChatFalse', Meteor.userId())
+  console.log($('html').parents('object'))
+
   $('body').on 'hidden.bs.modal', (e) ->
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
     return
