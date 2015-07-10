@@ -47,17 +47,17 @@ Template.platformWrapper.created = ()->
 
 Template.platformWrapper.helpers
   isPreview:()->
-    if platform.findOne().preview?
-      platform.findOne().preview
-    else
-      return false
+    # if platforms.findOne().preview?
+    #   platforms.findOne().preview
+    # else
+    return false
 
   scrollClass:()->
-    if platform.findOne().preview?
-      if platform.findOne.preview is true
-        return "pull"
-    else
-        return "push"
+    # if platform.findOne().preview?
+    #   if platform.findOne.preview is true
+    #     return "pull"
+    # else
+    return "push"
 
     #  window.innerHeight > window.innerWidth
   isPortrait:()->

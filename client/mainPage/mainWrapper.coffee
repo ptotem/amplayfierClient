@@ -45,17 +45,17 @@ Template.mainWrapper.created = ()->
 
 Template.mainWrapper.helpers
   isPreview:()->
-    if platform.findOne().preview?
-      platform.findOne().preview
-    else
-      return false
+    # if platform.findOne().preview?
+    #   platform.findOne().preview
+    # else
+    return false
 
   scrollClass:()->
-    if platform.findOne().preview?
-      if platform.findOne.preview is true
-        return "pull"
-    else
-        return "push"
+    # if platform.findOne().preview?
+    #   if platform.findOne.preview is true
+    #     return "pull"
+    # else
+    return "push"
 
   deckOfNode:(s)->
     if s?

@@ -219,7 +219,7 @@ Meteor.methods(
 
     Fiber(()->
       csv =  fastCsv
-      csv.writeToString(finalDataJSON,
+      csv.writeToString(k,
         {headers: true},
         (error,data) ->
           if error
