@@ -46,6 +46,20 @@ Template.platformWrapper.created = ()->
   window.storyConfig = s
 
 Template.platformWrapper.helpers
+  isPreview:()->
+    if platform.findOne().preview?
+      platform.findOne().preview
+    else
+      return false
+
+  scrollClass:()->
+    if platform.findOne().preview?
+      if platform.findOne.preview is true
+        return "pull"
+    else
+        return "push"
+
+    #  window.innerHeight > window.innerWidth
   isPortrait:()->
      window.innerHeight > window.innerWidth
   hud:()->
@@ -188,7 +202,8 @@ Template.platformWrapper.helpers
   @summary Split for subTenants name
   ###
   splitSubTenantName: (name) ->
-    newName = name.split('-')[1]
+    lenghtName=parseInt(name.length);
+    newName = name.substring(name.indexOf('-') + 1 , lenghtName);
     newName
 
 

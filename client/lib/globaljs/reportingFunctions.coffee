@@ -44,8 +44,21 @@
 
 @setScore =(score)->
 
-  points = gameMaxPoints*score/100
-  reports.update({_id:attempt},{$push:{slideData:{slideId:-1,panelId:currentIntegratedGameId,slideScore:points,slideTime:-1,slideMaxTime:-1,slideMinTime:-1,slidePoints:gameMaxPoints,percentageScore:score}}})
+  # points = gameMaxPoints*score/100
+  points = score/100
+  console.log "score " + score
+  if currentIntegratedGameId?
+    gameIdIntegrated = currentIntegratedGameId
+  else
+    gameIdIntegrated = -1
+
+
+  if gameMaxPoints?
+    maxPoints = gameMaxPoints
+  else
+    maxPoints = -1
+
+  reports.update({_id:attempt},{$push:{slideData:{slideId:-1,panelId:gameIdIntegrated,slideScore:points,slideTime:-1,slideMaxTime:-1,slideMinTime:-1,slidePoints:maxPoints,percentageScore:score}}})
 #  reports.update({_id:attempt},{$set:{score:score, updatedAt:new Date().getTime()}})
 #  Meteor.call('addUserScore',Meteor.userId(),score)
 
@@ -55,7 +68,11 @@
 
   parameters.createdAt = new Date().getTime()
   parameters['attempt'] = attempt
-  parameters['gameId']= currentIntegratedGameId
+  if currentIntegratedGameId?
+    parameters['gameId']= currentIntegratedGameId
+  else
+    parameters['gameId']= -1
+
   parameters['userId'] = Meteor.userId()
   parameters['platformId'] = platforms.findOne()._id
 #  reports.update({_id:attempt},{$push:{slideData:{slideId:currentTemplateId,panelId:currentPanelId,slideScore:score,slideTime:slideTime,slideMaxTime:maxTime,slideMinTime:minTime,slidePoints:points,percentageScore:scorePercentage}}})

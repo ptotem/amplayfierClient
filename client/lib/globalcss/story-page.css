@@ -181,6 +181,15 @@ body.story-page {
 /*right panel css ends*/
 
 @media (orientation: landscape) {
+
+  .oc-scroll{
+    overflow: auto;
+  }
+  #oc-wrapper > .oc-push > .oc-container#main-oc-container
+  {
+    overflow:auto;
+  }
+
     .setSmaller {
         -moz-transform: rotate(3deg);
         -o-transform: rotate(3deg);
@@ -756,7 +765,7 @@ img.translucent {
       display: none;
       position: absolute;
       z-index: 4;
-      height: 100%;
+      height: 50%;
       width: 85%;
       top: 13%;
       left: 0;
