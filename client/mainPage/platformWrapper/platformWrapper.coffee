@@ -214,7 +214,7 @@ Template.platformWrapper.helpers
   splitSubTenantName: (name) ->
     lenghtName=parseInt(name.length);
     newName = name.substring(name.indexOf('-') + 1 , lenghtName);
-    newName
+    getGameSlideName(newName)
 
 
 Template.platformWrapper.events

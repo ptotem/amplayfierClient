@@ -330,6 +330,18 @@
   console.log p
   a = "assets/img/"+ p 
   a = a + "/"
+
+###
+@summary  This function sets the Game slide name in format
+@params name:- string
+@return NULL
+###
+@getGameSlideName = (name) ->
+  a = name.split("_").join(" ")
+  a = a.split(" ").map (i) ->
+    i[0].toUpperCase() + i.substring(1)
+  a.join(" ")
+
 @initDeck = ()->
 
 
