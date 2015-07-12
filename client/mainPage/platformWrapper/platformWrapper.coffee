@@ -178,7 +178,17 @@ Template.platformWrapper.helpers
 
   socialLinks:()->
     if platforms.findOne().platformLinks?
-      platforms.findOne().platformLinks
+      psl = platforms.findOne().platformLinks
+      sl = []
+      sl1 = []
+      for l in psl
+        if l.link.length > 0
+          sl.push l
+        else
+          sl1.push {imgPath:"",link:""}
+      sl1 = sl1.concat(sl)
+      sl1
+
 
   ###
   @summary Get the tenant's nodes with display number
