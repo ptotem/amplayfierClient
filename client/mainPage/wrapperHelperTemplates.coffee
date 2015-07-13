@@ -376,10 +376,18 @@ Template.virtualTourModal.events
     # ...
 
 Template.modalLogin.events
-   'submit #storyLoginForm':(e)->
-     pn = platformName
-     userEmail = $(e.currentTarget).find("#email").val().toString()
-     newEmail = encodeEmail(userEmail,pn)
-     userPassword = $(e.currentTarget).find("#password").val()
-     authenticatePassword(newEmail,userPassword,"/")
-     false
+  'submit #storyLoginForm':(e)->
+    pn = platformName
+    userEmail = $(e.currentTarget).find("#email").val().toString()
+    newEmail = encodeEmail(userEmail,pn)
+    userPassword = $(e.currentTarget).find("#password").val()
+    authenticatePassword(newEmail,userPassword,"/")
+    false
+
+  'click .remove-modal':(e)->
+
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
