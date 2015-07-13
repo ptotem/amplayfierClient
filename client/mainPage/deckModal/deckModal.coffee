@@ -95,6 +95,7 @@ Template.previewPPT.events
 
 		$('.projection').remove();
 		$('.story-zone-playbar').remove();
+		$("#carousel-viewPPT").find('iframe').remove()
 		cancelFullScreen("#viewPPTModal")
 
 
