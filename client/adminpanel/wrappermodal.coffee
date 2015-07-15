@@ -142,6 +142,8 @@ Template.adduserModal.events
     currUserLname = Meteor.users.findOne({_id: Meteor.userId() } ).personal_profile.last_name
 
     pid = platforms.findOne()._id
+    pname=platforms.findOne().tenantName
+    
 
     p = {platform: pid, first_name: first_name, last_name: last_name, display_name: display_name, email: newemail, reportingManager: reportingTo, role: role, hrmanager: hrManagerTo}
 
@@ -156,7 +158,7 @@ Template.adduserModal.events
             createNotification('User Limit reached', 0)
 
           else
-            Meteor.call("sendUserAddMailGunMail", email, first_name, last_name, currUserFname, currUserLname)
+            Meteor.call("sendUserAddMailGunMail", email, first_name, last_name, currUserFname, currUserLname,pname)
             createNotification("User successfully added", 1)
 
       )
@@ -173,7 +175,7 @@ Template.adduserModal.events
       p['hrmanager'] = hrManagerTo
       console.log hrManagerTo
       Meteor.call('updateUser', $("#user-id").val(), p)
-      Meteor.call("sendUserAddMailGunMail", email, first_name, last_name, currUserFname, currUserLname)
+      Meteor.call("sendUserAddMailGunMail", email, first_name, last_name, currUserFname, currUserLname,pname)
       createNotification('Profile has been updated', 1)
     removeModal()
 

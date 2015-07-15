@@ -76,7 +76,7 @@ url(http://amplayfier.com/assets/mailerimages/background.jpg);">
   subject:"Congratulations"
   text:"You have just published a Platform. You can now see your Platform listed on the Amplayfier Store, and so can other Interested Buyers"
 
-@generateUserAdditionMail = (to,fname,lname,currUserFname,currUserLname)->
+@generateUserAdditionMail = (to,fname,lname,currUserFname,currUserLname,pname)->
   return '<div class="main-wrapper" style="height: 480px;width: 640px;background-size:640px 480px;margin:0 auto;position: relative;background-image:url(http://amplayfier.com/assets/mailerimg1.png);">
 <div style="height:395px;width:200px;float:left;margin-top:150px">
 
@@ -87,25 +87,25 @@ url(http://amplayfier.com/assets/mailerimages/background.jpg);">
 
                 </div>
                 <div style="float:left;width:200px;text-align:center;font-size:16px;margin-top:10px">
-                    <div style="height:20px;width:150px;margin:0px auto;background-color:#ea9354;color:white;padding:10px;cursor:pointer">Tutorials</div>
+                    <div style="height:20px;width:150px;margin:0px auto;background-color:#ea9354;color:white;padding:10px;cursor:pointer"><a style="color:white;text-decoration:none;" href="https://www.youtube.com/channel/UCgjqXyu_Yvst10zWbOvIA7A" target="_blank">Tutorial</a></div>
                 </div>
 
     </div>
     <div style="height:395px;width:440px;float:left;margin-top:47px;">
 
 
-        <h3 style="font-size:21px;font-weight:normal;text-align:center">Welcome, '+fname+' '+lname+'</h3>
-        <div style="float:left;width:400px;text-align:center;font-size:16px">You have been invited to be a part of <Presentation Name> , a presentation created on Amplayfier.</div>
-        <div style="float:left;width:360px;text-align:center;font-size:14px;margin:20px">This game-based presentation has been created by <Creator Name> so that you can have a better presentation experience. So what are you waiting for? Click on the link below to be a part of the presentation revolution.
+        <h3 style="font-size:21px;font-weight:normal;text-align:center">Welcome,'+fname+' '+lname+' </h3>
+        <div style="float:left;width:400px;text-align:center;font-size:16px">You have been invited to be a part of '+pname+' , a presentation created on Amplayfier.</div>
+        <div style="float:left;width:360px;text-align:center;font-size:14px;margin:20px">This game-based presentation has been created by '+currUserFname+' '+currUserLname+' so that you can have a better presentation experience. So what are you waiting for? Click on the link below to be a part of the presentation revolution.
         </div>
 				<div style="float:left;width:400px;text-align:center;font-size:16px;">
-					<div style="height:20px;width:100px;margin:0px auto;background-color:#ea9354;color:white;padding:10px;cursor:pointer">View Now
+					<div style="height:20px;width:100px;margin:0px auto;background-color:#ea9354;color:white;padding:10px;cursor:pointer"><a href="'+pname+'.amplayfier.com" target="_blank" style="color:white;text-decoration:none;">View Now</a>
 					</div>
 				</div>
 				<div style="float:left;width:360px;text-align:center;font-size:14px;margin:20px">You can create your very own game-based presentations for free on Amplayfier. All you have to do is click on the link below, sign-up and you are good to go.
         </div>
         <div style="float:left;width:400px;text-align:center;font-size:16px;">
-					<div style="height:20px;width:120px;margin:0px auto;background-color:#ea9354;color:white;padding:10px;cursor:pointer">Create Now
+					<div style="height:20px;width:135px;margin:0px auto;background-color:#ea9354;color:white;padding:10px;cursor:pointer"><a href="http://amplayfier.com/dashboard" style="color:white;text-decoration:none;">Create Now</a>
 					</div>
 				</div>
 
