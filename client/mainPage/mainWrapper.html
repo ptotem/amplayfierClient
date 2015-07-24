@@ -163,7 +163,7 @@
 
                 </div>
                 <div id="story-overlays"></div>
-
+                {{#if notEquals showIntro "FALSE"}}    
                 <div id="matter-panel">
                   <!-- <div id="base-panel">
                       <img src="/assets/images/panelBack.png" class="panelBack"/>
@@ -260,7 +260,7 @@
                       </div> -->
                   </div>
                 </div>
-
+                {{/if}}
               </div>
               <!-- <img id="story-nameplate" src="{{getNamePlate}}" alt="" /> -->
               <!-- <img id="story-nameplate" src="{{generateStoryImagePath wrapperJson.imgsrc wrapperJson.nameplate.image}}" alt="" style="width:{{wrapperJson.nameplate.landscape.width}}%;left:{{wrapperJson.nameplate.landscape.left}}%;top:{{wrapperJson.nameplate.landscape.top}}%;" />

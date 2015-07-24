@@ -46,6 +46,9 @@ Template.platformWrapper.created = ()->
   window.storyConfig = s
 
 Template.platformWrapper.helpers
+  specific:()->
+    window.storyConfig.specific
+
   isPreview:()->
     # if platforms.findOne().preview?
     #   platforms.findOne().preview
@@ -94,9 +97,12 @@ Template.platformWrapper.helpers
     else
       Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
-     _.reject(platforms.findOne().nodes,(e)->
+     a =_.reject(platforms.findOne().nodes,(e)->
        e.decks.length is 0
      )
+     console.log a
+     a
+
   storyHeading:()->
     storyConfig.name
   getNodeStatusPic:(seq)->
@@ -196,13 +202,14 @@ Template.platformWrapper.helpers
   subPlatforms:()->
     allSubPlatforms = []
     subPlats = platforms.findOne().subPlatforms
-    for i in [0..11]
+    for i in [0..platforms.findOne().nodes.length]
       if i < subPlats.length
         n = subPlats[i]
         n['active']=true
+        n['node']=platforms.findOne().nodes[i]
         allSubPlatforms.push n
       else
-        allSubPlatforms.push {active:false}
+        allSubPlatforms.push {active:false,node:platforms.findOne().nodes[i]}
     allSubPlatforms
 
   getChapterImg:(url)->

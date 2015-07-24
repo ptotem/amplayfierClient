@@ -35,6 +35,8 @@ Template.mainWrapper.rendered = ->
     $('.story-node').popover({trigger:'hover',html: true})
     # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
     $('#story-nameplate-cover').fadeOut(3000);
+    initDeck()
+    console.log("Init DEck")
   ,1000)
 
 
@@ -44,6 +46,11 @@ Template.mainWrapper.created = ()->
   window.storyConfig = platforms.findOne({}).wrapperJson
 
 Template.mainWrapper.helpers
+  showIntro:()->
+    platforms.findOne().storyConfig.showIntro
+
+
+
   isPreview:()->
     # if platform.findOne().preview?
     #   platform.findOne().preview

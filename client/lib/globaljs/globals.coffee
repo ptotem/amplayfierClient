@@ -99,20 +99,20 @@
   Meteor.settings.public.mainLink + platforms.findOne().wrapperJson.imgsrc
 @getImageInGame = (a,k)->
 
-  # 403
-  if customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k})?
-    customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k}).custVal
-  else
-    403
+  403
+  # if customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k})?
+  #   customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k}).custVal
+  # else
+  #   403
 
 
 @getTextInGame = (a,k)->
 
-	# 403
-	if customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k})?
-		customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k}).custVal
-	else
-		403
+	403
+	# if customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k})?
+	# 	customizationDecks.findOne({intGameId:currentIntegratedGameId,custKey:k}).custVal
+	# else
+	# 	403
 
 @setCurrentSlideScore = (minTime, maxTime, points) ->
   maxTime = 4

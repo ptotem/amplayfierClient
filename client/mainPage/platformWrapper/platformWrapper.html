@@ -215,7 +215,18 @@
                                           </i>
                                       </a> -->
                             <div class="story-wrapper-overlay">
+
+                                {{#if equals specific "TRUE"}}
                                 <div id="scory-board">
+                                        {{#each subPlatforms}}
+
+                                            <a href="/games/{{subTenantId}}" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus node.sequence}}" data-placement="{{getPlacement node.landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop node.landscape.top}}%;left:{{getPrecLeft node.landscape.left}}%;width:{{node.landscape.width}}%;outline:none;">
+                                                <img src="{{getNodeStatusPic node.sequence}}" alt="">
+                                            </a>
+                                        {{/each}}
+                                </div>
+                                {{else}}
+                                <div id="scory-board1">
                                     <div class="container">
                                         <div class="row">
                                             {{#if isPortrait}}
@@ -288,6 +299,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{/if}}
+                                
                             </div>
                             <div id="story-wrapper" style="background-image:url('{{getBackImg}}');background-size:100% 100%;background-repeat:no-repeat;">
                                 <!-- HTML for games -->
