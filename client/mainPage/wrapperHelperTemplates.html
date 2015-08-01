@@ -131,13 +131,13 @@
         <div class="nano-content">
             <div class="oc-sidebar-header" style="width:50px;">
                 <ul class="nav">
-                  
+
                     <li>
                         <a href="http://amplayfier.com" target="_blank" class="btn-nav" style="padding:0;margin:0;">
                             <img rel="popover-sidebar" data-container="body" data-placement="right" data-content="Created using amplayfier." class="media-object side-bar-image" src="/assets/images/amplayfier-logo-2.png" style="width:30px; margin:10px" />
                         </a>
                     </li>
-                  
+
                 </ul>
 
             </div>
@@ -223,6 +223,20 @@
                     {{/if}}
                     {{/if}}
 
+
+
+                    {{#if equals ismodal "TRUE"}}
+
+                    <li>
+                        <a class="collapsed side-bar-link help-modal"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Get the help" href="#modalLogin" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-info"></i>
+                            <span class="oc-partial-menu-item">Help</span>
+                        </a>
+                    </li>
+                    {{/if}}
+
+
+
                     {{#if equals menuEnabled false}}
 
                     <li>
@@ -232,6 +246,10 @@
                         </a>
                     </li>
                     {{/if}}
+
+
+
+
 
                     {{#if equals isGuestUser false}}
                     <li class="" style="position:absolute;bottom:0;">
@@ -245,7 +263,7 @@
                 </ul>
 
             </div>
-            
+
         </div>
     </aside>
 </template>

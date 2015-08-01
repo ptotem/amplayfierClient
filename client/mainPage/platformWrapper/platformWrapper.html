@@ -9,49 +9,49 @@
     <link href="/assets/externalcss/virtual-tour.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
     /*popover styling*/
-    
+
     .popover {
         box-shadow: 0 0 10px 5px black;
         text-align: center;
         color: black;
     }
-    
+
     .popover-title {
         background: black;
         color: white;
         font-weight: bold;
     }
-    
+
     .popover-photo {
         width: 100%;
         margin-bottom: 5px;
     }
-    
+
     .popover-content-block {
         padding: 4px 2px;
         margin-top: 4px;
         margin-bottom: 8px;
     }
-    
+
     .complete-popover-content {
         background: #4d7b4d;
         color: white;
     }
-    
+
     .active-popover-content {
         background: goldenrod;
         color: black;
     }
-    
+
     .incomplete-popover-content {
         background: #ba5858;
         color: white;
     }
-    
+
     .modal-xlg-data-modal .modal-header {
         width: 60%;
     }
-    
+
     .story-wrapper-overlay {
         position: absolute;
         top: 0;
@@ -63,23 +63,23 @@
         color: white;
         display: inline-block;
     }
-    
+
     #scory-board {
         margin-top: 1%;
     }
-    
+
     #scory-board .active-platform {
         /*text-align:center;*/
         color: black;
     }
-    
+
     #scory-board .disabled-platform {
         background: #ccc;
         pointer-events: none;
         text-align: center;
         color: black;
     }
-    
+
     .flippy {
         /**/
         -moz-transform: scale(1, 1);
@@ -90,7 +90,7 @@
         -webkit-transition: all 600ms ease;
         transition: all 600ms ease;
     }
-    
+
     .flippy[flipped] {
         /**/
         -moz-transform: scale(-1, 1);
@@ -98,17 +98,17 @@
         transform: scale(-1, 1);
     }
     /* entire container, keeps perspective */
-    
+
     .flip-container {
         perspective: 1000;
     }
     /* flip the pane when hovered */
-    
+
     .flip-container:hover .flipper,
     .flip-container.hover .flipper {
         transform: rotateY(180deg);
     }
-    
+
     .flip-container,
     .front,
     .back {
@@ -116,14 +116,14 @@
         height: 480px;*/
     }
     /* flip speed goes here */
-    
+
     .flipper {
         transition: 0.6s;
         transform-style: preserve-3d;
         position: relative;
     }
     /* hide back of pane during swap */
-    
+
     .front,
     .back {
         backface-visibility: hidden;
@@ -132,35 +132,35 @@
         left: 0;
     }
     /* front pane, placed above back */
-    
+
     .front {
         z-index: 2;
         /* for firefox 31 */
         transform: rotateY(0deg);
     }
     /* back, initially hidden pane */
-    
+
     .back {
         transform: rotateY(180deg);
     }
-    
+
     .flip-container:hover .flipper,
     .flip-container.hover .flipper,
     .flip-container.flip .flipper {
         transform: rotateY(180deg);
     }
-    
+
     .social-link {
         float: left;
         width: 32px;
         height: 32px;
         margin: 0.3%;
     }
-    
+
     .google-icon img {
         height: 75px;
     }
-    
+
     .oc-scroll {
         overflow: hidden;
     }
@@ -170,7 +170,7 @@
         display: inline-block;
         background-size: auto 100%;
       }*/
-    
+
     .oc-lg-squeeze-push .oc-lg-left-squeeze.oc-lg-partial-left .oc-sidebar-fixed {
         height: 100vh !important;
     }
@@ -220,7 +220,7 @@
                                 <div id="scory-board">
                                         {{#each subPlatforms}}
 
-                                            <a href="/games/{{subTenantId}}" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus node.sequence}}" data-placement="{{getPlacement node.landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop node.landscape.top}}%;left:{{getPrecLeft node.landscape.left}}%;width:{{node.landscape.width}}%;outline:none;">
+                                            <a href="/games/{{subTenantId}}" data-name="{{subTenantName}}" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus node.sequence}}" data-placement="{{getPlacement node.landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop node.landscape.top}}%;left:{{getPrecLeft node.landscape.left}}%;width:{{node.landscape.width}}%;outline:none;">
                                                 <img src="{{getNodeStatusPic node.sequence}}" alt="">
                                             </a>
                                         {{/each}}
@@ -300,7 +300,7 @@
                                     </div>
                                 </div>
                                 {{/if}}
-                                
+
                             </div>
                             <div id="story-wrapper" style="background-image:url('{{getBackImg}}');background-size:100% 100%;background-repeat:no-repeat;">
                                 <!-- HTML for games -->

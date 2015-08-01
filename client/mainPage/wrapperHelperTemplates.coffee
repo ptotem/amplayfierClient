@@ -38,6 +38,8 @@ Template.wrapperSideBar.helpers
       else
         false
 
+  ismodal:()->
+    platforms.findOne().wrapperJson.ismodal
 
 Template.wrapperSideBar.events
   'click .notification-link':(e)->
@@ -74,6 +76,10 @@ Template.wrapperSideBar.events
 
   'click .master-home':(e)->
     window.location = "/"
+
+  'click .help-modal':(e)->
+    showModal('tataModal',{},'main-wrapper-page')
+      
 
 Template.notificationModal.helpers
   notiPassKey:()->

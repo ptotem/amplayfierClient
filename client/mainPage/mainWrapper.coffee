@@ -35,9 +35,17 @@ Template.mainWrapper.rendered = ->
     $('.story-node').popover({trigger:'hover',html: true})
     # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
     $('#story-nameplate-cover').fadeOut(3000);
-    initDeck()
-    console.log("Init DEck")
+
+    # initDeck()
+    # console.log("Init DEck")
+    $(".modal").remove()
+    $('.modal-backdrop').remove()
+    showModal('tataModal',{},'main-wrapper-page')
   ,1000)
+  setTimeout(()->
+    if platforms.findOne().wrapperJson.ismodal?
+      $('.zone-deck')[0].click()
+  ,3000)
 
 
 
@@ -359,3 +367,8 @@ Template.mainWrapper.events
 
   'click .fullscreener':(e)->
     toggleFull("#viewPPTModal")
+
+
+Template.tataModal.helpers
+  typeOfPlatform:()->
+    platforms.findOne().wrapperJson.type

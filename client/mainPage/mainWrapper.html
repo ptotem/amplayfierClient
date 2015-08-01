@@ -163,13 +163,13 @@
 
                 </div>
                 <div id="story-overlays"></div>
-                {{#if notEquals showIntro "FALSE"}}    
+                {{#if notEquals showIntro "FALSE"}}
                 <div id="matter-panel">
                   <!-- <div id="base-panel">
                       <img src="/assets/images/panelBack.png" class="panelBack"/>
                   </div> -->
-                  
-                   
+
+
                   <div id="intro-panel" class="content-panel">
                     <img src="/assets/images/panelBack.png" class="panelBack" />
 
@@ -281,4 +281,51 @@
   <!-- Notifications Modal -->
   <!-- /modal -->
   <!-- Leaderboard Modal -->
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<template name="tataModal">
+  <div id="tataModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        {{#if equals typeOfPlatform "ppt1"}}
+          <h4 class="modal-title" style="color:black;">PPT One</h4>
+        {{/if}}
+        {{#if equals typeOfPlatform "bm"}}
+          <h4 class="modal-title" style="color:black;">Blank Man</h4>
+        {{/if}}
+      </div>
+      <div class="modal-body" style="color:black;">
+        {{#if equals typeOfPlatform "ppt1"}}
+          <p>Some text in the modal.</p>
+        {{/if}}
+        {{#if equals typeOfPlatform "bm"}}
+          <p>Blank Man</p>
+        {{/if}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 </template>
