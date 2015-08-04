@@ -36,16 +36,24 @@ Template.mainWrapper.rendered = ->
     # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
     $('#story-nameplate-cover').fadeOut(3000);
 
-    # initDeck()
-    # console.log("Init DEck")
     $(".modal").remove()
     $('.modal-backdrop').remove()
-    showModal('tataModal',{},'main-wrapper-page')
+    if platforms.findOne().wrapperJson.isModal?
+      if !platforms.findOne().modalCounter >= 1
+        pid = platforms.findOne()._id
+        platforms.update({_id:pid},{ $set: { modalCounter: 0} })
+
+      if platforms.findOne().wrapperJson.type is "doc" or platforms.findOne().wrapperJson.type is "bm" or platforms.findOne().wrapperJson.type is "tnf"
+        initDeck()
+        console.log("Init DEck")
+      if platforms.findOne().modalCounter < 1
+        showModal('tataModal',{},'main-wrapper-page')
+      else
+        if $('.zone-deck')?
+          $('.zone-deck')[0].click()
+      Session.set('currentLevel','1')
   ,1000)
-  setTimeout(()->
-    if platforms.findOne().wrapperJson.ismodal?
-      $('.zone-deck')[0].click()
-  ,3000)
+
 
 
 
@@ -54,6 +62,10 @@ Template.mainWrapper.created = ()->
   window.storyConfig = platforms.findOne({}).wrapperJson
 
 Template.mainWrapper.helpers
+  ismodal:()->
+    platforms.findOne().wrapperJson.isModal
+
+
   showIntro:()->
     platforms.findOne().storyConfig.showIntro
 
@@ -93,6 +105,10 @@ Template.mainWrapper.helpers
             flag = 'none'
 
       deckList
+
+
+
+
 
   isPortrait:()->
      window.innerHeight > window.innerWidth
@@ -372,3 +388,13 @@ Template.mainWrapper.events
 Template.tataModal.helpers
   typeOfPlatform:()->
     platforms.findOne().wrapperJson.type
+
+Template.tataModal.events
+  'click .continue-modal':(e)->
+    pid = platforms.findOne()._id
+    platforms.update({_id:pid},{ $inc: { modalCounter: 1} })
+
+  'click .continue-modal-ppt':(e)->
+    pid = platforms.findOne()._id
+    platforms.update({_id:pid},{ $inc: { modalCounter: 1} })
+    $('.zone-deck')[0].click()

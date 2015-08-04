@@ -74,6 +74,87 @@ Meteor.methods(
 
 
 
+# Tata Reports
+  exportTataReports: (pid) ->
+    # Make sure to "Check" the userId variable.
+#    check(userId,String)
+  # We'll handle our actual export here.
+    Fiber = Npm.require('fibers')
+    Future = Npm.require('fibers/future')
+    future = new Future()
+
+    users = Meteor.users.find().fetch()
+    finalDataJSON = []
+    status = ""
+    score = ""
+    deckName = []
+    userNodeCompletionData = userNodeCompletions.find().fetch()
+    platformsId = []
+    endResult = []
+    pf = platforms.findOne({_id:pid})
+    platformsId.push(pf._id)
+    for sp in pf.subPlatforms
+      p = platforms.findOne({tenantId: sp.subTenantId})
+      platformsId.push p._id
+    console.log platformsId
+    l = _.map(_.flatten(_.map(reports.find({platformId:{$in:platformsId}}).fetch(), (val) ->
+            _.unwind(val, 'slideData', 'sd')
+          )), (v, i) ->
+            finalres={}
+            v.first_name = Meteor.users.findOne({_id:v.userId}).personal_profile.first_name
+            v.last_name = Meteor.users.findOne({_id:v.userId}).personal_profile.last_name
+            v.email = Meteor.users.findOne({_id:v.userId}).personal_profile.email
+            v.gameName = v.sd.gameName
+            v.percentageScore = v.sd.percentageScore
+            finalres.first_name = v.first_name
+            finalres.last_name = v.last_name
+            finalres.email = v.email
+            finalres.email = v.email
+            finalres.gameName = v.gameName
+            finalres.percentageScore = v.percentageScore
+            
+            return finalres
+
+        )
+    Fiber(()->
+      csv =  fastCsv
+      csv.writeToString(l,
+        {headers: true},
+        (error,data) ->
+          if error
+            console.log error
+          else
+
+            zip.file('tata.csv', data)
+            future.return(zip.generate({type: "base64"}))
+      )
+
+
+    ).run()
+    return future.wait()
+# Tata Reports
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   exportDeckDataForAllUsers: () ->
     # Make sure to "Check" the userId variable.
 #    check(userId,String)

@@ -10,7 +10,7 @@
 
                         <!-- Wrapper for slides -->
                         <div class="content-cont" style="height:37em; overflow:hidden; ">
-                            
+
                         {{{getHtmlContent}}}
                         </div>
 
@@ -250,12 +250,17 @@
 }
 
 </style>
+
 <div id="viewPPTModal" class="modal show-deck-modal isntFullScreen fade in editor-modal" tabindex="-1" role="dialog"
-aria-labelledby="viewPPTModalLabel" aria-hidden="true">
+aria-labelledby="viewPPTModalLabel" aria-hidden="true" data-backdrop="{{staticModal}}" data-keyboard="{{staticFalse}}">
 <div class="modal-dialog modal-xlg-ppt" style="margin-bottom: 0">
 <div class="modal-content">
 <div class="modal-header custom-body-modal">
-<a class="btn btn-default custom-cross-modal close-ppt-modal visible-lg visible-md" data-dismiss="modal">&times;</a>
+  {{#if equals ismodal "TRUE"}}
+    <a class="btn btn-default custom-cross-modal close-ppt-modal visible-lg visible-md" data-dismiss="modal">&times;</a>
+  {{else}}
+    <a href="/" class="btn btn-default custom-cross-modal close-ppt-modal visible-lg visible-md" data-dismiss="modal">&times;</a>
+  {{/if}}
 <!-- <h4 class="modal-title modal-header-style" id="viewPPTModalLabel">View Deck</h4> -->
 </div>
 <div class="modal-body">

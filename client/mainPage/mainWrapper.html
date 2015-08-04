@@ -164,6 +164,18 @@
                 </div>
                 <div id="story-overlays"></div>
                 {{#if notEquals showIntro "FALSE"}}
+
+
+
+
+                {{#if equals ismodal "TRUE"}}
+                {{#each nodes}}
+                  {{#each deckOfNode sequence}}
+                  <a href="#" style="display:none;" class="zone-deck" id="listing-deck-{{deckId}}"><span class="deckname-accordian">{{deckName}}</span><span class="status-accordian label label-{{statusClass}}">{{status}}</span></a>
+                  {{/each}}
+                {{/each}}
+
+                {{else}}
                 <div id="matter-panel">
                   <!-- <div id="base-panel">
                       <img src="/assets/images/panelBack.png" class="panelBack"/>
@@ -222,6 +234,9 @@
                             <div id="collapse{{sequence}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{sequence}}">
                               <div class="panel-body">
                                 <ul class="accordian-list">
+
+
+
                                   {{#each deckOfNode sequence}}
                                   <li><a href="#" class="zone-deck" id="listing-deck-{{deckId}}"><span class="deckname-accordian">{{deckName}}</span><span class="status-accordian label label-{{statusClass}}">{{status}}</span></a></li>
                                   <hr width="100%">
@@ -260,6 +275,7 @@
                       </div> -->
                   </div>
                 </div>
+                {{/if}}
                 {{/if}}
               </div>
               <!-- <img id="story-nameplate" src="{{getNamePlate}}" alt="" /> -->
@@ -305,24 +321,51 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         {{#if equals typeOfPlatform "ppt1"}}
           <h4 class="modal-title" style="color:black;">PPT One</h4>
         {{/if}}
         {{#if equals typeOfPlatform "bm"}}
           <h4 class="modal-title" style="color:black;">Blank Man</h4>
         {{/if}}
+        {{#if equals typeOfPlatform "doc"}}
+          <h4 class="modal-title" style="color:black;">Documentor</h4>
+        {{/if}}
+        {{#if equals typeOfPlatform "tnf"}}
+          <h4 class="modal-title" style="color:black;">True or False</h4>
+        {{/if}}
+        {{#if equals typeOfPlatform "ppt2"}}
+          <h4 class="modal-title" style="color:black;">PPT Two</h4>
+        {{/if}}
       </div>
       <div class="modal-body" style="color:black;">
         {{#if equals typeOfPlatform "ppt1"}}
-          <p>Some text in the modal.</p>
+          <p>PPT One</p>
         {{/if}}
         {{#if equals typeOfPlatform "bm"}}
           <p>Blank Man</p>
         {{/if}}
+        {{#if equals typeOfPlatform "doc"}}
+          <p>Documentor</p>
+        {{/if}}
+        {{#if equals typeOfPlatform "tnf"}}
+          <p>True or False</p>
+        {{/if}}
+        {{#if equals typeOfPlatform "ppt2"}}
+          <p>PPT Two</p>
+        {{/if}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        {{#if equals typeOfPlatform "ppt1"}}
+          <button type="button" class="btn btn-default continue-modal-ppt" data-dismiss="modal">Continue</button>
+        {{else}}
+          {{#if equals typeOfPlatform "ppt2"}}
+              <button type="button" class="btn btn-default continue-modal-ppt" data-dismiss="modal">Continue</button>
+          {{else}}
+            <button type="button" class="btn btn-default continue-modal" data-dismiss="modal">Continue</button>
+          {{/if}}
+        {{/if}}
+
       </div>
     </div>
 

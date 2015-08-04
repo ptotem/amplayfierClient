@@ -385,6 +385,16 @@ Template.manageReport.events
     )
 
 
+  'click .tata-report-btn':(e)->
+    Meteor.call('exportTataReports',platforms.findOne({isMaster:true})._id,(err,res)->
+      if err
+        console.log err
+      else
+        blob = base64ToBlob(res)
+        saveAs(blob, 'Tata.Zip')
+    )
+
+
 
 Template.rewardsLeftMenu.rendered = ->
   if platforms.findOne()['rewards']

@@ -39,7 +39,7 @@ Template.wrapperSideBar.helpers
         false
 
   ismodal:()->
-    platforms.findOne().wrapperJson.ismodal
+    platforms.findOne().wrapperJson.isModal
 
 Template.wrapperSideBar.events
   'click .notification-link':(e)->
@@ -79,7 +79,7 @@ Template.wrapperSideBar.events
 
   'click .help-modal':(e)->
     showModal('tataModal',{},'main-wrapper-page')
-      
+
 
 Template.notificationModal.helpers
   notiPassKey:()->

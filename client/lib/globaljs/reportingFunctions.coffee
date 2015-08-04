@@ -42,11 +42,11 @@
 #  This function store the last achieved score in the game
 
 
-@setScore =(score)->
+@setScore =(score,gameName)->
 
   # points = gameMaxPoints*score/100
   points = score/100
-  console.log "score " + score
+  console.log "score " + gameName
   if currentIntegratedGameId?
     gameIdIntegrated = currentIntegratedGameId
   else
@@ -58,7 +58,7 @@
   else
     maxPoints = -1
 
-  reports.update({_id:attempt},{$push:{slideData:{slideId:-1,panelId:gameIdIntegrated,slideScore:points,slideTime:-1,slideMaxTime:-1,slideMinTime:-1,slidePoints:maxPoints,percentageScore:score}}})
+  reports.update({_id:attempt},{$push:{slideData:{gameName:gameName,slideId:-1,panelId:gameIdIntegrated,slideScore:points,slideTime:-1,slideMaxTime:-1,slideMinTime:-1,slidePoints:maxPoints,percentageScore:score}}})
 #  reports.update({_id:attempt},{$set:{score:score, updatedAt:new Date().getTime()}})
 #  Meteor.call('addUserScore',Meteor.userId(),score)
 

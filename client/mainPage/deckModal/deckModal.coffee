@@ -62,7 +62,7 @@ Template.deckList.helpers
 # 	'click .goToDeck': (e) ->
 # 		window.location '/deckI'
 Template.previewPPT.rendered = ->
-# $('.item').first().addClass('active')
+  console.log "wrapperJson WrapperJson " + platforms.findOne().wrapperJson
 	setTimeout(()->
 
 		x = {
@@ -77,7 +77,6 @@ Template.previewPPT.rendered = ->
 		$('.owl-carousel').owlCarousel x
 		if $('.owl-item').length is 1
 			$('.owl-controls').hide()
-
 
 
 	,1000)
@@ -100,8 +99,26 @@ Template.previewPPT.events
 
 
 Template.previewPPT.helpers
-	deckImages: (did) ->
+	ismodal:()->
+		platforms.findOne().wrapperJson.isModal
 
+	staticModal:()->
+		if platforms.findOne().wrapperJson.isModal?
+			if platforms.findOne().wrapperJson.isModal is "TRUE"
+				"static"
+			else
+				""
+
+	staticFalse:()->
+		if platforms.findOne().wrapperJson.isModal?
+			if platforms.findOne().wrapperJson.isModal is "TRUE"
+				"false"
+			else
+				""
+
+
+	deckImages: (did) ->
 		deckHtml.findOne({deckId:did}).dimages
+
 	getImgFromCreator:(link)->
 		Meteor.settings.public.mainLink + link
