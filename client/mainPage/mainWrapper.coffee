@@ -1,6 +1,9 @@
 Template.mainWrapper.rendered = ->
 
   # $('.collapse').collapse()
+  if platforms.findOne().wrapperJson.isModal?
+    Session.set('currentLevel','1')
+    console.log "session " + Session.get('currentLevel')
 
   flipdiv()
   setInterval(()->
@@ -53,7 +56,6 @@ Template.mainWrapper.rendered = ->
       else
         if $('.zone-deck')?
           $('.zone-deck')[0].click()
-      Session.set('currentLevel','1')
   ,1000)
 
 
