@@ -62,7 +62,6 @@ Template.deckList.helpers
 # 	'click .goToDeck': (e) ->
 # 		window.location '/deckI'
 Template.previewPPT.rendered = ->
-  console.log "wrapperJson WrapperJson " + platforms.findOne().wrapperJson
 	setTimeout(()->
 
 		x = {
@@ -79,7 +78,7 @@ Template.previewPPT.rendered = ->
 			$('.owl-controls').hide()
 
 
-	,1000)
+	,2000)
 
 
 
@@ -89,6 +88,9 @@ Template.previewPPT.events
 
 		setTimeout(()->
 			endAttempt()
+			if platforms.findOne().wrapperJson.isModal?
+				if platforms.findOne().wrapperJson.isModal is "TRUE"
+					window.location = "/"
 		,2000)
 
 

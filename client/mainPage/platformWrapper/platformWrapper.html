@@ -218,9 +218,9 @@
 
                                 {{#if equals specific "TRUE"}}
                                 <div id="scory-board">
-                                        {{#each subPlatforms}}
+                                        {{#each subPlatformsTata}}
 
-                                            <a href="/games/{{subTenantId}}" data-name="{{subTenantName}}" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus node.sequence}}" data-placement="{{getPlacement node.landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop node.landscape.top}}%;left:{{getPrecLeft node.landscape.left}}%;width:{{node.landscape.width}}%;outline:none;">
+                                            <a href="/games/{{subTenantId}}" data-name="{{subTenantName}}" tabindex="0" data-toggle="popover" title="{{title}}"  data-placement="{{getPlacement node.landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop node.landscape.top}}%;left:{{getPrecLeft node.landscape.left}}%;width:{{node.landscape.width}}%;outline:none;">
                                                 <img src="{{getNodeStatusPic node.sequence}}" alt="">
                                             </a>
                                         {{/each}}

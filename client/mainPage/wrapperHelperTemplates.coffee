@@ -38,6 +38,18 @@ Template.wrapperSideBar.helpers
       else
         false
 
+
+  sidebarForTata:()->
+    if platforms.findOne().wrapperJson.specific
+      "true"
+    else
+      if platforms.findOne().wrapperJson.isModal
+        "true"
+      else
+        "false"           
+
+  isSpecific:()->
+    platforms.findOne().wrapperJson.specific
   ismodal:()->
     platforms.findOne().wrapperJson.isModal
 

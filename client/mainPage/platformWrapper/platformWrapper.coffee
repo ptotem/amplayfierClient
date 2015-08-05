@@ -199,18 +199,37 @@ Template.platformWrapper.helpers
   ###
   @summary Get the tenant's nodes with display number
   ###
-  subPlatforms:()->
+  subPlatformsTata:()->
     allSubPlatforms = []
+    titleTata=['In this level, your task is to go through the presentation on "Filling the Standard Application Form". Go through the presentation and learn well. Once you have completed all the slides you would be rewarded with 100 points.','Did you learn well? Are you ready to take the test? In this level, your task would be to play the game and make maximum score. In a limited time, you will need to answer 5 questions. Each right answer would give you 10 points. Take the test as many times as you want to. And score high enough to make you the star on the Leaderboard.','Did you learn well? Are you ready to take the test? In this level, your task would be to play the game and make maximum score. In a limited time, you will need to answer 5 "True or False" questions. Each right answer would give you 10 points. Take the test as many times as you want to. And score high enough to make you the star on the Leaderboard.','In this level, your task is to go through the presentation on the "Common Errors Found in the Filled Application Form". Go through the presentation and learn well. Once you have completed all the slides you would be rewarded with 100 points.','Can you now spot errors in a document? If you have learnt well, now is the time to prove it. Take this task where you will have two cases. Each case gives you a set of a Standard Application Form submitted by your customer. Now go through the documents and find the errors in it. Do not worry, there are supporting documents that will help you in this task. And all you have to do is click on the area where you think an error has been commited by the Customer while filling up the Application Form. Now let us see how many errors you can capture.']
     subPlats = platforms.findOne().subPlatforms
     for i in [0..platforms.findOne().nodes.length]
       if i < subPlats.length
         n = subPlats[i]
         n['active']=true
         n['node']=platforms.findOne().nodes[i]
+        n['titleTata']=titleTata[i]
         allSubPlatforms.push n
       else
-        allSubPlatforms.push {active:false,node:platforms.findOne().nodes[i]}
+        allSubPlatforms.push {active:false,node:platforms.findOne().nodes[i],titleTata:titleTata[i]}
     allSubPlatforms
+
+
+  ###
+  @summary Get the tenant's nodes with display number
+  ###
+  subPlatforms:()->
+    allSubPlatforms = []
+    subPlats = platforms.findOne().subPlatforms
+    for i in [0..11]
+      if i < subPlats.length
+        n = subPlats[i]
+        n['active']=true
+        allSubPlatforms.push n
+      else
+        allSubPlatforms.push {active:false}
+    allSubPlatforms
+
 
   getChapterImg:(url)->
     Meteor.settings.public.mainLink + url

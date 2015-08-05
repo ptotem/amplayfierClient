@@ -31,6 +31,8 @@ Template.mainWrapper.rendered = ->
   window.platformData.nodes = platforms.findOne().nodes
 
   initPage()
+  if platforms.findOne().wrapperJson.isModal?
+    $('#story-nameplate-cover').hide();
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
     # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
@@ -135,7 +137,11 @@ Template.mainWrapper.helpers
   getBackColor: ()->
     storyConfig.background.color || "#000000"
   getBackImg: ()->
-    Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
+    if platforms.findOne().wrapperJson.isModal?
+      "http:/"+platforms.findOne().wrapperJson.imgsrc + "/back.jpg"
+    else
+      Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
+
   nodes : ()->
     a = _.map(_.reject(platforms.findOne().nodes,(e)->
         e.decks.length is 0

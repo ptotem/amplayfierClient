@@ -158,6 +158,7 @@
                         </a>
                     </li>
                     {{#if isEnabled 'badgesStatus'}}
+                    {{#if notEquals sidebarForTata "true"}}
                     <li class="">
                         <a class="collapsed side-bar-link badge-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Play for winning these badges. Why? Because they will help you earn real rewards." href="#badgesModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-medal2"></i>
@@ -165,6 +166,10 @@
                         </a>
                     </li>
                     {{/if}}
+                    {{/if}}
+
+
+                    {{#if notEquals sidebarForTata "true"}}
                     <li class="">
                         <a class="collapsed side-bar-link notification-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Stay on top of what's going on. Check out your notifications." href="#notificationsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-envelope"></i>
@@ -177,6 +182,8 @@
                             <span class="oc-partial-menu-item">Leaderboard</span>
                         </a>
                     </li>
+                    {{/if}}
+
                     {{#if isEnabled 'rewards'}}
                     {{#if hasRewards}}
                     <li class="">
@@ -187,16 +194,19 @@
                     </li>
                     {{/if}}
                     {{/if}}
-                    {{#if isEnabled 'repository'}}
 
+                    {{#if isEnabled 'repository'}}
+                    {{#if notEquals sidebarForTata "true"}}
                     <li class="">
                         <a class="collapsed side-bar-link document-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Downloadable files that will help you get ahead in this game." href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-drawer3"></i>
                             <span class="oc-partial-menu-item">Documents</span>
                         </a>
                     </li>
-
                     {{/if}}
+                    {{/if}}
+
+                    {{#if notEquals sidebarForTata "true"}}
                     <li class="">
                         <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Give us your feedback and help us make your experience better." href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-bullhorn"></i>
@@ -209,10 +219,11 @@
                             <span class="oc-partial-menu-item">Contact Us</span>
                         </a>
                     </li>
+                    {{/if}}
 
                     {{#if equals platformStatus 'open'}}
 
-
+                    {{#if notEquals sidebarForTata "true"}}
                     {{#if equals isGuestUser true}}
                     <li class="">
                         <a class="collapsed side-bar-link login-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Get access to the platform" href="#modalLogin" data-toggle='modal'>
@@ -220,6 +231,7 @@
                             <span class="oc-partial-menu-item">Login</span>
                         </a>
                     </li>
+                    {{/if}}
                     {{/if}}
                     {{/if}}
 
