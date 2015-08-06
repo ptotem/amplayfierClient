@@ -2,7 +2,10 @@ Template.mainWrapper.rendered = ->
 
   # $('.collapse').collapse()
   if platforms.findOne()?
-    console.log("current session")
+    if platforms.findOne().tenantName== "checkingtata"
+      Session.set('currentLevel','1')
+      console.log "session " + Session.get('currentLevel')
+      console.log("current session")
     # Session.set('currentLevel','1')
     if platforms.findOne().wrapperJson.isModal?
       # console.log("current session")
@@ -39,7 +42,7 @@ Template.mainWrapper.rendered = ->
 
   initPage()
   if platforms.findOne()?
-    if platforms.findOne().wrapperJson.isModal?
+    if platforms.findOne().tenantName== "checkingtata"
       $('#story-nameplate-cover').remove();
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
