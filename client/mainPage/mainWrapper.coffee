@@ -1,10 +1,12 @@
 Template.mainWrapper.rendered = ->
 
   # $('.collapse').collapse()
-  Session.set('currentLevel','1')
-  if platforms.findOne().wrapperJson.isModal?
-    Session.set('currentLevel','1')
-    console.log "session " + Session.get('currentLevel')
+  if platforms.findOne()?
+    # Session.set('currentLevel','1')
+    if platforms.findOne().wrapperJson.isModal?
+      console.log("current session")
+      Session.set('currentLevel','1')
+      console.log "session " + Session.get('currentLevel')
 
   flipdiv()
   setInterval(()->
@@ -35,8 +37,9 @@ Template.mainWrapper.rendered = ->
   window.platformData.nodes = platforms.findOne().nodes
 
   initPage()
-  if platforms.findOne().wrapperJson.isModal?
-    $('#story-nameplate-cover').hide();
+  if platforms.findOne()?
+    if platforms.findOne().wrapperJson.isModal?
+      $('#story-nameplate-cover').remove();
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
     # showNotification("40",'PepsiCo OnBoarding','Welcome to the PepsiCo Sales Onboarding Platform. Click on the moving PepsiCo logo to start.')
@@ -141,7 +144,7 @@ Template.mainWrapper.helpers
     storyConfig.background.color || "#000000"
   getBackImg: ()->
     if platforms.findOne().wrapperJson.isModal?
-      "http:/"+platforms.findOne().wrapperJson.imgsrc + "/back.jpg"
+      "http://amplayfier.com"+platforms.findOne().wrapperJson.imgsrc + "/back.jpg"
     else
       Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
 
