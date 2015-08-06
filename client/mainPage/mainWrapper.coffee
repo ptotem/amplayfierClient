@@ -1,6 +1,7 @@
 Template.mainWrapper.rendered = ->
 
   # $('.collapse').collapse()
+  Session.set('currentLevel','1')
   if platforms.findOne().wrapperJson.isModal?
     Session.set('currentLevel','1')
     console.log "session " + Session.get('currentLevel')
