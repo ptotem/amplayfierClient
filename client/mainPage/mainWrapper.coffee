@@ -2,7 +2,7 @@ Template.mainWrapper.rendered = ->
 
   # $('.collapse').collapse()
   if platforms.findOne()?
-    if platforms.findOne().tenantName== "checkingtata"
+    if platforms.findOne().tenantName == "tatauatdocumentor"
       Session.set('currentLevel','1')
       console.log "session " + Session.get('currentLevel')
       console.log("current session")
@@ -42,7 +42,7 @@ Template.mainWrapper.rendered = ->
 
   initPage()
   if platforms.findOne()?
-    if platforms.findOne().tenantName== "checkingtata"
+    if platforms.findOne().tenantName== "tatauatdocumentor"
       $('#story-nameplate-cover').remove();
   setTimeout(()->
     $('.story-node').popover({trigger:'hover',html: true})
