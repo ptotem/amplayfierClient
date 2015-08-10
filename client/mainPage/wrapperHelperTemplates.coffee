@@ -201,14 +201,18 @@ Template.userProfileModal.events
     first_name = $("#user-first-name").val()
     last_name = $("#user-last-name").val()
     designation = $("#user-designation").val()
-    if document.getElementById('profile-pic').files.length isnt 0
-      profilePic = new FS.File(document.getElementById('profile-pic').files[0])
-      profilePic.owner = Meteor.userId()
-      profilePic.stored = false
-      pp = assetFiles.insert(profilePic)
-      ppid = pp._id
-    else
-      ppid = Meteor.user().personal_profile.profilePicId
+
+    # if document.getElementById('profile-pic').files.length isnt 0
+    #   profilePic = new FS.File(document.getElementById('profile-pic').files[0])
+    #   profilePic.owner = Meteor.userId()
+    #   profilePic.stored = false
+    #   pp = assetFiles.insert(profilePic)
+    #   ppid = pp._id
+    # else
+    #   ppid = Meteor.user().personal_profile.profilePicId
+
+
+
 #    if document.getElementById('cover-pic').files.length isnt 0
 #      coverPic = new FS.File(document.getElementById('cover-pic').files[0])
 #      coverPic.owner = Meteor.userId()
@@ -217,7 +221,7 @@ Template.userProfileModal.events
 #      cpid = cp._id
 #    else
 #      cpid = Meteor.user().personal_profile.coverPicId
-    cpid = -1
+    # cpid = -1
     if $('#user-password-old').val().length isnt 0
       Accounts.changePassword($('#user-password-old').val(),$('#user-password-new').val(),(err)->
         if err?
@@ -226,22 +230,28 @@ Template.userProfileModal.events
     $('#overlay').show()
     Tracker.autorun(()->
 
-      if assetFiles.findOne(ppid).stored
+      # if assetFiles.findOne(ppid).stored
         pp = Meteor.user().personal_profile
-        pp['coverPicId'] = cpid
-        pp['profilePicId'] = ppid
+        # pp['coverPicId'] = cpid
+        # pp['profilePicId'] = ppid
         pp['first_name'] = first_name
         pp['last_name'] = last_name
         pp['display_name'] = display_name
         pp['designation'] = designation
 
         Meteor.users.update({_id:Meteor.userId()},{$set:{personal_profile:pp}})
+
         $('.modal').modal('hide')
         $('.user-edit-form').remove()
         $('#overlay').hide()
 
 
     )
+    createNotification("Profile updated successfully",1)
+    # setTimeout(()->
+    #   location.reload()
+    # ,500)
+
 
 
 

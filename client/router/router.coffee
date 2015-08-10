@@ -1,7 +1,8 @@
 @isAdmin = (uid)->
   Meteor.call("isRoleAdmin",uid,(err,res)->
     if res is false
-      window.location = "/notAuthorisedToView"
+      # window.location = "/notAuthorisedToView"
+      window.location = "/"
   )
 
 

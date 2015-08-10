@@ -56,15 +56,13 @@ Template.loginPage.rendered = ()->
       platformId = platforms.findOne()._id
       # Meteor.call('getPlatformType',platformId,(err,res)->
       # Meteor.call('getPlatformStatus',platformId,(err,res)->
-
-      if platforms.findOne().tenantName != "tatauatdocumentor"  
-        if platforms.findOne(platformId).platformStatus == "open"
-          pid = platforms.findOne()._id
-          email = (new Date).getTime().toString()+"guest@temp.com"
-          p = {platform: pid, first_name: "Guest", last_name: "User", display_name: "Guest User", email: email}
-          Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p,role:"player"})
-          #createNotification('Guest user id is created, welcome guest', 1)
-          authenticatePassword(email,'password',"/")
+      if platforms.findOne(platformId).platformStatus == "open"
+        pid = platforms.findOne()._id
+        email = (new Date).getTime().toString()+"guest@temp.com"
+        p = {platform: pid, first_name: "Guest", last_name: "User", display_name: "Guest User", email: email}
+        Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p,role:"player"})
+        #createNotification('Guest user id is created, welcome guest', 1)
+        authenticatePassword(email,'password',"/")
 
       # )
 
