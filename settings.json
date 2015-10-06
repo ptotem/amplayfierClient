@@ -10,6 +10,7 @@
 
   "creatorIP":"http://127.0.0.1:3000",
   "clientIP":"http://127.0.0.1:4000",
+  "quodeckIP":"http://127.0.0.1:6000",
 
 
   "public":{

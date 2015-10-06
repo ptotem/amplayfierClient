@@ -30,10 +30,15 @@ Template.loginPage.events
      userEmail = $(e.currentTarget).find("#email").val().toString()
     #  newEmail = userEmail.substr(0, userEmail.indexOf('@')) + '|' + pn + userEmail.substr(userEmail.indexOf('@'))
      newEmail = encodeEmail(userEmail,pn)
-
      userPassword = $(e.currentTarget).find("#password").val()
-     authenticatePassword(newEmail,userPassword,"/admin")
+     authenticatePassword(newEmail,userPassword,"/")
      false
+
+   'click .signupBtn':(e)->
+     e.preventDefault()
+     Router.go '/register'
+
+
 
 
 Template.loginPage.rendered = ()->
@@ -56,15 +61,17 @@ Template.loginPage.rendered = ()->
       platformId = platforms.findOne()._id
       # Meteor.call('getPlatformType',platformId,(err,res)->
       # Meteor.call('getPlatformStatus',platformId,(err,res)->
-      if platforms.findOne().tenantName != "tatauatdocumentor"
-        if platforms.findOne(platformId).platformStatus == "open"
-          pid = platforms.findOne()._id
-          email = (new Date).getTime().toString()+"guest@temp.com"
-          p = {platform: pid, first_name: "Guest", last_name: "User", display_name: "Guest User", email: email}
-          Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p,role:"player"})
-          #createNotification('Guest user id is created, welcome guest', 1)
-          authenticatePassword(email,'password',"/")
 
+#================================= Auto Logging is commented=======================================
+      # if platforms.findOne().tenantName != "tatauatdocumentor"
+      #   if platforms.findOne(platformId).platformStatus == "open"
+      #     pid = platforms.findOne()._id
+      #     email = (new Date).getTime().toString()+"guest@temp.com"
+      #     p = {platform: pid, first_name: "Guest", last_name: "User", display_name: "Guest User", email: email}
+      #     Accounts.createUser({email: email, password: 'password', platform: pid, personal_profile: p,role:"player"})
+      #     #createNotification('Guest user id is created, welcome guest', 1)
+      #     authenticatePassword(email,'password',"/")
+#================================= Auto Logging is commented=======================================
       # )
 
   )

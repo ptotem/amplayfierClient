@@ -25,6 +25,7 @@
 # for final
 @myip = Meteor.settings.cientIP
 @remoteIp = Meteor.settings.creatorIP
+@quodeckIp = Meteor.settings.quodeckIP
 
 
 
@@ -592,3 +593,25 @@ Meteor.methods
       x = {}
       x[feature] = fs
       platforms.update({_id:pid},{$set:x})
+
+  checkUserStatus:(email)->
+    console.log email
+    Fiber = Npm.require('fibers');
+    Future = Npm.require('fibers/future');
+    future = new Future();
+    if Meteor.users.findOne({"personal_profile.email":email})?
+      future.return("false")
+    else
+      future.return("true")
+    return future.wait()
+
+
+# =============================Quodeck Connection================================================
+  userFromClient: (newUser)->
+    x = DDP.connect(quodeckIp)
+    x.call('createUserFromClient', newUser, (err, res)->
+      console.log err
+      console.log res
+    )
+
+# =============================Quodeck Connection================================================

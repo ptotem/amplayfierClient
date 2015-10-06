@@ -1,47 +1,34 @@
 <template name="loginPage">
+    <div class="container">
+        <h1 style="font-size: 5em;" class="text-center">
+            <span style="color: #ffc422">Quo</span><span style="font-weight: lighter">Deck</span>
+        </h1>
+        <h3 class="omb_authTitle text-center" style="margin-top: -0.8em;font-size: 1.4em;margin-bottom: 3em;"><a style="color:black;" href="/login">Login</a> or <a href="/register" style="color:#ffc422">Sign up</a></h3>
+
+        <div class="omb_login">
+          <div class="row omb_row-sm-offset-3">
+              <div class="col-xs-12 col-sm-6">
+                  <form class="omb_loginForm" id="loginForm">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                          <input type="email" class="form-control" name="email" placeholder="Email address" id="email">
+                      </div>
+                      <span class="help-block"></span>
 
 
-  <div class="container-fluid page-wrapper" style="background-image: url({{backId}});background-size: 100% 100%;
-  background-repeat: no-repeat;height:100%;">
-  <div class="row">
-    <div class="col-md-4 col-sm-5 col-sm-offset-4 col-md-offset-4" style="line-height: 2.5em; padding-top: 1%; text-align: center;">
-      <div style="vertical-align: middle">
-        <img style="vertical-align:middle; max-height:100px;" src="{{logoId}}">
-      </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-4 col-sm-5 col-sm-offset-4 col-md-offset-4 ">
-      <div class="login-back">
-        <form class="login-form" id="loginForm">
-          <div class="form-group has-feedback">
-            <label class="control-label">Email</label>
-            <input type="email" class="form-control textbox_style" placeholder="Email" id="email">
-            <i class="fa fa-user form-control-feedback" style="margin-top: 10px;"></i>
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                          <input type="password" class="form-control" name="password" placeholder="Password" id="password">
+                      </div>
+                      <span class="help-block"></span>
+
+                      <button class="btn btn-lg btn-custom btn-block" type="submit">Login</button>
+                  </form>
+              </div>
           </div>
-          <div class="form-group has-feedback">
-            <label class="control-label">Password</label>
-            <input type="password" class="form-control textbox_style" placeholder="Password" id="password">
-            <i class="fa fa-lock form-control-feedback" style="margin-top: 10px;"></i>
-          </div>
-          <input type="hidden" class="form-control textbox_style" value="{{getPlatName}}" id="platformname">
 
-          <div class="row">
-            <div class="col-md-6">
-              <span><a href="/forgotpassword">Forgot Password?</a></span>
-            </div>
-            <div class="col-lg-6 pull-right">
-              <button type="submit" class="btn btn-group btn-warning pull-right">Log In</button>
-            </div>
-          </div>
-          <ul>
-
-          </ul>
-
-              </form>
-            </div>
-          </div>
         </div>
       </div>
+
     </template>

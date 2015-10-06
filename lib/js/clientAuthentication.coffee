@@ -120,7 +120,7 @@
 @createUser = (userObj,successRoute,routeParam)->
   # userObj["email"] = userObj["email"].split("@")[0]+"|"+tenants.findOne().tenantName+"@"+userObj["email"].split("@")[1]
   # userObj["tid"] = tenants.findOne()._id
-  console.log userObj
+  # console.log userObj
 
   Meteor.call("checkUserStatus",userObj.email,(err,res)->
     if res is "true"

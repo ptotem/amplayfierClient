@@ -32,25 +32,25 @@ Router.onBeforeAction (->
 
      @next()
    return
-   ),{except:['login','notAuthorised','forgot','reset']}
+   ),{except:['login','notAuthorised','forgot','reset','register']}
 
 
 
 Router.route '/login',
-    template: "loginPage",
-    name:'login',
-    data:()->
-      pname =  headers.get('host').split('.')[0]
-      {platformName:pname}
-    waitOn:()->
-      [Meteor.subscribe('loginPlatform',this.data().platformName)]
-    action: ->
-      if @ready
-        setPlatform(this.data().platformName)
-        # availablePlatform(this,this.data().platformName)
-        @render()
-      else
-        @render('loading')
+  template: "loginPage",
+  name:'login',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname}
+  waitOn:()->
+    [Meteor.subscribe('loginPlatform',this.data().platformName)]
+  action: ->
+    if @ready
+      setPlatform(this.data().platformName)
+      # availablePlatform(this,this.data().platformName)
+      @render()
+    else
+      @render('loading')
 
 Router.route '/forgotpassword',
   template: "forgotPassword",
@@ -63,7 +63,21 @@ Router.route '/forgotpassword',
 
     @render()
 
-
+Router.route '/register',
+  template: "register",
+  name:'register',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname}
+  waitOn:()->
+    [Meteor.subscribe('loginPlatform',this.data().platformName)]
+  action: ->
+    if @ready
+      setPlatform(this.data().platformName)
+      # availablePlatform(this,this.data().platformName)
+      @render()
+    else
+      @render('loading')
 
 
 
