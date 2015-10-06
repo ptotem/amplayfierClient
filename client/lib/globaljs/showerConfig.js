@@ -1,6 +1,6 @@
 Shower({
     name:"registerForm",
-    template:"registerPage",
+    template:"register",
     fields:{
         email:{
             required:true,
