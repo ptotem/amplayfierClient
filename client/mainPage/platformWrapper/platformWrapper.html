@@ -214,94 +214,7 @@
                                               <span class="badge badge-corner badge-corner-top-right badge-info" style="background:red">3</span>
                                           </i>
                                       </a> -->
-                            <div class="story-wrapper-overlay">
 
-                                {{#if equals specific "TRUE"}}
-                                <div id="scory-board">
-                                        {{#each subPlatformsTata}}
-
-                                            <a href="/games/{{subTenantId}}" data-name="{{subTenantName}}" tabindex="0" data-toggle="popover" title="{{title}}"  data-placement="{{getPlacement node.landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop node.landscape.top}}%;left:{{getPrecLeft node.landscape.left}}%;width:{{node.landscape.width}}%;outline:none;">
-                                                <img src="{{getNodeStatusPic node.sequence}}" alt="">
-                                            </a>
-                                        {{/each}}
-                                </div>
-                                {{else}}
-                                <div id="scory-board1">
-                                    <div class="container">
-                                        <div class="row">
-                                            {{#if isPortrait}}
-                                            <div class="social-div">
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <div class="google-icon"><img class="img-responsive platform-logo" src="{{getLogoImage}}"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row" style="margin-top:5%;">
-                                                    <div class="col-xs-8 col-xs-offset-2">
-                                                        {{#each socialLinks}}
-                                                        <a href="{{link}}" target="_blank" class="social-link"><img class="img-responsive" src="{{imgpath}}" width="100%"></a>
-                                                        {{/each}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {{else}}
-                                            <div class="col-lg-offset-2 col-lg-3 col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3">
-                                                <div class="google-icon pull-right"><img class="img-responsive platform-logo" src="{{getLogoImage}}" style="height:75px;"></div>
-                                            </div>
-                                            <div class="col-md-7 col-sm-7 col-lg-4 pull-right" style="margin-top:3%">
-                                                {{#each socialLinks}}
-                                                <a href="{{link}}" target="_blank" class="social-link"><img class="img-responsive" src="{{imgpath}}" style="width:100%"></a>
-                                                {{/each}}
-                                            </div>
-                                            {{/if}}
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-offset-2 col-lg-8">
-                                                {{#each subPlatforms}} {{#if active}}
-                                                <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="padding-right:0px;margin-top:10px">
-                                                    <div class="flip-container active-platform" data-thumbnail="{{subTenantId}}" style="cursor:pointer;">
-                                                        <div class="flipper">
-                                                            <div class="front">
-                                                                <img src="{{getActiveImage}}" width="100%" style="position:absolute;">
-                                                                <a href="/games/{{subTenantId}}" style="position:absolute;padding:20%;width:100%;color:white;text-align:center;word-wrap: break-word;">
-                                                                    {{splitSubTenantName subTenantName}}
-                                                                </a>
-                                                                <!-- <a href="#" style="border:1px solid white;border: 1px solid white;width: 90%;position: absolute;text-align: center;margin-top: 54%;margin-left: 5%;">
-                                        Click To Play
-                                    </a> -->
-                                                            </div>
-                                                            <div class="back">
-                                                                <img class="img-responsive" src="{{getActiveImage}}" alt="{{subTenantName}}">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                {{else}}
-                                                <!-- <div class="main-box"> -->
-                                                <div class="col-lg-3 col-md-4 col-xs-6 thumb inactive-thumb" style="padding-right:0px;margin-top:10px">
-                                                    <div class="flip-container inactive-platform">
-                                                        <div class="flipper">
-                                                            <div class="front">
-                                                                <img class="img-responsive" src="{{getInactiveImages}}" alt="No Platforms">
-                                                            </div>
-                                                            <div class="back" style="position:absolute;">
-                                                                <img class="img-responsive" src="{{getInactiveImages}}" alt="No Platforms">
-                                                                <!-- <a href="/games/{{subTenantId}}" style="position:absolute;left:40%;margin-top:40%;color:white;">
-                                          No game
-                                      </a> -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- </div> -->
-                                                {{/if}} {{/each}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{/if}}
-
-                            </div>
                             <div id="story-wrapper" style="background-image:url('{{getBackImg}}');background-size:100% 100%;background-repeat:no-repeat;">
                                 <!-- HTML for games -->
                                 {{#if hasGame}} {{#if isPortrait}} {{#with game}}
@@ -337,11 +250,11 @@
                                     </div>
                                     <div id="story-nodes">
                                         {{#if isPortrait}} {{#each nodes}}
-                                        <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop portrait.top}}%;left:{{getPrecLeft portrait.left}}%;width:{{portrait.width}}%">
+                                        <a href="#" tabindex="0" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop portrait.top}}%;left:{{getPrecLeft portrait.left}}%;width:{{portrait.width}}%">
                                             <img src="{{getNodeStatusPic sequence}}" alt="">
                                         </a>
                                         {{/each}} {{else}} {{#each nodes}}
-                                        <a href="#" tabindex="0" data-toggle="popover" title="{{title}}" data-content="{{getNodeUrl 'node-photo'}}{{getNodeStatus sequence}}" data-placement="{{getPlacement landscape.left}}" class="story-node {{getNodeStatusClass sequence}} " id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.top}}%;left:{{getPrecLeft landscape.left}}%;width:{{landscape.width}}%">
+                                        <a href="#" tabindex="0"  class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.top}}%;left:{{getPrecLeft landscape.left}}%;width:{{landscape.width}}%">
                                             <img src="{{getNodeStatusPic sequence}}" alt="">
                                         </a>
                                         {{/each}} {{/if}}

@@ -98,7 +98,7 @@ Template.platformWrapper.helpers
       Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
      a =_.reject(platforms.findOne().nodes,(e)->
-       e.decks.length is 0
+
      )
      console.log a
      a
@@ -285,8 +285,8 @@ Template.platformWrapper.events
 
 
 
-
-    showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
+    window.location = "/quodeck"
+    # showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
     # setTimeout(()->
     #   $('#modal-pinboard').slick({rows:1})
     # ,2000)

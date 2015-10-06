@@ -305,3 +305,24 @@ Router.route '/notAuthorised',
 Router.route '/notAuthorisedToView',
   template: 'notAuthorisedToView',
   name: 'notAuthorisedToView',
+
+
+Router.route '/quodeck',
+  template: 'iframeWrapper',
+  name: 'iframeWrapper',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname}
+  # waitOn:()->
+  #   [Meteor.subscribe('subGameQuestions',this.data().subPlatformId),Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletionsOnGame',this.data().subPlatformId,Meteor.userId()),Meteor.subscribe('subPlatformWrapperData',this.data().platformName,this.data().subPlatformId),Meteor.subscribe('thisJs'),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
+  action:()->
+    if @ready()
+      setPlatform(this.data().platformName)
+      sideWrapperEnable('subPlatform')
+      # setSubTenantId(this.data().subPlatformId)
+      # setMasterPlatform(this.data().platformName, this.data().subPlatformId)
+      # setTenant(this.data().platformName)
+
+      @render()
+    else
+      @render('loading')
