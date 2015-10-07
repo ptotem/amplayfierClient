@@ -16,8 +16,8 @@ Template.register.events
         newUser.platformName = platforms.findOne().tenantName
         newUser.createdAt = new Date()
         delete newUser['confirm_password']
-        createUser(newUser,'/','')
-        Meteor.call('userFromClient',newUser)
+        a = createUser(newUser,'/','')
+        # Meteor.call('userFromClient',newUser)
         false
       else
         $.each errors, (key,val) ->

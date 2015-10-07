@@ -50,7 +50,6 @@ Accounts.emailTemplates.resetPassword.text = (user, url) ->
 Accounts.onCreateUser (options, user) ->
   console.log "options " + options.email
   console.log options
-
 #  deliverEmail("rushabh@ptotem.com",options.email,"Welcome","This is a welcome email")
   if options.role?
     user.role = options.role
@@ -60,12 +59,19 @@ Accounts.onCreateUser (options, user) ->
   user.personal_profile = options
   user.carts=[]
   user.platform = options.platform
-  newEmail=encodeEmail(options.email, options.platformName)
-  user.personal_profile.email = newEmail
+  # newEmail=encodeEmail(options.email, options.platformName)
+  user.personal_profile.email = options.email
   user.personal_profile.registration_date = new Date().getTime()
 
   user.personal_profile.tags = ['unspecified']
   user.dynamicKeyValue = options.dyanmicField
+  x = DDP.connect(quodeckIp)
+  x.call('createUserFromClient', user, (err, res)->
+    console.log err
+    console.log res
+  )
+
   user
+
 # THIS FILE IS USED FOR SETTING UP USER ACCOUNTS CONFIGURATION IN THE APPLICATION.
 #THE KEYS FOR THIRD PARTY AUTHENTICATION ARE PUT HERE

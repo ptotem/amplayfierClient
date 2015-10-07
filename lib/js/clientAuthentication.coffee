@@ -124,7 +124,7 @@
 
   Meteor.call("checkUserStatus",userObj.email,(err,res)->
     if res is "true"
-      Accounts.createUser(userObj ,(err)->
+      Accounts.createUser(userObj ,(err,res)->
         console.log userObj
         if err is 403
           $("#overlay").hide()
@@ -133,6 +133,7 @@
           createNotification(successMessages.loginDoneSuccess,1)
           $("#overlay").hide()
           # window.location="/"
+          # Meteor.call('userFromClient',userObj)
           Router.go(successRoute)
       )
     else
