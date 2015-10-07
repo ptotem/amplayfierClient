@@ -170,7 +170,15 @@
   )
 
 Meteor.methods
-
+  getQuodeckScore: ()->
+    console.log("GetScore")
+    a = ['GQdvHc9cNznWjM8if']
+    b = ["EuFoXqnHJL8DoEQsc","GHqcMe9E2ucSZc6EY"]
+    x = DDP.connect(quodeckIp)
+    x.call('getResultOnClient', a ,b, (err, res)->
+      if !err
+        ampQuoScore.insert(res)
+    )
 
   assignUserProfile: (uid, prf)->
     Meteor.users.update({_id: uid}, {$set: {profile: prf}})
@@ -607,9 +615,9 @@ Meteor.methods
 
 
 # =============================Quodeck Connection================================================
-  userFromClient: (newUser)->
+  userIdOfClient: (userId)->
     x = DDP.connect(quodeckIp)
-    x.call('createUserFromClient', newUser, (err, res)->
+    x.call('getUserIdOfClient', userId, (err, res)->
       console.log err
       console.log res
     )

@@ -26,6 +26,7 @@
 @assesmentScore = new Meteor.Collection('assesmentScore')
 @systemBadges = new Meteor.Collection('systemBadges')
 @plaformUserFeedbacks = new Meteor.Collection('platformUserFeedbacks')
+@ampQuoScore = new Meteor.Collection('ampQuoScore')
 
 @platforms.allow
   insert:(userId, role) ->

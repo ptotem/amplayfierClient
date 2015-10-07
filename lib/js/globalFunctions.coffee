@@ -207,3 +207,6 @@ _.mixin
   $($('.inactive-thumb')[var1]).html($($('.inactive-thumb')[var2]).html())
   $($('.inactive-thumb')[var2]).html(tmp)
   return
+
+@getUserId = ()->
+  Meteor.userId()

@@ -326,3 +326,8 @@ Router.route '/quodeck',
       @render()
     else
       @render('loading')
+
+
+Router.route '/quoScore',
+  template: 'quoScore',
+  name: 'quoScore',
