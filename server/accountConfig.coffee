@@ -65,11 +65,11 @@ Accounts.onCreateUser (options, user) ->
 
   user.personal_profile.tags = ['unspecified']
   user.dynamicKeyValue = options.dyanmicField
-  x = DDP.connect(quodeckIp)
-  x.call('createUserFromClient', user, (err, res)->
-    console.log err
-    console.log res
-  )
+  # x = DDP.connect(quodeckIp)
+  # x.call('createUserFromClient', user, (err, res)->
+  #   console.log err
+  #   console.log res
+  # )
 
   user
 
