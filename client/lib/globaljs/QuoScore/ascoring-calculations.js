@@ -8,6 +8,7 @@ function generateScore(quoid) {
 
     // Build the   Input Mapping
     var inputMap = _.map(quoInput.scores, function (thisInput) {
+        console.log(thisInput.score)
         return {
             userid: thisInput.userid,
             value: (thisInput.score == "") ? "1" : _.where(quoConfig.mapping, {score: thisInput.score})[0].value
@@ -160,6 +161,8 @@ function generateScore(quoid) {
 
             }
         });
+        console.log("UserId " + elm.userid)
+        console.log(leaderboardJSON.data)
         var thisRecord = _.where(leaderboardJSON.data, {userid: elm.userid})[0];
         thisRecord.quoScores.push(userQuoScore);
         thisRecord.totalScore = _.reduce(thisRecord.quoScores, function (sum, elm) {
@@ -196,6 +199,9 @@ function generateScore(quoid) {
             return elm.totalScore
         }));
     }
+    return _.map(leaderboardJSON.data, function (elm) {
+        return elm.totalScore
+    })
 
 }
 window.generateScore = generateScore;

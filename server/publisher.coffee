@@ -185,3 +185,16 @@ Meteor.publish('subGameQuestions',(tid)->
   this.ready()
   gameData.find({tenantId:tid})
 )
+Meteor.publish('quoScoreConfigration',(tid)->
+  this.ready()
+  quoScoreConfig.find({})
+)
+
+Meteor.publish('thisPlatform',(tname)->
+  this.ready()
+  platforms.find({tenantName:tname})
+)
+Meteor.publish('thisAmpScore',()->
+  this.ready()
+  ampQuoScore.find({})
+)

@@ -46,6 +46,13 @@ Template.platformWrapper.created = ()->
   window.storyConfig = s
 
 Template.platformWrapper.helpers
+  quodecks:()->
+    arr = []
+    if platforms.findOne().quodecks?
+      for i,j in platforms.findOne().quodecks
+        arr.push({quoseq:j})
+      arr
+
   specific:()->
     window.storyConfig.specific
 
@@ -101,6 +108,8 @@ Template.platformWrapper.helpers
 
      )
      console.log a
+     for i,j in a
+       a[j].tid = platforms.findOne().quodecks[j]
      a
 
   storyHeading:()->
@@ -266,26 +275,33 @@ Template.platformWrapper.events
     #  if !isPortrait()
     #    $('#story-nameplate').fadeOut()
     # $('#story-zone').empty()
-    seq = parseInt($(e.currentTarget).attr('seq'))
-    # node = platforms.findOne().nodes[seq]
-    node = _.where(platforms.findOne().nodes,{sequence:seq})[0]
-    nodePhoto =  storyConfig.imgsrc + "/" + node['node-photo']
-    nodeTitle = node.title
-    nodeDescription = node.description
-    if seq isnt 0
-      if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
-        s = "INCOMPLETE"
-        # return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
-    console.log seq
-    if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
-
-        s = "COMPLETE"
-    else
-      s = "INCOMPLETE"
 
 
 
-    window.location = "/quodeck"
+# ====================This is Old Flow Code===========================================#
+    # seq = parseInt($(e.currentTarget).attr('seq'))
+    # # node = platforms.findOne().nodes[seq]
+    # node = _.where(platforms.findOne().nodes,{sequence:seq})[0]
+    # nodePhoto =  storyConfig.imgsrc + "/" + node['node-photo']
+    # nodeTitle = node.title
+    # nodeDescription = node.description
+    # if seq isnt 0
+    #   if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
+    #     s = "INCOMPLETE"
+    #     # return Meteor.settings.public.mainLink+  storyConfig.imgsrc + "/" + platforms.findOne().nodes[seq].incomplete
+    # console.log seq
+    # if userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq})?
+    #
+    #     s = "COMPLETE"
+    # else
+    #   s = "INCOMPLETE"
+# ====================This is Old Flow Code===========================================#
+
+
+
+    # console.log platforms.findOne().quodecks
+    window.location = "/quodeck/"+$(e.currentTarget).attr('quo-seq')
+
     # showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
     # setTimeout(()->
     #   $('#modal-pinboard').slick({rows:1})

@@ -307,18 +307,19 @@ Router.route '/notAuthorisedToView',
   name: 'notAuthorisedToView',
 
 
-Router.route '/quodeck',
+Router.route '/quodeck/:seq',
   template: 'iframeWrapper',
   name: 'iframeWrapper',
   data:()->
     pname =  headers.get('host').split('.')[0]
-    {platformName:pname}
+    {platformName:pname,seq:this.params.seq}
   # waitOn:()->
   #   [Meteor.subscribe('subGameQuestions',this.data().subPlatformId),Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletionsOnGame',this.data().subPlatformId,Meteor.userId()),Meteor.subscribe('subPlatformWrapperData',this.data().platformName,this.data().subPlatformId),Meteor.subscribe('thisJs'),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
   action:()->
     if @ready()
       setPlatform(this.data().platformName)
       sideWrapperEnable('subPlatform')
+      setCreatorSeq(this.data().seq)
       # setSubTenantId(this.data().subPlatformId)
       # setMasterPlatform(this.data().platformName, this.data().subPlatformId)
       # setTenant(this.data().platformName)
@@ -328,6 +329,28 @@ Router.route '/quodeck',
       @render('loading')
 
 
-Router.route '/quoScore',
-  template: 'quoScore',
-  name: 'quoScore',
+# Router.route '/quoleaderBoard',
+#   template: 'quoleaderBoard',
+#   name: 'quoleaderBoard',
+#  data:()->
+#    pname =  headers.get('host').split('.')[0]
+#    {platformName:pname}
+#  waitOn:()->
+#    [Meteor.subscribe('indexReport')]
+
+Router.route '/quoleaderBoard/:tid',
+  template: 'quoleaderBoard',
+  name: 'quoleaderBoard',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname, tid: this.params.tid}
+  waitOn:()->
+    [Meteor.subscribe('thisAmpScore'),Meteor.subscribe('quoScoreConfigration',this.data().tid),Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('platformWrapperData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank',this.data().platformName),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
+  action:()->
+    if @ready()
+      setPlatform(this.data().platformName)
+      setTenant(this.data().platformName)
+      sideWrapperEnable('mainPlatform')
+      @render()
+    else
+      @render('loading')

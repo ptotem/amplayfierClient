@@ -72,16 +72,26 @@
 //         ]
 //     }
 // ]
-var inputJSON = Meteor.call("getQuodeckScore",function(err,res){
-  if (!err){
-    console.log ("No Error")
-    console.log (res)
-  }
-});
-window.inputJSON = inputJSON;
-console.log("11111111111111111111111111")
-console.log(inputJSON)
-console.log("11111111111111111111111111")
+// deckList = platforms.findOne({_id:"TnikmYGFF9zzRnXDo"}).quodecks
+// userList = []
+// var i, j, len, ref;
+// ref = Meteor.users.find({platform: "TnikmYGFF9zzRnXDo"}).fetch();
+//   for (j = 0, len = ref.length; j < len; j++) {
+//     i = ref[j];
+//     userList.push(i._id);
+// }
+//
+
+// var inputJSON = Meteor.call("getQuodeckScore", deckList, userList,function(err,res){
+//   if (!err){
+//     console.log ("No Error")
+//     console.log (res)
+//   }
+// });
+// window.inputJSON = inputJSON;
+// console.log("11111111111111111111111111")
+// console.log(inputJSON)
+// console.log("11111111111111111111111111")
 
 var leaderboardJSON = {
     "name": "Basic Leaderboard",

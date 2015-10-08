@@ -210,3 +210,6 @@ _.mixin
 
 @getUserId = ()->
   Meteor.userId()
+
+@setCreatorSeq = (seq)->
+  @creatorSeq = seq

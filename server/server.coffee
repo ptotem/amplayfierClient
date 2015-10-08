@@ -170,10 +170,15 @@
   )
 
 Meteor.methods
-  getQuodeckScore: ()->
+  insertAmpScore:(tid,finalArr)->
+    ampQuoScore.remove({quoId: tid})
+    ampQuoScore.insert({quoId:tid, results: finalArr})
+
+
+  getQuodeckScore: (deckList, userList)->
     console.log("GetScore")
-    a = ['GQdvHc9cNznWjM8if']
-    b = ["EuFoXqnHJL8DoEQsc","GHqcMe9E2ucSZc6EY"]
+    a = deckList
+    b = userList
     x = DDP.connect(quodeckIp)
     x.call('getResultOnClient', a ,b, (err, res)->
       if !err
