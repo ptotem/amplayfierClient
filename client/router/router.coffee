@@ -328,16 +328,6 @@ Router.route '/quodeck/:seq',
     else
       @render('loading')
 
-
-# Router.route '/quoleaderBoard',
-#   template: 'quoleaderBoard',
-#   name: 'quoleaderBoard',
-#  data:()->
-#    pname =  headers.get('host').split('.')[0]
-#    {platformName:pname}
-#  waitOn:()->
-#    [Meteor.subscribe('indexReport')]
-
 Router.route '/quoleaderBoard/:tid',
   template: 'quoleaderBoard',
   name: 'quoleaderBoard',
@@ -345,7 +335,7 @@ Router.route '/quoleaderBoard/:tid',
     pname =  headers.get('host').split('.')[0]
     {platformName:pname, tid: this.params.tid}
   waitOn:()->
-    [Meteor.subscribe('thisAmpScore'),Meteor.subscribe('quoScoreConfigration',this.data().tid),Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('platformWrapperData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank',this.data().platformName),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
+    [Meteor.subscribe('thisAmpScore'),Meteor.subscribe('quoScoreConfigration',this.data().tid),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('platformWrapperData',this.data().platformName),Meteor.subscribe('thisUser',Meteor.userId())]
   action:()->
     if @ready()
       setPlatform(this.data().platformName)

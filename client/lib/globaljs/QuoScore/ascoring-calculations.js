@@ -5,9 +5,9 @@ function generateScore(quoid) {
     // Get the respective JSONs
     var quoInput = _.where(inputJSON, {quoid: quoid})[0];
     var quoConfig = _.where(configuration, {quoid: quoid})[0];
-
     // Build the   Input Mapping
-    var inputMap = _.map(quoInput.scores, function (thisInput) {
+    var inputMap = _.map(quoInput.scores[0], function (thisInput) {
+        console.log("thisInput.score")
         console.log(thisInput.score)
         return {
             userid: thisInput.userid,
