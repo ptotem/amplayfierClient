@@ -4,10 +4,10 @@ Template.quoleaderBoard.rendered = ->
   # logToScreen()
   # generateScore("Q1")
   # generateScore("Q2")
-  # generateScore("Q3")
-  # generateScore("Q4")
-  # generateScore("Q5")
-  # generateScore("Q6")
+  # generateScore("Q3") Office/Projects/MeteorApps/NewQuoAmp/amplayfier-creator:=> amplayfier-creator
+  # generateScore("Q4") Office/Projects/MeteorApps/NewQuoAmp/amplayfierClient:=>client
+  # generateScore("Q5") Office/Projects/MeteorApps/Quodeck/UpdatedQuodeckCreator/quodeckCreator$:=>Creator
+  # generateScore("Q6") tenantId:sJdqs6Gu7MJrQtdZy iNcZ2texjmGSmTNL2 4002
   Tracker.autorun(()->
     Meteor.users.find({})
   )
