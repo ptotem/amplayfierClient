@@ -6,9 +6,7 @@ function generateScore(quoid) {
     var quoInput = _.where(inputJSON, {quoid: quoid})[0];
     var quoConfig = _.where(configuration, {quoid: quoid})[0];
     // Build the   Input Mapping
-    var inputMap = _.map(quoInput.scores[0], function (thisInput) {
-        console.log("thisInput.score")
-        console.log(thisInput.score)
+    var inputMap = _.map(quoInput.scores, function (thisInput) {
         return {
             userid: thisInput.userid,
             value: (thisInput.score == "") ? "1" : _.where(quoConfig.mapping, {score: thisInput.score})[0].value

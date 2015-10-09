@@ -24,8 +24,6 @@ Template.quoleaderBoard.rendered = ->
       x.call('getResultOnClient',deckList,userList,(err, res)->
         if !err
           if quoScoreConfig.findOne()?
-            console.log "ssssssssssssssss"
-            console.log res
             @inputJSON = res
             @configuration = quoScoreConfig.findOne()
             @leaderboardJSON = {
@@ -33,13 +31,13 @@ Template.quoleaderBoard.rendered = ->
                 "schema": [],
                 "data": data
             }
-            a = generateScore("sJdqs6Gu7MJrQtdZy")
+            a = generateScore("CB95iQMyxLQahfog5")
             finalArr = []
             for i,j in a
               finalArr.push {userid: data[j].userid, score: i}
-            console.log finalArr
-            tid = "sJdqs6Gu7MJrQtdZy"
-
+            console.log "ressssssssssssssssssssssssssssssssssss"
+            console.log res
+            tid = "CB95iQMyxLQahfog5"
             Meteor.call('insertAmpScore',tid, finalArr)
         else
           console.log err
@@ -49,7 +47,7 @@ Template.quoleaderBoard.rendered = ->
 Template.quoleaderBoard.helpers
   leaderBoard:()->
     totalScore = []
-    if ampQuoScore.findOne().results?
+    if ampQuoScore.findOne()? && ampQuoScore.findOne().results?
       for i in ampQuoScore.findOne().results
         if Meteor.users.findOne({_id:i.userid})?
           if Meteor.users.findOne({_id:i.userid}).personal_profile?
