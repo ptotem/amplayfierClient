@@ -250,11 +250,11 @@
                                     </div>
                                     <div id="story-nodes">
                                         {{#if isPortrait}} {{#each nodes}}
-                                        <a href="#" target="_blank" quo-seq="{{tid}}" tabindex="0" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop portrait.top}}%;left:{{getPrecLeft portrait.left}}%;width:{{portrait.width}}%">
+                                        <a href="/quodeck/{{tid}}" target="_blank" quo-seq="{{tid}}" tabindex="0" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop portrait.top}}%;left:{{getPrecLeft portrait.left}}%;width:{{portrait.width}}%">
                                             <img src="{{getNodeStatusPic sequence}}" alt="">
                                         </a>
                                         {{/each}} {{else}} {{#each nodes}}
-                                        <a href="#" target="_blank" quo-seq="{{tid}}" tabindex="0"  class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.top}}%;left:{{getPrecLeft landscape.left}}%;width:{{landscape.width}}%">
+                                        <a href="/quodeck/{{tid}}" target="_blank" quo-seq="{{tid}}" tabindex="0"  class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.top}}%;left:{{getPrecLeft landscape.left}}%;width:{{landscape.width}}%">
                                             <img src="{{getNodeStatusPic sequence}}" alt="">
                                         </a>
                                         {{/each}} {{/if}}
