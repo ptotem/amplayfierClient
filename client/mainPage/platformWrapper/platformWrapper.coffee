@@ -299,8 +299,8 @@ Template.platformWrapper.events
 
 
 
-    console.log platforms.findOne().quodecks
-    # window.location = "/quodeck/"+$(e.currentTarget).attr('quo-seq')
+    # console.log platforms.findOne().quodecks
+    window.location = "/quodeck/"+$(e.currentTarget).attr('quo-seq')
 
     # showModal('nodeTemp',{status:s,seq:seq,nodePhoto:nodePhoto,nodeTitle:nodeTitle,nodeDescription:nodeDescription},'main-wrapper-page')
     # setTimeout(()->
