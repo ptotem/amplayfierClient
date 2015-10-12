@@ -20,24 +20,28 @@ Template.quoleaderBoard.rendered = ->
         userList.push i._id
         data.push {userid:i._id,totalScore:0,quoScores:[]}
       data.push {"userid": "gameMaster", "totalScore": 0, "quoScores": []}
-      x = DDP.connect("http://127.0.0.1:4002")
+      x = DDP.connect("http://lvh.me:4002")
       x.call('getResultOnClient',deckList,userList,(err, res)->
         if !err
+          console.log "sss"
           if quoScoreConfig.findOne()?
             @inputJSON = res
+            # @inputJSON[0].scores.push({"userid":"KP3A7zNnf2hYkFssA1","score":"2"})
+            # @inputJSON[0].scores.push({"userid":"KP3A7zNnf2hYkFssA2","score":"3"})
+            # @inputJSON[0].scores.push({"userid":"KP3A7zNnf2hYkFssA3","score":"1"})
             @configuration = quoScoreConfig.findOne()
             @leaderboardJSON = {
                 "name": "Basic Leaderboard",
                 "schema": [],
                 "data": data
             }
-            a = generateScore("CB95iQMyxLQahfog5")
+            a = generateScore("rLmrWSMx2b7Ch3A3H")
             finalArr = []
             for i,j in a
               finalArr.push {userid: data[j].userid, score: i}
             console.log "ressssssssssssssssssssssssssssssssssss"
             console.log res
-            tid = "CB95iQMyxLQahfog5"
+            tid = "rLmrWSMx2b7Ch3A3H"
             Meteor.call('insertAmpScore',tid, finalArr)
         else
           console.log err
