@@ -1,0 +1,29 @@
+<template name="quoleaderBoardUser">
+<ul class="nav nav-tabs nav-justified-only">
+	{{#each leaderBoard}}
+	<li class="">
+		<a data-toggle="tab" href="#{{quoid}}">{{quoName}}</a>
+	</li>
+	{{/each}}
+</ul>
+<div class="tab-content bg-white padded margin-bottom">
+	
+		{{#each leaderBoard}}
+		<div class="tab-pane fade" id="{{quoid}}">
+			<table class="table table-bordered table-striped">
+				<tr class="bg-primary">
+					<th>Parameters</th>
+					<th>Score</th>
+				</tr>
+				{{#each parameters }}
+					<tr>
+						<td>{{name}}</td>
+						<td>{{score}}</td>
+					</tr>
+				{{/each}}
+			</table>
+		</div>
+		{{/each}}
+	
+</div>
+</template>

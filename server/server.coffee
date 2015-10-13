@@ -170,9 +170,9 @@
   )
 
 Meteor.methods
-  insertAmpScore:(tid,finalArr)->
-    ampQuoScore.remove({quoId: tid})
-    ampQuoScore.insert({quoId:tid, results: finalArr})
+  insertAmpScore:(tname,finalArr)->
+    # ampQuoScore.remove({quoId: tid})
+    ampQuoScore.upsert({tname: tname}, {$set:{results: finalArr}})
 
 
   getQuodeckScore: (deckList, userList)->

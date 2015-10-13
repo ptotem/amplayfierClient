@@ -194,7 +194,7 @@ Meteor.publish('thisPlatform',(tname)->
   this.ready()
   platforms.find({tenantName:tname})
 )
-Meteor.publish('thisAmpScore',()->
+Meteor.publish('thisAmpScore',(tname)->
   this.ready()
-  ampQuoScore.find({})
+  ampQuoScore.find({tname:tname})
 )

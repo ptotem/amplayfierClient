@@ -72,6 +72,8 @@ Template.wrapperSideBar.events
     showModal('userProfileModal',{},'main-wrapper-page')
   'click .leader-board-link':(e)->
     showModal('leaderBoardModal',{},'main-wrapper-page')
+  'click .companyHealth-link':(e)->
+    showModal('companyHealthModal',{},'main-wrapper-page')
   'click .feedback-link':(e)->
     showModal('feedbackModal',{},'main-wrapper-page')
   'click .contact-us-link':(e)->
@@ -419,3 +421,43 @@ Template.modalLogin.events
     $('.modal-wrap').remove()
 
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+Template.companyHealthModal.helpers
+  leaderBoard:()->
+    results = []
+    if ampQuoScore.findOne()? and platforms.findOne()?
+      for i,q in platforms.findOne().quodecks
+        a = {}
+        a.quoid = i
+        a.quoName = "Year "+ (q+1)
+        a.parameters = []
+        _.forEach(ampQuoScore.findOne().results, (result, index)->
+          c = {}
+          c.name = result.name
+          ind = _.indexOf(result.schema, i)
+          if _.where(result.data, {userid: Meteor.userId()}).length > 0
+            # console.log "In -------" + Meteor.userId()
+            console.log _.where(result.data, {userid: Meteor.userId()})
+            if _.where(result.data, {userid: Meteor.userId()})[0].quoScores.length > ind
+              score = Math.round(_.where(result.data, {userid: Meteor.userId()})[0].quoScores[ind])
+            else  
+              score = 0
+          else
+            score = 0
+          c.score = score
+          a.parameters.push c
+        )
+        results.push a
+      console.log results
+      results
+
+
+Template.companyHealthModal.events
+  'click .remove-modal':(e)->
+    $('.modal').modal('hide')
+    $('.modal').remove()
+    $('.modal-wrap').remove()
+
+    $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
+
+

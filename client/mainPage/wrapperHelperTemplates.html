@@ -182,6 +182,12 @@
                             <span class="oc-partial-menu-item">Leaderboard</span>
                         </a>
                     </li>
+                    <li class="">
+                        <a class="collapsed side-bar-link companyHealth-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Check out where you stand against the who's who of this game." href="#companyHealthModal" data-toggle='modal'>
+                            <i class="oc-partial-icon icm icm-health"></i>
+                            <span class="oc-partial-menu-item">Company Health</span>
+                        </a>
+                    </li>
                     {{/if}}
 
                     {{#if isEnabled 'rewards'}}
@@ -788,6 +794,64 @@
 
 
 
+</template>
+
+<template name="companyHealthModal">
+        <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+            <div class="modal-content" style="height: 100%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-health"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Company Health</h4>
+                </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-8 col-md-offset-2 col-sm-12">
+                        <div id="companyHealth">
+                        <ul class="nav nav-tabs nav-justified-only">
+                            {{#each leaderBoard}}
+                            <li class="">
+                                <a data-toggle="tab" href="#{{quoid}}">{{quoName}}</a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        <div class="tab-content bg-white padded margin-bottom">
+    
+                        {{#each leaderBoard}}
+                            <div class="tab-pane fade" id="{{quoid}}">
+                            {{#each parameters }}
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="leader-row">
+                                            <div class="box-table">
+                                                <div class="box-cell name-cell">
+                                                    <span class="leader-name">{{name}}</span>
+                                                </div>
+                                                <div class="box-cell bg-primary points-cell">
+                                                    <span class="leader-points">{{score}}</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                            </div>
+                        {{/each}}
+                        </div>
+                        
+                        </div>
+
+                      </div>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+    </div>
 </template>
 
 
