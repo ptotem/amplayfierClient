@@ -20,7 +20,7 @@ Template.quoleaderBoard.rendered = ->
         userList.push i._id
         # data.push {userid:i._id,totalScore:0,quoScores:[]}
       # data.push {"userid": "gameMaster", "totalScore": 0, "quoScores": []}
-      x = DDP.connect("http://lvh.me:4002")
+      x = DDP.connect("http://www.quodeck.com")
       x.call('getResultOnClient',deckList,userList,(err, res)->
         if !err
           console.log res
