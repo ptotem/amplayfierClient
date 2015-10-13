@@ -251,7 +251,7 @@ function mapInput(configuration, quoid) {
     return _.map(quoInput.scores, function (thisInput) {
         return {
             userid: thisInput.userid,
-            value: (thisInput.score == "") ? "1" : _.where(quoConfig.mapping, {score: thisInput.score}).length > 0 ? _.where(quoConfig.mapping, {score: thisInput.score})[0].value : "1"
+            value: (thisInput.score == "") ? "1" : quoConfig.mapping === null ? "1" : _.where(quoConfig.mapping, {score: thisInput.score}).length > 0 ? _.where(quoConfig.mapping, {score: thisInput.score})[0].value : "1"
         }
     });
 }
