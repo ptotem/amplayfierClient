@@ -6,13 +6,14 @@ var additiveScores = false;
 
 
 function setAppConfiguration(){
+    var quodecks = platforms.findOne().quodecks
     var appConfiguration = [
     {
         "leaderboard": "Market Share", //Market Share
         "initScore": "15",
         "quoConfig": [
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[0],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -24,12 +25,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[1],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-0.2"]},
@@ -41,12 +42,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[1]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[2],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -58,12 +59,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[2]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[3],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0.3"]},
@@ -75,12 +76,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[3]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[4],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0.2"]},
@@ -92,12 +93,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[4]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[5],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-0.3"]},
@@ -109,12 +110,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[5]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[6],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-0.3"]},
@@ -126,12 +127,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[6]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[7],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-0.3"]},
@@ -143,7 +144,7 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[7]+"-0"}
                 ],
                 "gameMaster": []
             }
@@ -154,7 +155,7 @@ function setAppConfiguration(){
         "initScore": "30",
         "quoConfig": [
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[0],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["3","1","0","-1"]},
@@ -166,12 +167,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[1],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -183,12 +184,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-1::eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-1::"+quodecks[1]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[2],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -200,12 +201,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-2::ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-2::"+quodecks[2]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[3],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -217,12 +218,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-3::ajx9q3As9duobdbyS-1::Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-3::"+quodecks[2]+"-1::"+quodecks[3]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[4],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -234,12 +235,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[4]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[5],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -251,12 +252,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[5]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[6],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-0.5"]},
@@ -268,12 +269,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[6]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[7],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-1"]},
@@ -285,7 +286,7 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[7]+"-0"}
                 ],
                 "gameMaster": []
             }
@@ -296,7 +297,7 @@ function setAppConfiguration(){
         "initScore": "37",
         "quoConfig": [
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[0],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -308,12 +309,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[1],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-1"]},
@@ -325,12 +326,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[1]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[2],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -342,12 +343,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[2]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[3],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -359,12 +360,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[3]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[4],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -376,12 +377,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[4]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[5],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -393,12 +394,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[5]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[6],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-1"]},
@@ -410,12 +411,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[6]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[7],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -427,7 +428,7 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[7]+"-0"}
                 ],
                 "gameMaster": []
             }
@@ -438,7 +439,7 @@ function setAppConfiguration(){
         "initScore": "100",
         "quoConfig": [
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[0],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1.08","1.02","1.01","1"]},
@@ -450,12 +451,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": quodecks[0]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[1],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1.01"]},
@@ -467,12 +468,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": "5D4LGfuhswsigjmmT-1::eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": quodecks[0]+"-1::"+quodecks[1]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[2],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1","1"]},
@@ -484,12 +485,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": "5D4LGfuhswsigjmmT-2::ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": quodecks[0]+"-2::"+quodecks[2]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[3],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1.03","1.02","1.01"]},
@@ -501,12 +502,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": "5D4LGfuhswsigjmmT-3::ajx9q3As9duobdbyS-1:Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": quodecks[0]+"-3::"+quodecks[2]+"-1:"+quodecks[3]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[4],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1.02"]},
@@ -518,12 +519,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": "Hk2RD2mxNQKCMgzFH-1::5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": quodecks[3]+"-1::"+quodecks[4]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[5],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1.02","0.99","0.99"]},
@@ -535,12 +536,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": "Hk2RD2mxNQKCMgzFH-2::eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": quodecks[3]+"-2::"+quodecks[5]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[6],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0.97"]},
@@ -552,12 +553,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": "eTekBcRtx9bv28RdK-1::ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": quodecks[5]+"-1::"+quodecks[6]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[7],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0.97"]},
@@ -569,7 +570,7 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": "eTekBcRtx9bv28RdK-2::Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "multCompound", "multiplier": quodecks[5]+"-2::"+quodecks[7]+"-0"}
                 ],
                 "gameMaster": []
             }
@@ -580,7 +581,7 @@ function setAppConfiguration(){
         "initScore": "40",
         "quoConfig": [
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[0],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-8","0","0","0"]},
@@ -592,12 +593,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[1],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -609,12 +610,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-1::eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-1::"+quodecks[1]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[2],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -626,12 +627,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-2::ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-2::"+quodecks[2]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[3],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-0.3"]},
@@ -643,12 +644,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-3::Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-3::"+quodecks[3]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[4],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0.3"]},
@@ -660,12 +661,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[4]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[5],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-1","-0.5"]},
@@ -677,12 +678,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[5]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[6],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -694,12 +695,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-1::ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[5]+"-1::"+quodecks[6]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[7],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -711,7 +712,7 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[7]+"-0"}
                 ],
                 "gameMaster": []
             }
@@ -722,7 +723,7 @@ function setAppConfiguration(){
         "initScore": "12",
         "quoConfig": [
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[0],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-4"]},
@@ -734,12 +735,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[1],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -751,12 +752,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[1]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[2],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -768,12 +769,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[2]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[3],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -785,12 +786,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[3]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[4],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -802,12 +803,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[4]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[5],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -819,12 +820,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[5]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[6],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -836,12 +837,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[6]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[7],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -853,7 +854,7 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[7]+"-0"}
                 ],
                 "gameMaster": []
             }
@@ -864,7 +865,7 @@ function setAppConfiguration(){
         "initScore": "28",
         "quoConfig": [
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[0],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-4"]},
@@ -876,12 +877,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[0]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[1],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-1"]},
@@ -893,12 +894,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[1]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[2],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -910,12 +911,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[2]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[3],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-0.3"]},
@@ -927,12 +928,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[3]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "5D4LGfuhswsigjmmT",
+                "quoid": quodecks[4],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-0.7"]},
@@ -944,12 +945,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "5D4LGfuhswsigjmmT-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[4]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "eTekBcRtx9bv28RdK",
+                "quoid": quodecks[5],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["-1","-0.5"]},
@@ -961,12 +962,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[5]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "ajx9q3As9duobdbyS",
+                "quoid": quodecks[6],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["0"]},
@@ -978,12 +979,12 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "eTekBcRtx9bv28RdK-1::ajx9q3As9duobdbyS-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[5]+"-1::"+quodecks[6]+"-0"}
                 ],
                 "gameMaster": []
             },
             {
-                "quoid": "Hk2RD2mxNQKCMgzFH",
+                "quoid": quodecks[7],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
                     {"score": "1", "value": ["1"]},
@@ -995,7 +996,7 @@ function setAppConfiguration(){
                 ],
                 "payoff": [
                     // Criteria can be none or a name. Value can be a fixed number or asIs with a multipler
-                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": "Hk2RD2mxNQKCMgzFH-0"}
+                    {"inputvar": 0, "criteria": "", "value": "addSimple", "multiplier": quodecks[7]+"-0"}
                 ],
                 "gameMaster": []
             }
@@ -1003,6 +1004,7 @@ function setAppConfiguration(){
     }
 
 ];
+
     return appConfiguration
 }
 
