@@ -192,7 +192,7 @@ function setAppConfiguration(){
                 "quoid": quodecks[2],
                 "mapping": [
                     // Reflect the range of scores which can come back from the Quo and the corresponding values
-                    {"score": "1", "value": ["0"]},
+                    {"score": "1", "value": ["0", "0"]},
                     {"score": "2", "value": ["0.2","-0.5"]}
                 ],
                 "criteria": [
