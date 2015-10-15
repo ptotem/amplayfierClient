@@ -174,7 +174,10 @@ Meteor.methods
     if Meteor.users.findOne({_id: userId})?
       if _.where(Meteor.users.findOne({_id: userId}).quoData,{quoId:quoId}).length > 0
         a = _.where(Meteor.users.findOne({_id: userId}).quoData,{quoId:quoId})[0]
-        quoSeq = a.quoSeq + 1
+        quoSeq = parseInt(a.quoSeq) + 1
+        console.log userId
+        console.log quoId
+        console.log quoSeq
         newQuoId =  _.where(Meteor.users.findOne({_id: userId}).quoData,{quoSeq:quoSeq})[0]
         quoId = newQuoId.quoId
         Meteor.users.update({_id: userId},{$pull:{quoData:{quoSeq:quoSeq}}})

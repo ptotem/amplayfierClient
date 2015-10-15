@@ -1,7 +1,7 @@
 Template.platformWrapper.rendered = ->
   Meteor.call('updateUserChatFalse', Meteor.userId())
   addQuodataInUser()
-  lockingStoryNodes()
+  # lockingStoryNodes()
 
   $('body').on 'hidden.bs.modal', (e) ->
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
@@ -112,8 +112,14 @@ Template.platformWrapper.helpers
     for i,j in a
      a[j].tid = platforms.findOne().quodecks[j]
      for s in Meteor.users.findOne({_id:Meteor.userId()}).quoData
-       if a[j].tid == s.quoId
+       if a[j].tid is s.quoId
          a[j].lock = s.unlocked
+         if a[j].lock is true
+           a[j].pe = "auto"
+         else
+           a[j].pe = "none"
+    console.log "aaaaaa"
+    console.log a
     a
 
   storyHeading:()->
