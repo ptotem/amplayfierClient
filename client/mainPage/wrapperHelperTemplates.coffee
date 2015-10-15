@@ -422,6 +422,35 @@ Template.modalLogin.events
 
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
+#---------------------------------------- Company Health Leader ---------------------------------------
+
+
+Template.companyHealthModal.rendered = ->
+  # Tracker.autorun(()->
+  #   Meteor.users.find({})
+  # )
+  data = []
+  userList = []
+  if platforms.findOne()?
+    deckList = platforms.findOne().quodecks
+    if Meteor.users.find().fetch().length > 0
+      for i in Meteor.users.find({}).fetch()
+        userList.push i._id
+      x = DDP.connect(Meteor.settings.public.quodeckIP)
+      x.call('getResultOnClient',deckList,userList,(err, res)->
+        if !err
+          gameName = platforms.findOne().gameName
+          @appConfiguration = setAppConfiguration(gameName);
+          @inputJSON = res
+          @leaderboardJSON = generateLeaderboardConfig(userList,gameName)
+          for deck in deckList
+            generateScore(deck)
+          Meteor.call('insertAmpScore',platformName, leaderboardJSON)
+        else
+          console.log err
+      )
+
+
 Template.companyHealthModal.helpers
   leaderBoard:()->
     results = []

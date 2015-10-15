@@ -1,8 +1,27 @@
-var leaderboardLogging = true;
-var gameMaster = false;
+var leaderboardLogging = false;
+
+function getGameMaster(){
+    var gameMaster = false;
+    if(platforms.findOne().gameName !== "Kurukshetra"){
+        gameMaster = false;
+    }else{
+        gameMaster = true;   
+    }
+    return gameMaster;
+}
+
+function getAdditiveScore(){
+    var additiveScores = false;
+    if(platforms.findOne().gameName !== "Kurukshetra"){
+        additiveScores = false;
+    }else{
+        additiveScores = true;  
+    }
+    return additiveScores;
+}
 
 // This is true if the calculations are discrete like in the case of Kurukshetra
-var additiveScores = false;
+// var additiveScores = false;
 
 function generateScore(quoid) {
 
@@ -202,7 +221,7 @@ function generateScore(quoid) {
                 }
             });
             thisRecord.quoScores.push(userQuoScore);
-            if (additiveScores) {
+            if (getAdditiveScore()) {
                 thisRecord.totalScore = _.reduce(thisRecord.quoScores, function (sum, elm) {
                     return sum + parseInt(elm)
                 }, 0).toString();
@@ -214,7 +233,7 @@ function generateScore(quoid) {
 
         // Game Master Logic
 
-        if (gameMaster) {
+        if (getGameMaster()) {
             var gmQuoScore = 0;
             _.each(quoConfig.gameMaster, function (thisPayoff) {
                 if (_.where(evaluatedCriteria, {name: thisPayoff.criteria})[0].status) {

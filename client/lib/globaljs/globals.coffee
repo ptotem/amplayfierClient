@@ -401,3 +401,12 @@
 
   ,100)
 
+@addQuodataInUser = () ->
+  if platforms.findOne()? and Meteor.userId()?
+    quoData = []
+    for i,j in platforms.findOne().quodecks
+      if j is 0
+        quoData.push {quoId: i, unlocked:true}
+      else
+        quoData.push {quoId: i, unlocked:false}
+    Meteor.users.update({_id: Meteor.userId()},{$set:{quoData: quoData}})

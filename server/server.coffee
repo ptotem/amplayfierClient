@@ -170,6 +170,14 @@
   )
 
 Meteor.methods
+  updateQuoData:(userId, quoId)->
+    if Meteor.users.findOne({_id: userId})?
+      if _.where(Meteor.users.findOne({_id: userId}).quoData,{quoId:quoId}).length > 0
+        a = _.where(Meteor.users.findOne({_id: userId}).quoData,{quoId:quoId})[0]
+        if a.unlocked isnt true
+          Meteor.users.update({_id: Meteor.users.findOne({_id:userId})},{$pull:{quoData:{quoId:quoId}}})
+          Meteor.users.update({_id: Meteor.users.findOne({_id:userId})},{$push:{quoData:{quoId:quoId, unlocked: true}}})
+          
   insertAmpScore:(tname,finalArr)->
     # ampQuoScore.remove({quoId: tid})
     ampQuoScore.upsert({tname: tname}, {$set:{results: finalArr}})
