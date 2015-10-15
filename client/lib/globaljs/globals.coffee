@@ -218,11 +218,11 @@
         $(".next").hide()
       currentItem = $($('.owl-item.active').children()[0])
       # currentItem = $($('.owl-item.active').find('img'))
-      
+
       startTime()
       setCurrentGameId("false")
       setCurrentSlideType(false)
-      panelId = currentItem.attr('panel-id')   
+      panelId = currentItem.attr('panel-id')
       variantName = currentItem.attr('variant-name')
       templateId = currentItem.attr('template-id')
       setCurrentPanelId(panelId)
@@ -328,7 +328,7 @@
 @getThemeImagePath = ()->
   p = platforms.findOne({}).wrapperJson.themekey
   console.log p
-  a = "assets/img/"+ p 
+  a = "assets/img/"+ p
   a = a + "/"
 
 ###
@@ -355,9 +355,9 @@
     setTimeout(()->
       startAttempt($(".slide-container").length)
       changeSlideInCarousel()
-    
+
     ,2000)
-    
+
 
     # $(".center-panel[has-data='false']").remove()
     # $(".slide-container:empty").remove()
@@ -367,20 +367,20 @@
       console.log "translated"
       changeCarouselSlide()
       changeSlideInCarousel()
-      
-    ) 
+
+    )
     # owl.on('dragged.owl.carousel',(e)->
     #   console.log "dragged"
     #   changeCarouselSlide()
     #   changeSlideInCarousel()
-      
+
     # )
     # $('.owl-next').on 'click', (e) ->
     #   # $(".owl-carousel .owl-next").trigger('click');
     #   console.log "sass"
     #   changeCarouselSlide()
     #   changeSlideInCarousel()
-      
+
     #   # changeCarouselSlide()
     #   # nextItem = $('.active').next()
     #   # transitionSlide()
@@ -391,7 +391,7 @@
     #   # $(".owl-carousel .owl-prev").trigger('click');
     #   changeCarouselSlide()
     #   changeSlideInCarousel()
-      
+
       # changeCarouselSlide()
       # prevItem = $('.active').prev()
       # transitionSlide()
@@ -404,9 +404,17 @@
 @addQuodataInUser = () ->
   if platforms.findOne()? and Meteor.userId()?
     quoData = []
-    for i,j in platforms.findOne().quodecks
-      if j is 0
-        quoData.push {quoId: i, unlocked:true}
-      else
-        quoData.push {quoId: i, unlocked:false}
-    Meteor.users.update({_id: Meteor.userId()},{$set:{quoData: quoData}})
+    if !Meteor.users.findOne({_id:Meteor.userId()}).quoData
+      for i,j in platforms.findOne().quodecks
+        if j is 0
+          quoData.push {quoId: i, unlocked:true,quoSeq:j}
+        else
+          quoData.push {quoId: i, unlocked:false,quoSeq:j}
+      Meteor.users.update({_id: Meteor.userId()},{$set:{quoData: quoData}})
+
+@lockingStoryNodes = ()->
+  for i in $('.story-node')
+    if $(i).attr('locked')
+      $(i).css('pointer-events','auto')
+    else
+      $(i).css('pointer-events','none')

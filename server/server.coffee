@@ -174,10 +174,23 @@ Meteor.methods
     if Meteor.users.findOne({_id: userId})?
       if _.where(Meteor.users.findOne({_id: userId}).quoData,{quoId:quoId}).length > 0
         a = _.where(Meteor.users.findOne({_id: userId}).quoData,{quoId:quoId})[0]
-        if a.unlocked isnt true
-          Meteor.users.update({_id: Meteor.users.findOne({_id:userId})},{$pull:{quoData:{quoId:quoId}}})
-          Meteor.users.update({_id: Meteor.users.findOne({_id:userId})},{$push:{quoData:{quoId:quoId, unlocked: true}}})
-          
+        quoSeq = a.quoSeq + 1
+        newQuoId =  _.where(Meteor.users.findOne({_id: userId}).quoData,{quoSeq:quoSeq})[0]
+        quoId = newQuoId.quoId
+        Meteor.users.update({_id: userId},{$pull:{quoData:{quoSeq:quoSeq}}})
+        Meteor.users.update({_id: userId},{$push:{quoData:{quoId:quoId, unlocked: true,quoSeq:quoSeq}}})
+
+        # index = _.indexOf(_.pluck(Meteor.users.findOne({_id: userId}).quoData, 'quoId'), quoId)
+        # lengthOfQuodeck = _.pluck(Meteor.users.findOne({_id: userId}).quoData, 'quoId')
+        # if index < lengthOfQuodeck.length - 1
+        #   newquoId = lengthOfQuodeck[index+1]
+        #   Meteor.users.update({_id: userId},{$pull:{quoData:{quoId:newquoId}}})
+        #   Meteor.users.update({_id: userId},{$push:{quoData:{quoId:newquoId, unlocked: true}}})
+        # else
+        #   if a.unlocked isnt true
+        #     Meteor.users.update({_id: userId},{$pull:{quoData:{quoId:quoId}}})
+        #     Meteor.users.update({_id: userId},{$push:{quoData:{quoId:quoId, unlocked: true}}})
+
   insertAmpScore:(tname,finalArr)->
     # ampQuoScore.remove({quoId: tid})
     ampQuoScore.upsert({tname: tname}, {$set:{results: finalArr}})

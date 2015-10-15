@@ -1,6 +1,7 @@
 Template.platformWrapper.rendered = ->
   Meteor.call('updateUserChatFalse', Meteor.userId())
-  console.log($('html').parents('object'))
+  addQuodataInUser()
+  lockingStoryNodes()
 
   $('body').on 'hidden.bs.modal', (e) ->
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
@@ -104,13 +105,16 @@ Template.platformWrapper.helpers
     else
       Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
-     a =_.reject(platforms.findOne().nodes,(e)->
+    a =_.reject(platforms.findOne().nodes,(e)->
 
-     )
-     console.log a
-     for i,j in a
-       a[j].tid = platforms.findOne().quodecks[j]
-     a
+    )
+    quoData = _.pluck(Meteor.users.findOne({_id:Meteor.userId()}).quoData,'quoId')
+    for i,j in a
+     a[j].tid = platforms.findOne().quodecks[j]
+     for s in Meteor.users.findOne({_id:Meteor.userId()}).quoData
+       if a[j].tid == s.quoId
+         a[j].lock = s.unlocked
+    a
 
   storyHeading:()->
     storyConfig.name
