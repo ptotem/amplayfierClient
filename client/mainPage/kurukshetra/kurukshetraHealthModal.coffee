@@ -39,7 +39,8 @@ Template.kurukshetraHealthModal.helpers
       _.forEach(platforms.findOne().quodecks, (val, index)->
         a = {}
         a.name = "Round "+ (index+1)
-        a.data = [{score: if getGameMasterData().quoScores[index]} > 0 then "Active" else "Defeated"]
+        score = if getGameMasterData().quoScores[index] > 0 then "Active" else "Defeated"
+        a.data = [{score: score}]
         _.forEach(Meteor.users.find().fetch(),(iVal, iIndex)->
           if _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id}).length > 0
             console.log _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})
