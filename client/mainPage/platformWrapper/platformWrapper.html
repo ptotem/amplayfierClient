@@ -252,13 +252,13 @@
                                         {{#if isPortrait}}
                                           {{#each nodes}}
                                             <a href="/quodeck/{{tid}}" target="_blank" quo-seq="{{tid}}" tabindex="0" class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop portrait.top}}%;left:{{getPrecLeft portrait.left}}%;width:{{portrait.width}}%;pointer-events:{{pe}};">
-                                                <img src="{{getNodeStatusPic sequence}}" alt="">
+                                                <img src="{{getNodeStatusPic1 sequence}}" alt="">
                                             </a>
                                           {{/each}}
                                         {{else}}
                                            {{#each nodes}}
                                               <a href="/quodeck/{{tid}}" target="_blank" quo-seq="{{tid}}" tabindex="0"  class="story-node" id="story-node-{{sequence}}" seq="{{sequence}}" style="top:{{getPrecTop landscape.top}}%;left:{{getPrecLeft landscape.left}}%;width:{{landscape.width}}%;pointer-events:{{pe}};">
-                                                  <img src="{{getNodeStatusPic sequence}}" alt="">
+                                                  <img src="{{getNodeStatusPic1 sequence}}" alt="">
                                               </a>
                                             {{/each}}
                                         {{/if}}

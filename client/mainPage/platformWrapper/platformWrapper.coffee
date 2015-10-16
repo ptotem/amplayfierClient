@@ -124,6 +124,11 @@ Template.platformWrapper.helpers
 
   storyHeading:()->
     storyConfig.name
+
+  getNodeStatusPic1:(seq)->
+    n = _.where(platforms.findOne().nodes,{sequence:seq})[0]
+    storyConfig.imgsrc + "/" + n.active
+
   getNodeStatusPic:(seq)->
     if seq isnt 1
       if !userNodeCompletions.findOne({userId:Meteor.userId(),nodeSeq:seq-1})?
