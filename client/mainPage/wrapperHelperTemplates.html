@@ -185,7 +185,7 @@
                     <li class="">
                         <a class="collapsed side-bar-link companyHealth-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Check out where you stand against the who's who of this game." href="#companyHealthModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-health"></i>
-                            <span class="oc-partial-menu-item">Company Health</span>
+                            <span class="oc-partial-menu-item">Scorecard</span>
                         </a>
                     </li>
                     {{/if}}
@@ -766,17 +766,17 @@
                                         
                                             
                                                 <div class="box-table">
-                                                    <div class="box-cell bg-primary-dk rank-cell">
+                                                    <div class="box-cell bg-primary-dk rank-cell" style="background-color:rgba(23,123,187,0.7) !important;">
                                                         <span class="leader-rank">{{index}}</span>
                                                     </div>
                                                     <div class="box-cell bg-dark-lt photo-cell">
-                                                        <img src="{{classes}}" class="leader-photo">
+                                                        <img src="{{classes}}" class="leader-photo" style="width:55% !important">
                                                     </div>
                                                     <div class="box-cell name-cell">
                                                         <span class="leader-name">{{username}}</span>
                                                     </div>
-                                                    <div class="box-cell bg-primary points-cell">
-                                                        <span class="leader-points">{{score}} pts</span>
+                                                    <div class="box-cell bg-primary points-cell" style="background-color:rgba(23,123,187,0.7) !important;">
+                                                        <span class="leader-points">{{score}} Cr.</span>
                                                     </div>
                                                 </div>
                                             
@@ -791,7 +791,7 @@
                                                         <span class="leader-rank">{{index}}</span>
                                                     </div>
                                                     <div class="box-cell bg-dark-lt photo-cell">
-                                                        <img src="{{classes}}" class="leader-photo">
+                                                        <img src="{{classes}}" class="leader-photo" style="width:55% !important">
                                                     </div>
                                                     <div class="box-cell name-cell">
                                                         <span class="leader-name">{{username}}</span>

@@ -1,0 +1,120 @@
+<!-- <template name="companyHealthModal">
+        <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+            <div class="modal-content" style="height: 100%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-health"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Company Health</h4>
+                </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-8 col-md-offset-2 col-sm-12">
+                        <div id="companyHealth">
+                        <ul class="nav nav-tabs nav-justified-only">
+                            {{#each leaderBoard}}
+                            <li class="">
+                                <a data-toggle="tab" href="#{{quoid}}">{{quoName}}</a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        <div class="tab-content bg-white padded margin-bottom">
+    
+                        {{#each leaderBoard}}
+                            <div class="tab-pane fade" id="{{quoid}}">
+                            {{#each parameters }}
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="leader-row">
+                                            <div class="box-table">
+                                                <div class="box-cell name-cell">
+                                                    <span class="leader-name">{{name}}</span>
+                                                </div>
+                                                <div class="box-cell bg-primary points-cell">
+                                                    <span class="leader-points">{{score}}</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                            </div>
+                        {{/each}}
+                        </div>
+                        
+                        </div>
+
+                      </div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</template> -->
+
+<template name="kurukshetraHealthModal">
+        <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+            <div class="modal-content" style="height: 100%">
+                <div class="modal-header">
+                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
+                    <div class="top-circle-icon"><i class="icm icm-health"></i>
+                    </div>
+                    <h4 class="modal-title" id="notifyModalLabel">Score Card</h4>
+                </div>
+              <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="table-line">
+
+                  <div class="row bg-gray push-bottom" style="color:white !important;background-color: #333;margin-bottom: 2px;">
+                    <div class="col-sm-3 text-center-xs">
+                      <h4>Round</h4>
+                    </div>
+                    <div class="col-sm-1 text-center">
+                        <h4>Status</h4>
+                    </div>
+                    {{#each leaderBoard}}
+                    <div class="col-sm-1 text-center">
+                      <h4>{{quoName}}</h4>
+                    </div>
+                    {{/each}}
+                    
+                  </div>
+                    <!-- {{#each leaderBoard}} -->
+                    {{#each leaderBoard1}}
+                    <div class="row table-line-row" style="margin-bottom:2px !important;">
+                      
+                        <div class="col-sm-3 text-center-xs">
+                          <h4>{{name}}</h4>
+                        </div>
+                        {{#each data}}
+                          <div class="col-sm-1 text-center">
+                              <h3>
+                                <i class="fa {{classes}} v-mid"></i> <span>{{score}}</span>
+                              </h3>
+                          </div>
+                        {{/each}}
+                      
+                     
+
+                    </div>
+                    {{/each}}
+                    <!-- {{/each}} -->
+
+                    
+
+                </div>
+
+                    </div>
+                  </div>
+              </div>
+            <!-- /.modal-content -->
+        </div>
+
+    </div>
+    </div>
+</template>

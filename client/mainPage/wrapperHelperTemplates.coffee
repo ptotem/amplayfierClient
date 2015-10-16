@@ -73,7 +73,12 @@ Template.wrapperSideBar.events
   'click .leader-board-link':(e)->
     showModal('leaderBoardModal',{},'main-wrapper-page')
   'click .companyHealth-link':(e)->
-    showModal('companyHealthModal',{},'main-wrapper-page')
+    console.log platforms.findOne().gameName
+    if platforms.findOne().gameName is "Kurukshetra" 
+      showModal('kurukshetraHealthModal',{},'main-wrapper-page')
+    else
+      showModal('companyHealthModal',{},'main-wrapper-page')  
+  
   'click .feedback-link':(e)->
     showModal('feedbackModal',{},'main-wrapper-page')
   'click .contact-us-link':(e)->
@@ -454,11 +459,11 @@ Template.leaderBoardModal.helpers
                     val.index = index + 1
                     if val.quoScores.length > 2
                       if val.quoScores[(val.quoScores.length-1)] < val.quoScores[(val.quoScores.length-2)]
-                        val.classes = "/assets/images/arrowDown.png" 
+                        val.classes = "/assets/images/arrowDown.gif" 
                       else
-                        val.classes = "/assets/images/arrowUp.png"
+                        val.classes = "/assets/images/arrowUp.gif"
                     else
-                      val.classes = "/assets/images/arrowUp.png"
+                      val.classes = "/assets/images/arrowUp.gif"
                     val
                   )
       totalScore = totalScore[0..4]
