@@ -8,6 +8,7 @@
         padding: 15px;
     }
   </style>
+  <div class="col-lg-6">
   {{#each leaderBoardTotal}}
   <h1>{{name}}</h1>
   <table style="width:50%">
@@ -19,5 +20,21 @@
     {{/each}}
   </table>
   {{/each}}
+  </div>
+  <div class="col-lg-6">
+    <h1>Main Leaderboard</h1>
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>Score</td>
+      </tr>
+      {{#each mainLeaderboard}}
+        <tr>
+          <td>{{username}}</td>
+          <td>{{score}}</td>
+        </tr>
+      {{/each}}
+    </table>
+  </div>
 
 </template>

@@ -11,7 +11,7 @@ function setAppConfiguration(gameName){
     if(gameName !== "Kurukshetra"){
         appConfiguration = [
             {
-                "leaderboard": "Market Share", //Market Share
+                "leaderboard": "Market Share (%)", //Market Share
                 "initScore": "15",
                 "quoConfig": [
                     {
@@ -153,7 +153,7 @@ function setAppConfiguration(gameName){
                 ]
             },
             {
-                "leaderboard": "Brand Penetration", //Brand Penetration
+                "leaderboard": "Brand Penetration (%)", //Brand Penetration
                 "initScore": "30",
                 "quoConfig": [
                     {
@@ -295,7 +295,7 @@ function setAppConfiguration(gameName){
                 ]
             },
             {
-                "leaderboard": "Brand Equity Score", //Brand Equity Score
+                "leaderboard": "Brand Equity Score (Index)", //Brand Equity Score
                 "initScore": "37",
                 "quoConfig": [
                     {
@@ -437,7 +437,7 @@ function setAppConfiguration(gameName){
                 ]
             },
             {
-                "leaderboard": "Topline Growth", //Topline Growth
+                "leaderboard": "Topline (Rs. Cr.)", //Topline Growth
                 "initScore": "100",
                 "quoConfig": [
                     {
@@ -579,7 +579,7 @@ function setAppConfiguration(gameName){
                 ]
             },
             {
-                "leaderboard": "Gross Margin", //Gross Margin
+                "leaderboard": "Gross Margin (%)", //Gross Margin
                 "initScore": "40",
                 "quoConfig": [
                     {
@@ -721,7 +721,7 @@ function setAppConfiguration(gameName){
                 ]
             },
             {
-                "leaderboard": "A&P", //A&P
+                "leaderboard": "A&P (%)", //A&P
                 "initScore": "12",
                 "quoConfig": [
                     {
@@ -863,7 +863,7 @@ function setAppConfiguration(gameName){
                 ]
             },
             {
-                "leaderboard": "Net Margin", //Net Margin
+                "leaderboard": "Net Margin (%)", //Net Margin
                 "initScore": "28",
                 "quoConfig": [
                     {
@@ -1210,13 +1210,13 @@ function generateLeaderboardConfig(userList, gameName){
     var leaderboards = [];
     if(gameName !== "Kurukshetra"){
         leaderboards = [
-                            {name: "Market Share",baseSCore: "15"},
-                            {name: "Brand Penetration",baseSCore: "30"},
-                            {name: "Brand Equity Score",baseSCore: "37"},
-                            {name: "Topline Growth",baseSCore: "100"},
-                            {name: "Gross Margin",baseSCore: "40"},
-                            {name: "A&P",baseSCore: "12"},
-                            {name: "Net Margin",baseSCore: "28"},
+                            {name: "Topline (Rs. Cr.)",baseSCore: "100"},
+                            {name: "Market Share (%)",baseSCore: "15"},
+                            {name: "Brand Penetration (%)",baseSCore: "30"},
+                            {name: "Brand Equity Score (Index)",baseSCore: "37"},
+                            {name: "Gross Margin (%)",baseSCore: "40"},
+                            {name: "A&P (%)",baseSCore: "12"},
+                            {name: "Net Margin (%)",baseSCore: "28"},
                         ];
     }else{
         leaderboards = [
@@ -1248,13 +1248,13 @@ function getGameParams(gameName){
     var leaderboards;
     if(gameName !== "Kurukshetra"){
         leaderboards = [
-                            {name: "Market Share",baseSCore: "15"},
-                            {name: "Brand Penetration",baseSCore: "30"},
-                            {name: "Brand Equity Score",baseSCore: "37"},
-                            {name: "Topline Growth",baseSCore: "100"},
-                            {name: "Gross Margin",baseSCore: "40"},
-                            {name: "A&P",baseSCore: "12"},
-                            {name: "Net Margin",baseSCore: "28"},
+                            {name: "Topline (Rs. Cr.)",baseSCore: "100"},
+                            {name: "Market Share (%)",baseSCore: "15"},
+                            {name: "Brand Penetration (%)",baseSCore: "30"},
+                            {name: "Brand Equity Score (Index)",baseSCore: "37"},
+                            {name: "Gross Margin (%)",baseSCore: "40"},
+                            {name: "A&P (%)",baseSCore: "12"},
+                            {name: "Net Margin (%)",baseSCore: "28"},
                         ];
     }else{
         leaderboards = [

@@ -422,3 +422,56 @@ Template.modalLogin.events
 
     $('.modal-blur-content').css({"-webkit-filter":"blur(0px)"})
 
+Template.leaderBoardModal.helpers
+  mainLeaderboard:()->
+    if ampQuoScore.findOne()? and ampQuoScore.findOne().results?
+      gameData = getGameParams(platforms.findOne().gameName)
+      basescore = _.where(gameData, {name: "Topline (Rs. Cr.)"})[0].baseSCore
+      myScore = {}
+      if _.where(ampQuoScore.findOne({}).results,{name: "Topline (Rs. Cr.)"}).length > 0
+        scores =  _.where(ampQuoScore.findOne({}).results,{name: "Topline (Rs. Cr.)"})[0].data
+        totalScore = []
+        
+        for i in scores
+          if Meteor.users.findOne({_id:i.userid})?
+            if Meteor.users.findOne({_id:i.userid}).personal_profile?
+              i.username = Meteor.users.findOne({_id:i.userid}).personal_profile.fullname
+            else
+              i.username = Meteor.users.findOne({_id:i.userid}).personal_profile.email
+
+          if i.totalScore? and i.totalScore < basescore
+            i.score = Math.round(i.totalScore - 0.03*i.totalScore)
+          else
+            i.score = Math.round(i.totalScore)
+
+          if i.userid is Meteor.userId()
+            myScore = i
+          if !isNaN(i.score)
+            totalScore.push i
+      totalScore = _.sortBy(totalScore, 'score')
+      totalScore = totalScore.reverse()
+      totalScore = _.map(totalScore, (val, index)->
+                    val.index = index + 1
+                    if val.quoScores.length > 2
+                      if val.quoScores[(val.quoScores.length-1)] < val.quoScores[(val.quoScores.length-2)]
+                        val.classes = "/assets/images/arrowDown.png" 
+                      else
+                        val.classes = "/assets/images/arrowUp.png"
+                    else
+                      val.classes = "/assets/images/arrowUp.png"
+                    val
+                  )
+      totalScore = totalScore[0..4]
+      setMyScore(myScore)
+      totalScore
+
+  userScore:()->
+    a = getMyScore()
+    a
+
+@setMyScore = (myScore)->
+  @myScore = myScore
+
+@getMyScore = (myScore)->
+  @myScore
+

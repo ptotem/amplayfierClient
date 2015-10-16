@@ -756,31 +756,56 @@
                   <div class="row">
                       <div class="col-md-8 col-md-offset-2 col-sm-12">
                            <div id="leaderboard">
-                        <div class="well">
+                        <!-- <div class="well">
                         There are no leaders at the moment. This is your chance you get ahead!
-                    </div>
-                        <!-- <div class="row">
-                            <div class="col-sm-12">
-                                <div class="leader-row">
-                                    <div class="box-table">
-                                        <div class="box-cell bg-primary-dk rank-cell">
-                                            <span class="leader-rank">1</span>
+                    </div> -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="leader-row">
+                                        {{#each mainLeaderboard}}
+                                        
+                                            
+                                                <div class="box-table">
+                                                    <div class="box-cell bg-primary-dk rank-cell">
+                                                        <span class="leader-rank">{{index}}</span>
+                                                    </div>
+                                                    <div class="box-cell bg-dark-lt photo-cell">
+                                                        <img src="{{classes}}" class="leader-photo">
+                                                    </div>
+                                                    <div class="box-cell name-cell">
+                                                        <span class="leader-name">{{username}}</span>
+                                                    </div>
+                                                    <div class="box-cell bg-primary points-cell">
+                                                        <span class="leader-points">{{score}} pts</span>
+                                                    </div>
+                                                </div>
+                                            
+                                        
+                                        {{/each}}
                                         </div>
-                                        <div class="box-cell bg-dark-lt photo-cell">
-                                            <img src="/assets/images/avatars/user.jpg" class="leader-photo">
+                                        {{#with userScore}}
+                                        <div class="leader-row my-score">
+                                            
+                                                <div class="box-table">
+                                                    <div class="box-cell bg-primary-dk rank-cell">
+                                                        <span class="leader-rank">{{index}}</span>
+                                                    </div>
+                                                    <div class="box-cell bg-dark-lt photo-cell">
+                                                        <img src="{{classes}}" class="leader-photo">
+                                                    </div>
+                                                    <div class="box-cell name-cell">
+                                                        <span class="leader-name">{{username}}</span>
+                                                    </div>
+                                                    <div class="box-cell bg-primary points-cell">
+                                                        <span class="leader-points">{{score}} pts</span>
+                                                    </div>
+                                                </div>
+                                            
                                         </div>
-                                        <div class="box-cell name-cell">
-                                            <span class="leader-name">Arijit Lahiri</span>
-                                        </div>
-                                        <div class="box-cell bg-primary points-cell">
-                                            <span class="leader-points">7300 pts</span>
-                                        </div>
+                                        {{/with}}
                                     </div>
-
                                 </div>
                             </div>
-                        </div> -->
-                        </div>
 
                           </div>
               </div>
