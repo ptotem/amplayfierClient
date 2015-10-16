@@ -37,6 +37,19 @@
                     </div>
 
                     <span class="help-block"></span>
+                      
+
+                      {{#if equals gameName "Kurukshetra"}}      
+                          <div class="input-group">
+                                <select class="form-control" id="team-selection">
+                                    <option default>Choose your team</option>
+                                    {{#each teams}}
+                                        <option value="{{quoName}}">{{quoName}}</option>
+                                    {{/each}}   
+                                </select>
+                          </div>
+                          <span class="help-block"></span>
+                       {{/if}}                                 
 
                     <button class="btn btn-lg btn-custom btn-block" type="submit">Sign Up</button>
                 </form>

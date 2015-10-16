@@ -62,7 +62,7 @@ Accounts.onCreateUser (options, user) ->
   # newEmail=encodeEmail(options.email, options.platformName)
   user.personal_profile.email = options.email
   user.personal_profile.registration_date = new Date().getTime()
-
+  user.team = options.team
   user.personal_profile.tags = ['unspecified']
   user.dynamicKeyValue = options.dyanmicField
   # x = DDP.connect(quodeckIp)

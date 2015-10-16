@@ -6,6 +6,7 @@ Template.register.events
         newEmail=encodeEmail(newUser.email, platforms.findOne().tenantName)
         newUser.email = newEmail
         newUser.display_name = newUser.fullname
+        newUser.team = $('#team-selection').val()
         $("#overlay").show()
         detectUrl = $(location).attr('href')
         extractUrl = detectUrl.split('?=')[1]
@@ -24,3 +25,13 @@ Template.register.events
           createNotification(key + " : " +val.message,0)
         return false
     false
+
+
+Template.register.helpers
+  teams:()->
+    teamName=[{quoName:'Violet'},{quoName:'Indigo'},{quoName:'Blue'},{quoName:'Green'},{quoName:'Yellow'},{quoName:'Orange'},{quoName:'Red'}]
+    teamName
+
+  gameName:()->
+    if platforms.find({isMaster:true}).fetch()[0].gameName != undefined 
+        platforms.find({isMaster:true}).fetch()[0].gameName

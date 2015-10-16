@@ -29,23 +29,31 @@ Template.kurukshetraHealthModal.rendered = ->
 
 Template.kurukshetraHealthModal.helpers
   leaderBoard:()->
-    teams=[{quoName:'Violet'},{quoName:'Indigo'},{quoName:'Blue'},{quoName:'Green'},{quoName:'Yellow'},{quoName:'Orange'},{quoName:'Red'},{quoName:"Krishna"}]
+    teams=[{quoName:'Blue'},{quoName:'Indigo'},{quoName:'Green'},{quoName:'Orange'},{quoName:'Red'},{quoName:'Violet'},{quoName:'Yellow'},{quoName:"Krishna"}]
     teams
 
   leaderBoard1:()->
     results = []
+    #I hate doing this but this cruel world ..............
+    teams=[{quoName:'Blue'},{quoName:'Indigo'},{quoName:'Green'},{quoName:'Orange'},{quoName:'Red'},{quoName:'Violet'},{quoName:'Yellow'}]
     if ampQuoScore.findOne()? and platforms.findOne()?
+      users = getUserOfTeam();
       baseConfig = getGameParams(platforms.findOne().gameName)
       _.forEach(platforms.findOne().quodecks, (val, index)->
         a = {}
         a.name = "Round "+ (index+1)
         score = if getGameMasterData().quoScores[index] > 0 then "Active" else "Defeated"
         a.data = [{score: score}]
-        _.forEach(Meteor.users.find().fetch(),(iVal, iIndex)->
-          if _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id}).length > 0
-            console.log _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})
-            da =  _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})[0]
-            a.data.push {score: da.quoScores[index]}
+        _.forEach(teams,(tVal, iIndex)->
+          if _.where(users, {team: tVal.name}).length > 0
+            iVal = _.where(users, {team: tVal.name})[0]
+            console.log iIndex
+            if _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id}).length > 0
+              console.log _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})
+              da =  _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})[0]
+              a.data.push {score: da.quoScores[index]}
+            else
+              a.data.push {score: 0}
           else
             a.data.push {score: 0}
         )
@@ -72,3 +80,11 @@ Template.kurukshetraHealthModal.events
     aq = ampQuoScore.findOne().results[0].data
     ms = _.where(aq, {userid:"gameMaster"})[0]
     ms
+
+@getUserOfTeam = ()->
+  users=[]
+  users = _.sortBy(_.compact(_.map(_.groupBy(Meteor.users.find().fetch(), 'team'), (val, index) ->
+      if index isnt "undefined" and index isnt "Choose your team"
+        return val[0]
+    )),'team')
+  users
