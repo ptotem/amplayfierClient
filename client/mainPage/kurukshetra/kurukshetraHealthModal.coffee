@@ -29,7 +29,7 @@ Template.kurukshetraHealthModal.rendered = ->
 
 Template.kurukshetraHealthModal.helpers
   leaderBoard:()->
-    teams=[{quoName:'Violet'},{quoName:'Indigo'},{quoName:'Blue'},{quoName:'Green'},{quoName:'Yellow'},{quoName:'Orange'},{quoName:'Red'},{quoName:"Game Master"}]
+    teams=[{quoName:'Violet'},{quoName:'Indigo'},{quoName:'Blue'},{quoName:'Green'},{quoName:'Yellow'},{quoName:'Orange'},{quoName:'Red'},{quoName:"Krishna"}]
     teams
 
   leaderBoard1:()->
