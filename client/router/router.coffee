@@ -342,8 +342,8 @@ Router.route '/quodeck/:seq',
   data:()->
     pname =  headers.get('host').split('.')[0]
     {platformName:pname,seq:this.params.seq}
-  # waitOn:()->
-  #   [Meteor.subscribe('subGameQuestions',this.data().subPlatformId),Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletionsOnGame',this.data().subPlatformId,Meteor.userId()),Meteor.subscribe('subPlatformWrapperData',this.data().platformName,this.data().subPlatformId),Meteor.subscribe('thisJs'),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
+  waitOn:()->
+    [Meteor.subscribe('thisUser',Meteor.userId())]
   action:()->
     if @ready()
       setPlatform(this.data().platformName)
