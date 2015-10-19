@@ -23,6 +23,10 @@ Template.loginPage.helpers
         platformLogo = "/assets/images/amplayfier-new-logo.png"
     platformLogo
 
+  gameName:()->
+    if platforms.find({isMaster:true}).fetch()[0].gameName != undefined
+        platforms.find({isMaster:true}).fetch()[0].gameName
+
 
 Template.loginPage.events
    'submit #loginForm':(e)->
