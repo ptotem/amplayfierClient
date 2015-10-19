@@ -94,9 +94,9 @@ Template.wrapperSideBar.events
     Meteor.logout()
 
   'click .master-home':(e)->
-		if platforms.findOne().wrapperJson.isModal?
-			if platforms.findOne().wrapperJson.isModal is "TRUE"
-				window.location = "/tataPlatform"
+    if platforms.findOne().wrapperJson.isModal?
+      if platforms.findOne().wrapperJson.isModal is "TRUE"
+        window.location = "/tataPlatform"
     else
       window.location = "/"
 
