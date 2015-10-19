@@ -1,14 +1,22 @@
 <template name="loginPage">
     <div class="container">
-        <h1 style="font-size: 5em;" class="text-center">
-            <span style="color: #ffc422">Quo</span><span style="font-weight: lighter">Deck</span>
-        </h1>
-        <h3 class="omb_authTitle text-center" style="margin-top: -0.8em;font-size: 1.4em;margin-bottom: 3em;"><a style="color:black;" href="/login">Login</a>
-          {{#if notEquals gameName "tatauatdocumentor"}}
-            or
-            <a href="/register" style="color:#ffc422">Sign up</a>
-          {{/if}}
-        </h3>
+        {{#if notEquals tenantName "tatauatdocumentor"}}
+          <h1 style="font-size: 5em;" class="text-center">
+              <span style="color: #ffc422">Quo</span><span style="font-weight: lighter">Deck</span>
+          </h1>
+          <h3 class="omb_authTitle text-center" style="margin-top: -0.8em;font-size: 1.4em;margin-bottom: 3em;"><a style="color:black;" href="/login">Login</a>
+              or
+              <a href="/register" style="color:#ffc422">Sign up</a>
+          </h3>
+        {{else}}
+          <h1 style="font-size: 5em;" class="text-center">
+              <span style="color: #ffc422"></span><span style="font-weight: lighter"></span>
+          </h1>
+          <h3 class="omb_authTitle text-center" style="margin-top: -0.8em;font-size: 1.4em;margin-bottom: 3em;"><a style="color:black;" href="#"></a>
+              
+              <a href="#" style="color:#ffc422"></a>
+          </h3>
+        {{/if}}
 
         <div class="omb_login">
           <div class="row omb_row-sm-offset-3">

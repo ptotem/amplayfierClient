@@ -23,9 +23,10 @@ Template.loginPage.helpers
         platformLogo = "/assets/images/amplayfier-new-logo.png"
     platformLogo
 
-  gameName:()->
-    if platforms.find({isMaster:true}).fetch()[0].gameName != undefined
-        platforms.find({isMaster:true}).fetch()[0].gameName
+  tenantName:()->
+    if platforms.find({isMaster:true}).fetch()[0]?
+      if platforms.find({isMaster:true}).fetch()[0].tenantName != undefined
+          platforms.find({isMaster:true}).fetch()[0].tenantName
 
 
 Template.loginPage.events
@@ -35,7 +36,11 @@ Template.loginPage.events
     #  newEmail = userEmail.substr(0, userEmail.indexOf('@')) + '|' + pn + userEmail.substr(userEmail.indexOf('@'))
      newEmail = encodeEmail(userEmail,pn)
      userPassword = $(e.currentTarget).find("#password").val()
-     authenticatePassword(newEmail,userPassword,"/")
+     if pn is "tatauatdocumentor"
+       link = "/tataPlatform"
+     else
+       link = "/"
+     authenticatePassword(newEmail,userPassword,link)
      false
 
    'click .signupBtn':(e)->

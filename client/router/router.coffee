@@ -12,7 +12,11 @@
       window.location = "/notAuthorised"
   )
 
-
+@isTata = (platName)->
+  Meteor.call("isTataPlatform",platName,(err,res)->
+    if res is true
+      window.location = "/tataPlatform"
+  )
 
 
 
@@ -74,6 +78,7 @@ Router.route '/register',
   action: ->
     if @ready
       setPlatform(this.data().platformName)
+      isTata(this.data().platformName)
       # availablePlatform(this,this.data().platformName)
       @render()
     else
@@ -262,6 +267,29 @@ Router.route '/',
       setPlatform(this.data().platformName)
       setTenant(this.data().platformName)
       sideWrapperEnable('mainPlatform')
+      isTata(this.data().platformName)
+
+      @render()
+    else
+      @render('loading')
+
+
+
+#----------------------------------- Tata Router--------------------------------
+
+Router.route '/tataPlatform',
+  template: 'tataWrapper',
+  name: 'tataWrapper',
+  data:()->
+    pname =  headers.get('host').split('.')[0]
+    {platformName:pname}
+  waitOn:()->
+    [Meteor.subscribe('plaformUserFeedbacks',this.data().platformName),Meteor.subscribe('badges'),Meteor.subscribe('platformAssetFiles',this.data().platformName),Meteor.subscribe('platformRewards',this.data().platformName),Meteor.subscribe('usersOfPlatform',this.data().platformName),Meteor.subscribe('userAssetFiles',Meteor.userId()),Meteor.subscribe('userCompletions',this.data().platformName,Meteor.userId()),Meteor.subscribe('platformWrapperData',this.data().platformName),Meteor.subscribe('thisJs'),Meteor.subscribe('gameQuestionbank',this.data().platformName),Meteor.subscribe('customizationDecks'),Meteor.subscribe('thisUser',Meteor.userId()), Meteor.subscribe('indexReport'),Meteor.subscribe('panelReport'),Meteor.subscribe('messages')]
+  action:()->
+    if @ready()
+      setPlatform(this.data().platformName)
+      setTenant(this.data().platformName)
+      sideWrapperEnable('mainPlatform')
 
 
       @render()
@@ -269,6 +297,7 @@ Router.route '/',
       @render('loading')
 
 
+#----------------------------------- Tata Router--------------------------------
 
 
 Router.route '/indexreport',
