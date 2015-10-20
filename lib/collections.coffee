@@ -25,7 +25,7 @@
 @userNodeCompletions = new Meteor.Collection('userNodeCompletions')
 @assesmentScore = new Meteor.Collection('assesmentScore')
 @systemBadges = new Meteor.Collection('systemBadges')
-@plaformUserFeedbacks = new Meteor.Collection('platformUserFeedbacks')
+@platformUserFeedbacks = new Meteor.Collection('platformUserFeedbacks')
 @ampQuoScore = new Meteor.Collection('ampQuoScore')
 @quoScoreConfig = new Meteor.Collection('quoScoreConfig')
 
@@ -38,7 +38,7 @@
   remove:(userId, doc)->
     true
 
-@plaformUserFeedbacks.allow
+@platformUserFeedbacks.allow
   insert:(userId, role) ->
     true
   update:(userId, doc, fieldNames, modifier)->

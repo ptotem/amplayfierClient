@@ -22,6 +22,10 @@ Template.wrapperSideBar.rendered = ->
 
 
 Template.wrapperSideBar.helpers
+  isReset:()->
+    Meteor.users.findOne({_id:Meteor.userId()}).role
+
+
   isEnabled:(k)->
     console.log platforms.findOne()[k]
     platforms.findOne()[k]
@@ -78,6 +82,9 @@ Template.wrapperSideBar.events
       showModal('kurukshetraHealthModal',{},'main-wrapper-page')
     else
       showModal('companyHealthModal',{},'main-wrapper-page')
+
+  'click .reset-analytics-link':(e)->
+    showModal('resetAnalyticsModal',{},'main-wrapper-page')
 
   'click .feedback-link':(e)->
     showModal('feedbackModal',{},'main-wrapper-page')
@@ -158,10 +165,13 @@ Template.feedbackModal.events
   'submit form':(e)->
     u = Meteor.userId()
     p = platforms.findOne()._id
+    pname = platforms.findOne().tenantName
     s = $(e.currentTarget).find('#user-feedback').val()
-    plaformUserFeedbacks.insert({platformId:p,from:u,feedback:s})
-    $('.remove-modal').trigger('click')
+    platformUserFeedbacks.insert({platformId:p,platformName:pname,from:u,feedback:s})
+    createNotification('Your feedback has been sent', 1)
+    $('.remove-modal').get(0).click()
     e.preventDefault()
+
 
   'click .remove-modal':(e)->
 

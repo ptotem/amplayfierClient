@@ -7,6 +7,7 @@ Template.kurukshetraHealthModal.rendered = ->
   # )
   data = []
   userList = []
+  result = []
   if platforms.findOne()?
     deckList = platforms.findOne().quodecks
     if Meteor.users.find().fetch().length > 0
@@ -17,7 +18,24 @@ Template.kurukshetraHealthModal.rendered = ->
         if !err
           gameName = platforms.findOne().gameName
           @appConfiguration = setAppConfiguration(gameName);
-          @inputJSON = res
+          returnData = _.map(_.groupBy(res,'quoid'),(val,key)->
+            sortedResult = {}
+            da = _.where(_.flatten(_.pluck(val, "scores")))
+            so = _.sortBy(da, 'updatedTime')
+            un = _.uniq so.reverse(), (p) ->
+                p.team
+            sortedResult.quoid = key
+            sortedResult.scores = un
+            sortedResult
+          )
+          # result.push returnData
+          # console.log "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          # console.log returnData
+
+          console.log "sssssssssssssssssss"
+          console.log res
+          console.log returnData
+          @inputJSON = returnData
           @leaderboardJSON = generateLeaderboardConfig(userList,gameName)
           for deck in deckList
             generateScore(deck)
