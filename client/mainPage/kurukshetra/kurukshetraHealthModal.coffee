@@ -28,15 +28,10 @@ Template.kurukshetraHealthModal.rendered = ->
             sortedResult.scores = un
             sortedResult
           )
-          # result.push returnData
-          # console.log "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
-          # console.log returnData
-
-          console.log "sssssssssssssssssss"
-          console.log res
-          console.log returnData
-          @inputJSON = returnData
+          
+          setInputJson(returnData)
           @leaderboardJSON = generateLeaderboardConfig(userList,gameName)
+          
           for deck in deckList
             generateScore(deck)
           Meteor.call('insertAmpScore',platformName, leaderboardJSON)
@@ -63,21 +58,29 @@ Template.kurukshetraHealthModal.helpers
         score = if getGameMasterData().quoScores[index] > 0 then "Active" else "Defeated"
         a.data = [{score: score}]
         _.forEach(teams,(tVal, iIndex)->
-          if _.where(users, {team: tVal.quoName}).length > 0
-            iVal = _.where(users, {team: tVal.quoName})[0]
-            console.log iIndex
+          if _.where(Meteor.users.find().fetch(), {team: tVal.quoName}).length > 0
+            allUsers = _.where(Meteor.users.find().fetch(),{team: tVal.quoName})
+            for us in allUsers
+              if _.where(ampQuoScore.findOne().results[0].data,{userid:us._id}).length > 0
+                iVal = us
+                if _.where(ampQuoScore.findOne().results[0].data,{userid:us._id})[0].quoScores.length > 0
+                  break
+              else
+                iVal = us
             if _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id}).length > 0
-              console.log _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})
               da =  _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})[0]
               a.data.push {score: da.quoScores[index]}
             else
               a.data.push {score: 0}
+
+
           else
             a.data.push {score: 0}
         )
         a.data.push({score: getGameMasterData().quoScores[index]})
         results.push a
       )
+      console.log getInputJson()
       results
 
   getGameParams:()->
@@ -106,3 +109,9 @@ Template.kurukshetraHealthModal.events
         return val[0]
     )),'team')
   users
+
+@setInputJson = (ipJson) ->
+  @inputJSON = ipJson
+
+@getInputJson = ()->
+  @inputJSON
