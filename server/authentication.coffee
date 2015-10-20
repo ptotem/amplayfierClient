@@ -15,3 +15,11 @@ Meteor.methods
       true
     else
       false
+
+   isTataPlatform:(platformName)->
+
+    if platforms.findOne({tenantName:platformName})?
+      if platformName is "tatauatdocumentor"
+        true
+      else
+        false  

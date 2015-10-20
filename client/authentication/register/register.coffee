@@ -33,5 +33,6 @@ Template.register.helpers
     teamName
 
   gameName:()->
-    if platforms.find({isMaster:true}).fetch()[0].gameName != undefined 
-        platforms.find({isMaster:true}).fetch()[0].gameName
+    if platforms.find({isMaster:true}).fetch()[0]?
+      if platforms.find({isMaster:true}).fetch()[0].gameName != undefined
+          platforms.find({isMaster:true}).fetch()[0].gameName

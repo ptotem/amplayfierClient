@@ -90,8 +90,8 @@ Template.previewPPT.events
 			endAttempt()
 			if platforms.findOne().wrapperJson.isModal?
 				if platforms.findOne().wrapperJson.isModal is "TRUE"
-					window.location = "/"
-		,2000)
+					window.location = "/tataPlatform"
+		,1500)
 
 
 		$('.projection').remove();

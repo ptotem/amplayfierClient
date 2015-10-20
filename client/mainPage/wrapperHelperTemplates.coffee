@@ -46,7 +46,7 @@ Template.wrapperSideBar.helpers
       if platforms.findOne().wrapperJson.isModal
         "true"
       else
-        "false"           
+        "false"
 
   isSpecific:()->
     platforms.findOne().wrapperJson.specific
@@ -74,11 +74,11 @@ Template.wrapperSideBar.events
     showModal('leaderBoardModal',{},'main-wrapper-page')
   'click .companyHealth-link':(e)->
     console.log platforms.findOne().gameName
-    if platforms.findOne().gameName is "Kurukshetra" 
+    if platforms.findOne().gameName is "Kurukshetra"
       showModal('kurukshetraHealthModal',{},'main-wrapper-page')
     else
-      showModal('companyHealthModal',{},'main-wrapper-page')  
-  
+      showModal('companyHealthModal',{},'main-wrapper-page')
+
   'click .feedback-link':(e)->
     showModal('feedbackModal',{},'main-wrapper-page')
   'click .contact-us-link':(e)->
@@ -94,7 +94,11 @@ Template.wrapperSideBar.events
     Meteor.logout()
 
   'click .master-home':(e)->
-    window.location = "/"
+    if platforms.findOne().wrapperJson.isModal?
+      if platforms.findOne().wrapperJson.isModal is "TRUE"
+        window.location = "/tataPlatform"
+    else
+      window.location = "/"
 
   'click .help-modal':(e)->
     showModal('tataModal',{},'main-wrapper-page')
@@ -436,7 +440,7 @@ Template.leaderBoardModal.helpers
       if _.where(ampQuoScore.findOne({}).results,{name: "Topline (Rs. Cr.)"}).length > 0
         scores =  _.where(ampQuoScore.findOne({}).results,{name: "Topline (Rs. Cr.)"})[0].data
         totalScore = []
-        
+
         for i in scores
           if Meteor.users.findOne({_id:i.userid})?
             if Meteor.users.findOne({_id:i.userid}).personal_profile?
@@ -459,7 +463,7 @@ Template.leaderBoardModal.helpers
                     val.index = index + 1
                     if val.quoScores.length > 2
                       if val.quoScores[(val.quoScores.length-1)] < val.quoScores[(val.quoScores.length-2)]
-                        val.classes = "/assets/images/arrowDown.gif" 
+                        val.classes = "/assets/images/arrowDown.gif"
                       else
                         val.classes = "/assets/images/arrowUp.gif"
                     else
@@ -479,4 +483,3 @@ Template.leaderBoardModal.helpers
 
 @getMyScore = (myScore)->
   @myScore
-
