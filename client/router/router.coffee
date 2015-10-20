@@ -36,7 +36,7 @@ Router.onBeforeAction (->
 
      @next()
    return
-   ),{except:['login','notAuthorised','forgot','reset','register']}
+   ),{except:['login','notAuthorised','forgot','reset','register','kurukshetraLandingPage']}
 
 
 
@@ -334,7 +334,6 @@ Router.route '/notAuthorised',
 Router.route '/notAuthorisedToView',
   template: 'notAuthorisedToView',
   name: 'notAuthorisedToView',
-
 
 Router.route '/quodeck/:seq',
   template: 'iframeWrapper',

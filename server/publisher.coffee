@@ -109,7 +109,7 @@ Meteor.publish('customizationDecks',()->
 Meteor.publish('plaformUserFeedbacks',(pname)->
   this.ready()
   pid = platforms.findOne({tenantName: pname})._id
-  plaformUserFeedbacks.find({platformId:pid})
+  platformUserFeedbacks.find({platformId:pid})
 )
 
 
