@@ -1,0 +1,120 @@
+	.bg-shit {
+		background-color: #c6935c;
+	}
+
+	.shity-tabs li a{
+		background-color: #e9c476;  
+	}
+
+	.shity-tabs li.active a{
+		background-color: #c6935c;  
+	}
+	.table-striped tr:nth-child(odd){
+		background: #fff4e7;
+	}
+	.table-striped tr:nth-child(even){
+		background: #ffe8cb;
+	}
+	.table-striped{
+		font-weight: bolder;
+		font-size: 1.3em;
+		text-align:center;
+	}
+
+	.kurushetra-data-modal .modal-body{
+		width:80% !important;
+		margin: 0 auto !important;
+
+	}
+
+	.kurushetra-data-modal .round-name{
+		margin-left: 6% !important;
+	}
+
+	
+	.kurushetra-data-modal .round-gamemaster-table .table-gamemaster ,.kurushetra-data-modal .round-score-table .table-gamemaster{
+		padding:1% !important;
+		background-color:#754A27 !important;
+		color:white !important;
+		text-align:center !important;
+		font-weight:bolder !important;
+		font-size:1.1em !important;
+	}
+	
+	.kurushetra-data-modal .round-gamemaster-table .first-row , .kurushetra-data-modal .round-score-table .first-row{
+		width:12% !important;
+	}
+
+
+
+	.kurushetra-data-modal .round-score-table{
+		 position:absolute;
+		 bottom:8%;
+		 right:4%;
+	}
+	.kurushetra-data-modal .round-gamemaster-table{
+		position: absolute;
+		bottom: 8%;
+		left: 4%;
+	}
+
+	.kurushetra-data-modal ol li{
+		margin-bottom: 2%;
+	}
+
+	.shity-tabs .active a{
+		background: #c6935c !important;
+		color:white !important;
+	}
+
+	.shity-tabs a{
+		background: #e9c476 !important;
+		color:white !important;
+	}
+
+@media (max-device-width: 769px) {
+	.bg-shit{
+		height: 850px !important;
+	}
+	.kurushetra-data-modal .modal-body{
+		width:100% !important;
+		margin: 0 !important;
+	}
+	.kurushetra-data-modal .modal-content{
+		overflow-y: auto !important; 
+	}
+	.kurushetra-data-modal .round-name{
+		display: none;
+	}
+	.kurushetra-data-modal .round-gamemaster-table{
+		bottom: 0 !important; 
+		left: 0 !important; 
+		position: relative !important;
+		margin-top: 8% !important;
+	}
+
+	.kurushetra-data-modal .round-gamemaster-table .table-gamemaster , .kurushetra-data-modal .round-score-table .table-gamemaster{
+		padding:2% !important;
+		background-color:#754A27 !important;
+		color:white !important;
+		text-align:center !important;
+		font-weight:bolder !important;
+		font-size:0.8em !important;
+	}
+
+	.kurushetra-data-modal .round-gamemaster-table .first-row , .kurushetra-data-modal .round-score-table .first-row{
+		width:0 !important;
+	}
+
+	.kurushetra-data-modal .round-score-table{
+		bottom: 0 !important; 
+		right: 0 !important; 
+		position: relative !important;
+	}
+
+	.kurushetra-data-modal ol li{
+		margin-bottom: 4%;
+	}
+
+	
+}

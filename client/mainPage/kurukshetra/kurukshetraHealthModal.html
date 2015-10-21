@@ -1,63 +1,176 @@
 <template name="kurukshetraHealthModal">
-        <div class="modal blur data-display-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
-            <div class="modal-content" style="height: 100%">
-                <div class="modal-header">
-                    <a class="btn btn-default pull-right remove-modal" >&times;</a>
-                    <div class="top-circle-icon"><i class="icm icm-health"></i>
-                    </div>
-                    <h4 class="modal-title" id="notifyModalLabel">Score Card</h4>
-                </div>
-              <div class="modal-body">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="table-line">
 
-                  <div class="row bg-gray push-bottom" style="color:white !important;background-color: #333;margin-bottom: 2px;">
-                    <div class="col-sm-3 text-center-xs">
-                      <h4>Round</h4>
-                    </div>
-                    <div class="col-sm-1 text-center">
-                        <h4>Status</h4>
-                    </div>
-                    {{#each leaderBoard}}
-                    <div class="col-sm-1 text-center">
-                      <h4>{{quoName}}</h4>
-                    </div>
-                    {{/each}}
-                    
-                  </div>
-                    <!-- {{#each leaderBoard}} -->
-                    {{#each leaderBoard1}}
-                    <div class="row table-line-row" style="margin-bottom:2px !important;">
-                      
-                        <div class="col-sm-3 text-center-xs">
-                          <h4>{{name}}</h4>
-                        </div>
-                        {{#each data}}
-                          <div class="col-sm-1 text-center">
-                              <h4>
-                                {{score}}
-                              </h4>
-                          </div>
-                        {{/each}}
-                      
-                     
-
-                    </div>
-                    {{/each}}
-                    <!-- {{/each}} -->
-
-                    
-
-                </div>
-
-                    </div>
-                  </div>
-              </div>
-            <!-- /.modal-content -->
+<div class="modal blur data-display-modal kurushetra-data-modal" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xlg-data-modal" style="height: 100%">
+    <div class="modal-content" style="height: 100%">
+      <div class="modal-header">
+        <a class="btn btn-default pull-right remove-modal" >&times;</a>
+        <div class="top-circle-icon"><i class="icm icm-health"></i>
         </div>
+        <h4 class="modal-title" id="notifyModalLabel">Score Card</h4>
+      </div>
+      <div class="modal-body">
+        
+        <div class="container-fluid">
+          <ul class="nav nav-tabs nav-justified-only shity-tabs">
+            {{#each leadB}}
+            <li class="">
+              <a data-toggle="tab" href="#{{_id}}">{{name}}</a>
+            </li>
+            {{/each}}
+          </ul>
+          <div class="tab-content bg-shit padded margin-bottom">
+            {{#each newLeadB}}
+            <div class="tab-pane fade active in" id="{{_id}}" style="height:400px;">
+              
+              <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="background-color:white;color:black;margin-left:1%;padding-bottom: 4%;">
+                <div class="col-lg-12">
+                  <h5 style="font-weight:bold;">STRATEGIES</h5>
+                  <ol type="A">
+                    {{#each strategies}}
+                    <li>{{desc}}</li>
+                    {{/each}}
+                    <!-- <li>250 Troops against Drona , 250 Troops against Duryodhana</li>
+                    <li>250 Troops against Duryodhana, 250 Troops against Bheeshma</li>
+                    <li>500 Troops against Bheeshma</li> -->
+                  </ol>
+                </div>
+                <div class="col-lg-12">
+                  <h5 style="font-weight:bold;">RESULT</h5>
+                  <ul>
+                    {{#each criteria}}
+                    <li>{{cname}} – <b>{{status}}</b></li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
 
+              <div class="col-lg-3 col-md-3 col-sm-12 col-lg-offset-1 round-name">
+                <h1 style="text-align:right;color:black;">{{name}}</h1>
+              </div>
+              <br><br>
+
+
+
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 round-gamemaster-table">
+                <table class="table table-striped">
+                  <thead>
+                    <tr style="background:transparent;">
+                      <th class="first-row"></th>
+                      <th></th>
+                      <th class="table-gamemaster">Round Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="background-color:gray;"></td>
+                      <td style="text-align:left;">GameMaster</td>
+                      <td>{{gameMasterScore}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+
+              <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 round-score-table">
+                <table class="table table-striped">
+                  <thead>
+                  <tr style="background:transparent;">
+                    <th class="first-row"></th>
+                    <th></th>
+                    <th></th>
+                    <th class="table-gamemaster">
+                    Round Score
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {{#each data}}
+                    <tr>
+                      <td style="background-color:{{color}};"></td>
+                      <td style="text-align:left;">{{teamName}}</td>
+                      <td>{{selected}}</td>
+                      <td>{{score}}</td>
+                    </tr>
+                  {{/each}}
+                  <!-- <tr>
+                    <td style="background-color:violet;"></td>
+                    <td style="text-align:left;">Violet</td>
+                    <td>A</td>
+                    <td>250</td>
+                  </tr>
+                  <tr>
+                    <td style="background-color:indigo;"></td>
+                    <td style="text-align:left;">Indigo</td>
+                    <td>A</td>
+                    <td>125</td>
+                  </tr>
+                  <tr>
+                    <td style="background-color:blue;"></td>
+                    <td style="text-align:left;">Blue</td>
+                    <td>B</td>
+                    <td>200</td>
+                  </tr>
+                  <tr>
+                    <td style="background-color:green;"></td>
+                    <td style="text-align:left;">Green</td>
+                    <td>B</td>
+                    <td>150</td>
+                  </tr>
+                  <tr>
+                    <td style="background-color:yellow;"></td>
+                    <td style="text-align:left;">Yellow</td>
+                    <td>A</td>
+                    <td>200</td>
+                  </tr> -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
     </div>
-    </div>
+  </div>
+</div>
+
 </template>
+
+<!--         <div class="row">
+          <div class="col-md-12">
+            <div class="table-line">
+              <div class="row bg-gray push-bottom" style="color:white !important;background-color: #333;margin-bottom: 2px;">
+                <div class="col-sm-3 text-center-xs">
+                  <h4>Round</h4>
+                </div>
+                <div class="col-sm-1 text-center">
+                  <h4>Status</h4>
+                </div>
+                {{#each leaderBoard}}
+                <div class="col-sm-1 text-center">
+                  <h4>{{quoName}}</h4>
+                </div>
+                {{/each}}
+                
+              </div>
+              {{#each leaderBoard1}}
+              <div class="row table-line-row" style="margin-bottom:2px !important;">
+                
+                <div class="col-sm-3 text-center-xs">
+                  <h4>{{name}}</h4>
+                </div>
+                {{#each data}}
+                <div class="col-sm-1 text-center">
+                  <h4>
+                  {{score}}
+                  </h4>
+                </div>
+                {{/each}}
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div> -->

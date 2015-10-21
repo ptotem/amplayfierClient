@@ -29,7 +29,7 @@ Template.register.events
 
 Template.register.helpers
   teams:()->
-    teamName=[{quoName:'Violet'},{quoName:'Indigo'},{quoName:'Blue'},{quoName:'Green'},{quoName:'Yellow'},{quoName:'Orange'},{quoName:'Red'}]
+    teamName=[{quoName:'Violet'},{quoName:'Indigo'},{quoName:'Blue'},{quoName:'Green'},{quoName:'Yellow'}]
     teamName
 
   gameName:()->

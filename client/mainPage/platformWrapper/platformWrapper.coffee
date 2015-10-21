@@ -1,4 +1,5 @@
 Template.platformWrapper.rendered = ->
+
   Meteor.call('updateUserChatFalse', Meteor.userId())
   addQuodataInUser()
   # lockingStoryNodes()

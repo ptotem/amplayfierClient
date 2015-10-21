@@ -29,6 +29,11 @@ Shower({
             rules:{
                 minLength:6
             }
+        },
+        teamSelection:{
+            required:true,
+            message:"Must select a team",
+            
         }
     }
 });

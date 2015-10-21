@@ -75,9 +75,12 @@ Template.wrapperSideBar.events
   'click .user-profile-link':(e)->
     showModal('userProfileModal',{},'main-wrapper-page')
   'click .leader-board-link':(e)->
-    showModal('leaderBoardModal',{},'main-wrapper-page')
+    if platforms.findOne().gameName is "Kurukshetra"
+      showModal('kurukshetraLeaderboardModal',{},'main-wrapper-page')
+    else
+      showModal('leaderBoardModal',{},'main-wrapper-page')
   'click .companyHealth-link':(e)->
-    console.log platforms.findOne().gameName
+    # console.log platforms.findOne().gameName
     if platforms.findOne().gameName is "Kurukshetra"
       showModal('kurukshetraHealthModal',{},'main-wrapper-page')
     else
