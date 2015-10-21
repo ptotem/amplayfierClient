@@ -68,8 +68,10 @@ Template.kurukshetraHealthModal.helpers
             console.log("innn")
             if _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName}).length > 0
               
-              da = _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName})[0]
+              use = _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName})[0]
+              
               console.log da
+              da =  _.where(ampQuoScore.findOne().results[0].data,{userid:use.userid})[0]
               a.data.push {score: da.quoScores[index], selected: da.answered, teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
             else
               a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
