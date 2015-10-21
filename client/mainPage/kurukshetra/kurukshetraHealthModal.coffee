@@ -31,6 +31,7 @@ Template.kurukshetraHealthModal.rendered = ->
           )
           
           setInputJson(returnData)
+          Meteor.call('upsertAmpQuoInputJson', platformName, returnData)
           @leaderboardJSON = generateLeaderboardConfig(userList,gameName)
           
           for deck in deckList
@@ -48,36 +49,51 @@ Template.kurukshetraHealthModal.helpers
   newLeadB:()->
     results = []
     teams=[{quoName:'Violet'},{quoName:'Indigo'},{quoName:'Blue'},{quoName:'Green'},{quoName:'Yellow'}]
-    if ampQuoScore.findOne()? and platforms.findOne()?
-      users = getUserOfTeam();
+    if ampQuoScore.findOne()? and platforms.findOne()? and ampQuoInputJson.findOne()? and ampQuoInputJson.findOne().inputJson.length > 0
+      users = getUserOfTeam()
+      lastestInputJson = ampQuoInputJson.findOne().inputJson
       baseConfig = getGameParams(platforms.findOne().gameName)
       _.forEach(getKurukshetraLeader(), (val, index)->
         a = {}
         a._id = val._id
         a.name = val.name
         a.strategies = val.strategies
-        # score = if getGameMasterData().quoScores[index] > 0 then "Active" else "Defeated"
-        # a.data = [{score: score}]
         a.data = []
         _.forEach(teams,(tVal, iIndex)->
-          if _.where(Meteor.users.find().fetch(), {team: tVal.quoName}).length > 0
-            allUsers = _.where(Meteor.users.find().fetch(),{team: tVal.quoName})
-            for us in allUsers
-              if _.where(ampQuoScore.findOne().results[0].data,{userid:us._id}).length > 0
-                iVal = us
-                if _.where(ampQuoScore.findOne().results[0].data,{userid:us._id})[0].quoScores.length > 0
-                  break
-              else
-                iVal = us
-            if _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id}).length > 0
-              da =  _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})[0]
-              a.data.push {score: da.quoScores[index], selected: da.selectedAnswers[index], teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
+          latestIp = getInputJson()
+          # console.log val.name
+          # console.log tVal.quoName
+          # console.log _.where(lastestInputJson,{quoid: val._id}).length
+          if _.where(lastestInputJson,{quoid: val._id}).length > 0 and _.where(lastestInputJson,{quoid: val._id})[0].scores.length > 0
+            console.log("innn")
+            if _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName}).length > 0
+              
+              da = _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName})[0]
+              console.log da
+              a.data.push {score: da.quoScores[index], selected: da.answered, teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
             else
               a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
-
-
           else
-            a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
+            console.log "ffff"
+            a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}  
+          # if _.where(Meteor.users.find().fetch(), {team: tVal.quoName}).length > 0
+          #   allUsers = _.where(Meteor.users.find().fetch(),{team: tVal.quoName})
+          #   for us in allUsers
+          #     if _.where(ampQuoScore.findOne().results[0].data,{userid:us._id}).length > 0
+          #       iVal = us
+          #       if _.where(ampQuoScore.findOne().results[0].data,{userid:us._id})[0].quoScores.length > 0
+          #         break
+          #     else
+          #       iVal = us
+          #   if _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id}).length > 0
+          #     da =  _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})[0]
+          #     a.data.push {score: da.quoScores[index], selected: da.selectedAnswers[index], teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
+          #   else
+          #     a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
+
+
+          # else
+          #   a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
         )
         
         a.criteria = []
@@ -92,7 +108,7 @@ Template.kurukshetraHealthModal.helpers
         a.gameMasterScore = getGameMasterData().quoScores[index]
         results.push a
       )
-      console.log getInputJson()
+      # console.log getInputJson()
       results
 
 

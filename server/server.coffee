@@ -197,6 +197,8 @@ Meteor.methods
     # ampQuoScore.remove({quoId: tid})
     ampQuoScore.upsert({tname: tname}, {$set:{results: finalArr}})
 
+  upsertAmpQuoInputJson: (tname, finalArr)->
+    ampQuoInputJson.upsert({tname:tname},{$set:{inputJson: finalArr}})
 
   getQuodeckScore: (deckList, userList)->
     console.log("GetScore")

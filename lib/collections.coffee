@@ -28,6 +28,7 @@
 @platformUserFeedbacks = new Meteor.Collection('platformUserFeedbacks')
 @ampQuoScore = new Meteor.Collection('ampQuoScore')
 @quoScoreConfig = new Meteor.Collection('quoScoreConfig')
+@ampQuoInputJson = new Meteor.Collection('ampQuoInputJson')
 
 @platforms.allow
   insert:(userId, role) ->
