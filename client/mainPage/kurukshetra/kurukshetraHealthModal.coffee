@@ -41,7 +41,7 @@ Template.kurukshetraHealthModal.rendered = ->
             generateScore(deck)
           Meteor.call('insertAmpScore',platformName, leaderboardJSON)
         else
-          console.log err
+          console.log err1
       )
 
 
