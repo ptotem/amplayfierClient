@@ -151,8 +151,10 @@
                           <!--<span class="oc-partial-menu-item">Virtual Tour</span>-->
                       <!--</a>-->
                   <!--</li>-->
+
+                  <!-- Removed data-content from the li  -->
                     <li class="">
-                        <a class="collapsed side-bar-link user-profile-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="View and Edit your profile" href="#userProfileModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link user-profile-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#userProfileModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-user"></i>
                             <span class="oc-partial-menu-item">My Profile</span>
                         </a>
@@ -171,26 +173,26 @@
 
                     {{#if notEquals sidebarForTata "true"}}
                     <li class="">
-                        <a class="collapsed side-bar-link notification-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Stay on top of what's going on. Check out your notifications." href="#notificationsModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link notification-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#notificationsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-envelope"></i>
                             <span class="oc-partial-menu-item">Notifications</span>
                         </a>
                     </li>
                     <li class="">
-                        <a class="collapsed side-bar-link leader-board-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Check out where you stand against the who's who of this game." href="#leaderboardModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link leader-board-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#leaderboardModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-ladder"></i>
                             <span class="oc-partial-menu-item">Leaderboard</span>
                         </a>
                     </li>
                     <li class="">
-                        <a class="collapsed side-bar-link companyHealth-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Check out where you stand against the who's who of this game." href="#companyHealthModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link companyHealth-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#companyHealthModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-health"></i>
                             <span class="oc-partial-menu-item">Scorecard</span>
                         </a>
                     </li>
                       {{#if equals isReset "admin"}}
                         <li class="">
-                            <a class="collapsed side-bar-link reset-analytics-link" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Delete data for the round" href="#resetAnalyticsModal" data-toggle='modal'>
+                            <a class="collapsed side-bar-link reset-analytics-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#resetAnalyticsModal" data-toggle='modal'>
                                 <i class="oc-partial-icon icm icm-health"></i>
                                 <span class="oc-partial-menu-item">Reset</span>
                             </a>
@@ -222,13 +224,13 @@
 
                     {{#if notEquals sidebarForTata "true"}}
                     <li class="">
-                        <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Give us your feedback and help us make your experience better." href="#documentsModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right"  href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-bullhorn"></i>
                             <span class="oc-partial-menu-item">Feedback</span>
                         </a>
                     </li>
                     <li class="">
-                        <a class="collapsed side-bar-link contact-us-link"  rel="popover-sidebar" data-container="body" data-placement="right" data-content="Get in touch with us if you have any issues or queries." href="#documentsModal" data-toggle='modal'>
+                        <a class="collapsed side-bar-link contact-us-link"  rel="popover-sidebar" data-container="body" data-placement="right" href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-phone"></i>
                             <span class="oc-partial-menu-item">Contact Us</span>
                         </a>
