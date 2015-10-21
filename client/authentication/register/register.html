@@ -40,15 +40,17 @@
                       
 
                       {{#if equals gameName "Kurukshetra"}}      
-                          <div class="input-group">
-                                <select class="form-control" id="team-selection">
-                                    <option default>Choose your team</option>
+                          <div class="input-group123">
+                                <select class="form-control" id="team-selection" name="teamSelection">
+                                    <option value="" disabled selected>Choose your team</option>
                                     {{#each teams}}
                                         <option value="{{quoName}}">{{quoName}}</option>
                                     {{/each}}   
                                 </select>
                           </div>
                           <span class="help-block"></span>
+                       {{else}}
+                        <input type="hidden" name="teamSelection" value="None">  
                        {{/if}}                                 
 
                     <button class="btn btn-lg btn-custom btn-block" type="submit">Sign Up</button>

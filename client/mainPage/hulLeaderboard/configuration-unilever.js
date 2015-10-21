@@ -1007,6 +1007,7 @@ function setAppConfiguration(gameName){
 
         ];
     }else{
+        quodecks = quodecks.splice(1,6)
         appConfiguration = [
             {
                 "leaderboard": "Revenue", // Let's say this is Revenue
@@ -1229,9 +1230,16 @@ function generateLeaderboardConfig(userList, gameName){
         var lj = {};
         lj.name = leaderboards[i].name;
         lj.schema = [];
+        if(gameName === "Kurukshetra"){
+            lj.criterias = []
+        }
         lj.data = []
         for(var j=0;j<userList.length;j++){
-            lj.data.push({userid: userList[j], totalScore: leaderboards[i].baseSCore, quoScores: []})
+            if(gameName === "Kurukshetra"){
+                lj.data.push({userid: userList[j], totalScore: leaderboards[i].baseSCore, quoScores: [], selectedAnswers: [], criterias: []})
+            }else{
+                lj.data.push({userid: userList[j], totalScore: leaderboards[i].baseSCore, quoScores: []})
+            }
         }
         if(gameName === "Kurukshetra"){
             lj.data.push({"userid": "gameMaster", "totalScore": "0", "quoScores": []})
