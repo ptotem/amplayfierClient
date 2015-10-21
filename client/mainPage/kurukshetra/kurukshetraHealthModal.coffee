@@ -59,6 +59,7 @@ Template.kurukshetraHealthModal.helpers
         a.name = val.name
         a.strategies = val.strategies
         a.data = []
+
         _.forEach(teams,(tVal, iIndex)->
           if _.where(lastestInputJson,{quoid: val._id}).length > 0 and _.where(lastestInputJson,{quoid: val._id})[0].scores.length > 0
             console.log("innn")
@@ -68,7 +69,8 @@ Template.kurukshetraHealthModal.helpers
               console.log tVal.quoName
               console.log use.userid
               da =  _.where(ampQuoScore.findOne().results[0].data,{userid:use.userid})[0]
-              a.data.push {score: da.quoScores[index], selected: da.selectedAnswers[index], teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
+              quoIndex = _.indexOf(da.criterias,val._id)
+              a.data.push {score: da.quoScores[quoIndex], selected: da.selectedAnswers[quoIndex], teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
             else
               a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
           else
