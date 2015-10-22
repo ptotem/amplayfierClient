@@ -118,7 +118,7 @@ Template.platformWrapper.helpers
            if _.pluck(_.where(_.flatten(_.pluck(Meteor.users.find({"personal_profile.team":Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.team}).fetch(),"quoData")),{quoId:s.quoId}),"unlocked").indexOf(true) isnt -1
              a[j].pe = "auto"
            else
-             a[j].pe = "none"
+             a[j].pe = "auto"
       console.log "aaaaaa"
       console.log a
       a
