@@ -169,27 +169,30 @@ Template.kurukshetraHealthModal.events
             name:"ROUND1",
             strategies:[
               {
-                desc: "250 troops against Bheeshma, 250 troops against Drona"
+                desc: "100 vs Bheeshma, 50 vs Drona, 50 vs Karna"
               },
               {
-                desc: "250 troops against Drona, 250 troops against Duryodhana"
+                desc: "100 vs Bheeshma, 50 vs Drona, 25 vs Karna, 25 vs Duryodhana"
               },
               {
-                desc: "250 troops against Duryodhana, 250 troops against Bheeshma"
+                desc: "75 vs Bheeshma, 50 vs Drona, 50 vs Karna, 25 vs Duryodhana"
               },
               {
-                desc: "500 troops against Bheeshma"
+                desc: "50 vs Bheeshma, 50 vs Drona, 50 vs Karna, 50 vs Duryodhana"
               }
             ],
             criteria:[
               {
-                desc:"2,000 troops of Bheeshma"
+                desc:"350 troops of Bheeshma"
               },
               {
-                desc:"1,000 troops of Drona"
+                desc:"250 troops of Drona"
               },
               {
-                desc:"500 troops of Duryodhana"
+                desc:"150 troops of Karna"
+              },
+              {
+                desc:"50 troops of Duryodhana"
               }
             ]
           },
@@ -198,27 +201,30 @@ Template.kurukshetraHealthModal.events
             name:"ROUND2",
             strategies:[
               {
-                desc: "250 troops against Kripacharya, 250 troops against Dushasan"
+                desc: "100 vs Bheeshma, 75 vs Drona"
               },
               {
-                desc: "250 troops against Dushasan, 250 troops against Ashwathama"
+                desc: "75 vs Bheeshma, 75 vs Drona, 25 vs Karna"
               },
               {
-                desc: "250 troops against Ashwathama, 250 troops against Kripacharya"
+                desc: "75 vs Bheeshma, 50 vs Drona, 50 vs Karna"
               },
               {
-                desc: "500 troops against Kripacharya"
+                desc: "25 vs Bheeshma, 50 vs Drona, 50 vs Karna, 50 vs Duryodhana"
               }
             ],
             criteria:[
               {
-                desc:"2,000 troops of Kripacharya"
+                desc:"350 troops of Bheeshma"
               },
               {
-                desc:"1,000 troops of Dushasan"
+                desc:"250 troops of Drona"
               },
               {
-                desc:"500 troops of Ashwathama"
+                desc:"150 troops of Karna"
+              },
+              {
+                desc:"50 troops of Duryodhana"
               }
             ]
           },
@@ -227,27 +233,30 @@ Template.kurukshetraHealthModal.events
             name:"ROUND3",
             strategies:[
               {
-                desc: "250 troops against Bheeshma, 250 troops against Jayadratha"
+                desc: "100 vs Bheeshma, 75 vs Drona"
               },
               {
-                desc: "250 troops against Jayadratha, 250 troops against Shakuni"
+                desc: "75 vs Bheeshma, 75 vs Drona, 25 vs Karna"
               },
               {
-                desc: "250 troops against Shakuni, 250 troops against Bheeshma"
+                desc: "75 vs Bheeshma, 50 vs Drona, 50 vs Karna"
               },
               {
-                desc: "500 troops against Bheeshma"
+                desc: "25 vs Bheeshma, 50 vs Drona, 50 vs Karna, 50 vs Duryodhana"
               }
             ],
             criteria:[
               {
-                desc:"2,000 troops of Bheeshma"
+                desc:"350 troops of Bheeshma"
               },
               {
-                desc:"1,000 troops of Jayadratha"
+                desc:"250 troops of Drona"
               },
               {
-                desc:"500 troops of Shakuni"
+                desc:"150 troops of Karna"
+              },
+              {
+                desc:"50 troops of Duryodhana"
               }
             ]
           },
@@ -259,21 +268,21 @@ Template.kurukshetraHealthModal.events
                 desc: "Arjun with Shikhandi"
               },
               {
-                desc: "Arjun with 250 troops"
+                desc: "Arjun with 50 troops"
               },
               {
-                desc: "Shikhandi with 250 troops"
+                desc: "Shikhandi with 100 troops"
               },
               {
-                desc: "500 troops against the armies"
+                desc: "200 troops"
               }
             ],
             criteria:[
               {
-                desc:"1,250 troops of Bheeshma"
+                desc:"350 troops of Bheeshma"
               },
               {
-                desc:"Bheeshma"
+                desc:"Bheeshma, The Immortal General"
               }
             ]
           },
@@ -282,24 +291,24 @@ Template.kurukshetraHealthModal.events
             name:"ROUND5",
             strategies:[
               {
-                desc: "Yudishthir with Curse 3"
+                desc: "Yudishthir and Arjun"
               },
               {
-                desc: "Arjun"
+                desc: "Yudishthir and 100 points if both generals are defeated"
               },
               {
-                desc: "Curse 1"
+                desc: "Arjun and 200 points if both generals are defeated"
               },
               {
-                desc: "Curse 2"
+                desc: "300 points if both generals are defeated"
               }
             ],
             criteria:[
               {
-                desc:"Drona"
+                desc:"Drona, The Revered Teacher"
               },
               {
-                desc:"Karna"
+                desc:"Karna, The Honorable"
               }
             ]
           },
@@ -308,21 +317,21 @@ Template.kurukshetraHealthModal.events
             name:"ROUND6",
             strategies:[
               {
-                desc: "Bheem and Bet 1,000 points"
+                desc: "Do Nothing"
               },
               {
-                desc: "Rulebreaker and Bet 1,000 points"
+                desc: "Put Bheem and Bet 150 points (Gain 150 or Lose 150)"
               },
               {
-                desc: "Bheem with Rulebreaker"
+                desc: "Break the Rule and Bet 300 points (Gain 300 or Lose 300)"
               },
               {
-                desc: "Bet 2,000 points"
+                desc: "Bet 500 points (Gain 500 or Lose 500)"
               }
             ],
             criteria:[
               {
-                desc:"Duryodhana"
+                desc:"Duryodhana, The Final Enemy"
               }
             ]
           }
