@@ -1010,17 +1010,17 @@ function setAppConfiguration(gameName){
         quodecks = quodecks.splice(1,6)
         appConfiguration = [
             {
-                "leaderboard": "Revenue", // Let's say this is Revenue
+                "leaderboard": "Revenue",
                 "initScore": "0",
                 "quoConfig": [
                     {
                         "quoid": quodecks[0],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["75", "50", "25", "0"]},
-                            {"score": "2", "value": ["75", "25", "25", "25"]},
-                            {"score": "3", "value": ["50", "50", "50", "0"]},
-                            {"score": "4", "value": ["50", "50", "25", "25"]}
+                            {"score": "1", "value": ["100", "50", "50", "0"]},
+                            {"score": "2", "value": ["100", "50", "25", "25"]},
+                            {"score": "3", "value": ["75", "50", "50", "25"]},
+                            {"score": "4", "value": ["50", "50", "50", "50"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values
@@ -1048,10 +1048,10 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[1],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["75", "50", "0", "0"]},
-                            {"score": "2", "value": ["75", "25", "25", "0"]},
-                            {"score": "3", "value": ["50", "50", "0", "25"]},
-                            {"score": "4", "value": ["25", "50", "25", "25"]}
+                            {"score": "1", "value": ["100", "75", "0", "0"]},
+                            {"score": "2", "value": ["75", "75", "25", "0"]},
+                            {"score": "3", "value": ["75", "50", "50", "0"]},
+                            {"score": "4", "value": ["25", "50", "50", "50"]}
                         ],
                         "criteria": [
                             // Variables should be the index of the columns in the mapping values
@@ -1059,7 +1059,7 @@ function setAppConfiguration(gameName){
                             {"sequence": 1, "name": "C1", "inputvars": [0], "logic": "minTotal", "args": "350"},
                             {"sequence": 2, "name": "C2", "inputvars": [1], "logic": "minTotal", "args": "250"},
                             {"sequence": 3, "name": "C3", "inputvars": [2], "logic": "minTotal", "args": "150"},
-                            {"sequence": 4, "name": "C4", "inputvars": [3], "logic": "minTotal", "args": "100"},
+                            {"sequence": 4, "name": "C4", "inputvars": [3], "logic": "minTotal", "args": "50"},
                             {"sequence": 5, "name": "C5", "inputvars": [], "logic": "and", "args": ["C1", "C2", "C3", "C4"]},
                             {"sequence": 6, "name": "C6", "inputvars": [], "logic": "not", "args": "C5"}
                         ],
@@ -1079,10 +1079,10 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[2],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["75", "50", "0", "0"]},
-                            {"score": "2", "value": ["75", "25", "25", "0"]},
-                            {"score": "3", "value": ["50", "50", "0", "25"]},
-                            {"score": "4", "value": ["25", "50", "25", "25"]}
+                            {"score": "1", "value": ["100", "75", "0", "0"]},
+                            {"score": "2", "value": ["75", "75", "25", "0"]},
+                            {"score": "3", "value": ["75", "50", "50", "0"]},
+                            {"score": "4", "value": ["25", "50", "50", "50"]}
                         ],
                         "criteria": [
                             // Variables should be the index of the columns in the mapping values
@@ -1090,7 +1090,7 @@ function setAppConfiguration(gameName){
                             {"sequence": 1, "name": "C1", "inputvars": [0], "logic": "minTotal", "args": "350"},
                             {"sequence": 2, "name": "C2", "inputvars": [1], "logic": "minTotal", "args": "250"},
                             {"sequence": 3, "name": "C3", "inputvars": [2], "logic": "minTotal", "args": "150"},
-                            {"sequence": 4, "name": "C4", "inputvars": [3], "logic": "minTotal", "args": "100"},
+                            {"sequence": 4, "name": "C4", "inputvars": [3], "logic": "minTotal", "args": "50"},
                             {"sequence": 5, "name": "C5", "inputvars": [], "logic": "and", "args": ["C1", "C2", "C3", "C4"]},
                             {"sequence": 6, "name": "C6", "inputvars": [], "logic": "not", "args": "C5"}
                         ],
@@ -1118,7 +1118,7 @@ function setAppConfiguration(gameName){
                         "criteria": [
                             // Variables should be the index of the columns in the mapping values
                             // Logic can be unionAnd, unionOr, eachAnd, eachOr, minTotal, maxTotal
-                            {"sequence": 1, "name": "C1", "inputvars": [2], "logic": "minTotal", "args": "750"},
+                            {"sequence": 1, "name": "C1", "inputvars": [2], "logic": "minTotal", "args": "350"},
                             {
                                 "sequence": 2,
                                 "name": "C2",
@@ -1195,7 +1195,7 @@ function setAppConfiguration(gameName){
                         ],
                         "gameMaster": [
                             // Game Master Payoff defined the same way as payoff
-                            {"inputvar": 0, "criteria": "C2", "value": "350", "multiplier": "1"}
+                            {"inputvar": 0, "criteria": "C2", "value": "500", "multiplier": "1"}
                         ]
                     }
                 ]

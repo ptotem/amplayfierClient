@@ -4,13 +4,13 @@ Shower({
     fields:{
         email:{
             required:true,
-            message: "Not a valid email",
+            message: "E-mail ID is a mandatory field",
             format: "email"
         },
         fullname:{
             required: true,
             format: "alphanumeric",
-            message: "Only letters in a first name.",
+            message: "Name must be greater than 4 characters",
             rules:{
                 maxLength:20,
                 minLength:4
@@ -18,21 +18,21 @@ Shower({
         },
         password:{
             required:true,
-            message:"Must be at least 6 characters.",
+            message:"Password is a mandatory field",
             rules:{
                 minLength:6
             }
         },
         confirmpassword:{
             required:true,
-            message:"Must be at least 6 characters.",
+            message:"Password must be greater than 6 characters",
             rules:{
                 minLength:6
             }
         },
         teamSelection:{
             required:true,
-            message:"Must select a team",
+            message:"Team is a mandatory field",
             
         }
     }

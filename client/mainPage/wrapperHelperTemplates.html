@@ -153,12 +153,18 @@
                   <!--</li>-->
 
                   <!-- Removed data-content from the li  -->
-                    <li class="">
+
+                    <!-- TODO: below commented block shoul be uncommented after NASAGA -->
+                    <!-- =============================================================================== -->
+                    <!-- <li class="">
                         <a class="collapsed side-bar-link user-profile-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#userProfileModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-user"></i>
                             <span class="oc-partial-menu-item">My Profile</span>
                         </a>
-                    </li>
+                    </li> -->
+                    <!-- =============================================================================== -->
+
+
                     {{#if isEnabled 'badgesStatus'}}
                     {{#if notEquals sidebarForTata "true"}}
                     <li class="">
@@ -172,6 +178,8 @@
 
 
                     {{#if notEquals sidebarForTata "true"}}
+                    <!-- TODO: cut paste below line to label A -->
+                    {{#if equals isReset "admin"}}
                     <li class="">
                         <a class="collapsed side-bar-link notification-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#notificationsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-envelope"></i>
@@ -190,7 +198,7 @@
                             <span class="oc-partial-menu-item">Scorecard</span>
                         </a>
                     </li>
-                      {{#if equals isReset "admin"}}
+                        <!-- Lable: A -->
                         <li class="">
                             <a class="collapsed side-bar-link reset-analytics-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#resetAnalyticsModal" data-toggle='modal'>
                                 <i class="oc-partial-icon icm icm-health"></i>
@@ -223,7 +231,8 @@
                     {{/if}}
 
                     {{#if notEquals sidebarForTata "true"}}
-                    <li class="">
+                    <!-- TODO: To be removed tommorrow -->
+                    <!-- <li class="">
                         <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right"  href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-bullhorn"></i>
                             <span class="oc-partial-menu-item">Feedback</span>
@@ -234,7 +243,7 @@
                             <i class="oc-partial-icon icm icm-phone"></i>
                             <span class="oc-partial-menu-item">Contact Us</span>
                         </a>
-                    </li>
+                    </li> -->
                     {{/if}}
 
                     {{#if equals platformStatus 'open'}}

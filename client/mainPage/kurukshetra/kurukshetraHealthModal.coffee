@@ -59,15 +59,11 @@ Template.kurukshetraHealthModal.helpers
         a.name = val.name
         a.strategies = val.strategies
         a.data = []
-
         _.forEach(teams,(tVal, iIndex)->
           if _.where(lastestInputJson,{quoid: val._id}).length > 0 and _.where(lastestInputJson,{quoid: val._id})[0].scores.length > 0
             console.log("innn")
             if _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName}).length > 0
               use = _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName})[0]
-              console.log val._id
-              console.log tVal.quoName
-              console.log use.userid
               da =  _.where(ampQuoScore.findOne().results[0].data,{userid:use.userid})[0]
               quoIndex = _.indexOf(da.criterias,val._id)
               a.data.push {score: da.quoScores[quoIndex], selected: da.selectedAnswers[quoIndex], teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
@@ -77,7 +73,6 @@ Template.kurukshetraHealthModal.helpers
             console.log "ffff"
             a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}  
         )
-        
         a.criteria = []
         sIndex = _.indexOf(ampQuoScore.findOne().results[0].schema, val._id)
         console.log(sIndex)
@@ -88,7 +83,6 @@ Template.kurukshetraHealthModal.helpers
         a.gameMasterScore = getGameMasterData().quoScores[index]
         results.push a
       )
-      # console.log getInputJson()
       results
 
 
