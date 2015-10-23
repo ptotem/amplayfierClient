@@ -9,6 +9,7 @@ function setAppConfiguration(gameName){
     var quodecks = platforms.findOne().quodecks
     var appConfiguration = [];
     if(gameName !== "Kurukshetra"){
+        quodecks = quodecks.splice(0,7)
         appConfiguration = [
             {
                 "leaderboard": "Market Share (%)", //Market Share
