@@ -186,6 +186,14 @@
                             <span class="oc-partial-menu-item">Notifications</span>
                         </a>
                     </li>
+
+                    <li class="">
+                            <a class="collapsed side-bar-link reset-analytics-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#resetAnalyticsModal" data-toggle='modal'>
+                                <i class="oc-partial-icon icm icm-health"></i>
+                                <span class="oc-partial-menu-item">Reset</span>
+                            </a>
+                        </li>
+                    {{/if}}
                     <li class="">
                         <a class="collapsed side-bar-link leader-board-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#leaderboardModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-ladder"></i>
@@ -199,13 +207,8 @@
                         </a>
                     </li>
                         <!-- Lable: A -->
-                        <li class="">
-                            <a class="collapsed side-bar-link reset-analytics-link" rel="popover-sidebar" data-container="body" data-placement="right"  href="#resetAnalyticsModal" data-toggle='modal'>
-                                <i class="oc-partial-icon icm icm-health"></i>
-                                <span class="oc-partial-menu-item">Reset</span>
-                            </a>
-                        </li>
-                      {{/if}}
+                        
+                      
                     {{/if}}
 
                     {{#if isEnabled 'rewards'}}
@@ -232,13 +235,13 @@
 
                     {{#if notEquals sidebarForTata "true"}}
                     <!-- TODO: To be removed tommorrow -->
-                    <!-- <li class="">
+                    <li class="">
                         <a class="collapsed side-bar-link feedback-link"  rel="popover-sidebar" data-container="body" data-placement="right"  href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-bullhorn"></i>
                             <span class="oc-partial-menu-item">Feedback</span>
                         </a>
                     </li>
-                    <li class="">
+                    <!-- <li class="">
                         <a class="collapsed side-bar-link contact-us-link"  rel="popover-sidebar" data-container="body" data-placement="right" href="#documentsModal" data-toggle='modal'>
                             <i class="oc-partial-icon icm icm-phone"></i>
                             <span class="oc-partial-menu-item">Contact Us</span>
