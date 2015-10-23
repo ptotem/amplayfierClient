@@ -198,3 +198,7 @@ Meteor.publish('thisAmpScore',(tname)->
   this.ready()
   ampQuoScore.find({tname:tname})
 )
+Meteor.publish('ampQuoInputJson',(tname)->
+  this.ready()
+  ampQuoInputJson.find({tname:tname})
+)

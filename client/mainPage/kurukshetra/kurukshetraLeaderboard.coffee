@@ -41,6 +41,12 @@ Template.kurukshetraLeaderboardModal.helpers
       console.log totalScore
       totalScore
 
+  gameMasterScore:()->
+    if ampQuoScore.findOne()? and ampQuoScore.findOne().results?
+      gameMasterS = {}
+      if _.where(ampQuoScore.findOne().results[0].data,{userid:"gameMaster"}).length > 0
+        gameMasterS = {index: "", classes: "", score:_.where(ampQuoScore.findOne().results[0].data,{userid:"gameMaster"})[0].totalScore}    
+        gameMasterS
   userScore:()->
     a = getMyScore()
     a

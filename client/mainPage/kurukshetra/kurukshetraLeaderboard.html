@@ -35,6 +35,23 @@
 
 
                                         {{/each}}
+                                        <br>
+                                            {{#with gameMasterScore}}
+                                                <div class="box-table">
+                                                    <div class="box-cell bg-primary-dk rank-cell" style="background-color:rgba(198,147,92,1) !important;">
+                                                        <span class="leader-rank">{{index}}</span>
+                                                    </div>
+                                                    <!-- <div class="box-cell bg-dark-lt photo-cell">
+                                                        <img src="{{classes}}" class="leader-photo" style="width:55% !important">
+                                                    </div> -->
+                                                    <div class="box-cell name-cell">
+                                                        <span class="leader-name">{{username}}</span>
+                                                    </div>
+                                                    <div class="box-cell bg-primary points-cell" style="background-color:rgba(198,147,92,1) !important;">
+                                                        <span class="leader-points">{{score}}</span>
+                                                    </div>
+                                                </div>
+                                            {{/with}}
                                         </div>
                                     </div>
                                 </div>

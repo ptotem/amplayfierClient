@@ -31,6 +31,7 @@ Template.kurukshetraHealthModal.rendered = ->
           )
           
           setInputJson(returnData)
+          Meteor.call('upsertAmpQuoInputJson', platformName, returnData)
           @leaderboardJSON = generateLeaderboardConfig(userList,gameName)
           
           for deck in deckList
@@ -48,51 +49,40 @@ Template.kurukshetraHealthModal.helpers
   newLeadB:()->
     results = []
     teams=[{quoName:'Violet'},{quoName:'Indigo'},{quoName:'Blue'},{quoName:'Green'},{quoName:'Yellow'}]
-    if ampQuoScore.findOne()? and platforms.findOne()?
-      users = getUserOfTeam();
+    if ampQuoScore.findOne()? and platforms.findOne()? and ampQuoInputJson.findOne()? and ampQuoInputJson.findOne().inputJson.length > 0
+      users = getUserOfTeam()
+      lastestInputJson = ampQuoInputJson.findOne().inputJson
       baseConfig = getGameParams(platforms.findOne().gameName)
       _.forEach(getKurukshetraLeader(), (val, index)->
         a = {}
         a._id = val._id
         a.name = val.name
         a.strategies = val.strategies
-        # score = if getGameMasterData().quoScores[index] > 0 then "Active" else "Defeated"
-        # a.data = [{score: score}]
         a.data = []
         _.forEach(teams,(tVal, iIndex)->
-          if _.where(Meteor.users.find().fetch(), {team: tVal.quoName}).length > 0
-            allUsers = _.where(Meteor.users.find().fetch(),{team: tVal.quoName})
-            for us in allUsers
-              if _.where(ampQuoScore.findOne().results[0].data,{userid:us._id}).length > 0
-                iVal = us
-                if _.where(ampQuoScore.findOne().results[0].data,{userid:us._id})[0].quoScores.length > 0
-                  break
-              else
-                iVal = us
-            if _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id}).length > 0
-              da =  _.where(ampQuoScore.findOne().results[0].data,{userid:iVal._id})[0]
-              a.data.push {score: da.quoScores[index], selected: da.selectedAnswers[index], teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
+          if _.where(lastestInputJson,{quoid: val._id}).length > 0 and _.where(lastestInputJson,{quoid: val._id})[0].scores.length > 0
+            console.log("innn")
+            if _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName}).length > 0
+              use = _.where(_.where(lastestInputJson,{quoid: val._id})[0].scores, {team: tVal.quoName})[0]
+              da =  _.where(ampQuoScore.findOne().results[0].data,{userid:use.userid})[0]
+              quoIndex = _.indexOf(da.criterias,val._id)
+              a.data.push {score: da.quoScores[quoIndex], selected: da.selectedAnswers[quoIndex], teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
             else
               a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
-
-
           else
-            a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}
+            console.log "ffff"
+            a.data.push {score: 0, selected: "-", teamName: tVal.quoName, color: tVal.quoName.toLowerCase()}  
         )
-        
         a.criteria = []
         sIndex = _.indexOf(ampQuoScore.findOne().results[0].schema, val._id)
-        # console.log(ampQuoScore.findOne().results[0].schemas);
-        # console.log(val._id)
         console.log(sIndex)
         _.forEach(val.criteria, (cVal, cIndex)->
           a.criteria.push({cname: cVal.desc, status: if ampQuoScore.findOne().results[0].criterias[sIndex][cIndex].status then "defeated" else "undefeated"})
         )
-        # a.data.push({score: getGameMasterData().quoScores[index]})
+        
         a.gameMasterScore = getGameMasterData().quoScores[index]
         results.push a
       )
-      console.log getInputJson()
       results
 
 
@@ -179,27 +169,30 @@ Template.kurukshetraHealthModal.events
             name:"ROUND1",
             strategies:[
               {
-                desc: "250 troops against Bheeshma, 250 troops against Drona"
+                desc: "100 vs Bheeshma, 50 vs Drona, 50 vs Karna"
               },
               {
-                desc: "250 troops against Drona, 250 troops against Duryodhana"
+                desc: "100 vs Bheeshma, 50 vs Drona, 25 vs Karna, 25 vs Duryodhana"
               },
               {
-                desc: "250 troops against Duryodhana, 250 troops against Bheeshma"
+                desc: "75 vs Bheeshma, 50 vs Drona, 50 vs Karna, 25 vs Duryodhana"
               },
               {
-                desc: "500 troops against Bheeshma"
+                desc: "50 vs Bheeshma, 50 vs Drona, 50 vs Karna, 50 vs Duryodhana"
               }
             ],
             criteria:[
               {
-                desc:"2,000 troops of Bheeshma"
+                desc:"350 troops of Bheeshma"
               },
               {
-                desc:"1,000 troops of Drona"
+                desc:"250 troops of Drona"
               },
               {
-                desc:"500 troops of Duryodhana"
+                desc:"150 troops of Karna"
+              },
+              {
+                desc:"50 troops of Duryodhana"
               }
             ]
           },
@@ -208,27 +201,30 @@ Template.kurukshetraHealthModal.events
             name:"ROUND2",
             strategies:[
               {
-                desc: "250 troops against Kripacharya, 250 troops against Dushasan"
+                desc: "100 vs Bheeshma, 75 vs Drona"
               },
               {
-                desc: "250 troops against Dushasan, 250 troops against Ashwathama"
+                desc: "75 vs Bheeshma, 75 vs Drona, 25 vs Karna"
               },
               {
-                desc: "250 troops against Ashwathama, 250 troops against Kripacharya"
+                desc: "75 vs Bheeshma, 50 vs Drona, 50 vs Karna"
               },
               {
-                desc: "500 troops against Kripacharya"
+                desc: "25 vs Bheeshma, 50 vs Drona, 50 vs Karna, 50 vs Duryodhana"
               }
             ],
             criteria:[
               {
-                desc:"2,000 troops of Kripacharya"
+                desc:"350 troops of Bheeshma"
               },
               {
-                desc:"1,000 troops of Dushasan"
+                desc:"250 troops of Drona"
               },
               {
-                desc:"500 troops of Ashwathama"
+                desc:"150 troops of Karna"
+              },
+              {
+                desc:"50 troops of Duryodhana"
               }
             ]
           },
@@ -237,27 +233,30 @@ Template.kurukshetraHealthModal.events
             name:"ROUND3",
             strategies:[
               {
-                desc: "250 troops against Bheeshma, 250 troops against Jayadratha"
+                desc: "100 vs Bheeshma, 75 vs Drona"
               },
               {
-                desc: "250 troops against Jayadratha, 250 troops against Shakuni"
+                desc: "75 vs Bheeshma, 75 vs Drona, 25 vs Karna"
               },
               {
-                desc: "250 troops against Shakuni, 250 troops against Bheeshma"
+                desc: "75 vs Bheeshma, 50 vs Drona, 50 vs Karna"
               },
               {
-                desc: "500 troops against Bheeshma"
+                desc: "25 vs Bheeshma, 50 vs Drona, 50 vs Karna, 50 vs Duryodhana"
               }
             ],
             criteria:[
               {
-                desc:"2,000 troops of Bheeshma"
+                desc:"350 troops of Bheeshma"
               },
               {
-                desc:"1,000 troops of Jayadratha"
+                desc:"250 troops of Drona"
               },
               {
-                desc:"500 troops of Shakuni"
+                desc:"150 troops of Karna"
+              },
+              {
+                desc:"50 troops of Duryodhana"
               }
             ]
           },
@@ -269,21 +268,21 @@ Template.kurukshetraHealthModal.events
                 desc: "Arjun with Shikhandi"
               },
               {
-                desc: "Arjun with 250 troops"
+                desc: "Arjun with 50 troops"
               },
               {
-                desc: "Shikhandi with 250 troops"
+                desc: "Shikhandi with 100 troops"
               },
               {
-                desc: "500 troops against the armies"
+                desc: "200 troops"
               }
             ],
             criteria:[
               {
-                desc:"1,250 troops of Bheeshma"
+                desc:"350 troops of Bheeshma"
               },
               {
-                desc:"Bheeshma"
+                desc:"Bheeshma, The Immortal General"
               }
             ]
           },
@@ -292,24 +291,24 @@ Template.kurukshetraHealthModal.events
             name:"ROUND5",
             strategies:[
               {
-                desc: "Yudishthir with Curse 3"
+                desc: "Yudishthir and Arjun"
               },
               {
-                desc: "Arjun"
+                desc: "Yudishthir and 100 points if both generals are defeated"
               },
               {
-                desc: "Curse 1"
+                desc: "Arjun and 200 points if both generals are defeated"
               },
               {
-                desc: "Curse 2"
+                desc: "300 points if both generals are defeated"
               }
             ],
             criteria:[
               {
-                desc:"Drona"
+                desc:"Drona, The Revered Teacher"
               },
               {
-                desc:"Karna"
+                desc:"Karna, The Honorable"
               }
             ]
           },
@@ -318,21 +317,21 @@ Template.kurukshetraHealthModal.events
             name:"ROUND6",
             strategies:[
               {
-                desc: "Bheem and Bet 1,000 points"
+                desc: "Do Nothing"
               },
               {
-                desc: "Rulebreaker and Bet 1,000 points"
+                desc: "Put Bheem and Bet 150 points (Gain 150 or Lose 150)"
               },
               {
-                desc: "Bheem with Rulebreaker"
+                desc: "Break the Rule and Bet 300 points (Gain 300 or Lose 300)"
               },
               {
-                desc: "Bet 2,000 points"
+                desc: "Bet 500 points (Gain 500 or Lose 500)"
               }
             ],
             criteria:[
               {
-                desc:"Duryodhana"
+                desc:"Duryodhana, The Final Enemy"
               }
             ]
           }

@@ -472,7 +472,7 @@ function generateScoreKurukshetra(quoid) {
             // thisRecord.selectedAnswe
             thisRecord.quoScores.push(userQuoScore);
             thisRecord.selectedAnswers.push(elm.selected);
-            thisRecord.criterias.push(criterias);
+            thisRecord.criterias.push(quoid);
             // console.log(elm)
             if (getAdditiveScore()) {
                 thisRecord.totalScore = _.reduce(thisRecord.quoScores, function (sum, elm) {

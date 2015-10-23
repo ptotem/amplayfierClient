@@ -106,22 +106,38 @@ Template.platformWrapper.helpers
     else
       Meteor.settings.public.mainLink+storyConfig.imgsrc + "/" + storyConfig.background.image
   nodes : ()->
-    a =_.reject(platforms.findOne().nodes,(e)->
-
-    )
-    quoData = _.pluck(Meteor.users.findOne({_id:Meteor.userId()}).quoData,'quoId')
-    for i,j in a
-     a[j].tid = platforms.findOne().quodecks[j]
-     for s in Meteor.users.findOne({_id:Meteor.userId()}).quoData
-       if a[j].tid is s.quoId
-         a[j].lock = s.unlocked
-         if a[j].lock is true
-           a[j].pe = "auto"
-         else
-           a[j].pe = "none"
-    console.log "aaaaaa"
-    console.log a
-    a
+    if platforms.findOne()? and platforms.findOne().gameName is "Kurukshetra"
+      a =_.reject(platforms.findOne().nodes,(e)->
+      )
+      quoData = _.pluck(Meteor.users.findOne({_id:Meteor.userId()}).quoData,'quoId')
+      for i,j in a
+       a[j].tid = platforms.findOne().quodecks[j]
+       for s in Meteor.users.findOne({_id:Meteor.userId()}).quoData
+         if a[j].tid is s.quoId
+           a[j].lock = s.unlocked
+           if _.pluck(_.where(_.flatten(_.pluck(Meteor.users.find({"personal_profile.team":Meteor.users.findOne({_id:Meteor.userId()}).personal_profile.team}).fetch(),"quoData")),{quoId:s.quoId}),"unlocked").indexOf(true) isnt -1
+             a[j].pe = "auto"
+           else
+             a[j].pe = "auto"
+      console.log "aaaaaa"
+      console.log a
+      a
+    else
+      a =_.reject(platforms.findOne().nodes,(e)->
+      )
+      quoData = _.pluck(Meteor.users.findOne({_id:Meteor.userId()}).quoData,'quoId')
+      for i,j in a
+       a[j].tid = platforms.findOne().quodecks[j]
+       for s in Meteor.users.findOne({_id:Meteor.userId()}).quoData
+         if a[j].tid is s.quoId
+           a[j].lock = s.unlocked
+           if a[j].lock is true
+             a[j].pe = "auto"
+           else
+             a[j].pe = "none"
+      console.log "aaaaaa"
+      console.log a
+      a
 
   storyHeading:()->
     storyConfig.name
