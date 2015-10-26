@@ -9,6 +9,7 @@ function setAppConfiguration(gameName){
     var quodecks = platforms.findOne().quodecks
     var appConfiguration = [];
     if(gameName !== "Kurukshetra"){
+        quodecks = quodecks.splice(0,7)
         appConfiguration = [
             {
                 "leaderboard": "Market Share (%)", //Market Share
@@ -444,8 +445,8 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[0],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["1.08","1.02","1.01","1"]},
-                            {"score": "2", "value": ["1.10","1.01","1.01","1.01"]}
+                            {"score": "1", "value": ["1.13","1.07","1.06","1.05"]},
+                            {"score": "2", "value": ["1.15","1.06","1.06","1.06"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values
@@ -461,8 +462,8 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[1],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["1.01"]},
-                            {"score": "2", "value": ["1"]}
+                            {"score": "1", "value": ["1.06"]},
+                            {"score": "2", "value": ["1.05"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values
@@ -478,8 +479,8 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[2],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["1","1"]},
-                            {"score": "2", "value": ["1.03","0.97"]}
+                            {"score": "1", "value": ["1.05","1.05"]},
+                            {"score": "2", "value": ["1.08","1.02"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values
@@ -495,8 +496,8 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[3],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["1.03","1.02","1.01"]},
-                            {"score": "2", "value": ["1.06","1.05","1.03"]}
+                            {"score": "1", "value": ["1.08","1.07","1.06"]},
+                            {"score": "2", "value": ["1.11","1.10","1.08"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values
@@ -512,8 +513,8 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[4],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["1.02"]},
-                            {"score": "2", "value": ["1"]}
+                            {"score": "1", "value": ["1.07"]},
+                            {"score": "2", "value": ["1.05"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values
@@ -529,8 +530,8 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[5],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["1.02","0.99","0.99"]},
-                            {"score": "2", "value": ["1","1.005","1.01"]}
+                            {"score": "1", "value": ["1.07","1.04","1.04"]},
+                            {"score": "2", "value": ["1.05","1.055","1.06"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values
@@ -546,8 +547,8 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[6],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["0.97"]},
-                            {"score": "2", "value": ["0.99"]}
+                            {"score": "1", "value": ["1.02"]},
+                            {"score": "2", "value": ["1.04"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values
@@ -563,8 +564,8 @@ function setAppConfiguration(gameName){
                         "quoid": quodecks[7],
                         "mapping": [
                             // Reflect the range of scores which can come back from the Quo and the corresponding values
-                            {"score": "1", "value": ["0.97"]},
-                            {"score": "2", "value": ["1.002"]}
+                            {"score": "1", "value": ["1.02"]},
+                            {"score": "2", "value": ["1.052"]}
                         ],
                         "criteria": [
                             // Inputvars should be the index of the columns in the mapping values

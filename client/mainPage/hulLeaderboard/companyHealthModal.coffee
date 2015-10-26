@@ -8,7 +8,7 @@ Template.companyHealthModal.rendered = ->
   data = []
   userList = []
   if platforms.findOne()?
-    deckList = platforms.findOne().quodecks
+    deckList = platforms.findOne().quodecks[0..7]
     if Meteor.users.find().fetch().length > 0
       for i in Meteor.users.find({}).fetch()
         userList.push i._id
@@ -31,7 +31,7 @@ Template.companyHealthModal.helpers
   leaderBoard:()->
     results = []
     if ampQuoScore.findOne()? and platforms.findOne()?
-      for i,q in platforms.findOne().quodecks
+      for i,q in platforms.findOne().quodecks[0..7]
         a = {}
         a.quoid = i
         a.quoName = 2005 + (q+1)
@@ -65,7 +65,7 @@ Template.companyHealthModal.helpers
         a.name = result.name
         b = []
         a.data = [{score:_.where(baseConfig, {name: result.name})[0].baseSCore}]
-        _.forEach(platforms.findOne().quodecks, (quo, innerIndex)->
+        _.forEach(platforms.findOne().quodecks[0..7], (quo, innerIndex)->
           c = {}
           ind = _.indexOf(result.schema, quo)
           if _.where(result.data, {userid: Meteor.userId()})[0].quoScores.length > ind
