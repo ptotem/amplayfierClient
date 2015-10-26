@@ -1,6 +1,3 @@
-
-
-
 @deckHtml = new Meteor.Collection("deckHtml");
 @deckJs = new Meteor.Collection("deckJs");
 @platforms = new Meteor.Collection('platforms');
